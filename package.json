@@ -1,0 +1,25 @@
+{
+  "name": "cosmos-monorepo",
+  "version": "1.0.0",
+  "description": "Test repository to show some use cases within a monorepo using React Cosmos.",
+  "repository": "https://brianespinosa@github.com/Espressive/cosmos-monorepo.git",
+  "author": "Brian Espinosa <brian@espressive.com>",
+  "private": true,
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "ui/*"
+    ]
+  },
+  "dependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "app-admin": "yarn --cwd apps/admin start",
+    "app-main": "yarn --cwd apps/main start",
+    "cosmos": "npx react-cosmos"
+  }
+}
