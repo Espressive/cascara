@@ -36,3 +36,17 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 - [ ] See if Rollup compilation can borrow all of the same babel configs from react-scripts
 - [ ] Make sure tooling supports watch commands on these components once these packages become compiled dependencies
 - [ ] Evaluate if we need to change the React Cosmos config for these packages to use a different configuration if the build system diverges too much from react-scripts so the DX is consistent with the output of the builds
+
+## Eslint
+
+- [ ] Revise our exising eslint config to be a baseline of extending `react-scripts` config and adding our own on top
+- [ ] Validate that none of the base config conflicts with Prettier
+- [ ] Remove any of our current extending configs that conflict with Prettier
+- [ ] Relax any of our existing rules that we are fighting or no longer best practice
+
+## Husky
+
+- [ ] Set up Husky for git hooks
+- [ ] pre-commit should at least run prettier and lint (lint should be run on changed files only)
+- [ ] pre-push should run tests, lint
+- [ ] Lint on changed files MIGHT only be needed for FDS components since linting is built in to react-scripts... we might want to make sure that stays in the build pipeline once we have Rollup
