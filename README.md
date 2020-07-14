@@ -50,3 +50,4 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 - [ ] pre-commit should at least run prettier and lint (lint should be run on changed files only)
 - [ ] pre-push should run tests, lint
 - [ ] Lint on changed files MIGHT only be needed for FDS components since linting is built in to react-scripts... we might want to make sure that stays in the build pipeline once we have Rollup
+- [ ] Enforce git-flow branching structure
