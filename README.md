@@ -1,2 +1,38 @@
-# cosmos-monorepo
-Test repository to show some use cases within a monorepo using React Cosmos.
+# fds-monorepo
+Espressive test repository to validate new monorepo tooling to support our Functional Design System.
+
+
+## Yarn Workspaces
+
+- [x] Set up separate workspaces for apps, ui, utils, etc
+
+## React Cosmos
+
+- [x] Create config that can be run at the monorepo root
+- [x] Create config that can be run in a package
+- [x] Centralize dependencies for both configs at application root
+- [x] Make any webpack overrides react to changes in cosmos.config or package.json
+
+## Prettier
+
+- [ ] Set up a prettier config for the monorepo that is portable to all workspaces
+
+## VS Code
+
+- [ ] Set up a workspace file with all recommended settings and plugins for the monorepo
+
+## Docz
+
+- [ ] Set up Docz at root level to build from workspace readme.mdx files
+- [ ] Define what views are needed for all documentation
+- [ ] Add component/display support for all above views
+- [ ] Add support to analyze component composition and link to atomic components in doc system
+- [ ] Add support to link to component designs in Abstract
+
+## Rollup
+
+- [ ] Set up Rollup to compile components consumed by apps
+- [ ] Evaluate if Rollup is actually the best option for this
+- [ ] See if Rollup compilation can borrow all of the same babel configs from react-scripts
+- [ ] Make sure tooling supports watch commands on these components once these packages become compiled dependencies
+- [ ] Evaluate if we need to change the React Cosmos config for these packages to use a different configuration if the build system diverges too much from react-scripts so the DX is consistent with the output of the builds
