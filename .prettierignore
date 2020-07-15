@@ -1,0 +1,5 @@
+# Ignore artifacts:
+.pnp
+build
+coverage
+node_modules

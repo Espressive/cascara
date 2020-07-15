@@ -1,8 +1,9 @@
-# Cosmos  
+# Cosmos
 
 Configuration files for running React Cosmos in our monorepo.
 
 ## Assumptions
+
 There are a few assumptions being made for this configuration to work. If any of these assumptions become invalid, the configuration is liable to break.
 
 ### Running React Cosmos As A Binary
@@ -18,7 +19,7 @@ The assumption here is that we have not made any modifications to the out of the
 There are a couple assumptions here:
 
 1. We are using Yarn workspaces to define packages shared in our monorepo
-2. We are using the `workspaces` definition in the package.json file that expects an object called `packages` instead of just an array of package globs at the root of the `packages` object. 
+2. We are using the `workspaces` definition in the package.json file that expects an object called `packages` instead of just an array of package globs at the root of the `packages` object.
 3. If we ever move the array of packages to the root of the `workspaces` config in the package.json, we need to update the `webpack.override.js` in this directory to reflect that
 
 ### All Fixtures Exist In A `/src` At The Root Of A Yarn Workspace

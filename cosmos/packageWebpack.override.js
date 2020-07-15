@@ -10,13 +10,15 @@ const fs = require('fs');
 const appDirectory = fs.realpathSync(process.cwd());
 
 // Make sure we are using the package level config for consistency
-const cosmosConfig = require(appDirectory + '/cosmos.config.json')
+const cosmosConfig = require(appDirectory + '/cosmos.config.json');
 
 module.exports = (webpackConfig, env, whatev) => {
-
   // Set the html template file to be the one defined in the cosmos staticPath
   // We need to use `path()` here so we can get the relative location for the index.html
-  webpackConfig.plugins[0].options.template = path.resolve(appDirectory, cosmosConfig.staticPath + '/index.html')
+  webpackConfig.plugins[0].options.template = path.resolve(
+    appDirectory,
+    cosmosConfig.staticPath + '/index.html'
+  );
 
   return { ...webpackConfig };
 };

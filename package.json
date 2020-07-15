@@ -9,6 +9,7 @@
   "workspaces": {
     "packages": [
       "apps/*",
+      "layout/*",
       "ui/*"
     ]
   },
@@ -21,5 +22,8 @@
     "app-admin": "yarn --cwd apps/admin start",
     "app-main": "yarn --cwd apps/main start",
     "cosmos": "npx react-cosmos"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
   }
 }

@@ -1,3 +1,3 @@
 import HelloUI from './HelloUI';
 
-export default HelloUI
+export default HelloUI;

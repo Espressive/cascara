@@ -1,3 +1,3 @@
-import Goodbye from './Goodbye'
+import Goodbye from './Goodbye';
 
-export default Goodbye
+export default Goodbye;
