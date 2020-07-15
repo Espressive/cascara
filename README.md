@@ -2,10 +2,11 @@
 Espressive test repository to validate new monorepo tooling to support our Functional Design System.
 
 
-## Yarn Workspaces
+## Yarn
 
 - [x] Set up separate workspaces for apps, ui, utils, etc
-
+- [ ] Support for pnp and/or yarn 2.x
+ 
 ## React Cosmos
 
 - [x] Create config that can be run at the monorepo root
