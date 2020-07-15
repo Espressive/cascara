@@ -16,11 +16,14 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 
 ## Prettier
 
-- [ ] Set up a prettier config for the monorepo that is portable to all workspaces
+- [x] Set up a prettier config for the monorepo that is portable to all workspaces
+- [x] Set up a precommit hook to always run prettier before commiting changes
+  - [ ] [Watch known issue for husky](https://github.com/typicode/husky/issues/639) that does not fire hooks in some GIT GUIs like Sourcetree or Tower
 
 ## VS Code
 
-- [ ] Set up a workspace file with all recommended settings and plugins for the monorepo
+- [x] Set up a workspace file with all recommended settings and plugins for the monorepo (probably will be more later)
+- [x] Auto lint and prettier on save 🙏🏽
 
 ## Docz
 

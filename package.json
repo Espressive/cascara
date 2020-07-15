@@ -24,13 +24,13 @@
     "cosmos": "npx react-cosmos"
   },
   "devDependencies": {
-    "husky": "3.1.0",
+    "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged -v"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
