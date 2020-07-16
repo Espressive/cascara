@@ -27,9 +27,9 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 
 ## Docz
 
-- [ ] Set up Docz at root level to build from workspace readme.mdx files
+- [x] Set up Docz at root level to build from workspace readme.mdx files
 - [ ] Define what views are needed for all documentation
-- [ ] Add component/display support for all above views
+- [x] Add component/display support for all above views
 - [ ] Add support to analyze component composition and link to atomic components in doc system
 - [ ] Add support to link to component designs in Abstract
 

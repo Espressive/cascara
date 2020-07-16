@@ -14,6 +14,7 @@
     ]
   },
   "dependencies": {
+    "docz": "2.3.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1"
@@ -21,7 +22,10 @@
   "scripts": {
     "app-admin": "yarn --cwd apps/admin start",
     "app-main": "yarn --cwd apps/main start",
-    "cosmos": "npx react-cosmos"
+    "cosmos": "npx react-cosmos",
+    "docz:start": "rm -rf .docz && docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve"
   },
   "devDependencies": {
     "husky": "4.2.5",
