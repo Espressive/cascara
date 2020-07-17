@@ -41,6 +41,16 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 - [ ] Make sure tooling supports watch commands on these components once these packages become compiled dependencies
 - [ ] Evaluate if we need to change the React Cosmos config for these packages to use a different configuration if the build system diverges too much from react-scripts so the DX is consistent with the output of the builds
 
+## Framer X
+
+- [ ] Set up a library in Framer X and understand how we link our source components to exports for Framer
+- [ ] Have preference for Framer Web if possible
+- [ ] Determine if there is a consistent URL for library components on web that we could link to
+
+## Abstract/Sketch
+
+- [ ] Figure out what our Abstract file links are for assets to add them as links to MDX
+
 ## Eslint
 
 - [ ] Revise our exising eslint config to be a baseline of extending `react-scripts` config and adding our own on top
