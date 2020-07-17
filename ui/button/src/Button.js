@@ -1,22 +1,37 @@
 import React from 'react';
-import pt from 'prop-types';
+import types from 'prop-types';
+import { Button as SUIButton } from 'semantic-ui-react';
 import styles from './Button.module.css';
 
-const Button = ({ greeting, name = 'Default Name' }) => {
+const propTypes = {
+  /** Main content of the button */
+  content: types.string.isRequired,
+  /** Makes the button take the width of the parent container */
+  fluid: types.bool,
+  /** Sets the color type of the button to follow the theme brand color */
+  isBrandColor: types.bool,
+  /** Indicates the outcome of clicking the button ('positive', 'negative') */
+  outcome: types.oneOf('positive', 'negative'),
+};
+
+const Button = ({
+  content = 'Default Content',
+  fluid = false,
+  isBrandColor = false,
+  outcome,
+}) => {
   return (
-    <button className={styles._}>
-      {greeting}, {name}!
-    </button>
+    <SUIButton
+      basic={!outcome}
+      className={styles._}
+      content={content}
+      fluid={fluid}
+      negative={outcome === 'negative'}
+      positive={outcome === 'positive'}
+    />
   );
 };
 
-Button.propTypes = {
-  /**
-   * This is a description for `greeting`.
-   */
-  greeting: pt.string.isRequired,
-  /** This is an inline description for `name`. */
-  name: pt.string,
-};
+Button.propTypes = propTypes;
 
 export { Button };

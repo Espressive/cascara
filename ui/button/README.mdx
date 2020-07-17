@@ -2,6 +2,7 @@
 name: Button
 ---
 
+import 'semantic-ui-css-offline';
 import { Playground, Props } from 'docz';
 import { Button } from './src/Button';
 
@@ -19,5 +20,9 @@ Still to also explore here:
 <Props of={Button} />
 
 <Playground>
-  <Button greeting='Sup' name='Alexa' />
+  <Button content='Docz Demo' />
+</Playground>
+
+<Playground>
+  <Button content='Positive' outcome='positive' />
 </Playground>

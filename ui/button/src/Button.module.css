@@ -1,3 +1,4 @@
 ._ {
-  background-color: #a00;
+  /* Trying to see if unset will work for SUI styles while we add directly scoped copies.  */
+  all: unset;
 }
