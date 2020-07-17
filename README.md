@@ -51,6 +51,11 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 
 - [ ] Figure out what our Abstract file links are for assets to add them as links to MDX
 
+## Testing
+
+- [ ] Set up testing and figure out how we set up coverage per package
+- [ ] Cypress support for all UI tests as well
+
 ## Eslint
 
 - [ ] Revise our exising eslint config to be a baseline of extending `react-scripts` config and adding our own on top
