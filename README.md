@@ -45,6 +45,9 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 
 - [ ] Set up a library in Framer X and understand how we link our source components to exports for Framer
 - [ ] Have preference for Framer Web if possible
+- [ ] Possible to use same component but possibly with a Framer wrapper, just like the FDS wrapper exposing interface?
+- [ ] CSS Modules?
+- [ ] Build system to deploy package updates to Framer components when made
 - [ ] Determine if there is a consistent URL for library components on web that we could link to
 
 ## Abstract/Sketch
