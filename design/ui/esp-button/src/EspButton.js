@@ -1,7 +1,7 @@
 import React from 'react';
 import types from 'prop-types';
 import { Button as SUIButton } from 'semantic-ui-react';
-import styles from './Button.module.css';
+import styles from './EspButton.module.css';
 
 const propTypes = {
   /** Main content of the button */
@@ -11,14 +11,14 @@ const propTypes = {
   /** Sets the color type of the button to follow the theme brand color */
   isBrandColor: types.bool,
   /** Indicates the outcome of clicking the button ('positive', 'negative') */
-  outcome: types.oneOf('positive', 'negative'),
+  outcome: types.oneOf('positive', 'negative')
 };
 
-const Button = ({
+const EspButton = ({
   content = 'Default Content',
   fluid = false,
   isBrandColor = false,
-  outcome,
+  outcome
 }) => {
   return (
     <SUIButton
@@ -32,6 +32,6 @@ const Button = ({
   );
 };
 
-Button.propTypes = propTypes;
+EspButton.propTypes = propTypes;
 
-export { Button };
+export default EspButton;

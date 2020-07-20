@@ -1,6 +1,7 @@
 {
   "name": "esp-fds.framerfx",
   "version": "1.0.0",
+  "author": "Brian Espinosa <brian@espressive.com>",
   "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
@@ -12,7 +13,10 @@
     "react": "16.13.1"
   },
   "framer": {
-    "id": "d7d60280-1006-407b-afb1-642d66e60477"
+    "id": "d7d60280-1006-407b-afb1-642d66e60477",
+    "displayName": "Espressive FDS"
   },
-  "author": "Brian Espinosa"
+  "dependencies": {
+    "@framerjs/component-importer": "0.0.32"
+  }
 }

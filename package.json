@@ -39,10 +39,5 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
-  },
-  "main": "dist/index.js",
-  "peerDependencies": {},
-  "framer": {
-    "displayName": ""
   }
 }

@@ -1,0 +1,11 @@
+{
+  "packageName": "../../ui",
+  "mode": "plain",
+  "out": "code/",
+  "additionalImports": [],
+  "components": {
+    "Accordion": {
+      "ignore": false
+    }
+  }
+}
