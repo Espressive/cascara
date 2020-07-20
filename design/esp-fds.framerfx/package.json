@@ -1,0 +1,17 @@
+{
+  "name": "esp-fds",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "16.9.43"
+  },
+  "peerDependencies": {
+    "framer": "1.0",
+    "react": "16.13.1"
+  },
+  "framer": {
+    "id": "d7d60280-1006-407b-afb1-642d66e60477"
+  },
+  "author": "Brian Espinosa"
+}

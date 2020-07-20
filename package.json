@@ -1,16 +1,15 @@
 {
+  "license": "MIT",
   "name": "fds-monorepo",
   "version": "1.0.0",
   "description": "Test repository to show some use cases within a monorepo using React Cosmos.",
   "repository": "https://github.com/Espressive/fds-monorepo.git",
   "author": "Brian Espinosa <brian@espressive.com>",
   "private": true,
-  "license": "MIT",
   "workspaces": {
     "packages": [
       "apps/*",
-      "layout/*",
-      "ui/*"
+      "design/**/*"
     ]
   },
   "dependencies": {
@@ -25,7 +24,8 @@
     "cosmos": "npx react-cosmos",
     "docz:start": "rm -rf .docz && docz dev",
     "docz:build": "docz build",
-    "docz:serve": "docz build && docz serve"
+    "docz:serve": "docz build && docz serve",
+    "framer:publish": "dotenv npx framer-cli publish"
   },
   "devDependencies": {
     "husky": "4.2.5",
@@ -39,5 +39,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
+  },
+  "main": "dist/index.js",
+  "peerDependencies": {},
+  "framer": {
+    "displayName": ""
   }
 }
