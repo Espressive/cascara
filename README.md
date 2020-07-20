@@ -54,6 +54,13 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 
 - [ ] Figure out what our Abstract file links are for assets to add them as links to MDX
 
+## Make
+
+- [ ] Set up common commands and make recipes area to simplify tooling maintenance and process
+- [ ] Reusable package-scoped commands with wildcards (start, build, etc)
+- [ ] Doc generation and build/serve commands
+- [ ] Centralized "help" available from all make command groups
+
 ## Testing
 
 - [ ] Set up testing and figure out how we set up coverage per package
