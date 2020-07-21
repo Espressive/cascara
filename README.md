@@ -35,9 +35,9 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 
 ## Rollup
 
-- [ ] Set up Rollup to compile components consumed by apps
-- [ ] Evaluate if Rollup is actually the best option for this
-- [ ] See if Rollup compilation can borrow all of the same babel configs from react-scripts
+- [x] Set up Rollup to compile components consumed by apps
+- [x] Evaluate if Rollup is actually the best option for this
+- [x] See if Rollup compilation can borrow all of the same babel configs from react-scripts
 - [ ] Make sure tooling supports watch commands on these components once these packages become compiled dependencies
 - [ ] Evaluate if we need to change the React Cosmos config for these packages to use a different configuration if the build system diverges too much from react-scripts so the DX is consistent with the output of the builds
 

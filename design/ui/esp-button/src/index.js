@@ -1,3 +1,3 @@
-import Button from './Button';
+import EspButton from './EspButton';
 
-export default Button;
+export { EspButton };

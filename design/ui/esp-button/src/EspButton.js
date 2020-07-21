@@ -23,7 +23,7 @@ const EspButton = ({
   return (
     <SUIButton
       basic={!outcome}
-      className={styles._}
+      className={styles.root}
       content={content}
       fluid={fluid}
       negative={outcome === 'negative'}

@@ -1,4 +1,5 @@
-._ {
+.root {
   /* Trying to see if unset will work for SUI styles while we add directly scoped copies.  */
   all: unset;
+  color: #a00;
 }
