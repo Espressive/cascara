@@ -1,7 +1,10 @@
 import React from 'react';
 import types from 'prop-types';
 import { Button as SUIButton } from 'semantic-ui-react';
-import styles from './EspButton.module.css';
+import classNames from 'classnames/bind';
+import styles from './EspButton.module.scss';
+
+const cx = classNames.bind(styles);
 
 const propTypes = {
   /** Main content of the button */
@@ -20,10 +23,18 @@ const EspButton = ({
   isBrandColor = false,
   outcome
 }) => {
+  const className = cx({
+    root: true,
+    basic: !outcome,
+    fluid: fluid,
+    negative: outcome === 'negative',
+    positive: outcome === 'positive'
+  });
+
   return (
     <SUIButton
       basic={!outcome}
-      className={styles.root}
+      className={className}
       content={content}
       fluid={fluid}
       negative={outcome === 'negative'}
@@ -34,4 +45,4 @@ const EspButton = ({
 
 EspButton.propTypes = propTypes;
 
-export default EspButton;
+export { EspButton };
