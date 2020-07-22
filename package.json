@@ -25,7 +25,8 @@
     "docz:start": "rm -rf .docz && docz dev",
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve",
-    "framer:publish": "dotenv npx framer-cli publish"
+    "framer:publish": "dotenv npx framer-cli publish",
+    "test": "echo No tests yet..."
   },
   "devDependencies": {
     "husky": "4.2.5",
