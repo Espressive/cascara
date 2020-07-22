@@ -15,7 +15,6 @@ jobs:
             - slack/status:
                 # fail_only: true
                 mentions: 'bje'
-                webhook: webhook
 workflows:
   build-and-test:
     jobs:
