@@ -1,3 +1,3 @@
-import { EspButton } from './EspButton';
+import { Button } from './Button';
 
-export { EspButton };
+export { Button };

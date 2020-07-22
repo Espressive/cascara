@@ -32,6 +32,7 @@
     "@babel/plugin-transform-runtime": "7.10.5",
     "@rollup/plugin-babel": "5.1.0",
     "node-sass": "4.14.1",
+    "normalize.css": "8.0.1",
     "rollup": "2.22.1",
     "rollup-plugin-postcss": "3.1.3"
   },

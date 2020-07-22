@@ -5,7 +5,7 @@
 
 // import 'semantic-ui-css-custom';
 
-import 'semantic-ui-css-offline';
+import 'normalize.css';
 
 // NOTE: export is needed or else this decorator mutes all fixture children
 export default ({ children }) => children;
