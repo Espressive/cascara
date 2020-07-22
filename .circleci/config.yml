@@ -12,10 +12,10 @@ jobs:
           steps:
             - run: yarn install
             - run: yarn test
-    - slack/status:
-        # fail_only: true
-        mentions: 'bje'
-        webhook: webhook
+            - slack/status:
+                # fail_only: true
+                mentions: 'bje'
+                webhook: webhook
 workflows:
   build-and-test:
     jobs:
