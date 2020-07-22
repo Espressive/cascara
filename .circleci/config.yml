@@ -13,7 +13,8 @@ jobs:
             - run: yarn install
             - run: yarn test
             - slack/status:
-                # fail_only: true
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
                 mentions: 'bje'
 workflows:
   build-and-test:
