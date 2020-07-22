@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from './Button';
 
-const handleClick = () => alert('clicked!');
+const handleAlert = () => alert('Alerted!');
+
+const ButtonRef = () => {
+  const buttonRef = useRef(null);
+
+  const handleRefLog = () => {
+    console.log(buttonRef);
+    alert('See console for log...');
+  };
+
+  return (
+    <Button ref={buttonRef} content='Ref' onClick={() => handleRefLog()} />
+  );
+};
 
 export default {
   all: (
     <Button
       content='content'
-      fluid
-      isBrandColor
+      fluid={false}
+      isBrandColor={false}
       outcome='positive'
-      onClick={() => handleClick()}
+      onClick={() => handleAlert()}
     />
   ),
   default: <Button content='Default' />,
@@ -19,5 +32,6 @@ export default {
   negative: <Button content='Negative' outcome='negative' />,
   link: (
     <Button as='a' content='Link' href='https://google.com' target='_blank' />
-  )
+  ),
+  ref: <ButtonRef />
 };

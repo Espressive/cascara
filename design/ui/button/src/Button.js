@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import pt from 'prop-types';
 import classNames from 'classnames/bind';
-import { getSafeLinkRel } from '../../../utils/links.js';
+import { getSafeLinkRel } from '../../../utils/linkUtils.js';
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
@@ -19,33 +19,44 @@ const propTypes = {
   outcome: pt.oneOf(['positive', 'negative'])
 };
 
-const Button = ({
-  as = 'button',
-  content = 'Default Content',
-  fluid = false,
-  isBrandColor = false,
-  outcome,
-  ...rest
-}) => {
-  const className = cx({
-    root: true,
-    basic: !outcome,
-    fluid: fluid,
-    negative: outcome === 'negative',
-    positive: outcome === 'positive'
-  });
+// Need to make sure all of our FDS components use forwardRef()
+const Button = forwardRef(
+  (
+    {
+      as = 'button',
+      content = 'Default Content',
+      fluid = false,
+      isBrandColor = false,
+      outcome,
+      ...rest
+    },
+    ref
+  ) => {
+    const className = cx({
+      _: true,
+      basic: !outcome,
+      fluid: fluid,
+      negative: outcome === 'negative',
+      positive: outcome === 'positive'
+    });
 
-  // Maybe later we should add tooling to help us validate that this is
-  // either a valid HTML5 tag, or that it is a component. Technically
-  // some of that is being done with proptypes.
-  const ComponentType = as;
+    // Maybe later we should add tooling to help us validate that this is
+    // either a valid HTML5 tag, or that it is a component. Technically
+    // some of that is being done with proptypes.
+    const ComponentType = as;
 
-  return (
-    <ComponentType {...rest} className={className} rel={getSafeLinkRel(rest)}>
-      {content}
-    </ComponentType>
-  );
-};
+    return (
+      <ComponentType
+        ref={ref}
+        {...rest}
+        className={className}
+        rel={getSafeLinkRel(rest)}
+      >
+        {content}
+      </ComponentType>
+    );
+  }
+);
 
 Button.propTypes = propTypes;
 
