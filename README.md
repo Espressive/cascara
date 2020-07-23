@@ -1,6 +1,6 @@
 # fds-monorepo
 
-Espressive test repository to validate new monorepo tooling to support our Functional Design System.
+Espressive test repository to validate new monorepo tooling to support our Functional Design System. Test
 
 [![Espressive](https://circleci.com/gh/Espressive/fds-monorepo.svg?style=svg)](https://app.circleci.com/pipelines/github/Espressive)
 
