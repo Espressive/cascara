@@ -7,7 +7,7 @@
   "author": "Brian Espinosa <brian@espressive.com>",
   "private": true,
   "engines": {
-    "node": "^12.0.0"
+    "node": "^14.5.0"
   },
   "workspaces": {
     "packages": [
