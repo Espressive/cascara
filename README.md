@@ -1,8 +1,8 @@
-# fds-monorepo
+# Cascara
 
-Espressive test repository to validate new monorepo tooling to support our Functional Design System. Test
+Espressive's Functional Design System
 
-[![Espressive](https://circleci.com/gh/Espressive/fds-monorepo.svg?style=svg)](https://app.circleci.com/pipelines/github/Espressive)
+[![Espressive](https://circleci.com/gh/Espressive/cascara.svg?style=svg)](https://app.circleci.com/pipelines/github/Espressive)
 
 ## Yarn
 
