@@ -45,6 +45,36 @@ jobs:
                 fail_only: true
                 failure_message: ':alert: A $CIRCLE_JOB job has failed!'
                 mentions: 'bje'
+  build:
+    executor:
+      name: node/default
+    steps:
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/
+            - run:
+                name: Build
+                command: yarn test
+            - slack/status:
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                mentions: 'bje'
+  deploy-docs:
+    executor:
+      name: node/default
+    steps:
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/
+            - run:
+                name: Build
+                command: yarn test
+            - slack/status:
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                mentions: 'bje'
 workflows:
   build-and-test:
     jobs:
@@ -52,3 +82,12 @@ workflows:
       - test:
           requires:
             - install
+      - build:
+          requires:
+            - test
+      - deploy-docs:
+          requires:
+            - install
+          filters:
+            branches:
+              only: main
