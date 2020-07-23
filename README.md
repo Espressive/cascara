@@ -2,6 +2,8 @@
 
 Espressive test repository to validate new monorepo tooling to support our Functional Design System.
 
+[![Espressive](https://circleci.com/gh/Espressive/fds-monorepo.svg?style=svg)](https://app.circleci.com/pipelines/github/Espressive)
+
 ## Yarn
 
 - [x] Set up separate workspaces for apps, ui, utils, etc
