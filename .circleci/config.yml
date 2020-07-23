@@ -87,7 +87,7 @@ workflows:
             - lint
       - deploy-docs:
           requires:
-            - install
+            - build
           filters:
             branches:
               only: main
