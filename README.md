@@ -27,6 +27,7 @@ Espressive test repository to validate new monorepo tooling to support our Funct
 
 ## Docz
 
+- [ ] Set up documentation [Slack sign in](https://api.slack.com/docs/sign-in-with-slack) using [oauth2 and Netlify](https://www.netlify.com/blog/2016/10/10/integrating-with-netlify-oauth2/)
 - [x] Set up Docz at root level to build from workspace readme.mdx files
 - [ ] Define what views are needed for all documentation
 - [x] Add component/display support for all above views
