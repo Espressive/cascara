@@ -23,7 +23,7 @@ jobs:
                 paths:
                   - ~/.cache/yarn
             - persist_to_workspace:
-                root: public
+                root: ~/
                 paths:
                   - '*'
             - slack/status:
@@ -37,7 +37,7 @@ jobs:
       - node/with-cache:
           steps:
             - attach_workspace:
-                at: public
+                at: ~/
             - run:
                 name: Unit Tests
                 command: yarn test
