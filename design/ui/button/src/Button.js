@@ -16,7 +16,7 @@ const propTypes = {
   /** Sets the color type of the button to follow the theme brand color */
   isBrandColor: pt.bool,
   /** Indicates the outcome of clicking the button ('positive', 'negative') */
-  outcome: pt.oneOf(['positive', 'negative'])
+  outcome: pt.oneOf(['positive', 'negative']),
 };
 
 // Need to make sure all of our FDS components use forwardRef()
@@ -37,7 +37,7 @@ const Button = forwardRef(
       basic: !outcome,
       fluid: fluid,
       negative: outcome === 'negative',
-      positive: outcome === 'positive'
+      positive: outcome === 'positive',
     });
 
     // Maybe later we should add tooling to help us validate that this is
