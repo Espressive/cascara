@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "cssModules.camelCase": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "git.autofetch": true,
+    "prettier.requireConfig": true
+  }
+}
