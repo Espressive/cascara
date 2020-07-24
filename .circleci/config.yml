@@ -30,6 +30,21 @@ jobs:
                 fail_only: true
                 failure_message: ':alert: A $CIRCLE_JOB job has failed!'
                 mentions: 'bje'
+  lint:
+    executor:
+      name: node/default
+    steps:
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/
+            - run:
+                name: Eslint
+                command: yarn lint
+            - slack/status:
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                mentions: 'bje'
   test:
     executor:
       name: node/default
@@ -79,15 +94,19 @@ workflows:
   build-and-test:
     jobs:
       - install
+      - lint:
+          requires:
+            - install
       - test:
           requires:
             - install
       - build:
           requires:
+            - lint
             - test
       - deploy-docs:
           requires:
-            - install
+            - build
           filters:
             branches:
               only: main

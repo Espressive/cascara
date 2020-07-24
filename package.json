@@ -6,9 +6,13 @@
   "repository": "https://github.com/Espressive/cascara.git",
   "author": "Brian Espinosa <brian@espressive.com>",
   "private": true,
+  "engines": {
+    "node": "^14.5.0"
+  },
   "workspaces": {
     "packages": [
       "apps/*",
+      "configs/*",
       "design/**/*"
     ]
   },
@@ -26,9 +30,20 @@
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve",
     "framer:publish": "dotenv npx framer-cli publish",
-    "test": "echo No tests yet..."
+    "test": "echo No tests yet...",
+    "lint": "eslint ./"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "3.7.0",
+    "@typescript-eslint/parser": "3.7.0",
+    "eslint": "7.5.0",
+    "eslint-config-espressive": "*",
+    "eslint-plugin-flowtype": "5.2.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "23.18.0",
+    "eslint-plugin-jsx-a11y": "6.3.1",
+    "eslint-plugin-react": "7.20.3",
+    "eslint-plugin-react-hooks": "4.0.8",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "prettier": "2.0.5"
@@ -39,6 +54,7 @@
     }
   },
   "lint-staged": {
+    "*.js": "eslint --fix",
     "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
   }
 }

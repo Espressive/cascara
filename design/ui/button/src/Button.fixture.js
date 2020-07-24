@@ -33,5 +33,5 @@ export default {
   link: (
     <Button as='a' content='Link' href='https://google.com' target='_blank' />
   ),
-  ref: <ButtonRef />
+  ref: <ButtonRef />,
 };
