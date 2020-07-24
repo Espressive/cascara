@@ -19,5 +19,18 @@
   },
   "emmet.triggerExpansionOnTab": true,
   "git.autofetch": true,
-  "prettier.requireConfig": true
+  "prettier.requireConfig": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#333",
+    "statusBarItem.hoverBackground": "#444",
+    "statusBar.foreground": "#acc",
+    "statusBar.border": "#222",
+    "activityBar.activeBackground": "#18d6bc",
+    "activityBar.activeBorder": "#fff",
+    "activityBar.background": "#15b8a1",
+    "activityBar.foreground": "#073e36",
+    "activityBar.inactiveForeground": "#0c6c5e",
+    "activityBarBadge.background": "#fff",
+    "activityBarBadge.foreground": "#04201c"
+  }
 }
