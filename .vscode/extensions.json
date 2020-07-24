@@ -1,9 +1,9 @@
 {
   "recommendations": [
+    "andrewleedham.vscode-css-modules",
     "clinyong.vscode-css-modules",
     "dbaeumer.vscode-eslint",
     "mgmcdermott.vscode-language-babel",
-    "andrewleedham.vscode-css-modules",
     "wix.vscode-import-cost"
   ],
   "unwantedRecommendations": []
