@@ -1,2 +1,4 @@
 dist
 es
+*.framerfx
+*.disabled.js
