@@ -42,14 +42,14 @@ Espressive's Functional Design System
 - [x] Set up Rollup to compile components consumed by apps
 - [x] Evaluate if Rollup is actually the best option for this
 - [x] See if Rollup compilation can borrow all of the same babel configs from react-scripts
-- [ ] Make sure tooling supports watch commands on these components once these packages become compiled dependencies
+- [x] Make sure tooling supports watch commands on these components once these packages become compiled dependencies
 - [ ] Evaluate if we need to change the React Cosmos config for these packages to use a different configuration if the build system diverges too much from react-scripts so the DX is consistent with the output of the builds
 
 ## Framer X
 
 - [x] Set up a library in Framer X and understand how we link our source components to exports for Framer
-- [ ] Get components compiled so we can process using [`component-importer`](https://github.com/framer/component-importer)
-- [ ] CSS Modules?
+- [x] Get components compiled so we can process using [`component-importer`](https://github.com/framer/component-importer)
+- [x] CSS Modules?
 - [ ] Build system to deploy package updates to Framer components when made
 - [ ] Determine if there is a consistent URL for library components on web that we could link to
 
@@ -66,20 +66,18 @@ Espressive's Functional Design System
 
 ## Testing
 
-- [ ] Set up testing and figure out how we set up coverage per package
-- [ ] Cypress support for all UI tests as well
+- [x] Set up testing and figure out how we set up coverage per package
 
 ## Eslint
 
-- [ ] Revise our exising eslint config to be a baseline of extending `react-scripts` config and adding our own on top
-- [ ] Validate that none of the base config conflicts with Prettier
-- [ ] Remove any of our current extending configs that conflict with Prettier
+- [x] Revise our exising eslint config to be a baseline of extending `react-scripts` config and adding our own on top
+- [x] Validate that none of the base config conflicts with Prettier
+- [x] Remove any of our current extending configs that conflict with Prettier
 - [ ] Relax any of our existing rules that we are fighting or no longer best practice
 
 ## Husky
 
 - [x] Set up Husky for git hooks
-- [x] pre-commit should at least run prettier
-- [ ] pre-push should run tests, lint
+- [x] pre-commit should at least run prettier, lint
 - [ ] Lint on changed files MIGHT only be needed for FDS components since linting is built in to react-scripts... we might want to make sure that stays in the build pipeline once we have Rollup
 - [ ] Enforce git-flow branching structure

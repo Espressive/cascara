@@ -1,6 +1,7 @@
 .docz
 .DS_Store
 .env
+coverage
 dist
 es
 lerna-debug.log
