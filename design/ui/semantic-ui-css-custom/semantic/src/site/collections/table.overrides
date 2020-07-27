@@ -1,0 +1,10 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+.ui.table.fixed.single.line {
+  td.collapsing,
+  th.collapsing {
+    width: 2.75em;
+  }
+}

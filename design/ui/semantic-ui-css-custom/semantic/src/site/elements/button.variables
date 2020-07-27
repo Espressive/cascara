@@ -1,0 +1,28 @@
+/*******************************
+Espressive Variable Overrides
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+/* Button */
+@verticalMargin: 0em;
+@horizontalMargin: 0.25em;
+
+/* Button defaults to using same height as input globally */
+@horizontalPadding: 1.5em;
+
+/* Text */
+@textTransform: uppercase;
+@fontWeight: 400;
+
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Basic */
+@basicTextTransform: @textTransform;
+@basicBorderSize: 2px;
+@basicColoredBorderSize: @basicBorderSize;

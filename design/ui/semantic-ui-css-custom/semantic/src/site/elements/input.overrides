@@ -1,0 +1,19 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------------
+      Transparent
+---------------------*/
+
+
+.ui.transparent.input input {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  padding: 0em @padding !important;
+  box-shadow: none !important;
+}

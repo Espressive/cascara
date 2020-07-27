@@ -1,0 +1,24 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+
+@starActiveBackground: @activeBackground;
+@starActiveColor: lighten(@primaryColor,40%);
+@starActiveShadowColor: @primaryColor;
+@starActiveTextShadow: 
+  0px -@starShadowWidth 0px @starActiveShadowColor,
+  -@starShadowWidth 0px 0px @starActiveShadowColor,
+  0px @starShadowWidth 0px @starActiveShadowColor,
+  @starShadowWidth 0px 0px @starActiveShadowColor
+;
+
+@starSelectedBackground: @selectedBackground;
+@starSelectedColor: @lightYellow;
+@starSelectedShadowColor: @yellow;
+@starSelectedTextShadow:
+  0px -@starShadowWidth 0px @starSelectedShadowColor,
+  -@starShadowWidth 0px 0px @starSelectedShadowColor,
+  0px @starShadowWidth 0px @starSelectedShadowColor,
+  @starShadowWidth 0px 0px @starSelectedShadowColor
+;

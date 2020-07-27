@@ -1,0 +1,10 @@
+/*******************************
+    Espressive Variable Overrides
+*******************************/
+
+/*-------------------
+      Elements
+--------------------*/
+
+/* Avatar */
+@avatarBorderRadius: 4rem;

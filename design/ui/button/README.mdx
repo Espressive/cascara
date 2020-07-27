@@ -2,9 +2,9 @@
 name: Button
 ---
 
-import 'semantic-ui-css-offline';
+import semanticUiCssOffline from 'semantic-ui-css-offline';
 import { Playground, Props } from 'docz';
-import { EspButton } from './es';
+import { Button } from './es';
 
 # Button
 
@@ -17,12 +17,12 @@ Still to also explore here:
 - [ ] Generate the playgrounds from fixture files
 - [ ] List any atomic components that the component might be built out of (if any)
 
-<Props of={EspButton} />
+<Props of={Button} />
 
 <Playground>
-  <EspButton content='Docz Demo' />
+  <Button content='Docz Demo' />
 </Playground>
 
 <Playground>
-  <EspButton content='Positive' outcome='positive' />
+  <Button content='Positive' outcome='positive' />
 </Playground>

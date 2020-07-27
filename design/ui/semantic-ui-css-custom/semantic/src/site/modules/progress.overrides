@@ -1,0 +1,38 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/*******************************
+            Content
+*******************************/
+
+/* Single Digits */
+.ui.progress[data-percent="0"] .bar,
+.ui.progress[data-percent="1"] .bar,
+.ui.progress[data-percent="2"] .bar,
+.ui.progress[data-percent="3"] .bar,
+.ui.progress[data-percent="4"] .bar,
+.ui.progress[data-percent="5"] .bar,
+.ui.progress[data-percent="6"] .bar,
+.ui.progress[data-percent="7"] .bar,
+.ui.progress[data-percent="8"] .bar,
+.ui.progress[data-percent="9"] .bar,
+.ui.progress[data-percent^="1"] .bar,
+.ui.progress[data-percent^="2"] .bar {
+  > .progress {
+    right: auto;
+    left: @progressRight;
+    color: @textColor;
+    text-shadow: 0 0 .5em @invertedLightTextColor;
+  }
+}
+
+.ui.progress[data-percent="100"] .bar {
+  > .progress {
+    right: @progressRight;
+    left: auto;
+    color: @invertedLightTextColor;
+    text-shadow: none;
+  }
+}
+

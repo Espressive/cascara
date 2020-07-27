@@ -1,0 +1,128 @@
+/*******************************
+Espressive Variable Overrides
+*******************************/
+
+@contentBackground:    #f1f1f1;
+@contentPadding:       .8em;
+@contentBorderRadius:  .25em;
+
+.ui.comments {
+  &.no-reply {
+    .comment > .avatar ~ .content {
+      margin-right: 0;
+    }
+  }
+
+  .comment {
+    text-align: left;
+
+    > .avatar ~ .content {
+      margin-right: @contentMargin;
+    }
+
+    > .avatar {
+      position: relative;
+      
+      &:after {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: .5em solid transparent;
+        border-bottom: .5em solid transparent;
+        border-right: 1em solid lighten(@primaryColor,45%);
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(.375em,-50%);
+      }
+    }
+
+    .content {
+      background: lighten(@primaryColor,45%);
+      padding: @contentPadding;
+      border-radius: @contentBorderRadius;
+      
+      > .author {
+        display: none;
+      }
+      
+      > .metadata {
+        display: none;
+      }
+      
+      > .text {
+        margin: 0;
+        white-space: pre-wrap;
+      }
+      
+      > .text:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    &.followup {
+      margin-top: 0;
+      
+      > .avatar {
+        display: none;
+      }
+    }
+    
+    &.timestamp {
+      padding-bottom: .75em;
+      
+      .content {
+        position: relative;
+        
+        > .metadata {
+          margin: 0;
+          display: block;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          color: lighten(@textColor,20%) !important;
+          font-size: .8em;
+        }
+      }
+      
+      &.me {
+        .content > .metadata {
+          right: auto;
+          left: 0;
+        }
+      }
+    }
+
+    &.barista {
+      .content  > .text {
+        font-size: 1.125em;
+      }
+    }
+
+    &.me {
+      
+      > .avatar {
+        float: right;
+        
+        &:after {
+          border-right: none;
+          border-left: 1em solid @primaryColor;
+          left: auto;
+          right: 100%;
+          transform: translate(-.375em,-50%);
+        }
+      }
+      
+      .content {
+        background: @primaryColor;
+        
+        .text,
+        .author,
+        .metadata {
+          color: @pageBackground;
+        }
+      }
+    }
+  }
+}

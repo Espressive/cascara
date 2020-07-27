@@ -1,0 +1,46 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/*******************************
+            Message
+*******************************/
+
+#esp-nav,
+.esp-secondary,
+.esp-main {
+  .ui.message {
+    width: auto;
+    margin: @verticalMargin 1em;
+  }
+}
+
+
+/*******************************
+            Variations
+*******************************/
+
+
+/*--------------
+    Link
+---------------*/
+
+.ui.message.link {
+  cursor: pointer;
+  
+  &:hover {
+    background: #fff;
+  }
+}
+
+/*--------------
+    Stacked
+---------------*/
+
+.ui.icon.message.stacked {
+  display: block;
+  
+  .icon {
+    margin: 0 0 @iconDistance;
+  }
+}

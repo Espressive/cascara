@@ -1,0 +1,38 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/* Corner Icon */
+.avatar-container {
+  .corner.icon {
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    transform: none;
+    font-size: 1.125em;
+    text-shadow: @cornerIconShadow;
+  }
+}
+
+
+/*-------------------
+   Floated Icon
+--------------------*/
+
+i.icon {
+  &[class*="right floated"] {
+    float: right;
+  }
+}
+
+.ui.segment {
+  > i.icon {
+    &[class*="right floated"] {
+      line-height: 1rem;
+      height: 1rem;     
+    }
+  }
+}

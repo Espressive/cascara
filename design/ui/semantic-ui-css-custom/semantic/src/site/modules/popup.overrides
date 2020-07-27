@@ -1,0 +1,11 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+// Temporary fix until this issue is resolved:
+// https://github.com/Semantic-Org/Semantic-UI-React/issues/1703
+.ui.popup.button {
+  text-align: inherit;
+  background-color: @background;
+  box-shadow: @boxShadow;
+}

@@ -1,0 +1,49 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+.ui.accordion {
+  .title {
+    .ui.header {
+      padding: .75rem 0;
+      
+      .content {
+        display: block;
+        
+        .sub.header {
+          float: right;
+          font-size: .8em;
+          margin-right: .5em;
+          line-height: 1.5em;
+        }
+      }
+      
+      .dropdown.icon {
+        float: right;
+        height: 1.25em;
+        line-height: 1.25em;
+        transform-origin: center;
+      }
+    }
+  }
+  
+  .content + .title {
+    margin-top: 1em;
+  }
+
+  // Accordion Message
+
+  .ui.message {
+    margin-left: .85em;
+    margin-right: .85em;
+    margin-top: .85em;
+  }
+}
+
+// Grid Breakout
+
+.ui.accordion.grid-breakout {
+  max-width: none;
+  margin-left: -1em;
+  margin-right: -1em;
+}

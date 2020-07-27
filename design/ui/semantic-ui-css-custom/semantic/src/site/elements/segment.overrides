@@ -1,0 +1,96 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/*-------------------
+    Link Type
+--------------------*/
+
+.ui.segment.link {
+  cursor: pointer;
+  transition: background 100ms ease-in-out;
+  
+  &:hover {
+    background-color: darken(#fff,1.5%);
+  }
+  
+  &:active,
+  &.active {
+    background-color: darken(#fff,3%);
+  }
+  
+  &.select {
+    padding-right: (@horizontalPadding * 2);
+    
+    &:after {
+      font-family: 'icons';
+      font-size: 1.25em;
+      content: "\f105";
+      display: block;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  
+  .content {
+    color: @textColor; 
+  }
+}
+
+/*-------------------
+    Fitted Type
+--------------------*/
+
+.ui.segment {
+  &.fitted {
+    padding: 0;
+    
+    &.horizontally {
+      padding: @verticalPadding 0;
+    }
+    
+    &.vertically {
+      padding: 0 @horizontalPadding;
+    }
+  }
+}
+
+/*-------------------
+ Segment w/ TextArea
+--------------------*/
+
+.ui.segment {
+    
+  &.attached {
+    > textarea {
+      padding: 1em;
+      border: none;
+      box-shadow: 0 0 0 1px transparent;
+      transition: box-shadow 100ms ease;
+      
+      &:focus {
+        box-shadow: 0 0 0 1px @primaryColor;
+      }
+      
+      &[disabled] {
+        background: #fafafa;
+        opacity: .9;
+        cursor: not-allowed;
+      }
+    }
+
+    &.top {
+      > textarea {
+        border-radius: @borderRadius @borderRadius 0 0;
+      }
+    }
+    
+    &.bottom {
+      > textarea {
+        border-radius: 0 0 @borderRadius @borderRadius;
+      }
+    }
+  }
+}

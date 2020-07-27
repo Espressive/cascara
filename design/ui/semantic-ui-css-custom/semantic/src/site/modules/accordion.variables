@@ -1,0 +1,6 @@
+/*******************************
+Espressive Variable Overrides
+*******************************/
+
+@titlePadding: 0;
+@contentPadding: 0;

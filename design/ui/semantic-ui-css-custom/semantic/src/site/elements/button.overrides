@@ -1,0 +1,255 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+.ui.button {
+  > img {
+    max-width: 100%;
+  }
+}
+
+.ui.buttons.avatars {
+  > .ui.button {
+    background: transparent;
+    padding: 0 .25em;
+    
+    img { opacity: .9; }
+    
+    &:hover img { opacity: 1; }
+    
+    &:active img { transform: scale(1.02); }
+  }
+}
+
+/*-------------------
+      Text Type
+--------------------*/
+
+.ui.button.text {
+  text-transform: none;
+  background: none;
+  padding: 0;
+  display: inline;
+  color: @linkColor;
+  
+  &:hover {
+    color: @linkHoverColor;
+  }
+  
+  &:active,
+  &:active {
+    color: darken(@linkHoverColor,10%);
+  }
+  
+  &:focus {
+    color: darken(@linkHoverColor,20%);
+  }
+}
+
+/*-------------------
+    Borderless Type
+--------------------*/
+
+.ui.button.borderless,
+.ui.button.borderless.group,
+.ui.button.borderless.group .ui.button {
+  border-color: transparent !important;
+}
+
+/*-------------------
+       Groups
+--------------------*/
+.ui.buttons {
+  > .button {
+    padding-left: @horizontalPadding/2;
+    padding-right: @horizontalPadding/2;
+  }
+}
+
+
+/*-------------------
+       Colors
+--------------------*/
+
+
+/*--- Light Red ---*/
+.ui.light.red.buttons .button,
+.ui.light.red.button {
+  background-color: @lightRed;
+  color: @textColor;
+  text-shadow: @redTextShadow;
+  background-image: @coloredBackgroundImage;
+}
+.ui.light.red.button {
+  box-shadow: @coloredBoxShadow;
+}
+.ui.light.red.buttons .button:hover,
+.ui.light.red.button:hover {
+  background-color: darken(@lightRed,8%);
+  color: @textColor;
+  text-shadow: @redTextShadow;
+}
+.ui.light.red.buttons .button:focus,
+.ui.light.red.button:focus {
+  background-color: darken(@lightRed,10%);
+  color: @textColor;
+  text-shadow: @redTextShadow;
+}
+.ui.light.red.buttons .button:active,
+.ui.light.red.button:active {
+  background-color: darken(@lightRed,14%);
+  color: @textColor;
+  text-shadow: @redTextShadow;
+}
+.ui.light.red.buttons .active.button,
+.ui.light.red.buttons .active.button:active,
+.ui.light.red.active.button,
+.ui.light.red.button .active.button:active {
+  background-color: darken(@lightRed,12%);
+  color: @textColor;
+  text-shadow: @redTextShadow;
+}
+
+
+/*--- Light Yellow ---*/
+.ui.light.yellow.buttons .button,
+.ui.light.yellow.button {
+  background-color: @lightYellow;
+  color: @textColor;
+  text-shadow: @yellowTextShadow;
+  background-image: @coloredBackgroundImage;
+}
+.ui.light.yellow.button {
+  box-shadow: @coloredBoxShadow;
+}
+.ui.light.yellow.buttons .button:hover,
+.ui.light.yellow.button:hover {
+  background-color: darken(@lightYellow,8%);
+  color: @textColor;
+  text-shadow: @yellowTextShadow;
+}
+.ui.light.yellow.buttons .button:focus,
+.ui.light.yellow.button:focus {
+  background-color: darken(@lightYellow,10%);
+  color: @textColor;
+  text-shadow: @yellowTextShadow;
+}
+.ui.light.yellow.buttons .button:active,
+.ui.light.yellow.button:active {
+  background-color: darken(@lightYellow,14%);
+  color: @textColor;
+  text-shadow: @yellowTextShadow;
+}
+.ui.light.yellow.buttons .active.button,
+.ui.light.yellow.buttons .active.button:active,
+.ui.light.yellow.active.button,
+.ui.light.yellow.button .active.button:active {
+  background-color: darken(@lightYellow,12%);
+  color: @textColor;
+  text-shadow: @yellowTextShadow;
+}
+
+/* Basic */
+.ui.basic.light.yellow.buttons .button,
+.ui.basic.light.yellow.button {
+  box-shadow: 0px 0px 0px @basicBorderSize @lightYellow inset !important;
+  color: @lightYellow !important;
+}
+.ui.basic.light.yellow.buttons .button:hover,
+.ui.basic.light.yellow.button:hover {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightYellow,8%) inset !important;
+  color: darken(@lightYellow,8%) !important;
+}
+.ui.basic.light.yellow.buttons .button:focus,
+.ui.basic.light.yellow.button:focus {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightYellow,10%) inset !important;
+  color: darken(@lightYellow,10%) !important;
+}
+.ui.basic.light.yellow.buttons .active.button,
+.ui.basic.light.yellow.active.button {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightYellow,14%) inset !important;
+  color: darken(@lightYellow,14%) !important;
+}
+.ui.basic.light.yellow.buttons .button:active,
+.ui.basic.light.yellow.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightYellow,12%) inset !important;
+  color: darken(@lightYellow,12%) !important;
+}
+.ui.buttons:not(.vertical) > .basic.light.yellow.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
+
+
+/*--- Light Green ---*/
+.ui.light.green.buttons .button,
+.ui.light.green.button {
+  background-color: @lightGreen;
+  color: @textColor;
+  text-shadow: @greenTextShadow;
+  background-image: @coloredBackgroundImage;
+}
+.ui.light.green.button {
+  box-shadow: @coloredBoxShadow;
+}
+.ui.light.green.buttons .button:hover,
+.ui.light.green.button:hover {
+  background-color: darken(@lightGreen,8%);
+  color: @textColor;
+  text-shadow: @greenTextShadow;
+}
+.ui.light.green.buttons .button:focus,
+.ui.light.green.button:focus {
+  background-color: darken(@lightGreen,10%);
+  color: @textColor;
+  text-shadow: @greenTextShadow;
+}
+.ui.light.green.buttons .button:active,
+.ui.light.green.button:active {
+  background-color: darken(@lightGreen,14%);
+  color: @textColor;
+  text-shadow: @greenTextShadow;
+}
+.ui.light.green.buttons .active.button,
+.ui.light.green.buttons .active.button:active,
+.ui.light.green.active.button,
+.ui.light.green.button .active.button:active {
+  background-color: darken(@lightGreen,12%);
+  color: @textColor;
+  text-shadow: @greenTextShadow;
+}
+
+/* Basic */
+.ui.basic.light.green.buttons .button,
+.ui.basic.light.green.button {
+  box-shadow: 0px 0px 0px @basicBorderSize @lightGreen inset !important;
+  color: @lightGreen !important;
+}
+.ui.basic.light.green.buttons .button:hover,
+.ui.basic.light.green.button:hover {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightGreen,8%) inset !important;
+  color: darken(@lightGreen,8%) !important;
+}
+.ui.basic.light.green.buttons .button:focus,
+.ui.basic.light.green.button:focus {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightGreen,10%) inset !important;
+  color: darken(@lightGreen,10%) !important;
+}
+.ui.basic.light.green.buttons .active.button,
+.ui.basic.light.green.active.button {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightGreen,14%) inset !important;
+  color: darken(@lightGreen,14%) !important;
+}
+.ui.basic.light.green.buttons .button:active,
+.ui.basic.light.green.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize darken(@lightGreen,12%) inset !important;
+  color: darken(@lightGreen,12%) !important;
+}
+.ui.buttons:not(.vertical) > .basic.light.green.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}

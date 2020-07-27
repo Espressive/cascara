@@ -1,0 +1,88 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/*------------------
+   Floating Label
+-------------------*/
+
+@floatingLabelModifier: .75;
+
+.ui.floating.label {
+  text-shadow: none;
+  border-radius: 2em;
+  padding: (@verticalPadding * @floatingLabelModifier) (@horizontalPadding * @floatingLabelModifier);
+  
+  top: @floatingTopOffset;
+  right: @floatingLeftOffset;
+  left: auto;
+  margin: 0 !important;
+  
+  &.bottom {
+    top: auto;
+    bottom: @floatingTopOffset;
+  }
+}
+
+//a {
+//  .ui.label {
+//    cursor: pointer;
+//    transition: transform 100ms ease-in-out;
+//    
+//    &:hover {
+//      transform: scale(1.05);
+//    }
+//    
+//    &.pointing {
+//      &.above {
+//        transform-origin: top center;
+//      }
+//    }
+//  }
+//}
+
+/*------------------
+    Text Label
+-------------------*/
+
+.ui.label.text {
+  display: inline;
+  font-size: 1em;
+  padding: 0;
+  background: none;
+  font-weight: 400;
+  line-height: 1em;
+  vertical-align: baseline !important;
+  margin: 0 .25em 0 0 !important;
+  
+  &:after {
+    content: ":";
+  }
+}
+
+
+/*------------------
+  Form Label Group
+-------------------*/
+
+.ui.form {
+  .ui.labels {
+    padding: 0.375em .5em 0;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: @borderRadius;
+  }
+}
+
+/*------------------
+ Button Group Label
+-------------------*/
+
+.ui.buttons {
+  .ui.button {
+    .ui.label {
+      position: relative;
+      margin: -.5em 0 -.5em .5em !important;
+    }
+  }
+}
+

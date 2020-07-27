@@ -1,0 +1,96 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+
+
+/*-------------------
+   Radius Menu Type
+--------------------*/
+
+// Radius menus attached to match styles of segments (only works on bottom for now)
+
+.ui.segment {
+  + .ui.menu.attached {
+    margin-left: 0;
+    margin-right: 0;
+
+    &.bottom {
+      border-radius: 0 0 .375em .375em;
+    }
+  }
+}
+
+
+/*-------------------
+   Button Menu.Item
+--------------------*/
+
+.ui.menu {
+  button.item {
+    border: none;
+    border-radius: @borderRadius;
+    outline: none;
+    color: @primaryColor;
+    padding: (@itemVerticalPadding*.7) (@itemHorizontalPadding*.7);
+    margin: (@itemVerticalPadding*.3) (@itemHorizontalPadding*.3);
+    display: block;
+    transition: all .1s ease;
+    font-weight: 700;
+    
+    &:focus {
+      background: lighten(@primaryColor,50%);
+      box-shadow: inset 0 0 0 2px @primaryColor;
+    }
+    
+    &.disabled {
+      &:focus {
+        box-shadow: none !important;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+/*-------------------
+   Header Menu.Item
+--------------------*/
+.ui.menu {
+  .header.item.centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+/*-------------------
+   Message Menu.Item
+--------------------*/
+
+.ui.menu {
+  .message.item {
+    font-size: .8em;
+    color: lighten(@textColor,20%);
+    max-width: 80%;
+    border-radius: @borderRadius*1.5 !important;
+    padding: (@itemVerticalPadding*.4) (@itemHorizontalPadding*.6);
+    margin: (@itemVerticalPadding*.6) (@itemHorizontalPadding*.4);
+    
+    > span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    
+    &.error {
+      background: @lightRed;
+      box-shadow: 0 0 0 1px darken(@lightRed,8%);
+    }
+    
+    &.warning {
+      background: @lightYellow;
+      box-shadow: 0 0 0 1px darken(@lightYellow,8%);
+    }
+  }
+}

@@ -1,0 +1,203 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+.ui.modal {
+  
+  > form,
+  > .ui.form {
+    height: 100%;
+  }
+
+  > .close {
+    top: @closeTop !important;
+    right: @closeRight !important;
+  }
+  
+  > .ui.menu {
+    margin: 0;
+  }
+}
+
+.ui.modal > :first-child:not(.icon),
+.ui.modal > .icon:first-child + * {
+  border-top-left-radius: @borderRadius;
+  border-top-right-radius: @borderRadius;
+}
+
+.ui.modal.small {
+  overflow: hidden;
+}
+
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.modal {
+    border-radius: 0;
+    margin: @mobileScrollingMargin !important;
+    max-height: 100% !important;
+    position: static !important;
+  }
+}
+
+/*--------------
+     Header
+---------------*/
+
+.ui.modal > .header,
+.ui.modal > form > .header,
+.ui.modal > .ui.form > .header {
+  display: block;
+  font-family: @headerFontFamily;
+  background: @headerBackground;
+  margin: @headerMargin;
+  padding: @headerPadding;
+  box-shadow: @headerBoxShadow;
+
+  color: @headerColor;
+  border-top: 1px solid transparent;
+  border-bottom: @headerBorder;
+}
+.ui.modal > .header:not(.ui),
+.ui.modal > form > .header:not(.ui),
+.ui.modal > .ui.form > .header:not(.ui) {
+  font-size: @headerFontSize;
+  line-height: @headerLineHeight;
+  font-weight: @headerFontWeight;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.modal > .content {
+  display: block;
+  width: 100%;
+  font-size: @contentFontSize;
+  line-height: @contentLineHeight;
+  padding: @contentPadding;
+  background: @contentBackground;
+}
+
+.ui.modal > .content.collapsed,
+.ui.modal > form > .content.collapsed {
+  padding: 0 !important;
+}
+
+.ui.modal > .image.content,
+.ui.modal > form > .image.content,
+.ui.modal > .ui.form > .image.content {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Image */
+.ui.modal > .content > .image,
+.ui.modal > form > .content > .image,
+.ui.modal > .ui.form > .content > .image {
+  display: block;
+  flex: 0 1 auto;
+  width: @imageWidth;
+  align-self: @imageVerticalAlign;
+}
+.ui.modal > [class*="top aligned"],
+.ui.modal > form > [class*="top aligned"],
+.ui.modal > .ui.form > [class*="top aligned"] {
+  align-self: top;
+}
+.ui.modal > [class*="middle aligned"],
+.ui.modal > form > [class*="middle aligned"],
+.ui.modal > .ui.form > [class*="middle aligned"] {
+  align-self: middle;
+}
+.ui.modal > [class*="stretched"],
+.ui.modal > form > [class*="stretched"],
+.ui.modal > .ui.form > [class*="stretched"] {
+  align-self: stretch;
+}
+
+/* Description */
+.ui.modal > .content > .description,
+.ui.modal > form > .content > .description,
+.ui.modal > .ui.form > .content > .description {
+  display: block;
+  flex: 1 0 auto;
+  min-width: 0px;
+  align-self: @descriptionVerticalAlign;
+}
+
+.ui.modal > .content > .icon + .description,
+.ui.modal > .content > .image + .description,
+.ui.modal > form > .content > .icon + .description,
+.ui.modal > form > .content > .image + .description,
+.ui.modal > .ui.form > .content > .icon + .description,
+.ui.modal > .ui.form > .content > .image + .description {
+  flex: 0 1 auto;
+  min-width: @descriptionMinWidth;
+  width: @descriptionWidth;
+  padding-left: @descriptionDistance;
+}
+
+/*rtl:ignore*/
+.ui.modal > .content > .image > i.icon,
+.ui.modal > form > .content > .image > i.icon,
+.ui.modal > .ui.form > .content > .image > i.icon {
+  margin: 0em;
+  opacity: 1;
+  width: auto;
+  line-height: 1;
+  font-size: @imageIconSize;
+}
+
+/*--------------
+     Actions
+---------------*/
+
+.ui.modal > .actions,
+.ui.modal > form > .actions,
+.ui.modal > .ui.form > .actions {
+  background: @actionBackground;
+  padding: @actionPadding;
+  border-top: @actionBorder;
+  text-align: @actionAlign;
+}
+.ui.modal > .actions > .button,
+.ui.modal > form > .actions > .button,
+.ui.modal > .ui.form > .actions > .button {
+  margin-left: @buttonDistance;
+}
+
+
+/*--------------
+      Size
+---------------*/
+
+.ui.modal {
+  font-size: @medium;
+}
+
+/* Small - This is the default modal style/size for Espressive */
+.ui.small.modal {
+  > .header,
+  > form > .header,
+  > .ui.form > .header {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 4em;
+  }
+  
+  > .content,
+  > form > .content,
+  > .ui.form > .content {
+    height: ~"calc(100% - 48px)";
+    
+    &.withFooter {
+      height: ~"calc(100% - 48px - 71px)";
+    }
+    
+    .scroll-area {
+      .scroll-content {
+        padding: @contentPadding;
+      }
+    }
+  }
+} 

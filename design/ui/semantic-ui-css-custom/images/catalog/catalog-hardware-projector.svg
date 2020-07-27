@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Projectors" viewBox="0 0 64 33.78" class="primary icon">
+  <defs>
+    <style>
+      .cls-1{fill:red;}
+    </style>
+  </defs>
+  <path d="M59 5.93h-4.82a14.18 14.18 0 0 0-23.06 0H5a5 5 0 0 0-5 5v17.85a5 5 0 0 0 5 5h54a5 5 0 0 0 5-5V10.93a5 5 0 0 0-5-5zM6.31 14.7A2.66 2.66 0 1 1 9 12.04a2.66 2.66 0 0 1-2.69 2.66zm36.35 8.72a9.21 9.21 0 1 1 9.21-9.21 9.22 9.22 0 0 1-9.22 9.21z" class="cls-1"/>
+</svg>

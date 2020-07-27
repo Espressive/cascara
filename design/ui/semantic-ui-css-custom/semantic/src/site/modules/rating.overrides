@@ -1,0 +1,11 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+.ui.rating {
+  &.disabled {
+    .icon {
+      outline: none;
+    }
+  }
+}

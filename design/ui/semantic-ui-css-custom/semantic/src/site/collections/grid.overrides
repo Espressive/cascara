@@ -1,0 +1,45 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/*----------------------
+      Fitted Grid
+-----------------------*/
+
+.ui.fitted.grid {
+  margin: 0em !important;
+}
+
+.ui.fitted.grid:not(.vertically):not(.horizontally) {
+  > .column:not(.row),
+  > .row > .column {
+    padding: 0em !important;
+  }
+}
+
+[class*="horizontally fitted"].ui.grid {
+  > .column:not(.row),
+  > .row > .column {
+    padding-left: 0em !important;
+    padding-right: 0em !important;
+  }
+}
+
+[class*="vertically fitted"].ui.grid {
+  > .column:not(.row),
+  > .row > .column {
+    padding-top: 0em !important;
+    padding-bottom: 0em !important;
+  }
+}
+
+// This is mainly for the login screen
+.ui.grid {
+  > [class*="right aligned"].column.mobile-left-align {
+    text-align: right;
+    
+    @media only screen and (max-width: @largestMobileScreen) {
+      text-align: left;
+    }
+  }
+}

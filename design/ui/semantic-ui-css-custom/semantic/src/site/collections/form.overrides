@@ -1,0 +1,100 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+.ui.form {
+  
+  .field.upward {
+    
+    .ui.dropdown {
+      
+      .menu {
+        top: auto !important;
+        bottom: 100% !important;
+        border-bottom-width: 0;
+        border-top-width: 1px !important;
+      }
+    }
+  }
+}
+
+.ui.form {
+  
+  > footer {
+    text-align: center;
+    background: @lightGrey;
+    padding: @gutterWidth;
+    position: relative;
+    
+    .ui.vertical.divider {
+      position: relative;
+      display: inline-block;
+      transform: none;
+      top: auto;
+      left: auto;
+      padding: @gutterWidth/2;
+      margin-right: 4px;
+    }
+  }
+}
+
+.ui.form + .ui.form {
+  margin-top: @gutterWidth;
+}
+
+@formPadding: 1em;
+
+.ui.form {
+  
+  .grouped.fields.button-actions {
+    background: @inputBackground;
+    margin-left: -1em;
+    margin-right: -1em;
+    padding: 1em;
+    text-align: right;
+    border: @inputBorder;
+    border-width: 1px 0;
+    
+    .ui.button {
+      
+      &.basic {
+        background: @white !important;
+      }
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    
+    &:first-child {
+      border-top-width: 0;
+      margin-top: -1em;
+    }
+    
+    &:last-child {
+      border-bottom-width: 0;
+      margin-bottom: -1em;
+    }
+  }
+}
+
+
+/*--------------------------
+  Transparent Textarea
+---------------------------*/
+
+.ui.form {
+  
+  .field.transparent {
+    
+    textarea {
+      border-color: transparent !important;
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    label + textarea {
+      padding: 0em @inputPadding !important;
+    }
+  }
+}

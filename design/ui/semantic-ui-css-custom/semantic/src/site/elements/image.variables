@@ -1,0 +1,11 @@
+/*******************************
+Espressive Variable Overrides
+*******************************/
+
+/*-------------------
+       Types
+--------------------*/
+
+/* Avatar */
+//@avatarSize: 4em; <-- relocated to global vars
+//@avatarMargin: 1em;

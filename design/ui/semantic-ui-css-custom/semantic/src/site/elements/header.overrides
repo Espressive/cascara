@@ -1,0 +1,23 @@
+/*******************************
+Espressive Site Overrides
+*******************************/
+
+/*-------------------
+    Fitted Type
+--------------------*/
+
+.ui.header {
+  &.fitted {
+    margin: 0;
+  }
+}
+
+/*-------------------
+   Segment Header
+--------------------*/
+
+.ui.segment {
+  > .ui.header {
+    font-weight: 600;
+  }
+}

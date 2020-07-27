@@ -1,0 +1,41 @@
+/*******************************
+Espressive Variable Overrides
+*******************************/
+
+/*-------------------
+  Espressive New Vars
+--------------------*/
+
+@listActiveBackground: linear-gradient(rgba(0,0,0,.05),rgba(0,0,0,0));
+
+/*-------------------
+         View
+--------------------*/
+
+/* List */
+@margin: 0em;
+
+/* List Item */
+@itemVerticalPadding: .5em;
+@itemHorizontalPadding: .25em;
+
+
+/*-------------------
+      Elements
+--------------------*/
+
+/* Image */
+@imageDistance: 0.75em;
+@imageAlign: top;
+
+/* Content */
+@contentDistance: .75em;
+
+/* Header */
+@itemHeaderFontFamily: @headerFont;
+@itemHeaderFontWeight: 700;
+@itemHeaderColor: @textColor;
+
+
+/* Same as the grid gutter width */
+@gutterWidth: 2rem;
