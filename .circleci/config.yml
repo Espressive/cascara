@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@1.1.6
   slack: circleci/slack@3.4.2
 jobs:
-  build-and-test:
+  install:
     executor:
       name: node/default
     steps:
@@ -17,14 +17,75 @@ jobs:
             - run:
                 name: Install Dependencies
                 command: yarn install
-            - run:
-                name: Unit Tests
-                command: yarn test
             - save_cache:
                 name: Save Yarn Package Cache
                 key: yarn-packages-{{ checksum "yarn.lock" }}
                 paths:
                   - ~/.cache/yarn
+            - persist_to_workspace:
+                root: ~/
+                paths:
+                  - '*'
+            - slack/status:
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                mentions: 'bje'
+  lint:
+    executor:
+      name: node/default
+    steps:
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/
+            - run:
+                name: Eslint
+                command: yarn lint
+            - slack/status:
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                mentions: 'bje'
+  test:
+    executor:
+      name: node/default
+    steps:
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/
+            - run:
+                name: Unit Tests
+                command: yarn test
+            - slack/status:
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                mentions: 'bje'
+  build:
+    executor:
+      name: node/default
+    steps:
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/
+            - run:
+                name: Build
+                command: yarn test
+            - slack/status:
+                fail_only: true
+                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                mentions: 'bje'
+  deploy-docs:
+    executor:
+      name: node/default
+    steps:
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/
+            - run:
+                name: Build
+                command: yarn test
             - slack/status:
                 fail_only: true
                 failure_message: ':alert: A $CIRCLE_JOB job has failed!'
@@ -32,4 +93,20 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - build-and-test
+      - install
+      - lint:
+          requires:
+            - install
+      - test:
+          requires:
+            - install
+      - build:
+          requires:
+            - lint
+            - test
+      - deploy-docs:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
