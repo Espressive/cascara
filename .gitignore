@@ -2,6 +2,7 @@
 .DS_Store
 .env
 coverage
+build
 dist
 es
 lerna-debug.log
