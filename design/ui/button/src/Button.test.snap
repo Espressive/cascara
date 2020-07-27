@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders with defaults 1`] = `
+<div>
+  <button
+    class="_ basic"
+  >
+    Default Content
+  </button>
+</div>
+`;

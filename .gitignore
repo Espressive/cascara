@@ -1,7 +1,9 @@
 .docz
-.env
 .DS_Store
-node_modules
+.env
+coverage
 dist
 es
-/yarn-error.log
+lerna-debug.log
+node_modules
+yarn-error.log

@@ -28,7 +28,7 @@ jobs:
                   - '*'
             - slack/status:
                 fail_only: true
-                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                failure_message: ':alert: A $CIRCLE_JOB job has failed installation!'
                 mentions: 'bje'
   lint:
     executor:
@@ -43,7 +43,7 @@ jobs:
                 command: yarn lint
             - slack/status:
                 fail_only: true
-                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                failure_message: ':alert: A $CIRCLE_JOB job has failed linting!'
                 mentions: 'bje'
   test:
     executor:
@@ -58,7 +58,7 @@ jobs:
                 command: yarn test
             - slack/status:
                 fail_only: true
-                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                failure_message: ':alert: A $CIRCLE_JOB job has unit tests!'
                 mentions: 'bje'
   build:
     executor:
@@ -73,7 +73,7 @@ jobs:
                 command: yarn test
             - slack/status:
                 fail_only: true
-                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                failure_message: ':alert: A $CIRCLE_JOB job has failed build!'
                 mentions: 'bje'
   deploy-docs:
     executor:
@@ -88,7 +88,7 @@ jobs:
                 command: yarn test
             - slack/status:
                 fail_only: true
-                failure_message: ':alert: A $CIRCLE_JOB job has failed!'
+                failure_message: ':alert: A $CIRCLE_JOB job has failed deployment!'
                 mentions: 'bje'
 workflows:
   build-and-test:
