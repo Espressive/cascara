@@ -1,1 +1,2 @@
-export {EspButton} from './esp-button/dist';
+export { EspButton } from './button/dist';
+export { EspPagination } from './pagination/dist';
