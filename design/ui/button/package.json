@@ -1,7 +1,6 @@
 {
   "name": "button",
   "version": "1.0.0",
-  "main": "dist/index.js",
   "module": "es/index.js",
   "dependencies": {
     "babel-preset-espressive": "*",
