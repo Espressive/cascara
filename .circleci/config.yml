@@ -70,7 +70,7 @@ jobs:
                 at: ~/
             - run:
                 name: Build
-                command: yarn test
+                command: yarn workspace button run rollup && yarn docz:build
             - slack/status:
                 fail_only: true
                 failure_message: ':alert: A $CIRCLE_JOB job has failed build!'
