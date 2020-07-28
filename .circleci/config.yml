@@ -19,8 +19,8 @@ jobs:
             - '*'
       - slack/status:
           fail_only: true
-          failure_message: ':alert: $CIRCLE_JOB has failed install!'
-          mentions: 'bje'
+          include_project_field: false
+          mentions: 'here'
 
   lint:
     executor:
@@ -34,8 +34,8 @@ jobs:
           command: yarn lint
       - slack/status:
           fail_only: true
-          failure_message: ':alert: $CIRCLE_JOB has failed lint!'
-          mentions: 'bje'
+          include_project_field: false
+          mentions: 'here'
 
   test:
     executor:
@@ -55,8 +55,8 @@ jobs:
           path: ./coverage
       - slack/status:
           fail_only: true
-          failure_message: ':alert: $CIRCLE_JOB has failed test!'
-          mentions: 'bje'
+          include_project_field: false
+          mentions: 'here'
 
   build:
     executor:
@@ -70,8 +70,8 @@ jobs:
           command: yarn workspace button run rollup && yarn docz:build
       - slack/status:
           fail_only: true
-          failure_message: ':alert: $CIRCLE_JOB has failed build!'
-          mentions: 'bje'
+          include_project_field: false
+          mentions: 'here'
 
 workflows:
   build-and-test:
