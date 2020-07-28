@@ -11,22 +11,31 @@ import { Wrapper } from './Pagination.fixture';
 describe('Espressive UI Pagination', () => {
   afterEach(cleanup);
 
+  test('Renders with defaults', () => {
+    const snap = render(<Wrapper />).container;
+
+    expect(snap).toMatchSnapshot();
+
+    // This should always be our first test rendering the bare component.
+    // We might need to find a way to make this test not fail for a prop-type
+    // error if there are missing required props. Eventually we want tests
+    // to fail if there are any console errors.
+  });
+
   test('it renders!', () => {
     const { queryAllByText, getAllByRole } = render(<Wrapper />);
 
     // The test dataset contains 500 items
-    const headers = queryAllByText('500 Total');
+    const headers = queryAllByText('500 Total (Displaying 1 - 10)');
 
     // Default props are 1 and 10 for page and limit,
     // display range is from 1 to 10, because we are in page 1
-    const subheaders = queryAllByText('(Displaying 1 - 10)');
 
     const dropdowns = getAllByRole('listbox');
     const buttons = getAllByRole('button');
 
     // header and footer the same, hence expecting 2
     expect(headers).toHaveLength(2);
-    expect(subheaders).toHaveLength(2);
 
     // same with buttons, there are two groups of 2
     expect(dropdowns).toHaveLength(4);
@@ -36,8 +45,8 @@ describe('Espressive UI Pagination', () => {
   test('it paginates via navigation buttons', async () => {
     const { container, queryAllByText } = render(<Wrapper />);
 
-    const backButton = container.querySelector('.header-back-button');
-    const frwdButton = container.querySelector('.header-frwd-button');
+    const backButton = container.querySelector('.headerBackButton');
+    const frwdButton = container.querySelector('.headerFrwdButton');
 
     fireEvent.click(frwdButton, { target: { name: 'forward' } });
     let subheaders = queryAllByText('(Displaying 11 - 20)');

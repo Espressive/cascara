@@ -7,7 +7,7 @@ exports[`Button default renders without any props 1`] = `
     data-testid="default"
     type="button"
   >
-    Default Content
+    test
   </button>
 </div>
 `;

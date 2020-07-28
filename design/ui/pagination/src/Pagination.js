@@ -4,7 +4,6 @@ import classNames from 'classnames/bind';
 import { noop } from 'lodash';
 
 import { Button, Select, Header, Popup } from 'semantic-ui-react';
-import 'semantic-ui-css-custom';
 import styles from './Pagination.module.scss';
 
 const cx = classNames.bind(styles);
@@ -31,7 +30,7 @@ const propTypes = {
 const Pagination = ({
   as: ComponentType = 'div',
   children = null,
-  count = 0,
+  recordCount = 0,
   entityNamePlural = 'Total',
   entityNameSingular = 'Total',
   isLoading = false,
@@ -63,14 +62,14 @@ const Pagination = ({
       newitemsPerPageLimit = component.value;
 
       // safeguard
-      if (newitemsPerPageLimit >= count) {
+      if (newitemsPerPageLimit >= recordCount) {
         newPage = 1;
       }
     }
 
     onPaginationChange({
       page: newPage,
-      itemsPerPageLimit: newitemsPerPageLimit,
+      limit: newitemsPerPageLimit,
     });
   };
 
@@ -98,21 +97,21 @@ const Pagination = ({
     });
   };
 
-  const availablePages = Math.ceil(count / itemsPerPageLimit) || 1;
+  const availablePages = Math.ceil(recordCount / itemsPerPageLimit) || 1;
   const canGoForward = currentPage < availablePages;
   const canGoBackward = currentPage > 1;
 
-  const entityName = count === 1 ? entityNameSingular : entityNamePlural;
+  const entityName = recordCount === 1 ? entityNameSingular : entityNamePlural;
 
   const displayRangeStart =
     itemsPerPageLimit * currentPage - itemsPerPageLimit + 1;
   const displayRangeEnd =
     currentPage === availablePages
-      ? count
+      ? recordCount
       : displayRangeStart + itemsPerPageLimit - 1;
 
   const itemsPerPageLimitOptions = [10, 25, 50, 75, 100, 150, 250, 500]
-    .filter((item) => item < count)
+    .filter((item) => item < recordCount)
     .map((item) => ({
       id: `${item}`,
       text: `${item}`,
@@ -122,7 +121,7 @@ const Pagination = ({
       {
         id: 'all',
         text: 'All',
-        value: count < 10 ? 10 : count,
+        value: recordCount < 10 ? 10 : recordCount,
       },
     ]);
 
@@ -197,9 +196,9 @@ const Pagination = ({
       })}
       sub
     >
-      {count ? (
+      {recordCount ? (
         <Fragment>
-          {`${count} ${entityName} `}
+          {`${recordCount} ${entityName} `}
           {!className && <br />}
           <span className={cx({ fontWeightReset: true })}>
             {`(Displaying ${displayRangeStart} - ${displayRangeEnd})`}
@@ -219,12 +218,12 @@ const Pagination = ({
       })}
       sub
     >
-      {count ? (
+      {recordCount ? (
         <Fragment>
           <span className={cx({ fontWeightReset: true })}>{'Displaying '}</span>
           {`${displayRangeStart} - ${displayRangeEnd}`}
           <span className={cx({ fontWeightReset: true })}>
-            {` of ${count}`}
+            {` of ${recordCount}`}
           </span>
         </Fragment>
       ) : (
