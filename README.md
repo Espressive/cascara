@@ -35,7 +35,7 @@ Espressive's Functional Design System
 - [x] Add component/display support for all above views
 - [ ] Add support to analyze component composition and link to atomic components in doc system
 - [ ] Add support to link to component designs in Abstract
-- [ ] Get the docs building and deploying to Netlify
+- [x] Get the docs building and deploying to Netlify
 
 ## Rollup
 
