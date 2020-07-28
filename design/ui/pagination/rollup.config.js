@@ -14,6 +14,17 @@ export default {
       format: 'es',
     },
   ],
+  // These are any exernal modules that we do not want to include in our builds. If we include
+  // a module in this list, it should also be declared as a peer depenency for our package. In
+  // the future we need to have a way to easily check these definitions for our overall library.
+  // This might be another reason that it is good to move this configuration to the root level
+  // for overall consistency.
+  external: ['react', 'prop-types', 'classnames/bind'],
+  // Adding this onwarn config to throw an error and fail if we have any warnings so we do not
+  // have anything unresolved we do not see.
+  // onwarn: (warning) => {
+  //   throw new Error(warning.message);
+  // },
   plugins: [
     postcss({
       // extract: 'styles.css',
