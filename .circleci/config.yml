@@ -70,25 +70,10 @@ jobs:
                 at: ~/
             - run:
                 name: Build
-                command: yarn test
+                command: yarn workspace button run rollup && yarn docz:build
             - slack/status:
                 fail_only: true
                 failure_message: ':alert: A $CIRCLE_JOB job has failed build!'
-                mentions: 'bje'
-  deploy-docs:
-    executor:
-      name: node/default
-    steps:
-      - node/with-cache:
-          steps:
-            - attach_workspace:
-                at: ~/
-            - run:
-                name: Build
-                command: yarn test
-            - slack/status:
-                fail_only: true
-                failure_message: ':alert: A $CIRCLE_JOB job has failed deployment!'
                 mentions: 'bje'
 workflows:
   build-and-test:
@@ -104,9 +89,3 @@ workflows:
           requires:
             - lint
             - test
-      - deploy-docs:
-          requires:
-            - build
-          filters:
-            branches:
-              only: main

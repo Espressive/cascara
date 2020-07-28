@@ -2,11 +2,12 @@
 name: Button
 ---
 
-import 'semantic-ui-css-offline';
 import { Playground, Props } from 'docz';
-import { EspButton } from './es';
+import { Button } from './es';
 
 # Button
+
+We definitely want to consume the compiled version of the components in these docs since that is what our developers will be consuming.
 
 It feels like there is a lot of boilerplate for these MDX documents that we could definitely abstract out. Next steps will be to also make some display components to use in MDX like do/don't lists, etc. Page should probably automatically give the "name" without having to add it.
 
@@ -17,12 +18,12 @@ Still to also explore here:
 - [ ] Generate the playgrounds from fixture files
 - [ ] List any atomic components that the component might be built out of (if any)
 
-<Props of={EspButton} />
+<Props of={Button} />
 
 <Playground>
-  <EspButton content='Docz Demo' />
+  <Button content='Docz Demo' />
 </Playground>
 
 <Playground>
-  <EspButton content='Positive' outcome='positive' />
+  <Button content='Positive' outcome='positive' />
 </Playground>
