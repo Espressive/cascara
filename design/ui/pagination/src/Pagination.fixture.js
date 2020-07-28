@@ -75,7 +75,7 @@ const CustomTable = ({ data }) => {
 };
 CustomTable.propTypes = sharedPropTypes;
 
-const CustomList = ({ data }) => (
+export const CustomList = ({ data }) => (
   <List relaxed>
     {data.map((item) => (
       <List.Item key={item.id}>

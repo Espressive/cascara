@@ -13,7 +13,7 @@ const propTypes = {
   /** Can render as a different tag or component */
   as: pt.oneOfType([pt.string, pt.node]),
   /** the items collection length */
-  count: pt.number,
+  recordCount: pt.number,
   /** entity name in plural form */
   entityNamePlural: pt.string,
   /** entity name in singular form */
@@ -21,11 +21,11 @@ const propTypes = {
   /** specifies if the data is currently loading */
   isLoading: pt.bool,
   /** items per page limit */
-  limit: pt.number,
+  itemsPerPageLimit: pt.number,
   /** a message to be displayed when no items to display */
   notFoundMessage: pt.string,
   /** current page */
-  page: pt.number,
+  currentPage: pt.number,
 };
 
 const Pagination = ({
@@ -35,10 +35,10 @@ const Pagination = ({
   entityNamePlural = 'Total',
   entityNameSingular = 'Total',
   isLoading = false,
-  limit = 10,
+  itemsPerPageLimit = 10,
   notFoundMessage = 'No items to display',
   onPaginationChange = noop,
-  page = 1,
+  currentPage = 1,
   ...rest
 }) => {
   /**
@@ -52,25 +52,25 @@ const Pagination = ({
    * @param {String} component.name The name of the component
    * @param {Any} component.value The new value in the component */
   const handlePaginationChange = (_, component) => {
-    let newPage = page;
-    let newlimit = limit;
+    let newPage = currentPage;
+    let newitemsPerPageLimit = itemsPerPageLimit;
 
     if (component.name === 'page') {
       newPage = component.value;
     }
 
-    if (component.name === 'limit') {
-      newlimit = component.value;
+    if (component.name === 'itemsPerPageLimit') {
+      newitemsPerPageLimit = component.value;
 
       // safeguard
-      if (newlimit >= count) {
+      if (newitemsPerPageLimit >= count) {
         newPage = 1;
       }
     }
 
     onPaginationChange({
       page: newPage,
-      limit: newlimit,
+      itemsPerPageLimit: newitemsPerPageLimit,
     });
   };
 
@@ -84,7 +84,7 @@ const Pagination = ({
    * @param {Object} component Component object passed by SUIR
    * @param {String} component.name The name of the component */
   const handleButtonClick = (_, button) => {
-    let newPage = page;
+    let newPage = currentPage;
 
     if (button.name === 'forward') {
       newPage++;
@@ -98,17 +98,20 @@ const Pagination = ({
     });
   };
 
-  const availablePages = Math.ceil(count / limit) || 1;
-  const canGoForward = page < availablePages;
-  const canGoBackward = page > 1;
+  const availablePages = Math.ceil(count / itemsPerPageLimit) || 1;
+  const canGoForward = currentPage < availablePages;
+  const canGoBackward = currentPage > 1;
 
   const entityName = count === 1 ? entityNameSingular : entityNamePlural;
 
-  const displayRangeStart = limit * page - limit + 1;
+  const displayRangeStart =
+    itemsPerPageLimit * currentPage - itemsPerPageLimit + 1;
   const displayRangeEnd =
-    page === availablePages ? count : displayRangeStart + limit - 1;
+    currentPage === availablePages
+      ? count
+      : displayRangeStart + itemsPerPageLimit - 1;
 
-  const limitOptions = [10, 25, 50, 75, 100, 150, 250, 500]
+  const itemsPerPageLimitOptions = [10, 25, 50, 75, 100, 150, 250, 500]
     .filter((item) => item < count)
     .map((item) => ({
       id: `${item}`,
@@ -131,18 +134,18 @@ const Pagination = ({
       value: index + val,
     }));
 
-  const limitSelect = () => (
+  const itemsPerPageLimitSelect = () => (
     <label className={cx({ label: true })}>
       {`${entityNamePlural} per page:`}
       <Select
         className={cx({ select: true })}
         compact
         disabled={isLoading}
-        name='limit'
+        name='itemsPerPageLimit'
         onChange={handlePaginationChange}
-        options={limitOptions}
+        options={itemsPerPageLimitOptions}
         selection
-        value={limit}
+        value={itemsPerPageLimit}
       />
     </label>
   );
@@ -158,7 +161,7 @@ const Pagination = ({
         onChange={handlePaginationChange}
         options={pageOptions}
         selection
-        value={page}
+        value={currentPage}
       />
       {` of ${availablePages} `}
     </label>
@@ -232,14 +235,14 @@ const Pagination = ({
 
   const pageNavigation = (className) => (
     <div className={className}>
-      {limitSelect()}
+      {itemsPerPageLimitSelect()}
       {pageSelect()}
     </div>
   );
 
   const mobilePageNavigation = (
     <div className={cx({ mobilePageNav: true })}>
-      {limitSelect()}
+      {itemsPerPageLimitSelect()}
       <br />
       {pageSelect()}
     </div>
