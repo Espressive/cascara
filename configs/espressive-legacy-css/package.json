@@ -1,5 +1,5 @@
 {
-  "name": "semantic-ui-css-custom",
+  "name": "espressive-legacy-css",
   "description": "Legacy custom compiled CSS for Espressive",
   "version": "1.0.0",
   "main": "src/css/semantic.min.css",

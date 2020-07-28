@@ -3,8 +3,7 @@
 // and possibly some missing loaders so we will use a different variant for now
 // that does not have any missing font/image dependencies.
 
-// import 'semantic-ui-css-custom';
-
+import 'espressive-legacy-css';
 import 'normalize.css';
 
 // NOTE: export is needed or else this decorator mutes all fixture children

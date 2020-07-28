@@ -1,11 +1,11 @@
 {
-  "name": "@espressive/pagination",
+  "name": "pagination",
   "version": "1.0.0",
   "main": "dist/index.js",
   "module": "es/index.js",
   "scripts": {
-    "rollup": "rm -rf dist && rm -rf es && BABEL_ENV=production rollup -c",
-    "rollup:watch": "rm -rf dist && rm -rf es && BABEL_ENV=production rollup -c --watch"
+    "rollup": "rm -rf dist && rm -rf es && BABEL_ENV=development rollup -c",
+    "rollup:watch": "rm -rf dist && rm -rf es && BABEL_ENV=development rollup -c --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,7 +24,7 @@
     ]
   },
   "dependencies": {
-    "@espressive/button": "*",
+    "button": "*",
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
     "react": "16.13.1",
@@ -32,7 +32,7 @@
     "react-scripts": "3.4.1",
     "semantic-ui-css-offline": "1.0.4-2.4.2",
     "semantic-ui-react": "0.88.2",
-    "semantic-ui-css-custom": "*"
+    "espressive-legacy-css": "*"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "7.10.5",
