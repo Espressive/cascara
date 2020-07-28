@@ -23,9 +23,6 @@ jobs:
           mentions: 'bje'
 
   lint:
-    executor:
-      name: node/default
-      tag: '14.5.0'
     steps:
       - attach_workspace:
           at: ~/
@@ -38,9 +35,6 @@ jobs:
           mentions: 'bje'
 
   test:
-    executor:
-      name: node/default
-      tag: '14.5.0'
     steps:
       - attach_workspace:
           at: ~/
@@ -59,9 +53,6 @@ jobs:
           mentions: 'bje'
 
   build:
-    executor:
-      name: node/default
-      tag: '14.5.0'
     steps:
       - attach_workspace:
           at: ~/
