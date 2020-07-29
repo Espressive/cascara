@@ -27,7 +27,7 @@
     "app-main": "yarn --cwd apps/main start",
     "cosmos": "npx react-cosmos",
     "docz:start": "rm -rf .docz && docz dev",
-    "docz:build": "docz build && echo 'User-agent: *\nDisallow: /' > build/docs/static/robots.txt",
+    "docz:build": "docz build && echo 'User-agent: *\nDisallow: /' > build/docs/robots.txt",
     "docz:serve": "docz build && docz serve",
     "framer:publish": "dotenv npx framer-cli publish",
     "test": "jest",
