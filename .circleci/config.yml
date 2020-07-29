@@ -58,20 +58,20 @@ jobs:
           include_project_field: false
           mentions: 'here'
 
-  # cosmos:
-  #   executor:
-  #     name: node/default
-  #     tag: '14.5.0'
-  #   steps:
-  #     - attach_workspace:
-  #         at: ~/
-  #     - run:
-  #         name: Build
-  #         command: yarn cosmos:export
-  #     - slack/status:
-  #         fail_only: true
-  #         include_project_field: false
-  #         mentions: 'here'
+  cosmos:
+    executor:
+      name: node/default
+      tag: '14.5.0'
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Build
+          command: npx -p react-cosmos cosmos-export
+      - slack/status:
+          fail_only: true
+          include_project_field: false
+          mentions: 'here'
 
   build:
     executor:
@@ -98,9 +98,9 @@ workflows:
       - test:
           requires:
             - install
-      # - cosmos:
-      #     requires:
-      #       - install
+      - cosmos:
+          requires:
+            - install
       - build:
           requires:
             - install
