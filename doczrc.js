@@ -5,6 +5,7 @@ export default {
   // menu: ['Introduction', 'Variables', 'UI', 'Layouts'],
   port: 4000,
   themeConfig: {
+    initialColorMode: 'dark',
     showDarkModeSwitch: false,
     showMarkdownEditButton: false,
     colors: {
