@@ -9,7 +9,7 @@
   publish = "build/docs"
 
   # Default build command.
-  command = "yarn workspace button run rollup && yarn docz:build"
+  command = "yarn workspace button run build && yarn docz:build"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   # functions = "functions/"
