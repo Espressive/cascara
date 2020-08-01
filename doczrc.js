@@ -2,9 +2,10 @@ export default {
   title: 'Cascara',
   dest: '/build/docs',
   public: '/docz/public',
-  // menu: ['Introduction', 'Variables', 'UI', 'Layouts'],
+  menu: ['Readme', 'Todo'],
   port: 4000,
   themeConfig: {
+    initialColorMode: 'dark',
     showDarkModeSwitch: false,
     showMarkdownEditButton: false,
     colors: {
