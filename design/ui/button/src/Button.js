@@ -21,8 +21,8 @@ const propTypes = {
 };
 
 // We are going to need a utility to help us dealing with refs. When a composable `as`
-// prop is being used, we need to pass the prop directly if base component is from a
-// library like Reakit. Otherwise, we need to use React.forwardRef()
+// prop is being used with a React component, we need to pass the ref directly to
+// Reakit. Otherwise, we need to use React.forwardRef()
 
 const Button = ({
   as = 'button',
