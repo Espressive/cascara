@@ -46,7 +46,7 @@ const Button = forwardRef(
     const ComponentType = as;
 
     return (
-      	<ComponentType
+      <ComponentType
         ref={ref}
         {...rest}
         className={className}
