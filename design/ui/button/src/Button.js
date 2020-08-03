@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import pt from 'prop-types';
 import classNames from 'classnames/bind';
 import { Button as ReakitButton } from 'reakit';

@@ -3,7 +3,7 @@
 // "error" or 2 - turn the rule on as an error (exit code will be 1)
 
 module.exports = {
-  rules: { 'no-console': 2 },
+  rules: { 'no-console': 2, 'no-unused-vars': 2 },
   overrides: [
     {
       // Override some rules for fixtures
