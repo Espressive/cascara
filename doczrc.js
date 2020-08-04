@@ -1,13 +1,9 @@
 export default {
-  title: 'Cascara',
   dest: '/build/docs',
-  public: '/docz/public',
   menu: ['Readme', 'Todo'],
   port: 4000,
+  public: '/docz/public',
   themeConfig: {
-    initialColorMode: 'dark',
-    showDarkModeSwitch: false,
-    showMarkdownEditButton: false,
     colors: {
       modes: {
         dark: {
@@ -17,5 +13,9 @@ export default {
         },
       },
     },
+    initialColorMode: 'dark',
+    showDarkModeSwitch: false,
+    showMarkdownEditButton: false,
   },
+  title: 'Cascara',
 };

@@ -3,7 +3,7 @@
 ## Yarn
 
 - [x] Set up separate workspaces for apps, ui, utils, etc
-- [ ] Support for pnp and/or yarn 2.x
+- [ ] Support for pnp and/or yarn 2.x (blocked by issue mentioned below with Husky)
 
 ## React Cosmos
 
@@ -16,7 +16,7 @@
 
 - [x] Set up a prettier config for the monorepo that is portable to all workspaces
 - [x] Set up a precommit hook to always run prettier before commiting changes
-  - [ ] [Watch known issue for husky](https://github.com/typicode/husky/issues/639) that does not fire hooks in some GIT GUIs like Sourcetree or Tower
+  - [ ] [Watch known issue for husky](https://github.com/typicode/husky/issues/639) that does not fire hooks in some GIT GUIs like Sourcetree or Tower. Downgraded to v3 for now.
 
 ## VS Code
 
@@ -39,7 +39,8 @@
 - [x] Evaluate if Rollup is actually the best option for this
 - [x] See if Rollup compilation can borrow all of the same babel configs from react-scripts
 - [x] Make sure tooling supports watch commands on these components once these packages become compiled dependencies
-- [ ] Evaluate if we need to change the React Cosmos config for these packages to use a different configuration if the build system diverges too much from react-scripts so the DX is consistent with the output of the builds
+- [x] Evaluate if we need to change the React Cosmos config for these packages to use a different configuration if the build system diverges too much from react-scripts so the DX is consistent with the output of the builds
+- [ ] FUTURE: Runtime build optimization (removing comments, minified versions based on env prod/dev, etc.)
 
 ## Framer X
 
@@ -48,6 +49,7 @@
 - [x] CSS Modules?
 - [ ] Build system to deploy package updates to Framer components when made
 - [ ] Determine if there is a consistent URL for library components on web that we could link to
+- [ ] Consider a handlebars based approach to compile components using a similar pattern as [`component-importer`](https://github.com/framer/component-importer) outputs, but with more options for customization and exposing interface controls automatically.
 
 ## Abstract/Sketch
 
