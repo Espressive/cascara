@@ -12,18 +12,19 @@ const ButtonRef = () => {
   };
 
   return (
-    <Button ref={buttonRef} content='Ref' onClick={() => handleRefLog()} />
+    <Button content='Ref' onClick={() => handleRefLog()} ref={buttonRef} />
   );
 };
 
+/* eslint-disable sort-keys */
 export default {
   all: (
     <Button
       content='content'
       fluid={false}
       isBrandColor={false}
-      outcome='positive'
       onClick={() => handleAlert()}
+      outcome='positive'
     />
   ),
   default: <Button content='Default' />,
@@ -35,3 +36,4 @@ export default {
   ),
   ref: <ButtonRef />,
 };
+/* eslint-enable sort-keys */

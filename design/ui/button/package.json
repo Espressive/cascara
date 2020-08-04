@@ -9,19 +9,8 @@
     "prop-types": "15.7.2",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1",
-    "react": "16.13.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "react": "16.13.1",
+    "reakit": "1.1.2"
   },
   "license": "MIT",
   "devDependencies": {

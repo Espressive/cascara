@@ -3,13 +3,7 @@
 // "error" or 2 - turn the rule on as an error (exit code will be 1)
 
 module.exports = {
-  extends: [
-    'eslint-config-react-app',
-    './src/base',
-    './src/hooks',
-    './src/import',
-    './src/jest',
-    './src/jsx-a11y',
-    './src/react',
-  ].map(require.resolve),
+  extends: 'plugin:jsx-a11y/strict',
+  plugins: ['jsx-a11y'],
+  rules: {},
 };

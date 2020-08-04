@@ -1,16 +1,17 @@
-import React, { forwardRef } from 'react';
-import pt from 'prop-types';
 import classNames from 'classnames/bind';
-import { getSafeLinkRel } from '../../../utils/linkUtils.js';
+import pt from 'prop-types';
+import React from 'react';
+import { Button as ReakitButton } from 'reakit';
+import { getSafeLinkRel } from '../../../utils/linkUtils';
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
 const propTypes = {
   /** Can render as a different tag or component */
-  as: pt.oneOfType([pt.string, pt.node]),
+  as: pt.oneOfType([pt.string, pt.elementType]),
   /** Main content of the button */
-  content: pt.string.isRequired,
+  content: pt.string,
   /** Makes the button take the width of the parent container */
   fluid: pt.bool,
   /** Sets the color type of the button to follow the theme brand color */
@@ -19,45 +20,37 @@ const propTypes = {
   outcome: pt.oneOf(['positive', 'negative']),
 };
 
-// Need to make sure all of our FDS components use forwardRef()
-const Button = forwardRef(
-  (
-    {
-      as = 'button',
-      content = 'Default Content',
-      fluid = false,
-      isBrandColor = false,
-      outcome,
-      ...rest
-    },
-    ref
-  ) => {
-    const className = cx({
-      _: true,
-      basic: !outcome,
-      fluid: fluid,
-      negative: outcome === 'negative',
-      positive: outcome === 'positive',
-    });
+// We are going to need a utility to help us dealing with refs. When a composable `as`
+// prop is being used with a React component, we need to pass the ref directly to
+// Reakit. Otherwise, we need to use React.forwardRef()
 
-    // Maybe later we should add tooling to help us validate that this is
-    // either a valid HTML5 tag, or that it is a component. Technically
-    // some of that is being done with proptypes.
-    const ComponentType = as;
+const Button = ({
+  as = 'button',
+  content = 'Default Content',
+  fluid = false,
+  isBrandColor = false,
+  outcome,
+  ...rest
+}) => {
+  const className = cx({
+    _: true,
+    basic: !outcome,
+    fluid: fluid,
+    negative: outcome === 'negative',
+    positive: outcome === 'positive',
+  });
 
-    return (
-      <ComponentType
-        ref={ref}
-        {...rest}
-        className={className}
-        rel={getSafeLinkRel(rest)}
-      >
-        {content}
-      </ComponentType>
-    );
-  }
-);
-
+  return (
+    <ReakitButton
+      {...rest}
+      as={as}
+      className={className}
+      rel={getSafeLinkRel(rest)}
+    >
+      {content}
+    </ReakitButton>
+  );
+};
 Button.propTypes = propTypes;
 
 export { Button };
