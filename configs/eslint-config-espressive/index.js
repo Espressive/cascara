@@ -6,9 +6,10 @@ module.exports = {
   extends: [
     'eslint-config-react-app',
     './src/base',
-    './src/react',
+    './src/hooks',
     './src/import',
-    './src/jsx-a11y',
     './src/jest',
+    './src/jsx-a11y',
+    './src/react',
   ].map(require.resolve),
 };

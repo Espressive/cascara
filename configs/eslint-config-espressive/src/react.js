@@ -23,6 +23,7 @@ module.exports = {
     'react/no-unused-prop-types': 2,
     'react/no-unused-state': 2,
     'react/prefer-stateless-function': 2,
+    'react/require-render-return': 2,
     'react/self-closing-comp': 2,
     'react/sort-prop-types': 2,
     'react/style-prop-object': 2,
