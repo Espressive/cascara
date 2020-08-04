@@ -1,8 +1,8 @@
-import React from 'react';
-import pt from 'prop-types';
 import classNames from 'classnames/bind';
+import pt from 'prop-types';
+import React from 'react';
 import { Button as ReakitButton } from 'reakit';
-import { getSafeLinkRel } from '../../../utils/linkUtils.js';
+import { getSafeLinkRel } from '../../../utils/linkUtils';
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);

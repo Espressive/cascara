@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button Default renders without any props 1`] = `
+exports[`Button default renders without any props 1`] = `
 <div>
   <button
     class="_ basic"

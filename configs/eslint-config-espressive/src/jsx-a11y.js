@@ -3,10 +3,7 @@
 // "error" or 2 - turn the rule on as an error (exit code will be 1)
 
 module.exports = {
-  rules: {
-    'import/exports-last': 2,
-    'import/extensions': 2,
-    'import/no-duplicates': 2,
-    'import/no-namespace': 2,
-  },
+  extends: 'plugin:jsx-a11y/strict',
+  plugins: ['jsx-a11y'],
+  rules: {},
 };

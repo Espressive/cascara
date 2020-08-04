@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Router, Link } from 'react-router-dom';
+import { Link, Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
 import { Button } from './Button';
 
 describe('Button', () => {
-  describe('Default', () => {
+  describe('default', () => {
     const testId = 'default';
 
     // We need a place to store the view for snapshot testing. This is not required when we are using `screen` directly from RTL.
@@ -91,8 +91,8 @@ describe('Button', () => {
       test('renders a React component', () => {
         const props = {
           as: Link,
-          to: '/users',
           'data-testid': 'as-component',
+          to: '/users',
         };
 
         const history = createMemoryHistory();
@@ -108,6 +108,12 @@ describe('Button', () => {
         // Make sure this renders a link (from the Link component)
         expect(button.tagName).toMatch('A');
       });
+
+      test.todo('sets a correct React ref when not rendering as a Component');
     });
+  });
+
+  describe('isBrandColor', () => {
+    test.todo('Set up test for brand color from provider');
   });
 });

@@ -8,6 +8,7 @@ module.exports = {
     './src/base',
     './src/react',
     './src/import',
+    './src/jsx-a11y',
     './src/jest',
   ].map(require.resolve),
 };
