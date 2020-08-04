@@ -1,5 +1,4 @@
 {
-  "license": "MIT",
   "name": "cascara",
   "version": "1.0.0",
   "description": "Espressive's Functional Design System",
@@ -82,5 +81,6 @@
       "eslint --fix",
       "prettier --write"
     ]
-  }
+  },
+  "license": "CC0-1.0"
 }
