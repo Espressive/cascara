@@ -1,22 +1,21 @@
 {
-	"name": "@framer/gnuvbl2z.espressive-fds",
-	"version": "1.2.0",
-	"author": "Brian Espinosa <brian@espressive.com>",
-	"main": "dist/index.js",
-	"license": "MIT",
-	"devDependencies": {
-		"@types/react": "16.9.43",
-		"framer": "1.0"
-	},
-	"peerDependencies": {
-		"framer": "1.0",
-		"react": "16.13.1"
-	},
-	"framer": {
-		"displayName": "Espressive FDS",
-		"id": "aa84515c-4afd-4a71-8f69-9397595230c7"
-	},
-	"dependencies": {
-		"@framerjs/component-importer": "0.0.32"
-	}
+  "name": "@framer/gnuvbl2z.espressive-fds",
+  "version": "1.2.0",
+  "author": "Brian Espinosa <brian@espressive.com>",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "16.9.43",
+    "framer": "1.0"
+  },
+  "peerDependencies": {
+    "react": "16.13.1"
+  },
+  "framer": {
+    "displayName": "Espressive FDS",
+    "id": "aa84515c-4afd-4a71-8f69-9397595230c7"
+  },
+  "dependencies": {
+    "@framerjs/component-importer": "0.0.32"
+  }
 }
