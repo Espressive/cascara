@@ -11,7 +11,7 @@ import { Wrapper } from './Pagination.fixture';
 describe('Espressive UI Pagination', () => {
   afterEach(cleanup);
 
-  test('Renders with defaults', () => {
+  test('renders with defaults', () => {
     const snap = render(<Wrapper />).container;
 
     expect(snap).toMatchSnapshot();
@@ -25,8 +25,8 @@ describe('Espressive UI Pagination', () => {
   test('it renders!', () => {
     const { queryAllByText, getAllByRole } = render(<Wrapper />);
 
-    // The test dataset contains 500 items
-    const headers = queryAllByText('500 Total (Displaying 1 - 10)');
+    // The test dataset contains 100 items
+    const headers = queryAllByText('100 Total');
 
     // Default props are 1 and 10 for page and limit,
     // display range is from 1 to 10, because we are in page 1
@@ -71,7 +71,7 @@ describe('Espressive UI Pagination', () => {
 
     fireEvent.click(getAllByText('All')[0]);
 
-    const subheaders = queryAllByText('(Displaying 1 - 500)');
+    const subheaders = queryAllByText('(Displaying 1 - 100)');
     expect(subheaders).toHaveLength(2);
   });
 
@@ -83,7 +83,7 @@ describe('Espressive UI Pagination', () => {
         /**
          * We are cheating here, we need to pretend there's only 1 item
          * in order to test the singular form. */
-        totalItems={1}
+        recordCount={1}
       />
     );
 
@@ -96,7 +96,7 @@ describe('Espressive UI Pagination', () => {
       <Wrapper entityNamePlural='emails' entityNameSingular='email' />
     );
 
-    const subheaders = queryAllByText('500 emails');
+    const subheaders = queryAllByText('100 emails');
     expect(subheaders).toHaveLength(2);
   });
 });

@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import pt from 'prop-types';
 import classNames from 'classnames/bind';
 import { noop } from 'lodash';
 
-import { Button, Select, Header, Popup } from 'semantic-ui-react';
+import { Button, Header, Popup, Select } from 'semantic-ui-react';
 import styles from './Pagination.module.scss';
 
 const cx = classNames.bind(styles);
@@ -11,8 +11,8 @@ const cx = classNames.bind(styles);
 const propTypes = {
   /** Can render as a different tag or component */
   as: pt.oneOfType([pt.string, pt.node]),
-  /** the items collection length */
-  recordCount: pt.number,
+  /** current page */
+  currentPage: pt.number,
   /** entity name in plural form */
   entityNamePlural: pt.string,
   /** entity name in singular form */
@@ -23,8 +23,8 @@ const propTypes = {
   itemsPerPageLimit: pt.number,
   /** a message to be displayed when no items to display */
   notFoundMessage: pt.string,
-  /** current page */
-  currentPage: pt.number,
+  /** the items collection length */
+  recordCount: pt.number,
 };
 
 const Pagination = ({
@@ -68,8 +68,8 @@ const Pagination = ({
     }
 
     onPaginationChange({
-      page: newPage,
       limit: newitemsPerPageLimit,
+      page: newPage,
     });
   };
 
@@ -134,7 +134,8 @@ const Pagination = ({
     }));
 
   const itemsPerPageLimitSelect = () => (
-    <label className={cx({ label: true })}>
+    // eslint-disable-next-line jsx-a11y/label-has-for
+    <label className={cx({ label: true })} htmlFor={'itemsPerPageLimit'}>
       {`${entityNamePlural} per page:`}
       <Select
         className={cx({ select: true })}
@@ -150,7 +151,8 @@ const Pagination = ({
   );
 
   const pageSelect = () => (
-    <label className={cx({ label: true })}>
+    // eslint-disable-next-line jsx-a11y/label-has-for
+    <label className={cx({ label: true })} htmlFor={'page'}>
       {'Page '}
       <Select
         className={cx({ select: true })}
@@ -197,13 +199,13 @@ const Pagination = ({
       sub
     >
       {recordCount ? (
-        <Fragment>
+        <>
           {`${recordCount} ${entityName} `}
           {!className && <br />}
           <span className={cx({ fontWeightReset: true })}>
             {`(Displaying ${displayRangeStart} - ${displayRangeEnd})`}
           </span>
-        </Fragment>
+        </>
       ) : (
         <span className={cx({ fontWeightReset: true })}>{notFoundMessage}</span>
       )}
@@ -219,13 +221,13 @@ const Pagination = ({
       sub
     >
       {recordCount ? (
-        <Fragment>
+        <>
           <span className={cx({ fontWeightReset: true })}>{'Displaying '}</span>
           {`${displayRangeStart} - ${displayRangeEnd}`}
           <span className={cx({ fontWeightReset: true })}>
             {` of ${recordCount}`}
           </span>
-        </Fragment>
+        </>
       ) : (
         <span className={cx({ fontWeightReset: true })}>{notFoundMessage}</span>
       )}

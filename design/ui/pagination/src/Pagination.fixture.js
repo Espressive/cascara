@@ -1,68 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { List, Table } from 'semantic-ui-react';
 
 import { Pagination } from './Pagination';
 import fixtureData from './fixtureData';
-
-const sharedPropTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      first_name: PropTypes.string,
-      last_name: PropTypes.string,
-      email: PropTypes.string,
-      job_title: PropTypes.string,
-      avatar: PropTypes.string,
-    })
-  ).isRequired,
-};
-
-/**
- * An example on how to separate the content
- * from the pagination.
- */
-const CustomTable = ({ data }) => (
-  <Table celled padded style={{ paddingTop: '0' }}>
-    <Table.Header>
-      <Table.Row>
-        {Object.keys(data[0]).map((field) => (
-          <Table.HeaderCell key={field}>{field}</Table.HeaderCell>
-        ))}
-      </Table.Row>
-    </Table.Header>
-    <Table.Body>
-      {data.map((row) => (
-        <Table.Row key={row.id}>
-          {Object.keys(row).map((field) => (
-            <Table.Cell key={field}>
-              {field === 'avatar' ? (
-                <img src={row[field]} alt='employee' />
-              ) : (
-                row[field]
-              )}
-            </Table.Cell>
-          ))}
-        </Table.Row>
-      ))}
-    </Table.Body>
-  </Table>
-);
-CustomTable.propTypes = sharedPropTypes;
-
-export const CustomList = ({ data }) => (
-  <List relaxed>
-    {data.map((item) => (
-      <List.Item key={item.id}>
-        <List.Content>
-          <List.Header as='a'>{`${item.first_name} ${item.last_name}`}</List.Header>
-          <List.Description>{item.job_title}</List.Description>
-        </List.Content>
-      </List.Item>
-    ))}
-  </List>
-);
-CustomList.propTypes = sharedPropTypes;
+import CustomList from './Pagination.CustomList.fixture';
+import CustomTable from './Pagination.CustomTable.fixture';
 
 /**
  * Since the behaviour of our commponent depends on its input, we must create an
@@ -91,9 +33,9 @@ export class Wrapper extends PureComponent {
   };
 
   state = {
+    currentPage: 1,
     data: [].concat(fixtureData).slice(0, 10),
     itemsPerPageLimit: 10,
-    currentPage: 1,
     rawData: [].concat(fixtureData),
   };
 
@@ -108,9 +50,9 @@ export class Wrapper extends PureComponent {
     const data = [].concat(rawData).slice(sliceFrom, displayTo);
 
     this.setState({
+      currentPage,
       data,
       itemsPerPageLimit,
-      currentPage,
     });
   };
 
@@ -125,12 +67,12 @@ export class Wrapper extends PureComponent {
 
     return (
       <Pagination
+        currentPage={currentPage}
         entityNamePlural={entityNamePlural}
         entityNameSingular={entityNameSingular}
         isLoading={false}
         itemsPerPageLimit={itemsPerPageLimit}
         onPaginationChange={this.handlePaginationChange}
-        currentPage={currentPage}
         recordCount={recordCount}
       >
         {variant === 'table' && <CustomTable data={data} />}
@@ -141,20 +83,20 @@ export class Wrapper extends PureComponent {
 }
 
 export default {
-  table: (
-    <Wrapper
-      entityNamePlural={'Employees'}
-      entityNameSingular={'Employee'}
-      recordCount={100}
-      variant={'table'}
-    />
-  ),
   list: (
     <Wrapper
       entityNamePlural={'Employees'}
       entityNameSingular={'Employee'}
       recordCount={100}
       variant={'list'}
+    />
+  ),
+  table: (
+    <Wrapper
+      entityNamePlural={'Employees'}
+      entityNameSingular={'Employee'}
+      recordCount={100}
+      variant={'table'}
     />
   ),
 };

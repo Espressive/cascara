@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Espressive UI Pagination Renders with defaults 1`] = `
+exports[`Espressive UI Pagination renders with defaults 1`] = `
 <div>
   <div
     class="_"
@@ -20,6 +20,7 @@ exports[`Espressive UI Pagination Renders with defaults 1`] = `
     >
       <label
         class="label"
+        for="itemsPerPageLimit"
       >
         Total per page:
         <div
@@ -120,6 +121,7 @@ exports[`Espressive UI Pagination Renders with defaults 1`] = `
       </label>
       <label
         class="label"
+        for="page"
       >
         Page 
         <div
@@ -751,6 +753,7 @@ exports[`Espressive UI Pagination Renders with defaults 1`] = `
     >
       <label
         class="label"
+        for="itemsPerPageLimit"
       >
         Total per page:
         <div
@@ -851,6 +854,7 @@ exports[`Espressive UI Pagination Renders with defaults 1`] = `
       </label>
       <label
         class="label"
+        for="page"
       >
         Page 
         <div
