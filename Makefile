@@ -5,6 +5,7 @@ RM=rm -rf
 all:
 	yarn install
 	yarn workspace button build
+	yarn workspace pagination build
 
 watch:
 	yarn workspace $(P) watch
@@ -15,3 +16,4 @@ build:
 clean:
 	$(RM) yarn.lock node_modules
 	yarn workspace button clean
+	yarn workspace pagination clean
