@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, fireEvent, render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 /**
@@ -9,8 +9,6 @@ import '@testing-library/jest-dom/extend-expect';
 import { Wrapper } from './Pagination.fixture';
 
 describe('Espressive UI Pagination', () => {
-  afterEach(cleanup);
-
   test('renders with defaults', () => {
     const snap = render(<Wrapper />).container;
 

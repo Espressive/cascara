@@ -1,5 +1,3 @@
-RM=rm -rf
-
 .PHONY: all clean
 
 all:
@@ -14,6 +12,5 @@ build:
 	yarn workspace $(P) build
 
 clean:
-	$(RM) yarn.lock node_modules
 	yarn workspace button clean
 	yarn workspace pagination clean
