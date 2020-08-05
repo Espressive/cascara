@@ -57,8 +57,8 @@
 
 ## Make
 
-- [ ] Set up common commands and make recipes area to simplify tooling maintenance and process
-- [ ] Reusable package-scoped commands with wildcards (start, build, etc)
+- [x] Set up common commands and make recipes area to simplify tooling maintenance and process
+- [x] Reusable package-scoped commands with wildcards (start, build, etc)
 - [ ] Doc generation and build/serve commands
 - [ ] Centralized "help" available from all make command groups
 
