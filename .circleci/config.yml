@@ -82,7 +82,7 @@ jobs:
           at: ~/
       - run:
           name: Build
-          command: yarn workspace button run build && yarn docz:build
+          command: make
       - slack/status:
           fail_only: true
           include_project_field: false
