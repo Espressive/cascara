@@ -1,6 +1,6 @@
 # babel-preset-espressive
 
-Babel preset used by Espressive
+Babel preset used by Espressive in CRA/react-scripts applications. Not used for building runtimes of libraries like Cascara.
 
 ## Getting Started
 

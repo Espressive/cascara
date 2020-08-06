@@ -25,15 +25,3 @@ There are a couple assumptions here:
 ### All Fixtures Exist In A `/src` At The Root Of A Yarn Workspace
 
 We are specifically not looking at code in any other location for a fixture. Fixtures should be colocated with the component they are being used to develop so this should not be an issue.
-
-## Running Cosmos In A Package
-
-If you would like to only run Cosmos on a specific package, this is also possible, but it means bringing your own cosmos.config.json and placing it in the package to make it work. There is a file called `cosmos.config.js.tpl` that can be copied into any package folder and removing the `.tpl` suffix. When running from the package directory, this should pick up all Cosmos for that particular package only.
-
-The default [React Cosmos recommended config file](https://github.com/react-cosmos/react-cosmos/tree/master/docs#create-react-app) for `react-scripts` works just fine if there are fixtures inside of a workspace application building with `react-scripts`.
-
-## `react-scripts` Is A Package Dependency
-
-In order to use the same build infrastructure for `react-scripts` it also needs to be a dependency on any package that wants to use this global configuration. That means the the package level and also the root of the monorepo level.
-
-There is a check that happens in `react-scripts` to make sure this dependency is present. Unless we override that check in the future, that means the dependency must be declared.

@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
 const workspaces = require('../package.json').workspaces;
-const cosmosConfig = require('../cosmos.config.json');
+const cosmosConfig = require('./config.json');
 
 // NOTE: This custom file is for running Cosmos with npx as a binary in conjunction
 // with react-scripts from the root of a monorepo that uses Yarn workspaces.
