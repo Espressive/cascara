@@ -1,0 +1,105 @@
+._ {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 50px 1fr 50px;
+  gap: 0px 0px;
+  grid-template-areas: 'hback header hfrwd' 'content content content' 'fback footer ffrwd';
+
+  .content {
+    grid-area: content;
+    overflow-x: scroll;
+    padding: 1em 0;
+  }
+  .select {
+    margin-right: '0.5em';
+  }
+  .label {
+    margin: '0 0.5em 0 0';
+  }
+  .textTransformReset {
+    text-transform: 'none';
+  }
+  .fontWeightReset {
+    font-weight: 'normal';
+  }
+  .headerBackButton {
+    grid-area: hback;
+  }
+  .headerFrwdButton {
+    grid-area: hfrwd;
+  }
+  .footerBackButton {
+    grid-area: fback;
+  }
+  .footerFrwdButton {
+    grid-area: ffrwd;
+  }
+  .mobileFooter {
+    grid-area: footer;
+    text-align: center;
+    margin-top: 0.5em;
+  }
+  .mobileHeader {
+    grid-area: header;
+    text-align: center;
+  }
+
+  .headerTotals,
+  .headerNav,
+  .footerNav,
+  .footerTotals {
+    display: none;
+  }
+
+  .mobilePageNav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 897px) {
+    grid-template-columns: 3fr 5fr 40px 40px;
+    grid-template-rows: 40px max-content 40px;
+    grid-template-areas: 'header hnav hback hfrwd' 'content content content content' 'footer fnav fback ffrwd';
+
+    .headerTotals {
+      display: block;
+      grid-area: header;
+      margin: 0.75em 0 !important;
+    }
+    .headerNav {
+      display: block;
+      grid-area: hnav;
+      text-align: right;
+    }
+    .headerBackButton {
+      display: block;
+      grid-area: hback;
+    }
+    .headerFrwdButton {
+      display: block;
+      grid-area: hfrwd;
+    }
+    .footerTotals {
+      display: block;
+      grid-area: footer;
+      margin: 0.75em 0 !important;
+    }
+    .footerNav {
+      display: block;
+      grid-area: fnav;
+      text-align: right;
+    }
+    .footerBackButton {
+      display: block;
+      grid-area: fback;
+    }
+    .footerFrwdButton {
+      display: block;
+      grid-area: ffrwd;
+    }
+    .mobileHeader,
+    .mobileFooter {
+      display: none;
+    }
+  }
+}

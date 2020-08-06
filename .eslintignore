@@ -1,4 +1,6 @@
+build
 dist
 es
 *.framerfx
 *.disabled.js
+src/tokens/theme

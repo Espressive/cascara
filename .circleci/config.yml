@@ -67,7 +67,7 @@ jobs:
           at: ~/
       - run:
           name: Build
-          command: npx -p react-cosmos cosmos-export
+          command: yarn cosmos:build
       - slack/status:
           fail_only: true
           include_project_field: false

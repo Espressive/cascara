@@ -1,6 +1,6 @@
 {
   "name": "cascara",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Espressive's Functional Design System",
   "repository": "https://github.com/Espressive/cascara.git",
   "author": "Brian Espinosa <brian@espressive.com>",
@@ -10,9 +10,9 @@
   },
   "workspaces": {
     "packages": [
-      "apps/*",
-      "configs/*",
-      "design/**/*"
+      "framer/*",
+      "src/**/*",
+      "utils/*"
     ]
   },
   "dependencies": {
@@ -22,15 +22,14 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "app-admin": "yarn --cwd apps/admin start",
-    "app-main": "yarn --cwd apps/main start",
-    "cosmos": "npx react-cosmos",
+    "cosmos": "npx react-cosmos --config .cosmos/config.json",
+    "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
     "docz:start": "rm -rf .docz && docz dev",
     "docz:build": "docz build && echo 'User-agent: *\nDisallow: /' > build/docs/robots.txt",
     "docz:serve": "docz build && docz serve",
     "framer:publish": "dotenv npx framer-cli publish",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "jest --config .jest/config.js",
+    "test:watch": "yarn test --watch",
     "lint": "eslint ./",
     "tokens": "style-dictionary build -c ./tokens.config.json"
   },
@@ -79,8 +78,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,mdx,html,css,scss}": [
       "prettier --write"
     ]
   },
