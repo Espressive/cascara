@@ -10,7 +10,6 @@
   },
   "workspaces": {
     "packages": [
-      "apps/*",
       "configs/*",
       "design/**/*"
     ]
@@ -79,7 +78,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": [
+    "*.{js,jsx,ts,tsx,md}": [
       "eslint --fix",
       "prettier --write"
     ]
