@@ -123,7 +123,7 @@ export default {
     <Admin>
       <Admin.Header />
       <Admin.Nav>{longContent}</Admin.Nav>
-      <Admin.Main>Hey</Admin.Main>
+      <Admin.Main>{longContent}</Admin.Main>
     </Admin>
   ),
 };

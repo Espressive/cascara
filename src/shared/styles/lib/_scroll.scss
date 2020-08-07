@@ -32,3 +32,9 @@
 
   @extend %scrollbars;
 }
+
+@mixin all {
+  overflow: scroll;
+
+  @extend %scrollbars;
+}

@@ -1,6 +1,19 @@
-@use '../../../shared/styles/scroll';
+@use '../cascara';
 
 :global html[data-layout='admin'] {
+  // For performance reasons, we may want to consider importing and setting these
+  // separately, maybe with some loading styles. Otherwise we will have a flash of
+  // elements internally that do not have the data-layout attribute present yet
+  // we have un-grid elements popping on the screen
+
+  --brand-primary-color: purple;
+  --brand-secondary-color: yellow;
+
+  @media (prefers-color-scheme: dark) {
+    --brand-primary-color: red;
+    --brand-secondary-color: orange;
+  }
+
   & body,
   & #root {
     background-color: red;
@@ -20,17 +33,17 @@
 
 .Header {
   grid-area: header;
-  background-color: blue;
+  background-color: cascara.$secondary;
 }
 
 .Nav {
-  @include scroll.vertical;
+  @include cascara.scroll-vertical;
   grid-area: nav;
   background-color: grey;
 }
 
 .Main {
-  @include scroll.vertical;
+  @include cascara.scroll-vertical;
   grid-area: main;
   background-color: green;
 }
