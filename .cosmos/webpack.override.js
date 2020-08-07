@@ -48,8 +48,27 @@ module.exports = (webpackConfig, env, whatev) => {
     return allPackages;
   };
 
-  // NOTE: This might need to be something we replace in the whole original webpack
+  // NOTE: This section below might need to be something we replace in the whole original webpack
   // config if there are other loaders that do not work as expected like images or fonts.
+
+  // Set sass-loader to use dart-sass for faster compiling, and also to get `@use`
+  const sassLoaderOptions = {
+    sourceMap: true,
+    // Prefer dart-sass (sass)
+    implementation: require('sass'),
+    sassOptions: {
+      // This is where we might enable or disable fiber for dart-sass
+      // https://webpack.js.org/loaders/sass-loader/#implementation
+      fiber: true,
+      // fiber: require('fibers'),
+    },
+  };
+
+  // Set for regular SCSS
+  webpackConfig.module.rules[2].oneOf[5].use[4].options = sassLoaderOptions;
+
+  // Set for SCSS with CSS modules
+  webpackConfig.module.rules[2].oneOf[6].use[4].options = sassLoaderOptions;
 
   // Change the babel preset this configuration is using. This extends the babel CRA preset.
   webpackConfig.module.rules[2].oneOf[1].options.presets = [

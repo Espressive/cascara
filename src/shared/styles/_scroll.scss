@@ -1,0 +1,21 @@
+@mixin vertical {
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 0.15em solid rgba(0, 0, 0, 0);
+    border-radius: 1em;
+    box-shadow: inset 0 0 0 0.05em rgba(255, 255, 255, 0.5);
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 0.8em;
+    }
+  }
+}
