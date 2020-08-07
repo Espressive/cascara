@@ -14,7 +14,6 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 module.exports = (webpackConfig, env, whatev) => {
-  const isEnvDevelopment = env === 'development';
   // react-scripts defines a single appSrc to be processed in their rules. This is fine
   // for almost all of our use cases... except for JS where we need Babel to process our
   // code the same way as it does in a CRA project. So we need to extend the rule to look
@@ -60,7 +59,7 @@ module.exports = (webpackConfig, env, whatev) => {
     sassOptions: {
       // This is where we might enable or disable fiber for dart-sass
       // https://webpack.js.org/loaders/sass-loader/#implementation
-      fiber: isEnvDevelopment,
+      fiber: false,
     },
   };
 
