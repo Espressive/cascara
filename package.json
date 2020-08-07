@@ -57,6 +57,7 @@
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react": "7.20.5",
     "eslint-plugin-react-hooks": "4.0.8",
+    "fiber": "1.0.4",
     "history": "5.0.0",
     "husky": "1.3.1",
     "identity-obj-proxy": "3.0.0",
