@@ -1,0 +1,49 @@
+@use '../cascara';
+
+:global html[data-layout='admin'] {
+  // For performance reasons, we may want to consider importing and setting these
+  // separately, maybe with some loading styles. Otherwise we will have a flash of
+  // elements internally that do not have the data-layout attribute present yet
+  // we have un-grid elements popping on the screen
+
+  --brand-primary-color: purple;
+  --brand-secondary-color: yellow;
+
+  @media (prefers-color-scheme: dark) {
+    --brand-primary-color: red;
+    --brand-secondary-color: orange;
+  }
+
+  & body,
+  & #root {
+    background-color: red;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  & #root {
+    display: grid;
+    grid-template-columns: 12em auto;
+    grid-template-rows: 4em auto;
+    grid-template-areas:
+      'header header'
+      'nav main';
+  }
+}
+
+.Header {
+  grid-area: header;
+  background-color: cascara.$secondary;
+}
+
+.Nav {
+  @include cascara.scroll-vertical;
+  grid-area: nav;
+  background-color: grey;
+}
+
+.Main {
+  @include cascara.scroll-vertical;
+  grid-area: main;
+  background-color: green;
+}

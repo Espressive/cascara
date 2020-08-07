@@ -3,5 +3,6 @@
 // See https://babeljs.io/docs/en/presets#creating-a-preset
 
 module.exports = () => ({
+  plugins: [require('@babel/plugin-proposal-export-default-from')],
   presets: [require('babel-preset-react-app')],
 });
