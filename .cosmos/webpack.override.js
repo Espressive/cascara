@@ -51,6 +51,11 @@ module.exports = (webpackConfig, env, whatev) => {
   // NOTE: This might need to be something we replace in the whole original webpack
   // config if there are other loaders that do not work as expected like images or fonts.
 
+  // Change the babel preset this configuration is using. This extends the babel CRA preset.
+  webpackConfig.module.rules[2].oneOf[1].options.presets = [
+    require.resolve('babel-preset-espressive'),
+  ];
+
   // Change the original string for application appSrc to an array.
   webpackConfig.module.rules[2].oneOf[1].include = allSrc(workspaces.packages);
 
