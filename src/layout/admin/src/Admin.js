@@ -13,7 +13,7 @@ const Admin = ({ children }) => {
   useSetLayoutAttribute('admin');
 
   // We only want to return the children in the root node and set styles on the #root
-  return children;
+  return children || null;
 };
 
 Admin.propTypes = propTypes;
