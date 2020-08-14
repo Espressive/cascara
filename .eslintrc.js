@@ -2,5 +2,13 @@
 
 module.exports = {
   extends: 'espressive',
+  overrides: [
+    {
+      files: './app-tests/next-*/**/*',
+      rules: {
+        'react/react-in-jsx-scope': 0,
+      },
+    },
+  ],
   root: true,
 };
