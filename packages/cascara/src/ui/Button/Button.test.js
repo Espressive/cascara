@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Link, Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
-import { Button } from './Button';
+import Button from './';
 
 describe('Button', () => {
   describe('default', () => {
