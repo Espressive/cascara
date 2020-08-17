@@ -1,6 +1,9 @@
+import '@espressive/legacy-css';
 import Head from 'next/head';
 import pkg from '../../package';
 import styles from '../styles/Home.module.css';
+
+import { Button } from '@espressive/cascara';
 
 export default function Home() {
   return (
@@ -13,7 +16,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>{pkg.name}</h1>
 
-        <p>Do stuff here.</p>
+        <Button content='Test' />
       </main>
     </div>
   );

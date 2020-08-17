@@ -5,7 +5,7 @@
   "module": "es/index.js",
   "files": [
     "cjs",
-    "dist"
+    "es"
   ],
   "license": "MIT",
   "sideEffects": false,
