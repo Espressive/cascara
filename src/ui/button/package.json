@@ -1,20 +1,21 @@
 {
   "name": "button",
   "version": "0.1.0",
+  "main": "cjs/index.js",
   "module": "es/index.js",
-  "main": "dist/index.js",
+  "license": "MIT",
+  "files": [
+    "cjs",
+    "dist"
+  ],
   "sideEffects": false,
   "dependencies": {
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
+    "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1",
-    "react": "16.13.1",
     "reakit": "1.1.2"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "normalize.css": "8.0.1"
   },
   "scripts": {
     "clean": "rm -rf dist && rm -rf es",
