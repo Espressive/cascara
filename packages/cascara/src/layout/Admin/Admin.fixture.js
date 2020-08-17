@@ -1,5 +1,5 @@
 import React from 'react';
-import Admin from './';
+import { Admin } from '../../../src';
 
 const longContent = (
   <ul>

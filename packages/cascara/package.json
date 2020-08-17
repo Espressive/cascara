@@ -1,13 +1,13 @@
 {
-  "name": "button",
+  "name": "cascara",
   "version": "0.1.0",
   "main": "cjs/index.js",
   "module": "es/index.js",
-  "license": "MIT",
   "files": [
     "cjs",
     "dist"
   ],
+  "license": "MIT",
   "sideEffects": false,
   "dependencies": {
     "classnames": "2.2.6",
@@ -16,6 +16,9 @@
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1",
     "reakit": "1.1.2"
+  },
+  "peerDependencies": {
+    "semantic-ui-react": "0.88.2"
   },
   "scripts": {
     "clean": "rm -rf dist && rm -rf es",

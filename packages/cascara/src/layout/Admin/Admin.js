@@ -2,7 +2,7 @@ import pt from 'prop-types';
 import AdminHeader from './AdminHeader';
 import AdminMain from './AdminMain';
 import AdminNav from './AdminNav';
-import useSetLayoutAttribute from '../../../shared/hooks/useSetLayoutAttribute';
+import useSetLayoutAttribute from '../../shared/hooks/useSetLayoutAttribute';
 
 const propTypes = {
   children: pt.node,

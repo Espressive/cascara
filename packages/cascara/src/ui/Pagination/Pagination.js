@@ -293,4 +293,4 @@ const Pagination = ({
 
 Pagination.propTypes = propTypes;
 
-export { Pagination };
+export default Pagination;

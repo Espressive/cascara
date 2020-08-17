@@ -1,4 +1,4 @@
-@use '../cascara';
+@use 'cascara';
 
 :global html[data-layout='admin'] {
   // For performance reasons, we may want to consider importing and setting these

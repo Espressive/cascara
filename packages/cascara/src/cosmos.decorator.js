@@ -5,9 +5,9 @@
 // adding something we need. If a fixture has unique needs, a decorater can be
 // created in child directories to extend this further.
 
-// import React, { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import 'espressive-legacy-css';
 import 'normalize.css';
 
 // export is needed or else this decorator mutes all fixture children
-export default ({ children }) => children;
+export default ({ children }) => <StrictMode>{children}</StrictMode>;

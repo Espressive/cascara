@@ -4,6 +4,7 @@
 coverage
 build
 dist
+cjs
 es
 lerna-debug.log
 node_modules

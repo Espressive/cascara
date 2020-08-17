@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { Pagination } from './Pagination';
+import { Pagination } from '../../../src';
 import fixtureData from './fixtureData';
 import CustomList from './Pagination.CustomList.fixture';
 import CustomTable from './Pagination.CustomTable.fixture';

@@ -2,8 +2,7 @@
 
 all:
 	yarn install
-	yarn workspace button build
-	yarn workspace pagination build
+	yarn workspace cascara build
 
 watch:
 	yarn workspace $(P) watch

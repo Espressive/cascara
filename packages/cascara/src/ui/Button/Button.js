@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import pt from 'prop-types';
 import React from 'react';
 import { Button as ReakitButton } from 'reakit';
-import { getSafeLinkRel } from '../../../shared/linkUtils';
+import { getSafeLinkRel } from '../../shared/linkUtils';
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
@@ -53,4 +53,4 @@ const Button = ({
 };
 Button.propTypes = propTypes;
 
-export { Button };
+export default Button;
