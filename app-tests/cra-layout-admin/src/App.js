@@ -1,9 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import { Admin } from '@espressive/cascara';
 
 function App() {
-  console.warn(process.env);
   return (
     <Admin>
       <Admin.Header>

@@ -4,7 +4,6 @@ import './App.css';
 import { Button } from '@espressive/cascara';
 
 function App() {
-  console.warn(process.env);
   return (
     <div className='App'>
       <header className='App-header'>
