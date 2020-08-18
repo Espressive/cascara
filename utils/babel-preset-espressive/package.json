@@ -9,8 +9,7 @@
     "url": "ssh://git@github.com:Espressive/cascara.git"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "files": [
     "index.js",

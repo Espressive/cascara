@@ -9,8 +9,7 @@
     "url": "ssh://git@github.com:Espressive/cascara.git"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "files": [
     "cjs",
@@ -21,6 +20,9 @@
   "dependencies": {
     "classnames": "2.2.6",
     "reakit": "1.1.2"
+  },
+  "devDependencies": {
+    "@espressive/legacy-css": "link:utils/legacy-css"
   },
   "peerDependencies": {
     "prop-types": "15.7.2",
