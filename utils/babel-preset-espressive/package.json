@@ -1,15 +1,15 @@
 {
   "name": "babel-preset-espressive",
-  "version": "0.1.1-alpha.0",
+  "version": "0.1.0",
   "description": "Babel preset used by Espressive",
   "license": "MIT",
   "repository": {
+    "directory": "utils/babel-preset-espressive",
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git"
   },
   "publishConfig": {
     "access": "public",
-    "directory": "utils/babel-preset-espressive",
     "registry": "https://npm.pkg.github.com/"
   },
   "files": [

@@ -4,12 +4,12 @@
   "main": "cjs/index.js",
   "module": "es/index.js",
   "repository": {
+    "directory": "packages/cascara",
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git"
   },
   "publishConfig": {
     "access": "public",
-    "directory": "packages/cascara",
     "registry": "https://npm.pkg.github.com/"
   },
   "files": [
