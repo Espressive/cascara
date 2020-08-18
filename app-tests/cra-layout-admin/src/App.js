@@ -1,18 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
-import { Button } from '@espressive/cascara';
+import { Admin } from '@espressive/cascara';
 
 function App() {
   console.warn(process.env);
   return (
-    <div className='App'>
-      <header className='App-header'>
+    <Admin>
+      <Admin.Header>
         <h1>{process.env.REACT_APP_NAME}</h1>
-        <img src={logo} className='App-logo' alt='logo' />
-        <Button content='Positive Cascara Button' outcome='positive' />
-      </header>
-    </div>
+      </Admin.Header>
+      <Admin.Nav>{'Admin.Nav'}</Admin.Nav>
+      <Admin.Main>{'Admin.Main'}</Admin.Main>
+    </Admin>
   );
 }
 

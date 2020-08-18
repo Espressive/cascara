@@ -15,13 +15,15 @@
   }
 
   & body,
-  & #root {
+  & #root,
+  & #__next {
     background-color: red;
     height: 100%;
     overflow: hidden;
   }
 
-  & #root {
+  & #root,
+  & #__next {
     display: grid;
     grid-template-columns: 12em auto;
     grid-template-rows: 4em auto;

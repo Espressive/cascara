@@ -1,22 +1,23 @@
 import Head from 'next/head';
 import pkg from '../../package';
-import styles from '../styles/Home.module.css';
 
-import { Button } from '@espressive/cascara';
+import { Admin } from '@espressive/cascara';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Admin>
       <Head>
         <title>{pkg.name}</title>
         <link href='/favicon.ico' rel='icon' />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>{pkg.name}</h1>
+      <Admin.Header>
+        <h1>{pkg.name}</h1>
+      </Admin.Header>
 
-        <Button content='Positive Cascara Button' outcome='positive' />
-      </main>
-    </div>
+      <Admin.Nav>{'Admin.Nav'}</Admin.Nav>
+
+      <Admin.Main>{'Admin.Main'}</Admin.Main>
+    </Admin>
   );
 }
