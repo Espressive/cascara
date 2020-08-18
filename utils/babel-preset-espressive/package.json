@@ -21,5 +21,6 @@
     "@babel/core": "7.10.5",
     "@babel/plugin-proposal-export-default-from": "7.10.4",
     "babel-preset-react-app": "9.1.2"
-  }
+  },
+  "gitHead": "b8e3e64ff35d25f5dd0590fe9e974d364b37c4ab"
 }
