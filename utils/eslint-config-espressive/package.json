@@ -1,5 +1,5 @@
 {
-  "name": "@espressive/eslint-config-espressive",
+  "name": "eslint-config-espressive",
   "version": "1.0.0",
   "description": "Eslint config used by Espressive",
   "license": "MIT",
