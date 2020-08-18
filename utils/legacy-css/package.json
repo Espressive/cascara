@@ -9,6 +9,9 @@
     "url": "ssh://git@github.com:Espressive/cascara.git",
     "directory": "utils/legacy-css"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "src"
   ]

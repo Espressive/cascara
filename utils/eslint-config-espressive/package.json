@@ -8,6 +8,9 @@
     "url": "ssh://git@github.com:Espressive/cascara.git",
     "directory": "utils/eslint-config-espressive"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "index.js",
     "src"
