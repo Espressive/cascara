@@ -35,5 +35,5 @@
     "build": "yarn clean && rollup -c",
     "watch": "rollup -c -w"
   },
-  "gitHead": "e4f977de0664626a19f30e07917ca11e68e316c1"
+  "gitHead": "dc2c4fba74154dc88682ecf673f3d19f9fa43113"
 }
