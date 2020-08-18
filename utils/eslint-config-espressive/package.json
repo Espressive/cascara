@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-espressive",
-  "version": "0.1.1-alpha.2",
+  "version": "0.1.1-alpha.3",
   "description": "Eslint config used by Espressive",
   "license": "MIT",
   "repository": {
