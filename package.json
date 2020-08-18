@@ -16,8 +16,6 @@
     ]
   },
   "devDependencies": {
-    "@espressive/babel-preset-espressive": "file:utils/babel-preset-espressive",
-    "@espressive/eslint-config-espressive": "file:utils/eslint-config-espressive",
     "@babel/core": "7.11.0",
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/plugin-proposal-export-default-from": "7.10.4",
@@ -26,6 +24,9 @@
     "@babel/plugin-transform-runtime": "7.11.0",
     "@babel/preset-env": "7.11.0",
     "@babel/preset-react": "7.10.4",
+    "@babel/runtime": "7.11.2",
+    "@espressive/babel-preset-espressive": "file:utils/babel-preset-espressive",
+    "@espressive/eslint-config-espressive": "file:utils/eslint-config-espressive",
     "@rollup/plugin-babel": "5.1.0",
     "@rollup/plugin-node-resolve": "9.0.0",
     "@testing-library/jest-dom": "5.11.2",
