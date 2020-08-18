@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "Babel preset used by Espressive",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Espressive/cascara.git",
+    "directory": "utils/babel-preset-espressive"
+  },
+  "files": [
+    "index.js",
+    "src"
+  ],
   "dependencies": {
     "@babel/cli": "7.10.5",
     "@babel/core": "7.10.5",

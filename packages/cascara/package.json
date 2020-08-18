@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "main": "cjs/index.js",
   "module": "es/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Espressive/cascara.git",
+    "directory": "packages/cascara"
+  },
   "files": [
     "cjs",
     "es"
