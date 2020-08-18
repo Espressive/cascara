@@ -5,7 +5,6 @@
   "repository": "https://github.com/Espressive/cascara.git",
   "author": "Brian Espinosa <brian@espressive.com>",
   "license": "CC0-1.0",
-  "private": true,
   "engines": {
     "node": "^14.5.0"
   },
