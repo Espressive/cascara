@@ -1,7 +1,7 @@
 {
   "name": "babel-preset-espressive",
   "version": "0.1.1-alpha.0",
-  "description": "Babel preset used by Espressive",
+  "description": "Babel preset used by Espressive test",
   "license": "MIT",
   "repository": {
     "directory": "utils/babel-preset-espressive",
