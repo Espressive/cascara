@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.184+7aa46de",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "repository": {
@@ -10,6 +10,7 @@
   },
   "publishConfig": {
     "access": "public",
+    "directory": "packages/cascara",
     "registry": "https://npm.pkg.github.com/"
   },
   "files": [
@@ -32,5 +33,6 @@
     "clean": "rm -rf dist && rm -rf cjs && rm -rf es",
     "build": "yarn clean && rollup -c",
     "watch": "rollup -c -w"
-  }
+  },
+  "gitHead": "7aa46de61da4cdfd6174e898da6cd2d89bfafc95"
 }
