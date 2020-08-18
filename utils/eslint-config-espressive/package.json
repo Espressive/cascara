@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-espressive",
   "version": "0.1.1-alpha.1",
-  "description": "Eslint config used by Espressive test",
+  "description": "Eslint config used by Espressive",
   "license": "MIT",
   "repository": {
     "directory": "utils/eslint-config-espressive",

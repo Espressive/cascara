@@ -1,6 +1,6 @@
 {
   "name": "@espressive/legacy-css",
-  "description": "Legacy custom compiled CSS for Espressive test",
+  "description": "Legacy custom compiled CSS for Espressive",
   "version": "0.1.1-alpha.1",
   "main": "src/css/semantic.min.css",
   "license": "MIT",
