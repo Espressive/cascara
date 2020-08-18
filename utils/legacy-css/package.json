@@ -4,7 +4,6 @@
   "version": "0.1.1-alpha.1",
   "main": "src/css/semantic.min.css",
   "license": "MIT",
-  "private": true,
   "repository": {
     "directory": "utils/legacy-css",
     "type": "git",
