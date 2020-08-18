@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Espressive/cascara.git",
+    "url": "ssh://git@github.com:Espressive/cascara.git",
     "directory": "utils/babel-preset-espressive"
   },
   "files": [
