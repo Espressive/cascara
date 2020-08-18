@@ -9,7 +9,8 @@
     "directory": "utils/eslint-config-espressive"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "files": [
     "index.js",

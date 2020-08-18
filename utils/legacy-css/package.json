@@ -10,7 +10,8 @@
     "directory": "utils/legacy-css"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "files": [
     "src"
