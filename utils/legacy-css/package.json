@@ -6,8 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:Espressive/cascara.git",
-    "directory": "utils/legacy-css"
+    "url": "ssh://git@github.com:Espressive/cascara.git"
   },
   "publishConfig": {
     "access": "public",

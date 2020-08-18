@@ -5,8 +5,7 @@
   "module": "es/index.js",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:Espressive/cascara.git",
-    "directory": "packages/cascara"
+    "url": "ssh://git@github.com:Espressive/cascara.git"
   },
   "publishConfig": {
     "access": "public",
