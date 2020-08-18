@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-espressive",
-  "version": "0.1.1-alpha.4",
+  "version": "0.1.1-alpha.5",
   "description": "Eslint config used by Espressive",
   "license": "MIT",
   "repository": {
@@ -10,7 +10,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://npm.pkg.github.com/"
   },
   "files": [
     "index.js",
@@ -32,5 +32,5 @@
   "engines": {
     "node": "^10.12.0 || >=12.0.0"
   },
-  "gitHead": "418a03f72b4da643dc10dfe5399f3a98cd57130c"
+  "gitHead": "6713ce343344c9d4660e72a51ad0c61639abcd4e"
 }
