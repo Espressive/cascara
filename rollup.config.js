@@ -53,13 +53,13 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
     },
     external,
     plugins: [
-      nodeResolve(),
       babel(
         getBabelOptions({
           babelConfigFile,
           useESModules: false,
         })
       ),
+      nodeResolve(),
       postcss(getPostCSSOptions()),
     ],
   };
@@ -73,13 +73,13 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
     },
     external,
     plugins: [
-      nodeResolve(),
       babel(
         getBabelOptions({
           babelConfigFile,
           useESModules: true,
         })
       ),
+      nodeResolve(),
       postcss(getPostCSSOptions()),
     ],
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Button } from '../../../packages/cascara';
+import { Button } from '@espressive/cascara';
 
 function App() {
   console.warn(process.env);
@@ -10,7 +10,7 @@ function App() {
       <header className='App-header'>
         <h1>{process.env.REACT_APP_NAME}</h1>
         <img src={logo} className='App-logo' alt='logo' />
-        <Button></Button>
+        <Button content='Positive Cascara Button' outcome='positive' />
       </header>
     </div>
   );

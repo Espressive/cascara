@@ -1,3 +1,5 @@
+import '@espressive/legacy-css';
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }

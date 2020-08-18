@@ -8,8 +8,10 @@
     "serve": "next start"
   },
   "dependencies": {
+    "@espressive/cascara": "link:../../packages/cascara",
+    "@espressive/legacy-css": "link:../../utils/legacy-css",
     "next": "9.5.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom"
   }
 }

@@ -15,7 +15,7 @@ module.exports = {
     ['@babel/plugin-proposal-class-properties', { loose: true }],
   ],
   env: {
-    // Make sure we use these plugins when running Jest
+    // Jest
     test: {
       plugins: [
         '@babel/plugin-transform-modules-commonjs',
