@@ -16,8 +16,8 @@
     ]
   },
   "devDependencies": {
-    "@espressive/babel-preset-espressive": "link:utils/babel-preset-espressive",
-    "@espressive/eslint-config-espressive": "link:utils/eslint-config-espressive",
+    "@espressive/babel-preset-espressive": "file:utils/babel-preset-espressive",
+    "@espressive/eslint-config-espressive": "file:utils/eslint-config-espressive",
     "@babel/core": "7.11.0",
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/plugin-proposal-export-default-from": "7.10.4",

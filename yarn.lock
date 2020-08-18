@@ -1429,13 +1429,18 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@espressive/babel-preset-espressive@link:utils/babel-preset-espressive":
-  version "0.0.0"
-  uid ""
+"@espressive/babel-preset-espressive@file:utils/babel-preset-espressive":
+  version "0.1.1-alpha.6"
+  dependencies:
+    "@babel/cli" "7.10.5"
+    "@babel/core" "7.10.5"
+    "@babel/plugin-proposal-export-default-from" "7.10.4"
+    babel-preset-react-app "9.1.2"
 
-"@espressive/eslint-config-espressive@link:utils/eslint-config-espressive":
-  version "0.0.0"
-  uid ""
+"@espressive/eslint-config-espressive@file:utils/eslint-config-espressive":
+  version "0.1.1-alpha.6"
+  dependencies:
+    eslint-config-react-app "5.2.1"
 
 "@espressive/legacy-css@link:packages/cascara/utils/legacy-css":
   version "0.0.0"
