@@ -1,12 +1,13 @@
 import path from 'path';
 import babel from '@rollup/plugin-babel';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import stringHash from 'string-hash';
 
 // Move our babel config into the root but use it to compile all of our packages
 const getBabelOptions = ({
   // This path has to be relative to our packages
-  babelConfigFile = '../../../babel.config.js',
+  babelConfigFile = '../../babel.config.js',
   useESModules,
 }) => ({
   exclude: '**/node_modules/**',
@@ -58,6 +59,7 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
           useESModules: false,
         })
       ),
+      nodeResolve(),
       postcss(getPostCSSOptions()),
     ],
   };
@@ -77,6 +79,7 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
           useESModules: true,
         })
       ),
+      nodeResolve(),
       postcss(getPostCSSOptions()),
     ],
   };

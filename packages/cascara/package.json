@@ -1,0 +1,39 @@
+{
+  "name": "@espressive/cascara",
+  "version": "0.1.1-alpha.6",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "repository": {
+    "directory": "packages/cascara",
+    "type": "git",
+    "url": "ssh://git@github.com:Espressive/cascara.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "cjs",
+    "es"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "classnames": "2.2.6",
+    "reakit": "1.1.2"
+  },
+  "devDependencies": {
+    "@espressive/legacy-css": "link:utils/legacy-css"
+  },
+  "peerDependencies": {
+    "prop-types": "15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf cjs && rm -rf es",
+    "build": "yarn clean && rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "gitHead": "a69d799d2a4a74af5551eff15e24e63b6eceabe4"
+}
