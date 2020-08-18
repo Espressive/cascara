@@ -6,7 +6,7 @@
 // created in child directories to extend this further.
 
 import React, { StrictMode } from 'react';
-import 'espressive-legacy-css';
+import '@espressive/legacy-css';
 import 'normalize.css';
 
 // export is needed or else this decorator mutes all fixture children
