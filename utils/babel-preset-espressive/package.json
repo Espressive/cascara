@@ -1,6 +1,6 @@
 {
-  "name": "babel-preset-espressive",
-  "version": "0.1.1-alpha.5",
+  "name": "@espressive/babel-preset-espressive",
+  "version": "0.1.1-alpha.6",
   "description": "Babel preset used by Espressive",
   "license": "MIT",
   "repository": {
@@ -22,5 +22,5 @@
     "@babel/plugin-proposal-export-default-from": "7.10.4",
     "babel-preset-react-app": "9.1.2"
   },
-  "gitHead": "6713ce343344c9d4660e72a51ad0c61639abcd4e"
+  "gitHead": "a69d799d2a4a74af5551eff15e24e63b6eceabe4"
 }

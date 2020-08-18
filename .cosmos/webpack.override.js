@@ -71,7 +71,7 @@ module.exports = (webpackConfig, env, whatev) => {
 
   // Change the babel preset this configuration is using. This extends the babel CRA preset.
   webpackConfig.module.rules[2].oneOf[1].options.presets = [
-    require.resolve('babel-preset-espressive'),
+    require.resolve('@espressive/babel-preset-espressive'),
   ];
 
   // Change the original string for application appSrc to an array.
