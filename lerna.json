@@ -5,7 +5,8 @@
   "command": {
     "publish": {
       "ignoreChanges": ["ignored-file", "*.md"],
-      "message": "chore(release): publish"
+      "message": "chore(release): publish",
+      "registry": "https://npm.pkg.github.com"
     },
     "bootstrap": {
       "ignore": "component-*",
