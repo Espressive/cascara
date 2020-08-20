@@ -1,38 +1,33 @@
+import { Fragment } from 'react';
 import { Admin } from '@espressive/cascara';
 import Link from 'next/link';
+import NavSection from './NavSection';
 
-const Nav = ({ mdxPages }) => {
+const docPath = (path) => path.replace('../packages/cascara/src', '/docs');
+
+const Nav = ({ mdxTree }) => {
   return (
     <Admin.Nav>
-      {mdxPages?.layout && (
-        <>
-          <h4>Layouts</h4>
-          <ul>
-            {mdxPages.layout.map((file) => (
-              <li key={file.component}>
-                <Link href={`/components/layout/${file.component}`}>
-                  <a>{file.component}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
+      {mdxTree?.map((item) =>
+        item.size ? (
+          <Fragment key={item.name}>
+            <NavSection content={item.name} />
+            <ul>
+              {item.children.map((item) =>
+                item.size ? (
+                  <li key={item.name}>
+                    <Link as={docPath(item.path)} href='/docs/[[...mdx]]'>
+                      <a>{item.name}</a>
+                    </Link>
+                  </li>
+                ) : null
+              )}
+            </ul>
+          </Fragment>
+        ) : null
       )}
-      {mdxPages?.ui && (
-        <>
-          <h4>UI</h4>
-          <ul>
-            {mdxPages.ui.map((file) => (
-              <li key={file.component}>
-                <Link href={`/components/ui/${file.component}`}>
-                  <a>{file.component}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
-      )}
-      {mdxPages?.specs && (
+
+      {/* {mdxPages?.specs && (
         <>
           <h4>Specs</h4>
           <ul>
@@ -47,7 +42,7 @@ const Nav = ({ mdxPages }) => {
             })}
           </ul>
         </>
-      )}
+      )} */}
     </Admin.Nav>
   );
 };

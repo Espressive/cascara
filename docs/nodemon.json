@@ -1,0 +1,11 @@
+{
+  "verbose": false,
+  "ignore": ["node_modules", ".next"],
+  "watch": [
+    "../packages/cascara",
+    "next.config.js",
+    "package.json",
+    "yarn.lock"
+  ],
+  "ext": "js json"
+}

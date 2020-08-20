@@ -1,9 +1,8 @@
 import Head from 'next/head';
-import pkg from '../../package';
-import styles from '../styles/Home.module.css';
-import { getComponentMDXFiles, getMDXFileList } from '../lib/getMDXFiles';
+import pkg from '../../package'; // import { getComponentMDXFiles, getMDXFileList } from '../lib/getMDXFiles';
+import dirTree from 'directory-tree';
 
-export default function Home() {
+export default function Home({ mdxTree }) {
   return (
     <>
       <Head>
@@ -11,9 +10,9 @@ export default function Home() {
         <link href='/favicon.ico' rel='icon' />
       </Head>
 
-      <h1 className={styles.title}>{pkg.name}</h1>
-
-      <p>Do stuff here.</p>
+      <pre>
+        <code>{JSON.stringify(mdxTree, null, '  ')}</code>
+      </pre>
     </>
   );
 }
@@ -21,13 +20,11 @@ export default function Home() {
 export async function getStaticProps() {
   return {
     props: {
-      mdxPages: {
-        layout: getComponentMDXFiles('../packages/cascara/src/layout'),
-        specs: getMDXFileList('../packages/cascara/specs'),
-        ui: getComponentMDXFiles('../packages/cascara/src/ui'),
-      },
+      mdxTree: dirTree('../packages/cascara/src', {
+        extensions: /\.(mdx|fixture.js)$/,
+      }).children,
     },
-    // Keep this here for updates to the MDX file
+    // Keep this here for updates to the MDX files
     revalidate: 1,
   };
 }
