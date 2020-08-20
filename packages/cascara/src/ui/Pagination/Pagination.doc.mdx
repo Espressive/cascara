@@ -1,12 +1,13 @@
 ---
-name: Pagination
+title: Pagination
 ---
 
-import { Playground, Props } from 'docz';
+NOTE: The imports had to be disabled since they are not supported in our docs with current implementation.
+// import { Playground, Props } from 'docz';
 
-import { Pagination } from './es';
-import { CustomList } from './src/Pagination.fixture';
-import fixtureData from './src/fixtureData';
+// import { Pagination } from './es';
+// import { CustomList } from './src/Pagination.fixture';
+// import fixtureData from './src/fixtureData';
 
 # Espressive UI Pagination
 
@@ -39,6 +40,7 @@ Run `yarn cosmos` in the root of this monorepo
     itemsPerPageLimit={10}
     recordCount={100}
   >
-    <CustomList data={fixtureData} />
+    {/* We should create this again once we have our Table component working and we can use the globally available components from our custom MDX files */}
+    {/* <CustomList data={fixtureData} /> */}
   </Pagination>
 </Playground>

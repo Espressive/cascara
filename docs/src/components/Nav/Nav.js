@@ -26,23 +26,6 @@ const Nav = ({ mdxTree }) => {
           </Fragment>
         ) : null
       )}
-
-      {/* {mdxPages?.specs && (
-        <>
-          <h4>Specs</h4>
-          <ul>
-            {mdxPages.specs.map((file) => {
-              return (
-                <li key={file}>
-                  <Link href={`/components/specs/${file}`}>
-                    <a>{file}</a>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </>
-      )} */}
     </Admin.Nav>
   );
 };

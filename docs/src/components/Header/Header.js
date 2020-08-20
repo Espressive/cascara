@@ -12,14 +12,6 @@ const Header = ({ data }) => {
           width: '12em',
         }}
       />
-      <h1
-        style={{
-          display: 'inline-block',
-          height: '100%',
-        }}
-      >
-        {data?.title || 'title'}
-      </h1>
     </Admin.Header>
   );
 };
