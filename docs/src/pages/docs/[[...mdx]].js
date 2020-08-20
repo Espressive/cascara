@@ -1,16 +1,11 @@
 /* eslint-disable react/no-multi-comp*/
-// @refresh reset
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import dirTree from 'directory-tree';
-
-// NOTE: This needs to become global
-const MDX_COMPONENTS = {
-  strong: (props) => <strong className='custom-strong' {...props} />,
-};
+import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 
 const Doc = ({ data, mdxFiles, mdxSource }) => {
   return (
@@ -28,9 +23,19 @@ const Doc = ({ data, mdxFiles, mdxSource }) => {
 };
 
 export const getStaticPaths = async () => {
+  // TODO: Need to auto generate this array for static generation
+  // leaving fallback to `false` means reloading on a page missing
+  // from the array will show a 404
   return {
-    fallback: true,
-    paths: [{ params: { mdx: ['ui', 'Pagination'] } }],
+    fallback: false,
+    paths: [
+      { params: { mdx: ['layout', 'Admin'] } },
+      { params: { mdx: ['specs', 'Allie'] } },
+      { params: { mdx: ['specs', 'Table'] } },
+      { params: { mdx: ['ui', 'Button'] } },
+      { params: { mdx: ['ui', 'Filter'] } },
+      { params: { mdx: ['ui', 'Pagination'] } },
+    ],
   };
 };
 

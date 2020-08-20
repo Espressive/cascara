@@ -1,0 +1,17 @@
+.Placeholder {
+  background-color: #a002;
+  border: 2px solid #a00;
+  border-radius: 0.375em;
+  margin-block-end: 1em;
+  padding: 1em;
+}
+
+.Placeholder:before {
+  display: block;
+  content: attr(title) ': This component needs to be replaced with our own.';
+  background-color: #a00;
+  color: #eee;
+  font-size: 0.75em;
+  padding: 0.25rem 1rem 0.25rem;
+  margin: -1rem -1rem 1rem;
+}
