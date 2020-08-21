@@ -35,7 +35,7 @@ const Button = ({
   size = 'regular',
   ...rest
 }) => {
-  const className = cx({
+  const internalClassName = cx(rest.className, {
     _: true,
     basic: !outcome,
     fluid: fluid,
@@ -49,7 +49,7 @@ const Button = ({
     <ReakitButton
       {...rest}
       as={as}
-      className={className}
+      className={internalClassName}
       rel={getSafeLinkRel(rest)}
     >
       {content}

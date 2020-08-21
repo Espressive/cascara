@@ -119,6 +119,9 @@ export const getStaticProps = async ({ params }) => {
 
       const fileSource = await renderToString(content, {
         components: MDX_COMPONENTS,
+        mdxOptions: {
+          remarkPlugins: [require('remark-emoji'), require('remark-slug')],
+        },
         scope: data,
       });
 

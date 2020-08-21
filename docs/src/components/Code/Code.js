@@ -1,15 +1,13 @@
-/* eslint-disable react/no-multi-comp */
-/* eslint-disable react/prop-types */
-
 import React, { useEffect, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
+import theme from 'prism-react-renderer/themes/synthwave84';
 import { Button } from '@espressive/cascara';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import styles from './Code.module.scss';
 
-// const transformCode = (code, row) => {
-//   if (code.startsWith('function') || code.startsWith('class')) return code;
-//   return row ? `<div class='row'>${code}</div>` : `<div>${code}</div>`;
-// };
+// NOTE: We have to mute these properties as part of the theme so we can add
+// styles in our CSS class names.
+theme.plain.backgroundColor = undefined;
+theme.plain.fontFamily = undefined;
 
 const Code = ({ children, className, live = true, row }) => {
   const [editorOpen, setEditorOpen] = useState(false);
@@ -17,13 +15,13 @@ const Code = ({ children, className, live = true, row }) => {
 
   const [editorCode, setEditorCode] = useState(children.trim());
 
-  function toggleEditor() {
+  const handleEditorToggle = () => {
     setEditorOpen(!editorOpen);
-  }
+  };
 
-  function handleChange(code) {
+  const handleCodeChange = (code) => {
     setEditorCode(code.trim());
-  }
+  };
 
   useEffect(() => {
     setEditorCode(children.trim());
@@ -32,53 +30,52 @@ const Code = ({ children, className, live = true, row }) => {
   const liveProviderProps = {
     code: editorCode,
     scope: {
+      // NOTE: This list will grow significantly. We also need to do this for MDX
+      // to be able to render our components there. We should explore how to make
+      // a single list to pass components into scope for both the editor and MDX
+      // all in the same place.
       Button,
       ...React,
     },
     theme,
-    // transformCode: () => transformCode(editorCode, row),
   };
 
   if (live === true && language === 'jsx') {
     return (
       <LiveProvider {...liveProviderProps}>
-        <div
-          style={{
-            backgroundColor: '#eee',
-            borderRadius: '.375rem',
-            padding: '.375em 3em .375em .375em',
-            position: 'relative',
-          }}
-        >
-          <Button
-            content={editorOpen ? '✕' : '✎'}
-            onClick={toggleEditor}
-            size='small'
-            style={{
-              paddingLeft: 0,
-              paddingRight: 0,
-              position: 'absolute',
-              right: '.375rem',
-              top: '.375rem',
-              width: '2rem',
-            }}
-          />
-
-          <LivePreview
-            style={{ backgroundColor: 'white', padding: '.625rem' }}
-          />
-          {editorOpen && (
-            <>
-              <LiveEditor onChange={handleChange} />
-              <LiveError
-                style={{
-                  backgroundColor: 'red',
-                  margin: 0,
-                  padding: '.625rem',
-                }}
-              />
-            </>
-          )}
+        <div className={styles.CodeEditor}>
+          <div className={styles.EditorControls}>
+            <p
+              style={{
+                color: '#111',
+                float: 'left',
+                fontFamily: 'Inter',
+                fontSize: '.875em',
+                margin: '.25em .625rem',
+              }}
+            >
+              Would love if we could get a title here. Maybe
+              `remark-code-frontmatter`
+            </p>
+            <Button
+              className={styles.CodeEditorButton}
+              content={editorOpen ? '✕' : '✎'}
+              onClick={handleEditorToggle}
+              size='small'
+            />
+          </div>
+          <div className={styles.EditorElements}>
+            <LivePreview className={styles.LivePreview} />
+            {editorOpen && (
+              <>
+                <LiveEditor
+                  className={styles.LiveEditor}
+                  onChange={handleCodeChange}
+                />
+                <LiveError className={styles.LiveError} />
+              </>
+            )}
+          </div>
         </div>
       </LiveProvider>
     );
@@ -86,9 +83,7 @@ const Code = ({ children, className, live = true, row }) => {
 
   return (
     <LiveProvider disabled {...liveProviderProps}>
-      <LiveEditor>
-        <LiveEditor />
-      </LiveEditor>
+      <LiveEditor className={styles.LiveEditor} />
     </LiveProvider>
   );
 };

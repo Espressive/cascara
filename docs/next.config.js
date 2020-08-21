@@ -4,8 +4,11 @@ module.exports = withMdxEnhanced({
   layoutPath: 'src/layouts',
   defaultLayout: true,
   fileExtensions: ['mdx'],
-  remarkPlugins: [require('remark-emoji'), require('remark-slug')],
-  rehypePlugins: [require('@mapbox/rehype-prism')],
+  remarkPlugins: [
+    require('remark-emoji'),
+    require('remark-slug'),
+    require('remark-code-titles'),
+  ],
 })({
   devIndicators: {
     autoPrerender: false,
