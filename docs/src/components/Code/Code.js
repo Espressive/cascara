@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import theme from 'prism-react-renderer/themes/synthwave84';
-import { Button } from '@espressive/cascara';
+import { Button, Pagination } from '@espressive/cascara';
 import styles from './Code.module.scss';
 
 // NOTE: We have to mute these properties as part of the theme so we can add
@@ -35,6 +35,7 @@ const Code = ({ children, className, live = true, row }) => {
       // a single list to pass components into scope for both the editor and MDX
       // all in the same place.
       Button,
+      Pagination,
       ...React,
     },
     theme,
@@ -51,11 +52,11 @@ const Code = ({ children, className, live = true, row }) => {
                 float: 'left',
                 fontFamily: 'Inter',
                 fontSize: '.875em',
-                margin: '.25em .625rem',
+                margin: '.375em 0',
               }}
             >
-              Would love if we could get a title here. Maybe
-              `remark-code-frontmatter`
+              Would love if we could get a title here. Maybe use
+              `remark-code-frontmatter`?
             </p>
             <Button
               className={styles.CodeEditorButton}

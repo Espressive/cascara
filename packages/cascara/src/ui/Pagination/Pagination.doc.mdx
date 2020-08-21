@@ -29,18 +29,18 @@ Run `yarn test` in the root of this monorepo
 
 Run `yarn cosmos` in the root of this monorepo
 
-<Props of={Pagination} />
+<Props of={'Pagination'} />
 
-<Playground>
-  <Pagination
-    currentPage={1}
-    entityNamePlural={'Employees'}
-    entityNameSingular={'Employee'}
-    isLoading={false}
-    itemsPerPageLimit={10}
-    recordCount={100}
-  >
-    {/* We should create this again once we have our Table component working and we can use the globally available components from our custom MDX files */}
-    {/* <CustomList data={fixtureData} /> */}
-  </Pagination>
-</Playground>
+```jsx
+<Pagination
+  currentPage={1}
+  entityNamePlural={'Employees'}
+  entityNameSingular={'Employee'}
+  isLoading={false}
+  itemsPerPageLimit={10}
+  recordCount={100}
+>
+  {/* We should create this again once we have our Table component working and we can use the globally available components from our custom MDX files */}
+  {/* <CustomList data={fixtureData} /> */}
+</Pagination>
+```

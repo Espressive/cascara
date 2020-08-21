@@ -8,7 +8,7 @@
 
   .EditorControls {
     text-align: right;
-    padding: 0.25em;
+    padding: 0.25em 1em;
     margin: -0.125em -0.125em 0;
 
     :last-child {
@@ -37,27 +37,40 @@
       border-bottom-right-radius: 0.25em;
     }
 
-    .LivePreview {
-      background-color: white;
-      padding: 0.625rem;
-    }
-
     .LiveEditor {
-      // WARNING!!!
-      // Almost all styles are inline so in order to use styles here, we have to
-      // mute them in the theme. Eventually we could not pass a theme into the
-      // editor at all and rely on our own styles here or in a reusable theme.
-      background-color: #111;
-      font-family: 'Dank Mono', 'Fira Code', monospace;
-    }
+      border-radius: initial;
 
-    .LiveError {
-      background-color: #111;
-      font-family: 'Dank Mono', 'Fira Code', monospace;
-      color: red;
-      margin-bottom: 0;
-      padding: 0.625rem;
-      font-size: 0.875em;
+      &:last-child {
+        border-bottom-left-radius: 0.25em;
+        border-bottom-right-radius: 0.25em;
+      }
     }
   }
+}
+
+%code {
+  background-color: #111;
+  font-family: 'Dank Mono', 'Fira Code', monospace;
+}
+
+.LiveEditor {
+  // WARNING!!!
+  // Almost all styles are inline so in order to use styles here, we have to
+  // mute them in the theme. Eventually we could not pass a theme into the
+  // editor at all and rely on our own styles here or in a reusable theme.
+  @extend %code;
+  border-radius: 0.375rem;
+}
+
+.LiveError {
+  @extend %code;
+  color: red;
+  margin-bottom: 0;
+  padding: 0.625rem;
+  font-size: 0.875em;
+}
+
+.LivePreview {
+  background-color: white;
+  padding: 0.625rem;
 }
