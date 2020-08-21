@@ -9,6 +9,7 @@ import dirTree from 'directory-tree';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 
 const Doc = ({ mdxDirSource }) => {
@@ -33,6 +34,10 @@ const Doc = ({ mdxDirSource }) => {
     }
   }, [router]);
 
+  const mdxActive = hydrate(mdxDirSource[router?.query?.doc || 0], {
+    components: MDX_COMPONENTS,
+  });
+
   return (
     <>
       <ul>
@@ -53,10 +58,18 @@ const Doc = ({ mdxDirSource }) => {
           </li>
         ))}
       </ul>
-      {mdxDirSource &&
-        hydrate(mdxDirSource[router?.query?.doc || 0], {
-          components: MDX_COMPONENTS,
-        })}
+
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          key={router?.query?.doc}
+          style={{ padding: '1em' }}
+        >
+          {mdxActive}
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 };

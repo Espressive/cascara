@@ -70,4 +70,12 @@
   &.negative {
     background-color: #db2828;
   }
+
+  &.small {
+    font-size: 0.75em;
+  }
+
+  &.large {
+    font-size: 1.125em;
+  }
 }
