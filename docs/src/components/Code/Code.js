@@ -16,6 +16,9 @@ const Code = ({ children, className, live = true, row }) => {
   const [editorCode, setEditorCode] = useState(children.trim());
 
   const handleEditorToggle = () => {
+    // TODO: Make cursor focus on editor when opening
+    // should also update styles for focus on editor so it is easier to see that it
+    // is actually editable
     setEditorOpen(!editorOpen);
   };
 
