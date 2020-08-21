@@ -34,7 +34,6 @@
     "@typescript-eslint/parser": "3.7.1",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.2.2",
-    "docz": "2.3.1",
     "eslint": "7.5.0",
     "eslint-plugin-flowtype": "5.2.0",
     "eslint-plugin-import": "2.22.0",
@@ -65,9 +64,6 @@
   "scripts": {
     "cosmos": "npx react-cosmos --config .cosmos/config.json",
     "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
-    "docz:start": "rm -rf .docz && docz dev",
-    "docz:build": "docz build && echo 'User-agent: *\nDisallow: /' > build/docs/robots.txt",
-    "docz:serve": "docz build && docz serve",
     "framer:publish": "dotenv npx framer-cli publish",
     "test": "jest --config .jest/config.js",
     "test:watch": "yarn test --watch",

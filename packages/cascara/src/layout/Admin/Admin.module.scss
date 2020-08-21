@@ -6,10 +6,15 @@
   // elements internally that do not have the data-layout attribute present yet
   // we have un-grid elements popping on the screen
 
+  --document-background: #dddee0;
+  --document-text: #1e262b;
   --brand-primary-color: purple;
   --brand-secondary-color: yellow;
+  --color-transparent-grey: rgba(127, 127, 127, 0.375);
 
   @media (prefers-color-scheme: dark) {
+    --document-background: #1e262b;
+    --document-text: #dddee0;
     --brand-primary-color: red;
     --brand-secondary-color: orange;
   }
@@ -17,7 +22,8 @@
   & body,
   & #root,
   & #__next {
-    background-color: red;
+    color: var(--document-text);
+    background-color: var(--document-background);
     height: 100%;
     overflow: hidden;
   }
@@ -35,17 +41,16 @@
 
 .Header {
   grid-area: header;
-  background-color: cascara.$secondary;
+  box-shadow: inset 0 -1px var(--color-transparent-grey);
 }
 
 .Nav {
   @include cascara.scroll-vertical;
   grid-area: nav;
-  background-color: grey;
+  box-shadow: inset -1px 0 var(--color-transparent-grey);
 }
 
 .Main {
   @include cascara.scroll-vertical;
   grid-area: main;
-  background-color: green;
 }
