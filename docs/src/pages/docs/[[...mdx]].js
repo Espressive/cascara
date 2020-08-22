@@ -11,6 +11,8 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
+import codeFrontmatter from 'remark-code-frontmatter';
+import visit from 'unist-util-visit';
 
 const Doc = ({ mdxDirSource }) => {
   // const [activeDoc, setActiveDoc] = useState(0);
@@ -112,6 +114,24 @@ export const getStaticProps = async ({ params }) => {
     extensions: /\.(mdx|fixture.js)$/,
   }).children;
 
+  // This transformer will spread all frontmatter and pass each as a prop
+  // into any code type block. This only works for code blocks due to our
+  // remark-code-frontmatter plugin. We use the MDAST properties to add
+  // these. Good examples of this info and how the transition to HAST works
+  // are here: https://github.com/syntax-tree/mdast-util-to-hast#examples
+  const transformer = (tree) => {
+    visit(tree, 'code', (node) => {
+      if (Object.keys(node.frontmatter).length) {
+        node.data = {
+          hProperties: {
+            ...node.frontmatter,
+          },
+        };
+      }
+    });
+    return tree;
+  };
+
   const mdxDirSource = await Promise.all(
     mdxDirFiles.map(async (file) => {
       const filePath = path.join(process.cwd(), file.path);
@@ -120,13 +140,23 @@ export const getStaticProps = async ({ params }) => {
       const fileSource = await renderToString(content, {
         components: MDX_COMPONENTS,
         mdxOptions: {
-          remarkPlugins: [require('remark-emoji'), require('remark-slug')],
+          remarkPlugins: [
+            require('remark-emoji'),
+            require('remark-slug'),
+            codeFrontmatter,
+            () => transformer,
+          ],
         },
-        scope: data,
+        scope: {
+          here: 'JHGJHGJHGJHGJHGJHJHG',
+          hey: 'XXXXXXXXXXXXXX',
+          look: 'SSSSSSSSSSSSSSS',
+        },
       });
 
       return {
         fileName: file.name,
+        frontmatter: data,
         ...fileSource,
       };
     })

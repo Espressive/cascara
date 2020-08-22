@@ -1,5 +1,6 @@
 ---
-name: Doc
+title: Table
+status: PreRelease
 menu: Button
 route: /button-doc
 ---
@@ -26,10 +27,14 @@ Wouldn't it be great if we didn't have to wrap our components like this in a Pla
 
 What if wrapping our code examples in regular markdown code blocks worked... but if we use the jsx syntax, we don't just show the code with syntax highlighting. Instead we show an example of the component in this state and a live editor.
 
-```jsx:A button can have content
+```jsx
+---
+title: We can now define a title for our code blocks!
+---
+
 <Button content='Docz Demo' />
 ```
 
-<Playground>
-  <Button content='Positive' outcome='positive' />
-</Playground>
+```jsx
+<Button content='Positive' outcome='positive' />
+```

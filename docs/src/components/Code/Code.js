@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import theme from 'prism-react-renderer/themes/synthwave84';
-import { Button, Pagination } from '@espressive/cascara';
+import { Button } from '@espressive/cascara';
 import styles from './Code.module.scss';
+import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 
 // NOTE: We have to mute these properties as part of the theme so we can add
 // styles in our CSS class names.
 theme.plain.backgroundColor = undefined;
 theme.plain.fontFamily = undefined;
 
-const Code = ({ children, className, live = true, row }) => {
+// const transformCode = (code) => {
+//   console.log(code);
+// };
+
+const Code = ({ children, className, live = true, title, ...rest }) => {
   const [editorOpen, setEditorOpen] = useState(false);
   const language = className && className.replace(/language-/, '');
 
@@ -33,12 +38,7 @@ const Code = ({ children, className, live = true, row }) => {
   const liveProviderProps = {
     code: editorCode,
     scope: {
-      // NOTE: This list will grow significantly. We also need to do this for MDX
-      // to be able to render our components there. We should explore how to make
-      // a single list to pass components into scope for both the editor and MDX
-      // all in the same place.
-      Button,
-      Pagination,
+      ...MDX_COMPONENTS,
       ...React,
     },
     theme,
@@ -49,18 +49,8 @@ const Code = ({ children, className, live = true, row }) => {
       <LiveProvider {...liveProviderProps}>
         <div className={styles.CodeEditor}>
           <div className={styles.EditorControls}>
-            <p
-              style={{
-                color: '#111',
-                float: 'left',
-                fontFamily: 'Inter',
-                fontSize: '.875em',
-                margin: '.375em 0',
-              }}
-            >
-              Would love if we could get a title here. Maybe use
-              `remark-code-frontmatter`?
-            </p>
+            {title && <h4 className={styles.EditorTitle}>{title}</h4>}
+
             <Button
               className={styles.CodeEditorButton}
               content={editorOpen ? '✕' : '✎'}
