@@ -11,10 +11,10 @@ package = "netlify-plugin-cache-nextjs"
   command = "yarn cascara build && yarn docs build"
 
   # Directory for build output
-  publish = "docs/build/"
+  publish = "docs/out_publish"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
-  # functions = "functions/"
+  functions = "functions/out_functions"
 
   # We can define other environment variables here as well... do not include secret tokens!
   environment = { NODE_VERSION = "14.5.0" }

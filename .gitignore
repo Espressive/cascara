@@ -1,10 +1,13 @@
 .docz
 .DS_Store
 .env
-coverage
 build
-dist
 cjs
+coverage
+dist
+docs/out_functions
+docs/out_publish
+docs/404.html
 es
 lerna-debug.log
 node_modules
