@@ -1,11 +1,9 @@
 ---
-name: Doc
+title: Table
+status: PreRelease
 menu: Button
 route: /button-doc
 ---
-
-import { Playground, Props } from 'docz';
-import { Button } from './es';
 
 # Button
 
@@ -21,10 +19,22 @@ Still to also explore here:
 
 <Props of={Button} />
 
+Wouldn't it be great if we didn't have to wrap our components like this in a Playground component everywhere?
+
 <Playground>
   <Button content='Docz Demo' />
 </Playground>
 
-<Playground>
-  <Button content='Positive' outcome='positive' />
-</Playground>
+What if wrapping our code examples in regular markdown code blocks worked... but if we use the jsx syntax, we don't just show the code with syntax highlighting. Instead we show an example of the component in this state and a live editor.
+
+```jsx
+---
+title: We can now define a title for our code blocks!
+---
+
+<Button content='Docz Demo' />
+```
+
+```jsx
+<Button content='Positive' outcome='positive' />
+```

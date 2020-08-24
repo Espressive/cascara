@@ -1,5 +1,6 @@
 build
 dist
+cjs
 es
 *.framerfx
 *.disabled.js

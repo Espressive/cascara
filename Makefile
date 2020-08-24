@@ -2,7 +2,7 @@
 
 all:
 	yarn install
-	yarn workspace @espressive/cascara build
+	yarn cascara build
 
 watch:
 	yarn workspace $(P) watch

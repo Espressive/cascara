@@ -4,6 +4,8 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import stringHash from 'string-hash';
 
+const isDevelopment = (p) => p.env.NODE_ENV === 'development';
+
 // Move our babel config into the root but use it to compile all of our packages
 const getBabelOptions = ({
   // This path has to be relative to our packages
@@ -23,11 +25,16 @@ const getPostCSSOptions = () => ({
   minimize: true,
   modules: {
     generateScopedName: function (name, filename, css) {
-      const path = require('path');
-      const file = path.basename(filename, '.css').replace('.module', '');
-      const hash = stringHash(css).toString(36).substr(0, 5);
+      // const environment = process.env.NODE_ENV;
+      // const isDevelopment = process.env.NODE_ENV === 'development';
 
-      return file + '_' + name + '__' + hash;
+      const path = require('path');
+      const file = path.basename(filename).split('.')[0];
+      const hash = isDevelopment(process)
+        ? 'DEV_MODE'
+        : stringHash(css).toString(36).substr(0, 5);
+
+      return '☕️_' + file + '_' + name + '__' + hash;
     },
     // generateScopedName: '[name]__[local]___[hash:5]'
   },

@@ -4,8 +4,9 @@ module.exports = {
   extends: '@espressive/eslint-config-espressive',
   overrides: [
     {
-      files: '**/next-*/**/*',
+      files: ['**/next-*/**/*', 'docs/**/*'],
       rules: {
+        'jsx-a11y/anchor-is-valid': 0,
         'react/react-in-jsx-scope': 0,
       },
     },
