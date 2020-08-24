@@ -10,25 +10,23 @@
   "dependencies": {
     "@espressive/cascara": "file:../packages/cascara",
     "@espressive/legacy-css": "file:../utils/legacy-css",
-    "directory-tree": "2.2.4",
     "framer-motion": "2.5.5",
-    "gray-matter": "4.0.2",
     "next": "9.5.1",
     "next-mdx-remote": "1.0.0",
-    "next-remote-watch": "0.2.0",
-    "prism-react-renderer": "1.1.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-live": "2.2.2",
+    "semantic-ui-react": "1.2.0"
+  },
+  "devDependencies": {
+    "directory-tree": "2.2.4",
+    "gray-matter": "4.0.2",
+    "next-on-netlify": "2.3.2",
+    "next-remote-watch": "0.2.0",
+    "prop-types": "15.7.2",
     "remark-code-frontmatter": "1.0.0",
     "remark-emoji": "2.1.0",
     "remark-slug": "6.0.0",
-    "semantic-ui-react": "1.2.0",
     "unist-util-visit": "2.0.3"
-  },
-  "devDependencies": {
-    "next-remote-watch": "0.2.0",
-    "nodemon": "2.0.4",
-    "prop-types": "15.7.2"
   }
 }
