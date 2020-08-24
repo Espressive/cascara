@@ -1,12 +1,11 @@
 import Head from 'next/head';
-import pkg from '../../package'; // import { getComponentMDXFiles, getMDXFileList } from '../lib/getMDXFiles';
-import dirTree from 'directory-tree';
+import getMDXTree from '../lib/getMDXTree';
 
 export default function Home({ mdxTree }) {
   return (
     <>
       <Head>
-        <title>{pkg.name}</title>
+        <title>Cascara</title>
         <link href='/favicon.ico' rel='icon' />
       </Head>
 
@@ -20,9 +19,7 @@ export default function Home({ mdxTree }) {
 export async function getStaticProps() {
   return {
     props: {
-      mdxTree: dirTree('../packages/cascara/src', {
-        extensions: /\.(mdx|fixture.js)$/,
-      }).children,
+      mdxTree: getMDXTree(),
     },
     // Keep this here for updates to the MDX files
     revalidate: 1,

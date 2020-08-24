@@ -1,18 +1,16 @@
-/* eslint-disable react/no-multi-comp*/
-
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
-import dirTree from 'directory-tree';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
-import codeFrontmatter from 'remark-code-frontmatter';
-import visit from 'unist-util-visit';
+import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
+import getMDXTree from '../../lib/getMDXTree';
+import getMDXDirFiles from '../../lib/getMDXDirFiles';
 
 const Doc = ({ mdxDirSource }) => {
   // const [activeDoc, setActiveDoc] = useState(0);
@@ -40,6 +38,7 @@ const Doc = ({ mdxDirSource }) => {
     components: MDX_COMPONENTS,
   });
 
+  // TODO: Update the top level navigation to a tab UI once we have the components to support it
   return (
     <>
       <ul>
@@ -66,7 +65,9 @@ const Doc = ({ mdxDirSource }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
-          key={router?.query?.doc}
+          // Technically works. But really this should be at the router.query.doc
+          // level and the overall page should have its own transition.
+          key={JSON.stringify(router)}
           style={{ padding: '1em' }}
         >
           {mdxActive}
@@ -94,44 +95,11 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  // This gives us all of the MDX files relative to the directory we are
-  // currently showing. This could potentially be a lookup on the initial
-  // mdxTree data, but for now since this is only run when the pages are
-  // statically generated, we can probably just leave this here and
-  // call dirTree function again.
-  const mdxDirFiles = dirTree(
-    `../packages/cascara/src/${params.mdx[0]}/${params.mdx[1]}`,
-    {
-      extensions: /\.(mdx|fixture.js)$/,
-    }
-  ).children;
+  const mdxDirFiles = getMDXDirFiles(params);
 
-  // mdxTree should probably be abstracted out to lib so we can also use it
-  // in index,js. Eventaully when Nextjs allows getStaticProps at the root
-  // of an application `_app.js` we can move this to one place and not have it
-  // on every page. Technically this is needed to populate the navigation.
-  const mdxTree = dirTree('../packages/cascara/src', {
-    extensions: /\.(mdx|fixture.js)$/,
-  }).children;
-
-  // This transformer will spread all frontmatter and pass each as a prop
-  // into any code type block. This only works for code blocks due to our
-  // remark-code-frontmatter plugin. We use the MDAST properties to add
-  // these. Good examples of this info and how the transition to HAST works
-  // are here: https://github.com/syntax-tree/mdast-util-to-hast#examples
-  const transformer = (tree) => {
-    visit(tree, 'code', (node) => {
-      if (Object.keys(node.frontmatter).length) {
-        node.data = {
-          hProperties: {
-            ...node.frontmatter,
-          },
-        };
-      }
-    });
-    return tree;
-  };
-
+  // This needs to be async or it will blow up since `next-mdx-remote` is
+  // asyncrhonously getting all MDX files and rendering them to string.
+  // Without the Promise.all pattern this will blow up on us.
   const mdxDirSource = await Promise.all(
     mdxDirFiles.map(async (file) => {
       const filePath = path.join(process.cwd(), file.path);
@@ -139,19 +107,7 @@ export const getStaticProps = async ({ params }) => {
 
       const fileSource = await renderToString(content, {
         components: MDX_COMPONENTS,
-        mdxOptions: {
-          remarkPlugins: [
-            require('remark-emoji'),
-            require('remark-slug'),
-            codeFrontmatter,
-            () => transformer,
-          ],
-        },
-        scope: {
-          here: 'JHGJHGJHGJHGJHGJHJHG',
-          hey: 'XXXXXXXXXXXXXX',
-          look: 'SSSSSSSSSSSSSSS',
-        },
+        mdxOptions: MDX_OPTIONS,
       });
 
       return {
@@ -166,7 +122,7 @@ export const getStaticProps = async ({ params }) => {
     props: {
       mdxDirFiles,
       mdxDirSource,
-      mdxTree,
+      mdxTree: getMDXTree(),
       params: {
         mdx: [],
       },

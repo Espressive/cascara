@@ -11,6 +11,7 @@
   },
   "workspaces": {
     "packages": [
+      "docs",
       "packages/*",
       "utils/*"
     ]
@@ -62,6 +63,10 @@
     "style-dictionary": "2.10.1"
   },
   "scripts": {
+    "cascara": "yarn workspace @espressive/cascara",
+    "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
+    "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
+    "docs": "yarn workspace docs",
     "cosmos": "npx react-cosmos --config .cosmos/config.json",
     "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
     "framer:publish": "dotenv npx framer-cli publish",
