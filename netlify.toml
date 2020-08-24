@@ -1,5 +1,6 @@
-# Settings in the [build] context are global and are applied to all contexts
-# unless otherwise overridden by more specific contexts.
+[[plugins]]
+package = "netlify-plugin-cache-nextjs"
+
 [build]
 
   # Default build command.
