@@ -1,12 +1,17 @@
 [[plugins]]
 package = "netlify-plugin-cache-nextjs"
 
+    [plugins.inputs]
+        # The path to the build directory
+        build_dir_path = "docs"
+
 [build]
 
   # Default build command.
   command = "yarn cascara build && yarn docs build"
-  functions = "out_functions"
-  publish   = "out_publish"
+
+  # Directory for build output
+  publish = "docs/build/"
 
   # Directory with the serverless Lambda functions to deploy to AWS.
   # functions = "functions/"
