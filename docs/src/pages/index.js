@@ -6,7 +6,6 @@ export default function Home({ mdxTree }) {
     <>
       <Head>
         <title>Cascara</title>
-        <link href='/favicon.ico' rel='icon' />
       </Head>
 
       <pre>
