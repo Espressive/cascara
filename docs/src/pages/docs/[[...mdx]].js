@@ -45,9 +45,16 @@ const Doc = ({ mdxDirSource }) => {
       <Head>
         <title>Cascara: {router?.query?.mdx[1]}</title>
       </Head>
-      <ul>
+      <ul style={{ listStyle: 'none' }}>
         {mdxDirSource.map((doc, i) => (
-          <li key={i}>
+          <li
+            key={i}
+            style={
+              Number(router?.query?.doc) === i
+                ? { listStyle: 'disc' }
+                : undefined
+            }
+          >
             <Link
               as={{
                 pathname: router.asPath.split('?')[0],
@@ -58,7 +65,9 @@ const Doc = ({ mdxDirSource }) => {
                 query: { doc: i },
               }}
             >
-              <a>{doc.fileName}</a>
+              <a>
+                {doc.fileName} {Number(router?.query?.doc) === i}
+              </a>
             </Link>
           </li>
         ))}
