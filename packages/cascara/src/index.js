@@ -1,3 +1,5 @@
-export Admin from './layout/Admin';
-export Button from './ui/Button';
-export Pagination from './ui/Pagination';
+import Admin from './structures/Admin';
+import Button from './ui/Button';
+import Pagination from './ui/Pagination';
+
+export { Admin, Button, Pagination };

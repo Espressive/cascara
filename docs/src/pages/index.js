@@ -1,17 +1,14 @@
-import Head from 'next/head';
 import getMDXTree from '../lib/getMDXTree';
+
+// NOTE: Still need to figure out what shows here and how we
+// manage it. For now all of the fallback <Head> tags in _app
+// render for this page.
 
 export default function Home({ mdxTree }) {
   return (
-    <>
-      <Head>
-        <title>Cascara</title>
-      </Head>
-
-      <pre>
-        <code>{JSON.stringify(mdxTree, null, '  ')}</code>
-      </pre>
-    </>
+    <pre>
+      <code>{JSON.stringify(mdxTree, null, '  ')}</code>
+    </pre>
   );
 }
 

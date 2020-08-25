@@ -11,6 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link href='/favicon.ico' rel='icon' />
+
           <link
             href='/apple-touch-icon.png'
             rel='apple-touch-icon'
