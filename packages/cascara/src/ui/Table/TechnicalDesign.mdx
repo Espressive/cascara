@@ -49,7 +49,9 @@ All of the features mentioned above must be `opt-in`.
 
 ## Data representation / mutation
 
-The way each cell represents the data for either display or mutation purposes not only depends on the data type but also on business logic, in most cases, values are easily coerced to string for display purposes and mutations are easily achieved via a controlled input component. The rest of scenarios require a more complex implementation, e.g. the `employee` field in the `Users` table from `Barista Admin` which under the carpet is a single `eid`, but the representation of that cell is an avatar with the user name it points to, although it could be any other representation, specially when editing the value.
+The way each cell represents the data for either display or edit purposes not only depends on the data type but also on business logic, in most cases, values are easily coerced to string for display purposes and updates are easily achieved via a controlled input component. The rest of scenarios require a more complex implementation, e.g. the `employee` field in the `Users` table from `Barista Admin` which under the carpet is a single `eid`, but the representation of that cell is an avatar with the user name it points to, although it could be any other representation, specially when editing the value.
+
+Note: The updates made to any row would be notified upstream via `events` so the parent component is able to persist those changes. The means by which the table enables data mutation are to be provided by the developer in the form of `triggers`, the table doesn't provide such means.
 
 # Proposal
 
