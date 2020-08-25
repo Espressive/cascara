@@ -40,7 +40,7 @@ Some tables allow the user to create a new entry in the table. Adding an empty r
 Some tables allow the user to edit the data, replacing the display representation with some JSX that allows the mutation of the data.
 
 **Item deletion**:
-Some tables allow the user to delete record via a button displayed at the row level.
+Some entities in our API allow item deletion, some others don't. The `delete` functionality must be `opt-in`.
 
 **Custom actions**:
 In most implementations, tables add a trailing column to each row. This row can display `action buttons`, which can be mapped to corresponding actions over the entire row. i.e. edit, delete, cancel, etc.
