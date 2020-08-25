@@ -88,9 +88,12 @@ export const getStaticPaths = async () => {
   return {
     fallback: false,
     paths: [
-      { params: { mdx: ['layout', 'Admin'] } },
+      { params: { mdx: ['atoms', 'Boolean'] } },
+      { params: { mdx: ['atoms', 'String'] } },
+      { params: { mdx: ['layouts', 'TableLayout'] } },
       { params: { mdx: ['specs', 'Allie'] } },
       { params: { mdx: ['specs', 'Table'] } },
+      { params: { mdx: ['structures', 'Admin'] } },
       { params: { mdx: ['ui', 'Button'] } },
       { params: { mdx: ['ui', 'Filter'] } },
       { params: { mdx: ['ui', 'Pagination'] } },
