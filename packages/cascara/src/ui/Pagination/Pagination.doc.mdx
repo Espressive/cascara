@@ -1,0 +1,46 @@
+---
+title: Pagination
+---
+
+NOTE: The imports had to be disabled since they are not supported in our docs with current implementation.
+// import { Playground, Props } from 'docz';
+
+// import { Pagination } from './es';
+// import { CustomList } from './src/Pagination.fixture';
+// import fixtureData from './src/fixtureData';
+
+# Espressive UI Pagination
+
+This component abstracts the pagination logic into a reusable block that can be implemented anywhere pagination is required.
+
+## Separation of concerns
+
+The only concern of this component is to display a UI that allows the User to paginate through some content, the presentation of such content as well as its source are outside of the scope of this component.
+
+## Using this module
+
+A good example on how to use this module is the [Cosmos fixture](src/Pagination.fixture.js):
+
+## Running tests
+
+Run `yarn test` in the root of this monorepo
+
+## Running Cosmos
+
+Run `yarn cosmos` in the root of this monorepo
+
+<Props of={'Pagination'} />
+
+```jsx
+<Pagination
+  currentPage={1}
+  entityNamePlural={'Employees'}
+  entityNameSingular={'Employee'}
+  isLoading={false}
+  itemsPerPageLimit={10}
+  recordCount={100}
+>
+  {/* We should create this again once we have our Table component working and we can use the globally available components from our custom MDX files */}
+  {/* <CustomList data={fixtureData} /> */}
+</Pagination>
+```

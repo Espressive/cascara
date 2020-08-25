@@ -1,0 +1,10 @@
+{
+  "rootDir": "../",
+  "staticPath": ".cosmos/public",
+  "exportPath": "build/cosmos",
+  "watchDirs": ["src/ui/*/src", "src/layout/*/src"],
+  "webpack": {
+    "configPath": "react-scripts/config/webpack.config",
+    "overridePath": ".cosmos/webpack.override.js"
+  }
+}

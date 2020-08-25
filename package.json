@@ -1,75 +1,80 @@
 {
   "name": "cascara",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Espressive's Functional Design System",
   "repository": "https://github.com/Espressive/cascara.git",
   "author": "Brian Espinosa <brian@espressive.com>",
+  "license": "CC0-1.0",
   "private": true,
   "engines": {
     "node": "^14.5.0"
   },
   "workspaces": {
     "packages": [
-      "apps/*",
-      "configs/*",
-      "design/**/*"
+      "docs",
+      "packages/*",
+      "utils/*"
     ]
-  },
-  "dependencies": {
-    "docz": "2.3.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-scripts": "3.4.1"
-  },
-  "scripts": {
-    "app-admin": "yarn --cwd apps/admin start",
-    "app-main": "yarn --cwd apps/main start",
-    "cosmos": "npx react-cosmos",
-    "docz:start": "rm -rf .docz && docz dev",
-    "docz:build": "docz build && echo 'User-agent: *\nDisallow: /' > build/docs/robots.txt",
-    "docz:serve": "docz build && docz serve",
-    "framer:publish": "dotenv npx framer-cli publish",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "lint": "eslint ./"
   },
   "devDependencies": {
     "@babel/core": "7.11.0",
     "@babel/plugin-proposal-class-properties": "7.10.4",
+    "@babel/plugin-proposal-export-default-from": "7.10.4",
     "@babel/plugin-proposal-optional-chaining": "7.11.0",
     "@babel/plugin-transform-modules-commonjs": "7.10.4",
     "@babel/plugin-transform-runtime": "7.11.0",
     "@babel/preset-env": "7.11.0",
     "@babel/preset-react": "7.10.4",
+    "@espressive/babel-preset-espressive": "file:utils/babel-preset-espressive",
+    "@espressive/eslint-config-espressive": "file:utils/eslint-config-espressive",
     "@rollup/plugin-babel": "5.1.0",
+    "@rollup/plugin-node-resolve": "9.0.0",
     "@testing-library/jest-dom": "5.11.2",
     "@testing-library/react": "10.4.7",
     "@typescript-eslint/eslint-plugin": "3.7.1",
-    "@typescript-eslint/parser": "3.7.1",
+    "@typescript-eslint/parser": "3.10.0",
+    "babel-eslint": "10.1.0",
     "babel-jest": "26.2.2",
-    "babel-preset-espressive": "*",
     "eslint": "7.5.0",
-    "eslint-config-espressive": "*",
     "eslint-plugin-flowtype": "5.2.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react": "7.20.5",
     "eslint-plugin-react-hooks": "4.0.8",
-    "history": "5.0.0",
     "husky": "1.3.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.2.2",
     "jest-junit": "11.1.0",
+    "lerna": "3.22.1",
     "lint-staged": "10.2.11",
-    "node-sass": "4.14.1",
     "normalize.css": "8.0.1",
     "prettier": "2.0.5",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
+    "react-scripts": "3.4.1",
     "react-test-renderer": "16.13.1",
     "rollup": "2.23.0",
-    "rollup-plugin-postcss": "3.1.3"
+    "rollup-plugin-postcss": "3.1.3",
+    "sass": "1.26.10",
+    "semantic-ui-react": "0.88.2",
+    "style-dictionary": "2.10.1",
+    "typescript": "4.0.2"
+  },
+  "scripts": {
+    "cascara": "yarn workspace @espressive/cascara",
+    "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
+    "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
+    "docs": "yarn workspace docs",
+    "cosmos": "npx react-cosmos --config .cosmos/config.json",
+    "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
+    "framer:publish": "dotenv npx framer-cli publish",
+    "test": "jest --config .jest/config.js",
+    "test:watch": "yarn test --watch",
+    "lint": "eslint ./",
+    "tokens": "style-dictionary build -c ./tokens.config.json"
   },
   "husky": {
     "hooks": {
@@ -77,10 +82,12 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": [
+    "*.{js,jsx,ts,tsx}": [
       "eslint --fix",
       "prettier --write"
+    ],
+    "*.{md,mdx,html,css,scss}": [
+      "prettier --write"
     ]
-  },
-  "license": "CC0-1.0"
+  }
 }

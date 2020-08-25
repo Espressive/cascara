@@ -10,11 +10,12 @@ module.exports = {
     '@babel/preset-react',
   ],
   plugins: [
+    '@babel/plugin-proposal-export-default-from',
     '@babel/plugin-proposal-optional-chaining',
     ['@babel/plugin-proposal-class-properties', { loose: true }],
   ],
   env: {
-    // Make sure we use these plugins when running Jest
+    // Jest
     test: {
       plugins: [
         '@babel/plugin-transform-modules-commonjs',

@@ -1,0 +1,17 @@
+{
+  "name": "next-layout-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "next dev",
+    "build": "next build",
+    "serve": "next start"
+  },
+  "dependencies": {
+    "@espressive/cascara": "link:../../packages/cascara",
+    "@espressive/legacy-css": "link:../../utils/legacy-css",
+    "next": "9.5.2",
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom"
+  }
+}
