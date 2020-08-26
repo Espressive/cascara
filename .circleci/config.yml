@@ -20,7 +20,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          # mentions: 'here'
+          mentions: 'bje'
 
   lint:
     executor:
@@ -35,7 +35,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          # mentions: 'here'
+          mentions: 'bje'
 
   test:
     executor:
@@ -56,7 +56,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          # mentions: 'here'
+          mentions: 'bje'
 
   build-cosmos:
     executor:
@@ -71,7 +71,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          # mentions: 'here'
+          mentions: 'bje'
 
   build-docs:
     executor:
@@ -86,7 +86,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          # mentions: 'here'
+          mentions: 'bje'
 
   build-cascara:
     executor:
@@ -101,7 +101,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          # mentions: 'here'
+          mentions: 'bje'
 
 workflows:
   build-and-test:
@@ -113,6 +113,9 @@ workflows:
       - test:
           requires:
             - install
+      - build-cascara:
+          requires:
+            - install
       - build-cosmos:
           requires:
             - lint
@@ -121,7 +124,4 @@ workflows:
           requires:
             - lint
             - test
-      - build-cascara:
-          requires:
-            - lint
-            - test
+            - build-cascara
