@@ -6,9 +6,12 @@ import getMDXTree from '../lib/getMDXTree';
 
 export default function Home({ mdxTree }) {
   return (
-    <pre>
-      <code>{JSON.stringify(mdxTree, null, '  ')}</code>
-    </pre>
+    <details style={{ padding: '1em' }}>
+      <summary>mdxTree</summary>
+      <pre>
+        <code>{JSON.stringify(mdxTree, null, '  ')}</code>
+      </pre>
+    </details>
   );
 }
 
