@@ -20,7 +20,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          # mentions: 'here'
 
   lint:
     executor:
@@ -30,12 +30,12 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Eslint
+          name: Run Eslint
           command: yarn lint
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          # mentions: 'here'
 
   test:
     executor:
@@ -45,7 +45,7 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Run tests
+          name: Run Unit Tests
           command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./coverage/junit/
@@ -56,7 +56,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          # mentions: 'here'
 
   build-cosmos:
     executor:
@@ -66,12 +66,12 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Build
+          name: Build Cosmos
           command: yarn cosmos:build
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          # mentions: 'here'
 
   build-docs:
     executor:
@@ -81,12 +81,12 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Build
+          name: Build Docs
           command: yarn docs build
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          # mentions: 'here'
 
   build-cascara:
     executor:
@@ -96,12 +96,12 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
-          name: Build
+          name: Build Cascara Runtimes
           command: make
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          # mentions: 'here'
 
 workflows:
   build-and-test:
@@ -115,16 +115,13 @@ workflows:
             - install
       - build-cosmos:
           requires:
-            - install
             - lint
             - test
       - build-docs:
           requires:
-            - install
             - lint
             - test
       - build-cascara:
           requires:
-            - install
             - lint
             - test
