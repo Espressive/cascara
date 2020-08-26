@@ -31,7 +31,7 @@
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
-    "clean": "rm -rf dist && rm -rf cjs && rm -rf es",
+    "clean": "rm -rf dist",
     "build": "yarn clean && rollup -c",
     "watch": "rollup -c -w"
   },

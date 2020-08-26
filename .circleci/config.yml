@@ -28,7 +28,11 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Run Eslint
-          command: yarn lint
+          command: yarn lint --format junit --output-file ./coverage/eslint.xml
+      - store_test_results:
+          path: ./coverage
+      - store_artifacts:
+          path: ./coverage
       - slack/status:
           fail_only: true
           include_project_field: false
