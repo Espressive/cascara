@@ -69,10 +69,10 @@ jobs:
           name: Build Cascara Runtimes
           command: make
       - persist_to_workspace:
-          root: ~/
+          root: /packages/cascara
           paths:
-            - 'packages/cascara/cjs'
-            - 'packages/cascara/es'
+            - cjs
+            - es
       - slack/status:
           fail_only: true
           include_project_field: false
