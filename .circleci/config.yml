@@ -69,7 +69,7 @@ jobs:
           name: Build Cascara Runtimes
           command: make
       - persist_to_workspace:
-          root: /packages/cascara
+          root: /home/circleci/project/packages/cascara
           paths:
             - cjs
             - es
