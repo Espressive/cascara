@@ -16,7 +16,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-live": "2.2.2",
-    "semantic-ui-react": "1.2.0"
+    "semantic-ui-react": "1.2.1"
   },
   "devDependencies": {
     "directory-tree": "2.2.4",

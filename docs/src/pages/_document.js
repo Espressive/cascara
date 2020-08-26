@@ -10,13 +10,32 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link href='/favicon.ico' rel='icon' />
+
+          <link
+            href='/apple-touch-icon.png'
+            rel='apple-touch-icon'
+            sizes='180x180'
+          />
+          <link
+            href='/favicon-32x32.png'
+            rel='icon'
+            sizes='32x32'
+            type='image/png'
+          />
+          <link
+            href='/favicon-16x16.png'
+            rel='icon'
+            sizes='16x16'
+            type='image/png'
+          />
+          <link href='/site.webmanifest' rel='manifest' />
+
           <style>
             {`html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {

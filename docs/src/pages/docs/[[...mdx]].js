@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -41,9 +42,19 @@ const Doc = ({ mdxDirSource }) => {
   // TODO: Update the top level navigation to a tab UI once we have the components to support it
   return (
     <>
-      <ul>
+      <Head>
+        <title>Cascara: {router?.query?.mdx[1]}</title>
+      </Head>
+      <ul style={{ listStyle: 'none' }}>
         {mdxDirSource.map((doc, i) => (
-          <li key={i}>
+          <li
+            key={i}
+            style={
+              Number(router?.query?.doc) === i
+                ? { listStyle: 'disc' }
+                : undefined
+            }
+          >
             <Link
               as={{
                 pathname: router.asPath.split('?')[0],
@@ -54,7 +65,9 @@ const Doc = ({ mdxDirSource }) => {
                 query: { doc: i },
               }}
             >
-              <a>{doc.fileName}</a>
+              <a>
+                {doc.fileName} {Number(router?.query?.doc) === i}
+              </a>
             </Link>
           </li>
         ))}
@@ -84,9 +97,12 @@ export const getStaticPaths = async () => {
   return {
     fallback: false,
     paths: [
-      { params: { mdx: ['layout', 'Admin'] } },
+      { params: { mdx: ['atoms', 'Boolean'] } },
+      { params: { mdx: ['atoms', 'String'] } },
+      { params: { mdx: ['layouts', 'TableLayout'] } },
       { params: { mdx: ['specs', 'Allie'] } },
       { params: { mdx: ['specs', 'Table'] } },
+      { params: { mdx: ['structures', 'Admin'] } },
       { params: { mdx: ['ui', 'Button'] } },
       { params: { mdx: ['ui', 'Filter'] } },
       { params: { mdx: ['ui', 'Pagination'] } },

@@ -1,5 +1,5 @@
 module.exports = {
   poweredByHeader: false,
-  reactStrictMode: true,
+  // reactStrictMode: true,
   target: 'serverless',
 };
