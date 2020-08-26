@@ -13,10 +13,10 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - '*'
+      # - persist_to_workspace:
+      #     root: ~/
+      #     paths:
+      #       - '*'
       - slack/status:
           fail_only: true
           include_project_field: false
@@ -63,8 +63,8 @@ jobs:
       name: node/default
       tag: '14.5.0'
     steps:
-      - attach_workspace:
-          at: ~/
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Build Cascara Runtimes
           command: make
