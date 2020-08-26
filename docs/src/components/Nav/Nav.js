@@ -16,12 +16,13 @@ const Nav = ({ mdxTree }) => {
           <Fragment key={item.name}>
             <NavSection content={item.name} />
             <ul style={{ listStyle: 'none' }}>
-              {item.children.map((item) =>
-                item.size ? (
+              {item.children.map((item) => {
+                const activeComponent = router?.query?.mdx?.[1];
+                return item.size ? (
                   <li
                     key={item.name}
                     style={
-                      item.name === router?.query?.mdx[1]
+                      item.name === activeComponent
                         ? { listStyle: 'disc' }
                         : undefined
                     }
@@ -30,8 +31,8 @@ const Nav = ({ mdxTree }) => {
                       <a>{item.name}</a>
                     </Link>
                   </li>
-                ) : null
-              )}
+                ) : null;
+              })}
             </ul>
           </Fragment>
         ) : null
