@@ -71,11 +71,11 @@ jobs:
       - run:
           name: Build Cascara Runtimes
           command: make
-      - persist_to_workspace:
-          root: /home/circleci/project/packages/cascara
+      - save_cache:
+          key: cascara-{{ .Revision }}-{{ checksum "yarn.lock" }}
           paths:
-            - cjs
-            - es
+            - /home/circleci/project/packages/cascara/cjs
+            - /home/circleci/project/packages/cascara/es
       - slack/status:
           fail_only: true
           include_project_field: false
@@ -86,8 +86,9 @@ jobs:
       name: node/default
       tag: '14.5.0'
     steps:
-      - attach_workspace:
-          at: ~/
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Build Cosmos
           command: yarn cosmos:build
@@ -101,8 +102,14 @@ jobs:
       name: node/default
       tag: '14.5.0'
     steps:
-      - attach_workspace:
-          at: ~/
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - restore_cache:
+          key: cascara-{{ .Revision }}-{{ checksum "yarn.lock" }}
+          paths:
+            - /home/circleci/project/packages/cascara/cjs
+            - /home/circleci/project/packages/cascara/es
       - run:
           name: Build Docs
           command: yarn docs build
