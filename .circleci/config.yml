@@ -58,6 +58,26 @@ jobs:
           include_project_field: false
           mentions: 'bje'
 
+  build-cascara:
+    executor:
+      name: node/default
+      tag: '14.5.0'
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Build Cascara Runtimes
+          command: make
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - 'packages/cascara/cjs'
+            - 'packages/cascara/es'
+      - slack/status:
+          fail_only: true
+          include_project_field: false
+          mentions: 'bje'
+
   build-cosmos:
     executor:
       name: node/default
@@ -88,21 +108,6 @@ jobs:
           include_project_field: false
           mentions: 'bje'
 
-  build-cascara:
-    executor:
-      name: node/default
-      tag: '14.5.0'
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run:
-          name: Build Cascara Runtimes
-          command: make
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'bje'
-
 workflows:
   build-and-test:
     jobs:
@@ -122,6 +127,6 @@ workflows:
             - test
       - build-docs:
           requires:
+            - build-cascara
             - lint
             - test
-            - build-cascara
