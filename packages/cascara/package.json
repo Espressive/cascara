@@ -1,8 +1,8 @@
 {
   "name": "@espressive/cascara",
   "version": "0.1.1-alpha.10",
-  "main": "cjs/index.js",
-  "module": "es/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
   "repository": {
     "directory": "packages/cascara",
     "type": "git",
@@ -12,8 +12,7 @@
     "access": "public"
   },
   "files": [
-    "cjs",
-    "es"
+    "dist"
   ],
   "license": "MIT",
   "sideEffects": false,

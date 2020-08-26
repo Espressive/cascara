@@ -13,10 +13,6 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      # - persist_to_workspace:
-      #     root: ~/
-      #     paths:
-      #       - '*'
       - slack/status:
           fail_only: true
           include_project_field: false
@@ -74,8 +70,10 @@ jobs:
       - save_cache:
           key: cascara-{{ .Revision }}-{{ checksum "yarn.lock" }}
           paths:
-            - /home/circleci/project/packages/cascara/cjs
-            - /home/circleci/project/packages/cascara/es
+            - /home/circleci/project/packages/cascara/dist
+      - store_artifacts:
+          path: /home/circleci/project/packages/cascara/dist
+          destination: dist
       - slack/status:
           fail_only: true
           include_project_field: false
@@ -92,6 +90,8 @@ jobs:
       - run:
           name: Build Cosmos
           command: yarn cosmos:build
+      - store_artifacts:
+          path: ./build
       - slack/status:
           fail_only: true
           include_project_field: false
@@ -108,8 +108,7 @@ jobs:
       - restore_cache:
           key: cascara-{{ .Revision }}-{{ checksum "yarn.lock" }}
           paths:
-            - /home/circleci/project/packages/cascara/cjs
-            - /home/circleci/project/packages/cascara/es
+            - /home/circleci/project/packages/cascara/dist
       - run:
           name: Build Docs
           command: yarn docs build
