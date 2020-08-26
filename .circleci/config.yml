@@ -58,7 +58,7 @@ jobs:
           include_project_field: false
           mentions: 'here'
 
-  cosmos:
+  build-cosmos:
     executor:
       name: node/default
       tag: '14.5.0'
@@ -73,7 +73,22 @@ jobs:
           include_project_field: false
           mentions: 'here'
 
-  build:
+  build-docs:
+    executor:
+      name: node/default
+      tag: '14.5.0'
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Build
+          command: yarn docs build
+      - slack/status:
+          fail_only: true
+          include_project_field: false
+          mentions: 'here'
+
+  build-cascara:
     executor:
       name: node/default
       tag: '14.5.0'
@@ -98,9 +113,18 @@ workflows:
       - test:
           requires:
             - install
-      - cosmos:
+      - build-cosmos:
           requires:
             - install
-      - build:
+            - lint
+            - test
+      - build-docs:
           requires:
             - install
+            - lint
+            - test
+      - build-cascara:
+          requires:
+            - install
+            - lint
+            - test
