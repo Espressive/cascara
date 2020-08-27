@@ -11,9 +11,23 @@ jobs:
       tag: '14.5.0'
     steps:
       - checkout
+      - restore_cache:
+          key: node_modules-cascara-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
-      - slack/status:
+          with-cache: false
+      - save_cache:
+          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          paths:
+            - /home/circleci/project/node_modules
+            - /home/circleci/project/packages/*/node_modules
+            # - /home/circleci/project/packages/cascara/node_modules
+            # - /home/circleci/project/packages/framer/node_modules
+            # - /home/circleci/project/packages/tokens/node_modules
+            - /home/circleci/project/utils/*/node_modules
+            # - /home/circleci/project/utils/babel-preset-espressive/node_modules
+            # - /home/circleci/project/utils/eslint-config-espressive/node_modules
+            # - /home/circleci/project/utils/legacy-css/node_modules      - slack/status:
           fail_only: true
           include_project_field: false
           mentions: 'bje'
@@ -24,8 +38,11 @@ jobs:
       tag: '14.5.0'
     steps:
       - checkout
+      - restore_cache:
+          key: node_modules-cascara-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
+          with-cache: false
       - run:
           name: Run Eslint
           command: yarn lint --format junit --output-file ./coverage/eslint.xml
@@ -44,8 +61,11 @@ jobs:
       tag: '14.5.0'
     steps:
       - checkout
+      - restore_cache:
+          key: node_modules-cascara-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
+          with-cache: false
       - run:
           name: Run Unit Tests
           command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
@@ -66,8 +86,11 @@ jobs:
       tag: '14.5.0'
     steps:
       - checkout
+      - restore_cache:
+          key: node_modules-cascara-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
+          with-cache: false
       - run:
           name: Build Cascara Runtimes
           command: make
@@ -89,8 +112,11 @@ jobs:
       tag: '14.5.0'
     steps:
       - checkout
+      - restore_cache:
+          key: node_modules-cascara-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
+          with-cache: false
       - run:
           name: Build Cosmos
           command: yarn cosmos:build
@@ -107,8 +133,11 @@ jobs:
       tag: '14.5.0'
     steps:
       - checkout
+      - restore_cache:
+          key: node_modules-cascara-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
+          with-cache: false
       - restore_cache:
           key: cascara-{{ .Revision }}-{{ checksum "yarn.lock" }}
           paths:
