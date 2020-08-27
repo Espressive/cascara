@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
@@ -20,14 +20,15 @@ jobs:
           key: node_modules-cascara-{{ checksum "yarn.lock" }}
           paths:
             - /home/circleci/project/node_modules
-            - /home/circleci/project/packages/*/node_modules
-            # - /home/circleci/project/packages/cascara/node_modules
-            # - /home/circleci/project/packages/framer/node_modules
-            # - /home/circleci/project/packages/tokens/node_modules
-            - /home/circleci/project/utils/*/node_modules
-            # - /home/circleci/project/utils/babel-preset-espressive/node_modules
-            # - /home/circleci/project/utils/eslint-config-espressive/node_modules
-            # - /home/circleci/project/utils/legacy-css/node_modules      - slack/status:
+            # - /home/circleci/project/packages/*/node_modules
+            - /home/circleci/project/packages/cascara/node_modules
+            - /home/circleci/project/packages/framer/node_modules
+            - /home/circleci/project/packages/tokens/node_modules
+            # - /home/circleci/project/utils/*/node_modules
+            - /home/circleci/project/utils/babel-preset-espressive/node_modules
+            - /home/circleci/project/utils/eslint-config-espressive/node_modules
+            - /home/circleci/project/utils/legacy-css/node_modules      
+        - slack/status:
           fail_only: true
           include_project_field: false
           mentions: 'bje'
