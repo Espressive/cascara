@@ -77,7 +77,7 @@ jobs:
           paths:
             - /home/circleci/project/packages/cascara/dist
       - store_artifacts:
-          path: /home/circleci/project/packages/cascara/dist
+          path: ./packages/cascara/dist
           destination: dist
       - slack/status:
           fail_only: true
@@ -95,7 +95,8 @@ jobs:
           name: Build Cosmos
           command: yarn cosmos:build
       - store_artifacts:
-          path: ./build
+          path: ./build/cosmos
+          destination: cosmos
       - slack/status:
           fail_only: true
           include_project_field: false
