@@ -14,7 +14,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - save_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}-{{ .BuildNum }}
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
           paths:
             - ~/
       - slack/status:
@@ -28,7 +28,7 @@ jobs:
       tag: '14.5.0'
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}-{{ .BuildNum }}
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
           name: Run Eslint
           command: yarn lint --format junit --output-file ./coverage/eslint.xml
@@ -47,7 +47,7 @@ jobs:
       tag: '14.5.0'
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}-{{ .BuildNum }}
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
           name: Run Unit Tests
           command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
@@ -68,7 +68,7 @@ jobs:
       tag: '14.5.0'
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}-{{ .BuildNum }}
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
           name: Build Cascara Runtimes
           command: make
@@ -90,7 +90,7 @@ jobs:
       tag: '14.5.0'
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}-{{ .BuildNum }}
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
           name: Build Cosmos
           command: yarn cosmos:build
@@ -107,7 +107,7 @@ jobs:
       tag: '14.5.0'
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}-{{ .BuildNum }}
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - restore_cache:
           key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
       - run:
