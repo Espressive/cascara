@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
+          key: node_modules--CASCARA--{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
