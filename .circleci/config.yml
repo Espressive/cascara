@@ -27,8 +27,8 @@ jobs:
             # - /home/circleci/project/utils/*/node_modules
             - /home/circleci/project/utils/babel-preset-espressive/node_modules
             - /home/circleci/project/utils/eslint-config-espressive/node_modules
-            - /home/circleci/project/utils/legacy-css/node_modules      
-        - slack/status:
+            - /home/circleci/project/utils/legacy-css/node_modules
+      - slack/status:
           fail_only: true
           include_project_field: false
           mentions: 'bje'
