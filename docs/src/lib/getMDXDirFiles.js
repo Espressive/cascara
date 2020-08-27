@@ -11,7 +11,7 @@ const getMDXDirFiles = (routeParams) =>
   dirTree(
     `../packages/cascara/src/${routeParams.mdx[0]}/${routeParams.mdx[1]}`,
     {
-      extensions: /\.(mdx|fixture.js)$/,
+      extensions: /\.(mdx)$/,
     }
   ).children;
 
