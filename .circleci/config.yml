@@ -13,39 +13,43 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      - persist_to_workspace:
-          root: ~/
+      - save_cache:
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
           paths:
-            - '*'
+            - ~/
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          mentions: 'bje'
 
   lint:
     executor:
       name: node/default
       tag: '14.5.0'
     steps:
-      - attach_workspace:
-          at: ~/
+      - restore_cache:
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
-          name: Eslint
-          command: yarn lint
+          name: Run Eslint
+          command: yarn lint --format junit --output-file ./coverage/eslint.xml
+      - store_test_results:
+          path: ./coverage
+      - store_artifacts:
+          path: ./coverage
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          mentions: 'bje'
 
   test:
     executor:
       name: node/default
       tag: '14.5.0'
     steps:
-      - attach_workspace:
-          at: ~/
+      - restore_cache:
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
-          name: Run tests
+          name: Run Unit Tests
           command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./coverage/junit/
@@ -56,37 +60,64 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          mentions: 'bje'
 
-  cosmos:
+  build-cascara:
     executor:
       name: node/default
       tag: '14.5.0'
     steps:
-      - attach_workspace:
-          at: ~/
+      - restore_cache:
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
-          name: Build
-          command: yarn cosmos:build
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
-
-  build:
-    executor:
-      name: node/default
-      tag: '14.5.0'
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run:
-          name: Build
+          name: Build Cascara Runtimes
           command: make
+      - save_cache:
+          key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
+          paths:
+            - /home/circleci/project/packages/cascara/dist
+      - store_artifacts:
+          path: ./packages/cascara/dist
+          destination: dist
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'here'
+          mentions: 'bje'
+
+  build-cosmos:
+    executor:
+      name: node/default
+      tag: '14.5.0'
+    steps:
+      - restore_cache:
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+      - run:
+          name: Build Cosmos
+          command: yarn cosmos:build
+      - store_artifacts:
+          path: ./build/cosmos
+          destination: cosmos
+      - slack/status:
+          fail_only: true
+          include_project_field: false
+          mentions: 'bje'
+
+  build-docs:
+    executor:
+      name: node/default
+      tag: '14.5.0'
+    steps:
+      - restore_cache:
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+      - restore_cache:
+          key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Build Docs
+          command: yarn docs build
+      - slack/status:
+          fail_only: true
+          include_project_field: false
+          mentions: 'bje'
 
 workflows:
   build-and-test:
@@ -98,9 +129,15 @@ workflows:
       - test:
           requires:
             - install
-      - cosmos:
+      - build-cascara:
           requires:
             - install
-      - build:
+      - build-cosmos:
           requires:
-            - install
+            - lint
+            - test
+      - build-docs:
+          requires:
+            - build-cascara
+            - lint
+            - test

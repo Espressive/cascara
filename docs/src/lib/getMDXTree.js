@@ -12,7 +12,7 @@ import dirTree from 'directory-tree';
 const getMDXTree = () =>
   // TODO: Memoize this
   dirTree('../packages/cascara/src', {
-    extensions: /\.(mdx|fixture.js)$/,
+    extensions: /\.(mdx)$/,
   }).children;
 
 export default getMDXTree;

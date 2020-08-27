@@ -43,7 +43,7 @@ const Doc = ({ mdxDirSource }) => {
   return (
     <>
       <Head>
-        <title>Cascara: {router?.query?.mdx[1]}</title>
+        <title>{router?.query?.mdx[1]} - Cascara</title>
       </Head>
       <ul style={{ listStyle: 'none' }}>
         {mdxDirSource.map((doc, i) => (
@@ -91,31 +91,39 @@ const Doc = ({ mdxDirSource }) => {
 };
 
 export const getStaticPaths = async () => {
-  // TODO: Need to auto generate this array for static generation
-  // leaving fallback to `false` means reloading on a page missing
-  // from the array will show a 404
+  const tree = getMDXTree();
+
+  let staticPaths = [];
+
+  tree.forEach((element) => {
+    const { name, children } = element;
+    children.forEach((child) => {
+      // We only want a static path for directories that have files in them.
+      // Technically the file size returned is based on the files being filtered
+      // in getMDXTree() which are only MDX files at this time.
+      if (child.type === 'directory' && child.size > 0) {
+        staticPaths.push({ params: { mdx: [name, child.name] } });
+      }
+    });
+  });
+
   return {
     fallback: false,
-    paths: [
-      { params: { mdx: ['atoms', 'Boolean'] } },
-      { params: { mdx: ['atoms', 'String'] } },
-      { params: { mdx: ['layouts', 'TableLayout'] } },
-      { params: { mdx: ['specs', 'Allie'] } },
-      { params: { mdx: ['specs', 'Table'] } },
-      { params: { mdx: ['structures', 'Admin'] } },
-      { params: { mdx: ['ui', 'Button'] } },
-      { params: { mdx: ['ui', 'Filter'] } },
-      { params: { mdx: ['ui', 'Pagination'] } },
-    ],
+    paths: staticPaths,
   };
 };
 
 export const getStaticProps = async ({ params }) => {
-  const mdxDirFiles = getMDXDirFiles(params);
+  const mdxDir = getMDXDirFiles(params);
+
+  // We need to make sure this is only actual files and not a directory
+  // so we are filtering it to make sure the size of the file is not zero.
+  const mdxDirFiles = mdxDir.filter((file) => file.size > 0 && file);
 
   // This needs to be async or it will blow up since `next-mdx-remote` is
   // asyncrhonously getting all MDX files and rendering them to string.
   // Without the Promise.all pattern this will blow up on us.
+
   const mdxDirSource = await Promise.all(
     mdxDirFiles.map(async (file) => {
       const filePath = path.join(process.cwd(), file.path);
