@@ -12,12 +12,12 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules--CASCARA--{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
       - save_cache:
-          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
           paths:
             - /home/circleci/project/node_modules
             # - /home/circleci/project/packages/*/node_modules
@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
@@ -63,7 +63,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
@@ -88,7 +88,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
@@ -114,7 +114,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
@@ -135,7 +135,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: node_modules-cascara-{{ checksum "yarn.lock" }}
+          key: node_modules-CASCARA-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
           with-cache: false
