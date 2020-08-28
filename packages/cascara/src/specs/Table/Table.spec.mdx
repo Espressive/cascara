@@ -1,7 +1,310 @@
 ---
-title: Table
+title: Espressive Table - Spec
+name: Spec
+menu: Table
+route: /table-spec
 ---
 
-# Table
+# Proposal
 
-Let's see if this shows up at our application root.
+Much thought has been put to the proposal described in this section, our goal is to create a table that can support all of our current use cases while at the same time being abstract enough to support future ones. We are not inventing the wheel here, there are great open source libraries like `react-table`. The problem with those libraries is that they are bloated with things we don't need either because we already abstracted such functionality out to other components or we simply don't need it.
+
+## Espressive CRUD Table
+
+Given the nature of our actual tables and the operations we need to perform on the data entities, a CRUD Table starts to make sense. A kind of table that not only displays data in a nice tabular way, but also allows for a richier interaction with the data.
+
+It is true that CRUD operations are needed in less scenarios, so the CRUD feature must be opt-in, easily enabled and must not interfere with the regular table logic.
+
+## Props
+
+### Events
+
+In order to support CRUD operations, we must define a mechanism to communicate the parent any changes to the data.
+
+- onCreate
+- onUpdate
+- onDelete
+- onTrigger
+
+Please note that the names could have been something like `onItemCreate` for semantics, but let's remember that in the future we plan to support selection and custom actions on multiple items. Our proposal is to keep these as abstract as possible.
+
+| Event     | Signature                                         | Description                                                        |
+| --------- | ------------------------------------------------- | ------------------------------------------------------------------ |
+| onCreate  | `(Array[Object]: newRecords) => {}`               | Fired when the User saves a new record                             |
+| onUpdate  | `(Array[Object]: updatedRecords) => {}`           | Fired when one or more records have been updated by the User       |
+| onDelete  | `(Array[String]: deletedRecords) => {}`           | Fired when one or more records have been deleted by the User       |
+| onTrigger | `(String: actionType, Array[String]: data) => {}` | Fired when a custom action has been applied to one or more records |
+
+#### Handling Events - examples
+
+The following are examples of how to handle these events in the parent component:
+
+```js
+---
+title: onCreate - newRecords is the list of new, not-yet-saved records
+---
+const onCreate = (newRecords = []) => {
+  // persist new records..
+}
+```
+
+```js
+---
+title: onUpdate - updatedRecords is the list of updated records
+---
+const onUpdate = (updatedRecords = []) => {
+  // persist changes..
+}
+```
+
+```js
+---
+title: onDelete - deletedRecords is the list of deleted records
+---
+const onDelete = (deletedRecords = []) => {
+  // invoke external delete logic here..
+}
+```
+
+```js
+---
+title: onTrigger - selectedRecords is the list of selected records
+---
+/**
+ * The following examples asume that API and navigate are present.
+ * This goes to show how easy it'd be to plug external logic to the table */
+const onTrigger = (triggerId = '', selectedRecords = []) => {
+
+  /**
+   * triggerId is specified when defining triggers in props */
+  switch (triggerId) {
+
+    /**
+     * in this example, the `cancel` trigger hits a `cancel` endpoint
+     * in the API, passing the record to be cancelled */
+    case 'cancel':
+      selectedRecords.forEach((record) => API.cancel(record));
+      break;
+
+    /**
+     * in this example, the `view` trigger navigates to a URL
+     * and passes the record's `eid` as query params */
+    case 'view':
+      const url = 'https://example.com/?id=';
+      navigate(`${url}${record.eid}`);
+      break;
+
+  }
+}
+```
+
+### Config
+
+There will be use cases where features like multi-selection, CRUD, custom actions, etc. won't be required at all, they must be disabled by default but easily activated. It makes sense to have boolean props that controll such features.
+
+Another important aspect of configuration is the definition of columns, hence a complete section is devoted to it.
+
+| Name                     | Type          | default | Description                                        |
+| ------------------------ | ------------- | ------- | -------------------------------------------------- |
+| columnDefs               | Array[Object] | `[]`    | Holds the definitions for each column in the table |
+| deletable                | Boolean       | `FALSE` | If true, activates the deletion of records         |
+| editable                 | Boolean       | `FALSE` | If true, activates the edit mode                   |
+| expandable               | Boolean       | `FALSE` | If true, activates the creation of new records     |
+| selectable (enhancement) | Boolean       | `FALSE` | If true, activates the multi-select mmode          |
+
+### Triggers
+
+Custom actions are present in most tables, they are an important aspect of all applications. The nature of the actions depends on the entity they are applied to, hence, an abstract way of defining custom actions is required.
+
+| Attribute | Type   | default           | Description                                                                                                    |
+| --------- | ------ | ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| id        | String | `''`              | The id of the action, usually the name                                                                         |
+| label     | String | `''`              | The text to display in the button                                                                              |
+| type      | Enum   | [`BULK`, `SINGLE` | If BULK, the trigger can be invoked over many records. Otherwise, it will only be available for single records |
+
+```js
+---
+title: Defining triggers
+---
+  const triggers={[
+    { id: 'cancel', label: 'Cancel', type: 'BULK' },
+    { id: 'view', label: 'View', type: 'SINGLE' },
+  ]}
+```
+
+### Data
+
+The data passed to the table for rendering purposes.
+
+| Name | Type          | default | Description                                   |
+| ---- | ------------- | ------- | --------------------------------------------- |
+| data | Array[Object] | `[]`    | the tabular data to be displayed by the table |
+
+### Columns (columnDefs)
+
+The definition of columns depends on the shape of our data, we must make sure we have a well-defined set of data types to allow display and mutation for each one.
+
+| Attribute  | Type                                                                   | default    | Description                                              |
+| ---------- | ---------------------------------------------------------------------- | ---------- | -------------------------------------------------------- |
+| attribute  | String                                                                 | `null`     | The name of the record attribute that maps to the column |
+| isReadOnly | Boolean                                                                | `FALSE`    | If true, disables edition for this column in all rows    |
+| label      | String                                                                 | `''`       | Label text to display with this attribute                |
+| type       | Enum[`boolean`, `date`, `image`, `link`, `number`, `string`, `render`] | `'string'` | Specifies the type of data for the column                |
+
+#### An example of defining columns
+
+```js
+---
+title: An example of defining columns
+---
+const columnDefs = [
+  {
+    attribute         : 'eid',
+    id                : 'column_1',
+    isReadOnly        : true,
+    label             : 'ID',
+    type              : 'STRING',
+  },
+  {
+    attribute         : 'firstName',
+    id                : 'column_2',
+    isReadOnly        : false,
+    label             : 'First Name',
+    type              : 'STRING',
+  },
+  {
+    attribute         : 'lastName',
+    id                : 'column_3',
+    isReadOnly        : false,
+    label             : 'Last Name',
+    type              : 'STRING',
+  },
+];
+```
+
+Please note that this example sets the `isReadOnly` to true for `column_1`, @brianespinosa should we enable it by default? in the above case, `column_1` would be our `uniqueIdAttribute`, we better not change it.
+
+### Data types
+
+The data types this table can handle are the following:
+
+For display puposes: `boolean`, `date`, `image`, `link`, `number`, `string` and `render`. The `render` type being a custom JSX.
+
+For mutation purposes, the implementation will support `select`, `input`, `boolean switch`, `date / time pickers`, `lookup select`. With the ability to expand to more types.
+
+## Context
+
+All the internal logic will be hosted in a Context. The proposal is the following:
+
+```js
+/**
+ * Table Context
+ *
+ * @property {Object} config table configuration
+ * @property {Array[Object]} config.columnDefs table column definition list
+ * @property {Boolean} config.isDeletable specifies if records are deletable
+ * @property {Boolean} config.isEditable specifies if records are editable
+ * @property {Boolean} config.isExpandable specifies if new records can be created
+ * @property {Boolean} config.isSelectable sgipecifies if multiple records can be selected
+ * @property {String} config.uniqueIdAttribute the attribute in the record that can be used as unique ID
+ *
+ * @property {Array[Object]} recordList the original list of records
+ * @property {Array[Object]} editingRecordList The list of records in edition mode
+ * @property {Array[Object]} newRecordList The list of new, unsaved records
+ * @property {Array[Object]} selectedRecordList The list of records in the current selection
+ *
+ * Note: the table does not create, delete or update any records, it only notifies upstream logic
+ * that a change has been generated, it's up to such logic to handle the change.
+ * @property {Function} onCreate event raised when a new record is saved
+ * @property {Function} onDelete event raised when one or more records are deleted
+ * @property {Function} onTrigger event raised when a trigger has been applied to one or more records
+ * @property {Function} onUpdate event raised when one or more records are updated */
+const TableContext = createContext({
+  config: {
+    columnDefs: [],
+    isDeletable: false,
+    isEditable: false,
+    isExpandable: false,
+    isSelectable: false,
+    uniqueIdAttribute: '',
+  },
+  editingRecordList: [],
+  newRecordList: [],
+  onCreate: () => {},
+  onDelete: () => {},
+  onTrigger: () => {},
+  onUpdate: () => {},
+  recordList: [],
+  selectedRecordList: [],
+  triggerList: [],
+});
+```
+
+## The complete JSX picture
+
+```jsx
+---
+title: The complete JSX picture
+---
+<Table
+  // config
+  columnDefs={[
+    {
+      attribute         : 'eid',
+      id                : 'column_1',
+      isReadOnly        : true,
+      label             : 'ID',
+      type              : 'STRING',
+    },
+    {
+      attribute         : 'first_name',
+      id                : 'column_2',
+      isReadOnly        : false,
+      label             : 'First Name',
+      type              : 'STRING',
+    },
+    {
+      attribute         : 'last_name',
+      id                : 'column_3',
+      isReadOnly        : false,
+      label             : 'Last Name',
+      type              : 'STRING',
+    },
+  ]}
+  deletable
+  editable
+  expandable
+  selectable
+
+  // events
+  onCreate={this.handleNewItem}
+  onDelete={this.handleItemDelete}
+  onUpdate={this.handleItemUpdate}
+  onTrigger={this.handleTriggers}
+
+  // triggers
+  triggers={[
+    { id: 'cancel', label: 'Cancel', type: 'BULK' },
+    { id: 'view', label: 'View', type: 'SINGLE' },
+  ]}
+
+  // data
+  data={[
+    {
+      eid: '500fe8a1-c47c-4bd0-a190-ae6688cc51e6',
+      first_name: 'Leshe',
+      last_name: 'Shavo',
+    },
+    {
+      eid: '500fe8a1-c47c-4bd0-a190-ae6688cc51e6',
+      first_name: 'Shoko',
+      last_name: 'Roles',
+    },
+    {
+      eid: '500fe8a1-c47c-4bd0-a190-ae6688cc51e6',
+      first_name: 'Masho',
+      last_name: 'Kamasho',
+    },
+  ]}
+/>
+```

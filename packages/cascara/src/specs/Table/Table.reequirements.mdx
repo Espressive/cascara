@@ -1,0 +1,52 @@
+---
+title: Espressive Table - Requirements
+name: Requirement
+menu: Table
+route: /table-requirements
+---
+
+# Current implementations
+
+As of `goldengirls` release, we use tables in the following applications:
+
+Barista:
+
+- Admin - Service Department
+  - Service Teams
+  - Barista FAQs
+  - Users
+  - Locations
+
+Caffeine
+
+- Configuration
+- Entities
+- Localization
+- Training
+- Variables
+- Status
+- Doppio
+
+## Features in tables
+
+The features in those tables vary from one implementation to another, but the general idea is to present the data in a tabular way, usually also providing the means for data mutation. The aggregated feature list is the following:
+
+**Item creation**:
+Some tables allow the user to create a new entry in the table. Adding an empty row.
+
+**Inline edition**:
+Some tables allow the user to edit the data, replacing the display representation with some JSX that allows the mutation of the data.
+
+**Item deletion**:
+Some entities in our API allow item deletion, some others don't. The `delete` functionality must be `opt-in`.
+
+**Custom actions**:
+In most implementations, tables add a trailing column to each row. This row can display `action buttons`, which can be mapped to corresponding actions over the entire row. i.e. edit, delete, cancel, etc.
+
+All of the features mentioned above must be `opt-in`.
+
+## Data representation and mutation
+
+The way each cell represents the data for either display or edit purposes not only depends on the data type but also on business logic, in most cases, values are easily coerced to string for display purposes and updates are easily achieved via a controlled input component. The rest of scenarios require a more complex implementation, e.g. the `employee` field in the `Users` table from `Barista Admin` which under the carpet is a single `eid`, but the representation of that cell is an avatar with the user name it points to, although it could be any other representation, specially when editing the value.
+
+Note: The updates made to any row would be notified upstream via `events` so the parent component is able to persist those changes. The means by which the table enables data mutation are to be provided by the developer in the form of `triggers`, the table doesn't provide such means.
