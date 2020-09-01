@@ -6,7 +6,7 @@ const propTypes = {
   children: pt.node,
 };
 
-const AdminDrawer = ({ children = 'Drawer', ...rest }) => {
+const AdminDrawer = ({ children, ...rest }) => {
   return (
     <div {...rest} className={styles.Drawer}>
       {children}

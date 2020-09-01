@@ -1,14 +1,23 @@
+import classNames from 'classnames/bind';
 import React from 'react';
 import pt from 'prop-types';
 import styles from './Admin.module.scss';
 
+const cx = classNames.bind(styles);
+
 const propTypes = {
   children: pt.node,
+  isWithDrawer: pt.bool,
 };
 
-const AdminMain = ({ children = 'Main', ...rest }) => {
+const AdminMain = ({ children, isWithDrawer = false, ...rest }) => {
+  const internalClassName = cx(rest.className, {
+    Main: true,
+    'no-drawer': !isWithDrawer,
+  });
+
   return (
-    <main {...rest} className={styles.Main}>
+    <main {...rest} className={internalClassName}>
       {children}
     </main>
   );

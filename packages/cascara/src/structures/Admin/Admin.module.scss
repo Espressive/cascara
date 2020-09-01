@@ -53,6 +53,11 @@
 .Main {
   @include cascara.scroll-vertical;
   grid-area: main;
+  background-color: purple;
+
+  &.no-drawer {
+    grid-column: span 2;
+  }
 }
 
 .Drawer {
