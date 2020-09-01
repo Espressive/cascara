@@ -1,4 +1,5 @@
 import pt from 'prop-types';
+import AdminDrawer from './AdminDrawer';
 import AdminHeader from './AdminHeader';
 import AdminMain from './AdminMain';
 import AdminNav from './AdminNav';
@@ -18,6 +19,7 @@ const Admin = ({ children }) => {
 
 Admin.propTypes = propTypes;
 
+Admin.Drawer = AdminDrawer;
 Admin.Header = AdminHeader;
 Admin.Main = AdminMain;
 Admin.Nav = AdminNav;

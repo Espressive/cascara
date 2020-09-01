@@ -124,6 +124,7 @@ export default {
       <Admin.Header />
       <Admin.Nav>{longContent}</Admin.Nav>
       <Admin.Main>{longContent}</Admin.Main>
+      <Admin.Drawer>{longContent}</Admin.Drawer>
     </Admin>
   ),
 };

@@ -33,15 +33,14 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Admin.Main>
       {propTable && (
-        <div>
-          <h4>Drawer</h4>
+        <Admin.Drawer>
           <details open style={{ padding: '1em' }}>
             <summary>props</summary>
             <pre>
               <code>{JSON.stringify(propTable, null, '  ')}</code>
             </pre>
           </details>
-        </div>
+        </Admin.Drawer>
       )}
     </Admin>
   );

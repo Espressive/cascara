@@ -31,11 +31,11 @@
   & #root,
   & #__next {
     display: grid;
-    grid-template-columns: 20em auto;
+    grid-template-columns: 20em auto 30em;
     grid-template-rows: 4em auto;
     grid-template-areas:
-      'header header'
-      'nav main';
+      'header header header'
+      'nav main drawer';
   }
 }
 
@@ -53,4 +53,10 @@
 .Main {
   @include cascara.scroll-vertical;
   grid-area: main;
+}
+
+.Drawer {
+  @include cascara.scroll-vertical;
+  grid-area: drawer;
+  box-shadow: inset 1px 0 var(--color-transparent-grey);
 }
