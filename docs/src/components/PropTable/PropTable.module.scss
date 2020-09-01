@@ -1,0 +1,50 @@
+.PropTable {
+  & > * {
+    margin: 0;
+    border-bottom: 1px solid var(--color-transparent-grey, grey);
+  }
+}
+
+.Title {
+  padding: 1em;
+}
+
+.Tag {
+  float: left;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 0.75em;
+  color: grey;
+  padding: 0.125em 0.5em;
+  border-radius: 0.5em;
+  margin-inline-end: 1rem;
+}
+
+.Details[open] {
+  .Summary {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.Summary {
+  padding: 1em;
+
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.Content {
+  overflow: scroll;
+  margin: 0;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.2);
+}

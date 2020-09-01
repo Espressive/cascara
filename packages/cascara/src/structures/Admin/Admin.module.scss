@@ -19,6 +19,10 @@
     --brand-secondary-color: orange;
   }
 
+  --main-max-width: 60em;
+  --drawer-max-width: 30em;
+  --nav-max-width: 20em;
+
   & body,
   & #root,
   & #__next {
@@ -31,11 +35,11 @@
   & #root,
   & #__next {
     display: grid;
-    grid-template-columns: 20em auto;
+    grid-template-columns: var(--nav-max-width) auto var(--drawer-max-width);
     grid-template-rows: 4em auto;
     grid-template-areas:
-      'header header'
-      'nav main';
+      'header header header'
+      'nav main drawer';
   }
 }
 
@@ -53,4 +57,19 @@
 .Main {
   @include cascara.scroll-vertical;
   grid-area: main;
+  justify-self: center;
+  max-width: var(--main-max-width);
+  width: 100%;
+
+  &.no-drawer {
+    justify-self: left;
+    grid-column: span 2;
+    max-width: calc(var(--main-max-width) + var(--drawer-max-width));
+  }
+}
+
+.Drawer {
+  @include cascara.scroll-vertical;
+  grid-area: drawer;
+  box-shadow: inset 1px 0 var(--color-transparent-grey);
 }
