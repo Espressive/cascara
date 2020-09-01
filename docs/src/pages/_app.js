@@ -2,7 +2,7 @@ import '@espressive/legacy-css';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Admin } from '@espressive/cascara';
-import { Header, Nav } from '../components';
+import { Header, Nav, PropTable } from '../components';
 
 // NOTE: Anything in the <Head> here is esentially a fallback. These tags can
 // be overridden at the page level. <meta> type tags will need a key added
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
   const propTable = pageProps?.mdxDirSource?.[router?.query?.doc]?.docData;
 
   return (
-    <Admin>
+    <>
       <Head>
         <title>Cascara</title>
         <meta
@@ -26,23 +26,23 @@ function MyApp({ Component, pageProps }) {
         />
         <meta content='width=device-width, initial-scale=1.0' name='viewport' />
       </Head>
-
-      <Header {...pageProps} />
-      <Nav {...pageProps} />
-      <Admin.Main>
-        <Component {...pageProps} />
-      </Admin.Main>
-      {propTable && (
-        <Admin.Drawer>
-          <details open style={{ padding: '1em' }}>
-            <summary>props</summary>
-            <pre>
-              <code>{JSON.stringify(propTable, null, '  ')}</code>
-            </pre>
-          </details>
-        </Admin.Drawer>
-      )}
-    </Admin>
+      <Admin
+        drawer={
+          propTable && (
+            <Admin.Drawer>
+              <PropTable docData={propTable} />
+            </Admin.Drawer>
+          )
+        }
+        header={<Header {...pageProps} />}
+        main={
+          <Admin.Main>
+            <Component {...pageProps} />
+          </Admin.Main>
+        }
+        nav={<Nav {...pageProps} />}
+      />
+    </>
   );
 }
 
