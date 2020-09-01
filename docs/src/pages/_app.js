@@ -1,5 +1,6 @@
 import '@espressive/legacy-css';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { Admin } from '@espressive/cascara';
 import { Header, Nav } from '../components';
 
@@ -11,6 +12,9 @@ import { Header, Nav } from '../components';
 // since we will possibly want to change that on a per-page basis.
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const propTable = pageProps?.mdxDirSource?.[router?.query?.doc]?.docData;
+
   return (
     <Admin>
       <Head>
@@ -28,6 +32,17 @@ function MyApp({ Component, pageProps }) {
       <Admin.Main>
         <Component {...pageProps} />
       </Admin.Main>
+      {propTable && (
+        <div>
+          <h4>Drawer</h4>
+          <details open style={{ padding: '1em' }}>
+            <summary>props</summary>
+            <pre>
+              <code>{JSON.stringify(propTable, null, '  ')}</code>
+            </pre>
+          </details>
+        </div>
+      )}
     </Admin>
   );
 }
