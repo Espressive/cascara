@@ -5,10 +5,10 @@ const PropTable = ({ docData, ...rest }) => {
 
   return (
     <div className={styles.PropTable} {...rest}>
-      <div className={styles.Title}>
-        <h4>{docData.displayName}</h4>
-        <div className={styles.Tag}>Props</div>
-      </div>
+      <h4 className={styles.Title}>
+        <span className={styles.Tag}>Props</span>
+        {docData.displayName}
+      </h4>
       {propsArray.length > 0 ? (
         propsArray.map(([propName, propData]) => (
           <details className={styles.Details} key={propName}>

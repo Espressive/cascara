@@ -59,6 +59,7 @@
   grid-area: main;
   justify-self: center;
   max-width: var(--main-max-width);
+  width: 100%;
 
   &.no-drawer {
     justify-self: left;

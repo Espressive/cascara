@@ -7,20 +7,16 @@
 
 .Title {
   padding: 1em;
-
-  h4 {
-    margin: 0;
-    display: inline-block;
-  }
 }
 
 .Tag {
-  float: right;
+  float: left;
   background-color: rgba(0, 0, 0, 0.2);
   font-size: 0.75em;
   color: grey;
   padding: 0.125em 0.5em;
   border-radius: 0.5em;
+  margin-inline-end: 1rem;
 }
 
 .Details[open] {
