@@ -22,17 +22,18 @@
     "reakit": "1.1.2"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "link:utils/legacy-css"
+    "@espressive/legacy-css": "file:../../utils/legacy-css",
+    "prop-types": "15.7.2"
   },
   "peerDependencies": {
-    "prop-types": "15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
-    "clean": "rm -rf dist",
     "build": "yarn clean && rollup -c",
+    "clean": "rm -rf dist",
+    "prepublish": "yarn build",
     "watch": "rollup -c -w"
   },
   "gitHead": "a69d799d2a4a74af5551eff15e24e63b6eceabe4"

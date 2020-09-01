@@ -4,5 +4,6 @@ import Nav from './Nav';
 import Placeholder from './Placeholder';
 import Playground from './Playground';
 import Props from './Props';
+import PropTable from './PropTable';
 
-export { Code, Header, Nav, Placeholder, Playground, Props };
+export { Code, Header, Nav, Placeholder, Playground, Props, PropTable };

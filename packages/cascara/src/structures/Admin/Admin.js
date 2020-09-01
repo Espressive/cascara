@@ -1,23 +1,39 @@
+import React, { cloneElement } from 'react';
 import pt from 'prop-types';
+import AdminDrawer from './AdminDrawer';
 import AdminHeader from './AdminHeader';
 import AdminMain from './AdminMain';
 import AdminNav from './AdminNav';
 import useSetLayoutAttribute from '../../shared/hooks/useSetLayoutAttribute';
 
+// TODO: Would be nice to be able to pass an element or array of React elements
+// and if they do not have the proper grid container, just add it automatically.
 const propTypes = {
-  children: pt.node,
+  drawer: pt.element,
+  header: pt.element,
+  main: pt.element,
+  nav: pt.element,
 };
 
-const Admin = ({ children }) => {
-  // This hook sets a `data-layout` attribute on the html tag, which is needed for CSS specificity in global styles
+const Admin = ({ drawer, header, main, nav }) => {
+  // This hook sets a `data-layout` attribute on the html tag, which is needed
+  // for CSS specificity in global styles
   useSetLayoutAttribute('admin');
 
-  // We only want to return the children in the root node and set styles on the #root
-  return children || null;
+  return (
+    <>
+      {header}
+      {nav}
+      {cloneElement(main, { isWithDrawer: Boolean(drawer) })}
+      {drawer}
+    </>
+  );
 };
 
 Admin.propTypes = propTypes;
 
+// Exporting all of these for easier use on the structure props
+Admin.Drawer = AdminDrawer;
 Admin.Header = AdminHeader;
 Admin.Main = AdminMain;
 Admin.Nav = AdminNav;

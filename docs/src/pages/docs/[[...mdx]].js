@@ -1,7 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -45,6 +41,7 @@ const Doc = ({ mdxDirSource }) => {
       <Head>
         <title>{router?.query?.mdx[1]} - Cascara</title>
       </Head>
+
       <ul style={{ listStyle: 'none' }}>
         {mdxDirSource.map((doc, i) => (
           <li
@@ -114,6 +111,14 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
+  // Any deps needed for getStaticProps should be declared as requirements
+  // here instead of at the top of a file
+  const matter = require('gray-matter');
+  const reactDocgen = require('react-docgen');
+  const path = require('path');
+  const fs = require('fs');
+  const renderToString = require('next-mdx-remote/render-to-string');
+
   const mdxDir = getMDXDirFiles(params);
 
   // We need to make sure this is only actual files and not a directory
@@ -134,7 +139,21 @@ export const getStaticProps = async ({ params }) => {
         mdxOptions: MDX_OPTIONS,
       });
 
+      let docData = null;
+
+      if (data.propTable) {
+        const componentPath = path.join(
+          process.cwd(),
+          path.dirname(file.path),
+          data.propTable
+        );
+
+        const componentRead = fs.readFileSync(componentPath, 'utf8');
+        docData = reactDocgen.parse(componentRead);
+      }
+
       return {
+        docData,
         fileName: file.name,
         frontmatter: data,
         ...fileSource,
