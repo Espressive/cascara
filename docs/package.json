@@ -21,7 +21,6 @@
   "devDependencies": {
     "directory-tree": "2.2.4",
     "gray-matter": "4.0.2",
-    "next-on-netlify": "2.3.2",
     "next-remote-watch": "0.2.0",
     "prop-types": "15.7.2",
     "remark-code-frontmatter": "1.0.0",

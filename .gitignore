@@ -1,6 +1,7 @@
 .docz
 .DS_Store
 .env
+.yalc
 build
 cjs
 coverage

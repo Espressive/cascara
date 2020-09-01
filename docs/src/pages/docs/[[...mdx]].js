@@ -13,6 +13,8 @@ import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
 import getMDXTree from '../../lib/getMDXTree';
 import getMDXDirFiles from '../../lib/getMDXDirFiles';
 
+import { Button } from '@espressive/cascara';
+
 const Doc = ({ mdxDirSource }) => {
   // const [activeDoc, setActiveDoc] = useState(0);
   const router = useRouter();
@@ -45,6 +47,13 @@ const Doc = ({ mdxDirSource }) => {
       <Head>
         <title>{router?.query?.mdx[1]} - Cascara</title>
       </Head>
+
+      <details open style={{ padding: '1em' }}>
+        <summary>props</summary>
+        <pre>
+          <code>{JSON.stringify(Button.__docgenInfo, null, '  ')}</code>
+        </pre>
+      </details>
       <ul style={{ listStyle: 'none' }}>
         {mdxDirSource.map((doc, i) => (
           <li
