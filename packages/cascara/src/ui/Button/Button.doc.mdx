@@ -21,7 +21,14 @@ title: A button can be fluid
 <Button fluid />
 ```
 
-Note in the example below where we have to add a fragment. It would be great if our custom Code block would auto wrap with a fragment if we do not have a single element.
+```jsx
+---
+title: A button can have a brand color
+---
+<Button content='Branded' isBrandColor />
+```
+
+Note in the example below where we have to add a fragment. It would be great if our custom Code block would auto wrap with a fragment if we do not have a single element. This might not be possible with `react-live` though because the `children` being passed to it are a string. The solution would be pretty hacky. We would have to look if the string starts with `<>` or `<Fragment>` or `<React.Fragment>` and if not, add a fragment. But that would essentially ALWAYS have us with a fragment.
 
 ```jsx
 ---
