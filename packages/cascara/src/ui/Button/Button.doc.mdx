@@ -1,38 +1,52 @@
 ---
-title: Table
 status: PreRelease
-menu: Button
-route: /button-doc
+propTable: Button.js
 ---
 
 # Button
 
-We definitely want to consume the compiled version of the components in these docs since that is what our developers will be consuming.
-It feels like there is a lot of boilerplate for these MDX documents that we could definitely abstract out. Next steps will be to also make some display components to use in MDX like do/don't lists, etc. Page should probably automatically give the "name" without having to add it.
+```jsx
+---
+title: A button can display content
+---
 
-Will probably modify the Docz Props and Playground components to do a little more what we want.
-
-Still to also explore here:
-
-- [ ] Generate the playgrounds from fixture files
-- [ ] List any atomic components that the component might be built out of (if any)
-
-Wouldn't it be great if we didn't have to wrap our components like this in a Playground component everywhere?
-
+<Button content='Hello World' />
 ```
-<Button content='Docz Demo' />
-```
-
-What if wrapping our code examples in regular markdown code blocks worked... but if we use the jsx syntax, we don't just show the code with syntax highlighting. Instead we show an example of the component in this state and a live editor.
 
 ```jsx
 ---
-title: We can now define a title for our code blocks!
+title: A button can be fluid
 ---
 
-<Button content='Docz Demo' />
+<Button fluid />
 ```
 
 ```jsx
-<Button content='Positive' outcome='positive' />
+---
+title: A button can have a brand color
+---
+<Button content='Branded' isBrandColor />
+```
+
+Note in the example below where we have to add a fragment. It would be great if our custom Code block would auto wrap with a fragment if we do not have a single element. This might not be possible with `react-live` though because the `children` being passed to it are a string. The solution would be pretty hacky. We would have to look if the string starts with `<>` or `<Fragment>` or `<React.Fragment>` and if not, add a fragment. But that would essentially ALWAYS have us with a fragment.
+
+```jsx
+---
+title: A button can indicate outcome
+---
+<>
+  <Button content='Positive' outcome='positive' />
+  <Button content='Negative' outcome='negative' />
+</>
+```
+
+```jsx
+---
+title: A button can have a size
+---
+<>
+  <Button content='Small' size='small' />
+  <Button content='Regular'  />
+  <Button content='Large' size='large' />
+</>
 ```

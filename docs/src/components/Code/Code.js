@@ -10,10 +10,6 @@ import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 theme.plain.backgroundColor = undefined;
 theme.plain.fontFamily = undefined;
 
-// const transformCode = (code) => {
-//   console.log(code);
-// };
-
 const Code = ({ children, className, live = true, title, ...rest }) => {
   const [editorOpen, setEditorOpen] = useState(false);
   const language = className && className.replace(/language-/, '');

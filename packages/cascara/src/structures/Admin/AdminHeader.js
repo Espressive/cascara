@@ -6,7 +6,7 @@ const propTypes = {
   children: pt.node,
 };
 
-const AdminHeader = ({ children = 'Header', ...rest }) => {
+const AdminHeader = ({ children, ...rest }) => {
   return (
     <header {...rest} className={styles.Header}>
       {children}
