@@ -6,7 +6,7 @@ const propTypes = {
   children: pt.node,
 };
 
-const AdminNav = ({ children = 'Nav', ...rest }) => {
+const AdminNav = ({ children, ...rest }) => {
   return (
     <nav {...rest} className={styles.Nav}>
       {children}

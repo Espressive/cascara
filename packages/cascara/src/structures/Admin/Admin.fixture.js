@@ -108,23 +108,29 @@ const longContent = (
 
 /* eslint-disable sort-keys */
 export default {
-  Admin: <Admin />,
-  AdminHeader: <Admin.Header />,
-  AdminNav: <Admin.Nav />,
-  AdminMain: <Admin.Main />,
-  AdminChildren: (
-    <Admin>
-      <Admin.Header />
-      <Admin.Nav />
-      <Admin.Main />
-    </Admin>
+  NoDrawer: (
+    <Admin
+      header={<Admin.Header />}
+      main={
+        <Admin.Main>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia amet
+          labore reprehenderit maxime deleniti dolore exercitationem
+          consequuntur corrupti explicabo libero iusto, repellendus autem
+          aperiam natus unde rem ipsum ea est? Harum laborum error, inventore
+          officiis beatae adipisci magnam ipsum, repudiandae animi, numquam
+          dicta consequatur qui exercitationem corrupti! Soluta, sit dolores.
+        </Admin.Main>
+      }
+      nav={<Admin.Nav />}
+    />
   ),
   Scrolling: (
-    <Admin>
-      <Admin.Header />
-      <Admin.Nav>{longContent}</Admin.Nav>
-      <Admin.Main>{longContent}</Admin.Main>
-    </Admin>
+    <Admin
+      drawer={<Admin.Drawer>{longContent}</Admin.Drawer>}
+      header={<Admin.Header />}
+      main={<Admin.Main>{longContent}</Admin.Main>}
+      nav={<Admin.Nav>{longContent}</Admin.Nav>}
+    />
   ),
 };
 /* eslint-enable sort-keys */

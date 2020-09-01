@@ -5,8 +5,7 @@
     "clinyong.vscode-css-modules",
     "dbaeumer.vscode-eslint",
     "mgmcdermott.vscode-language-babel",
-    "silvenon.mdx",
-    "wix.vscode-import-cost"
+    "silvenon.mdx"
   ],
   "unwantedRecommendations": []
 }
