@@ -1,7 +1,7 @@
-build
-dist
-cjs
-es
-*.framerfx
 *.disabled.js
-src/tokens/theme
+*.framerfx
+build
+cjs
+dist
+es
+node_modules
