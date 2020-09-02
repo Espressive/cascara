@@ -17,7 +17,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "7.11.0",
+    "@babel/core": "7.10.5",
+    "@babel/parser": "7.10.5",
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/plugin-proposal-export-default-from": "7.10.4",
     "@babel/plugin-proposal-optional-chaining": "7.11.0",
@@ -68,7 +69,7 @@
     "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
     "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
     "docs": "yarn workspace docs",
-    "cosmos": "npx react-cosmos --config .cosmos/config.json",
+    "cosmos": "npx react-cosmos@5.5.0-beta.0 --config .cosmos/config.json",
     "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
     "framer:publish": "dotenv npx framer-cli publish",
     "test": "jest --config .jest/config.js",
