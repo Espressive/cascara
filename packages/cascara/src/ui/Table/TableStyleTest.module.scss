@@ -1,0 +1,59 @@
+:global {
+  #root {
+    padding: 8em 4em;
+  }
+
+  table {
+    display: inline-grid;
+    grid-template-rows: auto;
+    column-gap: 1em;
+    row-gap: 1em;
+
+    // This will remove these tags from displaying in the grid
+    thead,
+    tbody,
+    tfoot,
+    tr {
+      display: contents;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+    }
+
+    tfoot td {
+      position: sticky;
+      bottom: 0;
+      background-color: cyan;
+    }
+
+    th {
+      background-color: skyblue;
+    }
+
+    tbody {
+      tr:nth-of-type(even) td {
+        background-color: yellowgreen;
+      }
+
+      tr:nth-of-type(odd) td {
+        background-color: palegoldenrod;
+      }
+
+      td {
+        word-break: break-word;
+
+        &.long {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    * {
+      padding: 1em;
+    }
+  }
+}
