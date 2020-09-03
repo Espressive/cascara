@@ -9,7 +9,19 @@
     column-gap: 1em;
     row-gap: 1em;
 
-    // This will remove these tags from displaying in the grid
+    // This essentially removes these tags from the flow of the
+    // document and renders their children instead, which means
+    // even though this table has valid html grid markup, essentially
+    // we can imagine the table as this:
+    //
+    // <table>
+    //   <td />
+    //   <td />
+    //   ...
+    //   <td />
+    //   <td />
+    // </table>
+    //
     thead,
     tbody,
     tfoot,
