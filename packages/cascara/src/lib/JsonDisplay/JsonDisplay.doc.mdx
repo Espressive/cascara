@@ -1,0 +1,64 @@
+---
+status: Internal
+propTable: JsonDisplay.js
+---
+
+# JsonDisplay
+
+This is an internal component specifically for displaying JSON data in proof of concepts.
+
+```jsx
+---
+title: Default display
+---
+<JsonDisplay data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}} />
+```
+
+```jsx
+---
+title: Can be open on mount
+---
+<JsonDisplay data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}} isInitialOpen />
+```
+
+```jsx
+---
+title: Can display a unique title
+---
+<JsonDisplay data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}} title='Custom Title' />
+```
+
+```jsx
+---
+title: If needed, can be customized
+---
+<JsonDisplay
+  data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}}
+  style={{ maxWidth: '50%', backgroundColor: 'red' }}
+  title='Style'
+/>
+```
