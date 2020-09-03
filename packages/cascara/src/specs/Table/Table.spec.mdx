@@ -1,7 +1,155 @@
 ---
 title: Table
+status: Draft
+
 ---
 
 # Table
 
-Let's see if this shows up at our application root.
+## Table Types
+
+- Data table The standard table layout with a table header and rows of data
+- Grid view - more of a gallery view. No table header. Could be considered a list. Need to discuss if we want to make this a separate component or a variation on a table.
+
+## Table Locations
+
+### Admin
+
+- BRC (Grid)
+- Storefront Designer (grid)
+- Bundles (grid)
+- Role Bundles (grid)
+- Onboarding Activities/Schedule
+- Onboarding Activities/Performance
+- Service Department
+- Service Teams
+- Barista FAQS
+- Barista FAQS/Topics
+- Users
+- Integrations/CSV/Import History
+- Integrations/CSV/Import Schedule
+- Integrations/Email/Barista Inboxes
+- Reports
+- Locations
+
+### Barista
+
+- None
+
+### Caffeine
+
+- Entities
+- Training
+- Variables
+- Logs (future)
+- Users (future)
+- Configurations (future)
+- Localization(future)
+
+### Status
+
+- Packages
+
+### Doppio
+
+- Applications
+- Applications/[Application]
+- Intents
+- Intents/[Intent]
+- FAQs
+- FAQS/[FAQ]
+- Entities
+- Archetype Conditions
+- Attributes
+- Hooks
+- Synonyms
+- Synonyms/[Synonym]
+- Variables
+- Variables/[Variable]
+- Training
+- Spell Corrector Dictionary
+- Utilities
+- ESP Service Departments
+- Service Team Classifications
+- Task Classifications
+- Service Departments
+- Service Teams
+- Task Categories
+- Testing Reports
+- Test Phrases
+- Test Sets
+- Tasks
+- Tasks/[Task]
+- Categories
+- Categories/[Category]
+- Outages
+- Outages/[Outage]
+- Integrations
+- Integrations/[Integration]
+- Service Requests
+- Service Request/[Service Request]
+- Model Bindings
+- Widgets
+- Users
+- Users/[User]
+- Locations
+- Assets
+- Job Roles
+- Classifiers
+- Data Sources
+- Data Sources/[Data Source]
+- Annotations
+- Annotations/[Annotation]
+- Smart Rules
+- Smart Rules/[Rule]
+- Flagged Tickets
+- Surveys
+- Configurations
+- Attachments
+- Business Events
+- Localization
+
+## Existing Table Functionality
+
+### CRUD Capabilities
+
+- Ability to add a data row
+- Ability to edit a table rown (inline optional)
+- Ability to delete a row (optional)
+
+### Table Header
+
+- Column headers with labels and optional descriptions
+- Sortable column headers
+
+### Pagination
+
+- Ability to show total number of records available
+- Ability to show visible number of records
+- Ability to show how many pages of records are available
+- Ability to navigate to a specific page of results
+- Ability to navigate to next or previous page of results
+
+### Table Row
+
+- Ability to have cells/columns with specific defined data structures, form fields, action elements (buttons, menus)
+- Ability for results view to be accessible via URL so results can be shared
+
+## Needed/Suggested/Future Table Functionality
+
+- <span class="x x-first x-last">[MVP] </span>Zebra striping on rows
+- [P2] Ability to bulk edit, delete, add records
+- <span class="x x-first x-last">[P2] </span>Table header - horizontal VS vertical
+- <span class="x x-first x-last">[MVP] </span>Ability to customize columns visible
+- <span class="x x-first x-last">[MVP] </span>Ability to reorganize position/order of columns
+- <span class="x x-first x-last">[MVP] </span>Ability to have header/columns be sticky
+- <span class="x x-first x-last">[P3?] </span>Accordion columns
+- <span class="x x-first x-last">[P3?] </span>Nested tables
+- Tables with a tree like structure
+- <span class="x x-first x-last">[MVP] </span>Way to handle truncated/text that is too long to fit<span class="x x-first x-last"> (technically part of cell Atoms)</span>
+- <span class="x x-first x-last">[MVP] Responsive Support (initially will be scrolling, can evaluate if stacking cells makes sense later)</span>
+- Ability to set a default sort on a column
+- <span class="x x-first x-last">[P3?] </span>Ability to have tooltips on table header columns/table cells
+- <span class="x x-first x-last">[MVP] </span>Hover affect for table rows/columns
+
+- Ability to retain last/multiple/persistent configuration
