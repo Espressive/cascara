@@ -1,6 +1,7 @@
 import React from 'react';
 import faker from 'faker';
-import JsonDisplay from '../../lib/JsonDisplay';
+import JsonPlaceholder from '../../placeholders/JsonPlaceholder';
+import { Select } from 'semantic-ui-react';
 
 // TODO: this might make sense to abstract into a memoized generator function
 // or potentially if we could define data schemas for mocks, then generate
@@ -27,14 +28,38 @@ const data = new Array(20).fill(null).map((e, i) => {
   });
 });
 
+const availableAttrs = [
+  {
+    attribute: 'avatar',
+    isEditable: false,
+    label: 'User Avatar',
+    module: 'image',
+  },
+  {
+    attribute: 'avatar',
+    isEditable: false,
+    module: 'string',
+  },
+];
+
 const dataConfig = {
   actions: [
     {
-      label: 'Edit',
-      onClick: console.warn('Clicked Edit'),
-      type: 'button',
+      label: 'View',
+      module: 'button',
     },
-    <button>'Test'</button>,
+    {
+      label: 'Edit',
+      module: 'edit',
+      moduleData: {
+        cancelLabel: 'Cancel',
+        saveLabel: 'Save',
+      },
+    },
+    {
+      label: 'Disable',
+      module: 'button',
+    },
   ],
   display: [
     {
@@ -70,9 +95,15 @@ const jsonStyle = {
 const TablePublicAPI = ({ data, dataConfig }) => {
   return (
     <div>
-      <JsonDisplay data={dataConfig} isInitialOpen title='dataConfig' />
-      <JsonDisplay data={data} isInitialOpen style={jsonStyle} title='data' />
-      <JsonDisplay
+      <Select multi options={availableAttrs} />
+      <JsonPlaceholder data={dataConfig} isInitialOpen title='dataConfig' />
+      <JsonPlaceholder
+        data={data}
+        isInitialOpen
+        style={jsonStyle}
+        title='data'
+      />
+      <JsonPlaceholder
         data={prepareData(data, dataConfig)}
         isInitialOpen
         style={jsonStyle}

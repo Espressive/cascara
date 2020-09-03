@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import styles from './JsonDisplay.module.scss';
+import styles from './JsonPlaceholder.module.scss';
 
 const propTypes = {
   /** Accepts a JSON object or array to render */
@@ -11,7 +11,7 @@ const propTypes = {
   title: pt.string,
 };
 
-const JsonDisplay = ({
+const JsonPlaceholder = ({
   data,
   isInitialOpen = false,
   title = 'JSON',
@@ -31,6 +31,6 @@ const JsonDisplay = ({
   </details>
 );
 
-JsonDisplay.propTypes = propTypes;
+JsonPlaceholder.propTypes = propTypes;
 
-export default JsonDisplay;
+export default JsonPlaceholder;
