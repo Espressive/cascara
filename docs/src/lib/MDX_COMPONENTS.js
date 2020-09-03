@@ -6,12 +6,13 @@
 // not allow imports in the MDX file itself. This is an unfortunate limitation
 // until there is a better way to import static data dynamically in Nextjs
 
-import { Admin, Button, Pagination } from '@espressive/cascara';
+import { Admin, Button, JsonDisplay, Pagination } from '@espressive/cascara';
 import { Code, Placeholder } from '../components';
 
 const MDX_COMPONENTS = {
   Admin: (props) => <Admin {...props} />,
   Button: (props) => <Button {...props} />,
+  JsonDisplay: (props) => <JsonDisplay {...props} />,
   Pagination: (props) => <Pagination {...props} />,
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
   Props: (props) => <Placeholder {...props} componentName='Props' />,
