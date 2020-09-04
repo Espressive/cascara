@@ -2,4 +2,6 @@
 
 Espressive's Functional Design System
 
-[![Espressive](https://circleci.com/gh/Espressive/cascara.svg?style=svg)](https://app.circleci.com/pipelines/github/Espressive/cascara)
+![CircleCI](https://img.shields.io/circleci/build/gh/Espressive/cascara/main)
+![David](https://img.shields.io/david/dev/Espressive/cascara)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Espressive/cascara)
