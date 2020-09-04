@@ -24,7 +24,7 @@ Please use [the documentation site](https://cascara.design) for all information 
 yarn install
 ```
 
-> It is possible you may not have node or yarn installed on your system. If so, please follow the additional steps below to [Install NVM](#install-nvm) and [Install Yarn](#install-yarn) before coming back to try this step again.
+> It is possible you may not have node or yarn installed on your system. If this step fails, please follow the additional steps below to [Install NVM](#install-nvm) and [Install Yarn](#install-yarn) before coming back to try this step again. If you already know how to install these missing dependencies and get the correct versions, using tools like Homebrew, go for it.
 
 5. To start the docs, run:
 
@@ -37,7 +37,7 @@ yarn docs start
 
 #### Install NVM
 
-We need to install node. There are reasons we will likely have to change to different versions of Node at times. Therefore we should install Node Version Manager to allow us to switch versions easily.
+We use Node and Node Packages in our codebase. Node has _lots_ of different versions, and at times there are reasons we might need to switch to different versions. Therefore we should install Node Version Manager to allow us to switch versions easily.
 
 0. Check if nvm is already installed
 
@@ -70,3 +70,28 @@ nvm alias default 14.5.0
 5. Go back to step 2 and verify the correct version of Node is installed
 
 #### Install Yarn
+
+We use [Yarn](https://classic.yarnpkg.com/) as our Node Package manager. It is responsible for installing, updating, and managing our dependencies in this monorepository. There is a 2.x version of Yarn available, but for now we are sticking with the latest version of the 1.x branch. Be aware of this if you ever need to look at documentation.
+
+0. Check if `yarn` is already installed
+
+```bash
+yarn -v
+```
+
+> If the output of this command is `yarn: command not found`, proceed to install step 1. If the output of this command is some version number, you already have `yarn` installed and can proceed to step 3.
+
+1. Run the CURL command in the terminal to install:
+
+```bash
+curl -o- -L https://yarnpkg.com/install.sh | bash
+```
+
+2. Verify that `yarn` has been installed:
+
+```bash
+yarn -v
+```
+
+3. If the output of the above command is `1.22.4` (or higher) you are done! 🎉
+4. If not... get some help from a teammate on how to update your version of `yarn`
