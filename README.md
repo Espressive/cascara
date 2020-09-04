@@ -29,6 +29,14 @@ Please use [the documentation site](https://cascara.design) for all information 
 
 We need to install node. There are reasons we will likely have to change to different versions of Node at times. Therefore we should install Node Version Manager to allow us to switch versions easily.
 
+0. Check if nvm is already installed
+
+```bash
+nvm version
+```
+
+If the output of this command is `nvm: command not found`, proceed to install step 1. If the output of this command is some version number, proceed to step 3.
+
 1. Run the CURL command in the terminal to install:
 
 ```bash
