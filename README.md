@@ -35,7 +35,7 @@ We need to install node. There are reasons we will likely have to change to diff
 nvm version
 ```
 
-If the output of this command is `nvm: command not found`, proceed to install step 1. If the output of this command is some version number, proceed to step 3.
+If the output of this command is `nvm: command not found`, proceed to install step 1. If the output of this command is some version number, you already have `nvm` installed and can proceed to step 3.
 
 1. Run the CURL command in the terminal to install:
 
