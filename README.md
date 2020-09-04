@@ -18,12 +18,22 @@ Please use [the documentation site](https://cascara.design) for all information 
 1. Clone the repository to your local machine (UX Team will use [Tower](https://www.git-tower.com/mac) to do this)
 2. Open the repository in [VSCode](https://code.visualstudio.com/)
 3. Open a new terminal to run some commands using Terminal > New Terminal or the shortut: <kbd>Ctrl</kbd> + <kbd>~</kbd>
-4. In the terminal, install all dependencies by running: `yarn install`\*
-5. To start the docs, run `yarn docs start`
-6. Visit the following link in your browser: http://localhost:3000/
-7. Edit any MDX files in `/packages/cascara/src` or in `/docs/src/mdx` and they will automatically reload
+4. In the terminal, install all dependencies by running the following command:
 
-> \*It is possible you may not have node or yarn installed on your system. If so, please follow the additional steps below before moving forward.
+```bash
+yarn install
+```
+
+> It is possible you may not have node or yarn installed on your system. If so, please follow the additional steps below to [Install NVM](#install-nvm) and [Install Yarn](#install-yarn) before coming back to try this step again.
+
+5. To start the docs, run:
+
+```bash
+yarn docs start
+```
+
+6. Visit the following link in your browser to see the docs running locally: http://localhost:3000/
+7. Edit any MDX files in `/packages/cascara/src` or in `/docs/src/mdx` and they will automatically reload 🎊
 
 #### Install NVM
 
@@ -35,7 +45,7 @@ We need to install node. There are reasons we will likely have to change to diff
 nvm version
 ```
 
-If the output of this command is `nvm: command not found`, proceed to install step 1. If the output of this command is some version number, you already have `nvm` installed and can proceed to step 3.
+> If the output of this command is `nvm: command not found`, proceed to install step 1. If the output of this command is some version number, you already have `nvm` installed and can proceed to step 3.
 
 1. Run the CURL command in the terminal to install:
 
@@ -58,3 +68,5 @@ nvm alias default 14.5.0
 ```
 
 5. Go back to step 2 and verify the correct version of Node is installed
+
+#### Install Yarn
