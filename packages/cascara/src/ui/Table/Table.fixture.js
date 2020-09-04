@@ -1,8 +1,6 @@
 import React from 'react';
+
 import './TableStyleTest.module.scss';
-
-import './style.css';
-
 import { generateFakeEmployees } from './mockData';
 
 const fakeEmployees = generateFakeEmployees(50);
@@ -63,19 +61,22 @@ const Table = ({ data, config }) => {
   });
 
   const columns = config.display.map((column) => <th>{column.label}</th>);
-
-  if (config.bulkActions?.length) {
-    columns.push(
-      <th>
-        {config.bulkActions.map((action) => (
-          <button key={action.label}>{action.label}</button>
-        ))}
-      </th>
-    );
+  if (config.bulkActions.length) {
+    columns.push(<th />);
   }
+
+  const actionBar = (
+    <div>
+      <span>10 items selected </span>
+      {config.bulkActions?.map((action) => (
+        <button key={action.label}>{action.label}</button>
+      ))}
+    </div>
+  );
 
   return (
     <table>
+      <caption>{actionBar}</caption>
       <thead>
         <tr>{columns}</tr>
       </thead>
