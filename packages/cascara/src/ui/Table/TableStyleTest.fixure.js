@@ -1,6 +1,6 @@
 import React from 'react';
 import faker from 'faker';
-import './TableStyleTest.module.scss';
+//import './TableStyleTest.module.scss';
 
 const fakeRowData = () => ({
   avatar: faker.image.avatar(),
