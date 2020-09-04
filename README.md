@@ -17,7 +17,7 @@ Please use [the documentation site](https://cascara.design) for all information 
 
 1. Clone the repository to your local machine (UX Team will use [Tower](https://www.git-tower.com/mac) to do this)
 2. Open the repository in [VSCode](https://code.visualstudio.com/)
-3. Open a new terminal to run some commands using Terminal > New Terminal or the shortut: <kbd>Ctrl</kbd> + <kbd>~</kbd>
+3. Open a new terminal in VSCode to run some commands using Terminal > New Terminal or the shortut: <kbd>Ctrl</kbd> + <kbd>~</kbd>
 4. In the terminal, install all dependencies by running the following command:
 
 ```bash
