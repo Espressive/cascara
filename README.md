@@ -1,4 +1,4 @@
-# Cascara
+![Cascara](docs/public/cascara_text.svg)
 
 Espressive's Functional Design System
 

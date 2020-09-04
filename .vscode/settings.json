@@ -36,6 +36,8 @@
     "titleBar.activeForeground": "#e7e7e7",
     "titleBar.border": "#90023A",
     "titleBar.inactiveBackground": "#90023A99",
-    "titleBar.inactiveForeground": "#e7e7e799"
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "sideBarSectionHeader.background": "#90023A",
+    "sideBarSectionHeader.foreground": "#e7e7e7"
   }
 }
