@@ -66,17 +66,34 @@ const Table = ({ data, config }) => {
   }
 
   const actionBar = (
-    <div>
-      <span>10 items selected </span>
-      {config.bulkActions?.map((action) => (
-        <button key={action.label}>{action.label}</button>
-      ))}
-    </div>
+    <caption
+      style={{
+        gridColumnEnd: columns.length + 1,
+      }}
+    >
+      <h4>10 items selected </h4>
+      <div
+        style={{
+          display: 'grid',
+          gridAutoFlow: 'column',
+          gridGap: '0.5em',
+          gridTemplateRows: '2em',
+        }}
+      >
+        {config.bulkActions?.map((action) => (
+          <button key={action.label}>{action.label}</button>
+        ))}
+      </div>
+    </caption>
   );
 
+  const columnStyle = {
+    gridTemplateColumns: `repeat(${columns.length}, auto)`,
+  };
+
   return (
-    <table>
-      <caption>{actionBar}</caption>
+    <table style={columnStyle}>
+      {actionBar}
       <thead>
         <tr>{columns}</tr>
       </thead>
