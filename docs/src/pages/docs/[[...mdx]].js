@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { POSTS_PATH, postFilePaths } from '../../lib/mdxUtils';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
 import getMDXTree from '../../lib/getMDXTree';
@@ -78,7 +79,6 @@ const Doc = ({ mdxDirSource }) => {
           // Technically works. But really this should be at the router.query.doc
           // level and the overall page should have its own transition.
           key={JSON.stringify(router)}
-          style={{ padding: '1em' }}
         >
           {mdxActive}
         </motion.div>
@@ -161,6 +161,17 @@ export const getStaticProps = async ({ params }) => {
     })
   );
 
+  const posts = postFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+
   return {
     props: {
       mdxDirFiles,
@@ -169,6 +180,7 @@ export const getStaticProps = async ({ params }) => {
       params: {
         mdx: [],
       },
+      posts,
     },
     // Keep this here for updates to the MDX file
     revalidate: 1,
