@@ -31,6 +31,8 @@ export default function PostPage({ source, frontMatter }) {
 
 export const getStaticPaths = async () => {
   const paths = postFilePaths
+    // Do not generate a path for the index file
+    .filter((path) => path !== 'index.mdx')
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
