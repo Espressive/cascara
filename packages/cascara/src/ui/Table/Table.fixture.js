@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from './mockData';
+
+import TableContext, { TableContextProvider } from './context';
+import SelectionToggle from './atoms/SelectionToggle';
 
 const fakeEmployees = generateFakeEmployees(50);
 
@@ -48,58 +51,99 @@ const dataConfig = {
       type: 'phone',
     },
   ],
+  uniqueIdAttribute: 'eid',
 };
 
-const Table = ({ data, config }) => {
-  const rows = data.map((obj) => {
-    const displayData = config?.display.map((itemConfig) => ({
-      ...itemConfig,
-      value: obj[itemConfig.attribute],
-    }));
+const Table = () => {
+  const {
+    actions,
+    bulkActions,
+    data,
+    dataConfig,
+    selection,
+    selectionIsEnabled,
+    uniqueIdAttribute,
+  } = useContext(TableContext);
 
-    return displayData;
-  });
-
-  const columns = config.display.map((column) => <th>{column.label}</th>);
-  if (config.bulkActions.length) {
+  const columns = dataConfig.display.map((column) => <th>{column.label}</th>);
+  if (bulkActions.length) {
     columns.push(<th />);
   }
 
+  if (selectionIsEnabled) {
+    columns.unshift(
+      <th>
+        <SelectionToggle id={'__ALL__'} />
+      </th>
+    );
+  }
+
   const actionBar = (
-    <div>
-      <span>10 items selected </span>
-      {config.bulkActions?.map((action) => (
-        <button key={action.label}>{action.label}</button>
-      ))}
-    </div>
+    <caption
+      style={{
+        gridColumnEnd: columns.length + 1,
+      }}
+    >
+      <h4>{`${selection.length} selected`}</h4>
+      <div
+        style={{
+          display: 'grid',
+          gridAutoFlow: 'column',
+          gridGap: '0.5em',
+          gridTemplateRows: '2em',
+        }}
+      >
+        {bulkActions?.map((action) => (
+          <button key={action.label}>{action.label}</button>
+        ))}
+      </div>
+    </caption>
+  );
+
+  // this will have its own context
+  const renderRow = (row) => (
+    <tr>
+      {[
+        <td>
+          <SelectionToggle id={row[uniqueIdAttribute]} />
+        </td>,
+      ].concat(
+        dataConfig.display.map((column) => (
+          <td key={`${row[uniqueIdAttribute]}-${row[column.attribute]}`}>
+            {row[column.attribute]}
+          </td>
+        )),
+        [
+          <td>
+            {actions.map((action) => (
+              <button key={action.label}>{action.label}</button>
+            ))}
+          </td>,
+        ]
+      )}
+    </tr>
   );
 
   return (
-    <table>
-      <caption>{actionBar}</caption>
+    <table
+      style={{
+        gridTemplateColumns: `repeat(${columns.length}, auto)`,
+      }}
+    >
+      {actionBar}
       <thead>
         <tr>{columns}</tr>
       </thead>
-      <tbody>
-        {rows.map((row) => (
-          <tr>
-            {row
-              .map((cell) => <td key={cell.attribute}>{cell.value}</td>)
-              .concat([
-                <td>
-                  {config.actions.map((action) => (
-                    <button key={action.label}>{action.label}</button>
-                  ))}
-                </td>,
-              ])}
-          </tr>
-        ))}
-      </tbody>
+      <tbody>{data.map((row) => renderRow(row))}</tbody>
       <tfoot>{<tr>{columns}</tr>}</tfoot>
     </table>
   );
 };
 
-const Fixture = <Table config={dataConfig} data={fakeEmployees} />;
+const Fixture = (
+  <TableContextProvider data={fakeEmployees} dataConfig={dataConfig}>
+    <Table />
+  </TableContextProvider>
+);
 
 export default Fixture;
