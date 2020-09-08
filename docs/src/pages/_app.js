@@ -2,7 +2,7 @@ import '@espressive/legacy-css';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Admin } from '@espressive/cascara';
-import { Header, Nav, PropTable } from '../components';
+import { Header, Main, Nav, PropTable } from '../components';
 
 // NOTE: Anything in the <Head> here is esentially a fallback. These tags can
 // be overridden at the page level. <meta> type tags will need a key added
@@ -36,9 +36,9 @@ function MyApp({ Component, pageProps }) {
         }
         header={<Header {...pageProps} />}
         main={
-          <Admin.Main>
+          <Main>
             <Component {...pageProps} />
-          </Admin.Main>
+          </Main>
         }
         nav={<Nav {...pageProps} />}
       />

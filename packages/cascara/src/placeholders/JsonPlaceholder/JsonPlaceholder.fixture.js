@@ -1,5 +1,5 @@
 import React from 'react';
-import JsonDisplay from './JsonDisplay';
+import JsonPlaceholder from './JsonPlaceholder';
 const testJson = {
   stuff: {
     okay: true,
@@ -10,18 +10,18 @@ const testJson = {
 
 /* eslint-disable sort-keys */
 export default {
-  default: <JsonDisplay data={testJson} />,
-  isInitialOpen: <JsonDisplay data={testJson} isInitialOpen />,
-  title: <JsonDisplay data={testJson} title='Custom Title' />,
+  default: <JsonPlaceholder data={testJson} />,
+  isInitialOpen: <JsonPlaceholder data={testJson} isInitialOpen />,
+  title: <JsonPlaceholder data={testJson} title='Custom Title' />,
   style: (
-    <JsonDisplay
+    <JsonPlaceholder
       data={testJson}
       style={{ maxWidth: '50%', backgroundColor: 'red' }}
       title='Style'
     />
   ),
   className: (
-    <JsonDisplay
+    <JsonPlaceholder
       className='test-class'
       data={testJson}
       title='Custom className'

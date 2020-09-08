@@ -1,6 +1,6 @@
 import Admin from './structures/Admin';
 import Button from './ui/Button';
-import JsonDisplay from './lib/JsonDisplay';
+import JsonPlaceholder from './placeholders/JsonPlaceholder';
 import Pagination from './ui/Pagination';
 
-export { Admin, Button, JsonDisplay, Pagination };
+export { Admin, Button, JsonPlaceholder, Pagination };

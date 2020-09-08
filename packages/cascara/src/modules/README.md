@@ -8,3 +8,5 @@ Atoms are simple presentational componeents intended to be reusable across Casca
 - have a display presentation
 - have an editing presentation
 - have a data type
+- Should react to Editing and Display states
+- Some modules are for Data, some modules are for Actions
