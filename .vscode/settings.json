@@ -2,6 +2,10 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[mdx]": {
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "same"
+  },
   "cssModules.camelCase": false,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,

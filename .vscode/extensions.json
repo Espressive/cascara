@@ -5,7 +5,8 @@
     "clinyong.vscode-css-modules",
     "dbaeumer.vscode-eslint",
     "mgmcdermott.vscode-language-babel",
-    "silvenon.mdx"
+    "silvenon.mdx",
+    "xyc.vscode-mdx-preview"
   ],
   "unwantedRecommendations": []
 }
