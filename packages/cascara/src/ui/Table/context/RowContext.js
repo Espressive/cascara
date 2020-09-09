@@ -2,12 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 const TableContext = React.createContext();
 
-export const TableContextProvider = ({
-  data = [],
-  dataConfig,
-  children,
-  onAction = (e) => e,
-}) => {
+export const TableContextProvider = ({ data, dataConfig, children }) => {
   const { actions = [], bulkActions = [], uniqueIdAttribute } = dataConfig;
   const selectionIsEnabled = bulkActions.length > 0;
 
@@ -42,27 +37,6 @@ export const TableContextProvider = ({
     [selection, updateSelection]
   );
 
-  const handleOnAction = useCallback(
-    (name, id) => {
-      let da = id;
-
-      if (!da) {
-        da = data.reduce((all, record) => {
-          if (selection.includes(record[uniqueIdAttribute])) {
-            all.push(record);
-          }
-
-          return all;
-        }, []);
-      } else {
-        da = data.filter((record) => record[uniqueIdAttribute] === id);
-      }
-
-      onAction(name, da);
-    },
-    [data, onAction, selection, uniqueIdAttribute]
-  );
-
   const contextValue = useMemo(
     () => ({
       actions,
@@ -71,7 +45,6 @@ export const TableContextProvider = ({
       clearSelection,
       data,
       dataConfig,
-      handleOnAction,
       idsInData,
       removeFromSelection,
       selectAll,
@@ -84,7 +57,6 @@ export const TableContextProvider = ({
       bulkActions,
       data,
       dataConfig,
-      handleOnAction,
       idsInData,
       sanitizedSelection,
       addToSelection,
