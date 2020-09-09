@@ -3,12 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 const TableContext = React.createContext();
 
 export const TableContextProvider = ({ data, dataConfig, children }) => {
-  const {
-    actions = [],
-    bulkActions = [],
-    display = [],
-    uniqueIdAttribute,
-  } = dataConfig;
+  const { actions = [], bulkActions = [], uniqueIdAttribute } = dataConfig;
   const selectionIsEnabled = bulkActions.length > 0;
 
   const idsInData = data.map((record) => record[uniqueIdAttribute]);
@@ -50,7 +45,6 @@ export const TableContextProvider = ({ data, dataConfig, children }) => {
       clearSelection,
       data,
       dataConfig,
-      display,
       idsInData,
       removeFromSelection,
       selectAll,
@@ -63,7 +57,6 @@ export const TableContextProvider = ({ data, dataConfig, children }) => {
       bulkActions,
       data,
       dataConfig,
-      display,
       idsInData,
       sanitizedSelection,
       addToSelection,
