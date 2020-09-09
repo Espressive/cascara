@@ -1,0 +1,43 @@
+html[data-layout='admin'] div#__next {
+  --brand-primary-color: #b4104b;
+}
+
+a {
+  color: var(--brand-primary-color);
+  &:hover {
+    color: var(--brand-primary-color);
+    text-decoration: underline;
+  }
+}
+
+main {
+  & > * {
+    max-width: 60em;
+  }
+
+  p {
+    line-height: 1.75em;
+  }
+
+  ul,
+  ol {
+    line-height: 2em;
+    padding-inline-start: 2em;
+  }
+
+  blockquote {
+    margin-inline-start: 0;
+    padding: 0.5em 1em;
+    background-color: var(--color-transparent-grey, grey);
+    border-radius: 0.25em;
+    border-inline-start: 0.25em solid var(--brand-primary-color);
+
+    footer {
+      &:before {
+        content: '- ';
+      }
+      text-align: right;
+      font-style: italic;
+    }
+  }
+}
