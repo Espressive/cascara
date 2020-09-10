@@ -6,6 +6,10 @@
     rgba(127, 127, 127, 0),
     rgba(127, 127, 127, 0.05)
   );
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .Tab {
@@ -24,6 +28,7 @@
   }
 
   &[data-active] {
+    cursor: default;
     background: var(--document-background);
     border-bottom-color: var(--document-background);
   }
