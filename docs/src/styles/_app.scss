@@ -11,8 +11,42 @@ a {
 }
 
 main {
-  & > * {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      margin-left: -1.125em;
+      display: inline-block;
+      width: 1.125em;
+      height: 1em;
+      text-align: center;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 200ms ease-in-out;
+      outline: none;
+      background-image: url('/link.svg');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 90% 90%;
+    }
+
+    &:hover a {
+      opacity: 1;
+      transform: translateX(0);
+
+      &:hover {
+        color: var(--document-text);
+        text-decoration: none;
+      }
+    }
+  }
+
+  & > div {
     max-width: 60em;
+    padding: 1em 2em;
   }
 
   p {

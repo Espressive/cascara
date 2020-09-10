@@ -13,7 +13,6 @@ const Main = ({ children, ...rest }) => {
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           key={query.slug}
-          style={{ padding: '1em' }}
         >
           {children}
         </motion.div>
