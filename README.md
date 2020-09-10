@@ -1,4 +1,4 @@
-![Cascara](docs/public/cascara_text.svg)
+<img src='docs/public/cascara_meta.svg' alt='Cascara' width='1000' />
 
 Espressive's Functional Design System
 

@@ -25,6 +25,11 @@ function MyApp({ Component, pageProps }) {
           key='description'
           name='description'
         />
+        <meta
+          content='https://cascara.design/cascara_meta.png'
+          key='image'
+          property='og:image'
+        />
         <meta content='width=device-width, initial-scale=1.0' name='viewport' />
       </Head>
       <Admin
