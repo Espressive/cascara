@@ -1,4 +1,5 @@
 import '@espressive/legacy-css';
+import '../styles/_app.scss';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Admin } from '@espressive/cascara';

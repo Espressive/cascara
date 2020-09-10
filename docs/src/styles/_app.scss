@@ -1,0 +1,77 @@
+html[data-layout='admin'] div#__next {
+  --brand-primary-color: #b4104b;
+}
+
+a {
+  color: var(--brand-primary-color);
+  &:hover {
+    color: var(--brand-primary-color);
+    text-decoration: underline;
+  }
+}
+
+main {
+  & > div {
+    max-width: 60em;
+    padding: 2em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      margin-left: -1.125em;
+      display: inline-block;
+      width: 1.125em;
+      height: 1em;
+      text-align: center;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 200ms ease-in-out;
+      outline: none;
+      background-image: url('/link.svg');
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 90% 90%;
+    }
+
+    &:hover a {
+      opacity: 1;
+      transform: translateX(0);
+
+      &:hover {
+        color: var(--document-text);
+        text-decoration: none;
+      }
+    }
+  }
+
+  p {
+    line-height: 1.75em;
+  }
+
+  ul,
+  ol {
+    line-height: 2em;
+    padding-inline-start: 2em;
+  }
+
+  blockquote {
+    margin-inline-start: 0;
+    padding: 0.5em 1em;
+    background-color: var(--color-transparent-grey, grey);
+    border-radius: 0.25em;
+    border-inline-start: 0.25em solid var(--brand-primary-color);
+
+    footer {
+      &:before {
+        content: '- ';
+      }
+      text-align: right;
+      font-style: italic;
+    }
+  }
+}
