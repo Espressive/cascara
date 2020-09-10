@@ -1,6 +1,6 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import Link from 'next/link';
 import Head from 'next/head';
+import { Tabs } from '../../components';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -43,33 +43,27 @@ const Doc = ({ mdxDirSource }) => {
         <title>{router?.query?.mdx[1]} - Cascara</title>
       </Head>
 
-      <ul style={{ listStyle: 'none' }}>
+      <Tabs>
         {mdxDirSource.map((doc, i) => (
-          <li
-            key={i}
-            style={
+          <Tabs.Tab
+            as={{
+              pathname: router.asPath.split('?')[0],
+              query: { doc: i },
+            }}
+            content={doc.fileName}
+            href={{
+              pathname: router.pathname,
+              query: { doc: i },
+            }}
+            isActive={
               Number(router?.query?.doc) === i
                 ? { listStyle: 'disc' }
                 : undefined
             }
-          >
-            <Link
-              as={{
-                pathname: router.asPath.split('?')[0],
-                query: { doc: i },
-              }}
-              href={{
-                pathname: router.pathname,
-                query: { doc: i },
-              }}
-            >
-              <a>
-                {doc.fileName} {Number(router?.query?.doc) === i}
-              </a>
-            </Link>
-          </li>
+            key={i}
+          />
         ))}
-      </ul>
+      </Tabs>
 
       <AnimatePresence exitBeforeEnter>
         <motion.div

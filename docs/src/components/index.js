@@ -6,5 +6,16 @@ import Placeholder from './Placeholder';
 import Playground from './Playground';
 import Props from './Props';
 import PropTable from './PropTable';
+import Tabs from './Tabs';
 
-export { Code, Header, Main, Nav, Placeholder, Playground, Props, PropTable };
+export {
+  Code,
+  Header,
+  Main,
+  Nav,
+  Placeholder,
+  Playground,
+  Props,
+  PropTable,
+  Tabs,
+};

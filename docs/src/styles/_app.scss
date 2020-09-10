@@ -11,6 +11,11 @@ a {
 }
 
 main {
+  & > div {
+    max-width: 60em;
+    padding: 2em;
+  }
+
   h1,
   h2,
   h3,
@@ -42,11 +47,6 @@ main {
         text-decoration: none;
       }
     }
-  }
-
-  & > div {
-    max-width: 60em;
-    padding: 1em 2em;
   }
 
   p {
