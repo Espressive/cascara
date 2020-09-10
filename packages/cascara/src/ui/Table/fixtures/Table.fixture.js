@@ -13,22 +13,23 @@ const dataConfig = {
       module: 'button',
     },
     {
+      cancellabel: 'Cancel',
       label: 'Edit',
-      module: 'edit',
-      moduleData: {
-        cancelLabel: 'Cancel',
-        saveLabel: 'Save',
-      },
+      savelabel: 'Save',
+      type: 'edit',
     },
     {
-      label: 'Disable',
+      label: 'Delete',
       module: 'button',
+      outcome: 'negative',
     },
   ],
   bulkActions: [
     {
       label: 'Export as CSV',
-      module: 'button',
+      module: {
+        type: 'button',
+      },
     },
   ],
   display: [
@@ -48,10 +49,11 @@ const dataConfig = {
   uniqueIdAttribute: 'eid',
 };
 
-const onAction = (e, a) => {
+const onAction = (caller, data) => {
   console.clear();
-  console.log(`Action ${e} has been invoked with:`);
-  console.log(a);
+  console.log(`Action ${caller.label} has been invoked with:`);
+  console.log('caller: ', caller);
+  console.log('data: ', data);
 };
 
 const Fixture = (

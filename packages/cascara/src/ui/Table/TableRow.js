@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import Button from '../Button';
+
 import TableContext from './context';
 import SelectionToggle from './atoms/SelectionToggle';
 import ActionBar from './ActionBar';
@@ -17,22 +19,12 @@ const TableRow = ({ id, columns }) => {
     <td key={`${id}-actionbar`}>
       <ActionBar
         actions={actions.map((action) => (
-          <button
-            data-action={action.label}
-            data-id={id}
+          <Button
+            {...action}
+            content={action.label}
             key={action.label}
-            onClick={(e, data) => {
-              const {
-                currentTarget: {
-                  dataset: { action, id },
-                },
-              } = e;
-
-              handleOnAction(action, id);
-            }}
-          >
-            {action.label}
-          </button>
+            onClick={() => handleOnAction(action, id)}
+          />
         ))}
       />
     </td>

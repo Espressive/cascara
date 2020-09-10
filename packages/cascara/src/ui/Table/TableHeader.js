@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import Button from '../Button';
+
 import TableContext from './context';
 import SelectionToggle from './atoms/SelectionToggle';
 import ActionBar from './ActionBar';
@@ -38,27 +40,19 @@ const TableHeader = () => {
             colSpan={headerCells.length}
             scope={'colgroup'}
             style={{
-              gridColumnEnd: headerCells.length + 1,
-              gridColumnStart: 1,
+              display: 'flex',
+              gridColumn: `1/${headerCells.length + 1}`,
+              justifyContent: 'space-between',
             }}
           >
             <ActionBar
               actions={bulkActions.map((action) => (
-                <button
-                  data-action={`${action.label}`}
+                <Button
+                  {...action}
+                  content={action.label}
                   key={action.label}
-                  onClick={(e, data) => {
-                    const {
-                      currentTarget: {
-                        dataset: { action },
-                      },
-                    } = e;
-
-                    handleOnAction(action);
-                  }}
-                >
-                  {action.label}
-                </button>
+                  onClick={() => handleOnAction(action)}
+                />
               ))}
               title={`${selection.length} selected`}
             />
