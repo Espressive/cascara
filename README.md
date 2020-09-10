@@ -1,4 +1,4 @@
-![Cascara](docs/public/cascara_meta.svg | width=100%)
+![Cascara](docs/public/cascara_meta.svg | width=1000)
 
 Espressive's Functional Design System
 
