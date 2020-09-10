@@ -22,19 +22,19 @@
 }
 
 @mixin vertical {
-  overflow-y: scroll;
+  overflow-y: overlay;
 
   @extend %scrollbars;
 }
 
 @mixin horizontal {
-  overflow-x: scroll;
+  overflow-x: overlay;
 
   @extend %scrollbars;
 }
 
 @mixin all {
-  overflow: scroll;
+  overflow: overlay;
 
   @extend %scrollbars;
 }
