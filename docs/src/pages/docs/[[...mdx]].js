@@ -41,6 +41,13 @@ const Doc = ({ mdxDirSource }) => {
     <>
       <Head>
         <title>{router?.query?.mdx[1]} - Cascara</title>
+        {mdxDirSource?.[0]?.frontMatter?.description && (
+          <meta
+            content={mdxDirSource[0].frontMatter.description}
+            key='description'
+            name='description'
+          />
+        )}
       </Head>
 
       {mdxDirSource.length > 1 && (
@@ -51,16 +58,12 @@ const Doc = ({ mdxDirSource }) => {
                 pathname: router.asPath.split('?')[0],
                 query: { doc: i },
               }}
-              content={doc.fileName}
+              content={doc?.frontmatter?.title || doc.fileName}
               href={{
                 pathname: router.pathname,
                 query: { doc: i },
               }}
-              isActive={
-                Number(router?.query?.doc) === i
-                  ? { listStyle: 'disc' }
-                  : undefined
-              }
+              isActive={Number(router?.query?.doc) === i}
               key={i}
             />
           ))}

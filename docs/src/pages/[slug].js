@@ -11,14 +11,13 @@ export default function PostPage({ source, frontMatter }) {
     <>
       <Head>
         <title>{frontMatter.title} - Cascara</title>
-        <meta
-          content={
-            frontMatter?.description || "Espressive's Functional Design System"
-          }
-          key='description'
-          name='description'
-        />
-        <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+        {frontMatter?.description && (
+          <meta
+            content={frontMatter.description}
+            key='description'
+            name='description'
+          />
+        )}
       </Head>
 
       <h1>
