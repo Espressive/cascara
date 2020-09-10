@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
           name='description'
         />
         <meta
-          content='https://cascara.design/android-chrome-512x512.png'
+          content='https://cascara.design/cascara_meta.png'
           key='image'
           property='og:image'
         />
