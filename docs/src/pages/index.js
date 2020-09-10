@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import hydrate from 'next-mdx-remote/hydrate';
 import getMDXTree from '../lib/getMDXTree';
 import { POSTS_PATH, postFilePaths } from '../lib/mdxUtils';
@@ -6,7 +7,19 @@ import MDX_OPTIONS from '../lib/MDX_OPTIONS';
 
 export default function Home({ source, frontMatter }) {
   const content = hydrate(source, { components: MDX_COMPONENTS });
-  return content;
+  return (
+    <>
+      <Head>
+        <meta
+          content='https://cascara.design/cascara_meta.png'
+          key='large_image'
+          name='twitter:card'
+        />
+      </Head>
+
+      {content}
+    </>
+  );
 }
 
 export async function getStaticProps() {
