@@ -2,13 +2,14 @@
 .DS_Store
 .env
 .yalc
+app-tests/**/yarn.lock
 build
 cjs
 coverage
 dist
+docs/404.html
 docs/out_functions
 docs/out_publish
-docs/404.html
 es
 lerna-debug.log
 node_modules
