@@ -31,7 +31,7 @@ const TableRow = ({ id, columns }) => {
   );
 
   const rowCells = columns.map((column) => (
-    <td key={column.attribute}>{column.value}</td>
+    <td key={column.attribute}>{`${column.value}`}</td>
   ));
 
   if (selectionIsEnabled) {

@@ -27,7 +27,7 @@ const Table = () => {
     >
       <TableHeader />
       <TableBody />
-      <tfoot />
+      <TableHeader footer />
     </table>
   );
 };

@@ -18,6 +18,8 @@ export const TableContextProvider = ({
     idsInData.includes(selectedId)
   );
 
+  const selectedColumns = dataConfig.display.map((column) => column.attribute);
+
   const selectAll = useCallback(() => {
     updateSelection([...idsInData]);
   }, [idsInData]);
@@ -54,13 +56,33 @@ export const TableContextProvider = ({
 
           return all;
         }, []);
+
+        da = da.reduce((all, rawRecord) => {
+          const record = selectedColumns.reduce((record, column) => {
+            record[column] = rawRecord[column];
+
+            return record;
+          }, {});
+
+          all.push(record);
+
+          return all;
+        }, []);
       } else {
-        da = data.filter((record) => record[uniqueIdAttribute] === id);
+        da = data.filter((record) => record[uniqueIdAttribute] === id).pop();
+        da = selectedColumns.reduce((record, column) => {
+          record[column] = da[column];
+
+          return record;
+        }, {});
       }
 
-      onAction(name, da);
+      onAction(name, da, {
+        columns: selectedColumns,
+        selection,
+      });
     },
-    [data, onAction, selection, uniqueIdAttribute]
+    [data, onAction, selection, selectedColumns, uniqueIdAttribute]
   );
 
   const contextValue = useMemo(
@@ -75,6 +97,7 @@ export const TableContextProvider = ({
       idsInData,
       removeFromSelection,
       selectAll,
+      selectedColumns,
       selection: sanitizedSelection,
       selectionIsEnabled,
       uniqueIdAttribute,
@@ -91,6 +114,7 @@ export const TableContextProvider = ({
       clearSelection,
       removeFromSelection,
       selectAll,
+      selectedColumns,
       selectionIsEnabled,
       uniqueIdAttribute,
     ]
