@@ -1,0 +1,52 @@
+h4.NavSection {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  font-size: 0.875rem;
+  margin: 0;
+  text-transform: uppercase;
+  padding: 0.5em 1em;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.NavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.NavItem {
+  padding: 0.5em 1em;
+  display: block;
+  position: relative;
+  transition: background 200ms ease-in-out;
+
+  &:after {
+    right: 0;
+    top: 0;
+    width: 0.25em;
+    height: 100%;
+    position: absolute;
+    content: ' ';
+    background-color: var(--brand-primary-color);
+    transform: scaleY(0);
+    transition: transform 200ms ease-in-out;
+  }
+
+  &:hover,
+  &:active {
+    color: var(--document-text);
+    text-decoration: none;
+    background-color: rgba(127, 127, 127, 0.5);
+  }
+
+  &[data-active] {
+    color: var(--document-text);
+    background: rgba(127, 127, 127, 0.25);
+    cursor: default;
+
+    &:after {
+      transform: scaleY(1);
+    }
+  }
+}
