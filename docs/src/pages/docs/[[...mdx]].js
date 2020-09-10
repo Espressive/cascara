@@ -43,27 +43,29 @@ const Doc = ({ mdxDirSource }) => {
         <title>{router?.query?.mdx[1]} - Cascara</title>
       </Head>
 
-      <Tabs>
-        {mdxDirSource.map((doc, i) => (
-          <Tabs.Tab
-            as={{
-              pathname: router.asPath.split('?')[0],
-              query: { doc: i },
-            }}
-            content={doc.fileName}
-            href={{
-              pathname: router.pathname,
-              query: { doc: i },
-            }}
-            isActive={
-              Number(router?.query?.doc) === i
-                ? { listStyle: 'disc' }
-                : undefined
-            }
-            key={i}
-          />
-        ))}
-      </Tabs>
+      {mdxDirSource.length > 1 && (
+        <Tabs>
+          {mdxDirSource.map((doc, i) => (
+            <Tabs.Tab
+              as={{
+                pathname: router.asPath.split('?')[0],
+                query: { doc: i },
+              }}
+              content={doc.fileName}
+              href={{
+                pathname: router.pathname,
+                query: { doc: i },
+              }}
+              isActive={
+                Number(router?.query?.doc) === i
+                  ? { listStyle: 'disc' }
+                  : undefined
+              }
+              key={i}
+            />
+          ))}
+        </Tabs>
+      )}
 
       <AnimatePresence exitBeforeEnter>
         <motion.div
