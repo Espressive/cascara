@@ -38,12 +38,20 @@ h4.NavSection {
     color: var(--document-text);
     text-decoration: none;
     background-color: rgba(127, 127, 127, 0.5);
+
+    > span {
+      background-color: var(--document-background);
+    }
   }
 
   &[data-active] {
     color: var(--document-text);
     background: rgba(127, 127, 127, 0.25);
     cursor: default;
+
+    > span {
+      background-color: var(--document-background);
+    }
 
     &:after {
       transform: scaleY(1);

@@ -57,6 +57,7 @@ const Nav = ({ mdxTree, posts }) => {
                     href='/docs/[[...mdx]]'
                     isActive={item.name === activeComponent}
                     key={item.name}
+                    status={item?.meta?.status}
                   />
                 ) : null;
               })}

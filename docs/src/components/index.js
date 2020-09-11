@@ -7,6 +7,7 @@ import Playground from './Playground';
 import Props from './Props';
 import PropTable from './PropTable';
 import Tabs from './Tabs';
+import Tag from './Tag';
 
 export {
   Code,
@@ -18,4 +19,5 @@ export {
   Props,
   PropTable,
   Tabs,
+  Tag,
 };

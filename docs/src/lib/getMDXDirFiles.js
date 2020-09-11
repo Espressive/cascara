@@ -6,13 +6,20 @@
 
 import dirTree from 'directory-tree';
 
-const getMDXDirFiles = (routeParams) =>
-  // TODO: Memoize OR convert to a lookup on the memoized return from getMDXTree
-  dirTree(
+// TODO: Memoize OR convert to a lookup on the memoized return from getMDXTree
+const getMDXDirFiles = (routeParams) => {
+  // Get a directory tree of MDX files
+  const tree = dirTree(
     `../packages/cascara/src/${routeParams.mdx[0]}/${routeParams.mdx[1]}`,
     {
       extensions: /\.(mdx)$/,
     }
   ).children;
+
+  // Remove any empty directories by looking at size
+  const cleanTree = tree.filter((dir) => dir.size > 0);
+
+  return cleanTree;
+};
 
 export default getMDXDirFiles;

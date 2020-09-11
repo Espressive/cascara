@@ -10,6 +10,46 @@ a {
   }
 }
 
+:not(pre) > code {
+  padding: 0.125em;
+  border-radius: 0.125em;
+  color: rgb(255, 245, 246);
+  text-shadow: rgb(0, 0, 0) 0px 0px 2px, rgba(252, 31, 44, 0.46) 0px 0px 10px,
+    rgba(252, 31, 44, 0.46) 0px 0px 5px, rgba(252, 31, 44, 0.46) 0px 0px 25px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-row-gap: 1ch;
+
+  dt {
+    font-weight: 600;
+    font-size: 0.9em;
+    grid-column-start: 1;
+  }
+
+  dd {
+    grid-column-start: 2;
+
+    * + * {
+      margin-left: 0.5em;
+    }
+
+    span {
+      &:after {
+        content: ',';
+      }
+
+      &:last-child:after {
+        content: ' ';
+      }
+    }
+  }
+}
+
 main {
   & > div {
     max-width: 60em;
