@@ -1451,7 +1451,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb"
   integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
 
-"@espressive/cascara@file:packages/cascara":
+"@espressive/cascara@link:packages/cascara":
   version "0.1.1-alpha.10"
   dependencies:
     "@babel/runtime" "7.11.2"
@@ -1459,6 +1459,9 @@
     reakit "1.1.2"
 
 "@espressive/legacy-css@file:utils/legacy-css":
+  version "0.1.1-alpha.7"
+
+"@espressive/legacy-css@link:utils/legacy-css":
   version "0.1.1-alpha.7"
 
 "@evocateur/libnpmaccess@^3.1.2":

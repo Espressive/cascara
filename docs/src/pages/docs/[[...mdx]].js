@@ -50,34 +50,43 @@ const Doc = ({ mdxDirSource }) => {
         )}
       </Head>
 
-      {mdxDirSource.length > 1 && (
-        <Tabs>
-          {mdxDirSource.map((doc, i) => (
-            <Tabs.Tab
-              as={{
-                pathname: router.asPath.split('?')[0],
-                query: { doc: i },
-              }}
-              content={doc?.frontmatter?.title || doc.fileName}
-              href={{
-                pathname: router.pathname,
-                query: { doc: i },
-              }}
-              isActive={Number(router?.query?.doc) === i}
-              key={i}
-            />
-          ))}
-        </Tabs>
-      )}
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          animate={{ opacity: 1, scaleY: 1 }}
+          exit={{ opacity: 0, scaleY: 0 }}
+          initial={{ opacity: 0, scaleY: 0 }}
+          key={JSON.stringify(router)}
+          style={{ transformOrigin: 'bottom' }}
+        >
+          {mdxDirSource.length > 1 && (
+            <Tabs>
+              {mdxDirSource.map((doc, i) => (
+                <Tabs.Tab
+                  as={{
+                    pathname: router.asPath.split('?')[0],
+                    query: { doc: i },
+                  }}
+                  content={doc?.frontmatter?.title || doc.fileName}
+                  href={{
+                    pathname: router.pathname,
+                    query: { doc: i },
+                  }}
+                  isActive={Number(router?.query?.doc) === i}
+                  key={i}
+                />
+              ))}
+            </Tabs>
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       <AnimatePresence exitBeforeEnter>
         <motion.div
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
-          // Technically works. But really this should be at the router.query.doc
-          // level and the overall page should have its own transition.
           key={JSON.stringify(router)}
+          style={{ maxWidth: '60em' }}
         >
           {mdxActive}
         </motion.div>

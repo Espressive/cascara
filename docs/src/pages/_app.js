@@ -1,6 +1,7 @@
 import '@espressive/legacy-css';
 import '../styles/_app.scss';
 import Head from 'next/head';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { Admin } from '@espressive/cascara';
 import { Header, Main, Nav, PropTable } from '../components';
@@ -36,7 +37,16 @@ function MyApp({ Component, pageProps }) {
         drawer={
           propTable && (
             <Admin.Drawer>
-              <PropTable docData={propTable} />
+              <AnimatePresence exitBeforeEnter>
+                <motion.div
+                  animate={{ opacity: 1, translateX: 0 }}
+                  exit={{ opacity: 0, translateX: 100 }}
+                  initial={{ opacity: 0, translateX: 100 }}
+                  key={JSON.stringify(router)}
+                >
+                  <PropTable docData={propTable} />
+                </motion.div>
+              </AnimatePresence>
             </Admin.Drawer>
           )
         }
