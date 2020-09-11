@@ -30,9 +30,21 @@ const TableRow = ({ id, columns }) => {
     </td>
   );
 
-  const rowCells = columns.map((column) => (
-    <td key={column.attribute}>{`${column.value}`}</td>
-  ));
+  const rowCells = columns.map((column) => {
+    if (column.attribute === 'avatar') {
+      return (
+        <td key={column.attribute}>
+          <img
+            alt={'avatar'}
+            src={`${column.value}`}
+            style={{ borderRadius: '50%', width: '1.5em' }}
+          />
+        </td>
+      );
+    }
+
+    return <td key={column.attribute}>{`${column.value}`}</td>;
+  });
 
   if (selectionIsEnabled) {
     rowCells.unshift(selectionCell);

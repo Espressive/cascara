@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
-import Table from '../';
+import Table from '..';
 
 class Fixture extends PureComponent {
   state = {
