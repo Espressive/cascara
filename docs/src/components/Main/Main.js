@@ -7,7 +7,7 @@ const Main = ({ children, ...rest }) => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <Admin.Main {...rest} style={{ justifySelf: 'left' }}>
+      <Admin.Main {...rest}>
         <motion.div
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

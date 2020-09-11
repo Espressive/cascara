@@ -19,17 +19,23 @@ const Nav = ({ mdxTree, posts }) => {
           href='/'
           isActive={router?.asPath === '/'}
         />
+        <NavItem
+          as='/getting-started'
+          content='Getting Started'
+          href={`/[slug]`}
+          isActive={router?.asPath === '/getting-started'}
+        />
       </NavList>
 
-      <NavSection content='Principles' />
+      <NavSection content='Concepts' />
 
       <NavList>
         {posts?.map((post) => {
           const fileAsPath = `/${post.filePath.replace(/\.mdx?$/, '')}`;
-
+          const doNotRender = ['index.mdx', 'getting-started.mdx'];
           return (
-            // Do not render the index.mdx file here
-            post.filePath !== 'index.mdx' && (
+            // Do not render the index.mdx or getting-started.mdx files here
+            !doNotRender.find((file) => file === post.filePath) && (
               <NavItem
                 as={fileAsPath}
                 content={post?.data?.title || post.filePath}
