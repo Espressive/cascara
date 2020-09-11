@@ -1,5 +1,44 @@
 ---
 title: Structures and Layouts
+description: Reusable application structure and layout component concepts for consistency.
 ---
 
-WIP
+In a design system, guidelines about overall application structure and page layout can easily become boilerplate. As codebases grow, implementation details of that boilerplate can be forgotten or left behind. With Cascara we hope to guide the principles of applicaiton structure and page layout not just from system guidelines, but also with components.
+
+## Structures
+
+<img src='/structure.svg' alt='Structure' class='right' />
+
+In Cascara, Structures are essentially a responsive grid and baseline styles for holding together an application. They usually do not contain any state except when required for opening and closing collapsed presentational content on smaller devices.
+
+We have multiple applications at Espressive, our main application being Barista. Structures will be used to unify the experience across all of our applications.
+
+- [Admin](/docs/structures/Admin)
+- [Barista](/docs/structures/Barista)
+
+All of our applications will use the Admin structure except for Barista which will be more complex and have functionality to display correctly inside of native devices.
+
+## Layouts
+
+<img src='/layout.svg' alt='Layout' class='right' />
+
+We can think of Layouts and content that fills the grid of a Structure. Layouts will probably be intended for use inside of a specific Structure, but they should be created to be consumed in any application Structure.
+
+At the time of writing, there are two types of layouts we will be using, presentational and functional. A presentational layout is generally going to be similar to a Structure in that it will provide areas to place other content and components. A functional layout will usually not give options on where content is presented. Functional layouts will instead be more opinionated about what happens inside of them. We can think of them as micro-applications.
+
+Examples of presentational layouts:
+
+- List View
+- Admin Page
+
+Examples of functional layouts:
+
+- Admin Page Table w/ search, filtering, pagination, sorting, etc.
+- Chat
+- List View User Directory
+
+> Notes:
+>
+> - Functional layouts will likely be built from presentational layouts
+> - We may need to split in how we name these later
+> - Presentational layouts may not end up being part of the public API

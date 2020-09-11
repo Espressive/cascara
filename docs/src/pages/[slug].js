@@ -8,7 +8,7 @@ import MDX_OPTIONS from '../lib/MDX_OPTIONS';
 export default function PostPage({ source, frontMatter }) {
   const content = hydrate(source, { components: MDX_COMPONENTS });
   return (
-    <>
+    <div style={{ maxWidth: '60em' }}>
       <Head>
         <title>{frontMatter.title} - Cascara</title>
         {frontMatter?.description && (
@@ -24,7 +24,7 @@ export default function PostPage({ source, frontMatter }) {
         {frontMatter.title || 'PLEASE ADD A TITLE TO YOUR MDX FRONTMATTER'}
       </h1>
       {content}
-    </>
+    </div>
   );
 }
 

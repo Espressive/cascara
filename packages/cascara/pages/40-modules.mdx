@@ -1,5 +1,25 @@
 ---
 title: Modules
+description: Reusable component logic for interacting with and displaying data.
 ---
 
-WIP
+A Module as it pertains to Cascara is a component intended to both display and edit a discreet piece of data. Think of a display where we need to display information about a user. If we click a button that display changes into a form. If we slice all of the inputs of that form up, those would be Modules.
+
+As of today, we will have two kinds of modules: Data Modules and Action Modules. A Data Module is for displaying or editing a piece of data. An Action Module is a control for different kinds of actions.
+
+Modules have:
+
+- A display mode and an editing mode
+  - This can be configured to not allow editing
+- Are either a data or action module
+- Rely on a parent Context in order to tell what mode to be in
+
+## Data Modules
+
+Let's see how a data module might work and how it becomes reusable across our application. Staying with our user form example, if we build a form out of a bunch of Data Modules, they can start in display mode. We can display our entire user record as information. We can then change the form to edit mode and it becomes a form. What if there are read-only attributes? We configure those modules not to switch to editing mode. When we submit our form, we can return the updated data to the form which will automatically reset the Context to display mode and the new values will be displayed.
+
+Each data module will have logic for displaying and editing its specific data piece of data. Maybe we have a `boolean` type that we want to display as a checkbox, switch, or as a button. We can have modules for each. How do those display when in display mode? How do they display in edit mode? Those decisions are controlled by the design system, so we can implement them once and reuse that everywhere.
+
+What about more complex Data Modules like a date or image? In display mode, a date may need to display a local or UTC time. For editing, it may have a date or time picker. For an image, maybe that image will have different display sizes. For editing, maybe that image will have a regular file picker... or perhaps a file picker with an image editor to crop the image before saving. Again... these modules once implemented can then be used everywhere inside of a Module Context.
+
+These modules can also be used in other display and edit modes. We can create tables that display Data Modules inside of each cell that will allow inline editing of content in a table.
