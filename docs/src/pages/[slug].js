@@ -8,24 +8,23 @@ import MDX_OPTIONS from '../lib/MDX_OPTIONS';
 export default function PostPage({ source, frontMatter }) {
   const content = hydrate(source, { components: MDX_COMPONENTS });
   return (
-    <>
+    <div style={{ maxWidth: '60em' }}>
       <Head>
         <title>{frontMatter.title} - Cascara</title>
-        <meta
-          content={
-            frontMatter?.description || "Espressive's Functional Design System"
-          }
-          key='description'
-          name='description'
-        />
-        <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+        {frontMatter?.description && (
+          <meta
+            content={frontMatter.description}
+            key='description'
+            name='description'
+          />
+        )}
       </Head>
 
       <h1>
         {frontMatter.title || 'PLEASE ADD A TITLE TO YOUR MDX FRONTMATTER'}
       </h1>
       {content}
-    </>
+    </div>
   );
 }
 

@@ -1,82 +1,73 @@
 import { Fragment } from 'react';
 import { Admin } from '@espressive/cascara';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import NavSection from './NavSection';
+import NavList from './NavList';
+import NavItem from './NavItem';
 
 const docPath = (path) => path.replace('../packages/cascara/src', '/docs');
-
-const dividerStyle = {
-  borderBottom: 'none',
-  borderTop: '1px solid var(--color-transparent-grey)',
-};
-const listStyle = { listStyle: 'none' };
-const activeListItemStyle = { listStyle: 'disc' };
 
 const Nav = ({ mdxTree, posts }) => {
   const router = useRouter();
 
   return (
     <Admin.Nav>
-      <ul style={listStyle}>
-        <li style={router?.asPath === '/' ? activeListItemStyle : undefined}>
-          <Link as='/' href='/'>
-            <a>Home</a>
-          </Link>
-        </li>
-      </ul>
+      <NavList>
+        <NavItem
+          as='/'
+          content='Home'
+          href='/'
+          isActive={router?.asPath === '/'}
+        />
+        <NavItem
+          as='/getting-started'
+          content='Getting Started'
+          href={`/[slug]`}
+          isActive={router?.asPath === '/getting-started'}
+        />
+      </NavList>
 
-      <hr style={dividerStyle} />
+      <NavSection content='Concepts' />
 
-      <NavSection content='Principles' />
-      <ul style={listStyle}>
+      <NavList>
         {posts?.map((post) => {
           const fileAsPath = `/${post.filePath.replace(/\.mdx?$/, '')}`;
-
+          const doNotRender = ['index.mdx', 'getting-started.mdx'];
           return (
-            // Do not render the index.mdx file here
-            post.filePath !== 'index.mdx' && (
-              <li
+            // Do not render the index.mdx or getting-started.mdx files here
+            !doNotRender.find((file) => file === post.filePath) && (
+              <NavItem
+                as={fileAsPath}
+                content={post?.data?.title || post.filePath}
+                href={`/[slug]`}
+                isActive={router?.asPath === fileAsPath}
                 key={post.filePath}
-                style={
-                  router?.asPath === fileAsPath
-                    ? activeListItemStyle
-                    : undefined
-                }
-              >
-                <Link as={fileAsPath} href={`/[slug]`}>
-                  <a>{post?.data?.title || post.filePath}</a>
-                </Link>
-              </li>
+              />
             )
           );
         })}
-      </ul>
+      </NavList>
 
-      <hr style={dividerStyle} />
+      {/* <hr style={dividerStyle} /> */}
       {mdxTree?.map((item) =>
         item.size ? (
           <Fragment key={item.name}>
             <NavSection content={item.name} />
-            <ul style={listStyle}>
+            <NavList>
               {item.children.map((item) => {
                 const activeComponent = router?.query?.mdx?.[1];
                 return item.size ? (
-                  <li
+                  <NavItem
+                    as={docPath(item.path)}
+                    content={item.name}
+                    href='/docs/[[...mdx]]'
+                    isActive={item.name === activeComponent}
                     key={item.name}
-                    style={
-                      item.name === activeComponent
-                        ? activeListItemStyle
-                        : undefined
-                    }
-                  >
-                    <Link as={docPath(item.path)} href='/docs/[[...mdx]]'>
-                      <a>{item.name}</a>
-                    </Link>
-                  </li>
+                    status={item?.meta?.status}
+                  />
                 ) : null;
               })}
-            </ul>
+            </NavList>
           </Fragment>
         ) : null
       )}

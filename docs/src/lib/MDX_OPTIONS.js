@@ -4,6 +4,7 @@
 import visit from 'unist-util-visit';
 import emoji from 'remark-emoji';
 import slug from 'remark-slug';
+import headings from 'remark-autolink-headings';
 import codeFrontmatter from 'remark-code-frontmatter';
 
 // This transformer will spread all frontmatter and pass each as a prop
@@ -25,7 +26,14 @@ const transformer = (tree) => {
 };
 
 const MDX_OPTIONS = {
-  remarkPlugins: [emoji, slug, codeFrontmatter, () => transformer],
+  remarkPlugins: [
+    emoji,
+    slug,
+    // headings has to come after slug for it to work correctly
+    headings,
+    codeFrontmatter,
+    () => transformer,
+  ],
 };
 
 export default MDX_OPTIONS;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Logo = ({ textColor = '#fff', ...rest }) => (
+export const Logo = ({ textColor = 'var(--document-text, #fff)', ...rest }) => (
   <svg
     {...rest}
     height='40'

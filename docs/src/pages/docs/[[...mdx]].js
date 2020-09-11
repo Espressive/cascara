@@ -1,6 +1,6 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import Link from 'next/link';
 import Head from 'next/head';
+import { Tabs } from '../../components';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -41,44 +41,52 @@ const Doc = ({ mdxDirSource }) => {
     <>
       <Head>
         <title>{router?.query?.mdx[1]} - Cascara</title>
+        {mdxDirSource?.[0]?.frontMatter?.description && (
+          <meta
+            content={mdxDirSource[0].frontMatter.description}
+            key='description'
+            name='description'
+          />
+        )}
       </Head>
 
-      <ul style={{ listStyle: 'none' }}>
-        {mdxDirSource.map((doc, i) => (
-          <li
-            key={i}
-            style={
-              Number(router?.query?.doc) === i
-                ? { listStyle: 'disc' }
-                : undefined
-            }
-          >
-            <Link
-              as={{
-                pathname: router.asPath.split('?')[0],
-                query: { doc: i },
-              }}
-              href={{
-                pathname: router.pathname,
-                query: { doc: i },
-              }}
-            >
-              <a>
-                {doc.fileName} {Number(router?.query?.doc) === i}
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          animate={{ opacity: 1, scaleY: 1 }}
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, scaleY: 0.75 }}
+          key={router.query.mdx}
+          style={{ transformOrigin: 'bottom' }}
+        >
+          {mdxDirSource.length > 1 && (
+            <Tabs>
+              {mdxDirSource.map((doc, i) => (
+                <Tabs.Tab
+                  as={{
+                    pathname: router.asPath.split('?')[0],
+                    query: { doc: i },
+                  }}
+                  content={doc?.frontmatter?.title || doc.fileName}
+                  href={{
+                    pathname: router.pathname,
+                    query: { doc: i },
+                  }}
+                  isActive={Number(router?.query?.doc) === i}
+                  key={i}
+                />
+              ))}
+            </Tabs>
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       <AnimatePresence exitBeforeEnter>
         <motion.div
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
-          // Technically works. But really this should be at the router.query.doc
-          // level and the overall page should have its own transition.
           key={JSON.stringify(router)}
+          style={{ maxWidth: '60em' }}
         >
           {mdxActive}
         </motion.div>

@@ -1,0 +1,80 @@
+---
+title: Public API Components
+description: Component wrapper patterns for a opinionated and minimal API surface area.
+---
+
+Public API Components (PAC) are the public API for Cascara. We can think of PAC as a container that has other internal components and functionality inside. This internal functionality is private and generally not exposed to developers. By keeping most of the functionality private, developers have fewer decisions to make (and maintain) when it comes to consistency and experience.
+
+A PAC has a limited API surface area, which might feel strange to developers who are used to UI libraries with dozens of configuration parameters (examples below). By using a PAC, we help developers by simplifying decisions and helping them implement/maintain less functionality.
+
+## PAC Examples
+
+The concept of a PAC might seem somewhat abstract at first, so let's take a look at some examples.
+
+### Simple Component
+
+The easiest place to start is a ubiquitous button component. A button is used in almost every application so we are all familiar with them. Let's take a look at the API surface area of a Button component in Semantic UI React:
+
+```javascript
+<Button
+  active
+  animated={false}
+  as={Link}
+  attached='top' // left, right, top, bottom
+  basic
+  circular={false}
+  color='red' // red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, black, facebook, google plus, instagram, linkedin, twitter, vk, youtube
+  compact
+  content='Hello World'
+  disabled
+  floated='right' // right, left
+  fluid
+  icon='globe'
+  inverted
+  label='Test'
+  labelPosition='right' // right, left
+  loading
+  negative
+  positive
+  primary
+  secondary
+  size='mini' // mini, tiny, small, medium, large, big, huge, massive
+  toggle
+/>
+```
+
+There's a lot going on here (this does not even include all of the event functions like `onClick()`). This makes sense because UI library authors want to give as much flexibility as possible to developers to use in all kinds of applications... but that same flexibility can also slow developers down each time they configure a component. Many of these properties are not used in our applications. Certain combinations of thes properties also yield unwanted results.
+
+If we were to have only the attributes that we want to control, the API might look more like this:
+
+```javascript
+<ButtonPAC
+  as={Link}
+  content='Hello World'
+  isActive
+  isDisabled
+  isFluid
+  isLoading
+  size // small, regular, large
+  variant='secondary' // default, primary, secondary, tertiary
+/>
+```
+
+The most notable things missing here are options for additional styling and positioning. Instead of forcing developers to decide what the styles should be on every button, we instead let them declare the variant or size and perhaps some [_limited_ boolean attributes](https://spicefactory.co/blog/2019/03/26/how-to-avoid-the-boolean-trap-when-designing-react-components/) as well. Syling of the button should be driven by the variants in the design system. Positioning should be [driven by layouts](/30-structures-and-layouts) of the design system and not by the button itself.
+
+What happened to our original button? Well, we could have replaced it entirely... or we could have simply wrapped it in our new ButtonPAC component. Our new PAC can take all of the configurations from the simplified list of properties and decide how to implement them on our old Button component.
+
+> A good way to think about a PAC is just an API wrapper where we only expose the simplest configurations that we want to allow and make everything else private. This pattern is excellent to follow when using external libraries. If we replace a Button, Form, Table, Router in the future, if we have it wrapped in a PAC, all we have to do is update the component inside of our PAC and our entire application gets the update.
+
+### Complex Components
+
+Using a PAC on complex components becomes even more powerful. Let's think about a Table and all of the associated functionality we need to handle. There is a lot of configuration that we need to do every time we implement a table:
+
+- Set up our column count
+- Figure out what labels to display for our table header
+- Iterate over data to set up our rows
+- Determine display type for each column
+
+This is only the simplest use case. There are many other advanced actions we might need to set up like editing inline, selecting records for editing, sorting, etc. Even more problematic... much of this configuration becomes imperative and not reusable. Without a design system for guidance we end up with a bunch of one-off table implementations that are inconsistently implemented and hard to maintain.
+
+If we wrap our Table in a PAC, we can create a table that becomes more portable and all of our implementation work becomes portable as well.

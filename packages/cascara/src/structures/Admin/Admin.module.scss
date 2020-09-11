@@ -58,13 +58,12 @@
   @include cascara.scroll-vertical;
   grid-area: main;
   justify-self: center;
-  max-width: var(--main-max-width);
+  // max-width: var(--main-max-width);
   width: 100%;
 
   &.no-drawer {
-    justify-self: left;
     grid-column: span 2;
-    max-width: calc(var(--main-max-width) + var(--drawer-max-width));
+    // max-width: calc(var(--main-max-width) + var(--drawer-max-width));
   }
 }
 

@@ -1,0 +1,12 @@
+.Tag {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 0.75em;
+  color: var(--document-text);
+  padding: 0.125em 0.5em;
+  border-radius: 0.5em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  border: 1px solid var(--color-transparent-grey);
+  transition: background 200ms ease-in-out;
+}
