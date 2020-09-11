@@ -1,5 +1,6 @@
 ---
 title: Public API Components
+description: Component wrapper patterns for a opinionated and minimal API surface area.
 ---
 
 Public API Components (PAC) are the public API for Cascara. We can think of PAC as a container that has other internal components and functionality inside. This internal functionality is private and generally not exposed to developers. By keeping most of the functionality private, developers have fewer decisions to make (and maintain) when it comes to consistency and experience.
@@ -63,7 +64,7 @@ The most notable things missing here are options for additional styling and posi
 
 What happened to our original button? Well, we could have replaced it entirely... or we could have simply wrapped it in our new ButtonPAC component. Our new PAC can take all of the configurations from the simplified list of properties and decide how to implement them on our old Button component.
 
-> Again, a good way to think about a PAC is just an API wrapper where we only expose the simplest configurations that we want to make and make everything else private. This pattern is excellent to follow when using external libraries. If we replace a Button, Form, Table, Router in the future, if we have it wrapped in a PAC, all we have to do is update the component inside of our PAC and our entire application gets the update.
+> A good way to think about a PAC is just an API wrapper where we only expose the simplest configurations that we want to allow and make everything else private. This pattern is excellent to follow when using external libraries. If we replace a Button, Form, Table, Router in the future, if we have it wrapped in a PAC, all we have to do is update the component inside of our PAC and our entire application gets the update.
 
 ### Complex Components
 
