@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Tag from '../Tag';
 import styles from './Nav.module.scss';
 
 const NavItem = ({ content, isActive, status, ...rest }) => {
@@ -7,7 +8,16 @@ const NavItem = ({ content, isActive, status, ...rest }) => {
   return (
     <Link {...rest}>
       <a className={styles.NavItem} data-active={active}>
-        {content} {status && <span>{status}</span>}
+        {content}
+        {status && (
+          <Tag
+            content={status}
+            style={{
+              float: 'right',
+              verticalAlign: 'top',
+            }}
+          />
+        )}
       </a>
     </Link>
   );
