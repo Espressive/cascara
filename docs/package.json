@@ -8,8 +8,8 @@
     "postbuild": "next-on-netlify"
   },
   "dependencies": {
-    "@espressive/cascara": "link:../packages/cascara",
-    "@espressive/legacy-css": "link:../utils/legacy-css",
+    "@espressive/cascara": "file:../packages/cascara",
+    "@espressive/legacy-css": "file:../utils/legacy-css",
     "framer-motion": "2.5.5",
     "next": "9.5.3",
     "next-mdx-remote": "1.0.0",

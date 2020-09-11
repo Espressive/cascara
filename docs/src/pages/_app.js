@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }) {
                   animate={{ opacity: 1, translateX: 0 }}
                   exit={{ opacity: 0, translateX: 100 }}
                   initial={{ opacity: 0, translateX: 100 }}
-                  key={JSON.stringify(router)}
+                  key={router.query.mdx + propTable}
                 >
                   <PropTable docData={propTable} />
                 </motion.div>
