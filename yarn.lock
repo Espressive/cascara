@@ -11418,11 +11418,6 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-moment@2.27.0:
-  version "2.27.0"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
-  integrity sha512-al0MUK7cpIcglMv3YF13qSgdAIqxHTO7brRtaz3DlSULbqfazqkc5kEjNrLDOM7fsjshoFIihnU8snrP7zUvhQ==
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -13850,17 +13845,17 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-cosmos-playground2@^5.5.0-beta.0:
+react-cosmos-playground2@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/react-cosmos-playground2/-/react-cosmos-playground2-5.5.0.tgz#be7515534605ea2eedb37366c6a1aa844d6a71fe"
   integrity sha512-6n+ByNWw8ViW/N4zcHXRKU+7ZVgo1G5dQrMfVcpYYLGCRdJhtJ/bt8SdrBuTqBi5KmQo+7/Jz2bZWfScUoHAfw==
 
-react-cosmos-plugin@^5.5.0-alpha.7:
+react-cosmos-plugin@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/react-cosmos-plugin/-/react-cosmos-plugin-5.5.0.tgz#592ea1d98f4c49b1020e5ebee846406c2a8a10cf"
   integrity sha512-FRHwrTTfpzlvBTktTackJYgQWNMgIh8awol96wGDF+O2AS7pKmaOocfDEKe00xq4ZkLDY18Pb/aVi6Mx6idVpw==
 
-react-cosmos-shared2@^5.5.0-alpha.15:
+react-cosmos-shared2@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/react-cosmos-shared2/-/react-cosmos-shared2-5.5.0.tgz#a842c772912b62e26a4acc4f7319d91d8f5bf249"
   integrity sha512-copmvfeDgEzewEQT3nHFY8N8f+8j0/LBLwCrFe1JBtNJnKrWaqiIGdhVz8u0WLvuK5LMp9Ekh1uL7N6oYPgvNw==

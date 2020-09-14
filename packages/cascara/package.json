@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@espressive/legacy-css": "file:../../utils/legacy-css",
-    "moment": "2.27.0",
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
