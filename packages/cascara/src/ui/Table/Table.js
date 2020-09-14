@@ -4,6 +4,7 @@ import TableContext from './context/TableContext';
 
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
+import TableFooter from './TableFooter';
 
 const Table = () => {
   const {
@@ -27,7 +28,7 @@ const Table = () => {
     >
       <TableHeader />
       <TableBody />
-      <TableHeader footer />
+      <TableFooter />
     </table>
   );
 };

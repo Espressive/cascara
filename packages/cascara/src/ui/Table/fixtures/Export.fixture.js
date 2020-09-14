@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { Dropdown, Header } from 'semantic-ui-react';
-import moment from 'moment';
 
 import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
@@ -72,7 +71,6 @@ class Fixture extends PureComponent {
     ],
     data: generateFakeEmployees(50).map((employee) => ({
       ...employee,
-      date: moment(employee.date, 'YYYYMMDD').fromNow(),
     })),
     display: [
       {
