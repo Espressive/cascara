@@ -1,12 +1,31 @@
 {
-  "recommendations": [
-    "andrewleedham.vscode-css-modules",
-    "bungcip.better-toml",
-    "clinyong.vscode-css-modules",
-    "dbaeumer.vscode-eslint",
-    "mgmcdermott.vscode-language-babel",
-    "silvenon.mdx",
-    "xyc.vscode-mdx-preview"
-  ],
-  "unwantedRecommendations": []
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[mdx]": {
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "same"
+  },
+  "cssModules.camelCase": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "html": {
+      "attr_quotes": "single"
+    },
+    "javascript": {
+      "self_closing_tag": true
+    }
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "git.autofetch": true,
+  "prettier.requireConfig": true,
+  "workbench.colorCustomizations": {
+    "sideBarSectionHeader.background": "#90023A",
+    "sideBarSectionHeader.foreground": "#e7e7e7"
+  }
 }
