@@ -153,7 +153,9 @@ const FieldGroup = ({ children, length = 1 }) => {
 const FormPublicAPI = ({ data, dataConfig }) => {
   return (
     <div>
-      <h1>FormPublicAPI</h1>
+      <div style={{ margin: '1em' }}>
+        <h1>FormPublicAPI</h1>
+      </div>
 
       <JsonPlaceholder
         data={data}
@@ -174,7 +176,9 @@ const FormPublicAPI = ({ data, dataConfig }) => {
         title='To Display'
       />
       <div style={fakeFormStyle}>
-        <h2>Fake Form</h2>
+        <div style={{ margin: '1em' }}>
+          <h2>Fake Form</h2>
+        </div>
         {prepareFormData(data, dataConfig).fields.map((field, i) => {
           if (isRow(field)) {
             return (
@@ -188,6 +192,11 @@ const FormPublicAPI = ({ data, dataConfig }) => {
             return <Field key={i} {...field} />;
           }
         })}
+        <div style={{ margin: '1em', textAlign: 'right' }}>
+          {prepareFormData(data, dataConfig).actions.map((action, i) => (
+            <button key={i}>{action.label}</button>
+          ))}
+        </div>
       </div>
     </div>
   );
