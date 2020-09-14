@@ -125,14 +125,20 @@ const fakeFormStyle = {
   width: '50%',
 };
 
-const Field = ({ label = 'label', defaultValue = 'defaultValue' }) => {
+const Field = ({
+  label = 'label',
+  defaultValue = 'defaultValue',
+  isEditable = true,
+}) => {
   const fakeContainer = {
     margin: '1em',
   };
   const fakeInput = {
-    border: '1px solid grey',
+    borderColor: isEditable ? 'grey' : 'transparent',
     borderRadius: '.25em',
-    padding: '.5em',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    padding: isEditable ? '.5em' : 0,
   };
   return (
     <div style={fakeContainer}>
