@@ -1,0 +1,91 @@
+---
+title: Spec
+status: Draft
+---
+
+# Form
+
+## Inline Editing/State Based Editing
+
+Inline editing applies to single element or multiple elements (that act as one form) that can be edited on their own.
+
+The general flow is - **View Mode** -> **Edit Mode** -> **Save Action** -> **View Mode**
+
+If the editing of a form includes a destructive action then the general flow is - **View Mode** -> **Edit Mode** -> **Pre-Save Action** -> **Confirmation** -> **Save Action** -> **View Mode**
+
+Examples:
+
+- Editable table row
+- Seperate fields within a configuration section
+- A series of fields that represent a unified configuration form
+
+### States
+
+- **View** - Data can only be viewed
+- **Edit** - Data is in an active editing state
+- **Loading/Progress** - Data is loading
+- **Success** - Data/process has been successful
+
+### Elements
+
+- **Fields** - Various field types such as input, dropdown, checkbox... etc. _Note: Different field types may have variations in how states/feedback are represented_
+- **"Edit Button"** - element to change into an editing state
+- **"Save Button"** - element to save the data changes
+- **Inline feedback** - element to display validation errors/information at a field level
+- **Form Feedback** - element to display errors/information at a form level
+
+## Immediate Forms
+
+Immediate forms are a very particular pattern that should only be used in the case where a user is disabling/enabling a series of configuration settings.
+
+This pattern does not require entering into a state (no edit or save button). When the element is changed the intended functionality is executed.
+
+Example:
+
+- A configuration section for testing that as a whole can be turned ON/OFF.
+- A destructive action where a user clicks an action button that will remove an item/configuration.
+
+### Elements
+
+Only elements that have a boolean value should be used. These are the current elements that should be used in this pattern.
+
+- **Toggle** - This is a "knob" that allows users to easily turn an associated configuration ON/OFF quickly.
+- **Destructive Button** - A button to remove an item or configuration. _Note: This action must be followed with a confirmation that describes the impact. **Pre-Delete Action** -> **Confirmation** -> **Delete Action** _
+
+## Feedback
+
+Feedback gives the user information about what effect their actions will have and gives them guidance about what the expected input should be.
+
+See design doc for more explanation about feedback methods - [User Feedback](http://www.futurelink.com)
+
+### Inline Feedback
+
+Feedback that occurs inline should appear in close proximity to the field that the feedback is referencing. Inline feedback should be brief and concise, but primary intention is to guide the user through navigating the form.
+
+- Required
+- Error
+- Warning
+- Loading/progress
+- Success
+
+### Form Feedback
+
+Feedback that appears upon form submission after submission to the backend. Should appear above the form and is meant to give a much more detailed final explanation of what happened. Could be visually shown as a block of explanatory with text and links to helpful documentation.
+
+- Required
+- Error
+- Warning
+- Loading/progress
+- Success
+
+### Field Dependencies
+
+Fields that have different depeendencies need to be accounted for.
+
+Example:
+
+- A dropdown that when changed will have different required fields.
+
+### Information/Help
+
+There should be a pattern to allow users to get help/information about a particular field. This should be accounted for, but these patterns will be discussed in another section of the documentation.
