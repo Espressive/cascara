@@ -25,6 +25,20 @@
   "git.autofetch": true,
   "prettier.requireConfig": true,
   "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#b4104a",
+    "activityBar.activeBorder": "#48b010",
+    "activityBar.background": "#b4104a",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#48b010",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#850c37",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#b4104a",
+    "titleBar.activeBackground": "#850c37",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#90023A99",
+    "titleBar.inactiveForeground": "#e7e7e799",
     "sideBarSectionHeader.background": "#90023A",
     "sideBarSectionHeader.foreground": "#e7e7e7"
   }
