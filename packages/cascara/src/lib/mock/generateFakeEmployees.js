@@ -9,12 +9,10 @@ export const generateFakeEmployees = (qty) =>
     return (e = {
       avatar: faker.image.avatar(),
       country: faker.address.countryCode(),
-      date: faker.date.future(),
+      date: faker.date.past(),
       department: faker.name.jobArea(),
       eid: faker.random.uuid(),
-      fullName: faker.fake(
-        '{{name.lastName}}, {{name.firstName}} {{name.suffix}}'
-      ),
+      fullName: faker.fake('{{name.lastName}} {{name.firstName}}'),
       homePhone: faker.phone.phoneNumber(),
       nickname: faker.name.firstName(),
       officePhone: faker.phone.phoneNumber(),
