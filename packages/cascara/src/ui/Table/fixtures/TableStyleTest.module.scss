@@ -1,6 +1,7 @@
 :global {
   table {
     border: 1px solid #e9e8e9;
+    border-collapse: collapse;
     display: inline-grid;
     grid-template-rows: auto;
 
@@ -58,6 +59,7 @@
 
     th {
       background-color: #f9fafb;
+      border-right: 1px solid #e9e8e9;
       padding: 1em;
     }
 
@@ -71,8 +73,9 @@
       }
 
       td {
+        border: 1px solid #e9e8e9;
         word-break: break-word;
-        padding: 1em;
+        padding: 0.5em;
 
         &.long {
           white-space: nowrap;

@@ -1,6 +1,6 @@
 import React from 'react';
 import faker from 'faker';
-import JsonPlaceholder from '../../placeholders/JsonPlaceholder';
+import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 import { Select } from 'semantic-ui-react';
 
 // TODO: this might make sense to abstract into a memoized generator function

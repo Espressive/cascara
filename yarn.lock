@@ -13846,17 +13846,17 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-cosmos-playground2@^5.5.0-beta.0:
+react-cosmos-playground2@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/react-cosmos-playground2/-/react-cosmos-playground2-5.5.0.tgz#be7515534605ea2eedb37366c6a1aa844d6a71fe"
   integrity sha512-6n+ByNWw8ViW/N4zcHXRKU+7ZVgo1G5dQrMfVcpYYLGCRdJhtJ/bt8SdrBuTqBi5KmQo+7/Jz2bZWfScUoHAfw==
 
-react-cosmos-plugin@^5.5.0-alpha.7:
+react-cosmos-plugin@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/react-cosmos-plugin/-/react-cosmos-plugin-5.5.0.tgz#592ea1d98f4c49b1020e5ebee846406c2a8a10cf"
   integrity sha512-FRHwrTTfpzlvBTktTackJYgQWNMgIh8awol96wGDF+O2AS7pKmaOocfDEKe00xq4ZkLDY18Pb/aVi6Mx6idVpw==
 
-react-cosmos-shared2@^5.5.0-alpha.15:
+react-cosmos-shared2@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/react-cosmos-shared2/-/react-cosmos-shared2-5.5.0.tgz#a842c772912b62e26a4acc4f7319d91d8f5bf249"
   integrity sha512-copmvfeDgEzewEQT3nHFY8N8f+8j0/LBLwCrFe1JBtNJnKrWaqiIGdhVz8u0WLvuK5LMp9Ekh1uL7N6oYPgvNw==
@@ -13867,10 +13867,10 @@ react-cosmos-shared2@^5.5.0-alpha.15:
     react-is "^16.13.1"
     socket.io-client "2.2.0"
 
-react-cosmos@5.5.0-beta.0:
-  version "5.5.0-beta.0"
-  resolved "https://registry.yarnpkg.com/react-cosmos/-/react-cosmos-5.5.0-beta.0.tgz#3a8275a545d4124d700c1f4f2fd2a597c1cc5623"
-  integrity sha512-UtgLDiOQbSrD5d6hvYcfL4gAl2oF53vxxx0GQRzSys62Dt9OVkoJI13u+8XkkM2KOvtSy9Z7lXPrfmGZw2ZXXQ==
+react-cosmos@5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/react-cosmos/-/react-cosmos-5.5.0.tgz#810069f1a6207d423052eec9464321641792bb4e"
+  integrity sha512-eIaqB33v+VGFQziCsiLcJT3AyokTGU4yWfOjnV7UfGqas1Sq1P2Xv9MnwhVPrlkoaa+Rl8EHWNq9wDtTjyENuw==
   dependencies:
     "@skidding/launch-editor" "^2.2.3"
     "@skidding/webpack-hot-middleware" "^2.25.0"
@@ -13886,9 +13886,9 @@ react-cosmos@5.5.0-beta.0:
     open "^7.2.0"
     pem "^1.14.4"
     pkg-up "^3.1.0"
-    react-cosmos-playground2 "^5.5.0-beta.0"
-    react-cosmos-plugin "^5.5.0-alpha.7"
-    react-cosmos-shared2 "^5.5.0-alpha.15"
+    react-cosmos-playground2 "^5.5.0"
+    react-cosmos-plugin "^5.5.0"
+    react-cosmos-shared2 "^5.5.0"
     react-error-overlay "^6.0.7"
     regenerator-runtime "^0.13.7"
     resolve-from "^5.0.0"
