@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 
 import './TableStyleTest.module.scss';
-import { generateFakeEmployees } from './mockData';
+import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
 
-import TableContext, { TableContextProvider } from './context';
-import SelectionToggle from './atoms/SelectionToggle';
+import TableContext, { TableContextProvider } from '../context';
+import SelectionToggle from '../atoms/SelectionToggle';
 
 const fakeEmployees = generateFakeEmployees(50);
 
