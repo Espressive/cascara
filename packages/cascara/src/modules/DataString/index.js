@@ -1,1 +1,1 @@
-export { default } from './String';
+export { default } from './DataString';
