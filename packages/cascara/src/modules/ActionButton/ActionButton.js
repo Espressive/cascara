@@ -1,24 +1,18 @@
-// import React from 'react';
-// import { Button } from 'semantic-ui-react';
+import React, { useContext } from 'react';
+import ModuleContext from '../ModuleContext';
+import { Button } from 'semantic-ui-react';
 
-const ActionEdit = ({ editingLabel, label }) => {
-  // const { isEditing, toggleEditState } = useContext(sdf);
+const ActionButton = ({ content = 'ActionModule', ...rest }) => {
+  const { isEditing } = useContext(ModuleContext);
 
-  // const handleCancel = () => {
-  //   toggleEditState();
-  // };
-
-  // const handleClick = () => setOnAction(action, data);
-
-  return null;
-
-  // return isEditing ? (
-  //   editingLabel ? (
-  //     <Button content={editingLabel} />
-  //   ) : null
-  // ) : (
-  //   <Button content={label} onClick={toggleEditState} />
-  // );
+  return (
+    <Button
+      basic
+      content={isEditing ? 'cancel' : content}
+      floated='right'
+      {...rest}
+    />
+  );
 };
 
-export default ActionEdit;
+export default ActionButton;

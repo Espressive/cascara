@@ -1,15 +1,23 @@
 import React, { useContext } from 'react';
-import { Input } from 'semantic-ui-react';
 import ModuleContext from '../ModuleContext';
 
-const DataString = ({ isEditable = true, value = 'default', ...rest }) => {
-  const { isEditing } = useContext(ModuleContext);
+const DataString = ({
+  isEditable = true,
+  value = 'default',
+  label,
+  ...rest
+}) => {
+  const { isEditing, formMethods } = useContext(ModuleContext);
 
-  const renderEditing = <Input defaultValue={value} label={'test'} />;
+  const { register } = formMethods;
+
+  const renderEditing = (
+    <input {...rest} defaultValue={value} name={label} ref={register} />
+  );
 
   const renderDisplay = (
     <>
-      {rest.label && <div className='ui large label'>{rest.label}</div>}
+      {label && <div className='ui large label'>{label}</div>}
       <div style={{ display: 'inline-block', padding: '.5em 1em' }}>
         {value}
       </div>
