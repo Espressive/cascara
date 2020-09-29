@@ -1,7 +1,8 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import DataString from '../DataString';
-import ActionButton from '../ActionButton';
+// import ActionButton from '../ActionButton';
+import ActionEdit from '../ActionEdit';
 import { Divider } from 'semantic-ui-react';
 import ContextPlaceholder from '../../placeholders/ContextPlaceholder';
 import FormProvider from '../../ui/Form/context/FormProvider';
@@ -34,7 +35,7 @@ const FakeRow = ({ defaultValue, label, ...rest }) => (
   >
     <ContextPlaceholder color='green' label='RowProvider'>
       <DataString label={label} value={defaultValue} />
-      <ActionButton content='Edit' />
+      <ActionEdit />
     </ContextPlaceholder>
   </RowProvider>
 );
@@ -92,10 +93,10 @@ const ContextComposableActions = ({ data, dataConfig }) => {
               backgroundColor: '#f3f3f3',
               margin: '0 -1em -1em',
               padding: '1em',
+              textAlign: 'right',
             }}
           >
-            <ActionButton content='Save' type='submit' />
-            <ActionButton content='Cancel' />
+            <ActionEdit />
             <Divider clearing fitted hidden />
           </div>
         </ContextPlaceholder>

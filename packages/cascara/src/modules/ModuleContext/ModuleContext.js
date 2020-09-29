@@ -1,5 +1,4 @@
 import { createContext } from 'react';
-// import useToggle from '../../hooks/useToggle';
 
 // We should ONLY put values here that are needed for ALL Modules
 const defaultValue = {
