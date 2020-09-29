@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import DataString from '../DataString';
-// import ActionButton from '../ActionButton';
+import ActionButton from '../ActionButton';
 import ActionEdit from '../ActionEdit';
 import { Divider } from 'semantic-ui-react';
 import ContextPlaceholder from '../../placeholders/ContextPlaceholder';
@@ -96,6 +96,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
               textAlign: 'right',
             }}
           >
+            <ActionButton />
             <ActionEdit />
             <Divider clearing fitted hidden />
           </div>
@@ -111,7 +112,8 @@ const ContextComposableActions = ({ data, dataConfig }) => {
         }}
       >
         <ContextPlaceholder color='pink' label='TableProvider'>
-          <DataString value='Table' />
+          <DataString label='Table Level Module' value='Table' />
+          <ActionEdit />
           {fakeTableData.map((row, i) => (
             <FakeRow {...row} />
           ))}

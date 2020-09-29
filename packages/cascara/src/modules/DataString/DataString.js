@@ -24,7 +24,8 @@ const DataString = ({
     </>
   );
 
-  return isEditing ? renderEditing : renderDisplay;
+  // Do not render an editable input if the module is not editable
+  return isEditing && isEditable ? renderEditing : renderDisplay;
 };
 
 export default DataString;

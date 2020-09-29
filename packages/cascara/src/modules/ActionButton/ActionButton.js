@@ -2,17 +2,16 @@ import React, { useContext } from 'react';
 import ModuleContext from '../ModuleContext';
 import { Button } from 'semantic-ui-react';
 
-const ActionButton = ({ content = 'ActionModule', ...rest }) => {
-  const { isEditing, setIsEditing } = useContext(ModuleContext);
+const ActionButton = ({ content = 'ActionButton', ...rest }) => {
+  const { isEditing } = useContext(ModuleContext);
 
-  return (
-    <Button
-      basic
-      content={isEditing ? 'cancel' : content}
-      floated='right'
-      onClick={setIsEditing}
-      {...rest}
-    />
+  const handleClick = () => {
+    // eslint-disable-next-line no-console
+    console.log('ActionButton: handleClick()');
+  };
+
+  return isEditing ? null : (
+    <Button basic content={content} onClick={handleClick} {...rest} />
   );
 };
 
