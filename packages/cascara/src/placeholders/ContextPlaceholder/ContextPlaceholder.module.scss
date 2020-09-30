@@ -1,0 +1,19 @@
+.Container {
+  border: 2px dotted transparent;
+  margin: 1em 0;
+  padding: 2em 1em 1em;
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.Label {
+  border-bottom-right-radius: 0.5rem;
+  border: 2px dotted #ddd;
+  border-left-width: 0;
+  border-top-width: 0;
+  font-size: 0.75rem;
+  left: 0;
+  padding: 0.25em 0.5em;
+  position: absolute;
+  top: 0;
+}

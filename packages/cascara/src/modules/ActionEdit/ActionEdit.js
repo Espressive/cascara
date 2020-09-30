@@ -1,22 +1,57 @@
 import React, { useContext } from 'react';
+import ModuleContext from '../ModuleContext';
 import { Button } from 'semantic-ui-react';
 
-const actionModuleContext = [];
+const ActionEdit = ({
+  cancelLabel = 'Cancel',
+  editLabel = 'Edit Module',
+  saveLabel = 'Save',
+}) => {
+  const { isEditing, setIsEditing, formMethods } = useContext(ModuleContext);
+  const { formState, reset } = formMethods;
+  const { isDirty, isSubmitting } = formState;
 
-const ActionEdit = ({ cancelLabel = 'Cancel', label, saveLabel = 'Save' }) => {
-  const { isEditing, toggleEditState } = useContext(actionModuleContext);
+  const handleReset = () => {
+    // console.log('handleReset()');
+
+    reset();
+    setIsEditing(false);
+  };
 
   const handleCancel = () => {
-    toggleEditState();
+    // console.log('handleCancel()');
+
+    isDirty
+      ? // eslint-disable-next-line no-restricted-globals
+        confirm('Abandon unsaved changes?') && handleReset()
+      : handleReset();
+  };
+
+  const handleEdit = () => {
+    // console.log('handleEdit()');
+
+    setIsEditing(true);
   };
 
   return isEditing ? (
     <>
-      <Button content={saveLabel} type='submit' />
-      <Button content={cancelLabel} onClick={handleCancel} />
+      <Button
+        basic
+        content={cancelLabel}
+        loading={isSubmitting}
+        negative
+        onClick={handleCancel}
+        type='button'
+      />
+      <Button
+        content={saveLabel}
+        loading={isSubmitting}
+        positive
+        type='submit'
+      />
     </>
   ) : (
-    <Button content={label} onClick={toggleEditState} />
+    <Button basic content={editLabel} onClick={handleEdit} type='button' />
   );
 };
 
