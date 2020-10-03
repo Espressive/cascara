@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import DataString from '../DataString';
+import DataText from '../DataText';
 import ActionButton from '../ActionButton';
 import ActionEdit from '../ActionEdit';
 import { Divider } from 'semantic-ui-react';
@@ -34,7 +34,7 @@ const FakeRow = ({ defaultValue, label, ...rest }) => (
     }}
   >
     <ContextPlaceholder color='green' label='RowProvider'>
-      <DataString label={label} value={defaultValue} />
+      <DataText label={label} value={defaultValue} />
       <ActionEdit />
     </ContextPlaceholder>
   </RowProvider>
@@ -67,21 +67,21 @@ const ContextComposableActions = ({ data, dataConfig }) => {
       <FormProvider>
         <ContextPlaceholder color='cyan' label='FormProvider'>
           <div>
-            <DataString
+            <DataText
               label='First Name'
               style={fakeInputLayout}
               value='Bobby'
             />
           </div>
           <div>
-            <DataString
+            <DataText
               label='Last Name'
               style={fakeInputLayout}
               value='Johnson'
             />
           </div>
           <div>
-            <DataString
+            <DataText
               isEditable={false}
               label='Title'
               style={fakeInputLayout}
@@ -112,7 +112,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
         }}
       >
         <ContextPlaceholder color='pink' label='TableProvider'>
-          <DataString label='Table Level Module' value='Table' />
+          <DataText label='Table Level Module' value='Table' />
           <ActionEdit />
           {fakeTableData.map((row, i) => (
             <FakeRow {...row} />
