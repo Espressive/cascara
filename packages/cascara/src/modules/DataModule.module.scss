@@ -1,0 +1,54 @@
+$module-padding: 0;
+$input-padding: 0.5em 1em;
+
+%label {
+  font-size: 0.875em;
+  display: block;
+  font-weight: 600;
+}
+
+%module {
+  padding: $module-padding;
+
+  .Label {
+    @extend %label;
+  }
+
+  .Input {
+    padding: $input-padding;
+    display: inline-block;
+    border: 2px solid red;
+    width: 100%;
+    border-radius: 0.25em;
+  }
+}
+
+.Email {
+  @extend %module;
+}
+
+.Number {
+  @extend %module;
+}
+
+.Text {
+  @extend %module;
+}
+
+.TextArea {
+  @extend %module;
+}
+
+.Checkbox {
+  .Label {
+    @extend %label;
+  }
+
+  .Input {
+    padding: 2em;
+  }
+}
+
+.Select {
+  @extend %module;
+}

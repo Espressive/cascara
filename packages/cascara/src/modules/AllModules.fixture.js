@@ -13,19 +13,22 @@ import {
   DataTextArea,
 } from './';
 
+const lorem =
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem hic mollitia, fuga ex architecto cumque accusamus tenetur qui odio quam tempora aliquam minima ipsum laborum?';
+
 const ALL_DATA_MODULES = (
   <>
-    <DataCheckbox />
+    <DataEmail value='b@bje.co' />
     <hr />
-    <DataEmail />
+    <DataNumber value={2354} />
     <hr />
-    <DataNumber />
+    <DataSelect value='Washington' />
     <hr />
-    <DataSelect />
+    <DataText value='Some text' />
     <hr />
-    <DataText />
+    <DataCheckbox value={true} />
     <hr />
-    <DataTextArea />
+    <DataTextArea value={lorem} />
     <hr />
   </>
 );
