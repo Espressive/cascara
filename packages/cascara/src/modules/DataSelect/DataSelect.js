@@ -4,8 +4,9 @@ import styles from '../DataModule.module.scss';
 
 const DataSelect = ({
   isEditable = true,
-  value,
   label = 'DataSelect',
+  options,
+  value,
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
@@ -20,7 +21,17 @@ const DataSelect = ({
         id={label}
         name={label}
         ref={formMethods?.register}
-      />
+      >
+        {options ? (
+          options.map((option) => (
+            <option key={option.value} {...option}>
+              {option.label || option.value}
+            </option>
+          ))
+        ) : (
+          <option value={value}>{value}</option>
+        )}
+      </select>
     </label>
   );
 

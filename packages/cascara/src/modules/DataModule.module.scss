@@ -1,47 +1,64 @@
 $module-padding: 0;
-$input-padding: 0.5em 1em;
+$input-padding: 0.5em 0.75em;
+$color-focus: goldenrod;
 
-%label {
+%ModuleLabel {
   font-size: 0.875em;
   display: block;
   font-weight: 600;
 }
 
-%module {
+%ModuleContainer {
   padding: $module-padding;
+  margin: 0.5em 0;
 
   .Label {
-    @extend %label;
+    @extend %ModuleLabel;
   }
 
   .Input {
-    padding: $input-padding;
+    line-height: 1.35em;
+    padding: 0.5em 0;
     display: inline-block;
-    border: 2px solid red;
+    border: 1px solid transparent;
     width: 100%;
     border-radius: 0.25em;
+    transition: all 200ms ease-in-out;
+  }
+
+  input.Input,
+  select.Input,
+  textarea.Input {
+    padding: $input-padding;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 0 0 $color-focus;
+
+    &:focus {
+      outline: none;
+      box-shadow: inset 0 0 0 2px $color-focus;
+    }
   }
 }
 
 .Email {
-  @extend %module;
+  @extend %ModuleContainer;
 }
 
 .Number {
-  @extend %module;
+  @extend %ModuleContainer;
 }
 
 .Text {
-  @extend %module;
+  @extend %ModuleContainer;
 }
 
 .TextArea {
-  @extend %module;
+  @extend %ModuleContainer;
 }
 
 .Checkbox {
   .Label {
-    @extend %label;
+    @extend %ModuleLabel;
   }
 
   .Input {
@@ -50,5 +67,5 @@ $input-padding: 0.5em 1em;
 }
 
 .Select {
-  @extend %module;
+  @extend %ModuleContainer;
 }
