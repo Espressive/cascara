@@ -1,18 +1,21 @@
 import React, { useContext } from 'react';
-import ModuleContext from '../ModuleContext';
+import { ModuleContext } from '../context';
 
-const DataString = ({
+const DataText = ({
   isEditable = true,
-  value = 'default',
-  label,
+  value,
+  label = 'DataText',
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
 
-  const { register } = formMethods;
-
   const renderEditing = (
-    <input {...rest} defaultValue={value} name={label} ref={register} />
+    <input
+      {...rest}
+      defaultValue={value}
+      name={label}
+      ref={formMethods?.register}
+    />
   );
 
   const renderDisplay = (
@@ -28,4 +31,4 @@ const DataString = ({
   return isEditing && isEditable ? renderEditing : renderDisplay;
 };
 
-export default DataString;
+export default DataText;
