@@ -34,7 +34,7 @@ exports[`Espressive UI Pagination renders with defaults 1`] = `
           <div
             aria-atomic="true"
             aria-live="polite"
-            class="text"
+            class="divider text"
             role="alert"
           >
             10
@@ -135,7 +135,7 @@ exports[`Espressive UI Pagination renders with defaults 1`] = `
           <div
             aria-atomic="true"
             aria-live="polite"
-            class="text"
+            class="divider text"
             role="alert"
           >
             1
@@ -767,7 +767,7 @@ exports[`Espressive UI Pagination renders with defaults 1`] = `
           <div
             aria-atomic="true"
             aria-live="polite"
-            class="text"
+            class="divider text"
             role="alert"
           >
             10
@@ -868,7 +868,7 @@ exports[`Espressive UI Pagination renders with defaults 1`] = `
           <div
             aria-atomic="true"
             aria-live="polite"
-            class="text"
+            class="divider text"
             role="alert"
           >
             1
