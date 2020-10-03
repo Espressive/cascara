@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import ModuleContext from '../ModuleContext';
+import { ModuleContext } from '../context';
 import { Button } from 'semantic-ui-react';
 
 const ActionButton = ({ content = 'ActionButton', ...rest }) => {

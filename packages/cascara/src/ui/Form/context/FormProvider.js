@@ -1,5 +1,5 @@
 import React from 'react';
-import ModuleContext, { ModuleProvider } from '../../../modules/ModuleContext';
+import { ModuleContext, ModuleProvider } from '../../../modules/context';
 import { useForm } from 'react-hook-form';
 
 const FormProvider = ({ children, value, ...props }) => {

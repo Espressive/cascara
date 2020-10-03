@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import ModuleContext, { ModuleProvider } from '../../../modules/ModuleContext';
+import { ModuleContext, ModuleProvider } from '../../../modules/context';
 
 const RowProvider = ({ children, value, ...props }) => {
   const grandparentValues = useContext(ModuleContext);
