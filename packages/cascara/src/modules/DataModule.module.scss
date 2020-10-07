@@ -68,7 +68,8 @@ $color-focus: goldenrod;
   }
 }
 
-.Checkbox {
+.Checkbox,
+.Radio {
   .Label {
     @extend %ModuleLabel;
   }

@@ -1,9 +1,22 @@
 import React, { useContext } from 'react';
+import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+const propTypes = {
+  /** A Module can be defined to not present an editing state */
+  isEditable: pt.bool,
+  /** A Module can be be defined to not show its label (this should only be used when the label is being presented elsewhere like a table column header) */
+  isLabeled: pt.bool,
+  /** A Module needs to have a unique label relative to its context */
+  label: pt.number.isRequired,
+  /** A Module can have a value */
+  value: pt.string,
+};
+
 const DataNumber = ({
   isEditable = true,
+  isLabeled = true,
   value,
   label = 'DataNumber',
   ...rest
@@ -12,7 +25,7 @@ const DataNumber = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {label && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <input
         {...rest}
         className={styles.Input}
@@ -27,7 +40,7 @@ const DataNumber = ({
 
   const renderDisplay = (
     <span>
-      {label && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <span className={styles.Input}>{value}</span>
     </span>
   );
@@ -39,5 +52,7 @@ const DataNumber = ({
     </div>
   );
 };
+
+DataNumber.propTypes = propTypes;
 
 export default DataNumber;

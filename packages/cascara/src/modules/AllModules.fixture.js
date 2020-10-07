@@ -8,6 +8,7 @@ import {
   DataCheckbox,
   DataEmail,
   DataNumber,
+  DataRadio,
   DataSelect,
   DataText,
   DataTextArea,
@@ -23,6 +24,7 @@ const ALL_DATA_MODULES = (
     <DataSelect value='Washington' />
     <DataText value={lorem} />
     <DataCheckbox value={true} />
+    <DataRadio value={true} />
     <DataTextArea value={lorem} />
   </>
 );
