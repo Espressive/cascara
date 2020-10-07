@@ -11,7 +11,7 @@
     "@espressive/cascara": "file:../packages/cascara",
     "@espressive/legacy-css": "file:../utils/legacy-css",
     "framer-motion": "2.5.5",
-    "next": "9.5.3",
+    "next": "9.5.4",
     "next-mdx-remote": "1.0.0",
     "react": "16.13.1",
     "react-docgen": "5.3.0",
