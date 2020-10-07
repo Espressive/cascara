@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
@@ -11,9 +12,10 @@ const DataTextArea = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
 
   const renderEditing = (
+    // eslint-disable-next-line jsx-a11y/label-has-for
     <label htmlFor={label}>
       {label && <span className={styles.Label}>{label}</span>}
-      <textarea
+      <TextareaAutosize
         {...rest}
         className={styles.Input}
         defaultValue={value}
