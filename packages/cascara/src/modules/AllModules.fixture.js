@@ -19,17 +19,11 @@ const lorem =
 const ALL_DATA_MODULES = (
   <>
     <DataEmail value='b@bje.co' />
-    <hr />
     <DataNumber value={2354} />
-    <hr />
     <DataSelect value='Washington' />
-    <hr />
-    <DataText value='Some text' />
-    <hr />
+    <DataText value={lorem} />
     <DataCheckbox value={true} />
-    <hr />
     <DataTextArea value={lorem} />
-    <hr />
   </>
 );
 
