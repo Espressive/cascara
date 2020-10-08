@@ -9,9 +9,9 @@ const propTypes = {
   /** A Module can be be defined to not show its label (this should only be used when the label is being presented elsewhere like a table column header) */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
-  label: pt.number.isRequired,
+  label: pt.string.isRequired,
   /** A Module can have a value */
-  value: pt.string,
+  value: pt.number,
 };
 
 const DataNumber = ({
