@@ -25,7 +25,7 @@ const ALL_DATA_MODULES = (
     <DataSelect label='Select' value='Washington' />
     <DataText label='Text' value={lorem} />
     <DataCheckbox label='Checkbox' value={true} />
-    <DataRadio label='Radio' value={true} />
+    <DataRadio label='Radio' value={false} />
     <DataTextArea label='TextArea' value={lorem} />
   </>
 );

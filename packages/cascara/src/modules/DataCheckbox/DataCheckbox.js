@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
 import { ModuleContext } from '../context';
+import useToggle from '../../hooks/useToggle';
 import styles from '../DataModule.module.scss';
 
 const propTypes = {
@@ -21,20 +22,22 @@ const DataCheckbox = ({
   label = 'DataCheckbox',
   ...rest
 }) => {
+  const [isChecked, setIsChecked] = useToggle(value === true ? true : false);
   const { isEditing, formMethods } = useContext(ModuleContext);
 
   const renderEditing = (
     <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <input
         {...rest}
+        checked={isChecked}
         className={styles.Input}
-        defaultValue={value}
         id={label}
         name={label}
+        onClick={setIsChecked}
         ref={formMethods?.register}
         type='checkbox'
       />
+      {label && isLabeled && <span className={styles.Label}>{label}</span>}
     </label>
   );
 
