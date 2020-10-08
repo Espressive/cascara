@@ -16,6 +16,7 @@ const propTypes = {
 
 const DataCheckbox = ({
   isEditable = true,
+  isLabeled = true,
   value,
   label = 'DataCheckbox',
   ...rest
@@ -24,7 +25,7 @@ const DataCheckbox = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {label && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <input
         {...rest}
         className={styles.Input}
@@ -39,7 +40,7 @@ const DataCheckbox = ({
 
   const renderDisplay = (
     <span>
-      {label && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <span className={styles.Input}>{value}</span>
     </span>
   );
