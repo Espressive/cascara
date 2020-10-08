@@ -2,6 +2,7 @@
 import React from 'react';
 import { ModuleProvider } from './context';
 import FormProvider from '../ui/Form/context/FormProvider';
+import tableStyles from '../ui/Table/Table.module.scss';
 import {
   ActionButton,
   ActionEdit,
@@ -19,13 +20,13 @@ const lorem =
 
 const ALL_DATA_MODULES = (
   <>
-    <DataEmail value='b@bje.co' />
-    <DataNumber value={2354} />
-    <DataSelect value='Washington' />
-    <DataText value={lorem} />
-    <DataCheckbox value={true} />
-    <DataRadio value={true} />
-    <DataTextArea value={lorem} />
+    <DataEmail label='Email' value='b@bje.co' />
+    <DataNumber label='Number' value={2354} />
+    <DataSelect label='Select' value='Washington' />
+    <DataText label='Text' value={lorem} />
+    <DataCheckbox label='Checkbox' value={true} />
+    <DataRadio label='Radio' value={true} />
+    <DataTextArea label='TextArea' value={lorem} />
   </>
 );
 
@@ -34,6 +35,44 @@ const colStyle = {
   verticalAlign: 'top',
   width: '50%',
 };
+
+const fakeHeader = (
+  <tr className={tableStyles.Row}>
+    <th className={tableStyles.HeadCell}>DataEmail</th>
+    <th className={tableStyles.HeadCell}>DataNumber</th>
+    <th className={tableStyles.HeadCell}>DataSelect</th>
+    <th className={tableStyles.HeadCell}>DataText</th>
+    <th className={tableStyles.HeadCell}>DataCheckbox</th>
+    <th className={tableStyles.HeadCell}>DataRadio</th>
+    <th className={tableStyles.HeadCell}>DataTextArea</th>
+  </tr>
+);
+
+const fakeRow = (
+  <tr className={tableStyles.Row}>
+    <td className={tableStyles.Cell}>
+      <DataEmail isLabeled={false} label='Email' value='b@bje.co' />
+    </td>
+    <td className={tableStyles.Cell}>
+      <DataNumber isLabeled={false} label='Number' value={2354} />
+    </td>
+    <td className={tableStyles.Cell}>
+      <DataSelect isLabeled={false} label='Select' value='Washington' />
+    </td>
+    <td className={tableStyles.Cell}>
+      <DataText isLabeled={false} label='Text' value='I like cats.' />
+    </td>
+    <td className={tableStyles.Cell}>
+      <DataCheckbox isLabeled={false} label='Checkbox' value={true} />
+    </td>
+    <td className={tableStyles.Cell}>
+      <DataRadio isLabeled={false} label='Radio' value={true} />
+    </td>
+    <td className={tableStyles.Cell}>
+      <DataTextArea isLabeled={false} label='TextArea' value={lorem} />
+    </td>
+  </tr>
+);
 
 const AllModules = ({ data, dataConfig }) => {
   return (
@@ -65,6 +104,22 @@ const AllModules = ({ data, dataConfig }) => {
         <ActionButton />
         <ActionEdit />
       </FormProvider>
+
+      <table
+        className={tableStyles.Table}
+        style={{ gridTemplateColumns: `repeat(7, auto)` }}
+      >
+        <thead className={tableStyles.HeadContainer}>{fakeHeader}</thead>
+        <tbody className={tableStyles.BodyContainer}>
+          {fakeRow}
+          {fakeRow}
+          {fakeRow}
+          {fakeRow}
+          {fakeRow}
+          {fakeRow}
+          {fakeRow}
+        </tbody>
+      </table>
     </div>
   );
 };

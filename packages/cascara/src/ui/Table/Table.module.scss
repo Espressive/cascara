@@ -1,0 +1,45 @@
+$header-background: #eee;
+
+.Table {
+  border: 1px solid $header-background;
+  display: inline-grid;
+  grid-template-rows: auto;
+  overflow: scroll;
+  max-width: 100%;
+  margin: 1em 0;
+
+  // This removes these markup elements from the flow of the
+  // document so we can render all cells as part of the grid
+  .HeadContainer,
+  .BodyContainer,
+  .FootContainer,
+  .Row {
+    display: contents;
+  }
+
+  .HeadCell,
+  .Cell {
+    padding: 0 0.5em;
+    vertical-align: middle;
+  }
+
+  .HeadCell {
+    position: sticky;
+    top: 0;
+    background-color: $header-background;
+    padding: 0.5em;
+  }
+
+  .Cell {
+    display: flex;
+    align-items: center;
+  }
+
+  // Even though this is display: contents, we can still use it
+  // for css specificity
+  .Row {
+    &:nth-of-type(even) .Cell {
+      background-color: #f2f2f2;
+    }
+  }
+}
