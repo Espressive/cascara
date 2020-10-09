@@ -9,6 +9,15 @@ const TableProvider = ({ children, value, ...props }) => {
   const onSubmit = (data) => {
     // eslint-disable-next-line no-console
     console.table(data);
+
+    /** @brian:
+     *
+     * I am thinking on a way for us to derive the type of action
+     * to rise here, depending on which mode we are in:
+     *
+     * isEditing -> update
+     * isCreating -> create
+     */
   };
 
   const mergedValues = {

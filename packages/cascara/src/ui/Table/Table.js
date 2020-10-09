@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { TableContextProvider } from './context/TableContext';
+import TableProvider from './context/TableProvider';
 
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 import TableFooter from './TableFooter';
 
-const Table = ({ data, dataConfig, onAction }) => {
+const Table = ({ data, dataConfig, onAction, ...rest }) => {
   const { actions, bulkActions, display } = dataConfig;
   let columnCount = display.length;
 
@@ -19,11 +19,7 @@ const Table = ({ data, dataConfig, onAction }) => {
   }
 
   return (
-    <TableContextProvider
-      data={data}
-      dataConfig={dataConfig}
-      onAction={onAction}
-    >
+    <TableProvider value={{ data, dataConfig, onAction }} {...rest}>
       <table
         style={{
           gridTemplateColumns: `repeat(${columnCount}, auto)`,
@@ -33,7 +29,7 @@ const Table = ({ data, dataConfig, onAction }) => {
         <TableBody />
         <TableFooter />
       </table>
-    </TableContextProvider>
+    </TableProvider>
   );
 };
 

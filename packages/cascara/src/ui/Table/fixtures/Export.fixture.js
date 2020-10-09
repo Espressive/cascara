@@ -160,21 +160,12 @@ class Fixture extends PureComponent {
     const dataConfig = {
       actions: [
         {
-          label: 'View',
+          content: 'view',
           module: 'button',
           size: 'small',
         },
         {
-          cancellabel: 'Cancel',
-          label: 'Edit',
-          savelabel: 'Save',
-          size: 'small',
-          type: 'edit',
-        },
-        {
-          label: 'Delete',
-          module: 'button',
-          outcome: 'negative',
+          module: 'edit',
           size: 'small',
         },
       ],

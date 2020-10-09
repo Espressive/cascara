@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 
 const ActionEdit = ({
   cancelLabel = 'Cancel',
-  editLabel = 'Edit Module',
+  editLabel = 'Edit',
   saveLabel = 'Save',
 }) => {
   const { isEditing, setIsEditing, formMethods } = useContext(ModuleContext);

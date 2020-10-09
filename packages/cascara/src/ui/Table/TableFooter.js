@@ -1,84 +1,55 @@
 import React, { useContext } from 'react';
 
-import Button from '../Button';
+import { ModuleContext } from '../../modules/context';
+
+import ActionBar from './ActionBar';
+import ActionButton from '../../modules/ActionButton';
+import ActionEdit from '../../modules/ActionEdit';
 import DownloadButton from '../../modules/DownloadButton';
 
-import TableContext from './context';
-import SelectionToggle from './atoms/SelectionToggle';
-import ActionBar from './ActionBar';
-
 const TableFooter = () => {
-  const {
-    actions,
-    bulkActions,
-    dataConfig,
-    handleOnAction,
-    selection,
-    selectionIsEnabled,
-  } = useContext(TableContext);
-  const selectionCell = (
-    <th key={'main-toggle'}>
-      <SelectionToggle id={'__ALL__'} />
-    </th>
+  const { dataConfig } = useContext(ModuleContext);
+
+  const actionBarCell = (
+    <tr>
+      <ActionBar
+        actions={dataConfig.actions.map((action) => {
+          let Module;
+
+          switch (action.module) {
+            case 'edit':
+              Module = ActionEdit;
+              break;
+
+            case 'download':
+              Module = DownloadButton;
+              break;
+
+            default:
+              Module = ActionButton;
+              break;
+          }
+
+          return (
+            <Module {...action} content={action.label} key={action.label} />
+          );
+        })}
+      />
+    </tr>
   );
+
   const headerCells = dataConfig.display.map((column) => (
     <th key={column.attribute}>{column.label}</th>
   ));
 
-  if (selectionIsEnabled) {
-    headerCells.unshift(selectionCell);
-  }
-  if (actions.length) {
+  if (dataConfig.actions.length) {
     headerCells.push(<th key={'action-bar-slot'} />);
   }
-
-  const actionBar =
-    selection.length && bulkActions.length ? (
-      <tr>
-        <th
-          colSpan={headerCells.length}
-          scope={'colgroup'}
-          style={{
-            background: '#5FB59D',
-            display: 'flex',
-            gridColumn: `1/${headerCells.length + 1}`,
-            justifyContent: 'space-between',
-          }}
-        >
-          <ActionBar
-            actions={bulkActions.map((action) => {
-              let Component;
-
-              switch (action.module.type) {
-                case 'download':
-                  Component = DownloadButton;
-                  break;
-
-                default:
-                  Component = Button;
-              }
-
-              return (
-                <Component
-                  {...action}
-                  content={action.label}
-                  key={action.label}
-                  onClick={() => handleOnAction(action)}
-                />
-              );
-            })}
-            title={`${selection.length} selected`}
-          />
-        </th>
-      </tr>
-    ) : (
-      ''
-    );
 
   return (
     <tfoot>
       <tr>{headerCells}</tr>
-      {actionBar}
+      {actionBarCell}
     </tfoot>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 
-import TableContext from './context';
+import { ModuleContext } from '../../modules/context';
 import TableRow from './TableRow';
 
 const TableBody = () => {
-  const { data, dataConfig, uniqueIdAttribute } = useContext(TableContext);
+  const { data, dataConfig, uniqueIdAttribute } = useContext(ModuleContext);
   const rows = data.map((record) => ({
     columns: dataConfig.display.map((itemConfig) => ({
       ...itemConfig,
