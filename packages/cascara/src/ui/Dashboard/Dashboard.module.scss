@@ -1,0 +1,20 @@
+$masonry-gutter: 2em;
+
+.Dashboard {
+  display: block;
+  columns: 20rem;
+  gap: $masonry-gutter;
+}
+
+%Widget {
+  margin-bottom: $masonry-gutter;
+  break-inside: avoid;
+  border-radius: 0.5em;
+  // background-color: lightgray;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.Image {
+  @extend %Widget;
+}
