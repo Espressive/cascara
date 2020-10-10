@@ -16,7 +16,7 @@ $color-focus: goldenrod;
 
   // border-bottom: 1px solid red;
 
-  .Label {
+  .LabelText {
     @extend %ModuleLabel;
   }
 
@@ -72,7 +72,12 @@ $color-focus: goldenrod;
 
 .Checkbox,
 .Radio {
-  .Label {
+  label {
+    display: block;
+    margin: 0.5em 0;
+  }
+
+  .LabelText {
     margin-left: 0.5em;
   }
 
@@ -88,6 +93,10 @@ $color-focus: goldenrod;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
+    &:not(input) {
+      border-color: transparent;
+    }
 
     &:focus {
       outline: none;
@@ -130,7 +139,8 @@ $color-focus: goldenrod;
       transform: $long-line-transform scale(0);
     }
 
-    &:checked {
+    &:checked,
+    &[data-checked] {
       &:before {
         transform: $short-line-transform scale(1);
       }
@@ -154,7 +164,8 @@ $color-focus: goldenrod;
       transform: translate(-50%, -50%) scale(0);
     }
 
-    &:checked {
+    &:checked,
+    &[data-checked] {
       &:before {
         transform: translate(-50%, -50%) scale(1);
       }

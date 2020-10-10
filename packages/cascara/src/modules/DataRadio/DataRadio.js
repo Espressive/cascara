@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
+import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 import { ModuleContext } from '../context';
-import useToggle from '../../hooks/useToggle';
 import styles from '../DataModule.module.scss';
 
 const propTypes = {
@@ -18,42 +18,57 @@ const propTypes = {
 const DataRadio = ({
   isEditable = true,
   isLabeled = true,
-  value,
   label = 'DataRadio',
+  options,
+  value,
   ...rest
 }) => {
-  const [isChecked, setIsChecked] = useToggle(value === true ? true : false);
+  const radio = useRadioState({ state: value });
   const { isEditing, formMethods } = useContext(ModuleContext);
 
-  const renderEditing = (
-    <label htmlFor={label}>
-      <input
-        {...rest}
-        checked={isChecked}
+  const renderRadio = (option) => (
+    <label htmlFor={option.label}>
+      <Radio
+        {...radio}
         className={styles.Input}
-        id={label}
-        name={label}
-        onClick={setIsChecked}
+        id={option.label}
+        name={option.label}
         ref={formMethods?.register}
         type='radio'
+        value={option.label}
       />
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {option.label && isLabeled && (
+        <span className={styles.LabelText}>{option.label}</span>
+      )}
     </label>
   );
 
+  const renderEditing = (
+    <RadioGroup
+      {...radio}
+      {...rest}
+      aria-label='fruits'
+      className={styles.Radio}
+    >
+      {options
+        ? options.map((option) => renderRadio(option))
+        : renderRadio(value)}
+    </RadioGroup>
+  );
+
   const renderDisplay = (
-    <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <span className={styles.Input}>{value}</span>
-    </span>
+    <div className={styles.Radio}>
+      <span>
+        <span className={styles.Input}>{value}</span>
+        {label && isLabeled && (
+          <span className={styles.LabelText}>{label}</span>
+        )}
+      </span>
+    </div>
   );
 
   // Do not render an editable input if the module is not editable
-  return (
-    <div className={styles.Radio}>
-      {isEditing && isEditable ? renderEditing : renderDisplay}
-    </div>
-  );
+  return isEditing && isEditable ? renderEditing : renderDisplay;
 };
 
 DataRadio.propTypes = propTypes;

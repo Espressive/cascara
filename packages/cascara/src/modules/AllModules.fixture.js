@@ -18,14 +18,29 @@ import {
 const lorem =
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem hic mollitia, fuga ex architecto cumque accusamus tenetur qui odio quam tempora aliquam minima ipsum laborum?';
 
+const options = [
+  {
+    label: 'Test A',
+    value: 'A',
+  },
+  {
+    label: 'Test B',
+    value: 'B',
+  },
+  {
+    label: 'Test C',
+    value: 'C',
+  },
+];
+
 const ALL_DATA_MODULES = (
   <>
     <DataEmail label='Email' value='b@bje.co' />
     <DataNumber label='Number' value={2354} />
-    <DataSelect label='Select' value='Washington' />
+    <DataSelect label='Select' options={options} value='Washington' />
     <DataText label='Text' value={lorem} />
-    <DataCheckbox label='Checkbox' value={true} />
-    <DataRadio label='Radio' value={false} />
+    <DataCheckbox label='Checkbox A' value={true} />
+    <DataRadio label='Radio' options={options} />
     <DataTextArea label='TextArea' value={lorem} />
   </>
 );
@@ -105,6 +120,7 @@ const AllModules = ({ data, dataConfig }) => {
         <ActionEdit />
       </FormProvider>
 
+      <h2>Table Presentation</h2>
       <table
         className={tableStyles.Table}
         style={{ gridTemplateColumns: `repeat(7, auto)` }}

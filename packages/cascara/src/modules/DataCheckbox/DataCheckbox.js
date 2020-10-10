@@ -18,8 +18,8 @@ const propTypes = {
 const DataCheckbox = ({
   isEditable = true,
   isLabeled = true,
-  value,
   label = 'DataCheckbox',
+  value,
   ...rest
 }) => {
   const [isChecked, setIsChecked] = useToggle(value === true ? true : false);
@@ -37,14 +37,19 @@ const DataCheckbox = ({
         ref={formMethods?.register}
         type='checkbox'
       />
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </label>
   );
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <span className={styles.Input}>{value}</span>
+      <span
+        className={styles.Input}
+        data-checked={isChecked ? true : undefined}
+      >
+        {value}
+      </span>
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </span>
   );
 
