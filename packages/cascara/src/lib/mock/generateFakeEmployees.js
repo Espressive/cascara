@@ -6,15 +6,18 @@ export const generateFakeEmployees = (qty) =>
   new Array(qty).fill(null).map((e, i) => {
     // So we never have collisions, we have to start at 2 instead of 1
     faker.seed(i++ + 1);
+
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
+
     return (e = {
-      avatar: faker.image.avatar(),
-      country: faker.address.countryCode(),
-      date: faker.date.past(),
-      department: faker.name.jobArea(),
+      active: faker.random.boolean(),
+      country: faker.random.arrayElement(['USA', 'Brazil', 'Argentina']),
       eid: faker.random.uuid(),
-      fullName: faker.fake('{{name.lastName}} {{name.firstName}}'),
+      email: faker.internet.email(firstName, lastName, 'espressive.com'),
+      employeeNumber: faker.random.number(),
+      fullName: `${firstName} ${lastName}`,
       homePhone: faker.phone.phoneNumber(),
-      nickname: faker.name.firstName(),
       officePhone: faker.phone.phoneNumber(),
       title: faker.name.jobTitle(),
     });

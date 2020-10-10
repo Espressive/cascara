@@ -4,21 +4,25 @@ import { ModuleContext } from '../../modules/context';
 import TableRow from './TableRow';
 
 const TableBody = () => {
-  const { data, dataConfig, uniqueIdAttribute } = useContext(ModuleContext);
-  const rows = data.map((record) => ({
+  const { data, dataConfig } = useContext(ModuleContext);
+  const { uniqueIdAttribute } = dataConfig;
+
+  const rows = data.map((data) => ({
     columns: dataConfig.display.map((itemConfig) => ({
       ...itemConfig,
-      value: record[itemConfig.attribute],
+      value: data[itemConfig.attribute],
     })),
-    id: record[uniqueIdAttribute],
-    key: record[uniqueIdAttribute],
+    data,
+    id: data[uniqueIdAttribute],
   }));
 
   return (
     <tbody>
-      {rows.map((record) => (
-        <TableRow {...record} />
-      ))}
+      {rows.map((record) => {
+        const { data, ...rest } = record;
+
+        return <TableRow config={{ ...rest }} key={record.id} record={data} />;
+      })}
     </tbody>
   );
 };

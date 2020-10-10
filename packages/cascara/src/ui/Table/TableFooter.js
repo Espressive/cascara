@@ -11,31 +11,27 @@ const TableFooter = () => {
   const { dataConfig } = useContext(ModuleContext);
 
   const actionBarCell = (
-    <tr>
-      <ActionBar
-        actions={dataConfig.actions.map((action) => {
-          let Module;
+    <ActionBar
+      actions={dataConfig.actions.map((action) => {
+        let Module;
 
-          switch (action.module) {
-            case 'edit':
-              Module = ActionEdit;
-              break;
+        switch (action.module) {
+          case 'edit':
+            Module = ActionEdit;
+            break;
 
-            case 'download':
-              Module = DownloadButton;
-              break;
+          case 'download':
+            Module = DownloadButton;
+            break;
 
-            default:
-              Module = ActionButton;
-              break;
-          }
+          default:
+            Module = ActionButton;
+            break;
+        }
 
-          return (
-            <Module {...action} content={action.label} key={action.label} />
-          );
-        })}
-      />
-    </tr>
+        return <Module {...action} content={action.label} key={action.label} />;
+      })}
+    />
   );
 
   const headerCells = dataConfig.display.map((column) => (
@@ -48,8 +44,10 @@ const TableFooter = () => {
 
   return (
     <tfoot>
-      <tr>{headerCells}</tr>
-      {actionBarCell}
+      <tr key={'foot-header'}>{headerCells}</tr>
+      <tr key={'foot-actions'}>
+        <td colSpan={headerCells.length}>{actionBarCell}</td>
+      </tr>
     </tfoot>
   );
 };

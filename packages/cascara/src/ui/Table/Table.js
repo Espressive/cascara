@@ -6,20 +6,19 @@ import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 import TableFooter from './TableFooter';
 
-const Table = ({ data, dataConfig, onAction, ...rest }) => {
-  const { actions, bulkActions, display } = dataConfig;
+const Table = ({ data, dataConfig, onAction, uniqueIDAttribute, ...rest }) => {
+  const { actions, display } = dataConfig;
   let columnCount = display.length;
-
-  if (bulkActions.length) {
-    columnCount++;
-  }
 
   if (actions.length) {
     columnCount++;
   }
 
   return (
-    <TableProvider value={{ data, dataConfig, onAction }} {...rest}>
+    <TableProvider
+      value={{ data, dataConfig, onAction, uniqueIDAttribute }}
+      {...rest}
+    >
       <table
         style={{
           gridTemplateColumns: `repeat(${columnCount}, auto)`,

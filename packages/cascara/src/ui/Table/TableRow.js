@@ -11,15 +11,16 @@ import ActionEdit from '../../modules/ActionEdit';
 import DownloadButton from '../../modules/DownloadButton';
 
 // Data
-// import DataTextArea from '../../modules/DataCheckbox';
-// import DataEmail from '../../modules/DataEmail';
-// import DataNumber from '../../modules/DataNumber';
-// import DataRadio from '../../modules/DataRadio';
-// import DataSelect from '../../modules/DataSelect';
+import DataCheckbox from '../../modules/DataCheckbox';
+import DataEmail from '../../modules/DataEmail';
+import DataNumber from '../../modules/DataNumber';
+import DataRadio from '../../modules/DataRadio';
+import DataSelect from '../../modules/DataSelect';
 import DataText from '../../modules/DataText';
+import DataTextArea from '../../modules/DataTextArea';
 
-const TableRow = (record = {}) => {
-  const { id, columns } = record;
+const TableRow = ({ config = {}, record = {} }) => {
+  const { id, columns } = config;
   const { dataConfig } = useContext(ModuleContext);
 
   const actionBarCell = (
@@ -43,18 +44,40 @@ const TableRow = (record = {}) => {
               break;
           }
 
-          return <Module {...rest} key={`module.${action.label}`} />;
+          return <Module key={`module.${action.content}`} {...rest} />;
         })}
       />
     </td>
   );
 
   const rowCells = columns.map((column) => {
+    const { module: type, ...rest } = column;
     let Module;
 
-    switch (column.type) {
-      case 'string':
-        Module = DataText;
+    debugger;
+    switch (type) {
+      case 'checkbox':
+        Module = DataCheckbox;
+        break;
+
+      case 'email':
+        Module = DataEmail;
+        break;
+
+      case 'number':
+        Module = DataNumber;
+        break;
+
+      case 'radio':
+        Module = DataRadio;
+        break;
+
+      case 'select':
+        Module = DataSelect;
+        break;
+
+      case 'textarea':
+        Module = DataTextArea;
         break;
 
       default:
@@ -64,7 +87,7 @@ const TableRow = (record = {}) => {
 
     return (
       <td key={column.attribute}>
-        <Module {...column} />
+        <Module {...column} {...rest} />
       </td>
     );
   });
