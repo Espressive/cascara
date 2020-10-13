@@ -54,7 +54,6 @@ const TableRow = ({ config = {}, record = {} }) => {
     const { module: type, ...rest } = column;
     let Module;
 
-    debugger;
     switch (type) {
       case 'checkbox':
         Module = DataCheckbox;

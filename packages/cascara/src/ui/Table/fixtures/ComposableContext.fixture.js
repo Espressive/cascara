@@ -9,18 +9,11 @@ class Fixture extends PureComponent {
   state = {
     columns: [
       {
-        attribute: 'fullName',
-        isEditable: false,
-        isLabeled: false,
-        label: 'Full Name',
-        module: 'string',
-      },
-      {
-        attribute: 'homePhone',
+        attribute: 'active',
         isEditable: true,
         isLabeled: false,
-        label: 'Home Phone',
-        module: 'phone',
+        label: 'Active',
+        module: 'checkbox',
       },
       {
         attribute: 'eid',
@@ -30,50 +23,64 @@ class Fixture extends PureComponent {
         module: 'string',
       },
       {
-        attribute: 'avatar',
-        isEditable: false,
+        attribute: 'email',
+        isEditable: true,
         isLabeled: false,
-        label: 'Avatar',
-        module: 'string',
+        label: 'Email',
+        module: 'email',
       },
       {
         attribute: 'country',
-        isEditable: false,
+        isEditable: true,
         isLabeled: false,
         label: 'Country',
+        module: 'select',
+        options: [
+          {
+            label: 'Argentina',
+            value: 'Argentina',
+          },
+          {
+            label: 'Brazil',
+            value: 'Brazil',
+          },
+          {
+            label: 'USA',
+            value: 'USA',
+          },
+        ],
+      },
+      {
+        attribute: 'employeeNumber',
+        isEditable: true,
+        isLabeled: false,
+        label: 'Employee Number',
+        module: 'number',
+      },
+      {
+        attribute: 'fullName',
+        isEditable: true,
+        isLabeled: false,
+        label: 'Full Name',
         module: 'string',
       },
       {
-        attribute: 'date',
-        isEditable: false,
+        attribute: 'homePhone',
+        isEditable: true,
         isLabeled: false,
-        label: 'Hired',
-        module: 'date',
-      },
-      {
-        attribute: 'department',
-        isEditable: false,
-        isLabeled: false,
-        label: 'Department',
-        module: 'string',
-      },
-      {
-        attribute: 'nickname',
-        isEditable: false,
-        isLabeled: false,
-        label: 'Nickname',
+        label: 'Home Phone',
         module: 'string',
       },
       {
         attribute: 'officePhone',
-        isEditable: false,
+        isEditable: true,
         isLabeled: false,
-        label: 'Office phone',
+        label: 'Office Phone',
         module: 'string',
       },
       {
         attribute: 'title',
-        isEditable: false,
+        isEditable: true,
         isLabeled: false,
         label: 'Title',
         module: 'string',
@@ -85,17 +92,17 @@ class Fixture extends PureComponent {
     display: [
       {
         attribute: 'fullName',
-        isEditable: false,
-        isLabeled: false,
-        label: 'Full Name',
-        type: 'string',
-      },
-      {
-        attribute: 'homePhone',
         isEditable: true,
         isLabeled: false,
-        label: 'Home Phone',
-        type: 'phone',
+        label: 'Full Name',
+        module: 'string',
+      },
+      {
+        attribute: 'email',
+        isEditable: true,
+        isLabeled: false,
+        label: 'Email',
+        module: 'email',
       },
     ],
   };
@@ -156,23 +163,27 @@ class Fixture extends PureComponent {
             data: csvData,
             fileName: 'Espressive Table - Employee.csv',
             fileType: 'text/csv',
+            isLabeled: false,
             module: 'download',
           },
         ]
       : [
           {
             content: 'Export as CSV',
+            isLabeled: false,
             module: 'button',
           },
         ];
     const dataConfig = {
       actions: [
         {
-          content: 'View',
+          content: 'view',
+          isLabeled: false,
           module: 'button',
           size: 'small',
         },
         {
+          isLabeled: false,
           module: 'edit',
           size: 'small',
         },

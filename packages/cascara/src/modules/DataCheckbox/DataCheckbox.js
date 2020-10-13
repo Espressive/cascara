@@ -25,9 +25,9 @@ const DataCheckbox = ({
 }) => {
   const [isChecked, setIsChecked] = useToggle(value === true ? true : false);
   const { isEditing, formMethods } = useContext(ModuleContext);
-
   const renderEditing = (
     <label htmlFor={label}>
+      {isLabeled && label && <span className={styles.Label}>{label}</span>}
       <Checkbox
         {...rest}
         checked={isChecked}

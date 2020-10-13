@@ -12,7 +12,7 @@ const TableFooter = () => {
 
   const actionBarCell = (
     <ActionBar
-      actions={dataConfig.actions.map((action) => {
+      actions={dataConfig.bulkActions.map((action, idx) => {
         let Module;
 
         switch (action.module) {
@@ -29,7 +29,13 @@ const TableFooter = () => {
             break;
         }
 
-        return <Module {...action} content={action.label} key={action.label} />;
+        return (
+          <Module
+            {...action}
+            content={action.content}
+            key={`${action.module}.${idx}.${action.content}`}
+          />
+        );
       })}
     />
   );

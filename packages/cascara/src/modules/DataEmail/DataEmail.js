@@ -23,7 +23,6 @@ const DataEmail = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
-
   const renderEditing = (
     <label htmlFor={label}>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
