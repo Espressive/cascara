@@ -33,6 +33,11 @@ const WidgetBar = ({
       legend: axisLeftLabel,
       legendOffset: axisLeftLabel ? -40 : 0, // Also make this automatic with margins below
     },
+    borderColor: {
+      from: 'color',
+      modifiers: [['darker', 0.2]],
+    },
+    borderWidth: 1,
     labelSkipHeight: 12,
     labelSkipWidth: 12,
     labelTextColor: {

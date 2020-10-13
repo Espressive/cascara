@@ -25,13 +25,12 @@ $widget-background: #f0f0f0;
 }
 
 .Error {
-  // TODO: This should eventually become a message component for displaying helpful developer messages
-
   padding: 1em;
   border: 2px solid #900;
   background-color: #fcc;
   color: #900;
   border-radius: $widget-border-radius;
+  margin-bottom: $masonry-gutter;
 
   h4 {
     margin-bottom: 0.5em;

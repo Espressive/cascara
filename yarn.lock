@@ -1457,7 +1457,10 @@
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.62.0"
     "@nivo/bump" "0.62.0"
+    "@nivo/geo" "0.62.0"
     "@nivo/heatmap" "0.62.0"
+    "@nivo/pie" "0.62.0"
+    "@nivo/treemap" "0.62.0"
     classnames "2.2.6"
     react-hook-form "6.8.4"
     react-textarea-autosize "8.2.0"
@@ -2835,6 +2838,23 @@
     lodash "^4.17.11"
     recompose "^0.30.0"
 
+"@nivo/line@0.62.0":
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/@nivo/line/-/line-0.62.0.tgz#b85bfcb32824e0affbf4279affd3dfbfe08255ba"
+  integrity sha512-P48gt8NjhRb5W8QjafgO/DMKVD+21X4Jf13wwL6k8lzwaKOaWS37OPPPpvDREQFZhHYWG6KcnIGEo99/yOzdWw==
+  dependencies:
+    "@nivo/annotations" "0.62.0"
+    "@nivo/axes" "0.62.0"
+    "@nivo/colors" "0.62.0"
+    "@nivo/core" "0.62.0"
+    "@nivo/legends" "0.62.0"
+    "@nivo/scales" "0.62.0"
+    "@nivo/tooltip" "0.62.0"
+    "@nivo/voronoi" "0.62.0"
+    d3-shape "^1.3.5"
+    lodash "^4.17.11"
+    react-motion "^0.5.2"
+
 "@nivo/pie@0.62.0":
   version "0.62.0"
   resolved "https://registry.yarnpkg.com/@nivo/pie/-/pie-0.62.0.tgz#90d938d6065671c77496ab584ea2e5d759162b8e"
@@ -2887,6 +2907,16 @@
     d3-hierarchy "^1.1.8"
     lodash "^4.17.11"
     react-motion "^0.5.2"
+    recompose "^0.30.0"
+
+"@nivo/voronoi@0.62.0":
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/@nivo/voronoi/-/voronoi-0.62.0.tgz#b6b141bca204c9115fcb103b3362eff34425c147"
+  integrity sha512-+Q+zTjp4LsjmUNMA3tFe13UdjANsE1NLTKajrwEBvQEx87GWYUJP2G+tNBrb2WfkBUmH0XTkkH7upLy4Gx//HA==
+  dependencies:
+    "@nivo/core" "0.62.0"
+    d3-delaunay "^5.1.1"
+    d3-scale "^3.0.0"
     recompose "^0.30.0"
 
 "@nodelib/fs.stat@^1.1.2":
@@ -6400,6 +6430,13 @@ d3-color@1, d3-color@^1.2.3:
   resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-2.0.0.tgz#8d625cab42ed9b8f601a1760a389f7ea9189d62e"
   integrity sha512-SPXi0TSKPD4g9tw0NMZFnR95XVgUZiBH+uUTqQuDu1OsE2zomHU7ho0FISciaPvosimixwHFl3WHLGabv6dDgQ==
 
+d3-delaunay@^5.1.1:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/d3-delaunay/-/d3-delaunay-5.3.0.tgz#b47f05c38f854a4e7b3cea80e0bb12e57398772d"
+  integrity sha512-amALSrOllWVLaHTnDLHwMIiz0d1bBu9gZXd1FiLfXf8sHcX9jrcj81TVZOqD4UX7MgBZZ07c8GxzEgBpJqc74w==
+  dependencies:
+    delaunator "4"
+
 "d3-format@1 - 2":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/d3-format/-/d3-format-2.0.0.tgz#a10bcc0f986c372b729ba447382413aabf5b0767"
@@ -6692,6 +6729,11 @@ del@^4.1.1:
     p-map "^2.0.0"
     pify "^4.0.1"
     rimraf "^2.6.3"
+
+delaunator@4:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/delaunator/-/delaunator-4.0.1.tgz#3d779687f57919a7a418f8ab947d3bddb6846957"
+  integrity sha512-WNPWi1IRKZfCt/qIDMfERkDp93+iZEmOxN2yy4Jg+Xhv8SLk2UTqqbe1sfiipn0and9QrE914/ihdx82Y/Giag==
 
 delayed-stream@~1.0.0:
   version "1.0.0"
