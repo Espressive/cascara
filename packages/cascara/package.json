@@ -18,6 +18,12 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "7.11.2",
+    "@nivo/bar": "0.62.0",
+    "@nivo/bump": "0.62.0",
+    "@nivo/geo": "0.62.0",
+    "@nivo/heatmap": "0.62.0",
+    "@nivo/pie": "0.62.0",
+    "@nivo/treemap": "0.62.0",
     "classnames": "2.2.6",
     "react-hook-form": "6.8.4",
     "react-textarea-autosize": "8.2.0",

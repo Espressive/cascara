@@ -1,69 +1,167 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import styles from '../Dashboard.module.scss';
+import { Select } from 'semantic-ui-react';
+import Dashboard from '../Dashboard';
 
-const data = [
+const foodData = [
   {
-    image:
-      'https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80',
-    text: 'Doge A',
+    burger: 52,
+    country: 'AD',
+    donut: 119,
+    fries: 188,
+    'hot dog': 110,
+    kebab: 192,
+    sandwich: 93,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2700&q=80',
-    text: 'Doge B',
+    burger: 198,
+    country: 'AE',
+    donut: 41,
+    fries: 16,
+    'hot dog': 77,
+    kebab: 177,
+    sandwich: 2,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1239&q=80',
-    text: 'Doge C',
+    burger: 120,
+    country: 'AF',
+    donut: 147,
+    fries: 192,
+    'hot dog': 108,
+    kebab: 112,
+    sandwich: 148,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1212&q=80',
-    text: 'Doge D',
+    burger: 173,
+    country: 'AG',
+    donut: 75,
+    fries: 162,
+    'hot dog': 69,
+    kebab: 65,
+    sandwich: 121,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2698&q=80',
-    text: 'Doge E',
+    burger: 100,
+    country: 'AI',
+    donut: 53,
+    fries: 80,
+    'hot dog': 119,
+    kebab: 164,
+    sandwich: 114,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1700&q=80',
-    text: 'Doge F',
+    burger: 162,
+    country: 'AL',
+    donut: 183,
+    fries: 185,
+    'hot dog': 163,
+    kebab: 108,
+    sandwich: 200,
   },
   {
-    image:
-      'https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1374&q=80',
-    text: 'Doge G',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2560&q=80',
-    text: 'Doge H',
+    burger: 165,
+    country: 'AM',
+    donut: 174,
+    fries: 192,
+    'hot dog': 134,
+    kebab: 161,
+    sandwich: 159,
   },
 ];
 
-const Widget = ({ image, text }) => (
-  <div className={styles.Image}>
-    <img alt={text} src={image} style={{ maxWidth: '100%' }} />
-    <p>{text}</p>
-  </div>
-);
+const mapData = [
+  {
+    id: 'FRA',
+    value: 30,
+  },
+  {
+    id: 'RUS',
+    value: 15,
+  },
+  {
+    id: 'USA',
+    value: 50,
+  },
+];
 
-const DashboardPAC = ({ data }) => {
+const dashboardConfig = [
+  {
+    data: [
+      {
+        label: 'Deflections',
+        value: 12535,
+      },
+      {
+        label: 'Incidents / 30 Days',
+        value: 124,
+      },
+      {
+        label: 'Metric',
+        value: '234 cars',
+      },
+      {
+        label: 'New Smurfs',
+        value: '15',
+      },
+      {
+        label: 'Favorites',
+        value: 11,
+      },
+    ],
+    title: 'Our Stats Widget',
+    widget: 'stats',
+  },
+  {
+    axisBottomLabel: 'Country',
+    axisLeftLabel: 'Food',
+    data: foodData,
+    indexBy: 'country',
+    keys: ['hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut'],
+    title: 'Sweet Bars',
+    widget: 'bar',
+  },
+  {
+    data: mapData,
+    title: 'Cool Map',
+    widget: 'geo-map',
+  },
+  {
+    title: 'Some Slices',
+    widget: 'pie',
+  },
+  {
+    data: [
+      {
+        label: 'Best Team',
+        value: 'Arsenal',
+      },
+      {
+        label: 'Widgets for POC',
+        value: 5,
+      },
+    ],
+    title: 'Other Stats',
+    widget: 'stats',
+  },
+  {
+    title: 'Hot Widget',
+    widget: 'pie',
+  },
+  {
+    title: 'Trees!',
+    widget: 'tree-map',
+  },
+];
+
+const DashboardPAC = () => {
   return (
-    <main styles={{ backgroundColor: '#fafafa', padding: '2em' }}>
-      <div className={styles.Dashboard}>
-        {data.map((widget) => (
-          <Widget key={widget.name} {...widget} />
-        ))}
-      </div>
+    <main style={{ backgroundColor: '#fafafa', padding: '2em' }}>
+      <Select />
+      <Dashboard config={dashboardConfig} />
     </main>
   );
 };
 
-const Fixture = <DashboardPAC data={data} />;
+const Fixture = <DashboardPAC />;
 
 export default Fixture;

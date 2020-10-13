@@ -1,5 +1,36 @@
 import React from 'react';
+import styles from './Dashboard.module.scss';
 
-const Dashboard = () => <div />;
+import WidgetBar from './widgets/WidgetBar';
+import WidgetGeoMap from './widgets/WidgetGeoMap';
+import WidgetHeatMap from './widgets/WidgetHeatMap';
+import WidgetPie from './widgets/WidgetPie';
+import WidgetStats from './widgets/WidgetStats';
+import WidgetTreeMap from './widgets/WidgetTreeMap';
+
+const renderWidget = ({ widget, ...rest }) => {
+  switch (widget) {
+    case 'bar':
+      return <WidgetBar {...rest} />;
+    case 'geo-map':
+      return <WidgetGeoMap {...rest} />;
+    case 'heat-map':
+      return <WidgetHeatMap {...rest} />;
+    case 'pie':
+      return <WidgetPie {...rest} />;
+    case 'stats':
+      return <WidgetStats {...rest} />;
+    case 'tree-map':
+      return <WidgetTreeMap {...rest} />;
+    default:
+    // Need to return an error themed widget if we match no widgets
+  }
+};
+
+const Dashboard = ({ children, config }) => (
+  <div className={styles.Dashboard}>
+    {config.map((widget) => renderWidget(widget))}
+  </div>
+);
 
 export default Dashboard;
