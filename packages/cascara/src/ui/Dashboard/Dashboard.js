@@ -8,6 +8,8 @@ import WidgetPie from './widgets/WidgetPie';
 import WidgetStats from './widgets/WidgetStats';
 import WidgetTreeMap from './widgets/WidgetTreeMap';
 
+import WidgetError from './widgets/WidgetError';
+
 const renderWidget = ({ widget, ...rest }) => {
   switch (widget) {
     case 'bar':
@@ -23,7 +25,21 @@ const renderWidget = ({ widget, ...rest }) => {
     case 'tree-map':
       return <WidgetTreeMap {...rest} />;
     default:
-    // Need to return an error themed widget if we match no widgets
+      return (
+        <WidgetError
+          message={
+            <>
+              <p>
+                <code>{widget}</code> is not a valid value for{' '}
+                <code>widget</code>.
+              </p>{' '}
+              <p>
+                Try: 'bar', 'geo-map', 'heat-map', 'pie', 'stats', 'tree-map'
+              </p>
+            </>
+          }
+        />
+      );
   }
 };
 

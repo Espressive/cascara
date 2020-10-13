@@ -24,6 +24,26 @@ $widget-background: #f0f0f0;
   }
 }
 
+.Error {
+  // TODO: This should eventually become a message component for displaying helpful developer messages
+
+  padding: 1em;
+  border: 2px solid #900;
+  background-color: #fcc;
+  color: #900;
+  border-radius: $widget-border-radius;
+
+  h4 {
+    margin-bottom: 0.5em;
+  }
+
+  code {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.125em 0.375em;
+    border-radius: 0.25em;
+  }
+}
+
 .Bar {
   @extend %Widget;
 }

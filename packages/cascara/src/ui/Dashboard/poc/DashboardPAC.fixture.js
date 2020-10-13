@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { Select } from 'semantic-ui-react';
+import { Container, Select } from 'semantic-ui-react';
 import Dashboard from '../Dashboard';
 
 const foodData = [
@@ -71,12 +71,20 @@ const foodData = [
 
 const mapData = [
   {
+    id: 'AUS',
+    value: 5,
+  },
+  {
     id: 'FRA',
     value: 30,
   },
   {
     id: 'RUS',
     value: 15,
+  },
+  {
+    id: 'IND',
+    value: 40,
   },
   {
     id: 'USA',
@@ -130,6 +138,10 @@ const dashboardConfig = [
     widget: 'pie',
   },
   {
+    title: 'Bad Widget',
+    widget: 'poop',
+  },
+  {
     data: [
       {
         label: 'Best Team',
@@ -155,10 +167,10 @@ const dashboardConfig = [
 
 const DashboardPAC = () => {
   return (
-    <main style={{ backgroundColor: '#fafafa', padding: '2em' }}>
+    <Container as='main' style={{ padding: '2em 0' }}>
       <Select />
       <Dashboard config={dashboardConfig} />
-    </main>
+    </Container>
   );
 };
 
