@@ -13,28 +13,24 @@ const dashboardConfig = [
   {
     data: [
       {
-        label: 'Deflections',
-        onClick: () => alert('hello'),
-        value: 12535,
+        label: 'Interactions',
+        onClick: () => alert('We can do deep linking here!'),
+        value: '12,535',
       },
       {
-        label: 'Incidents / 30 Days',
-        value: 124,
+        label: 'Unique Users',
+        value: '1,205',
       },
       {
-        label: 'Metric',
-        value: '234 cars',
+        label: 'Total Deflections',
+        value: '5,430',
       },
       {
-        label: 'New Smurfs',
-        value: '15',
-      },
-      {
-        label: 'Favorites',
-        value: 11,
+        label: 'Deflection Rate',
+        value: '90%',
       },
     ],
-    title: 'Our Stats Widget',
+    title: 'Statistics',
     widget: 'stats',
   },
   {
@@ -42,17 +38,17 @@ const dashboardConfig = [
       {
         content: 'View',
         module: 'button',
-        onClick: () => alert('hello'),
+        onClick: () => alert('This takes us to a table with all of this data.'),
       },
     ],
-    axisBottomLabel: 'Country',
-    axisLeftLabel: 'Food',
+    axisBottomLabel: 'Month',
+    axisLeftLabel: 'Requests',
     data: barData,
     description:
-      'Interactions are anything where a users has had actual interactions (not chit-chat) that resulted in an intent being triggered.',
-    indexBy: 'country',
-    keys: ['hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut'],
-    title: 'Interactions (Last 30 Days)',
+      'Shows number of requests over time that have been rated by your users.',
+    indexBy: 'month',
+    keys: ['helpful', 'not helpful', 'no data'],
+    title: 'User Feedback',
     widget: 'bar',
   },
   {
@@ -60,24 +56,25 @@ const dashboardConfig = [
       {
         content: 'View',
         module: 'button',
-        onClick: () => alert('MAPS!!!!'),
+        onClick: () => alert('ALL THE DATA'),
       },
     ],
     data: geoMapData,
-    title: 'Cool Map',
+    title: 'Interactions by Country',
     widget: 'geo-map',
   },
   {
     data: pieData,
-    description: 'Have a pie',
-    title: 'Some Slices',
+    description:
+      'Your most frequently matched intents in the time period selected.',
+    title: 'Top Matched Intents',
     widget: 'pie',
   },
   {
-    axisBottomLabel: 'Transportation',
+    axisBottomLabel: 'Month',
     axisLeftLabel: 'Count',
     data: lineData,
-    title: 'Lines',
+    title: 'Deflected VS Not Deflected',
     widget: 'line',
   },
   {
@@ -90,21 +87,6 @@ const dashboardConfig = [
     ],
     title: 'Bad Widget',
     widget: 'poop',
-  },
-  {
-    data: [
-      {
-        label: 'Best Team',
-        value: 'Arsenal',
-      },
-      {
-        label: 'Aubameyang',
-        value: '386 goals',
-      },
-    ],
-    description: 'Gooners!',
-    title: 'Other Stats',
-    widget: 'stats',
   },
   {
     data: heatMapData,
@@ -124,7 +106,7 @@ const dashboardConfig = [
     data: treeMapData,
     description: 'Honestly not real sure how useful this thing is as of now',
     indexBy: 'name',
-    title: 'Trees!',
+    title: 'We can use one of these things...',
     widget: 'tree-map',
   },
 ];

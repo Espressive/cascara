@@ -1,65 +1,44 @@
 [
   {
-    "burger": 52,
-    "country": "AD",
-    "donut": 119,
-    "fries": 188,
-    "hot dog": 110,
-    "kebab": 192,
-    "sandwich": 93
+    "not helpful": 52,
+    "month": "January",
+    "no data": 119,
+    "helpful": 110
   },
   {
-    "burger": 198,
-    "country": "AE",
-    "donut": 41,
-    "fries": 16,
-    "hot dog": 77,
-    "kebab": 177,
-    "sandwich": 2
+    "not helpful": 198,
+    "month": "February",
+    "no data": 41,
+    "helpful": 77
   },
   {
-    "burger": 120,
-    "country": "AF",
-    "donut": 147,
-    "fries": 192,
-    "hot dog": 108,
-    "kebab": 112,
-    "sandwich": 148
+    "not helpful": 120,
+    "month": "March",
+    "no data": 147,
+    "helpful": 108
   },
   {
-    "burger": 173,
-    "country": "AG",
-    "donut": 75,
-    "fries": 162,
-    "hot dog": 69,
-    "kebab": 65,
-    "sandwich": 121
+    "not helpful": 173,
+    "month": "April",
+    "no data": 75,
+    "helpful": 69
   },
   {
-    "burger": 100,
-    "country": "AI",
-    "donut": 53,
-    "fries": 80,
-    "hot dog": 119,
-    "kebab": 164,
-    "sandwich": 114
+    "not helpful": 100,
+    "month": "May",
+    "no data": 53,
+    "helpful": 119
   },
   {
-    "burger": 162,
-    "country": "AL",
-    "donut": 183,
-    "fries": 185,
-    "hot dog": 163,
-    "kebab": 108,
-    "sandwich": 200
+    "not helpful": 162,
+    "month": "June",
+    "no data": 183,
+    "helpful": 163
   },
   {
-    "burger": 165,
-    "country": "AM",
-    "donut": 174,
-    "fries": 192,
-    "hot dog": 134,
-    "kebab": 161,
-    "sandwich": 159
+    "not helpful": 165,
+    "month": "July",
+    "no data": 174,
+    "helpful": 134
   }
 ]
