@@ -81,7 +81,7 @@ const fakeRow = (
       <DataCheckbox isLabeled={false} label='Checkbox' value={true} />
     </td>
     <td className={tableStyles.Cell}>
-      <DataRadio isLabeled={false} label='Radio' value={true} />
+      <DataRadio isLabeled={false} label='Radio' value='Cats' />
     </td>
     <td className={tableStyles.Cell}>
       <DataTextArea isLabeled={false} label='TextArea' value={lorem} />

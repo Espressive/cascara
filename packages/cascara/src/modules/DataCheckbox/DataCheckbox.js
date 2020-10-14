@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Checkbox } from 'reakit/Checkbox';
 import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import useToggle from '../../hooks/useToggle';
@@ -27,7 +28,7 @@ const DataCheckbox = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      <input
+      <Checkbox
         {...rest}
         checked={isChecked}
         className={styles.Input}

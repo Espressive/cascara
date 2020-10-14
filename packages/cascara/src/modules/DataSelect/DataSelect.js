@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
@@ -27,8 +28,9 @@ const DataSelect = ({
   const renderEditing = (
     <label htmlFor={label}>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <select
+      <Input
         {...rest}
+        as='select'
         className={styles.Input}
         defaultValue={value}
         id={label}
@@ -44,7 +46,7 @@ const DataSelect = ({
         ) : (
           <option value={value}>{value}</option>
         )}
-      </select>
+      </Input>
     </label>
   );
 
