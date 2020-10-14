@@ -1,6 +1,7 @@
 import React from 'react';
 import { ResponsiveChoroplethCanvas } from '@nivo/geo';
 import Widget from './Widget';
+import { CHART_DEFAULTS } from './widgetConfig';
 import GeoMapFeatures from './GeoMapFeatures';
 
 const WidgetGeoMap = ({ data, ...rest }) => {
@@ -10,8 +11,9 @@ const WidgetGeoMap = ({ data, ...rest }) => {
   );
 
   const CHART_CONFIG = {
-    // colors: ['#2d42ac', '#236596', '#18877f', '#0da968', '#02cb51'],
-    colors: 'nivo',
+    ...CHART_DEFAULTS,
+    borderColor: null,
+    borderWidth: null,
     domain: [0, largestValue],
     enableGraticule: true,
     graticuleLineColor: 'rgba(0,0,0,.125)',

@@ -1,15 +1,12 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
 import Widget from './Widget';
+import { CHART_DEFAULTS, COLOR_MODIFIER } from './widgetConfig';
 
 const WidgetPie = ({ data, ...rest }) => {
   const CHART_CONFIG = {
-    animate: true,
-    borderColor: {
-      from: 'color',
-      modifiers: [['darker', 0.2]],
-    },
-    borderWidth: 1,
+    ...CHART_DEFAULTS,
+    colors: { scheme: CHART_DEFAULTS.colors },
     innerRadius: 0.3,
     margin: {
       bottom: 32,
@@ -17,21 +14,13 @@ const WidgetPie = ({ data, ...rest }) => {
       right: 32,
       top: 32,
     },
-    motionDamping: 15,
-    motionStiffness: 90,
     padAngle: 2,
-    radialLabelsLinkColor: {
-      from: 'color',
-      modifiers: [['darker', 0.2]],
-    },
+    radialLabelsLinkColor: COLOR_MODIFIER,
     radialLabelsLinkDiagonalLength: 16,
     radialLabelsLinkHorizontalLength: 32,
     radialLabelsSkipAngle: 10,
     slicesLabelsSkipAngle: 10,
-    slicesLabelsTextColor: {
-      from: 'color',
-      modifiers: [['darker', 0.2]],
-    },
+    slicesLabelsTextColor: COLOR_MODIFIER,
   };
 
   return (
