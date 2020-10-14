@@ -1,9 +1,8 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
-// import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
-import styles from '../Dashboard.module.scss';
+import Widget from './Widget';
 
-const WidgetPie = ({ data, title = 'WidgetPie' }) => {
+const WidgetPie = ({ data, ...rest }) => {
   const CHART_CONFIG = {
     animate: true,
     borderColor: {
@@ -36,13 +35,9 @@ const WidgetPie = ({ data, title = 'WidgetPie' }) => {
   };
 
   return (
-    <div className={styles.Pie}>
-      <h3 className={styles.Title}>{title}</h3>
-      <div className={styles.Data} style={{ height: '400px' }}>
-        <ResponsivePie {...CHART_CONFIG} data={data} />
-      </div>
-      {/* <JsonPlaceholder data={data} title='WidgetPie' /> */}
-    </div>
+    <Widget {...rest}>
+      <ResponsivePie {...CHART_CONFIG} data={data} />
+    </Widget>
   );
 };
 

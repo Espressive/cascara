@@ -1,14 +1,48 @@
 import React from 'react';
-import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
-import styles from '../Dashboard.module.scss';
+import { ResponsiveLine } from '@nivo/line';
+import Widget from './Widget';
 
-const WidgetLine = ({ data, title = 'WidgetLine' }) => (
-  <div className={styles.Line}>
-    <h3 className={styles.Title}>{title}</h3>
-    <div className={styles.Data}>
-      <JsonPlaceholder data={data} title='WidgetLine' />
-    </div>
-  </div>
-);
+const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
+  const AXIS_CONFIG = {
+    legendPosition: 'middle',
+    tickPadding: 5,
+    tickRotation: 0,
+    tickSize: 5,
+  };
+
+  const CHART_CONFIG = {
+    axisBottom: {
+      ...AXIS_CONFIG,
+      legend: axisBottomLabel,
+      legendOffset: axisBottomLabel ? 32 : 0, // These and the margin calcs are still a little too "magic"
+    },
+    axisLeft: {
+      ...AXIS_CONFIG,
+      legend: axisLeftLabel,
+      legendOffset: axisLeftLabel ? -40 : 0, // Also make this automatic with margins below
+    },
+    margin: {
+      bottom: axisBottomLabel ? 48 : 32,
+      left: axisLeftLabel ? 60 : 48,
+      right: 16,
+      top: 32,
+    },
+    pointBorderColor: { from: 'serieColor' },
+    pointBorderWidth: 2,
+    pointColor: { theme: 'background' },
+    useMesh: true,
+    xScale: { type: 'point' },
+    yScale: {
+      stacked: true,
+      type: 'linear',
+    },
+  };
+
+  return (
+    <Widget {...rest}>
+      <ResponsiveLine {...CHART_CONFIG} data={data} />
+    </Widget>
+  );
+};
 
 export default WidgetLine;

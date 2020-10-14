@@ -1,0 +1,21 @@
+.Disclosure {
+  // border-radius: 50%;
+  // width: 2em;
+  // height: 2em;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.Popover {
+  padding: 1em;
+  background-color: #fff;
+  z-index: 1000;
+  transition: opacity 150ms ease-in-out;
+  opacity: 0;
+
+  &[data-enter] {
+    opacity: 1;
+  }
+}

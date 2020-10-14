@@ -8,7 +8,7 @@ $widget-background: #f0f0f0;
   gap: $masonry-gutter;
 }
 
-%Widget {
+.Widget {
   margin-bottom: $masonry-gutter;
   break-inside: avoid;
 
@@ -43,24 +43,8 @@ $widget-background: #f0f0f0;
   }
 }
 
-.Bar {
-  @extend %Widget;
-}
-
-.GeoMap {
-  @extend %Widget;
-}
-
-.HeatMap {
-  @extend %Widget;
-}
-
-.Pie {
-  @extend %Widget;
-}
-
 .Stats {
-  @extend %Widget;
+  @extend .Widget;
 
   .Data {
     background-color: transparent;
@@ -85,8 +69,4 @@ $widget-background: #f0f0f0;
       font-size: 2em;
     }
   }
-}
-
-.TreeMap {
-  @extend %Widget;
 }

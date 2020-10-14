@@ -1,7 +1,6 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
-// import JsonPlaceholder from '../../../placeholders/JsonPlaceholder'
-import styles from '../Dashboard.module.scss';
+import Widget from './Widget';
 
 const WidgetBar = ({
   axisLeftLabel,
@@ -9,7 +8,7 @@ const WidgetBar = ({
   data,
   indexBy = 'id',
   keys,
-  title = 'WidgetBar',
+  ...rest
 }) => {
   // TODO: Throw an error if no indexBy prop is set and there is no matching attribute in a data object
 
@@ -55,18 +54,14 @@ const WidgetBar = ({
   };
 
   return (
-    <div className={styles.Bar}>
-      <h3 className={styles.Title}>{title}</h3>
-      <div className={styles.Data} style={{ height: '400px' }}>
-        <ResponsiveBar
-          {...CHART_CONFIG}
-          data={data}
-          indexBy={indexBy}
-          keys={keys}
-        />
-      </div>
-      {/* <JsonPlaceholder data={data} title='WidgetBar' /> */}
-    </div>
+    <Widget {...rest}>
+      <ResponsiveBar
+        {...CHART_CONFIG}
+        data={data}
+        indexBy={indexBy}
+        keys={keys}
+      />
+    </Widget>
   );
 };
 

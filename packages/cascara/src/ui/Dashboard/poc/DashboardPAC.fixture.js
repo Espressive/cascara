@@ -2,124 +2,19 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Dashboard from '../Dashboard';
-
-const foodData = [
-  {
-    burger: 52,
-    country: 'AD',
-    donut: 119,
-    fries: 188,
-    'hot dog': 110,
-    kebab: 192,
-    sandwich: 93,
-  },
-  {
-    burger: 198,
-    country: 'AE',
-    donut: 41,
-    fries: 16,
-    'hot dog': 77,
-    kebab: 177,
-    sandwich: 2,
-  },
-  {
-    burger: 120,
-    country: 'AF',
-    donut: 147,
-    fries: 192,
-    'hot dog': 108,
-    kebab: 112,
-    sandwich: 148,
-  },
-  {
-    burger: 173,
-    country: 'AG',
-    donut: 75,
-    fries: 162,
-    'hot dog': 69,
-    kebab: 65,
-    sandwich: 121,
-  },
-  {
-    burger: 100,
-    country: 'AI',
-    donut: 53,
-    fries: 80,
-    'hot dog': 119,
-    kebab: 164,
-    sandwich: 114,
-  },
-  {
-    burger: 162,
-    country: 'AL',
-    donut: 183,
-    fries: 185,
-    'hot dog': 163,
-    kebab: 108,
-    sandwich: 200,
-  },
-  {
-    burger: 165,
-    country: 'AM',
-    donut: 174,
-    fries: 192,
-    'hot dog': 134,
-    kebab: 161,
-    sandwich: 159,
-  },
-];
-
-const mapData = [
-  {
-    id: 'AUS',
-    value: 5,
-  },
-  {
-    id: 'FRA',
-    value: 30,
-  },
-  {
-    id: 'RUS',
-    value: 15,
-  },
-  {
-    id: 'IND',
-    value: 40,
-  },
-  {
-    id: 'USA',
-    value: 50,
-  },
-];
-
-const pieData = [
-  {
-    id: 'c',
-    value: 371,
-  },
-  {
-    id: 'java',
-    value: 152,
-  },
-  {
-    id: 'css',
-    value: 291,
-  },
-  {
-    id: 'make',
-    value: 269,
-  },
-  {
-    id: 'ruby',
-    value: 54,
-  },
-];
+import lineData from '../data/Line';
+import pieData from '../data/Pie';
+import geoMapData from '../data/GeoMap';
+import barData from '../data/Bar';
+import heatMapData from '../data/HeatMap';
+import treeMapData from '../data/TreeMap';
 
 const dashboardConfig = [
   {
     data: [
       {
         label: 'Deflections',
+        onClick: () => alert('hello'),
         value: 12535,
       },
       {
@@ -143,16 +38,25 @@ const dashboardConfig = [
     widget: 'stats',
   },
   {
+    actions: [
+      {
+        content: 'View',
+        module: 'button',
+        onClick: () => alert('hello'),
+      },
+    ],
     axisBottomLabel: 'Country',
     axisLeftLabel: 'Food',
-    data: foodData,
+    data: barData,
+    description:
+      'Interactions are anything where a users has had actual interactions (not chit-chat) that resulted in an intent being triggered.',
     indexBy: 'country',
     keys: ['hot dog', 'burger', 'sandwich', 'kebab', 'fries', 'donut'],
-    title: 'Sweet Bars',
+    title: 'Interactions (Last 30 Days)',
     widget: 'bar',
   },
   {
-    data: mapData,
+    data: geoMapData,
     title: 'Cool Map',
     widget: 'geo-map',
   },
@@ -162,6 +66,9 @@ const dashboardConfig = [
     widget: 'pie',
   },
   {
+    axisBottomLabel: 'Transportation',
+    axisLeftLabel: 'Count',
+    data: lineData,
     title: 'Lines',
     widget: 'line',
   },
@@ -184,11 +91,13 @@ const dashboardConfig = [
     widget: 'stats',
   },
   {
-    data: pieData,
+    data: heatMapData,
+    indexBy: 'country',
     title: 'Hot Widget',
-    widget: 'pie',
+    widget: 'heat-map',
   },
   {
+    data: treeMapData,
     title: 'Trees!',
     widget: 'tree-map',
   },
