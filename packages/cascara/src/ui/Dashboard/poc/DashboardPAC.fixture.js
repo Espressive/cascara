@@ -94,16 +94,28 @@ const dashboardConfig = [
   {
     data: [
       {
-        label: 'Best Team',
+        label: 'Current Team',
         value: 'Arsenal',
       },
       {
-        label: 'Aubameyang',
-        value: '386 goals',
+        label: 'Career Apps',
+        value: '509',
+      },
+      {
+        label: 'Career Goals',
+        value: '267',
       },
     ],
-    description: 'Gooners!',
-    title: 'Other Stats',
+    description: `And it's Arsenal,
+Arsenal FC!
+We're by far the greatest team
+The world has ever seen.
+
+And it's Arsenal,
+Arsenal FC!
+We're by far the greatest team
+The world has ever seen.`,
+    title: 'Pierre-Emerick Aubameyang',
     widget: 'stats',
   },
   {
