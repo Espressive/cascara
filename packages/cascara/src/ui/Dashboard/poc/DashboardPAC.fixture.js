@@ -4,10 +4,9 @@ import { Container } from 'semantic-ui-react';
 import Dashboard from '../Dashboard';
 import lineData from '../data/Line';
 import pieData from '../data/Pie';
+import pieData2 from '../data/Pie2';
 import geoMapData from '../data/GeoMap';
 import barData from '../data/Bar';
-import heatMapData from '../data/HeatMap';
-import treeMapData from '../data/TreeMap';
 
 const dashboardConfig = [
   {
@@ -64,6 +63,27 @@ const dashboardConfig = [
     widget: 'geo-map',
   },
   {
+    actions: [
+      {
+        content: 'View',
+        module: 'button',
+        onClick: () => alert('ALL THE DATA'),
+      },
+    ],
+    data: pieData2,
+    description:
+      'Your most frequently matched intents in the time period selected.',
+    title: 'Top Unanswered Questions',
+    widget: 'pie',
+  },
+  {
+    actions: [
+      {
+        content: 'View',
+        module: 'button',
+        onClick: () => alert('ALL THE DATA'),
+      },
+    ],
     data: pieData,
     description:
       'Your most frequently matched intents in the time period selected.',
@@ -87,27 +107,6 @@ const dashboardConfig = [
     ],
     title: 'Bad Widget',
     widget: 'poop',
-  },
-  {
-    data: heatMapData,
-    description: 'If you want to do some stuff, you can do it here.',
-    indexBy: 'country',
-    title: 'Hot Widget',
-    widget: 'heat-map',
-  },
-  {
-    actions: [
-      {
-        content: 'View',
-        module: 'button',
-        onClick: () => alert('hey'),
-      },
-    ],
-    data: treeMapData,
-    description: 'Honestly not real sure how useful this thing is as of now',
-    indexBy: 'name',
-    title: 'We can use one of these things...',
-    widget: 'tree-map',
   },
 ];
 
