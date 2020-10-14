@@ -1,15 +1,9 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import Widget from './Widget';
+import { AXIS_CONFIG } from './widgetConfig';
 
 const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
-  const AXIS_CONFIG = {
-    legendPosition: 'middle',
-    tickPadding: 5,
-    tickRotation: 0,
-    tickSize: 5,
-  };
-
   const CHART_CONFIG = {
     axisBottom: {
       ...AXIS_CONFIG,

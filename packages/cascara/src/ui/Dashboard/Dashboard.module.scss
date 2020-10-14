@@ -21,6 +21,11 @@ $widget-background: #f0f0f0;
   .Data {
     background-color: $widget-background;
     border-radius: $widget-border-radius;
+
+    canvas,
+    svg {
+      border-radius: $widget-border-radius;
+    }
   }
 }
 
