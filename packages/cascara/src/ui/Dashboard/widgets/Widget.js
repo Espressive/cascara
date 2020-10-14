@@ -1,6 +1,6 @@
 import React, { Children, cloneElement } from 'react';
 import InfoPopover from '../../InfoPopover';
-import { Button } from 'semantic-ui-react';
+import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
 
 const Widget = ({
@@ -15,7 +15,13 @@ const Widget = ({
   return (
     <div className={className || styles.Widget}>
       {actions?.map((action, i) => (
-        <Button key={i} {...action} basic floated='right' size='small' />
+        <Button
+          key={i}
+          {...action}
+          className='ui small basic right floated button'
+        >
+          {action?.content}
+        </Button>
       ))}
       {description && (
         <InfoPopover message={description} style={{ float: 'right' }} />
