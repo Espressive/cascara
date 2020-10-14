@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveBar } from '@nivo/bar';
+import { ResponsiveBarCanvas } from '@nivo/bar';
 import Widget from './Widget';
 
 const WidgetBar = ({
@@ -55,7 +55,7 @@ const WidgetBar = ({
 
   return (
     <Widget {...rest}>
-      <ResponsiveBar
+      <ResponsiveBarCanvas
         {...CHART_CONFIG}
         data={data}
         indexBy={indexBy}

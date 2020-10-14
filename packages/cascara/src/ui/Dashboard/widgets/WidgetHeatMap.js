@@ -1,11 +1,11 @@
 import React from 'react';
-import { ResponsiveHeatMap } from '@nivo/heatmap';
+import { ResponsiveHeatMapCanvas } from '@nivo/heatmap';
 import Widget from './Widget';
 
 const WidgetHeatMap = ({ data, indexBy = 'id', ...rest }) => {
   return (
     <Widget {...rest}>
-      <ResponsiveHeatMap
+      <ResponsiveHeatMapCanvas
         data={data}
         indexBy={indexBy}
         keys={[

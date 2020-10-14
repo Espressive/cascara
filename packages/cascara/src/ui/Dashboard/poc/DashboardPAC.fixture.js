@@ -98,6 +98,7 @@ const dashboardConfig = [
   },
   {
     data: treeMapData,
+    indexBy: 'name',
     title: 'Trees!',
     widget: 'tree-map',
   },
