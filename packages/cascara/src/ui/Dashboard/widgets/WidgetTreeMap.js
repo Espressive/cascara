@@ -8,6 +8,7 @@ const WidgetTreeMap = ({
   label = 'loc',
   labelFormat = '.0s',
   value = 'loc',
+  ...rest
 }) => {
   const CHART_CONFIG = {
     animate: true,
@@ -33,7 +34,7 @@ const WidgetTreeMap = ({
   };
 
   return (
-    <Widget>
+    <Widget {...rest}>
       <ResponsiveTreeMapCanvas
         {...CHART_CONFIG}
         identity={indexBy}

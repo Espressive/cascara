@@ -56,12 +56,20 @@ const dashboardConfig = [
     widget: 'bar',
   },
   {
+    actions: [
+      {
+        content: 'View',
+        module: 'button',
+        onClick: () => alert('MAPS!!!!'),
+      },
+    ],
     data: geoMapData,
     title: 'Cool Map',
     widget: 'geo-map',
   },
   {
     data: pieData,
+    description: 'Have a pie',
     title: 'Some Slices',
     widget: 'pie',
   },
@@ -73,6 +81,13 @@ const dashboardConfig = [
     widget: 'line',
   },
   {
+    actions: [
+      {
+        content: 'View',
+        module: 'button',
+        onClick: () => alert('oops'),
+      },
+    ],
     title: 'Bad Widget',
     widget: 'poop',
   },
@@ -83,21 +98,31 @@ const dashboardConfig = [
         value: 'Arsenal',
       },
       {
-        label: 'Widgets for POC',
-        value: 5,
+        label: 'Aubameyang',
+        value: '386 goals',
       },
     ],
+    description: 'Gooners!',
     title: 'Other Stats',
     widget: 'stats',
   },
   {
     data: heatMapData,
+    description: 'If you want to do some stuff, you can do it here.',
     indexBy: 'country',
     title: 'Hot Widget',
     widget: 'heat-map',
   },
   {
+    actions: [
+      {
+        content: 'View',
+        module: 'button',
+        onClick: () => alert('hey'),
+      },
+    ],
     data: treeMapData,
+    description: 'Honestly not real sure how useful this thing is as of now',
     indexBy: 'name',
     title: 'Trees!',
     widget: 'tree-map',
