@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
 
 const TableHeader = () => {
@@ -13,9 +14,11 @@ const TableHeader = () => {
   }
 
   return (
-    <thead>
-      <tr>{headerCells}</tr>
-    </thead>
+    <ErrorBoundary>
+      <thead>
+        <tr>{headerCells}</tr>
+      </thead>
+    </ErrorBoundary>
   );
 };
 

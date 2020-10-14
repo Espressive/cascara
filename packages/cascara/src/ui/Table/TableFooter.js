@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
 
 import ActionBar from './ActionBar';
@@ -49,12 +50,14 @@ const TableFooter = () => {
   }
 
   return (
-    <tfoot>
-      <tr key={'foot-header'}>{headerCells}</tr>
-      <tr key={'foot-actions'}>
-        <td colSpan={headerCells.length}>{actionBarCell}</td>
-      </tr>
-    </tfoot>
+    <ErrorBoundary>
+      <tfoot>
+        <tr key={'foot-header'}>{headerCells}</tr>
+        <tr key={'foot-actions'}>
+          <td colSpan={headerCells.length}>{actionBarCell}</td>
+        </tr>
+      </tfoot>
+    </ErrorBoundary>
   );
 };
 

@@ -213,7 +213,7 @@ class Fixture extends PureComponent {
               multiple
               onChange={this.handleColumnSelection}
               options={availableColumns}
-              placeholder='select columns... oh, great manu!'
+              placeholder='select columns...'
               selectedLabel={'Display columns'}
               selection
               value={selectedColumns}

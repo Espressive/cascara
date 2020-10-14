@@ -4,6 +4,8 @@ import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
+
 const propTypes = {
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
@@ -57,14 +59,16 @@ const DataRadio = ({
   );
 
   const renderDisplay = (
-    <div className={styles.Radio}>
-      <span>
-        <span className={styles.Input}>{value}</span>
-        {label && isLabeled && (
-          <span className={styles.LabelText}>{label}</span>
-        )}
-      </span>
-    </div>
+    <ErrorBoundary>
+      <div className={styles.Radio}>
+        <span>
+          <span className={styles.Input}>{value}</span>
+          {label && isLabeled && (
+            <span className={styles.LabelText}>{label}</span>
+          )}
+        </span>
+      </div>
+    </ErrorBoundary>
   );
 
   // Do not render an editable input if the module is not editable

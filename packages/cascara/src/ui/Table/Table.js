@@ -11,25 +11,31 @@ import TableFooter from './TableFooter';
 const propTypes = {
   data: pt.arrayOf(pt.shape({})),
   dataConfig: pt.shape({
-    actions: pt.arrayOf(pt.shape({
-      content: pt.string,
-      isLabeled: pt.bool,
-      module: 'text',
-      size: pt.oneOf(['small', 'medium', 'large']),
-    })),
-    bulkActions: pt.arrayOf(pt.shape({
-      content: pt.string,
-      isLabeled: pt.bool,
-      module: pt.string,
-      size: pt.oneOf(['small', 'medium', 'large']),
-    })),
-    display: pt.arrayOf(pt.shape({
-      attribute: pt.string,
-      isEditable: pt.bool,
-      isLabeled: pt.bool,
-      label: pt.string,
-      module: pt.string,
-    })),
+    actions: pt.arrayOf(
+      pt.shape({
+        content: pt.string,
+        isLabeled: pt.bool,
+        module: pt.string,
+        size: pt.oneOf(['small', 'medium', 'large']),
+      })
+    ),
+    bulkActions: pt.arrayOf(
+      pt.shape({
+        content: pt.string,
+        isLabeled: pt.bool,
+        module: pt.string,
+        size: pt.oneOf(['small', 'medium', 'large']),
+      })
+    ),
+    display: pt.arrayOf(
+      pt.shape({
+        attribute: pt.string,
+        isEditable: pt.bool,
+        isLabeled: pt.bool,
+        label: pt.string,
+        module: pt.string,
+      })
+    ),
   }),
 };
 

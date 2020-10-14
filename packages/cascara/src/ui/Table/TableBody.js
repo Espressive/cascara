@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
 import TableRow from './TableRow';
 
@@ -17,13 +18,17 @@ const TableBody = () => {
   }));
 
   return (
-    <tbody>
-      {rows.map((record) => {
-        const { data, ...rest } = record;
+    <ErrorBoundary>
+      <tbody>
+        {rows.map((record) => {
+          const { data, ...rest } = record;
 
-        return <TableRow config={{ ...rest }} key={record.id} record={data} />;
-      })}
-    </tbody>
+          return (
+            <TableRow config={{ ...rest }} key={record.id} record={data} />
+          );
+        })}
+      </tbody>
+    </ErrorBoundary>
   );
 };
 

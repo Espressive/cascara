@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
+
 /**
  * DownloadButton
  *
@@ -22,9 +24,11 @@ const DownloadButton = ({ ctaText, data, fileName, fileType, onClick }) => {
   const url = URL.createObjectURL(blob);
 
   return (
-    <Button as='a' basic download={fileName} href={url} onClick={onClick}>
-      {ctaText}
-    </Button>
+    <ErrorBoundary>
+      <Button as='a' basic download={fileName} href={url} onClick={onClick}>
+        {ctaText}
+      </Button>
+    </ErrorBoundary>
   );
 };
 

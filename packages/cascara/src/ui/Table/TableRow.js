@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+import pt from 'prop-types';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
 import RowProvider from './context/RowProvider';
 import { ModuleContext } from '../../modules/context';
 
@@ -11,13 +13,22 @@ import ActionEdit from '../../modules/ActionEdit';
 import DownloadButton from '../../modules/DownloadButton';
 
 // Data
-import DataCheckbox from '../../modules/DataCheckbox';
-import DataEmail from '../../modules/DataEmail';
+// @manu: let's document this one
+// https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
+import DataCheckbox, {
+  propTypes as dataCheckboxPT,
+} from '../../modules/DataCheckbox';
+import DataEmail, { propTypes as dataEmailPT } from '../../modules/DataEmail';
 import DataNumber from '../../modules/DataNumber';
 import DataRadio from '../../modules/DataRadio';
 import DataSelect from '../../modules/DataSelect';
 import DataText from '../../modules/DataText';
 import DataTextArea from '../../modules/DataTextArea';
+
+const propTypes = {
+  data: pt.oneOf([dataCheckboxPT, dataEmailPT]),
+  module: pt.oneOf(['checkbox', 'select', 'email', 'number']),
+};
 
 const TableRow = ({ config = {}, record = {} }) => {
   const { id, columns } = config;
@@ -96,10 +107,14 @@ const TableRow = ({ config = {}, record = {} }) => {
   }
 
   return (
-    <RowProvider value={{ record }}>
-      <tr key={id}>{rowCells}</tr>
-    </RowProvider>
+    <ErrorBoundary>
+      <RowProvider value={{ record }}>
+        <tr key={id}>{rowCells}</tr>
+      </RowProvider>
+    </ErrorBoundary>
   );
 };
+
+TableRow.propTypes = propTypes;
 
 export default TableRow;

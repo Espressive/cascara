@@ -4,6 +4,8 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
+
 const propTypes = {
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
@@ -48,9 +50,11 @@ const DataText = ({
 
   // Do not render an editable input if the module is not editable
   return (
-    <div className={styles.Text}>
-      {isEditing && isEditable ? renderEditing : renderDisplay}
-    </div>
+    <ErrorBoundary>
+      <div className={styles.Text}>
+        {isEditing && isEditable ? renderEditing : renderDisplay}
+      </div>
+    </ErrorBoundary>
   );
 };
 
