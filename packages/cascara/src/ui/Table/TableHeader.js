@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import styles from './Table.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
@@ -15,8 +16,8 @@ const TableHeader = () => {
 
   return (
     <ErrorBoundary>
-      <thead>
-        <tr>{headerCells}</tr>
+      <thead className={styles.HeadContainer}>
+        <tr className={styles.Row}>{headerCells}</tr>
       </thead>
     </ErrorBoundary>
   );

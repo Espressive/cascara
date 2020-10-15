@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
+import styles from './Table.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 import RowProvider from './context/RowProvider';
@@ -35,7 +36,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   const { dataConfig } = useContext(ModuleContext);
 
   const actionBarCell = (
-    <td key={`${id}-actionbar`}>
+    <td className={styles.Cell} key={`${id}-actionbar`}>
       <ActionBar
         actions={dataConfig.actions.map((action) => {
           const { module, ...rest } = action;
@@ -55,7 +56,9 @@ const TableRow = ({ config = {}, record = {} }) => {
               break;
           }
 
-          return <Module key={`module.${action.content}`} {...rest} />;
+          return (
+            <Module key={`${action.module}.${action.content}`} {...rest} />
+          );
         })}
       />
     </td>
@@ -96,7 +99,7 @@ const TableRow = ({ config = {}, record = {} }) => {
     }
 
     return (
-      <td key={column.attribute}>
+      <td className={styles.Cell} key={column.attribute}>
         <Module {...column} {...rest} />
       </td>
     );
@@ -109,7 +112,9 @@ const TableRow = ({ config = {}, record = {} }) => {
   return (
     <ErrorBoundary>
       <RowProvider value={{ record }}>
-        <tr key={id}>{rowCells}</tr>
+        <tr className={styles.Row} key={id}>
+          {rowCells}
+        </tr>
       </RowProvider>
     </ErrorBoundary>
   );

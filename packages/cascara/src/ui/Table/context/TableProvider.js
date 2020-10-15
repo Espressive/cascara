@@ -18,6 +18,7 @@ const TableProvider = ({ children, value, ...props }) => {
      * isEditing -> update
      * isCreating -> create
      */
+    value.onSubmit(data);
   };
 
   const mergedValues = {

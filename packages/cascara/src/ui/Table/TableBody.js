@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import styles from './Table.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
@@ -19,7 +20,7 @@ const TableBody = () => {
 
   return (
     <ErrorBoundary>
-      <tbody>
+      <tbody className={styles.BodyContainer}>
         {rows.map((record) => {
           const { data, ...rest } = record;
 

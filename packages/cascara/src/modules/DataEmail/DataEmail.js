@@ -59,4 +59,6 @@ const DataEmail = ({
 
 DataEmail.propTypes = propTypes;
 
+export { propTypes };
+
 export default DataEmail;

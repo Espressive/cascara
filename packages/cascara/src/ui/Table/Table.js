@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import styles from './Table.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 import TableProvider from './context/TableProvider';
@@ -39,7 +40,13 @@ const propTypes = {
   }),
 };
 
-const Table = ({ data, dataConfig, onAction, uniqueIDAttribute, ...rest }) => {
+const Table = ({
+  data,
+  dataConfig,
+  onAction = (x) => x,
+  uniqueIDAttribute,
+  ...rest
+}) => {
   const { actions, display } = dataConfig;
   let columnCount = display.length;
 
@@ -54,6 +61,7 @@ const Table = ({ data, dataConfig, onAction, uniqueIDAttribute, ...rest }) => {
         {...rest}
       >
         <table
+          className={styles.Table}
           style={{
             gridTemplateColumns: `repeat(${columnCount}, auto)`,
           }}

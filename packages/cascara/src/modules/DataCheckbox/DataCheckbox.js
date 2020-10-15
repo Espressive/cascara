@@ -68,4 +68,5 @@ const DataCheckbox = ({
 
 DataCheckbox.propTypes = propTypes;
 
+export { propTypes };
 export default DataCheckbox;

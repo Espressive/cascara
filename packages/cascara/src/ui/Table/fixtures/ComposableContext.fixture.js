@@ -154,6 +154,8 @@ class Fixture extends PureComponent {
     }
   };
 
+  handleOnSubmit = (values) => console.log('Form submitted: ', values);
+
   render() {
     const { columns, data, display, csvData } = this.state;
     const bulkActions = csvData
@@ -225,6 +227,7 @@ class Fixture extends PureComponent {
           data={data}
           dataConfig={dataConfig}
           onAction={this.handleTableAction}
+          onSubmit={this.handleOnSubmit}
         />
       </>
     );
