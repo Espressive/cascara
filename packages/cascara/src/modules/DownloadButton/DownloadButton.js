@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 
+const propTypes = {
+  ctaText: PropTypes.string,
+  data: PropTypes.string.isRequired,
+  fileName: PropTypes.string,
+  fileType: PropTypes.string,
+};
+
 /**
  * DownloadButton
  *
@@ -19,7 +26,13 @@ import ErrorBoundary from '../../shared/ErrorBoundary';
  * @param {String} props.fileName The name of the file when downloaded
  * @param {String} props.fileType The MIME type of the data
  */
-const DownloadButton = ({ ctaText, data, fileName, fileType, onClick }) => {
+const DownloadButton = ({
+  ctaText = 'download',
+  data,
+  fileName = 'download.txt',
+  fileType = 'text/plain',
+  onClick,
+}) => {
   const blob = new Blob([data], { fileType });
   const url = URL.createObjectURL(blob);
 
@@ -33,17 +46,7 @@ const DownloadButton = ({ ctaText, data, fileName, fileType, onClick }) => {
 };
 
 DownloadButton.displaName = 'DownloadButton';
-DownloadButton.propTypes = {
-  ctaText: PropTypes.string,
-  data: PropTypes.string.isRequired,
-  fileName: PropTypes.string,
-  fileType: PropTypes.string,
-};
+DownloadButton.propTypes = propTypes;
 
-DownloadButton.defaultProps = {
-  ctaText: 'download',
-  fileName: 'download.txt',
-  fileType: 'text/plain',
-};
-
+export { propTypes };
 export default DownloadButton;

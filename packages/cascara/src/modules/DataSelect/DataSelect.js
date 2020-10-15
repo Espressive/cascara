@@ -71,4 +71,5 @@ const DataSelect = ({
 
 DataSelect.propTypes = propTypes;
 
+export { propTypes };
 export default DataSelect;

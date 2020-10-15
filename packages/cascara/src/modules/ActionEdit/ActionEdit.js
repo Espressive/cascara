@@ -1,6 +1,14 @@
 import React, { useContext } from 'react';
+import pt from 'prop-types';
+
 import { ModuleContext } from '../context';
 import { Button } from 'semantic-ui-react';
+
+const propTypes = {
+  cancelLabel: pt.string,
+  editLabel: pt.string,
+  saveLabel: pt.string,
+};
 
 const ActionEdit = ({
   cancelLabel = 'Cancel',
@@ -55,4 +63,7 @@ const ActionEdit = ({
   );
 };
 
+ActionEdit.propTypes = propTypes;
+
+export { propTypes };
 export default ActionEdit;

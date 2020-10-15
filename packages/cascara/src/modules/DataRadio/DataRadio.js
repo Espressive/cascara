@@ -77,4 +77,5 @@ const DataRadio = ({
 
 DataRadio.propTypes = propTypes;
 
+export { propTypes };
 export default DataRadio;

@@ -63,4 +63,5 @@ const DataTextArea = ({
 DataTextArea.propTypes = propTypes;
 DataTextArea.displayName = 'textarea';
 
+export { propTypes };
 export default DataTextArea;

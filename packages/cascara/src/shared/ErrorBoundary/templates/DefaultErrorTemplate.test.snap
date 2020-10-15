@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<DefaultErrorTemplate /> Snapshot for empty state 1`] = `
+exports[`<DefaultErrorTemplate /> snapshot for empty state 1`] = `
 <div
   className="ui small error message"
 >
@@ -26,7 +26,7 @@ exports[`<DefaultErrorTemplate /> Snapshot for empty state 1`] = `
 </div>
 `;
 
-exports[`<DefaultErrorTemplate /> Snapshot with props 1`] = `
+exports[`<DefaultErrorTemplate /> snapshot with props 1`] = `
 <div
   className="ui small error message"
 >

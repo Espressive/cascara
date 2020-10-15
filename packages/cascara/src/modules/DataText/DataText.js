@@ -60,4 +60,5 @@ const DataText = ({
 
 DataText.propTypes = propTypes;
 
+export { propTypes };
 export default DataText;
