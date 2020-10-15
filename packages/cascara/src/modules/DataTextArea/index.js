@@ -1,1 +1,1 @@
-export { default } from './DataTextArea';
+export { default, propTypes } from './DataTextArea';

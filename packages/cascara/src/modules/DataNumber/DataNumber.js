@@ -60,4 +60,5 @@ const DataNumber = ({
 
 DataNumber.propTypes = propTypes;
 
+export { propTypes };
 export default DataNumber;
