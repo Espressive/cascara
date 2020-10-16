@@ -1,43 +1,43 @@
 [
   {
     "not helpful": 52,
-    "month": "January",
+    "month": "JAN",
     "no data": 119,
     "helpful": 110
   },
   {
     "not helpful": 198,
-    "month": "February",
+    "month": "FEB",
     "no data": 41,
     "helpful": 77
   },
   {
     "not helpful": 120,
-    "month": "March",
+    "month": "MAR",
     "no data": 147,
     "helpful": 108
   },
   {
     "not helpful": 173,
-    "month": "April",
+    "month": "APR",
     "no data": 75,
     "helpful": 69
   },
   {
     "not helpful": 100,
-    "month": "May",
+    "month": "MAY",
     "no data": 53,
     "helpful": 119
   },
   {
     "not helpful": 162,
-    "month": "June",
+    "month": "JUN",
     "no data": 183,
     "helpful": 163
   },
   {
     "not helpful": 165,
-    "month": "July",
+    "month": "JUL",
     "no data": 174,
     "helpful": 134
   }

@@ -100,6 +100,7 @@ const dashboardConfig = [
     axisBottomLabel: 'Month',
     axisLeftLabel: 'Count',
     data: lineData,
+    enableSlices: 'x',
     title: 'Deflected VS Not Deflected',
     widget: 'line',
   },
