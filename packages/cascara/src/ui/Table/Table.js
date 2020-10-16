@@ -48,7 +48,8 @@ const propTypes = {
 const Table = ({
   data,
   dataConfig,
-  onAction = (x) => x,
+  // eslint-disable-next-line no-console
+  onAction = (type, data) => console.log(`Action ${type}:`, data),
   uniqueIDAttribute,
   ...rest
 }) => {

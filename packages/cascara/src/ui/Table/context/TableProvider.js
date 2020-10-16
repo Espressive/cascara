@@ -18,7 +18,14 @@ const TableProvider = ({ children, value, ...props }) => {
      * isEditing -> update
      * isCreating -> create
      */
-    value.onSubmit(data);
+    value.onAction('submit', {
+      /**
+       * We cannot pass the whole record because it doesn't
+       * exist in this context, it is added downstream.
+       */
+      // ...value.record,
+      ...data,
+    });
   };
 
   const mergedValues = {
@@ -29,6 +36,15 @@ const TableProvider = ({ children, value, ...props }) => {
 
   return (
     <ModuleProvider value={mergedValues} {...props}>
+      {/**
+
+            it would be great if the form was moved to RowProvider
+            so we can get access to the record data.
+            
+            We need to discuss what is the benefit of having the form wrap all
+            rows if only one row is editable at a time.
+            
+         */}
       <form onSubmit={handleSubmit(onSubmit)}>{children}</form>
     </ModuleProvider>
   );

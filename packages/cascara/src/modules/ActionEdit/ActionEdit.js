@@ -41,6 +41,11 @@ const ActionEdit = ({
     setIsEditing(true);
   };
 
+  /** Remove this when demoing! */
+  const handleSave = () => {
+    setIsEditing(false);
+  };
+
   return isEditing ? (
     <>
       <Button
@@ -54,6 +59,7 @@ const ActionEdit = ({
       <Button
         content={saveLabel}
         loading={isSubmitting}
+        onClick={handleSave} // remove this when demoing
         positive
         type='submit'
       />
