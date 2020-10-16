@@ -22,6 +22,7 @@ const dashboardConfig = [
       },
       {
         label: 'Total Deflections',
+        sub: '▲ 4% last 30 days',
         value: '5,430',
       },
       {

@@ -16,6 +16,7 @@ const WidgetStats = ({ data, ...rest }) => (
       >
         <span className={styles.Value}>{stat.value}</span>
         <h4 className={styles.Label}>{stat.label}</h4>
+        {styles?.Sub && <span className={styles.Sub}>{stat.sub}</span>}
       </Clickable>
     ))}
   </Widget>

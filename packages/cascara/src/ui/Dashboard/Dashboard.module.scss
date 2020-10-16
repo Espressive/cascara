@@ -63,15 +63,21 @@ $widget-background: #f0f0f0;
     padding: 1em;
     background-color: $widget-background;
     border-radius: $widget-border-radius;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 
     .Label {
-      margin-top: 0.25em;
+      margin: 0.25em 0;
     }
 
     .Value {
       line-height: 1em;
       font-size: 2em;
+    }
+
+    .Sub {
+      font-style: italic;
+      font-size: 0.875em;
     }
   }
 }
