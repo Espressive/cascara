@@ -13,7 +13,7 @@ const dashboardConfig = [
     data: [
       {
         label: 'Total Interactions',
-        onClick: () => alert('We can do deep linking here!'),
+        // onClick: () => alert('We can do deep linking here!'),
         value: '12,535',
       },
       {
@@ -28,7 +28,7 @@ const dashboardConfig = [
     data: [
       {
         label: 'Total Deflections',
-        onClick: () => alert('We can do deep linking here!'),
+        // onClick: () => alert('We can do deep linking here!'),
         value: '7,235',
       },
       {
@@ -57,61 +57,61 @@ const dashboardConfig = [
     widget: 'stats',
   },
   {
-    actions: [
-      {
-        content: 'View',
-        module: 'button',
-        onClick: () => alert('This takes us to a table with all of this data.'),
-      },
-    ],
+    // actions: [
+    //   {
+    //     content: 'View',
+    //     module: 'button',
+    //     onClick: () => alert('This takes us to a table with all of this data.'),
+    //   },
+    // ],
     axisBottomLabel: 'Month',
     axisLeftLabel: 'Requests',
     data: barData,
     description:
-      'Shows number of requests over time that have been rated by your users.',
+      'Shows number of requests and how your users have rated their experience over time',
     indexBy: 'month',
     keys: ['helpful', 'not helpful', 'no data'],
     title: 'User Feedback',
     widget: 'bar',
   },
   {
-    actions: [
-      {
-        content: 'View',
-        module: 'button',
-        onClick: () => alert('ALL THE DATA'),
-      },
-    ],
+    // actions: [
+    //   {
+    //     content: 'View',
+    //     module: 'button',
+    //     onClick: () => alert('ALL THE DATA'),
+    //   },
+    // ],
     data: geoMapData,
     title: 'Interactions by Country',
     widget: 'geo-map',
   },
   {
-    actions: [
-      {
-        content: 'View',
-        module: 'button',
-        onClick: () => alert('ALL THE DATA'),
-      },
-    ],
+    // actions: [
+    //   {
+    //     content: 'View',
+    //     module: 'button',
+    //     onClick: () => alert('ALL THE DATA'),
+    //   },
+    // ],
     axisLeft: null,
     data: pieData2,
     description:
-      'Your most frequently matched intents in the time period selected.',
+      'Questions that your users are asking that correspond to non-configured FAQ articles.',
     indexBy: 'label',
     label: 'value',
     layout: 'horizontal',
-    title: 'Top Unanswered Questions',
+    title: 'Top 10 Unanswered Questions',
     widget: 'bar',
   },
   {
-    actions: [
-      {
-        content: 'View',
-        module: 'button',
-        onClick: () => alert('ALL THE DATA'),
-      },
-    ],
+    // actions: [
+    //   {
+    //     content: 'View',
+    //     module: 'button',
+    //     onClick: () => alert('ALL THE DATA'),
+    //   },
+    // ],
     data: pieData,
     description:
       'Your most frequently matched intents in the time period selected.',
