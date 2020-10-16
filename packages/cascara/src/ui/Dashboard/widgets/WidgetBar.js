@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveBarCanvas } from '@nivo/bar';
+import { ResponsiveBar } from '@nivo/bar';
 import Widget from './Widget';
 import { AXIS_CONFIG, CHART_DEFAULTS } from './widgetConfig';
 
@@ -7,8 +7,11 @@ const WidgetBar = ({
   axisLeftLabel,
   axisBottomLabel,
   data,
+  layout = 'vertical',
   indexBy = 'id',
+  label = 'value',
   keys,
+  axisLeft,
   ...rest
 }) => {
   // TODO: Throw an error if no indexBy prop is set and there is no matching attribute in a data object
@@ -30,7 +33,7 @@ const WidgetBar = ({
     labelSkipWidth: 12,
     margin: {
       bottom: axisBottomLabel ? 48 : 32,
-      left: axisLeftLabel ? 60 : 48,
+      left: axisLeft ? (axisLeftLabel ? 60 : 48) : axisLeftLabel ? 60 : 16,
       right: 16,
       top: 32,
     },
@@ -38,11 +41,15 @@ const WidgetBar = ({
 
   return (
     <Widget {...rest}>
-      <ResponsiveBarCanvas
+      <ResponsiveBar
         {...CHART_CONFIG}
+        axisLeft={axisLeft}
         data={data}
+        gridXValues={'2'}
         indexBy={indexBy}
         keys={keys}
+        label={label}
+        layout={layout}
       />
     </Widget>
   );

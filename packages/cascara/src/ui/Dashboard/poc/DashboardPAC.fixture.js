@@ -70,11 +70,15 @@ const dashboardConfig = [
         onClick: () => alert('ALL THE DATA'),
       },
     ],
+    axisLeft: null,
     data: pieData2,
     description:
       'Your most frequently matched intents in the time period selected.',
+    indexBy: 'label',
+    label: 'value',
+    layout: 'horizontal',
     title: 'Top Unanswered Questions',
-    widget: 'pie',
+    widget: 'bar',
   },
   {
     actions: [
@@ -87,6 +91,7 @@ const dashboardConfig = [
     data: pieData,
     description:
       'Your most frequently matched intents in the time period selected.',
+    enableRadialLabels: false,
     title: 'Top Matched Intents',
     widget: 'pie',
   },
