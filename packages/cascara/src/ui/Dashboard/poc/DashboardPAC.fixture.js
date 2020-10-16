@@ -99,7 +99,7 @@ const dashboardConfig = [
     description:
       'Questions that your users are asking that correspond to non-configured FAQ articles.',
     indexBy: 'label',
-    label: 'value',
+    label: 'Question',
     layout: 'horizontal',
     title: 'Top 10 Unanswered Questions',
     widget: 'bar',
