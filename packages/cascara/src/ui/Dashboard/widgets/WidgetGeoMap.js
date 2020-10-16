@@ -18,12 +18,13 @@ const WidgetGeoMap = ({ data, ...rest }) => {
     enableGraticule: true,
     graticuleLineColor: 'rgba(0,0,0,.125)',
     label: 'properties.name',
+    projectionScale: 88,
     projectionTranslation: [0.5, 0.65],
     unknownColor: 'rgba(0,0,0,.05)',
   };
 
   return (
-    <Widget {...rest}>
+    <Widget {...rest} height={320}>
       <ResponsiveChoroplethCanvas
         {...CHART_CONFIG}
         data={data}
