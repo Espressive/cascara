@@ -12,7 +12,7 @@ const dashboardConfig = [
   {
     data: [
       {
-        label: 'Interactions',
+        label: 'Total Interactions',
         onClick: () => alert('We can do deep linking here!'),
         value: '12,535',
       },
@@ -20,17 +20,40 @@ const dashboardConfig = [
         label: 'Unique Users',
         value: '1,205',
       },
+    ],
+    title: 'Interactions',
+    widget: 'stats',
+  },
+  {
+    data: [
       {
         label: 'Total Deflections',
-        sub: '▲ 4% last 30 days',
-        value: '5,430',
+        onClick: () => alert('We can do deep linking here!'),
+        value: '7,235',
       },
       {
         label: 'Deflection Rate',
         value: '90%',
       },
+      {
+        label: 'Transferred to Agent',
+        value: '67',
+      },
+      {
+        label: 'Transferred to Incident',
+        value: '15',
+      },
+      {
+        label: 'Transferred to Request',
+        value: '35',
+      },
+      {
+        label: 'Dollars Saved',
+        sub: 'Est $20.00 per deflection',
+        value: '$30,347',
+      },
     ],
-    title: 'Statistics',
+    title: 'Deflections',
     widget: 'stats',
   },
   {
