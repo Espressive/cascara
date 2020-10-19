@@ -55,5 +55,6 @@ const DataTextArea = ({
 };
 
 DataTextArea.propTypes = propTypes;
+DataTextArea.displayName = 'textarea';
 
 export default DataTextArea;

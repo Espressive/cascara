@@ -23,6 +23,7 @@ import {
   DataSelect,
   DataText,
   DataTextArea,
+  ModuleProvider,
 } from '@espressive/cascara/private';
 
 import { Code, Placeholder } from '../components';
@@ -50,6 +51,7 @@ const MDX_COMPONENTS = {
   DataSelect: (props) => <DataSelect {...props} />,
   DataText: (props) => <DataText {...props} />,
   DataTextArea: (props) => <DataTextArea {...props} />,
+  ModuleProvider: (props) => <ModuleProvider {...props} />,
 };
 /* eslint-enable sort-keys */
 

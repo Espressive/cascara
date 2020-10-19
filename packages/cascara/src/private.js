@@ -8,6 +8,8 @@ import {
   DataSelect,
   DataText,
   DataTextArea,
+  ModuleContext,
+  ModuleProvider,
 } from './modules';
 
 export {
@@ -20,4 +22,6 @@ export {
   DataSelect,
   DataText,
   DataTextArea,
+  ModuleContext,
+  ModuleProvider,
 };
