@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import styles from './ContextPlaceholder.module.scss';
+import styles from './AreaPlaceholder.module.scss';
 
 const propTypes = {
   /** Color of the border */
@@ -9,7 +9,7 @@ const propTypes = {
   label: pt.string,
 };
 
-const ContextPlaceholder = ({
+const AreaPlaceholder = ({
   children,
   label,
   style,
@@ -28,6 +28,6 @@ const ContextPlaceholder = ({
   </div>
 );
 
-ContextPlaceholder.propTypes = propTypes;
+AreaPlaceholder.propTypes = propTypes;
 
-export default ContextPlaceholder;
+export default AreaPlaceholder;

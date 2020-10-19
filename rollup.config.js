@@ -49,13 +49,13 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
   // Relative input location for Rollup to bundle from
-  const input = `${SOURCE_DIR}/src/index.js`;
+  const input = [`${SOURCE_DIR}/src/index.js`, `${SOURCE_DIR}/src/private.js`];
 
   // Common JS configuration
   const cjsConfig = {
     input,
     output: {
-      file: `${SOURCE_DIR}/${pkgConfig.main}`,
+      dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
       format: 'cjs',
     },
     external,
@@ -75,7 +75,7 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const esConfig = {
     input,
     output: {
-      file: `${SOURCE_DIR}/${pkgConfig.module}`,
+      dir: `${SOURCE_DIR}/${pkgConfig.module.replace('/index.js', '')}`,
       format: 'es',
     },
     external,

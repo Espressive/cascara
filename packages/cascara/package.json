@@ -12,7 +12,8 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "dist",
+    "private"
   ],
   "license": "MIT",
   "sideEffects": false,

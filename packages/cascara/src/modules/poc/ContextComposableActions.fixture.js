@@ -4,7 +4,7 @@ import DataText from '../DataText';
 import ActionButton from '../ActionButton';
 import ActionEdit from '../ActionEdit';
 import { Divider } from 'semantic-ui-react';
-import ContextPlaceholder from '../../placeholders/ContextPlaceholder';
+import AreaPlaceholder from '../../placeholders/AreaPlaceholder';
 import FormProvider from '../../ui/Form/context/FormProvider';
 import RowProvider from '../../ui/Table/context/RowProvider';
 import TableProvider from '../../ui/Table/context/TableProvider';
@@ -33,10 +33,10 @@ const FakeRow = ({ defaultValue, label, ...rest }) => (
       data: { defaultValue, label, ...rest },
     }}
   >
-    <ContextPlaceholder color='green' label='RowProvider'>
+    <AreaPlaceholder color='green' label='RowProvider'>
       <DataText label={label} value={defaultValue} />
       <ActionEdit />
-    </ContextPlaceholder>
+    </AreaPlaceholder>
   </RowProvider>
 );
 
@@ -65,7 +65,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
       </div>
 
       <FormProvider>
-        <ContextPlaceholder color='cyan' label='FormProvider'>
+        <AreaPlaceholder color='cyan' label='FormProvider'>
           <div>
             <DataText
               label='First Name'
@@ -100,7 +100,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
             <ActionEdit />
             <Divider clearing fitted hidden />
           </div>
-        </ContextPlaceholder>
+        </AreaPlaceholder>
       </FormProvider>
 
       <TableProvider
@@ -111,13 +111,13 @@ const ContextComposableActions = ({ data, dataConfig }) => {
           type: 'grandparent',
         }}
       >
-        <ContextPlaceholder color='pink' label='TableProvider'>
+        <AreaPlaceholder color='pink' label='TableProvider'>
           <DataText label='Table Level Module' value='Table' />
           <ActionEdit />
           {fakeTableData.map((row, i) => (
             <FakeRow {...row} />
           ))}
-        </ContextPlaceholder>
+        </AreaPlaceholder>
       </TableProvider>
     </div>
   );

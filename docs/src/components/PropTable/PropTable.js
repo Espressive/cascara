@@ -9,7 +9,7 @@ const PropTable = ({ docData, ...rest }) => {
       <h4 className={styles.Title}>{docData.displayName}</h4>
       {propsArray.length > 0 ? (
         propsArray.map(([propName, propData]) => (
-          <details className={styles.Details} key={propName}>
+          <details className={styles.Details} key={propName} open>
             <summary className={styles.Summary}>
               {propName}
               <Tag
@@ -57,13 +57,11 @@ const PropTable = ({ docData, ...rest }) => {
               )}
             </dl>
 
-            {/* 
-              NOTE: Leave this here for now until we validate table display
+            {/* NOTE: Leave this here for now until we validate table display
               For more complex component types
               <pre className={styles.Content}>
                 <code>{JSON.stringify(propData, null, '  ')}</code>
-              </pre> 
-            */}
+              </pre>  */}
           </details>
         ))
       ) : (
