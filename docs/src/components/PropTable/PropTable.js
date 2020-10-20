@@ -1,15 +1,20 @@
 import Tag from '../Tag';
+// import {JsonPlaceholder} from '@espressive/cascara'
 import styles from './PropTable.module.scss';
 
 const PropTable = ({ docData, ...rest }) => {
-  const propsArray = Object.entries(docData?.props);
+  const propsArray = docData?.props ? Object.entries(docData?.props) : [];
+
+  // TODO: Update this to be a recursive switch that has a display style for each type. Some types will have no recursion, others will.
+  // https://reactjs.org/docs/typechecking-with-proptypes.html
 
   return (
     <div className={styles.PropTable} {...rest}>
       <h4 className={styles.Title}>{docData.displayName}</h4>
+      {/* {docData && <JsonPlaceholder data={docData} isInitialOpen title='docData' />} */}
       {propsArray.length > 0 ? (
         propsArray.map(([propName, propData]) => (
-          <details className={styles.Details} key={propName} open>
+          <details className={styles.Details} key={propName}>
             <summary className={styles.Summary}>
               {propName}
               <Tag
@@ -34,15 +39,21 @@ const PropTable = ({ docData, ...rest }) => {
                 <>
                   <dt>Alowed Values</dt>
                   <dd>
-                    {propData.type.value.map((value, i) => {
-                      const item = value.name ? (
-                        <span>{value.name}</span>
-                      ) : (
-                        <code>{value.value}</code>
-                      );
+                    {propData?.type?.name !== 'arrayOf' ? (
+                      propData.type.value.map((value, i) => {
+                        const item = value.name ? (
+                          <span key={i}>{value.name}</span>
+                        ) : (
+                          <code key={i}>{value.value}</code>
+                        );
 
-                      return item;
-                    })}
+                        return item;
+                      })
+                    ) : (
+                      <pre>
+                        {JSON.stringify(propData?.type?.value, null, '  ')}
+                      </pre>
+                    )}
                   </dd>
                 </>
               )}
@@ -56,16 +67,15 @@ const PropTable = ({ docData, ...rest }) => {
                 </>
               )}
             </dl>
-
-            {/* NOTE: Leave this here for now until we validate table display
-              For more complex component types
-              <pre className={styles.Content}>
-                <code>{JSON.stringify(propData, null, '  ')}</code>
-              </pre>  */}
           </details>
         ))
       ) : (
-        <em>
+        <em
+          style={{
+            display: 'block',
+            padding: '1em',
+          }}
+        >
           No <code>docData</code> provided...
         </em>
       )}

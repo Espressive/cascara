@@ -51,7 +51,7 @@ const dashboardConfig = [
   {
     data: dataInteractions,
     title: 'Interactions',
-    widget: 'stats',
+    widget: 'poop',
   },
   {
     data: dataDeflections,
@@ -80,7 +80,6 @@ const dashboardConfig = [
     description:
       'Questions that your users are asking that correspond to non-configured FAQ articles.',
     indexBy: 'label',
-    label: 'label',
     layout: 'horizontal',
     title: 'Top 10 Unanswered Questions',
     widget: 'bar',

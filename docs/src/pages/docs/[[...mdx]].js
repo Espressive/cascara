@@ -167,18 +167,17 @@ export const getStaticProps = async ({ params }) => {
         mdxOptions: MDX_OPTIONS,
       });
 
-      let docData = null;
+      const tableComponents = data.propTable.split(' ');
 
-      if (data.propTable) {
+      const docData = tableComponents.map((component) => {
         const componentPath = path.join(
           process.cwd(),
           path.dirname(file.path),
-          data.propTable
+          component
         );
 
-        const componentRead = fs.readFileSync(componentPath, 'utf8');
-        docData = reactDocgen.parse(componentRead);
-      }
+        return reactDocgen.parse(fs.readFileSync(componentPath, 'utf8'));
+      });
 
       return {
         docData,

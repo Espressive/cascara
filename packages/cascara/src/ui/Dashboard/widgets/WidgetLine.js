@@ -1,7 +1,11 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
-import Widget from './Widget';
+import Widget, { propTypes as widgetPT } from './Widget';
 import { AXIS_CONFIG } from './widgetConfig';
+
+const propTypes = {
+  ...widgetPT,
+};
 
 const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
   const CHART_CONFIG = {
@@ -38,5 +42,10 @@ const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
     </Widget>
   );
 };
+
+WidgetLine.propTypes = propTypes;
+WidgetLine.displayName = 'widget: line';
+
+export { propTypes };
 
 export default WidgetLine;

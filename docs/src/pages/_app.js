@@ -37,16 +37,18 @@ function MyApp({ Component, pageProps }) {
         drawer={
           propTable && (
             <Admin.Drawer>
-              <AnimatePresence exitBeforeEnter>
-                <motion.div
-                  animate={{ opacity: 1, translateX: 0 }}
-                  exit={{ opacity: 0, translateX: 100 }}
-                  initial={{ opacity: 0, translateX: 100 }}
-                  key={router.query.mdx + propTable}
-                >
-                  <PropTable docData={propTable} />
-                </motion.div>
-              </AnimatePresence>
+              {propTable.map((componentProps) => (
+                <AnimatePresence exitBeforeEnter>
+                  <motion.div
+                    animate={{ opacity: 1, translateX: 0 }}
+                    exit={{ opacity: 0, translateX: 100 }}
+                    initial={{ opacity: 0, translateX: 100 }}
+                    key={router.query.mdx + componentProps}
+                  >
+                    <PropTable docData={componentProps} />
+                  </motion.div>
+                </AnimatePresence>
+              ))}
             </Admin.Drawer>
           )
         }

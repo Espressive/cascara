@@ -1,6 +1,10 @@
 import React from 'react';
 import { ResponsiveHeatMapCanvas } from '@nivo/heatmap';
-import Widget from './Widget';
+import Widget, { propTypes as widgetPT } from './Widget';
+
+const propTypes = {
+  ...widgetPT,
+};
 
 const WidgetHeatMap = ({ data, indexBy = 'id', ...rest }) => {
   return (
@@ -25,5 +29,10 @@ const WidgetHeatMap = ({ data, indexBy = 'id', ...rest }) => {
     </Widget>
   );
 };
+
+WidgetHeatMap.propTypes = propTypes;
+WidgetHeatMap.displayName = 'widget: heat-map';
+
+export { propTypes };
 
 export default WidgetHeatMap;

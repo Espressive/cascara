@@ -1,7 +1,11 @@
 import React from 'react';
 import { ResponsiveTreeMapCanvas } from '@nivo/treemap';
-import Widget from './Widget';
+import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS } from './widgetConfig';
+
+const propTypes = {
+  ...widgetPT,
+};
 
 const WidgetTreeMap = ({
   data,
@@ -39,5 +43,10 @@ const WidgetTreeMap = ({
     </Widget>
   );
 };
+
+WidgetTreeMap.propTypes = propTypes;
+WidgetTreeMap.displayName = 'widget: tree-map';
+
+export { propTypes };
 
 export default WidgetTreeMap;

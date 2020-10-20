@@ -1,7 +1,11 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
-import Widget from './Widget';
+import Widget, { propTypes as widgetPT } from './Widget';
 import { AXIS_CONFIG, CHART_DEFAULTS } from './widgetConfig';
+
+const propTypes = {
+  ...widgetPT,
+};
 
 const WidgetBar = ({
   axisLeftLabel,
@@ -45,7 +49,6 @@ const WidgetBar = ({
         {...CHART_CONFIG}
         axisLeft={axisLeft}
         data={data}
-        gridXValues={'2'}
         indexBy={indexBy}
         keys={keys}
         label={label}
@@ -54,5 +57,10 @@ const WidgetBar = ({
     </Widget>
   );
 };
+
+WidgetBar.propTypes = propTypes;
+WidgetBar.displayName = 'widget: bar';
+
+export { propTypes };
 
 export default WidgetBar;

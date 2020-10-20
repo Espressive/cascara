@@ -1,8 +1,12 @@
 import React from 'react';
 import { ResponsiveChoroplethCanvas } from '@nivo/geo';
-import Widget from './Widget';
+import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS } from './widgetConfig';
 import GeoMapFeatures from './GeoMapFeatures';
+
+const propTypes = {
+  ...widgetPT,
+};
 
 const WidgetGeoMap = ({ data, ...rest }) => {
   const largestValue = Math.max.apply(
@@ -12,8 +16,7 @@ const WidgetGeoMap = ({ data, ...rest }) => {
 
   const CHART_CONFIG = {
     ...CHART_DEFAULTS,
-    borderColor: null,
-    borderWidth: null,
+    borderWidth: 0,
     domain: [0, largestValue],
     enableGraticule: true,
     graticuleLineColor: 'rgba(0,0,0,.125)',
@@ -33,5 +36,10 @@ const WidgetGeoMap = ({ data, ...rest }) => {
     </Widget>
   );
 };
+
+WidgetGeoMap.propTypes = propTypes;
+WidgetGeoMap.displayName = 'widget: geo-map';
+
+export { propTypes };
 
 export default WidgetGeoMap;

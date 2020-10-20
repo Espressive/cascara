@@ -1,7 +1,11 @@
 import React from 'react';
 import { Clickable } from 'reakit';
-import Widget from './Widget';
+import Widget, { propTypes as widgetPT } from './Widget';
 import styles from '../Dashboard.module.scss';
+
+const propTypes = {
+  ...widgetPT,
+};
 
 const WidgetStats = ({ data, ...rest }) => (
   <Widget {...rest} className={styles.Stats} height='auto'>
@@ -21,5 +25,10 @@ const WidgetStats = ({ data, ...rest }) => (
     ))}
   </Widget>
 );
+
+WidgetStats.propTypes = propTypes;
+WidgetStats.displayName = 'widget: stats';
+
+export { propTypes };
 
 export default WidgetStats;

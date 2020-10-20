@@ -1,7 +1,11 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
-import Widget from './Widget';
+import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS, COLOR_MODIFIER } from './widgetConfig';
+
+const propTypes = {
+  ...widgetPT,
+};
 
 const WidgetPie = ({ data, ...rest }) => {
   const CHART_CONFIG = {
@@ -29,5 +33,10 @@ const WidgetPie = ({ data, ...rest }) => {
     </Widget>
   );
 };
+
+WidgetPie.propTypes = propTypes;
+WidgetPie.displayName = 'widget: pie';
+
+export { propTypes };
 
 export default WidgetPie;
