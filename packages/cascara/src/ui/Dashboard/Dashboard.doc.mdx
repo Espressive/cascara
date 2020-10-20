@@ -6,6 +6,8 @@ propTable: Dashboard.js /widgets/Widget.js /widgets/WidgetBar.js /widgets/Widget
 
 Dashboards accept an array of config objects that can be used to display widgets.
 
+Most of these widgets are built on top of [Nivo](https://nivo.rocks/). Any Nivo props configured for a widget object will be passed directly to the Nivo component. This is an advanced feature and prone to breaking from future updates. Please use the documented props for guaranteed future-proof updates.
+
 ```jsx
 <Dashboard
   config={[
