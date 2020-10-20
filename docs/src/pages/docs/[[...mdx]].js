@@ -167,7 +167,7 @@ export const getStaticProps = async ({ params }) => {
         mdxOptions: MDX_OPTIONS,
       });
 
-      const tableComponents = data.propTable.split(' ');
+      const tableComponents = data.propTable?.split(' ') || [];
 
       const docData = tableComponents.map((component) => {
         const componentPath = path.join(

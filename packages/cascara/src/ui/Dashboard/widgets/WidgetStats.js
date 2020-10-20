@@ -1,12 +1,18 @@
 import React from 'react';
+import pt from 'prop-types';
 import { Clickable } from 'reakit';
 import Widget, { propTypes as widgetPT } from './Widget';
 import styles from '../Dashboard.module.scss';
 
 const propTypes = {
   ...widgetPT,
+  /** Data to display in a widget */
+  data: pt.oneOfType([pt.array, pt.object]).isRequired,
 };
 
+/**
+ * Widget for displaying stats
+ */
 const WidgetStats = ({ data, ...rest }) => (
   <Widget {...rest} className={styles.Stats} height='auto'>
     {data?.map((stat) => (
@@ -27,7 +33,7 @@ const WidgetStats = ({ data, ...rest }) => (
 );
 
 WidgetStats.propTypes = propTypes;
-WidgetStats.displayName = 'widget: stats';
+WidgetStats.displayName = 'stats';
 
 export { propTypes };
 

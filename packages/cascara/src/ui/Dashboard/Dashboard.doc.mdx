@@ -1,6 +1,28 @@
 ---
 title: Dashboard
-propTable: Dashboard.js /widgets/Widget.js /widgets/WidgetBar.js /widgets/WidgetGeoMap.js /widgets/WidgetHeatMap.js /widgets/WidgetLine.js /widgets/WidgetPie.js /widgets/WidgetStats.js /widgets/WidgetTreeMap.js
+status: Draft
+propTable: Dashboard.js /widgets/Widget.js /widgets/WidgetBar.js /widgets/WidgetGeoMap.js /widgets/WidgetHeatMap.js /widgets/WidgetLine.js /widgets/WidgetPie.js /widgets/WidgetStats.js
 ---
 
-Testing some content here.
+Dashboards accept an array of config objects that can be used to display widgets.
+
+```jsx
+<Dashboard
+  config={[
+    {
+      data: [
+        {
+          label: 'Total Interactions',
+          value: '12,535',
+        },
+        {
+          label: 'Unique Users',
+          value: '1,205',
+        },
+      ],
+      title: 'Interactions',
+      widget: 'stats',
+    },
+  ]}
+/>
+```

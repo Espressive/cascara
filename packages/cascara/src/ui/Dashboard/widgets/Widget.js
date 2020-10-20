@@ -5,6 +5,7 @@ import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
 
 const propTypes = {
+  /** A widget can display action buttons */
   actions: pt.array,
   /** A widget can have a clickable info icon with a description */
   description: pt.string,
@@ -14,6 +15,9 @@ const propTypes = {
   title: pt.string,
 };
 
+/**
+ * Shared props and logic for all Widgets
+ */
 const Widget = ({
   actions,
   children,

@@ -9,7 +9,7 @@ import WidgetHeatMap from './widgets/WidgetHeatMap';
 import WidgetLine from './widgets/WidgetLine';
 import WidgetPie from './widgets/WidgetPie';
 import WidgetStats from './widgets/WidgetStats';
-import WidgetTreeMap from './widgets/WidgetTreeMap';
+// import WidgetTreeMap from './widgets/WidgetTreeMap';
 
 import WidgetError from './widgets/WidgetError';
 
@@ -20,7 +20,7 @@ const WIDGET_KEYS = {
   line: 'line',
   pie: 'pie',
   stats: 'stats',
-  treeMap: 'tree-map',
+  // treeMap: 'tree-map',
 };
 
 const keyValues = Object.values(WIDGET_KEYS);
@@ -50,8 +50,8 @@ const Dashboard = ({ config }) => {
         return <WidgetPie {...rest} key={key} />;
       case WIDGET_KEYS.stats:
         return <WidgetStats {...rest} key={key} />;
-      case WIDGET_KEYS.treeMap:
-        return <WidgetTreeMap {...rest} key={key} />;
+      // case WIDGET_KEYS.treeMap:
+      //   return <WidgetTreeMap {...rest} key={key} />;
       default:
         return (
           // TODO: This should eventually become a message component for displaying helpful developer messages

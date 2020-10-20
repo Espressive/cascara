@@ -12,11 +12,21 @@
   > * {
     margin-right: 1em;
   }
+
+  .Sub {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8em;
+    opacity: 0.8;
+  }
 }
 
-.Details[open] {
-  .Summary {
-    background-color: rgba(255, 255, 255, 0.1);
+.Details {
+  &[open] {
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0)
+    );
   }
 }
 
@@ -31,11 +41,11 @@
   }
 
   &:focus {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 }
 

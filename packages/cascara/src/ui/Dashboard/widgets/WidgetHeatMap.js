@@ -1,11 +1,19 @@
 import React from 'react';
+import pt from 'prop-types';
 import { ResponsiveHeatMapCanvas } from '@nivo/heatmap';
 import Widget, { propTypes as widgetPT } from './Widget';
 
 const propTypes = {
   ...widgetPT,
+  /** Data to display in a widget */
+  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  /** The unique value to index by on `data` */
+  indexBy: pt.string,
 };
 
+/**
+ * Widget for @nivo/heatmap.
+ */
 const WidgetHeatMap = ({ data, indexBy = 'id', ...rest }) => {
   return (
     <Widget {...rest}>
@@ -31,7 +39,7 @@ const WidgetHeatMap = ({ data, indexBy = 'id', ...rest }) => {
 };
 
 WidgetHeatMap.propTypes = propTypes;
-WidgetHeatMap.displayName = 'widget: heat-map';
+WidgetHeatMap.displayName = 'heat-map';
 
 export { propTypes };
 

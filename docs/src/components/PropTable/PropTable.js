@@ -10,7 +10,12 @@ const PropTable = ({ docData, ...rest }) => {
 
   return (
     <div className={styles.PropTable} {...rest}>
-      <h4 className={styles.Title}>{docData.displayName}</h4>
+      <h4 className={styles.Title}>
+        {docData.displayName}
+        {docData.description && (
+          <span className={styles.Sub}>{docData.description}</span>
+        )}
+      </h4>
       {/* {docData && <JsonPlaceholder data={docData} isInitialOpen title='docData' />} */}
       {propsArray.length > 0 ? (
         propsArray.map(([propName, propData]) => (

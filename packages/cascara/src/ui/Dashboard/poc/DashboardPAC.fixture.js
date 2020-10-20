@@ -51,7 +51,7 @@ const dashboardConfig = [
   {
     data: dataInteractions,
     title: 'Interactions',
-    widget: 'poop',
+    widget: 'stats',
   },
   {
     data: dataDeflections,

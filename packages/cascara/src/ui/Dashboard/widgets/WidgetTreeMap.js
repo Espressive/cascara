@@ -1,12 +1,20 @@
 import React from 'react';
+import pt from 'prop-types';
 import { ResponsiveTreeMapCanvas } from '@nivo/treemap';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS } from './widgetConfig';
 
 const propTypes = {
   ...widgetPT,
+  /** Data to display in a widget */
+  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  /** The unique value to index by on `data` */
+  indexBy: pt.string,
 };
 
+/**
+ * Widget for @nivo/treemap.
+ */
 const WidgetTreeMap = ({
   data,
   indexBy = 'id',
@@ -45,7 +53,7 @@ const WidgetTreeMap = ({
 };
 
 WidgetTreeMap.propTypes = propTypes;
-WidgetTreeMap.displayName = 'widget: tree-map';
+WidgetTreeMap.displayName = 'tree-map';
 
 export { propTypes };
 

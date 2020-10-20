@@ -1,4 +1,5 @@
 import React from 'react';
+import pt from 'prop-types';
 import { ResponsiveChoroplethCanvas } from '@nivo/geo';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS } from './widgetConfig';
@@ -6,8 +7,13 @@ import GeoMapFeatures from './GeoMapFeatures';
 
 const propTypes = {
   ...widgetPT,
+  /** Data to display in a widget */
+  data: pt.oneOfType([pt.array, pt.object]).isRequired,
 };
 
+/**
+ * Widget for @nivo/geo (Chloropleth).
+ */
 const WidgetGeoMap = ({ data, ...rest }) => {
   const largestValue = Math.max.apply(
     Math,
@@ -38,7 +44,7 @@ const WidgetGeoMap = ({ data, ...rest }) => {
 };
 
 WidgetGeoMap.propTypes = propTypes;
-WidgetGeoMap.displayName = 'widget: geo-map';
+WidgetGeoMap.displayName = 'geo-map';
 
 export { propTypes };
 

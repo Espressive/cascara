@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Admin
         drawer={
-          propTable && (
+          propTable?.length > 0 && (
             <Admin.Drawer>
               {propTable.map((componentProps) => (
                 <AnimatePresence exitBeforeEnter>

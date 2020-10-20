@@ -1,12 +1,22 @@
 import React from 'react';
+import pt from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { AXIS_CONFIG } from './widgetConfig';
 
 const propTypes = {
   ...widgetPT,
+  /** Can have a bottom axis label */
+  axisBottomLabel: pt.string,
+  /** Can have a left axis label */
+  axisLeftLabel: pt.string,
+  /** Data to display in a widget */
+  data: pt.oneOfType([pt.array, pt.object]).isRequired,
 };
 
+/**
+ * Widget for @nivo/line.
+ */
 const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
   const CHART_CONFIG = {
     axisBottom: {
@@ -44,7 +54,7 @@ const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
 };
 
 WidgetLine.propTypes = propTypes;
-WidgetLine.displayName = 'widget: line';
+WidgetLine.displayName = 'line';
 
 export { propTypes };
 
