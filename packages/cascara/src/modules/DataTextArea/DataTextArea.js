@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import TextareaAutosize from 'react-textarea-autosize';
 import { ModuleContext } from '../context';
@@ -28,8 +29,9 @@ const DataTextArea = ({
     // eslint-disable-next-line jsx-a11y/label-has-for
     <label htmlFor={label}>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <TextareaAutosize
+      <Input
         {...rest}
+        as={TextareaAutosize}
         className={styles.Input}
         defaultValue={value}
         id={label}

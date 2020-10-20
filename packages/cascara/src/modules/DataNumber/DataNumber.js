@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
@@ -26,7 +27,7 @@ const DataNumber = ({
   const renderEditing = (
     <label htmlFor={label}>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <input
+      <Input
         {...rest}
         className={styles.Input}
         defaultValue={value}
