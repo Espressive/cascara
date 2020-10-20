@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.1.1-alpha.10",
+  "version": "0.2.1",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "repository": {
@@ -12,23 +12,33 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "dist",
+    "private"
   ],
   "license": "MIT",
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "7.11.2",
+    "@nivo/bar": "0.62.0",
+    "@nivo/bump": "0.62.0",
+    "@nivo/geo": "0.62.0",
+    "@nivo/heatmap": "0.62.0",
+    "@nivo/line": "0.62.0",
+    "@nivo/pie": "0.62.0",
+    "@nivo/treemap": "0.62.0",
     "classnames": "2.2.6",
+    "react-hook-form": "6.8.4",
+    "react-textarea-autosize": "8.2.0",
     "reakit": "1.1.2"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "file:../../utils/legacy-css",
+    "@espressive/legacy-css": "^0.2.1",
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
-    "semantic-ui-react": "^0.88.2"
+    "semantic-ui-react": "^1.2.1"
   },
   "scripts": {
     "build": "yarn clean && rollup -c",
@@ -36,5 +46,5 @@
     "prepublish": "yarn build",
     "watch": "rollup -c -w"
   },
-  "gitHead": "a69d799d2a4a74af5551eff15e24e63b6eceabe4"
+  "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }

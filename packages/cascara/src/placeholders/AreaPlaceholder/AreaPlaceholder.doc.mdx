@@ -1,0 +1,65 @@
+---
+propTable: AreaPlaceholder.js
+---
+
+# AreaPlaceholder
+
+> _NOTE: Placeholder components are only intended for use during development and should not be used in production._
+
+AreaPlaceholder can be used to wrap an area of UI with a helpful label. This is especially helpful when working with Context or State in complex components to help visualize compositional hierarchy.
+
+```jsx
+---
+title: Default display
+---
+<JsonPlaceholder data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}} />
+```
+
+```jsx
+---
+title: Can be open on mount
+---
+<JsonPlaceholder data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}} isInitialOpen />
+```
+
+```jsx
+---
+title: Can display a unique title
+---
+<JsonPlaceholder data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}} title='Custom Title' />
+```
+
+```jsx
+---
+title: If needed, can be customized
+---
+<JsonPlaceholder
+  data={{
+  stuff: {
+    okay: true,
+    something: 23,
+    string: 'cool',
+  },
+}}
+  style={{ maxWidth: '50%', backgroundColor: 'red' }}
+  title='Style'
+/>
+```

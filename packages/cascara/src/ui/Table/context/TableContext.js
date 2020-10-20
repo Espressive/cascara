@@ -2,13 +2,13 @@ import React, { useCallback, useMemo, useState } from 'react';
 
 const TableContext = React.createContext();
 
-export const TableContextProvider = ({ data, dataConfig, children }) => {
-  const {
-    actions = [],
-    bulkActions = [],
-    display = [],
-    uniqueIdAttribute,
-  } = dataConfig;
+export const TableContextProvider = ({
+  data = [],
+  dataConfig,
+  children,
+  onAction = (e) => e,
+}) => {
+  const { actions = [], bulkActions = [], uniqueIdAttribute } = dataConfig;
   const selectionIsEnabled = bulkActions.length > 0;
 
   const idsInData = data.map((record) => record[uniqueIdAttribute]);
@@ -17,6 +17,8 @@ export const TableContextProvider = ({ data, dataConfig, children }) => {
   const sanitizedSelection = selection.filter((selectedId) =>
     idsInData.includes(selectedId)
   );
+
+  const selectedColumns = dataConfig.display.map((column) => column.attribute);
 
   const selectAll = useCallback(() => {
     updateSelection([...idsInData]);
@@ -42,6 +44,47 @@ export const TableContextProvider = ({ data, dataConfig, children }) => {
     [selection, updateSelection]
   );
 
+  const handleOnAction = useCallback(
+    (name, id) => {
+      let da = id;
+
+      if (!da) {
+        da = data.reduce((all, record) => {
+          if (selection.includes(record[uniqueIdAttribute])) {
+            all.push(record);
+          }
+
+          return all;
+        }, []);
+
+        da = da.reduce((all, rawRecord) => {
+          const record = selectedColumns.reduce((record, column) => {
+            record[column] = rawRecord[column];
+
+            return record;
+          }, {});
+
+          all.push(record);
+
+          return all;
+        }, []);
+      } else {
+        da = data.filter((record) => record[uniqueIdAttribute] === id).pop();
+        da = selectedColumns.reduce((record, column) => {
+          record[column] = da[column];
+
+          return record;
+        }, {});
+      }
+
+      onAction(name, da, {
+        columns: selectedColumns,
+        selection,
+      });
+    },
+    [data, onAction, selection, selectedColumns, uniqueIdAttribute]
+  );
+
   const contextValue = useMemo(
     () => ({
       actions,
@@ -50,10 +93,11 @@ export const TableContextProvider = ({ data, dataConfig, children }) => {
       clearSelection,
       data,
       dataConfig,
-      display,
+      handleOnAction,
       idsInData,
       removeFromSelection,
       selectAll,
+      selectedColumns,
       selection: sanitizedSelection,
       selectionIsEnabled,
       uniqueIdAttribute,
@@ -63,13 +107,14 @@ export const TableContextProvider = ({ data, dataConfig, children }) => {
       bulkActions,
       data,
       dataConfig,
-      display,
+      handleOnAction,
       idsInData,
       sanitizedSelection,
       addToSelection,
       clearSelection,
       removeFromSelection,
       selectAll,
+      selectedColumns,
       selectionIsEnabled,
       uniqueIdAttribute,
     ]

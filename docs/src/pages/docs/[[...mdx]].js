@@ -10,9 +10,24 @@ import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
 import getMDXTree from '../../lib/getMDXTree';
 import getMDXDirFiles from '../../lib/getMDXDirFiles';
 
+const MODULE_MESSAGE = (
+  <blockquote>
+    <p>
+      <em>
+        <a href='/40-modules'>Modules</a> are private components that are used
+        inside of <a href='/docs/ui/Form'>Form</a> and{' '}
+        <a href='/docs/ui/Form'>Table</a>. They are not exported from Cascara
+        and cannot be used independently.
+      </em>
+    </p>
+  </blockquote>
+);
+
 const Doc = ({ mdxDirSource }) => {
   // const [activeDoc, setActiveDoc] = useState(0);
   const router = useRouter();
+
+  const activeSource = mdxDirSource[router?.query?.doc || 0];
 
   // Set the query parameter to 0 if none is set and make
   // sure we are doing this as a replace() in history
@@ -32,7 +47,7 @@ const Doc = ({ mdxDirSource }) => {
     }
   }, [router]);
 
-  const mdxActive = hydrate(mdxDirSource[router?.query?.doc || 0], {
+  const mdxActive = hydrate(activeSource, {
     components: MDX_COMPONENTS,
   });
 
@@ -88,6 +103,11 @@ const Doc = ({ mdxDirSource }) => {
           key={JSON.stringify(router)}
           style={{ maxWidth: '60em' }}
         >
+          {activeSource?.frontmatter?.title && (
+            <h1>{activeSource.frontmatter.title}</h1>
+          )}
+          {activeSource?.frontmatter?.type === 'module' && MODULE_MESSAGE}
+
           {mdxActive}
         </motion.div>
       </AnimatePresence>
@@ -147,18 +167,17 @@ export const getStaticProps = async ({ params }) => {
         mdxOptions: MDX_OPTIONS,
       });
 
-      let docData = null;
+      const tableComponents = data.propTable?.split(' ') || [];
 
-      if (data.propTable) {
+      const docData = tableComponents.map((component) => {
         const componentPath = path.join(
           process.cwd(),
           path.dirname(file.path),
-          data.propTable
+          component
         );
 
-        const componentRead = fs.readFileSync(componentPath, 'utf8');
-        docData = reactDocgen.parse(componentRead);
-      }
+        return reactDocgen.parse(fs.readFileSync(componentPath, 'utf8'));
+      });
 
       return {
         docData,

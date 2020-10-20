@@ -10,7 +10,7 @@
   "dependencies": {
     "@espressive/cascara": "link:../../packages/cascara",
     "@espressive/legacy-css": "link:../../utils/legacy-css",
-    "next": "9.5.2",
+    "next": "9.5.4",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom"
   }

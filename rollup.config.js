@@ -1,5 +1,6 @@
 import path from 'path';
 import babel from '@rollup/plugin-babel';
+import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import stringHash from 'string-hash';
@@ -49,13 +50,16 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
   // Relative input location for Rollup to bundle from
-  const input = `${SOURCE_DIR}/src/index.js`;
+  const input = [`${SOURCE_DIR}/src/index.js`, `${SOURCE_DIR}/src/private.js`];
+
+  // Shared Rollup plugins
+  const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
   // Common JS configuration
   const cjsConfig = {
     input,
     output: {
-      file: `${SOURCE_DIR}/${pkgConfig.main}`,
+      dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
       format: 'cjs',
     },
     external,
@@ -66,8 +70,7 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
           useESModules: false,
         })
       ),
-      nodeResolve(),
-      postcss(getPostCSSOptions()),
+      ...rollupPlugins,
     ],
   };
 
@@ -75,7 +78,7 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const esConfig = {
     input,
     output: {
-      file: `${SOURCE_DIR}/${pkgConfig.module}`,
+      dir: `${SOURCE_DIR}/${pkgConfig.module.replace('/index.js', '')}`,
       format: 'es',
     },
     external,
@@ -86,8 +89,7 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
           useESModules: true,
         })
       ),
-      nodeResolve(),
-      postcss(getPostCSSOptions()),
+      ...rollupPlugins,
     ],
   };
 
