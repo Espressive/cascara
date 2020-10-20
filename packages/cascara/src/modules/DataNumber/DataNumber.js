@@ -7,7 +7,7 @@ import styles from '../DataModule.module.scss';
 const propTypes = {
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
-  /** A Module can be be defined to not show its label (this should only be used when the label is being presented elsewhere like a table column header) */
+  /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string.isRequired,
@@ -19,7 +19,7 @@ const DataNumber = ({
   isEditable = true,
   isLabeled = true,
   value,
-  label = 'DataNumber',
+  label,
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);

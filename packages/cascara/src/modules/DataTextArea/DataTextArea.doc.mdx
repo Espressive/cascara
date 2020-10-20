@@ -1,11 +1,18 @@
 ---
-public: false
-status: 'Private'
+title: DataTextArea
 propTable: DataTextArea.js
+type: 'module'
+status: 'Draft'
+public: false
 ---
 
-# DataTextArea
-
-```jsx
-<DataTextArea />
 ```
+{
+  module: 'textarea'
+  isEditable: true;
+}
+```
+
+<ModuleProvider value={{ isEditing: true }}>
+  <DataTextArea label='Text' />
+</ModuleProvider>

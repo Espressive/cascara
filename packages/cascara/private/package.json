@@ -1,0 +1,7 @@
+{
+  "name": "@espressive/cascara/private",
+  "private": true,
+  "sideEffects": false,
+  "main": "../dist/cjs/private.js",
+  "module": "../dist/es/private.js"
+}

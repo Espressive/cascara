@@ -7,6 +7,7 @@ import DataRadio from './DataRadio';
 import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
+import { ModuleContext, ModuleProvider } from './context';
 
 export {
   ActionButton,
@@ -18,4 +19,6 @@ export {
   DataSelect,
   DataText,
   DataTextArea,
+  ModuleContext,
+  ModuleProvider,
 };

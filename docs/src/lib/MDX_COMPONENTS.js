@@ -9,19 +9,52 @@
 import {
   Admin,
   Button,
+  Dashboard,
   JsonPlaceholder,
   Pagination,
 } from '@espressive/cascara';
+
+import {
+  ActionButton,
+  ActionEdit,
+  DataCheckbox,
+  DataEmail,
+  DataNumber,
+  DataRadio,
+  DataSelect,
+  DataText,
+  DataTextArea,
+  ModuleProvider,
+} from '@espressive/cascara/private';
+
 import { Code, Placeholder } from '../components';
 
+/* eslint-disable sort-keys */
 const MDX_COMPONENTS = {
-  Admin: (props) => <Admin {...props} />,
-  Button: (props) => <Button {...props} />,
-  JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
-  Pagination: (props) => <Pagination {...props} />,
+  // Docs
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
   Props: (props) => <Placeholder {...props} componentName='Props' />,
   code: (props) => <Code {...props} />,
+
+  // Cascara
+  Admin: (props) => <Admin {...props} />,
+  Button: (props) => <Button {...props} />,
+  Dashboard: (props) => <Dashboard {...props} />,
+  JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
+  Pagination: (props) => <Pagination {...props} />,
+
+  // Private
+  ActionButton: (props) => <ActionButton {...props} />,
+  ActionEdit: (props) => <ActionEdit {...props} />,
+  DataCheckbox: (props) => <DataCheckbox {...props} />,
+  DataEmail: (props) => <DataEmail {...props} />,
+  DataNumber: (props) => <DataNumber {...props} />,
+  DataRadio: (props) => <DataRadio {...props} />,
+  DataSelect: (props) => <DataSelect {...props} />,
+  DataText: (props) => <DataText {...props} />,
+  DataTextArea: (props) => <DataTextArea {...props} />,
+  ModuleProvider: (props) => <ModuleProvider {...props} />,
 };
+/* eslint-enable sort-keys */
 
 export default MDX_COMPONENTS;
