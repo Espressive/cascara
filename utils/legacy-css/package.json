@@ -1,7 +1,7 @@
 {
   "name": "@espressive/legacy-css",
   "description": "Legacy custom compiled CSS for Espressive",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "src/css/semantic.min.css",
   "license": "MIT",
   "repository": {
@@ -16,5 +16,5 @@
   "files": [
     "src"
   ],
-  "gitHead": "a69d799d2a4a74af5551eff15e24e63b6eceabe4"
+  "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }

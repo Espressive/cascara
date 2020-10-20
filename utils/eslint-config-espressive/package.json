@@ -1,6 +1,6 @@
 {
   "name": "@espressive/eslint-config-espressive",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Eslint config used by Espressive",
   "license": "MIT",
   "repository": {
@@ -19,5 +19,5 @@
   "engines": {
     "node": "^10.12.0 || >=12.0.0"
   },
-  "gitHead": "a69d799d2a4a74af5551eff15e24e63b6eceabe4"
+  "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }

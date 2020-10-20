@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "repository": {
@@ -32,7 +32,7 @@
     "reakit": "1.1.2"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "file:../../utils/legacy-css",
+    "@espressive/legacy-css": "^0.2.1",
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
@@ -46,5 +46,5 @@
     "prepublish": "yarn build",
     "watch": "rollup -c -w"
   },
-  "gitHead": "a69d799d2a4a74af5551eff15e24e63b6eceabe4"
+  "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }
