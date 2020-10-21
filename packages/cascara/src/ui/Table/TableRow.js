@@ -25,6 +25,21 @@ import DataRadio from '../../modules/DataRadio';
 import DataSelect from '../../modules/DataSelect';
 import DataText from '../../modules/DataText';
 import DataTextArea from '../../modules/DataTextArea';
+import ModuleError from '../../modules/ModuleError';
+const dataModules = {
+  avatar: DataText,
+  checkbox: DataCheckbox,
+  date: DataText,
+  email: DataEmail,
+  icon: DataText,
+  link: DataText,
+  number: DataNumber,
+  radio: DataRadio,
+  select: DataSelect,
+  switch: DataCheckbox,
+  text: DataText,
+  textarea: DataTextArea,
+};
 
 const propTypes = {
   data: pt.oneOf([dataCheckboxPT, dataEmailPT]),
@@ -65,42 +80,20 @@ const TableRow = ({ config = {}, record = {} }) => {
   );
 
   const rowCells = columns.map((column) => {
-    const { module: type, ...rest } = column;
-    let Module;
+    const { module, ...rest } = column;
+    const Module = dataModules[module];
 
-    switch (type) {
-      case 'checkbox':
-        Module = DataCheckbox;
-        break;
-
-      case 'email':
-        Module = DataEmail;
-        break;
-
-      case 'number':
-        Module = DataNumber;
-        break;
-
-      case 'radio':
-        Module = DataRadio;
-        break;
-
-      case 'select':
-        Module = DataSelect;
-        break;
-
-      case 'textarea':
-        Module = DataTextArea;
-        break;
-
-      default:
-        Module = DataText;
-        break;
+    if (!Module) {
+      return (
+        <td className={styles.Cell} key={column.attribute}>
+          <ModuleError message={`${module} is not a valid Module`} />
+        </td>
+      );
     }
 
     return (
       <td className={styles.Cell} key={column.attribute}>
-        <Module {...column} {...rest} />
+        <Module {...rest} />
       </td>
     );
   });

@@ -4,6 +4,7 @@ import { Dropdown, Header } from 'semantic-ui-react';
 import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
 import Table from '..';
+import dataTypes from '../dataTypes';
 
 class Fixture extends PureComponent {
   state = {
@@ -13,28 +14,28 @@ class Fixture extends PureComponent {
         isEditable: true,
         isLabeled: false,
         label: 'Active',
-        module: 'checkbox',
+        module: dataTypes.bool.asCheckbox,
       },
       {
         attribute: 'eid',
         isEditable: false,
         isLabeled: false,
         label: 'ID',
-        module: 'string',
+        module: dataTypes.text.asText,
       },
       {
         attribute: 'email',
         isEditable: true,
         isLabeled: false,
         label: 'Email',
-        module: 'email',
+        module: dataTypes.text.asEmail,
       },
       {
         attribute: 'country',
         isEditable: true,
         isLabeled: false,
         label: 'Country',
-        module: 'select',
+        module: dataTypes.text.asSelect,
         options: [
           {
             label: 'Argentina',
@@ -55,35 +56,35 @@ class Fixture extends PureComponent {
         isEditable: true,
         isLabeled: false,
         label: 'Employee Number',
-        module: 'number',
+        module: dataTypes.number.asNumber,
       },
       {
         attribute: 'fullName',
         isEditable: true,
         isLabeled: false,
         label: 'Full Name',
-        module: 'string',
+        module: dataTypes.text.asText,
       },
       {
         attribute: 'homePhone',
         isEditable: true,
         isLabeled: false,
         label: 'Home Phone',
-        module: 'string',
+        module: dataTypes.text.asText,
       },
       {
         attribute: 'officePhone',
         isEditable: true,
         isLabeled: false,
         label: 'Office Phone',
-        module: 'string',
+        module: dataTypes.text.asText,
       },
       {
         attribute: 'title',
         isEditable: true,
         isLabeled: false,
         label: 'Title',
-        module: 'string',
+        module: dataTypes.text.asText,
       },
     ],
     data: generateFakeEmployees(50).map((employee) => ({
@@ -95,14 +96,14 @@ class Fixture extends PureComponent {
         isEditable: true,
         isLabeled: false,
         label: 'Full Name',
-        module: 'string',
+        module: dataTypes.text.asText,
       },
       {
         attribute: 'email',
         isEditable: true,
         isLabeled: false,
         label: 'Email',
-        module: 'email',
+        module: dataTypes.text.asEmail,
       },
     ],
   };

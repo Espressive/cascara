@@ -1,3 +1,5 @@
+import { ModuleContext, ModuleProvider } from './context';
+
 import ActionButton from './ActionButton';
 import ActionEdit from './ActionEdit';
 import DataCheckbox from './DataCheckbox';
@@ -7,7 +9,7 @@ import DataRadio from './DataRadio';
 import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
-import { ModuleContext, ModuleProvider } from './context';
+import ModuleError from './ModuleError';
 
 export {
   ActionButton,
@@ -21,4 +23,5 @@ export {
   DataTextArea,
   ModuleContext,
   ModuleProvider,
+  ModuleError,
 };
