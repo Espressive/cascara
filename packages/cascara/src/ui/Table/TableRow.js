@@ -26,6 +26,7 @@ import DataSelect from '../../modules/DataSelect';
 import DataText from '../../modules/DataText';
 import DataTextArea from '../../modules/DataTextArea';
 import ModuleError from '../../modules/ModuleError';
+
 const dataModules = {
   avatar: DataText,
   checkbox: DataCheckbox,
@@ -40,10 +41,11 @@ const dataModules = {
   text: DataText,
   textarea: DataTextArea,
 };
+const moduleOptions = Object.keys(dataModules);
 
 const propTypes = {
   data: pt.oneOf([dataCheckboxPT, dataEmailPT]),
-  module: pt.oneOf(['checkbox', 'select', 'email', 'number']),
+  module: pt.oneOf(moduleOptions),
 };
 
 const TableRow = ({ config = {}, record = {} }) => {
@@ -86,7 +88,11 @@ const TableRow = ({ config = {}, record = {} }) => {
     if (!Module) {
       return (
         <td className={styles.Cell} key={column.attribute}>
-          <ModuleError message={`${module} is not a valid Module`} />
+          <ModuleError
+            message={`Invalid Module`}
+            moduleName={module}
+            moduleOptions={moduleOptions}
+          />
         </td>
       );
     }

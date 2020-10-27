@@ -50,7 +50,7 @@ const Table = ({
   dataConfig,
   // eslint-disable-next-line no-console
   onAction = (type, data) => console.log(`Action ${type}:`, data),
-  uniqueIDAttribute,
+  uniqueIDAttribute = 'eid',
   ...rest
 }) => {
   const { actions, display } = dataConfig;

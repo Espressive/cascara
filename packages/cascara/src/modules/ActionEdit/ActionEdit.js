@@ -15,8 +15,10 @@ const ActionEdit = ({
   editLabel = 'Edit',
   saveLabel = 'Save',
 }) => {
-  const { isEditing, setIsEditing, formMethods } = useContext(ModuleContext);
-  const { formState, reset } = formMethods;
+  const { isEditing, setIsEditing, formMethods, record, onAction } = useContext(
+    ModuleContext
+  );
+  const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
 
   const handleReset = () => {
@@ -41,8 +43,15 @@ const ActionEdit = ({
     setIsEditing(true);
   };
 
-  /** Remove this when demoing! */
-  const handleSave = () => {
+  const onSubmit = (data) => {
+    onAction({
+      data: {
+        ...record,
+        ...data,
+      },
+      type: 'submit',
+    });
+
     setIsEditing(false);
   };
 
@@ -58,10 +67,11 @@ const ActionEdit = ({
       />
       <Button
         content={saveLabel}
+        disabled={!isDirty}
         loading={isSubmitting}
-        onClick={handleSave} // remove this when demoing
+        onClick={handleSubmit(onSubmit)}
         positive
-        type='submit'
+        type='button'
       />
     </>
   ) : (
