@@ -8,6 +8,8 @@ import styles from '../DataModule.module.scss';
 import ErrorBoundary from '../../shared/ErrorBoundary';
 
 const propTypes = pt.shape({
+  /** A module can have an Attribute, which will be used as form field name */
+  attribute: pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
@@ -19,6 +21,7 @@ const propTypes = pt.shape({
 });
 
 const DataTextArea = ({
+  attribute,
   isEditable = true,
   isLabeled = true,
   label,
@@ -37,7 +40,7 @@ const DataTextArea = ({
         className={styles.Input}
         defaultValue={value}
         id={label}
-        name={label}
+        name={attribute || label}
         ref={formMethods?.register}
       />
     </label>
