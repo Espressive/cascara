@@ -1,60 +1,20 @@
 import React, { useContext } from 'react';
 
+import styles from './Table.module.scss';
 import ErrorBoundary from '../../shared/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
 
-import ActionBar from './ActionBar';
-import ActionButton from '../../modules/ActionButton';
-import ActionEdit from '../../modules/ActionEdit';
-import DownloadButton from '../../modules/DownloadButton';
-
 const TableFooter = () => {
   const { dataConfig } = useContext(ModuleContext);
-
-  const actionBarCell = (
-    <ActionBar
-      actions={dataConfig.bulkActions.map((action, idx) => {
-        let Module;
-
-        switch (action.module) {
-          case 'edit':
-            Module = ActionEdit;
-            break;
-
-          case 'download':
-            Module = DownloadButton;
-            break;
-
-          default:
-            Module = ActionButton;
-            break;
-        }
-
-        return (
-          <Module
-            {...action}
-            content={action.content}
-            key={`${action.module}.${idx}.${action.content}`}
-          />
-        );
-      })}
-    />
-  );
-
-  const headerCells = dataConfig.display.map((column) => (
+  const headerCells = dataConfig?.display.map((column) => (
     <th key={column.attribute}>{column.label}</th>
   ));
 
-  if (dataConfig.actions.length) {
-    headerCells.push(<th key={'action-bar-slot'} />);
-  }
-
   return (
     <ErrorBoundary>
-      <tfoot>
-        <tr key={'foot-header'}>{headerCells}</tr>
-        <tr key={'foot-actions'}>
-          <td colSpan={headerCells.length}>{actionBarCell}</td>
+      <tfoot className={styles.FootContainer}>
+        <tr className={styles.Row} key={'foot-header'}>
+          {headerCells}
         </tr>
       </tfoot>
     </ErrorBoundary>

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import pt from 'prop-types';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 
-const propTypes = {
-  ctaText: PropTypes.string,
-  data: PropTypes.string.isRequired,
-  fileName: PropTypes.string,
-  fileType: PropTypes.string,
-};
+const propTypes = pt.shape({
+  ctaText: pt.string,
+  data: pt.string,
+  fileName: pt.string,
+  fileType: pt.string,
+});
 
 /**
  * DownloadButton

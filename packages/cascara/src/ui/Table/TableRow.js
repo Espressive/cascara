@@ -20,20 +20,27 @@ import DataCheckbox, {
   propTypes as dataCheckboxPT,
 } from '../../modules/DataCheckbox';
 import DataEmail, { propTypes as dataEmailPT } from '../../modules/DataEmail';
-import DataNumber from '../../modules/DataNumber';
-import DataRadio from '../../modules/DataRadio';
-import DataSelect from '../../modules/DataSelect';
-import DataText from '../../modules/DataText';
-import DataTextArea from '../../modules/DataTextArea';
+import DataNumber, {
+  propTypes as dataNumberPT,
+} from '../../modules/DataNumber';
+import DataRadio, { propTypes as dataRadioPT } from '../../modules/DataRadio';
+import DataSelect, {
+  propTypes as dataSelectPT,
+} from '../../modules/DataSelect';
+import DataText, { propTypes as dataTextPT } from '../../modules/DataText';
+import DataTextArea, {
+  propTypes as dataTextAreaPT,
+} from '../../modules/DataTextArea';
 import ModuleError from '../../modules/ModuleError';
 
-const dataModules = {
-  avatar: DataText,
+const ACTION_MODULES = {
+  button: ActionButton,
+  download: DownloadButton,
+  edit: ActionEdit,
+};
+const DATA_MODULES = {
   checkbox: DataCheckbox,
-  date: DataText,
   email: DataEmail,
-  icon: DataText,
-  link: DataText,
   number: DataNumber,
   radio: DataRadio,
   select: DataSelect,
@@ -41,40 +48,54 @@ const dataModules = {
   text: DataText,
   textarea: DataTextArea,
 };
-const moduleOptions = Object.keys(dataModules);
+const actionModuleOptions = Object.keys(ACTION_MODULES);
+const dataModuleOptions = Object.keys(DATA_MODULES);
 
 const propTypes = {
-  data: pt.oneOf([dataCheckboxPT, dataEmailPT]),
-  module: pt.oneOf(moduleOptions),
+  config: pt.shape({
+    columns: pt.arrayOf(
+      pt.oneOfType([
+        dataCheckboxPT,
+        dataEmailPT,
+        dataNumberPT,
+        dataRadioPT,
+        dataSelectPT,
+        dataTextPT,
+        dataTextAreaPT,
+      ])
+    ),
+    id: pt.string,
+  }),
+  record: pt.shape({}),
 };
 
 const TableRow = ({ config = {}, record = {} }) => {
   const { id, columns } = config;
-  const { dataConfig } = useContext(ModuleContext);
+  const {
+    dataConfig: { actions: userDefinedActions = [] },
+  } = useContext(ModuleContext);
 
   const actionBarCell = (
     <td className={styles.Cell} key={`${id}-actionbar`}>
       <ActionBar
-        actions={dataConfig.actions.map((action) => {
+        actions={userDefinedActions.map((action) => {
           const { module, ...rest } = action;
-          let Module;
+          const Action = ACTION_MODULES[module];
 
-          switch (action.module) {
-            case 'edit':
-              Module = ActionEdit;
-              break;
+          /**
+           * In certain predefined-action modules in which a label is not required, e.g. `edit`,
+           * the following unique key generation fails, as it relies on the label (content). */
+          const key = `${id}.${module}.${rest.content || module}`;
 
-            case 'download':
-              Module = DownloadButton;
-              break;
-
-            default:
-              Module = ActionButton;
-              break;
-          }
-
-          return (
-            <Module key={`${action.module}.${action.content}`} {...rest} />
+          return Action ? (
+            <Action key={key} {...rest} />
+          ) : (
+            <ModuleError
+              key={key}
+              message={`Invalid module`}
+              moduleName={module}
+              moduleOptions={actionModuleOptions}
+            />
           );
         })}
       />
@@ -83,28 +104,24 @@ const TableRow = ({ config = {}, record = {} }) => {
 
   const rowCells = columns.map((column) => {
     const { module, ...rest } = column;
-    const Module = dataModules[module];
-
-    if (!Module) {
-      return (
-        <td className={styles.Cell} key={column.attribute}>
-          <ModuleError
-            message={`Invalid Module`}
-            moduleName={module}
-            moduleOptions={moduleOptions}
-          />
-        </td>
-      );
-    }
+    const Module = DATA_MODULES[module];
 
     return (
       <td className={styles.Cell} key={column.attribute}>
-        <Module {...rest} />
+        {Module ? (
+          <Module {...rest} />
+        ) : (
+          <ModuleError
+            message={`Invalid module`}
+            moduleName={module}
+            moduleOptions={dataModuleOptions}
+          />
+        )}
       </td>
     );
   });
 
-  if (dataConfig.actions.length) {
+  if (userDefinedActions.length) {
     rowCells.push(actionBarCell);
   }
 

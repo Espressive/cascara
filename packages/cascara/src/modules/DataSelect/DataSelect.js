@@ -6,16 +6,16 @@ import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 
-const propTypes = {
+const propTypes = pt.shape({
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
-  label: pt.string.isRequired,
+  label: pt.string,
   /** A Module can have a value */
   value: pt.string,
-};
+});
 
 const DataSelect = ({
   isEditable = true,

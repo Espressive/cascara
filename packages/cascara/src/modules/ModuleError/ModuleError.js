@@ -8,11 +8,11 @@ const propTypes = {
 };
 
 const ModuleError = ({ moduleName, moduleOptions }) => {
+  const message = `${moduleName} is not a invalid value for module. Try using one of [${moduleOptions.join(
+    ', '
+  )}]`;
   // eslint-disable-next-line no-console
-  console.error(
-    moduleName +
-      ' is an invalid value for module. Try using one of sdfsdf sdf instead.'
-  );
+  console.error(message);
 
   return <div className={styles.Error}>Invalid module name</div>;
 };

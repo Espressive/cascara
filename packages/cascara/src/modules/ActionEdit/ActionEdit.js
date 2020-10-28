@@ -4,11 +4,11 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import { Button } from 'semantic-ui-react';
 
-const propTypes = {
+const propTypes = pt.shape({
   cancelLabel: pt.string,
   editLabel: pt.string,
   saveLabel: pt.string,
-};
+});
 
 const ActionEdit = ({
   cancelLabel = 'Cancel',
@@ -44,13 +44,15 @@ const ActionEdit = ({
   };
 
   const onSubmit = (data) => {
-    onAction({
-      data: {
+    onAction(
+      {
+        label: saveLabel,
+      },
+      {
         ...record,
         ...data,
-      },
-      type: 'submit',
-    });
+      }
+    );
 
     setIsEditing(false);
   };

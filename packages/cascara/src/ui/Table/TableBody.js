@@ -24,9 +24,7 @@ const TableBody = () => {
         {rows.map((record) => {
           const { data, ...rest } = record;
 
-          return (
-            <TableRow config={{ ...rest }} key={record.id} record={data} />
-          );
+          return <TableRow config={rest} key={record.id} record={data} />;
         })}
       </tbody>
     </ErrorBoundary>

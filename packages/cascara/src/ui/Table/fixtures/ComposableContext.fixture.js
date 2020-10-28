@@ -4,7 +4,6 @@ import { Dropdown, Header } from 'semantic-ui-react';
 import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
 import Table from '..';
-import dataTypes from '../dataTypes';
 
 class Fixture extends PureComponent {
   state = {
@@ -14,28 +13,28 @@ class Fixture extends PureComponent {
         isEditable: true,
         isLabeled: false,
         label: 'Active',
-        module: dataTypes.bool.asCheckbox,
+        module: 'checkbox',
       },
       {
         attribute: 'eid',
         isEditable: false,
         isLabeled: false,
         label: 'ID',
-        module: dataTypes.text.asText,
+        module: 'text',
       },
       {
         attribute: 'email',
         isEditable: true,
         isLabeled: false,
         label: 'Email',
-        module: dataTypes.text.asEmail,
+        module: 'email',
       },
       {
         attribute: 'country',
         isEditable: true,
         isLabeled: false,
         label: 'Country',
-        module: dataTypes.text.asSelect,
+        module: 'select',
         options: [
           {
             label: 'Argentina',
@@ -56,35 +55,35 @@ class Fixture extends PureComponent {
         isEditable: true,
         isLabeled: false,
         label: 'Employee Number',
-        module: dataTypes.number.asNumber,
+        module: 'number',
       },
       {
         attribute: 'fullName',
         isEditable: true,
         isLabeled: false,
         label: 'Full Name',
-        module: dataTypes.text.asText,
+        module: 'text',
       },
       {
         attribute: 'homePhone',
         isEditable: true,
         isLabeled: false,
         label: 'Home Phone',
-        module: dataTypes.text.asText,
+        module: 'text',
       },
       {
         attribute: 'officePhone',
         isEditable: true,
         isLabeled: false,
         label: 'Office Phone',
-        module: dataTypes.text.asText,
+        module: 'text',
       },
       {
         attribute: 'title',
         isEditable: true,
         isLabeled: false,
         label: 'Title',
-        module: dataTypes.text.asText,
+        module: 'text',
       },
     ],
     data: generateFakeEmployees(50).map((employee) => ({
@@ -96,14 +95,14 @@ class Fixture extends PureComponent {
         isEditable: true,
         isLabeled: false,
         label: 'Full Name',
-        module: dataTypes.text.asText,
+        module: 'text',
       },
       {
         attribute: 'email',
         isEditable: true,
         isLabeled: false,
         label: 'Email',
-        module: dataTypes.text.asEmail,
+        module: 'email',
       },
     ],
   };
@@ -118,65 +117,14 @@ class Fixture extends PureComponent {
   };
 
   handleTableAction = (caller, data) => {
-    const { display } = this.state;
-    let csvHeader;
-    let csvData;
-
-    switch (caller.label) {
-      case 'Export as CSV':
-        csvHeader = display.reduce(
-          (csvHeader, column, index, list) =>
-            `${csvHeader}${column.label}${index < list.length - 1 ? ',' : ''}`,
-          ''
-        );
-
-        csvData = data.reduce((csvData, row) => {
-          const csvRow = Object.keys(row).reduce(
-            (csvRow, column, index) =>
-              `${csvRow}${row[column]}${
-                index < Object.keys(row).length - 1 ? ',' : ''
-              }`,
-            ''
-          );
-
-          return `${csvData}
-          ${csvRow}`;
-        }, csvHeader);
-
-        this.setState({ csvData });
-        break;
-
-      case 'Download':
-        this.setState({ csvData: '' });
-        break;
-
-      default:
-        return;
-    }
+    // eslint-ignore-next-line no-console
+    console.log(`Action:${caller.label} has been invoked:`);
+    // eslint-ignore-next-line no-console
+    console.table(data);
   };
 
-  handleOnSubmit = (values) => console.log('Form submitted: ', values);
-
   render() {
-    const { columns, data, display, csvData } = this.state;
-    const bulkActions = csvData
-      ? [
-          {
-            content: 'Download',
-            data: csvData,
-            fileName: 'Espressive Table - Employee.csv',
-            fileType: 'text/csv',
-            isLabeled: false,
-            module: 'download',
-          },
-        ]
-      : [
-          {
-            content: 'Export as CSV',
-            isLabeled: false,
-            module: 'button',
-          },
-        ];
+    const { columns, data, display } = this.state;
     const dataConfig = {
       actions: [
         {
@@ -186,12 +134,12 @@ class Fixture extends PureComponent {
           size: 'small',
         },
         {
+          content: 'edit',
           isLabeled: false,
           module: 'edit',
           size: 'small',
         },
       ],
-      bulkActions,
       display,
       uniqueIdAttribute: 'eid',
     };
@@ -228,7 +176,7 @@ class Fixture extends PureComponent {
           data={data}
           dataConfig={dataConfig}
           onAction={this.handleTableAction}
-          onSubmit={this.handleOnSubmit}
+          uniqueIDAttribute={'id'}
         />
       </>
     );
