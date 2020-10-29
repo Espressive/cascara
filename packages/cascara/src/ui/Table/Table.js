@@ -39,7 +39,7 @@ const propTypes = {
     ),
   }),
   onAction: pt.func,
-  uniqueIDAttribute: pt.string.isRequired,
+  uniqueIdAttribute: pt.string.isRequired,
 };
 
 const Table = ({
@@ -47,7 +47,7 @@ const Table = ({
   dataConfig,
   // eslint-disable-next-line no-console
   onAction = (type, data) => console.log(`Action ${type}:`, data),
-  uniqueIDAttribute = 'eid',
+  uniqueIdAttribute = 'eid',
   ...rest
 }) => {
   const { actions, display } = dataConfig;
@@ -60,7 +60,7 @@ const Table = ({
   return (
     <ErrorBoundary>
       <TableProvider
-        value={{ data, dataConfig, onAction, uniqueIDAttribute }}
+        value={{ data, dataConfig, onAction, uniqueIdAttribute }}
         {...rest}
       >
         <table

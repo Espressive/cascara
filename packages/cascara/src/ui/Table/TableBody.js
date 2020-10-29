@@ -6,13 +6,10 @@ import { ModuleContext } from '../../modules/context';
 import TableRow from './TableRow';
 
 const TableBody = () => {
-  const { data, dataConfig } = useContext(ModuleContext);
-  const { uniqueIdAttribute } = dataConfig;
-
+  const { data, dataConfig, uniqueIdAttribute } = useContext(ModuleContext);
   const rows = data.map((data) => ({
     columns: dataConfig.display.map((itemConfig) => ({
       ...itemConfig,
-      value: data[itemConfig.attribute],
     })),
     data,
     id: data[uniqueIdAttribute],

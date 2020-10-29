@@ -118,7 +118,7 @@ class Fixture extends PureComponent {
 
   handleTableAction = (caller, data) => {
     // eslint-ignore-next-line no-console
-    console.log(`Action:${caller.label} has been invoked:`);
+    console.log(`Action: '${caller.name}' has been invoked:`);
     // eslint-ignore-next-line no-console
     console.table(data);
   };
@@ -131,17 +131,18 @@ class Fixture extends PureComponent {
           content: 'view',
           isLabeled: false,
           module: 'button',
+          name: 'view',
           size: 'small',
         },
         {
           content: 'edit',
           isLabeled: false,
           module: 'edit',
+          name: 'edit',
           size: 'small',
         },
       ],
       display,
-      uniqueIdAttribute: 'eid',
     };
 
     const availableColumns = columns.map((columnDef) => ({
@@ -176,7 +177,7 @@ class Fixture extends PureComponent {
           data={data}
           dataConfig={dataConfig}
           onAction={this.handleTableAction}
-          uniqueIDAttribute={'id'}
+          uniqueIdAttribute={'eid'}
         />
       </>
     );
