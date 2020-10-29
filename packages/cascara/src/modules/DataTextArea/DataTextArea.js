@@ -6,6 +6,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
+import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = pt.shape({
   /** A module can have an Attribute, which will be used as form field name */
@@ -16,8 +17,6 @@ const propTypes = pt.shape({
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
-  /** A Module can have a value */
-  value: pt.string,
 });
 
 const DataTextArea = ({
@@ -25,10 +24,10 @@ const DataTextArea = ({
   isEditable = true,
   isLabeled = true,
   label,
-  value,
   ...rest
 }) => {
-  const { isEditing, formMethods } = useContext(ModuleContext);
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const value = getAttributeValueFromRecord(attribute, record);
 
   const renderEditing = (
     // eslint-disable-next-line jsx-a11y/label-has-for

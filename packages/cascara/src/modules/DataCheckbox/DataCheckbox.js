@@ -6,6 +6,7 @@ import useToggle from '../../hooks/useToggle';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
+import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = pt.shape({
   /** A module can have an Attribute, which will be used as form field name */
@@ -16,8 +17,6 @@ const propTypes = pt.shape({
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
-  /** A Module can have a value */
-  value: pt.bool,
 });
 
 const DataCheckbox = ({
@@ -25,11 +24,12 @@ const DataCheckbox = ({
   isEditable = true,
   isLabeled = true,
   label,
-  value,
   ...rest
 }) => {
-  const [isChecked, setIsChecked] = useToggle(value === true ? true : false);
-  const { isEditing, formMethods } = useContext(ModuleContext);
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const value = getAttributeValueFromRecord(attribute, record);
+  const [isChecked, setIsChecked] = useToggle(Boolean(value));
+
   const renderEditing = (
     <label htmlFor={label}>
       {isLabeled && label && <span className={styles.Label}>{label}</span>}

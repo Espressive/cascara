@@ -22,15 +22,20 @@ const ActionEdit = ({
   const { isDirty, isSubmitting } = formState;
 
   const handleReset = () => {
-    // console.log('handleReset()');
+    onAction(
+      {
+        name: 'edit.cancel',
+      },
+      {
+        ...record,
+      }
+    );
 
     reset();
     setIsEditing(false);
   };
 
   const handleCancel = () => {
-    // console.log('handleCancel()');
-
     isDirty
       ? // eslint-disable-next-line no-restricted-globals
         confirm('Abandon unsaved changes?') && handleReset()
@@ -38,7 +43,14 @@ const ActionEdit = ({
   };
 
   const handleEdit = () => {
-    // console.log('handleEdit()');
+    onAction(
+      {
+        name: 'edit.start',
+      },
+      {
+        ...record,
+      }
+    );
 
     setIsEditing(true);
   };
@@ -46,7 +58,7 @@ const ActionEdit = ({
   const onSubmit = (data) => {
     onAction(
       {
-        label: saveLabel,
+        name: 'edit.save',
       },
       {
         ...record,

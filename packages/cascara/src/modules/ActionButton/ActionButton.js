@@ -8,12 +8,14 @@ const propTypes = pt.shape({
   content: pt.string,
   isLabeled: pt.bool,
   label: pt.string,
+  name: pt.string.isRequired,
 });
 
 const ActionButton = ({
   content = 'ActionButton',
   isLabeled = false,
   label,
+  name,
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
@@ -21,10 +23,8 @@ const ActionButton = ({
   // we need to mute the SUIR prop
   const buttonLabel = isLabeled ? content || label : null;
 
-  const handleClick = (e) => {
-    // eslint-disable-next-line no-console
-    console.log('ActionButton: handleClick()');
-    onAction({ label: buttonLabel }, record);
+  const handleClick = ({ currentTarget }) => {
+    onAction(currentTarget, record);
   };
 
   return isEditing ? null : (
@@ -34,6 +34,7 @@ const ActionButton = ({
       onClick={handleClick}
       {...rest}
       label={buttonLabel}
+      name={name}
       type='button'
     />
   );

@@ -5,28 +5,30 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
+import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = pt.shape({
+  /** A module can have an Attribute, which will be used as form field name */
+  attribute: pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
-  /** A Module can have a value */
-  value: pt.bool,
 });
 
 const DataRadio = ({
+  attribute,
   isEditable = true,
   isLabeled = true,
   label,
   options,
-  value,
   ...rest
 }) => {
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const value = getAttributeValueFromRecord(attribute, record);
   const radio = useRadioState({ state: value });
-  const { isEditing, formMethods } = useContext(ModuleContext);
 
   const renderRadio = (option) => (
     <label htmlFor={option.label}>
