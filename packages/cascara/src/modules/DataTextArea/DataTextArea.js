@@ -26,7 +26,7 @@ const DataTextArea = ({
   label,
   ...rest
 }) => {
-  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const { isEditing, formMethods, record = {} } = useContext(ModuleContext);
   const value = getAttributeValueFromRecord(attribute, record);
 
   const renderEditing = (

@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Dropdown, Header } from 'semantic-ui-react';
 
+import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
+
 import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
 import Table from '..';
@@ -116,11 +118,37 @@ class Fixture extends PureComponent {
     this.setState({ display: newDisplay });
   };
 
+  handleRecordUpdate = (record) => {
+    const { data } = this.state;
+
+    const updatedData = data.map((recordInState) => {
+      if (recordInState.eid !== record.eid) {
+        return recordInState;
+      }
+
+      return {
+        ...recordInState,
+        ...record,
+      };
+    });
+
+    this.setState({ data: updatedData });
+  };
+
   handleTableAction = (caller, data) => {
     // eslint-ignore-next-line no-console
     console.log(`Action: '${caller.name}' has been invoked:`);
     // eslint-ignore-next-line no-console
     console.table(data);
+
+    switch (caller.name) {
+      case 'edit.save':
+        this.handleRecordUpdate(data);
+        break;
+
+      default:
+        return;
+    }
   };
 
   render() {
@@ -155,6 +183,11 @@ class Fixture extends PureComponent {
 
     return (
       <>
+        <JsonPlaceholder data={dataConfig} title='dataConfig' />
+        <JsonPlaceholder
+          data={{ availableColumns, selectedColumns }}
+          title='available vs. selected columns'
+        />
         <Header as='h4'>
           <Header.Content>
             Displaying columns: <br />
