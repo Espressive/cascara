@@ -4,11 +4,11 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import { Button } from 'semantic-ui-react';
 
-const propTypes = pt.shape({
+const propTypes = {
   cancelLabel: pt.string,
   editLabel: pt.string,
   saveLabel: pt.string,
-});
+};
 
 const ActionEdit = ({
   cancelLabel = 'Cancel',

@@ -55,13 +55,13 @@ const propTypes = {
   config: pt.shape({
     columns: pt.arrayOf(
       pt.oneOfType([
-        dataCheckboxPT,
-        dataEmailPT,
-        dataNumberPT,
-        dataRadioPT,
-        dataSelectPT,
-        dataTextPT,
-        dataTextAreaPT,
+        pt.shape(dataCheckboxPT),
+        pt.shape(dataEmailPT),
+        pt.shape(dataNumberPT),
+        pt.shape(dataRadioPT),
+        pt.shape(dataSelectPT),
+        pt.shape(dataTextPT),
+        pt.shape(dataTextAreaPT),
       ])
     ),
     id: pt.string,
@@ -103,13 +103,13 @@ const TableRow = ({ config = {}, record = {} }) => {
   );
 
   const rowCells = columns.map((column) => {
-    const { module, ...rest } = column;
+    const { module, isLabeled, ...rest } = column;
     const Module = DATA_MODULES[module];
 
     return (
       <td className={styles.Cell} key={column.attribute}>
         {Module ? (
-          <Module {...rest} />
+          <Module isLabeled={false} {...rest} />
         ) : (
           <ModuleError
             message={`Invalid module`}

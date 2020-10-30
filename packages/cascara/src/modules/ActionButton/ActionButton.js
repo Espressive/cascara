@@ -4,12 +4,12 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import { Button } from 'semantic-ui-react';
 
-const propTypes = pt.shape({
+const propTypes = {
   content: pt.string,
   isLabeled: pt.bool,
   label: pt.string,
-  name: pt.string.isRequired,
-});
+  name: pt.string,
+};
 
 const ActionButton = ({
   content = 'ActionButton',

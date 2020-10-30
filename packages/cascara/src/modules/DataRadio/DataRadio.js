@@ -7,7 +7,7 @@ import styles from '../DataModule.module.scss';
 import ErrorBoundary from '../../shared/ErrorBoundary';
 import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
-const propTypes = pt.shape({
+const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
   attribute: pt.string,
   /** A Module can be defined to not present an editing state */
@@ -18,7 +18,7 @@ const propTypes = pt.shape({
   label: pt.string,
   /** A Module can have a value */
   value: pt.bool,
-});
+};
 
 const DataRadio = ({
   attribute,

@@ -25,16 +25,18 @@ import { propTypes as dataTextAreaPT } from '../../modules/DataTextArea';
 const propTypes = {
   data: pt.arrayOf(pt.shape({})),
   dataConfig: pt.shape({
-    actions: pt.arrayOf(pt.oneOfType([actionButtonPT, actionEditPT])),
+    actions: pt.arrayOf(
+      pt.oneOfType([pt.shape(actionButtonPT), pt.shape(actionEditPT)])
+    ),
     display: pt.arrayOf(
       pt.oneOfType([
-        dataCheckboxPT,
-        dataEmailPT,
-        dataNumberPT,
-        dataRadioPT,
-        dataSelectPT,
-        dataTextPT,
-        dataTextAreaPT,
+        pt.shape(dataCheckboxPT),
+        pt.shape(dataEmailPT),
+        pt.shape(dataNumberPT),
+        pt.shape(dataRadioPT),
+        pt.shape(dataSelectPT),
+        pt.shape(dataTextPT),
+        pt.shape(dataTextAreaPT),
       ])
     ),
   }),
