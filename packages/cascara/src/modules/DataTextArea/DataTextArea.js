@@ -17,6 +17,8 @@ const propTypes = pt.shape({
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
+  /** A Module can have a value */
+  value: pt.bool,
 });
 
 const DataTextArea = ({
@@ -24,10 +26,14 @@ const DataTextArea = ({
   isEditable = true,
   isLabeled = true,
   label,
+  value,
   ...rest
 }) => {
-  const { isEditing, formMethods, record = {} } = useContext(ModuleContext);
-  const value = getAttributeValueFromRecord(attribute, record);
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const finalValue =
+    attribute && record
+      ? getAttributeValueFromRecord(attribute, record)
+      : value;
 
   const renderEditing = (
     // eslint-disable-next-line jsx-a11y/label-has-for
@@ -37,7 +43,7 @@ const DataTextArea = ({
         {...rest}
         as={TextareaAutosize}
         className={styles.Input}
-        defaultValue={value}
+        defaultValue={finalValue}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
@@ -48,7 +54,7 @@ const DataTextArea = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <span className={styles.Input}>{value}</span>
+      <span className={styles.Input}>{finalValue}</span>
     </span>
   );
 

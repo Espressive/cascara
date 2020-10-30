@@ -1,4 +1,4 @@
-const getAttributeValueFromRecord = (attribute, record) => {
+const getAttributeValueFromRecord = (attribute, record = {}) => {
   const attributeExists = record.hasOwnProperty(attribute);
 
   if (attributeExists) {

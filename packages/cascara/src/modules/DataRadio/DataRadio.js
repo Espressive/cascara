@@ -16,6 +16,8 @@ const propTypes = pt.shape({
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
+  /** A Module can have a value */
+  value: pt.bool,
 });
 
 const DataRadio = ({
@@ -24,11 +26,15 @@ const DataRadio = ({
   isLabeled = true,
   label,
   options,
+  value,
   ...rest
 }) => {
   const { isEditing, formMethods, record } = useContext(ModuleContext);
-  const value = getAttributeValueFromRecord(attribute, record);
-  const radio = useRadioState({ state: value });
+  const finalValue =
+    attribute && record
+      ? getAttributeValueFromRecord(attribute, record)
+      : value;
+  const radio = useRadioState({ state: finalValue });
 
   const renderRadio = (option) => (
     <label htmlFor={option.label}>
@@ -56,7 +62,7 @@ const DataRadio = ({
     >
       {options
         ? options.map((option) => renderRadio(option))
-        : renderRadio(value)}
+        : renderRadio(finalValue)}
     </RadioGroup>
   );
 
@@ -64,7 +70,7 @@ const DataRadio = ({
     <ErrorBoundary>
       <div className={styles.Radio}>
         <span>
-          <span className={styles.Input}>{value}</span>
+          <span className={styles.Input}>{finalValue}</span>
           {label && isLabeled && (
             <span className={styles.LabelText}>{label}</span>
           )}
