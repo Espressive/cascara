@@ -4,18 +4,24 @@ import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
+import { getAttributeValueFromRecord } from '../../shared/recordUtils';
+
 const propTypes = {
+  /** A module can have an Attribute, which will be used as form field name */
+  attribute: pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
-  label: pt.string.isRequired,
+  label: pt.string,
   /** A Module can have a value */
   value: pt.bool,
 };
 
 const DataRadio = ({
+  attribute,
   isEditable = true,
   isLabeled = true,
   label,
@@ -23,8 +29,12 @@ const DataRadio = ({
   value,
   ...rest
 }) => {
-  const radio = useRadioState({ state: value });
-  const { isEditing, formMethods } = useContext(ModuleContext);
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const finalValue =
+    attribute && record
+      ? getAttributeValueFromRecord(attribute, record)
+      : value;
+  const radio = useRadioState({ state: finalValue });
 
   const renderRadio = (option) => (
     <label htmlFor={option.label}>
@@ -52,19 +62,21 @@ const DataRadio = ({
     >
       {options
         ? options.map((option) => renderRadio(option))
-        : renderRadio(value)}
+        : renderRadio(finalValue)}
     </RadioGroup>
   );
 
   const renderDisplay = (
-    <div className={styles.Radio}>
-      <span>
-        <span className={styles.Input}>{value}</span>
-        {label && isLabeled && (
-          <span className={styles.LabelText}>{label}</span>
-        )}
-      </span>
-    </div>
+    <ErrorBoundary>
+      <div className={styles.Radio}>
+        <span>
+          <span className={styles.Input}>{finalValue}</span>
+          {label && isLabeled && (
+            <span className={styles.LabelText}>{label}</span>
+          )}
+        </span>
+      </div>
+    </ErrorBoundary>
   );
 
   // Do not render an editable input if the module is not editable
@@ -73,4 +85,5 @@ const DataRadio = ({
 
 DataRadio.propTypes = propTypes;
 
+export { propTypes };
 export default DataRadio;

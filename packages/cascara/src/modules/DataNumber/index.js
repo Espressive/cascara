@@ -1,1 +1,1 @@
-export { default } from './DataNumber';
+export { default, propTypes } from './DataNumber';

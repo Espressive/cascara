@@ -4,6 +4,10 @@ $input-border-radius: 0.25em;
 $input-border-color: rgba(0, 0, 0, 0.5);
 $color-focus: goldenrod;
 
+$masonry-gutter: 2em;
+$module-border-radius: 0.5em;
+$module-background: #f0f0f0;
+
 %ModuleLabel {
   font-size: 0.875em;
   display: block;
@@ -182,5 +186,24 @@ $color-focus: goldenrod;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+  }
+}
+
+.Error {
+  padding: 1em;
+  border: 2px solid #900;
+  background-color: #fcc;
+  color: #900;
+  border-radius: $module-border-radius;
+  margin-bottom: $masonry-gutter;
+
+  h4 {
+    margin-bottom: 0.5em;
+  }
+
+  code {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0.125em 0.375em;
+    border-radius: 0.25em;
   }
 }

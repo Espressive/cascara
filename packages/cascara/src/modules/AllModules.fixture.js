@@ -9,7 +9,7 @@ import {
   DataCheckbox,
   DataEmail,
   DataNumber,
-  DataRadio,
+  // DataRadio,
   DataSelect,
   DataText,
   DataTextArea,
@@ -33,6 +33,21 @@ const options = [
   },
 ];
 
+// const boolOptions = [
+//   {
+//     label: 'Test A',
+//     value: false,
+//   },
+//   {
+//     label: 'Test B',
+//     value: false,
+//   },
+//   {
+//     label: 'Test C',
+//     value: false,
+//   },
+// ];
+
 const ALL_DATA_MODULES = (
   <>
     <DataEmail label='Email' value='b@bje.co' />
@@ -40,7 +55,7 @@ const ALL_DATA_MODULES = (
     <DataSelect label='Select' options={options} value='Washington' />
     <DataText label='Text' value={lorem} />
     <DataCheckbox label='Checkbox A' value={true} />
-    <DataRadio label='Radio' options={options} />
+    {/* {<DataRadio label='Radio' options={boolOptions} />} */}
     <DataTextArea label='TextArea' value={lorem} />
   </>
 );
@@ -80,9 +95,9 @@ const fakeRow = (
     <td className={tableStyles.Cell}>
       <DataCheckbox isLabeled={false} label='Checkbox' value={true} />
     </td>
-    <td className={tableStyles.Cell}>
+    {/* {<td className={tableStyles.Cell}>
       <DataRadio isLabeled={false} label='Radio' value='Cats' />
-    </td>
+    </td>} */}
     <td className={tableStyles.Cell}>
       <DataTextArea isLabeled={false} label='TextArea' value={lorem} />
     </td>

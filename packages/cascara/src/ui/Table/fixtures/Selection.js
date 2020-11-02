@@ -4,7 +4,7 @@ import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
 
 import TableContext, { TableContextProvider } from '../context';
-import SelectionToggle from '../atoms/SelectionToggle';
+// import SelectionToggle from '../atoms/SelectionToggle';
 
 const fakeEmployees = generateFakeEmployees(50);
 
@@ -71,11 +71,7 @@ const Table = () => {
   }
 
   if (selectionIsEnabled) {
-    columns.unshift(
-      <th>
-        <SelectionToggle id={'__ALL__'} />
-      </th>
-    );
+    columns.unshift(<th>[]</th>);
   }
 
   const actionBar = (
@@ -103,11 +99,7 @@ const Table = () => {
   // this will have its own context
   const renderRow = (row) => (
     <tr>
-      {[
-        <td>
-          <SelectionToggle id={row[uniqueIdAttribute]} />
-        </td>,
-      ].concat(
+      {[<td>[]</td>].concat(
         dataConfig.display.map((column) => (
           <td key={`${row[uniqueIdAttribute]}-${row[column.attribute]}`}>
             {row[column.attribute]}

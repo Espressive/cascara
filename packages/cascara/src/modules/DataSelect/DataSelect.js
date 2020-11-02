@@ -4,18 +4,24 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
+import { getAttributeValueFromRecord } from '../../shared/recordUtils';
+
 const propTypes = {
+  /** A module can have an Attribute, which will be used as form field name */
+  attribute: pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
-  label: pt.string.isRequired,
+  label: pt.string,
   /** A Module can have a value */
   value: pt.string,
 };
 
 const DataSelect = ({
+  attribute,
   isEditable = true,
   isLabeled = true,
   label,
@@ -23,7 +29,11 @@ const DataSelect = ({
   value,
   ...rest
 }) => {
-  const { isEditing, formMethods } = useContext(ModuleContext);
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const finalValue =
+    attribute && record
+      ? getAttributeValueFromRecord(attribute, record)
+      : value;
 
   const renderEditing = (
     <label htmlFor={label}>
@@ -32,9 +42,9 @@ const DataSelect = ({
         {...rest}
         as='select'
         className={styles.Input}
-        defaultValue={value}
+        defaultValue={finalValue}
         id={label}
-        name={label}
+        name={attribute || label}
         ref={formMethods?.register}
       >
         {options ? (
@@ -44,7 +54,7 @@ const DataSelect = ({
             </option>
           ))
         ) : (
-          <option value={value}>{value}</option>
+          <option value={finalValue}>{finalValue}</option>
         )}
       </Input>
     </label>
@@ -53,18 +63,21 @@ const DataSelect = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <span className={styles.Input}>{value}</span>
+      <span className={styles.Input}>{finalValue}</span>
     </span>
   );
 
   // Do not render an editable input if the module is not editable
   return (
-    <div className={styles.Select}>
-      {isEditing && isEditable ? renderEditing : renderDisplay}
-    </div>
+    <ErrorBoundary>
+      <div className={styles.Select}>
+        {isEditing && isEditable ? renderEditing : renderDisplay}
+      </div>
+    </ErrorBoundary>
   );
 };
 
 DataSelect.propTypes = propTypes;
 
+export { propTypes };
 export default DataSelect;

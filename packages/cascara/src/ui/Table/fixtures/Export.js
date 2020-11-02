@@ -11,62 +11,72 @@ class Fixture extends PureComponent {
       {
         attribute: 'fullName',
         isEditable: false,
+        isLabeled: false,
         label: 'Full Name',
-        type: 'string',
+        module: 'string',
       },
       {
         attribute: 'homePhone',
         isEditable: true,
+        isLabeled: false,
         label: 'Home Phone',
-        type: 'phone',
+        module: 'phone',
       },
       {
         attribute: 'eid',
         isEditable: false,
+        isLabeled: false,
         label: 'ID',
-        type: 'string',
+        module: 'string',
       },
       {
         attribute: 'avatar',
         isEditable: false,
+        isLabeled: false,
         label: 'Avatar',
-        type: 'string',
+        module: 'string',
       },
       {
         attribute: 'country',
         isEditable: false,
+        isLabeled: false,
         label: 'Country',
-        type: 'string',
+        module: 'string',
       },
       {
         attribute: 'date',
         isEditable: false,
+        isLabeled: false,
         label: 'Hired',
-        type: 'date',
+        module: 'date',
       },
       {
         attribute: 'department',
         isEditable: false,
+        isLabeled: false,
         label: 'Department',
-        type: 'string',
+        module: 'string',
       },
       {
         attribute: 'nickname',
         isEditable: false,
+        isLabeled: false,
         label: 'Nickname',
-        type: 'string',
+        module: 'string',
       },
       {
         attribute: 'officePhone',
         isEditable: false,
+        isLabeled: false,
         label: 'Office phone',
-        type: 'string',
+        module: 'string',
       },
       {
         attribute: 'title',
         isEditable: false,
+        isLabeled: false,
         label: 'Title',
-        type: 'string',
+        module: 'string',
       },
     ],
     data: generateFakeEmployees(50).map((employee) => ({
@@ -76,12 +86,14 @@ class Fixture extends PureComponent {
       {
         attribute: 'fullName',
         isEditable: false,
+        isLabeled: false,
         label: 'Full Name',
         type: 'string',
       },
       {
         attribute: 'homePhone',
         isEditable: true,
+        isLabeled: false,
         label: 'Home Phone',
         type: 'phone',
       },
@@ -140,41 +152,28 @@ class Fixture extends PureComponent {
     const bulkActions = csvData
       ? [
           {
+            content: 'Download',
             data: csvData,
             fileName: 'Espressive Table - Employee.csv',
             fileType: 'text/csv',
-            label: 'Download',
-            module: {
-              type: 'download',
-            },
+            module: 'download',
           },
         ]
       : [
           {
-            label: 'Export as CSV',
-            module: {
-              type: 'button',
-            },
+            content: 'Export as CSV',
+            module: 'button',
           },
         ];
     const dataConfig = {
       actions: [
         {
-          label: 'View',
+          content: 'View',
           module: 'button',
           size: 'small',
         },
         {
-          cancellabel: 'Cancel',
-          label: 'Edit',
-          savelabel: 'Save',
-          size: 'small',
-          type: 'edit',
-        },
-        {
-          label: 'Delete',
-          module: 'button',
-          outcome: 'negative',
+          module: 'edit',
           size: 'small',
         },
       ],

@@ -10,7 +10,6 @@ const RowProvider = ({ children, value, ...props }) => {
   // us to control how these values get set if the overall table is getting edited on
   // another row.
   const { isEditing, setIsEditing, ...rest } = grandparentValues;
-
   const mergedValues = {
     ...ModuleContext.defaultValue,
     ...rest,

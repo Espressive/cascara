@@ -1,1 +1,1 @@
-export { default } from './DataSelect';
+export { default, propTypes } from './DataSelect';

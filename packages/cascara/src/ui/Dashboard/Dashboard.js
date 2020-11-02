@@ -13,23 +13,23 @@ import WidgetStats from './widgets/WidgetStats';
 
 import WidgetError from './widgets/WidgetError';
 
-const WIDGET_KEYS = {
-  bar: 'bar',
-  geoMap: 'geo-map',
-  heatMap: 'heat-map',
-  line: 'line',
-  pie: 'pie',
-  stats: 'stats',
-  // treeMap: 'tree-map',
+const WIDGETS = {
+  bar: WidgetBar,
+  'geo-map': WidgetGeoMap,
+  'heat-map': WidgetHeatMap,
+  line: WidgetLine,
+  pie: WidgetPie,
+  stats: WidgetStats,
+  // 'tree-map': WidgetTreeMap,
 };
 
-const keyValues = Object.values(WIDGET_KEYS);
+const widgetKeys = Object.keys(WIDGETS);
 
 const propTypes = {
   /** Configuration of all widgets for a dashboard */
   config: pt.arrayOf(
     pt.shape({
-      widget: pt.oneOf(keyValues).isRequired,
+      widget: pt.oneOf(widgetKeys).isRequired,
     })
   ).isRequired,
 };
@@ -37,47 +37,34 @@ const propTypes = {
 const Dashboard = ({ config }) => {
   const renderWidget = ({ widget, ...rest }, index) => {
     const key = rest?.title + widget || index;
-    switch (widget) {
-      case WIDGET_KEYS.bar:
-        return <WidgetBar {...rest} key={key} />;
-      case WIDGET_KEYS.geoMap:
-        return <WidgetGeoMap {...rest} key={key} />;
-      case WIDGET_KEYS.heatMap:
-        return <WidgetHeatMap {...rest} key={key} />;
-      case WIDGET_KEYS.line:
-        return <WidgetLine {...rest} key={key} />;
-      case WIDGET_KEYS.pie:
-        return <WidgetPie {...rest} key={key} />;
-      case WIDGET_KEYS.stats:
-        return <WidgetStats {...rest} key={key} />;
-      // case WIDGET_KEYS.treeMap:
-      //   return <WidgetTreeMap {...rest} key={key} />;
-      default:
-        return (
-          // TODO: This should eventually become a message component for displaying helpful developer messages
-          <WidgetError
-            key={key}
-            message={
-              <>
-                <p>
-                  <code>{widget}</code>
-                  {' is not a valid value for '}
-                  <code>widget</code>.
-                </p>
-                <p>
-                  Try:{' '}
-                  {keyValues.map((key, i) => (
-                    <>
-                      <code key={key}>{key}</code>
-                      {keyValues.length > i + 1 && ', '}
-                    </>
-                  ))}
-                </p>
-              </>
-            }
-          />
-        );
-    }
+    const Component = WIDGETS[widget];
+
+    return Component ? (
+      <Component {...rest} key={key} />
+    ) : (
+      // TODO: This should eventually become a message component for displaying helpful developer messages
+      <WidgetError
+        key={key}
+        message={
+          <>
+            <p>
+              <code>{widget}</code>
+              {' is not a valid value for '}
+              <code>widget</code>.
+            </p>
+            <p>
+              Try:{' '}
+              {widgetKeys.map((key, i) => (
+                <>
+                  <code key={key}>{key}</code>
+                  {widgetKeys.length > i + 1 && ', '}
+                </>
+              ))}
+            </p>
+          </>
+        }
+      />
+    );
   };
 
   return (
