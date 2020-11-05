@@ -10,10 +10,6 @@ const TableHeader = () => {
     <th key={column.attribute}>{column.label}</th>
   ));
 
-  if (dataConfig.actions && dataConfig.actions.length) {
-    headerCells.push(<th key={'action-bar-slot'} />);
-  }
-
   return (
     <ErrorBoundary>
       <thead className={styles.HeadContainer}>

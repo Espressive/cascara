@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table component tree default props 1`] = `<div />`;
+
+exports[`Table component tree no row actions 1`] = `<div />`;
+
 exports[`Table component tree snapshot test 1`] = `
 <div>
   <form>
@@ -40,7 +44,6 @@ exports[`Table component tree snapshot test 1`] = `
           <th>
             Title
           </th>
-          <th />
         </tr>
       </thead>
       <tbody
