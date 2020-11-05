@@ -5,23 +5,21 @@ import { ModuleContext } from '../context';
 import { Button } from 'semantic-ui-react';
 
 const propTypes = {
-  content: pt.string,
   isLabeled: pt.bool,
   label: pt.string,
   name: pt.string,
 };
 
 const ActionButton = ({
-  content = 'ActionButton',
   isLabeled = false,
-  label,
+  label = 'ActionButton',
   name,
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
 
   // we need to mute the SUIR prop
-  const buttonLabel = isLabeled ? content || label : null;
+  const buttonLabel = isLabeled ? label : null;
 
   const handleClick = ({ currentTarget }) => {
     onAction(currentTarget, record);
@@ -30,7 +28,7 @@ const ActionButton = ({
   return isEditing ? null : (
     <Button
       basic
-      content={content}
+      content={label}
       onClick={handleClick}
       {...rest}
       label={buttonLabel}
