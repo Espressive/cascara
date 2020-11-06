@@ -1,0 +1,42 @@
+[
+  {
+    "label": "Where is the company calendar",
+    "value": 2
+  },
+  {
+    "label": "Can I go to a conference",
+    "value": 6
+  },
+  {
+    "label": "Can I wear shorts to work",
+    "value": 10
+  },
+  {
+    "label": "What is the address to my office",
+    "value": 12
+  },
+  {
+    "label": "When is the company town hall",
+    "value": 23
+  },
+  {
+    "label": "I need a purchase order",
+    "value": 30
+  },
+  {
+    "label": "How much vacation time do I have",
+    "value": 50
+  },
+  {
+    "label": "Where is jellybean conference room",
+    "value": 54
+  },
+  {
+    "label": "How do I get a Salesforce Account",
+    "value": 100
+  },
+  {
+    "label": "Can I get a new monitor",
+    "value": 130
+  }
+]
