@@ -2,7 +2,6 @@
   "name": "@espressive/cascara",
   "version": "0.2.1",
   "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
   "repository": {
     "directory": "packages/cascara",
     "type": "git",
@@ -42,7 +41,7 @@
   },
   "scripts": {
     "build": "yarn clean && rollup -c",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm -rf undefined",
     "prepublish": "yarn build",
     "watch": "rollup -c -w"
   },

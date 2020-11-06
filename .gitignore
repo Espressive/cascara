@@ -7,6 +7,7 @@ build
 cjs
 coverage
 dist
+undefined
 docs/404.html
 docs/out_functions
 docs/out_publish
