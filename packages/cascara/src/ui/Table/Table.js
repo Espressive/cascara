@@ -29,7 +29,7 @@ const propTypes = {
     }).isRequired,
   }),
   onAction: pt.func,
-  uniqueIdAttribute: pt.string.isRequired,
+  uniqueIdAttribute: pt.string,
 };
 
 /** This is a Table */
