@@ -45,7 +45,11 @@ const PropTable = ({ docData, ...rest }) => {
                   <dt>Alowed Values</dt>
                   <dd>
                     {propData?.type?.name !== 'arrayOf' ? (
-                      propData.type.value.map((value, i) => {
+                      <pre>
+                        {JSON.stringify(propData?.type?.value, null, '  ')}
+                      </pre>
+                    ) : (
+                      /* propData.type.value.map((value, i) => {
                         const item = value.name ? (
                           <span key={i}>{value.name}</span>
                         ) : (
@@ -53,8 +57,7 @@ const PropTable = ({ docData, ...rest }) => {
                         );
 
                         return item;
-                      })
-                    ) : (
+                      }) */
                       <pre>
                         {JSON.stringify(propData?.type?.value, null, '  ')}
                       </pre>

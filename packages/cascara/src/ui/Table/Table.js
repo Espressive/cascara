@@ -14,13 +14,9 @@ import { propTypes as actionButtonPT } from '../../modules/ActionButton';
 import { propTypes as actionEditPT } from '../../modules/ActionEdit';
 
 // Data modules
-import { propTypes as dataCheckboxPT } from '../../modules/DataCheckbox';
-import { propTypes as dataEmailPT } from '../../modules/DataEmail';
-import { propTypes as dataNumberPT } from '../../modules/DataNumber';
-import { propTypes as dataRadioPT } from '../../modules/DataRadio';
-import { propTypes as dataSelectPT } from '../../modules/DataSelect';
-import { propTypes as dataTextPT } from '../../modules/DataText';
-import { propTypes as dataTextAreaPT } from '../../modules/DataTextArea';
+import { actionModules } from '../../modules/ModuleKeys';
+
+const actionModuleOptions = Object.keys(actionModules);
 
 const propTypes = {
   data: pt.arrayOf(pt.shape({})),
@@ -28,22 +24,15 @@ const propTypes = {
     actions: pt.arrayOf(
       pt.oneOfType([pt.shape(actionButtonPT), pt.shape(actionEditPT)])
     ),
-    display: pt.arrayOf(
-      pt.oneOfType([
-        pt.shape(dataCheckboxPT),
-        pt.shape(dataEmailPT),
-        pt.shape(dataNumberPT),
-        pt.shape(dataRadioPT),
-        pt.shape(dataSelectPT),
-        pt.shape(dataTextPT),
-        pt.shape(dataTextAreaPT),
-      ])
-    ),
+    display: pt.shape({
+      module: pt.oneOf(actionModuleOptions).isRequired,
+    }).isRequired,
   }),
   onAction: pt.func,
   uniqueIdAttribute: pt.string.isRequired,
 };
 
+/** This is a Table */
 const Table = ({
   data,
   dataConfig,

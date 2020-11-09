@@ -8,61 +8,25 @@ import { ModuleContext } from '../../modules/context';
 
 import ActionBar from './ActionBar';
 
-// Actions
-import ActionButton from '../../modules/ActionButton';
-import ActionEdit from '../../modules/ActionEdit';
-import DownloadButton from '../../modules/DownloadButton';
-
 // Data
 // @manu: let's document this one
 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
-import DataCheckbox, {
-  propTypes as dataCheckboxPT,
-} from '../../modules/DataCheckbox';
-import DataEmail, { propTypes as dataEmailPT } from '../../modules/DataEmail';
-import DataNumber, {
-  propTypes as dataNumberPT,
-} from '../../modules/DataNumber';
-import DataRadio, { propTypes as dataRadioPT } from '../../modules/DataRadio';
-import DataSelect, {
-  propTypes as dataSelectPT,
-} from '../../modules/DataSelect';
-import DataText, { propTypes as dataTextPT } from '../../modules/DataText';
-import DataTextArea, {
-  propTypes as dataTextAreaPT,
-} from '../../modules/DataTextArea';
+
 import ModuleError from '../../modules/ModuleError';
 
-const ACTION_MODULES = {
-  button: ActionButton,
-  download: DownloadButton,
-  edit: ActionEdit,
-};
-const DATA_MODULES = {
-  checkbox: DataCheckbox,
-  email: DataEmail,
-  number: DataNumber,
-  radio: DataRadio,
-  select: DataSelect,
-  switch: DataCheckbox,
-  text: DataText,
-  textarea: DataTextArea,
-};
-const actionModuleOptions = Object.keys(ACTION_MODULES);
-const dataModuleOptions = Object.keys(DATA_MODULES);
+import { actionModules, dataModules } from '../../modules/ModuleKeys';
+
+const actionModuleOptions = Object.keys(actionModules);
+const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
   config: pt.shape({
     columns: pt.arrayOf(
-      pt.oneOfType([
-        pt.shape(dataCheckboxPT),
-        pt.shape(dataEmailPT),
-        pt.shape(dataNumberPT),
-        pt.shape(dataRadioPT),
-        pt.shape(dataSelectPT),
-        pt.shape(dataTextPT),
-        pt.shape(dataTextAreaPT),
-      ])
+      pt.oneOfType(
+        pt.shape({
+          module: pt.oneOf(actionModuleOptions).isRequired,
+        }).isRequired
+      )
     ),
     id: pt.string,
   }),
@@ -80,7 +44,7 @@ const TableRow = ({ config = {}, record = {} }) => {
       <ActionBar
         actions={userDefinedActions.map((action) => {
           const { module, ...rest } = action;
-          const Action = ACTION_MODULES[module];
+          const Action = actionModules[module];
 
           /**
            * In certain predefined-action modules in which a label is not required, e.g. `edit`,
@@ -104,7 +68,7 @@ const TableRow = ({ config = {}, record = {} }) => {
 
   const rowCells = columns.map((column) => {
     const { module, isLabeled, ...rest } = column;
-    const Module = DATA_MODULES[module];
+    const Module = dataModules[module];
 
     return (
       <td className={styles.Cell} key={column.attribute}>
