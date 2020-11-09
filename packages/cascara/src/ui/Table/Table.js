@@ -24,9 +24,11 @@ const propTypes = {
     actions: pt.arrayOf(
       pt.oneOfType([pt.shape(actionButtonPT), pt.shape(actionEditPT)])
     ),
-    display: pt.shape({
-      module: pt.oneOf(actionModuleOptions).isRequired,
-    }).isRequired,
+    display: pt.arrayOf(
+      pt.shape({
+        module: pt.oneOf(actionModuleOptions).isRequired,
+      })
+    ),
   }),
   onAction: pt.func,
   uniqueIdAttribute: pt.string,
