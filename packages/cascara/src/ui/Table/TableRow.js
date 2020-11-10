@@ -1,59 +1,100 @@
 import React, { useContext } from 'react';
+import pt from 'prop-types';
+import styles from './Table.module.scss';
 
-import Button from '../Button';
+import ErrorBoundary from '../../shared/ErrorBoundary';
+import RowProvider from './context/RowProvider';
+import { ModuleContext } from '../../modules/context';
 
-import TableContext from './context';
-import SelectionToggle from './atoms/SelectionToggle';
 import ActionBar from './ActionBar';
 
-const TableRow = ({ id, columns }) => {
-  const { actions, handleOnAction, selectionIsEnabled } = useContext(
-    TableContext
-  );
-  const selectionCell = (
-    <td key={`${id}-select`}>
-      <SelectionToggle id={id} />
-    </td>
-  );
+// Data
+// @manu: let's document this one
+// https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
+
+import ModuleError from '../../modules/ModuleError';
+
+import { actionModules, dataModules } from '../../modules/ModuleKeys';
+
+const actionModuleOptions = Object.keys(actionModules);
+const dataModuleOptions = Object.keys(dataModules);
+
+const propTypes = {
+  config: pt.shape({
+    columns: pt.arrayOf(
+      pt.oneOfType(
+        pt.shape({
+          module: pt.oneOf(actionModuleOptions).isRequired,
+        }).isRequired
+      )
+    ),
+    id: pt.string,
+  }),
+  record: pt.shape({}),
+};
+
+const TableRow = ({ config = {}, record = {} }) => {
+  const { id, columns } = config;
+  const {
+    dataConfig: { actions: userDefinedActions = [] },
+  } = useContext(ModuleContext);
+
   const actionBarCell = (
-    <td key={`${id}-actionbar`}>
+    <td className={styles.Cell} key={`${id}-actionbar`}>
       <ActionBar
-        actions={actions.map((action) => (
-          <Button
-            {...action}
-            content={action.label}
-            key={action.label}
-            onClick={() => handleOnAction(action, id)}
-          />
-        ))}
+        actions={userDefinedActions.map((action) => {
+          const { module, ...rest } = action;
+          const Action = actionModules[module];
+
+          /**
+           * In certain predefined-action modules in which a label is not required, e.g. `edit`,
+           * the following unique key generation fails, as it relies on the label (content). */
+          const key = `${id}.${module}.${rest.label || module}`;
+
+          return Action ? (
+            <Action key={key} {...rest} />
+          ) : (
+            <ModuleError
+              key={key}
+              moduleName={module}
+              moduleOptions={actionModuleOptions}
+            />
+          );
+        })}
       />
     </td>
   );
 
   const rowCells = columns.map((column) => {
-    if (column.attribute === 'avatar') {
-      return (
-        <td key={column.attribute}>
-          <img
-            alt={'avatar'}
-            src={`${column.value}`}
-            style={{ borderRadius: '50%', width: '1.5em' }}
-          />
-        </td>
-      );
-    }
+    const { module, isLabeled, ...rest } = column;
+    const Module = dataModules[module];
 
-    return <td key={column.attribute}>{`${column.value}`}</td>;
+    return (
+      <td className={styles.Cell} key={column.attribute}>
+        {Module ? (
+          <Module isLabeled={false} {...rest} />
+        ) : (
+          <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
+        )}
+      </td>
+    );
   });
 
-  if (selectionIsEnabled) {
-    rowCells.unshift(selectionCell);
-  }
-  if (actions.length) {
+  if (userDefinedActions.length) {
     rowCells.push(actionBarCell);
   }
 
-  return <tr key={id}>{rowCells}</tr>;
+  return (
+    <ErrorBoundary>
+      <RowProvider value={{ record }}>
+        <tr className={styles.Row} key={id}>
+          {rowCells}
+        </tr>
+      </RowProvider>
+    </ErrorBoundary>
+  );
 };
+
+TableRow.propTypes = propTypes;
 
 export default TableRow;

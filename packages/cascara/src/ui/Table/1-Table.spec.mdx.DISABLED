@@ -1,7 +1,28 @@
 ---
 title: Spec
 status: WIP
+propTable: Table.js
 ---
+
+```jsx
+<Table
+  data={[
+    {
+      eid: 123,
+      name: 'Name Here',
+    },
+  ]}
+  dataConfig={{
+    actions: [],
+    display: [
+      {
+        attribute: 'name',
+        module: 'text',
+      },
+    ],
+  }}
+/>
+```
 
 # Table
 

@@ -1,8 +1,7 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
   "repository": {
     "directory": "packages/cascara",
     "type": "git",
@@ -11,6 +10,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "module": "dist/es/index.js",
   "files": [
     "dist",
     "private"
@@ -19,13 +19,13 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "7.11.2",
-    "@nivo/bar": "0.62.0",
-    "@nivo/bump": "0.62.0",
-    "@nivo/geo": "0.62.0",
-    "@nivo/heatmap": "0.62.0",
-    "@nivo/line": "0.62.0",
-    "@nivo/pie": "0.62.0",
-    "@nivo/treemap": "0.62.0",
+    "@nivo/bar": "0.63.1",
+    "@nivo/bump": "0.63.1",
+    "@nivo/geo": "0.63.1",
+    "@nivo/heatmap": "0.63.0",
+    "@nivo/line": "0.63.1",
+    "@nivo/pie": "0.63.1",
+    "@nivo/treemap": "0.63.0",
     "classnames": "2.2.6",
     "react-hook-form": "6.8.4",
     "react-textarea-autosize": "8.2.0",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@espressive/legacy-css": "^0.2.1",
+    "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
@@ -42,7 +43,7 @@
   },
   "scripts": {
     "build": "yarn clean && rollup -c",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm -rf undefined",
     "prepublish": "yarn build",
     "watch": "rollup -c -w"
   },

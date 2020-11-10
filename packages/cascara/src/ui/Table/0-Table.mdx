@@ -1,0 +1,204 @@
+---
+title: Table
+status: DRAFT
+propTable: Table.js
+---
+
+# Public API
+
+## data
+
+Every object in this array will potencially be rendered as a table row.
+The shape is up to you, the only requirement is that every objecct(row) must
+have an attribute that uniquely identifies the object in the array.
+
+We call this attribute `uniqueIdAttribute`, which you will be able to specify later on.
+
+```javascript
+const data = {[
+  {
+    id: 1,
+    userEmail: 'john@doe.it',
+    userName: 'John Doe',
+  },
+  {
+    id: 2,
+    userEmail: 'jane@doe.it',
+    userName: 'Jane Doe',
+  },
+  {
+    id: 3,
+    userEmail: 'jim@doe.it',
+    userName: 'Jim Doe',
+  },
+]}
+```
+
+## dataConfig
+
+The main configuration for your table. Here you can specify the columns to display as well as the available actions (if any) for each row.
+This is the core of Table's configuration, here you can define:
+
+### actions
+
+Actions will be appended to each row, they'll appear as buttons. Contrary to the objects in 'data', the shape of these does matter.
+
+Actions can be of two types (for now...), the first and most common is `button`, which emits an `action` event. But if your data is `editable`, the second option
+`edit` will do the trick.
+
+### display
+
+Here you can describe each of the `visible columns` in your `table`. `display` items have a special shape too, good news is that you have plenty more options to choose from. Please choose the one that best fits your data type.
+
+```javascript
+const data = {{
+  data: [
+    {
+      id: 1,
+      userEmail: 'john@doe.it',
+      userName: 'John Doe',
+    },
+    {
+      id: 2,
+      userEmail: 'jane@doe.it',
+      userName: 'Jane Doe',
+    },
+    {
+      id: 3,
+      userEmail: 'jim@doe.it',
+      userName: 'Jim Doe',
+    },
+  ],
+  dataConfig: {
+    display: [
+      {
+        attribute: 'id', // specifies the attribute in your data that represents this column
+        isEditable: false, // if true, the edition mode will be activated
+        isLabeled: false, // modules display a label, if false they won't
+        label: 'ID', // the label to display as column header
+        module: 'text', // The data module to handle the display/edit UI
+      },
+      {
+        attribute: 'userEmail',
+        isEditable: false,
+        isLabeled: false,
+        label: 'eMail',
+        module: 'text',
+      },
+      {
+        attribute: 'userName',
+        isEditable: false,
+        isLabeled: false,
+        label: 'Name',
+        module: 'text',
+      },
+    ],
+  },
+}}
+```
+
+## onAction (event handler)
+
+A function you can pass to handle every event your table emits. Every event carries two pieces of information:
+
+- target, the object that was actually clicked and
+- record, the object that represents the row upon which the action was applied.
+
+```javascript
+const onAction = (target, record) => {
+  switch (target.id) {
+    case 'view':
+      // do something with record
+      break;
+
+    case 'edit.save':
+      // do something with record
+      break;
+  }
+};
+```
+
+## uniqueIdAttribute
+
+Specifies the attribute that uniquely identifies every object in the `data` array.
+
+# Mixing everyting together
+
+The the four props described earlier, we can easily create a table:
+
+```jsx
+<Table
+  data={[
+    {
+      userId: 1,
+      id: 1,
+      title: 'quidem molestiae enim',
+    },
+    {
+      userId: 1,
+      id: 2,
+      title: 'sunt qui excepturi placeat culpa',
+    },
+    {
+      userId: 1,
+      id: 3,
+      title: 'omnis laborum odio',
+    },
+    {
+      userId: 1,
+      id: 4,
+      title: 'non esse culpa molestiae omnis sed optio',
+    },
+    {
+      userId: 1,
+      id: 5,
+      title: 'eaque aut omnis a',
+    },
+    {
+      userId: 1,
+      id: 6,
+      title: 'natus impedit quibusdam illo est',
+    },
+    {
+      userId: 1,
+      id: 7,
+      title: 'quibusdam autem aliquid et et quia',
+    },
+  ]}
+  dataConfig={{
+    actions: [
+      {
+        isLabeled: false,
+        module: 'button',
+        name: 'view',
+        size: 'small',
+      },
+    ],
+    display: [
+      {
+        attribute: 'id',
+        isEditable: false,
+        isLabeled: false,
+        label: 'ID',
+        module: 'text',
+      },
+      {
+        attribute: 'userId',
+        isEditable: false,
+        isLabeled: false,
+        label: 'User ID',
+        module: 'text',
+      },
+      {
+        attribute: 'title',
+        isEditable: false,
+        isLabeled: false,
+        label: 'Title',
+        module: 'text',
+      },
+    ],
+  }}
+  onAction={console.log}
+  uniqueIdAttribute={'id'}
+/>
+```

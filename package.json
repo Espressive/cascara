@@ -78,7 +78,7 @@
     "cosmos": "cosmos --config .cosmos/config.json",
     "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
     "framer:publish": "dotenv npx framer-cli publish",
-    "test": "jest --config .jest/config.js",
+    "test": "jest",
     "test:watch": "yarn test --watch",
     "lint": "eslint ./",
     "tokens": "style-dictionary build -c ./tokens.config.json"

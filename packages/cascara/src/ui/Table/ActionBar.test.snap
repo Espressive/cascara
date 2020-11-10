@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionBar component tree default props 1`] = `
+<div>
+  
+  0
+</div>
+`;
+
+exports[`ActionBar component tree snapshot 1`] = `
+<div>
+  <span>
+    Espressive
+  </span>
+  <button
+    class="ui small basic button"
+    data-testid="new"
+    name="new"
+    type="button"
+  >
+    new
+  </button>
+  <button
+    class="ui small basic button"
+    data-testid="edit"
+    name="edit"
+    type="button"
+  >
+    edit
+  </button>
+</div>
+`;

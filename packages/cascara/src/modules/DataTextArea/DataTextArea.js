@@ -5,25 +5,37 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
+import { getAttributeValueFromRecord } from '../../shared/recordUtils';
+
 const propTypes = {
+  /** A module can have an Attribute, which will be used as form field name */
+  attribute: pt.string,
+  /** A module can have a data test id, which will be used in tests */
+  'data-testid': pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
-  label: pt.string.isRequired,
+  label: pt.string,
   /** A Module can have a value */
   value: pt.string,
 };
 
 const DataTextArea = ({
+  attribute,
   isEditable = true,
   isLabeled = true,
   label,
   value,
   ...rest
 }) => {
-  const { isEditing, formMethods } = useContext(ModuleContext);
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const finalValue =
+    attribute && record
+      ? getAttributeValueFromRecord(attribute, record)
+      : value;
 
   const renderEditing = (
     // eslint-disable-next-line jsx-a11y/label-has-for
@@ -33,9 +45,9 @@ const DataTextArea = ({
         {...rest}
         as={TextareaAutosize}
         className={styles.Input}
-        defaultValue={value}
+        defaultValue={finalValue}
         id={label}
-        name={label}
+        name={attribute || label}
         ref={formMethods?.register}
       />
     </label>
@@ -44,19 +56,24 @@ const DataTextArea = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <span className={styles.Input}>{value}</span>
+      <span className={styles.Input} {...rest}>
+        {finalValue}
+      </span>
     </span>
   );
 
   // Do not render an editable input if the module is not editable
   return (
-    <div className={styles.TextArea}>
-      {isEditing && isEditable ? renderEditing : renderDisplay}
-    </div>
+    <ErrorBoundary>
+      <div className={styles.TextArea}>
+        {isEditing && isEditable ? renderEditing : renderDisplay}
+      </div>
+    </ErrorBoundary>
   );
 };
 
 DataTextArea.propTypes = propTypes;
 DataTextArea.displayName = 'textarea';
 
+export { propTypes };
 export default DataTextArea;

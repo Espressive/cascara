@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DefaultErrorTemplate /> snapshot for empty state 1`] = `
+<div
+  className="ui small error message"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="header"
+    >
+      Error
+    </div>
+    <details
+      style={
+        Object {
+          "fontSize": "12px",
+          "whiteSpace": "pre-wrap",
+        }
+      }
+    >
+      
+    </details>
+  </div>
+</div>
+`;
+
+exports[`<DefaultErrorTemplate /> snapshot with props 1`] = `
+<div
+  className="ui small error message"
+>
+  <div
+    className="content"
+  >
+    <div
+      className="header"
+    >
+      Error: I crashed!
+    </div>
+    <details
+      style={
+        Object {
+          "fontSize": "12px",
+          "whiteSpace": "pre-wrap",
+        }
+      }
+    >
+      Lorem Ipsum is simply dummy text
+    </details>
+  </div>
+</div>
+`;

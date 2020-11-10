@@ -1,25 +1,30 @@
 import React, { useContext } from 'react';
+import styles from './Table.module.scss';
 
-import TableContext from './context';
+import ErrorBoundary from '../../shared/ErrorBoundary';
+import { ModuleContext } from '../../modules/context';
 import TableRow from './TableRow';
 
 const TableBody = () => {
-  const { data, dataConfig, uniqueIdAttribute } = useContext(TableContext);
-  const rows = data.map((record) => ({
+  const { data, dataConfig, uniqueIdAttribute } = useContext(ModuleContext);
+  const rows = data.map((data) => ({
     columns: dataConfig.display.map((itemConfig) => ({
       ...itemConfig,
-      value: record[itemConfig.attribute],
     })),
-    id: record[uniqueIdAttribute],
-    key: record[uniqueIdAttribute],
+    data,
+    id: data[uniqueIdAttribute],
   }));
 
   return (
-    <tbody>
-      {rows.map((record) => (
-        <TableRow {...record} />
-      ))}
-    </tbody>
+    <ErrorBoundary>
+      <tbody className={styles.BodyContainer}>
+        {rows.map((record) => {
+          const { data, ...rest } = record;
+
+          return <TableRow config={rest} key={record.id} record={data} />;
+        })}
+      </tbody>
+    </ErrorBoundary>
   );
 };
 

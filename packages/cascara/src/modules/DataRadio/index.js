@@ -1,1 +1,1 @@
-export { default } from './DataRadio';
+export { default, propTypes } from './DataRadio';

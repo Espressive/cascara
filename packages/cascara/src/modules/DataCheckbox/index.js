@@ -1,1 +1,1 @@
-export { default } from './DataCheckbox';
+export { default, propTypes } from './DataCheckbox';

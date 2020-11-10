@@ -4,25 +4,37 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import ErrorBoundary from '../../shared/ErrorBoundary';
+import { getAttributeValueFromRecord } from '../../shared/recordUtils';
+
 const propTypes = {
+  /** A module can have an Attribute, which will be used as form field name */
+  attribute: pt.string,
+  /** A module can have a data test id, which will be used in tests */
+  'data-testid': pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
-  label: pt.string.isRequired,
+  label: pt.string,
   /** A Module can have a value */
   value: pt.string,
 };
 
 const DataText = ({
+  attribute,
   isEditable = true,
   isLabeled = true,
-  value,
   label,
+  value,
   ...rest
 }) => {
-  const { isEditing, formMethods } = useContext(ModuleContext);
+  const { isEditing, formMethods, record } = useContext(ModuleContext);
+  const finalValue =
+    attribute && record
+      ? getAttributeValueFromRecord(attribute, record)
+      : value;
 
   const renderEditing = (
     <label htmlFor={label}>
@@ -30,9 +42,9 @@ const DataText = ({
       <Input
         {...rest}
         className={styles.Input}
-        defaultValue={value}
+        defaultValue={finalValue}
         id={label}
-        name={label}
+        name={attribute || label}
         ref={formMethods?.register}
         type='text'
       />
@@ -42,18 +54,23 @@ const DataText = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
-      <span className={styles.Input}>{value}</span>
+      <span className={styles.Input} {...rest}>
+        {finalValue}
+      </span>
     </span>
   );
 
   // Do not render an editable input if the module is not editable
   return (
-    <div className={styles.Text}>
-      {isEditing && isEditable ? renderEditing : renderDisplay}
-    </div>
+    <ErrorBoundary>
+      <div className={styles.Text}>
+        {isEditing && isEditable ? renderEditing : renderDisplay}
+      </div>
+    </ErrorBoundary>
   );
 };
 
 DataText.propTypes = propTypes;
 
+export { propTypes };
 export default DataText;

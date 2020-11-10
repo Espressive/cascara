@@ -12,6 +12,7 @@ import {
   Dashboard,
   JsonPlaceholder,
   Pagination,
+  Table,
 } from '@espressive/cascara';
 
 import {
@@ -27,11 +28,12 @@ import {
   ModuleProvider,
 } from '@espressive/cascara/private';
 
-import { Code, Placeholder } from '../components';
+import { Asciagram, Code, Placeholder } from '../components';
 
 /* eslint-disable sort-keys */
 const MDX_COMPONENTS = {
   // Docs
+  Asciagram: (props) => <Asciagram {...props} />,
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
   Props: (props) => <Placeholder {...props} componentName='Props' />,
   code: (props) => <Code {...props} />,
@@ -42,6 +44,7 @@ const MDX_COMPONENTS = {
   Dashboard: (props) => <Dashboard {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   Pagination: (props) => <Pagination {...props} />,
+  Table: (props) => <Table {...props} />,
 
   // Private
   ActionButton: (props) => <ActionButton {...props} />,

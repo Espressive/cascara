@@ -1,6 +1,15 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
+import pt from 'prop-types';
+
+import ErrorBoundary from '../../shared/ErrorBoundary';
+
+const propTypes = pt.shape({
+  ctaText: pt.string,
+  data: pt.string,
+  fileName: pt.string,
+  fileType: pt.string,
+});
 
 /**
  * DownloadButton
@@ -17,29 +26,27 @@ import PropTypes from 'prop-types';
  * @param {String} props.fileName The name of the file when downloaded
  * @param {String} props.fileType The MIME type of the data
  */
-const DownloadButton = ({ ctaText, data, fileName, fileType, onClick }) => {
+const DownloadButton = ({
+  ctaText = 'download',
+  data,
+  fileName = 'download.txt',
+  fileType = 'text/plain',
+  onClick,
+}) => {
   const blob = new Blob([data], { fileType });
   const url = URL.createObjectURL(blob);
 
   return (
-    <Button as='a' basic download={fileName} href={url} onClick={onClick}>
-      {ctaText}
-    </Button>
+    <ErrorBoundary>
+      <Button as='a' basic download={fileName} href={url} onClick={onClick}>
+        {ctaText}
+      </Button>
+    </ErrorBoundary>
   );
 };
 
 DownloadButton.displaName = 'DownloadButton';
-DownloadButton.propTypes = {
-  ctaText: PropTypes.string,
-  data: PropTypes.string.isRequired,
-  fileName: PropTypes.string,
-  fileType: PropTypes.string,
-};
+DownloadButton.propTypes = propTypes;
 
-DownloadButton.defaultProps = {
-  ctaText: 'download',
-  fileName: 'download.txt',
-  fileType: 'text/plain',
-};
-
+export { propTypes };
 export default DownloadButton;

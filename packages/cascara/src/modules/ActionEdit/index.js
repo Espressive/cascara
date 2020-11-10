@@ -1,1 +1,1 @@
-export { default } from './ActionEdit';
+export { default, propTypes } from './ActionEdit';
