@@ -10,6 +10,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "module": "dist/es/index.js",
   "files": [
     "dist",
     "private"

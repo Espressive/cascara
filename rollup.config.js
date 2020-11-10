@@ -40,8 +40,7 @@ const getPostCSSOptions = () => ({
 
 // NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
 // app_web is updated to support es6 modules in Webpack builds.
-const external = (id) =>
-  !id.startsWith('.') && !id.startsWith('/') && !id.startsWith('@nivo');
+const external = (id) => !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
 export const getRollupConfig = ({ pwd, babelConfigFile }) => {
