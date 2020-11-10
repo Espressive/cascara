@@ -28,11 +28,12 @@ import {
   ModuleProvider,
 } from '@espressive/cascara/private';
 
-import { Code, Placeholder } from '../components';
+import { Asciagram, Code, Placeholder } from '../components';
 
 /* eslint-disable sort-keys */
 const MDX_COMPONENTS = {
   // Docs
+  Asciagram: (props) => <Asciagram {...props} />,
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
   Props: (props) => <Placeholder {...props} componentName='Props' />,
   code: (props) => <Code {...props} />,
