@@ -46,55 +46,73 @@ Actions will be appended to each row, they'll appear as buttons. Contrary to the
 Actions can be of two types (for now...), the first and most common is `button`, which emits an `action` event. But if your data is `editable`, the second option
 `edit` will do the trick.
 
+```javascript
+const actions: [
+
+  // simple button
+  {
+    isLabeled: false,
+    module: 'button',
+    actionName: 'view',
+    label: 'view',
+    size: 'small',
+  },
+
+  // or
+
+  // edit button combo (for editable rows)
+  {
+    isLabeled: false,
+    module: 'edit',
+    size: 'small',
+    cancelLabel: 'Cancelar', // you can specify localized labels
+    editLabel: 'Editar',
+    saveLabel: 'Guardar',
+  },
+];
+```
+
 ### display
 
 Here you can describe each of the `visible columns` in your `table`. `display` items have a special shape too, good news is that you have plenty more options to choose from. Please choose the one that best fits your data type.
 
-```javascript
-const data = {{
-  data: [
-    {
-      id: 1,
-      userEmail: 'john@doe.it',
-      userName: 'John Doe',
-    },
-    {
-      id: 2,
-      userEmail: 'jane@doe.it',
-      userName: 'Jane Doe',
-    },
-    {
-      id: 3,
-      userEmail: 'jim@doe.it',
-      userName: 'Jim Doe',
-    },
-  ],
-  dataConfig: {
-    display: [
-      {
-        attribute: 'id', // specifies the attribute in your data that represents this column
-        isEditable: false, // if true, the edition mode will be activated
-        isLabeled: false, // modules display a label, if false they won't
-        label: 'ID', // the label to display as column header
-        module: 'text', // The data module to handle the display/edit UI
-      },
-      {
-        attribute: 'userEmail',
-        isEditable: false,
-        isLabeled: false,
-        label: 'eMail',
-        module: 'text',
-      },
-      {
-        attribute: 'userName',
-        isEditable: false,
-        isLabeled: false,
-        label: 'Name',
-        module: 'text',
-      },
-    ],
+#### supported data types (modules)
+
+- [checkbox](../modules/DataCheckbox)
+- [email](../modules/DataEmail)
+- [number](../modules/DataNumber)
+- [radio](../modules/DataRadio)
+- [select](../modules/DataSelect)
+- [text](../modules/DataText)
+- [textarea](../modules/DataTextArea)
+
+```javasccript
+/**
+ * In this example we are displaying all the properties in our data objects,
+ * but it's up to you how many and which properties to display. */
+const display = [
+  {
+    attribute: 'id', // specifies the attribute in your data that represents this column
+    isEditable: false, // if true, the edition mode will be activated
+    isLabeled: false, // modules display a label, if false they won't
+    label: 'ID', // the label to display as column header
+    module: 'text', // The data module to handle the display/edit UI
   },
-}}
+  {
+    attribute: 'userEmail',
+    isEditable: false,
+    isLabeled: false,
+    label: 'eMail',
+    module: 'text',
+  },
+  {
+    attribute: 'userName',
+    isEditable: false,
+    isLabeled: false,
+    label: 'Name',
+    module: 'text',
+  },
+];
 ```
 
 ## onAction (event handler)
@@ -106,7 +124,7 @@ A function you can pass to handle every event your table emits. Every event carr
 
 ```javascript
 const onAction = (target, record) => {
-  switch (target.id) {
+  switch (target.actionName) {
     case 'view':
       // do something with record
       break;
@@ -130,39 +148,19 @@ The the four props described earlier, we can easily create a table:
 <Table
   data={[
     {
-      userId: 1,
       id: 1,
-      title: 'quidem molestiae enim',
+      userEmail: 'john@doe.it',
+      userName: 'John Doe',
     },
     {
-      userId: 1,
       id: 2,
-      title: 'sunt qui excepturi placeat culpa',
+      userEmail: 'jane@doe.it',
+      userName: 'Jane Doe',
     },
     {
-      userId: 1,
       id: 3,
-      title: 'omnis laborum odio',
-    },
-    {
-      userId: 1,
-      id: 4,
-      title: 'non esse culpa molestiae omnis sed optio',
-    },
-    {
-      userId: 1,
-      id: 5,
-      title: 'eaque aut omnis a',
-    },
-    {
-      userId: 1,
-      id: 6,
-      title: 'natus impedit quibusdam illo est',
-    },
-    {
-      userId: 1,
-      id: 7,
-      title: 'quibusdam autem aliquid et et quia',
+      userEmail: 'jim@doe.it',
+      userName: 'Jim Doe',
     },
   ]}
   dataConfig={{
@@ -170,7 +168,8 @@ The the four props described earlier, we can easily create a table:
       {
         isLabeled: false,
         module: 'button',
-        name: 'view',
+        actionName: 'view',
+        label: 'View',
         size: 'small',
       },
     ],
@@ -183,17 +182,17 @@ The the four props described earlier, we can easily create a table:
         module: 'text',
       },
       {
-        attribute: 'userId',
+        attribute: 'userEmail',
         isEditable: false,
         isLabeled: false,
-        label: 'User ID',
+        label: 'eMail',
         module: 'text',
       },
       {
-        attribute: 'title',
+        attribute: 'userName',
         isEditable: false,
         isLabeled: false,
-        label: 'Title',
+        label: 'Name',
         module: 'text',
       },
     ],
