@@ -34,14 +34,13 @@ const propTypes = {
 
 /** This is a Table */
 const Table = ({
-  data,
-  dataConfig,
-  // eslint-disable-next-line no-console
-  onAction = (type, data) => console.log(`Action ${type}:`, data),
-  uniqueIdAttribute = 'eid',
+  data = [],
+  dataConfig = {},
+  onAction = (type, data) => type,
+  uniqueIdAttribute,
   ...rest
 }) => {
-  const { actions, display } = dataConfig;
+  const { actions = [], display = [] } = dataConfig;
   let columnCount = display.length;
 
   if (actions.length) {

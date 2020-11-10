@@ -49,14 +49,13 @@ const TableRow = ({ config = {}, record = {} }) => {
           /**
            * In certain predefined-action modules in which a label is not required, e.g. `edit`,
            * the following unique key generation fails, as it relies on the label (content). */
-          const key = `${id}.${module}.${rest.content || module}`;
+          const key = `${id}.${module}.${rest.label || module}`;
 
           return Action ? (
             <Action key={key} {...rest} />
           ) : (
             <ModuleError
               key={key}
-              message={`Invalid module`}
               moduleName={module}
               moduleOptions={actionModuleOptions}
             />
@@ -75,11 +74,7 @@ const TableRow = ({ config = {}, record = {} }) => {
         {Module ? (
           <Module isLabeled={false} {...rest} />
         ) : (
-          <ModuleError
-            message={`Invalid module`}
-            moduleName={module}
-            moduleOptions={dataModuleOptions}
-          />
+          <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
         )}
       </td>
     );

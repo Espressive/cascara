@@ -6,12 +6,18 @@ import { Button } from 'semantic-ui-react';
 
 const propTypes = {
   cancelLabel: pt.string,
+  dataTestIDs: pt.shape({
+    cancel: pt.string,
+    edit: pt.string,
+    save: pt.string,
+  }),
   editLabel: pt.string,
   saveLabel: pt.string,
 };
 
 const ActionEdit = ({
   cancelLabel = 'Cancel',
+  dataTestIDs,
   editLabel = 'Edit',
   saveLabel = 'Save',
 }) => {
@@ -20,6 +26,19 @@ const ActionEdit = ({
   );
   const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
+
+  /**
+   * this seems like ugly, we need to find a better way
+   * to ease testing.. */
+  let cancelTestId = {};
+  let editTestId = {};
+  let saveTestId = {};
+
+  if (typeof dataTestIDs === 'object') {
+    cancelTestId['data-testid'] = dataTestIDs['cancel'];
+    editTestId['data-testid'] = dataTestIDs['edit'];
+    saveTestId['data-testid'] = dataTestIDs['save'];
+  }
 
   const handleReset = () => {
     onAction(
@@ -78,6 +97,7 @@ const ActionEdit = ({
         negative
         onClick={handleCancel}
         type='button'
+        {...cancelTestId}
       />
       <Button
         content={saveLabel}
@@ -86,10 +106,17 @@ const ActionEdit = ({
         onClick={handleSubmit(onSubmit)}
         positive
         type='button'
+        {...saveTestId}
       />
     </>
   ) : (
-    <Button basic content={editLabel} onClick={handleEdit} type='button' />
+    <Button
+      basic
+      content={editLabel}
+      onClick={handleEdit}
+      type='button'
+      {...editTestId}
+    />
   );
 };
 
