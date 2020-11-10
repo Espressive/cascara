@@ -1,3 +1,4 @@
+import Asciagram from './Asciagram';
 import Code from './Code';
 import Header from './Header';
 import Main from './Main';
@@ -10,6 +11,7 @@ import Tabs from './Tabs';
 import Tag from './Tag';
 
 export {
+  Asciagram,
   Code,
   Header,
   Main,
