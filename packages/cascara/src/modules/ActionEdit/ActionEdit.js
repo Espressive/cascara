@@ -43,7 +43,7 @@ const ActionEdit = ({
   const handleReset = () => {
     onAction(
       {
-        name: 'edit.cancel',
+        actionName: 'edit.cancel',
       },
       {
         ...record,
@@ -64,7 +64,7 @@ const ActionEdit = ({
   const handleEdit = () => {
     onAction(
       {
-        name: 'edit.start',
+        actionName: 'edit.start',
       },
       {
         ...record,
@@ -77,7 +77,7 @@ const ActionEdit = ({
   const onSubmit = (data) => {
     onAction(
       {
-        name: 'edit.save',
+        actionName: 'edit.save',
       },
       {
         ...record,

@@ -5,15 +5,15 @@ import { ModuleContext } from '../context';
 import { Button } from 'semantic-ui-react';
 
 const propTypes = {
+  actionName: pt.string,
   isLabeled: pt.bool,
   label: pt.string,
-  name: pt.string,
 };
 
 const ActionButton = ({
   isLabeled = false,
   label = 'ActionButton',
-  name,
+  actionName,
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
@@ -32,7 +32,7 @@ const ActionButton = ({
       onClick={handleClick}
       {...rest}
       label={buttonLabel}
-      name={name}
+      name={actionName}
       type='button'
     />
   );

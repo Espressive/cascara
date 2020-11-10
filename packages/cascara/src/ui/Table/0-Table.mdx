@@ -53,7 +53,7 @@ const actions: [
   {
     isLabeled: false,
     module: 'button',
-    name: 'view',
+    actionName: 'view',
     label: 'view',
     size: 'small',
   },
@@ -124,7 +124,7 @@ A function you can pass to handle every event your table emits. Every event carr
 
 ```javascript
 const onAction = (target, record) => {
-  switch (target.id) {
+  switch (target.actionName) {
     case 'view':
       // do something with record
       break;
@@ -168,7 +168,8 @@ The the four props described earlier, we can easily create a table:
       {
         isLabeled: false,
         module: 'button',
-        name: 'view',
+        actionName: 'view',
+        label: 'View',
         size: 'small',
       },
     ],
