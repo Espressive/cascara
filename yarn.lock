@@ -1459,7 +1459,7 @@
   integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.2.1"
+  version "0.2.3"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.63.1"

@@ -17,17 +17,17 @@ We call this attribute `uniqueIdAttribute`, which you will be able to specify la
 ```javascript
 const data = {[
   {
-    id: 1,
+    id: '1',
     userEmail: 'john@doe.it',
     userName: 'John Doe',
   },
   {
-    id: 2,
+    id: '2',
     userEmail: 'jane@doe.it',
     userName: 'Jane Doe',
   },
   {
-    id: 3,
+    id: '3',
     userEmail: 'jim@doe.it',
     userName: 'Jim Doe',
   },
@@ -142,7 +142,7 @@ Specifies the attribute that uniquely identifies every object in the `data` arra
 
 # Mixing everyting together
 
-The the four props described earlier, we can easily create a table:
+With the four props described earlier, we can easily create a table:
 
 ```jsx
 <Table
@@ -179,7 +179,7 @@ The the four props described earlier, we can easily create a table:
         isEditable: false,
         isLabeled: false,
         label: 'ID',
-        module: 'text',
+        module: 'number',
       },
       {
         attribute: 'userEmail',

@@ -12,12 +12,12 @@
   --brand-secondary-color: yellow;
   --color-transparent-grey: rgba(127, 127, 127, 0.375);
 
-  @media (prefers-color-scheme: dark) {
-    --document-background: #1e262b;
-    --document-text: #dddee0;
-    --brand-primary-color: red;
-    --brand-secondary-color: orange;
-  }
+  // @media (prefers-color-scheme: dark) {
+  //   --document-background: #1e262b;
+  //   --document-text: #dddee0;
+  //   --brand-primary-color: red;
+  //   --brand-secondary-color: orange;
+  // }
 
   --main-max-width: 60em;
   --drawer-max-width: 30em;

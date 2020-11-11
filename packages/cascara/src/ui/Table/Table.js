@@ -7,16 +7,11 @@ import TableProvider from './context/TableProvider';
 
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
-import TableFooter from './TableFooter';
 
-// Action modules
-import { propTypes as actionButtonPT } from '../../modules/ActionButton';
-import { propTypes as actionEditPT } from '../../modules/ActionEdit';
-
-// Data modules
-import { actionModules } from '../../modules/ModuleKeys';
+import { actionModules, dataModules } from '../../modules/ModuleKeys';
 
 const actionModuleOptions = Object.keys(actionModules);
+const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
   /** An array of objects.
@@ -29,13 +24,15 @@ const propTypes = {
   dataConfig: pt.shape({
     /** Actions will be appended to each row, they'll appear as buttons. */
     actions: pt.arrayOf(
-      pt.oneOfType([pt.shape(actionButtonPT), pt.shape(actionEditPT)])
+      pt.shape({
+        module: pt.oneOf(actionModuleOptions).isRequired,
+      })
     ),
 
     /** Here you can describe each of the visible columns in your table. */
     display: pt.arrayOf(
       pt.shape({
-        module: pt.oneOf(actionModuleOptions).isRequired,
+        module: pt.oneOf(dataModuleOptions).isRequired,
       })
     ),
   }),
@@ -80,7 +77,6 @@ const Table = ({
         >
           <TableHeader />
           <TableBody />
-          <TableFooter />
         </table>
       </TableProvider>
     </ErrorBoundary>
