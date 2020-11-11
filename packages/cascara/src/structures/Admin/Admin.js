@@ -9,7 +9,7 @@ import useSetLayoutAttribute from '../../shared/hooks/useSetLayoutAttribute';
 // TODO: Would be nice to be able to pass an element or array of React elements
 // and if they do not have the proper grid container, just add it automatically.
 const propTypes = {
-  drawer: pt.element,
+  drawer: pt.oneOfType([pt.node, pt.array]),
   header: pt.element,
   main: pt.element,
   nav: pt.element,
