@@ -17,33 +17,54 @@ exports[`Table component tree snapshot test 1`] = `
         <tr
           class="Row"
         >
-          <th>
+          <th
+            class="HeadCell"
+          >
             Active
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             ID
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             Email
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             Country
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             Employee Number
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             Full Name
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             Home Phone
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             Office Phone
           </th>
-          <th>
+          <th
+            class="HeadCell"
+          >
             Title
           </th>
+          <th
+            class="HeadCell"
+          />
         </tr>
       </thead>
       <tbody
@@ -16605,41 +16626,6 @@ exports[`Table component tree snapshot test 1`] = `
           </td>
         </tr>
       </tbody>
-      <tfoot
-        class="FootContainer"
-      >
-        <tr
-          class="Row"
-        >
-          <th>
-            Active
-          </th>
-          <th>
-            ID
-          </th>
-          <th>
-            Email
-          </th>
-          <th>
-            Country
-          </th>
-          <th>
-            Employee Number
-          </th>
-          <th>
-            Full Name
-          </th>
-          <th>
-            Home Phone
-          </th>
-          <th>
-            Office Phone
-          </th>
-          <th>
-            Title
-          </th>
-        </tr>
-      </tfoot>
     </table>
   </form>
 </div>

@@ -22,13 +22,13 @@ const dataModuleOptions = Object.keys(dataModules);
 const propTypes = {
   config: pt.shape({
     columns: pt.arrayOf(
-      pt.oneOfType(
+      pt.oneOfType([
         pt.shape({
-          module: pt.oneOf(actionModuleOptions).isRequired,
-        }).isRequired
-      )
+          module: pt.oneOf(dataModuleOptions).isRequired,
+        }).isRequired,
+      ])
     ),
-    id: pt.string,
+    id: pt.oneOfType([pt.string, pt.number]),
   }),
   record: pt.shape({}),
 };
