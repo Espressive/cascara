@@ -1590,15 +1590,17 @@
   integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.2.4"
+  version "0.2.5"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.62.0"
     "@nivo/bump" "0.62.0"
+    "@nivo/core" "0.62.0"
     "@nivo/geo" "0.62.0"
     "@nivo/heatmap" "0.62.0"
     "@nivo/line" "0.62.0"
     "@nivo/pie" "0.62.0"
+    "@nivo/tooltip" "0.62.0"
     "@nivo/treemap" "0.62.0"
     classnames "2.2.6"
     react-hook-form "6.8.4"
