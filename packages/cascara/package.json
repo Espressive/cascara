@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "main": "dist/cjs/index.js",
   "repository": {
     "directory": "packages/cascara",
