@@ -1590,12 +1590,11 @@
   integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.2.3"
+  version "0.2.4"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.62.0"
     "@nivo/bump" "0.62.0"
-    "@nivo/core" "0.62.0"
     "@nivo/geo" "0.62.0"
     "@nivo/heatmap" "0.62.0"
     "@nivo/line" "0.62.0"
