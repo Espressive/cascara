@@ -1,0 +1,37 @@
+[
+  {
+    "Not Deflected": 52,
+    "month": "JAN",
+    "Deflected": 110
+  },
+  {
+    "Not Deflected": 198,
+    "month": "FEB",
+    "Deflected": 77
+  },
+  {
+    "Not Deflected": 120,
+    "month": "MAR",
+    "Deflected": 108
+  },
+  {
+    "Not Deflected": 173,
+    "month": "APR",
+    "Deflected": 69
+  },
+  {
+    "Not Deflected": 100,
+    "month": "MAY",
+    "Deflected": 119
+  },
+  {
+    "Not Deflected": 162,
+    "month": "JUN",
+    "Deflected": 163
+  },
+  {
+    "Not Deflected": 165,
+    "month": "JUL",
+    "Deflected": 134
+  }
+]
