@@ -46,7 +46,17 @@ $header-background: #eee;
 
     position: sticky;
     right: 0;
+    justify-content: flex-end;
     white-space: nowrap;
+
+    &:before {
+      pointer-events: none;
+      position: absolute;
+      content: ' ';
+      width: 1em;
+      height: 100%;
+      left: -1em;
+    }
   }
 
   // Even though this is display: contents, we can still use it
@@ -57,11 +67,24 @@ $header-background: #eee;
       .CellActions {
         background-color: #fff;
       }
+
+      .CellActions {
+        &:before {
+          background-image: linear-gradient(to right, #ffffff00, #fff);
+        }
+      }
     }
+
     &:nth-of-type(even) {
       .Cell,
       .CellActions {
         background-color: #f2f2f2;
+      }
+
+      .CellActions {
+        &:before {
+          background-image: linear-gradient(to right, #f2f2f200, #f2f2f2);
+        }
       }
     }
   }
