@@ -38,8 +38,9 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   const handleReset = () => {
     onAction(
+      // fake target
       {
-        actionName: 'edit.cancel',
+        name: 'edit.cancel',
       },
       {
         ...record,
@@ -59,8 +60,9 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   const handleEdit = () => {
     onAction(
+      // fake target
       {
-        actionName: 'edit.start',
+        name: 'edit.start',
       },
       {
         ...record,
@@ -72,8 +74,9 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   const onSubmit = (data) => {
     onAction(
+      // fake target
       {
-        actionName: 'edit.save',
+        name: 'edit.save',
       },
       {
         ...record,
