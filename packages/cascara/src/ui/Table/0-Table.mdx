@@ -161,7 +161,7 @@ const display = [
 
 A function you can pass to handle every event your table emits. Every event carries two pieces of information:
 
-- action, the object that was actually clicked and
+- action, the object (button) that was actually clicked and
 - record, the object that represents the row upon which the action was applied.
 
 ```javascript
@@ -175,6 +175,8 @@ title: an example onAction handler
  * @param {Object} action the element that was clicked
  * @param {Object} record the data that represents the table row of the button */
 const onAction = (action, record) => {
+
+  // action.name here is the `actinName` you specified for your action
   switch (action.name) {
     case 'new':
       // do something with record
@@ -188,16 +190,15 @@ const onAction = (action, record) => {
       // do something with record
       break;
 
+    // in the case of `edit` module, you need these 3 cases
     case 'edit.start':
-      // do something with record
+      // do something when the user starts editing the row via `edit` button
       break;
-
     case 'edit.cancel':
-      // do something with record
+      // do something if the user exits edit mode via `cancel` button
       break;
-
     case 'edit.save':
-      // do something with record
+      // do something when the user exits edit mode via `save` button
       break;
   }
 };
