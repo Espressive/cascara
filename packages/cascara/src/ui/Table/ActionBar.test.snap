@@ -15,7 +15,6 @@ exports[`ActionBar component tree snapshot 1`] = `
   <button
     class="ui small basic button"
     data-testid="new"
-    name="new"
     type="button"
   >
     new
@@ -23,7 +22,6 @@ exports[`ActionBar component tree snapshot 1`] = `
   <button
     class="ui small basic button"
     data-testid="edit"
-    name="edit"
     type="button"
   >
     edit

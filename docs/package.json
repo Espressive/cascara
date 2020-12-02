@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.2.3",
+  "version": "0.2.7",
   "private": true,
   "scripts": {
     "start": "next-remote-watch ../packages/cascara",
@@ -14,7 +14,7 @@
     "next": "9.5.4",
     "next-mdx-remote": "1.0.0",
     "react": "16.13.1",
-    "react-docgen": "5.3.0",
+    "react-docgen": "5.3.1",
     "react-dom": "16.13.1",
     "react-live": "2.2.2",
     "semantic-ui-react": "1.2.1"
