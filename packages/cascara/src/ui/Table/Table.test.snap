@@ -217,15 +217,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -382,15 +383,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -548,15 +550,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -714,15 +717,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -880,15 +884,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -1045,15 +1050,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -1211,15 +1217,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -1377,15 +1384,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -1543,15 +1551,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -1708,15 +1717,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -1873,15 +1883,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -2039,15 +2050,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -2204,15 +2216,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -2370,15 +2383,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -2535,15 +2549,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -2701,15 +2716,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -2867,15 +2883,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -3033,15 +3050,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -3199,15 +3217,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -3365,15 +3384,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -3530,15 +3550,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -3695,15 +3716,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -3861,15 +3883,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -4027,15 +4050,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -4193,15 +4217,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -4359,15 +4384,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -4525,15 +4551,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -4691,15 +4718,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -4856,15 +4884,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -5021,15 +5050,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -5187,15 +5217,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -5352,15 +5383,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -5517,15 +5549,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -5683,15 +5716,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -5848,15 +5882,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -6014,15 +6049,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -6179,15 +6215,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -6345,15 +6382,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -6511,15 +6549,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -6676,15 +6715,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -6841,15 +6881,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -7007,15 +7048,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -7173,15 +7215,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -7338,15 +7381,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -7504,15 +7548,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -7670,15 +7715,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -7836,15 +7882,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -8002,15 +8049,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -8167,15 +8215,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -8332,15 +8381,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -8497,15 +8547,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -8662,15 +8713,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -8828,15 +8880,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -8993,15 +9046,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -9159,15 +9213,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -9324,15 +9379,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -9489,15 +9545,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -9654,15 +9711,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -9819,15 +9877,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -9984,15 +10043,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -10149,15 +10209,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -10314,15 +10375,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -10479,15 +10541,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -10645,15 +10708,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -10810,15 +10874,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -10975,15 +11040,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -11141,15 +11207,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -11306,15 +11373,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -11472,15 +11540,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -11638,15 +11707,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -11803,15 +11873,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -11969,15 +12040,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -12135,15 +12207,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -12301,15 +12374,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -12466,15 +12540,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -12632,15 +12707,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -12798,15 +12874,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -12964,15 +13041,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -13129,15 +13207,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -13295,15 +13374,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -13460,15 +13540,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -13626,15 +13707,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -13792,15 +13874,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -13957,15 +14040,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -14123,15 +14207,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -14288,15 +14373,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -14454,15 +14540,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -14620,15 +14707,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -14785,15 +14873,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -14950,15 +15039,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -15115,15 +15205,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -15281,15 +15372,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -15447,15 +15539,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -15613,15 +15706,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -15778,15 +15872,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -15944,15 +16039,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -16110,15 +16206,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -16276,15 +16373,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -16441,15 +16539,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
@@ -16606,15 +16705,16 @@ exports[`Table component tree snapshot test 1`] = `
             </div>
           </td>
           <td
-            class="Cell"
+            class="CellActions"
           >
             
             <button
-              class="ui small basic button"
+              class="ui basic button"
+              content="view"
               data-testid="view"
               type="button"
             >
-              view
+              ActionButton
             </button>
             <button
               class="ui basic button"
