@@ -42,8 +42,9 @@ const ActionEdit = ({
 
   const handleReset = () => {
     onAction(
+      // fake target
       {
-        actionName: 'edit.cancel',
+        name: 'edit.cancel',
       },
       {
         ...record,
@@ -63,8 +64,9 @@ const ActionEdit = ({
 
   const handleEdit = () => {
     onAction(
+      // fake target
       {
-        actionName: 'edit.start',
+        name: 'edit.start',
       },
       {
         ...record,
@@ -76,8 +78,9 @@ const ActionEdit = ({
 
   const onSubmit = (data) => {
     onAction(
+      // fake target
       {
-        actionName: 'edit.save',
+        name: 'edit.save',
       },
       {
         ...record,
