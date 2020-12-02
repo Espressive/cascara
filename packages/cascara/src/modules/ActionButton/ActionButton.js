@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
-import { Button } from 'semantic-ui-react';
+import { Button } from 'reakit';
 
 const propTypes = {
   actionName: pt.string,
@@ -18,23 +18,20 @@ const ActionButton = ({
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
 
-  // we need to mute the SUIR prop
-  const buttonLabel = isLabeled ? label : null;
-
   const handleClick = ({ currentTarget }) => {
     onAction(currentTarget, record);
   };
 
   return isEditing ? null : (
     <Button
-      basic
-      content={label}
-      onClick={handleClick}
       {...rest}
-      label={buttonLabel}
+      className='ui basic button'
       name={actionName}
+      onClick={handleClick}
       type='button'
-    />
+    >
+      {label}
+    </Button>
   );
 };
 

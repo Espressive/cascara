@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
-import { Button } from 'semantic-ui-react';
+import { Button } from 'reakit';
+import { Icon } from 'semantic-ui-react';
 
 const propTypes = {
   cancelLabel: pt.string,
@@ -15,12 +16,7 @@ const propTypes = {
   saveLabel: pt.string,
 };
 
-const ActionEdit = ({
-  cancelLabel = 'Cancel',
-  dataTestIDs,
-  editLabel = 'Edit',
-  saveLabel = 'Save',
-}) => {
+const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   const { isEditing, setIsEditing, formMethods, record, onAction } = useContext(
     ModuleContext
   );
@@ -91,32 +87,34 @@ const ActionEdit = ({
   return isEditing ? (
     <>
       <Button
-        basic
-        content={cancelLabel}
+        className='ui negative icon button'
         loading={isSubmitting}
-        negative
         onClick={handleCancel}
         type='button'
         {...cancelTestId}
-      />
+      >
+        <Icon name='delete' />
+      </Button>
       <Button
-        content={saveLabel}
+        className='ui positive icon button'
         disabled={!isDirty}
         loading={isSubmitting}
         onClick={handleSubmit(onSubmit)}
-        positive
         type='button'
         {...saveTestId}
-      />
+      >
+        <Icon name='check' />
+      </Button>
     </>
   ) : (
     <Button
-      basic
-      content={editLabel}
+      className='ui basic button'
       onClick={handleEdit}
       type='button'
       {...editTestId}
-    />
+    >
+      {editLabel}
+    </Button>
   );
 };
 
