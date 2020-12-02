@@ -4,7 +4,7 @@ $header-background: #eee;
   border: 1px solid $header-background;
   display: inline-grid;
   grid-template-rows: auto;
-  overflow: scroll;
+  overflow: auto;
   max-width: 100%;
   margin: 1em 0;
 
@@ -24,6 +24,11 @@ $header-background: #eee;
     vertical-align: middle;
   }
 
+  .HeadContainer {
+    position: sticky;
+    top: 0;
+  }
+
   .HeadCell {
     font-size: 0.9em;
     background-color: $header-background;
@@ -36,11 +41,28 @@ $header-background: #eee;
     align-items: center;
   }
 
+  .CellActions {
+    @extend .Cell;
+
+    position: sticky;
+    right: 0;
+    white-space: nowrap;
+  }
+
   // Even though this is display: contents, we can still use it
   // for css specificity
   .Row {
-    &:nth-of-type(even) .Cell {
-      background-color: #f2f2f2;
+    &:nth-of-type(odd) {
+      .Cell,
+      .CellActions {
+        background-color: #fff;
+      }
+    }
+    &:nth-of-type(even) {
+      .Cell,
+      .CellActions {
+        background-color: #f2f2f2;
+      }
     }
   }
 }

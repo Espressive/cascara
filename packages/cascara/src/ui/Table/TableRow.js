@@ -40,7 +40,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   } = useContext(ModuleContext);
 
   const actionBarCell = (
-    <td className={styles.Cell} key={`${id}-actionbar`}>
+    <td className={styles.CellActions} key={`${id}-actionbar`}>
       <ActionBar
         actions={userDefinedActions.map((action) => {
           const { module, ...rest } = action;
