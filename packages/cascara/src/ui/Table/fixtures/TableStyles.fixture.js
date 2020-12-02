@@ -22,6 +22,8 @@ const testData = (qty) =>
       employeeNumber: faker.random.number(),
       fullName: `${firstName} ${lastName}`,
       homePhone: faker.phone.phoneNumber(),
+      long:
+        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio at modi cupiditate doloremque quasi deserunt distinctio amet perferendis ipsam, alias nemo quia necessitatibus! Sapiente suscipit soluta magni quisquam consequuntur, quos maxime voluptatibus tenetur expedita architecto dolore omnis odit neque quas. Illum reiciendis consequatur similique ipsum repellendus culpa debitis aliquid cupiditate?',
       officePhone: faker.phone.phoneNumber(),
       title: faker.name.jobTitle(),
     });
@@ -47,6 +49,11 @@ const dataConfig = {
     {
       attribute: 'fullName',
       label: 'Full Name',
+      module: 'text',
+    },
+    {
+      attribute: 'long',
+      label: 'Long Attr',
       module: 'text',
     },
     {
