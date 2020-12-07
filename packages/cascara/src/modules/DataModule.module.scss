@@ -1,3 +1,5 @@
+@use '../shared/styles/cascara';
+
 $module-padding: 0;
 $input-padding: 0.5em 0.75em;
 $input-border-radius: 0.25em;
@@ -15,8 +17,8 @@ $module-background: #f0f0f0;
 }
 
 %ModuleContainer {
+  width: 100%;
   padding: $module-padding;
-  margin: 0.5em 0;
 
   // border-bottom: 1px solid red;
 
@@ -25,11 +27,13 @@ $module-background: #f0f0f0;
   }
 
   .Input {
+    @include cascara.scroll-horizontal;
     line-height: 1.35em;
     padding: 0.5em 0;
     display: inline-block;
     border: 1px solid transparent;
     width: 100%;
+    max-width: 60em;
     border-radius: $input-border-radius;
     transition: box-shadow 300ms ease-in-out;
   }
@@ -61,8 +65,6 @@ $module-background: #f0f0f0;
 
   .Input:not(input) {
     white-space: nowrap;
-    overflow: scroll;
-    // text-overflow: ellipsis;
   }
 }
 

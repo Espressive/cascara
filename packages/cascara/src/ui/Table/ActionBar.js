@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+// import styles from './Table.module.scss';
 
 // external prop types
 import { propTypes as actionButtonPT } from '../../modules/ActionButton';
