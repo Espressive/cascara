@@ -1,6 +1,27 @@
 [
   {
     "id": "Barista",
+    "label": "Barista",
+    "value": 371
+  },
+  {
+    "id": "Slack",
+    "value": 152,
+    "label": "Slack"
+  },
+  {
+    "id": "Email",
+    "value": 20,
+    "label": "Email"
+  },
+  {
+    "id": "Knowledge Widget",
+    "label": "Knowledge Widget",
+    "value": 5
+  }
+]
+  {
+    "id": "Barista",
     "value": 371
   },
   {
