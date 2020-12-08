@@ -2,11 +2,13 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Dashboard from '../Dashboard';
-import lineData from '../data/Line';
 import pieData from '../data/Pie';
 import pieData2 from '../data/Pie2';
+import pieDataChannel from '../data/PieChannel';
 import geoMapData from '../data/GeoMap';
 import barData from '../data/Bar';
+import barData2 from '../data/Bar2';
+import barDataDevice from '../data/BarDevice';
 
 const dataInteractions = [
   {
@@ -31,14 +33,6 @@ const dataDeflections = [
   {
     label: 'Transferred to Agent',
     value: '67',
-  },
-  {
-    label: 'Transferred to Incident',
-    value: '15',
-  },
-  {
-    label: 'Transferred to Request',
-    value: '35',
   },
   {
     label: 'Dollars Saved',
@@ -95,10 +89,27 @@ const dashboardConfig = [
   {
     axisBottomLabel: 'Month',
     axisLeftLabel: 'Count',
-    data: lineData,
-    enableSlices: 'x',
+    data: barData2,
+    indexBy: 'month',
+    keys: ['Deflected', 'Not Deflected'],
     title: 'Deflected VS Not Deflected',
-    widget: 'line',
+    widget: 'bar',
+  },
+  {
+    data: pieDataChannel,
+    enableRadialLabels: false,
+    title: 'Channels',
+    widget: 'pie',
+  },
+  {
+    axisBottomLabel: 'Requests',
+    axisLeftLabel: 'Operating System',
+    data: barDataDevice,
+    indexBy: 'OS',
+    keys: ['Safari', 'Chrome', 'Native App', 'Edge', 'Other'],
+    layout: 'horizontal',
+    title: 'OS/Browser/Application',
+    widget: 'bar',
   },
 ];
 

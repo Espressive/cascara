@@ -1,0 +1,37 @@
+[
+  {
+    "Safari": 52,
+    "Chrome": 10,
+    "Native App": 30,
+    "Edge": 0,
+    "OS": "macOS"
+  },
+  {
+    "Safari": 20,
+    "Chrome": 2,
+    "Native App": 230,
+    "Edge": 5,
+    "OS": "IOS"
+  },
+  {
+    "Safari": 0,
+    "Chrome": 50,
+    "Native App": 130,
+    "Edge": 0,
+    "OS": "Android"
+  },
+  {
+    "Safari": 0,
+    "Chrome": 140,
+    "Native App": 300,
+    "Edge": 30,
+    "OS": "Windows"
+  },
+  {
+    "Safari": 100,
+    "Chrome": 10,
+    "Native App": 30,
+    "Edge": 5,
+    "OS": "Other"
+  }
+]
