@@ -19,6 +19,10 @@ const dataInteractions = [
     label: 'Unique Users',
     value: '1,205',
   },
+  {
+    label: 'On Mobile',
+    value: '58%',
+  },
 ];
 
 const dataDeflections = [

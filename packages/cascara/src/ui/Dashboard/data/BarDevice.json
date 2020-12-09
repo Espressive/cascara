@@ -7,11 +7,11 @@
     "OS": "macOS"
   },
   {
-    "Safari": 20,
-    "Chrome": 2,
-    "Native App": 230,
+    "Safari": 100,
+    "Chrome": 10,
+    "Native App": 30,
     "Edge": 5,
-    "OS": "IOS"
+    "OS": "Other"
   },
   {
     "Safari": 0,
@@ -21,17 +21,17 @@
     "OS": "Android"
   },
   {
+    "Safari": 20,
+    "Chrome": 2,
+    "Native App": 230,
+    "Edge": 5,
+    "OS": "IOS"
+  },
+  {
     "Safari": 0,
     "Chrome": 140,
     "Native App": 300,
     "Edge": 30,
     "OS": "Windows"
-  },
-  {
-    "Safari": 100,
-    "Chrome": 10,
-    "Native App": 30,
-    "Edge": 5,
-    "OS": "Other"
   }
 ]
