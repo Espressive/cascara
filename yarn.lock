@@ -2300,10 +2300,10 @@
     react-textarea-autosize "8.2.0"
     reakit "1.1.2"
 
-"@espressive/legacy-css@file:utils/legacy-css":
+"@espressive/legacy-css@latest":
   version "0.2.1"
-  dependencies:
-    inter-ui latest
+  resolved "https://npm.pkg.github.com/download/@espressive/legacy-css/0.2.1/f52120663c7cbc46a7985a7834f648db096ff4df66b6b706947dc19cc9dfc4db#99d63244105e958fcf572aff78146a5e68632d26"
+  integrity sha512-TmHjvrtY1C9wcJKwXt88jwfOM2Sj6Vc1+9KtT1hGXbcj9dC4DABRvjD7GJtcj9db3bcudoUZt0TavyGvDfxmsA==
 
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
