@@ -1,3 +1,6 @@
+/* This tilde syntax is used by Webpack to resolve the "inter-ui" node package in node_modules. */
+@import '~/inter-ui/inter.css';
+
 /*
  * # Semantic UI - 2.2.13
  * https://github.com/Semantic-Org/Semantic-UI

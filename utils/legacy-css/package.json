@@ -9,6 +9,9 @@
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git"
   },
+  "dependencies": {
+    "inter-ui": "latest"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com/"
