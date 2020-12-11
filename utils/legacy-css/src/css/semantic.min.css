@@ -1,5 +1,5 @@
 /* This tilde syntax is used by Webpack to resolve the "inter-ui" node package in node_modules. */
-@import '~/inter-ui/inter.css';
+@import url('../../node_modules/inter-ui/inter.css');
 
 /*
  * # Semantic UI - 2.2.13
