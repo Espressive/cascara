@@ -12873,7 +12873,7 @@ ol.ui.horizontal.list li:before {
 }
 .ui.form .field > label {
   display: block;
-  margin: 0 0 0.25rem 0.625em;
+  margin: 0 0 0.25rem 0;
   color: #4a4a4a;
   font-size: 0.9375em;
   font-weight: 700;
@@ -19502,7 +19502,7 @@ ol.ui.horizontal.list li:before {
   height: 22px;
   content: '';
   background: #fff;
-  border-radius: 0.625rem;
+  border-radius: 0.125rem;
   -webkit-transition: border 0.1s ease, opacity 0.1s ease,
     -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease,
@@ -19644,8 +19644,8 @@ ol.ui.horizontal.list li:before {
   content: '';
   -webkit-transform: none;
   transform: none;
-  width: 15px;
-  height: 15px;
+  width: 22px;
+  height: 22px;
   border-radius: 500rem;
   top: 1px;
   left: 0;
@@ -19654,16 +19654,16 @@ ol.ui.horizontal.list li:before {
 .ui.radio.checkbox label:after {
   border: none;
   content: '' !important;
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
 }
 .ui.radio.checkbox .box:after,
 .ui.radio.checkbox label:after {
   top: 1px;
   left: 0;
-  width: 15px;
-  height: 15px;
+  width: 22px;
+  height: 22px;
   border-radius: 500rem;
   -webkit-transform: scale(0.46666667);
   transform: scale(0.46666667);
