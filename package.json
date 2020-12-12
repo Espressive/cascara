@@ -13,9 +13,6 @@
     "ast-types": "^0.14.0"
   },
   "workspaces": {
-    "nohoist": [
-      "**/inter-ui"
-    ],
     "packages": [
       "docs",
       "packages/*",
