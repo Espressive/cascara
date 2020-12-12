@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "main": "dist/cjs/index.js",
   "repository": {
     "directory": "packages/cascara",
@@ -34,7 +34,7 @@
     "reakit": "1.1.2"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "^0.2.1",
+    "@espressive/legacy-css": "^1.0.0",
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2"
   },
