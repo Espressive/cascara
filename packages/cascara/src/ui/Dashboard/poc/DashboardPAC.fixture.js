@@ -21,6 +21,7 @@ const dataInteractions = [
   },
   {
     label: 'On Mobile',
+    sub: 'Interactions via Barista Channel',
     value: '58%',
   },
 ];
@@ -109,10 +110,12 @@ const dashboardConfig = [
     axisBottomLabel: 'Requests',
     axisLeftLabel: 'Operating System',
     data: barDataDevice,
+    description:
+      'Breakdown of interactions via Barista channel by operating system and client',
     indexBy: 'OS',
     keys: ['Safari', 'Chrome', 'Native App', 'Edge', 'Other'],
     layout: 'horizontal',
-    title: 'OS/Browser/Application',
+    title: 'Barista Channel Interactions by OS/Client',
     widget: 'bar',
   },
 ];
