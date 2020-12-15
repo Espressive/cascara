@@ -1,0 +1,46 @@
+{
+  "name": "cra-rquery",
+  "version": "0.1.0",
+  "author": "Espressive Engineering <engineering@espressive.com>",
+  "private": true,
+  "scripts": {
+    "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@espressive/cascara": "link:../../packages/cascara",
+    "@espressive/legacy-css": "link:../../utils/legacy-css",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "0.21.0",
+    "history": "^5.0.0",
+    "query-string": "^6.13.7",
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
+    "react-query": "^2.26.3",
+    "react-router-dom": "^6.0.0-beta.0",
+    "react-scripts": "3.4.3",
+    "yup": "0.32.8"
+  },
+  "devDependencies": {
+    "react-query-devtools": "^2.6.3"
+  }
+}

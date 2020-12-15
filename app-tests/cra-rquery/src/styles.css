@@ -1,0 +1,12 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: 1fr 3fr;
+}
