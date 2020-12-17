@@ -34,9 +34,9 @@ const DataCheckbox = ({
   const { isEditing, formMethods, record } = useContext(ModuleContext);
   const finalValue =
     attribute && record
-      ? getAttributeValueFromRecord(attribute, record)
-      : value;
-  const [isChecked, setIsChecked] = useToggle(Boolean(finalValue));
+      ? Boolean(getAttributeValueFromRecord(attribute, record))
+      : Boolean(value);
+  const [isChecked, setIsChecked] = useToggle(finalValue);
 
   const renderEditing = (
     <label htmlFor={label}>
@@ -59,10 +59,10 @@ const DataCheckbox = ({
     <span>
       <span
         className={styles.Input}
-        data-checked={isChecked ? true : undefined}
+        data-checked={finalValue ? true : undefined}
         {...rest}
       >
-        {value}
+        {finalValue}
       </span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </span>
