@@ -1,8 +1,4 @@
 export const requestInterceptor = function (config) {
-  const { data, headers, url, method } = config;
-
-  debugger;
-
   return config;
 };
 

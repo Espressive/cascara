@@ -2,14 +2,12 @@ import React from 'react';
 import { useRoutes } from 'react-router-dom';
 
 import Home from '../pages/Home';
-import Users from '../pages/Users';
-import Posts from '../pages/Posts';
+import Applications from '../pages/Applications';
 
 const AppRoutes = () =>
   useRoutes([
     { path: '*', element: <Home /> },
-    { path: '/users', element: <Users /> },
-    { path: '/posts', element: <Posts /> },
+    { path: '/applications', element: <Applications /> },
   ]);
 
 export default AppRoutes;

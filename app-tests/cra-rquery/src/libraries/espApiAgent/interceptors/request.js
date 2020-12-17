@@ -1,5 +1,12 @@
 export const requestInterceptor = function (config) {
-  debugger;
+  const token = localStorage.getItem('token');
+
+  if (token) {
+    config.headers = {
+      ...config.headers,
+      Authorization: `Token ${token}`,
+    };
+  }
 
   return config;
 };

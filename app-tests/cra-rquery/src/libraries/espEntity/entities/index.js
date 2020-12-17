@@ -1,4 +1,5 @@
 import Session from './Session';
 import Profile from './Profile';
+import Application from './Application';
 
-export { Profile, Session };
+export { Application, Profile, Session };

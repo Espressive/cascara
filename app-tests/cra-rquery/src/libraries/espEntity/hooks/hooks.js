@@ -1,14 +1,16 @@
 import apiAgent from '../../espApiAgent';
 
-import { Session, Profile } from '../entities';
+import { Application, Session, Profile } from '../entities';
 
 const entities = {
+  application: Application,
   session: Session,
   profile: Profile,
 };
 
 const mutationMethods = ['post', 'patch'];
 
+// todo: @manu: look for a better, descriptive name for this hook.
 export function useEspressiveEntity(entityName, endpointName, config) {
   const { baseURL, onUploadProgress, onDownloadProgress } = config;
   const entity = entities[entityName] || {};
@@ -85,13 +87,11 @@ export function useEspressiveEntity(entityName, endpointName, config) {
    * @param {Object} payload.filter esp-filter object decscribing filters to be included
    * @param {Object} payload.page pagination settings, if supported by the endpoint
    * @param {Object} payload.params a dictionary describing the params to be interpolated with the URL */
-  function apiCall(payload) {
+  function apiCall(payload = {}) {
     const { data, filter, page, params } = payload;
     const isMutation = mutationMethods.includes(mergedConfig.method);
     let endpointUrl = mergedConfig.url;
     let queryParams = '';
-
-    debugger;
 
     let finalConfig = {
       ...mergedConfig,

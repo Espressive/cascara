@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 import AuthContext from './espAuthContext';
 import { useEspressiveEntity } from '../../espEntity';
@@ -50,30 +49,30 @@ export const EspAuthProvider = ({ baseURL, children }) => {
   const [userProfile, setUserProfile] = useLocalStorage('profile', 'object');
   const [token, setToken] = useLocalStorage('token');
   const [isAuthenticated, setIsAuthenticated] = useState(Boolean(token));
+
+  /**
+   * Talk to the API
+   */
   const sessionEntity = useEspressiveEntity('session', 'create', { baseURL });
   const profileEntity = useEspressiveEntity('profile', 'whoAmI', { baseURL });
 
   async function login(username, password) {
     try {
       const data = new FormData();
-
       data.append('username', username);
       data.append('password', password);
 
-      const { key: token } = await sessionEntity.apiCall({
+      const {
+        data: { key: token },
+      } = await sessionEntity.apiCall({
         data,
       });
 
-      axios.defaults.headers = {
-        ...axios.defaults.headers,
-        Authorization: `Token ${token}`,
-      };
-
-      const { profile } = await profileEntity.apiCall();
-
-      setUserProfile(profile);
       setToken(token);
       setIsAuthenticated(true);
+
+      const profile = await profileEntity.apiCall();
+      setUserProfile(profile);
     } catch (err) {
       console.warn(err);
     }
