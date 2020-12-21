@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import {
+  PopoverBackdrop,
   PopoverDisclosure,
   Popover as ReakitPopover,
   usePopoverState,
 } from 'reakit/Popover';
 import styles from './Popover.module.scss';
 
-const Popover = ({ content, trigger }) => {
+const Popover = ({ children, trigger }) => {
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
   const triggerRef = useRef();
 
@@ -21,8 +22,9 @@ const Popover = ({ content, trigger }) => {
         {(disclosureProps) => React.cloneElement(trigger, disclosureProps)}
       </PopoverDisclosure>
       <ReakitPopover className={styles._} {...popover}>
-        {content}
+        {children}
       </ReakitPopover>
+      <PopoverBackdrop className={styles.Backdrop} {...popover} />
     </>
   );
 };
