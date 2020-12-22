@@ -11,7 +11,7 @@ const entities = {
 const mutationMethods = ['post', 'patch'];
 
 // todo: @manu: look for a better, descriptive name for this hook.
-export function useEspressiveEntity(entityName, endpointName, config) {
+export function useEspressiveEntity(entityName, endpointName, config = {}) {
   const { baseURL, onUploadProgress, onDownloadProgress } = config;
   const entity = entities[entityName] || {};
   const {

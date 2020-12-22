@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import AuthContext from './espAuthContext';
+import { EspAuthContext } from './espAuthContext';
 import { useEspressiveEntity } from '../../espEntity';
 import { useLocalStorage } from '../hooks';
 
@@ -86,8 +86,9 @@ export const EspAuthProvider = ({ baseURL, children }) => {
   const content = isAuthenticated ? children : <LoginForm onSubmit={login} />;
 
   return (
-    <AuthContext.Provider
+    <EspAuthContext.Provider
       value={{
+        baseURL,
         isAuthenticated,
         login,
         logout,
@@ -95,6 +96,6 @@ export const EspAuthProvider = ({ baseURL, children }) => {
       }}
     >
       {content}
-    </AuthContext.Provider>
+    </EspAuthContext.Provider>
   );
 };
