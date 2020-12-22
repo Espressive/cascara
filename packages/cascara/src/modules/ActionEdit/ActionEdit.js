@@ -47,7 +47,6 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       }
     );
 
-    reset();
     setIsEditing(false);
   };
 
@@ -59,6 +58,10 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   };
 
   const handleEdit = () => {
+    /**
+     * FDS-91: We are resetting the form with whatever is in record.
+     * We don't know if this is the best way to do it in React. */
+    reset({ ...record });
     onAction(
       // fake target
       {
@@ -90,31 +93,30 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   return isEditing ? (
     <>
       <Button
+        {...cancelTestId}
         className='ui negative icon button'
-        loading={isSubmitting}
+        disabled={isSubmitting}
         onClick={handleCancel}
         type='button'
-        {...cancelTestId}
       >
         <Icon name='delete' />
       </Button>
       <Button
+        {...saveTestId}
         className='ui positive icon button'
-        disabled={!isDirty}
-        loading={isSubmitting}
+        disabled={!isDirty || isSubmitting}
         onClick={handleSubmit(onSubmit)}
         type='button'
-        {...saveTestId}
       >
         <Icon name='check' />
       </Button>
     </>
   ) : (
     <Button
+      {...editTestId}
       className='ui basic button'
       onClick={handleEdit}
       type='button'
-      {...editTestId}
     >
       {editLabel}
     </Button>

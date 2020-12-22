@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { Checkbox } from 'reakit/Checkbox';
+import { Checkbox, useCheckboxState } from 'reakit/Checkbox';
 import pt from 'prop-types';
+
 import { ModuleContext } from '../context';
-import useToggle from '../../hooks/useToggle';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
@@ -36,20 +36,18 @@ const DataCheckbox = ({
     attribute && record
       ? getAttributeValueFromRecord(attribute, record)
       : value;
-  const [isChecked, setIsChecked] = useToggle(Boolean(finalValue));
+  const checkbox = useCheckboxState({ state: Boolean(finalValue) });
 
   const renderEditing = (
     <label htmlFor={label}>
       {isLabeled && label && <span className={styles.Label}>{label}</span>}
       <Checkbox
         {...rest}
-        checked={isChecked}
+        {...checkbox}
         className={styles.Input}
         id={label}
         name={attribute || label}
-        onClick={setIsChecked}
         ref={formMethods?.register}
-        type='checkbox'
       />
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </label>
@@ -59,10 +57,10 @@ const DataCheckbox = ({
     <span>
       <span
         className={styles.Input}
-        data-checked={isChecked ? true : undefined}
+        data-checked={finalValue ? true : undefined}
         {...rest}
       >
-        {value}
+        {finalValue}
       </span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </span>
