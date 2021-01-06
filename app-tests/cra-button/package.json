@@ -10,7 +10,8 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "semantic-ui-react": "2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,5 +1,6 @@
 import React from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
 
 import Table from './';
@@ -23,6 +24,8 @@ describe('Table', () => {
    * The test `row actions` corresponds to condition a, whilst the test
    * `editable records` addresses condition b.  */
   describe('component tree', () => {
+    const whileTheUIisReady = async (miliseconds) =>
+      await new Promise((resolve) => setTimeout(resolve, miliseconds));
     const datasetSize = 100;
     const data = generateFakeEmployees(datasetSize);
     const dataConfig = {
@@ -185,7 +188,7 @@ describe('Table', () => {
       ).forEach((foundItems) => expect(foundItems).toHaveLength(datasetSize));
     });
 
-    test('no row actions', () => {
+    test('without row actions', () => {
       render(
         <Table
           data={data}
@@ -208,7 +211,7 @@ describe('Table', () => {
      * row that was clicked.
      *
      * This test validates the Actions specified in `dataConfig.actions`.  */
-    test('row actions', () => {
+    test('with row actions', () => {
       const onAction = jest.fn();
 
       render(
@@ -253,12 +256,117 @@ describe('Table', () => {
     /**
      * Editable records and onAction.
      *
-     * When the Table enters or exits `edit` mode, it emits the `onAction`
-     * event and includes the button that was clicked and the current row data.
+     * The table emmits certain events depending on the actions taken by the User.
+     * In this scenario, the user enters the edit mode, updates the email and clicks the save button.
      *
-     * This test validates the events are actualy emitted byt the Table, as well
+     * This test validates that:
+     *
+     * 1.- the events are actualy emitted by the Table
+     * 2.- the data reflects the changes made by the user
+     * 3.- the number of buttons present in each case. */
+    test('editable records', async (done) => {
+      const testEmail = 'engineering@espressive.com';
+      const onAction = jest.fn();
+
+      render(
+        <Table
+          data={data}
+          dataConfig={dataConfig}
+          onAction={onAction}
+          uniqueIdAttribute={'eid'}
+        />
+      );
+
+      const editButton = screen.getAllByTestId('edit.start');
+
+      // Enter edit mode
+      fireEvent(
+        editButton[0],
+        new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+        })
+      );
+
+      await whileTheUIisReady(100);
+
+      const cancelButton = screen.getByTestId('edit.cancel');
+      const saveButton = screen.getByTestId('edit.save');
+      const emailField = screen.getAllByTestId('email');
+
+      expect(cancelButton).toBeTruthy();
+      expect(saveButton).toBeTruthy();
+      expect(emailField).toBeTruthy();
+
+      // we need to delete the current contents
+      const userEventCommandList = 'Hayden.Zieme@espressive.com'
+        .split('')
+        .reduce((commands) => `${commands}{backspace}`, '');
+
+      userEvent.type(emailField[0], `${userEventCommandList}${testEmail}`);
+
+      await whileTheUIisReady(100);
+
+      fireEvent(
+        saveButton,
+        new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+        })
+      );
+
+      await whileTheUIisReady(100);
+
+      // The table first reacted with the edit.start event
+      expect(onAction).toBeCalledWith(
+        expect.objectContaining({
+          name: 'edit.start', // this is the name of the action (assigned by Cascara)
+        }),
+        expect.objectContaining({
+          active: true,
+          country: 'Argentina',
+          eid: '024f2316-265a-46e8-965a-837e308ae678',
+          email: 'Hayden.Zieme@espressive.com',
+          employeeNumber: 93912,
+          fullName: 'Hayden Zieme',
+          homePhone: '887.983.0658',
+          officePhone: '(980) 802-1086 x05469',
+          title: 'District Operations Officer',
+        })
+      );
+
+      // Lastly, the table emits the edit.save event
+      expect(onAction).toHaveBeenLastCalledWith(
+        expect.objectContaining({
+          name: 'edit.save',
+        }),
+        expect.objectContaining({
+          active: true,
+          country: 'Argentina',
+          eid: '024f2316-265a-46e8-965a-837e308ae678',
+          email: testEmail,
+          employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
+          fullName: 'Hayden Zieme',
+          homePhone: '887.983.0658',
+          officePhone: '(980) 802-1086 x05469',
+          title: 'District Operations Officer',
+        })
+      );
+
+      done();
+    });
+
+    /**
+     * Cancelling the edition of a record.
+     *
+     * Upon exiting the edit mode via the cancel button, the Table must have emitted these events:
+     *
+     * edit.start - when clicking the edit button
+     * edit.cancel - when clicking the cancel button
+     *
+     * This test validates the events are actualy emitted by the Table, as well
      * as the number of buttons present in each case. */
-    test('editable records', () => {
+    test('cancelling record edition', () => {
       const onAction = jest.fn();
 
       render(
@@ -371,13 +479,13 @@ describe('Table', () => {
       );
 
       const moduleError = screen.findByText(
-        `${wrongModuleName} is not a invalid value for module. Try using one of [button, edit]`
+        `${wrongModuleName} is not a valid value for module. Try using one of [button, edit]`
       );
 
       expect(moduleError).toBeTruthy();
     });
 
-    test('ccolumns with non-existent module', () => {
+    test('columns with non-existent module', () => {
       const wrongModuleName = 'Superdooper';
       render(
         <Table
@@ -400,7 +508,7 @@ describe('Table', () => {
       );
 
       const moduleError = screen.findByText(
-        `${wrongModuleName} is not a invalid value for module. Try using one of [button, edit]`
+        `${wrongModuleName} is not a valid value for module. Try using one of [button, edit]`
       );
 
       expect(moduleError).toBeTruthy();
