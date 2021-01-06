@@ -8,7 +8,7 @@ jobs:
   install:
     executor:
       name: node/default
-      tag: '14.5.0'
+      tag: '12.20.0'
     steps:
       - checkout
       - node/install-packages:
@@ -25,7 +25,7 @@ jobs:
   lint:
     executor:
       name: node/default
-      tag: '14.5.0'
+      tag: '12.20.0'
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -44,7 +44,7 @@ jobs:
   test:
     executor:
       name: node/default
-      tag: '14.5.0'
+      tag: '12.20.0'
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -65,7 +65,7 @@ jobs:
   build-cascara:
     executor:
       name: node/default
-      tag: '14.5.0'
+      tag: '12.20.0'
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -87,7 +87,7 @@ jobs:
   build-cosmos:
     executor:
       name: node/default
-      tag: '14.5.0'
+      tag: '12.20.0'
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -105,7 +105,7 @@ jobs:
   build-docs:
     executor:
       name: node/default
-      tag: '14.5.0'
+      tag: '12.20.0'
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}

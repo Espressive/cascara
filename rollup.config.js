@@ -84,7 +84,7 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const esConfig = {
     input,
     output: {
-      dir: `${SOURCE_DIR}/${pkgConfig?.module?.replace('/index.js', '')}`,
+      dir: `${SOURCE_DIR}/${pkgConfig.module.replace('/index.js', '')}`,
       format: 'es',
     },
     external,
