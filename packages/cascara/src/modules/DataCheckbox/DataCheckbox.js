@@ -6,7 +6,6 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
-import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -31,12 +30,8 @@ const DataCheckbox = ({
   value,
   ...rest
 }) => {
-  const { isEditing, formMethods, record } = useContext(ModuleContext);
-  const finalValue =
-    attribute && record
-      ? getAttributeValueFromRecord(attribute, record)
-      : value;
-  const checkbox = useCheckboxState({ state: Boolean(finalValue) });
+  const { isEditing, formMethods } = useContext(ModuleContext);
+  const checkbox = useCheckboxState({ state: Boolean(value) });
 
   const renderEditing = (
     <label htmlFor={label}>
@@ -57,10 +52,10 @@ const DataCheckbox = ({
     <span>
       <span
         className={styles.Input}
-        data-checked={finalValue ? true : undefined}
+        data-checked={value ? true : undefined}
         {...rest}
       >
-        {finalValue}
+        {value}
       </span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </span>

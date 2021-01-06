@@ -5,15 +5,20 @@ import { ModuleContext } from '../context';
 import { Button } from 'reakit';
 
 const propTypes = {
+  /** Every action can have a name */
   actionName: pt.string,
+  /** Test ids to ease testing */
+  'data-testid': pt.string,
+  /** Presents the button without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
+  /** An action needs to have a unique label relative to its context */
   label: pt.string,
 };
 
 const ActionButton = ({
+  actionName,
   isLabeled = false,
   label = 'ActionButton',
-  actionName,
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
