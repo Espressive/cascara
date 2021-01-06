@@ -6,7 +6,6 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
-import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -31,11 +30,7 @@ const DataTextArea = ({
   value,
   ...rest
 }) => {
-  const { isEditing, formMethods, record } = useContext(ModuleContext);
-  const finalValue =
-    attribute && record
-      ? getAttributeValueFromRecord(attribute, record)
-      : value;
+  const { isEditing, formMethods } = useContext(ModuleContext);
 
   const renderEditing = (
     // eslint-disable-next-line jsx-a11y/label-has-for
@@ -45,7 +40,7 @@ const DataTextArea = ({
         {...rest}
         as={TextareaAutosize}
         className={styles.Input}
-        defaultValue={finalValue}
+        defaultValue={value}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
@@ -57,7 +52,7 @@ const DataTextArea = ({
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <span className={styles.Input} {...rest}>
-        {finalValue}
+        {value}
       </span>
     </span>
   );
