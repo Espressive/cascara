@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@espressive/cascara": "file:../packages/cascara",
-    "@espressive/legacy-css": "2.0.1",
+    "@espressive/legacy-css": "latest",
     "framer-motion": "2.5.5",
     "next": "9.5.4",
     "next-mdx-remote": "1.0.0",
