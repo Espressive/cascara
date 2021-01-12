@@ -2,6 +2,12 @@
   "name": "@espressive/cascara",
   "version": "0.2.11",
   "main": "dist/cjs/index.js",
+  "scripts": {
+    "build": "yarn clean && rollup -c",
+    "clean": "rm -rf dist && rm -rf undefined",
+    "prepublish": "yarn build",
+    "watch": "rollup -c -w"
+  },
   "repository": {
     "directory": "packages/cascara",
     "type": "git",
@@ -42,12 +48,6 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "semantic-ui-react": "^1.2.1"
-  },
-  "scripts": {
-    "build": "yarn clean && rollup -c",
-    "clean": "rm -rf dist && rm -rf undefined",
-    "prepublish": "yarn build",
-    "watch": "rollup -c -w"
   },
   "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }
