@@ -59,12 +59,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 nvm version
 ```
 
-3. If the output of the above command is `v14.5.0` you are done! 🎉
-4. If not... set the current version of node to 14.5.0:
+3. If the output of the above command is `v12.20.0` you are done! 🎉
+4. If not... set the current version of node to 12.20.0:
 
 ```bash
-nvm install 14.5.0
-nvm alias default 14.5.0
+nvm install 12.20.0
+nvm alias default 12.20.0
 ```
 
 5. Go back to step 2 and verify the correct version of Node is installed
