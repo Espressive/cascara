@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "start": "next-remote-watch ../packages/cascara",
-    "build": "next build",
-    "postbuild": "next-on-netlify"
+    "build": "next build"
   },
   "dependencies": {
     "@espressive/cascara": "file:../packages/cascara",
-    "@espressive/legacy-css": "latest",
+    "@espressive/legacy-css": "file:../utils/legacy-css",
     "framer-motion": "2.5.5",
     "next": "9.5.4",
     "next-mdx-remote": "1.0.0",
@@ -22,7 +21,6 @@
   "devDependencies": {
     "directory-tree": "2.2.4",
     "gray-matter": "4.0.2",
-    "next-on-netlify": "2.3.2",
     "next-remote-watch": "0.2.0",
     "prop-types": "15.7.2",
     "remark-autolink-headings": "6.0.1",
