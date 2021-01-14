@@ -27,21 +27,37 @@ const LoginForm = ({ onSubmit }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type={'text'}
-        name='username'
-        onChange={handleUsernameChange}
-        value={username}
-      />
-      <input
-        type={'password'}
-        name='password'
-        onChange={handlePasswordChange}
-        value={password}
-      />
-      <button type={'submit'}>login</button>
-    </form>
+    <div id='login'>
+      <form
+        onSubmit={handleSubmit}
+        className='ui clearing segment form'
+        style={{ minWidth: '25rem' }}
+      >
+        <div className='field'>
+          <label htmlFor='username'>Username</label>
+          <input
+            id='username'
+            type={'text'}
+            name='username'
+            onChange={handleUsernameChange}
+            value={username}
+          />
+        </div>
+        <div className='field'>
+          <label htmlFor='password'>Password</label>
+          <input
+            id='password'
+            type={'password'}
+            name='password'
+            onChange={handlePasswordChange}
+            value={password}
+          />
+        </div>
+        <button className='ui primary right floated button' type={'submit'}>
+          login
+        </button>
+      </form>
+    </div>
   );
 };
 

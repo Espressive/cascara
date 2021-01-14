@@ -1,8 +1,10 @@
+import '@espressive/legacy-css';
+import './styles.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import './styles.css';
 import { EspAuthProvider } from './libraries/espAuth';
 
 import App from './components/App';
