@@ -8,7 +8,7 @@ const propTypes = {
 };
 
 const ModuleError = ({ moduleName, moduleOptions }) => {
-  const message = `${moduleName} is not a invalid value for module. Try using one of [${moduleOptions.join(
+  const message = `${moduleName} is not a valid value for module. Try using one of [${moduleOptions.join(
     ', '
   )}]`;
   // eslint-disable-next-line no-console
@@ -16,7 +16,7 @@ const ModuleError = ({ moduleName, moduleOptions }) => {
 
   return (
     <div className={styles.Error} data-testid={'module-error'}>
-      Invalid module name
+      {message}
     </div>
   );
 };

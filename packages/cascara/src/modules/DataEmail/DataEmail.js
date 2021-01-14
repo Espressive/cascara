@@ -5,7 +5,6 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
-import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -30,11 +29,7 @@ const DataEmail = ({
   value,
   ...rest
 }) => {
-  const { isEditing, formMethods, record } = useContext(ModuleContext);
-  const finalValue =
-    attribute && record
-      ? getAttributeValueFromRecord(attribute, record)
-      : value;
+  const { isEditing, formMethods } = useContext(ModuleContext);
 
   const renderEditing = (
     <label htmlFor={label}>
@@ -42,7 +37,7 @@ const DataEmail = ({
       <Input
         {...rest}
         className={styles.Input}
-        defaultValue={finalValue}
+        defaultValue={value}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
@@ -55,7 +50,7 @@ const DataEmail = ({
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <span className={styles.Input} {...rest}>
-        {finalValue}
+        {value}
       </span>
     </span>
   );

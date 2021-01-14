@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { Checkbox } from 'reakit/Checkbox';
+import { Checkbox, useCheckboxState } from 'reakit/Checkbox';
 import pt from 'prop-types';
+
 import { ModuleContext } from '../context';
-import useToggle from '../../hooks/useToggle';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
-import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -31,25 +30,19 @@ const DataCheckbox = ({
   value,
   ...rest
 }) => {
-  const { isEditing, formMethods, record } = useContext(ModuleContext);
-  const finalValue =
-    attribute && record
-      ? getAttributeValueFromRecord(attribute, record)
-      : value;
-  const [isChecked, setIsChecked] = useToggle(Boolean(finalValue));
+  const { isEditing, formMethods } = useContext(ModuleContext);
+  const checkbox = useCheckboxState({ state: Boolean(value) });
 
   const renderEditing = (
     <label htmlFor={label}>
       {isLabeled && label && <span className={styles.Label}>{label}</span>}
       <Checkbox
         {...rest}
-        checked={isChecked}
+        {...checkbox}
         className={styles.Input}
         id={label}
         name={attribute || label}
-        onClick={setIsChecked}
         ref={formMethods?.register}
-        type='checkbox'
       />
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </label>
@@ -59,7 +52,7 @@ const DataCheckbox = ({
     <span>
       <span
         className={styles.Input}
-        data-checked={isChecked ? true : undefined}
+        data-checked={value ? true : undefined}
         {...rest}
       >
         {value}

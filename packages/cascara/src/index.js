@@ -9,7 +9,6 @@ import JsonPlaceholder from './placeholders/JsonPlaceholder';
 import Button from './ui/Button';
 import Dashboard from './ui/Dashboard';
 // import Form from './ui/Form';
-import Pagination from './ui/Pagination';
 import Table from './ui/Table';
 
 export {
@@ -19,6 +18,5 @@ export {
   Dashboard,
   // Form,
   JsonPlaceholder,
-  Pagination,
   Table,
 };
