@@ -17,11 +17,20 @@ const propTypes = {
 };
 
 const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
-  const { isEditing, setIsEditing, formMethods, record, onAction } = useContext(
-    ModuleContext
-  );
+  const {
+    idOfRecordInEditMode,
+    isEditing,
+    enterEditMode,
+    exitEditMode,
+    formMethods,
+    record,
+    onAction,
+    uniqueIdAttribute,
+  } = useContext(ModuleContext);
   const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
+  const recordId = record[uniqueIdAttribute];
+  const whenAnotherRowIsEditing = Boolean(idOfRecordInEditMode);
 
   /**
    * this seems like ugly, we need to find a better way
@@ -47,7 +56,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       }
     );
 
-    setIsEditing(false);
+    exitEditMode();
   };
 
   const handleCancel = () => {
@@ -72,7 +81,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       }
     );
 
-    setIsEditing(true);
+    enterEditMode(recordId);
   };
 
   const onSubmit = (data) => {
@@ -87,7 +96,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       }
     );
 
-    setIsEditing(false);
+    exitEditMode();
   };
 
   return isEditing ? (
@@ -115,6 +124,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     <Button
       {...editTestId}
       className='ui basic button'
+      disabled={whenAnotherRowIsEditing}
       onClick={handleEdit}
       type='button'
     >
