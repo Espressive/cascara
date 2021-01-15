@@ -1,37 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ModuleContext, ModuleProvider } from '../../../modules/context';
 import { useForm } from 'react-hook-form';
 
 const TableProvider = ({ children, value, ...props }) => {
+  const [idOfRecordInEditMode, setIdOfRecordInEditMode] = useState(null);
   const formMethods = useForm();
-  // const { handleSubmit } = formMethods;
 
-  // const onSubmit = (data) => {
-  //   // eslint-disable-next-line no-console
-  //   console.table(data);
+  function enterEditMode(recordId) {
+    setIdOfRecordInEditMode(recordId);
+  }
 
-  //   /** @brian:
-  //    *
-  //    * I am thinking on a way for us to derive the type of action
-  //    * to rise here, depending on which mode we are in:
-  //    *
-  //    * isEditing -> update
-  //    * isCreating -> create
-  //    */
-  //   value.onAction('submit', {
-  //     /**
-  //      * We cannot pass the whole record because it doesn't
-  //      * exist in this context, it is added downstream.
-  //      */
-  //     // ...value.record,
-  //     ...data,
-  //   });
-  // };
+  function exitEditMode() {
+    setIdOfRecordInEditMode(null);
+  }
 
   const mergedValues = {
     ...ModuleContext.defaultValue,
     ...value,
+    enterEditMode,
+    exitEditMode,
     formMethods,
+    idOfRecordInEditMode,
   };
 
   return (
