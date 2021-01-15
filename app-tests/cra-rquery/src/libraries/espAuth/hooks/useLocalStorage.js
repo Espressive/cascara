@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export const useLocalStorage = (itemKey, itemType = 'string', initialValue) => {
-  const valueIsNotAString = Boolean(itemType !== 'string');
+export const useLocalStorage = ({ key, type = 'string', initialValue }) => {
+  const valueIsNotAString = Boolean(type !== 'string');
   const [value, setValue] = useState(() => {
     try {
-      const value = localStorage.getItem(itemKey);
+      const value = localStorage.getItem(key);
 
       return value
         ? valueIsNotAString
@@ -20,26 +20,23 @@ export const useLocalStorage = (itemKey, itemType = 'string', initialValue) => {
     if (value) {
       try {
         localStorage.setItem(
-          itemKey,
+          key,
           valueIsNotAString ? JSON.stringify(value) : value
         );
       } catch (err) {
-        console.warn(
-          `Error while trying to set ${itemKey} in localStorage`,
-          err
-        );
+        console.warn(`Error while trying to set ${key} in localStorage`, err);
       }
     } else {
       try {
-        localStorage.removeItem(itemKey);
+        localStorage.removeItem(key);
       } catch (err) {
         console.warn(
-          `Error while trying to remove ${itemKey} from localStorage`,
+          `Error while trying to remove ${key} from localStorage`,
           err
         );
       }
     }
-  }, [itemKey, value, valueIsNotAString]);
+  }, [key, value, valueIsNotAString]);
 
   return [value, setValue];
 };

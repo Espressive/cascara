@@ -4,20 +4,23 @@ import { defaultConfig } from './config';
 import { fakeAxiosAdapter as apiMock } from './adapters';
 import { requestInterceptor, requestErrorHandler } from './interceptors';
 
-if (process.env.NODE_ENV === 'test') {
-  defaultConfig.adapter = apiMock.handleRequest;
-}
-
-const apiAgent = axios.create(defaultConfig);
-
-// note @manu: add response interceptors here if needed..
-apiAgent.interceptors.request.use(requestInterceptor, requestErrorHandler);
-
-export const useApiAgent = (config) => {
-  const apiAgentInsntance = apiAgent.create(config);
-
-  return [apiAgentInsntance, apiMock];
+const baseConfig = {
+  ...defaultConfig,
 };
 
-export default apiAgent;
+if (process.env.NODE_ENV === 'test') {
+  baseConfig.adapter = apiMock.handleRequest;
+}
+
+function useApi(url, config = {}) {
+  debugger;
+  const apiAgent = axios.create({ ...baseConfig, url, ...config });
+
+  // note @manu: add response interceptors here if needed..
+  apiAgent.interceptors.request.use(requestInterceptor, requestErrorHandler);
+
+  return [apiAgent, apiMock];
+}
+
+export default useApi;
 export { apiMock };

@@ -1,14 +1,30 @@
 html,
 body,
-#root {
-  height: 100%;
-  width: 100%;
+#login {
+  margin: 0.5em;
+  padding: 0;
 }
 
-#login {
-  height: 100%;
+main {
   display: grid;
   justify-content: center;
   align-content: center;
   background-color: ghostwhite;
+}
+
+aside {
+  grid-column: 1;
+}
+
+aside nav {
+  display: flex;
+  flex-direction: column;
+}
+
+aside nav a {
+  line-height: 1.5em;
+}
+
+section {
+  grid-column: 2;
 }

@@ -48,4 +48,6 @@ export const defaultConfig = {
   // `validateStatus` defines whether to resolve or reject the promise for a given
   // HTTP response status code.
   validateStatus: responseValidator,
+
+  protocol: 'https',
 };

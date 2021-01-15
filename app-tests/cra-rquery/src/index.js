@@ -3,19 +3,13 @@ import './styles.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 
-import { EspAuthProvider } from './libraries/espAuth';
-
-import App from './components/App';
+import './styles.css';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <EspAuthProvider baseURL={'https://release.qa.espressive.com'}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </EspAuthProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

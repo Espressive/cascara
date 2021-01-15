@@ -26,7 +26,7 @@ const parseQueryFromSearch = (searchString) => {
   return result;
 };
 
-const useQueryFromUrl = () => {
+const useQueryFromUrl = (initialValues) => {
   let [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
 
@@ -49,7 +49,6 @@ const useQueryFromUrl = () => {
 
   const setQueryToURL = (newQuery, mode = 'merge') => {
     console.table(searchParams);
-    debugger;
     const currentQuery = parseQueryFromSearch(searchParams);
 
     const plainQuery =
@@ -63,7 +62,13 @@ const useQueryFromUrl = () => {
     setSearchParams(plainQuery);
   };
 
-  return [query, setQueryToURL];
+  return [
+    {
+      ...initialValues,
+      ...query,
+    },
+    setQueryToURL,
+  ];
 };
 
 export default useQueryFromUrl;
