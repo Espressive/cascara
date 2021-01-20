@@ -35,7 +35,7 @@ const propTypes = {
         module: pt.oneOf(dataModuleOptions).isRequired,
       })
     ),
-  }),
+  }).isRequired,
 
   /** Event handler.
    *
