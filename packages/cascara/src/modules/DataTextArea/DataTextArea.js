@@ -35,7 +35,7 @@ const DataTextArea = ({
   const renderEditing = (
     // eslint-disable-next-line jsx-a11y/label-has-for
     <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
         as={TextareaAutosize}
@@ -50,7 +50,7 @@ const DataTextArea = ({
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <span className={styles.Input} {...rest}>
         {value}
       </span>
