@@ -23,6 +23,7 @@ const dataConfig = {
   actions: [
     {
       module: 'edit',
+<<<<<<< HEAD
     },
     {
       actionName: 'delete',
@@ -30,6 +31,8 @@ const dataConfig = {
       label: 'Delete',
       module: 'button',
       size: 'small',
+=======
+>>>>>>> FDS-115 Updated very old Form POC with actual components and modules from Table
     },
   ],
   display: [
@@ -50,6 +53,7 @@ const dataConfig = {
           label: 'Last Name',
           module: 'text',
         },
+<<<<<<< HEAD
         {
           attribute: 'password',
           isSecure: true,
@@ -59,6 +63,10 @@ const dataConfig = {
       ],
       module: 'row',
       ratio: [1, 1, 2],
+=======
+      ],
+      module: 'row',
+>>>>>>> FDS-115 Updated very old Form POC with actual components and modules from Table
     },
     {
       attribute: 'homePhone',

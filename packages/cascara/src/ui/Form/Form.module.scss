@@ -15,21 +15,11 @@
   }
 }
 
-.FormActionBar {
-  margin: 0;
-  display: contents;
-
-  & > * {
-    margin-bottom: 1em;
-  }
-}
-
 // Need to standardize these breakpoints
 @media (min-width: 720px) {
   .FormRow {
     display: grid;
     grid-gap: 1em;
-    // This default column template is applied inline on the module itself
-    // grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   }
 }
