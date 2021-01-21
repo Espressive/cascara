@@ -5,7 +5,6 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
-import { getAttributeValueFromRecord } from '../../shared/recordUtils';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -31,12 +30,8 @@ const DataRadio = ({
   value,
   ...rest
 }) => {
-  const { isEditing, formMethods, record } = useContext(ModuleContext);
-  const finalValue =
-    attribute && record
-      ? getAttributeValueFromRecord(attribute, record)
-      : value;
-  const radio = useRadioState({ state: finalValue });
+  const { isEditing, formMethods } = useContext(ModuleContext);
+  const radio = useRadioState({ state: value });
 
   const renderRadio = (option) => (
     <label htmlFor={option.label}>
@@ -64,7 +59,7 @@ const DataRadio = ({
     >
       {options
         ? options.map((option) => renderRadio(option))
-        : renderRadio(finalValue)}
+        : renderRadio(value)}
     </RadioGroup>
   );
 
@@ -73,7 +68,7 @@ const DataRadio = ({
       <div className={styles.Radio}>
         <span>
           <span className={styles.Input} {...rest}>
-            {finalValue}
+            {value}
           </span>
           {label && isLabeled && (
             <span className={styles.LabelText}>{label}</span>

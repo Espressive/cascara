@@ -17,11 +17,20 @@ const propTypes = {
 };
 
 const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
-  const { isEditing, setIsEditing, formMethods, record, onAction } = useContext(
-    ModuleContext
-  );
+  const {
+    idOfRecordInEditMode,
+    isEditing,
+    enterEditMode,
+    exitEditMode,
+    formMethods,
+    record,
+    onAction,
+    uniqueIdAttribute,
+  } = useContext(ModuleContext);
   const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
+  const recordId = record[uniqueIdAttribute];
+  const whenAnotherRowIsEditing = Boolean(idOfRecordInEditMode);
 
   /**
    * this seems like ugly, we need to find a better way
@@ -47,8 +56,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       }
     );
 
-    reset();
-    setIsEditing(false);
+    exitEditMode();
   };
 
   const handleCancel = () => {
@@ -59,6 +67,10 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   };
 
   const handleEdit = () => {
+    /**
+     * FDS-91: We are resetting the form with whatever is in record.
+     * We don't know if this is the best way to do it in React. */
+    reset({ ...record });
     onAction(
       // fake target
       {
@@ -69,7 +81,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       }
     );
 
-    setIsEditing(true);
+    enterEditMode(recordId);
   };
 
   const onSubmit = (data) => {
@@ -84,37 +96,37 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       }
     );
 
-    setIsEditing(false);
+    exitEditMode();
   };
 
   return isEditing ? (
     <>
       <Button
+        {...cancelTestId}
         className='ui negative icon button'
-        loading={isSubmitting}
+        disabled={isSubmitting}
         onClick={handleCancel}
         type='button'
-        {...cancelTestId}
       >
         <Icon name='delete' />
       </Button>
       <Button
+        {...saveTestId}
         className='ui positive icon button'
-        disabled={!isDirty}
-        loading={isSubmitting}
+        disabled={!isDirty || isSubmitting}
         onClick={handleSubmit(onSubmit)}
         type='button'
-        {...saveTestId}
       >
         <Icon name='check' />
       </Button>
     </>
   ) : (
     <Button
+      {...editTestId}
       className='ui basic button'
+      disabled={whenAnotherRowIsEditing}
       onClick={handleEdit}
       type='button'
-      {...editTestId}
     >
       {editLabel}
     </Button>

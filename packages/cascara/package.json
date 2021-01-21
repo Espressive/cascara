@@ -1,7 +1,13 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.2.10",
+  "version": "0.2.13",
   "main": "dist/cjs/index.js",
+  "scripts": {
+    "build": "yarn clean && rollup -c",
+    "clean": "rm -rf dist && rm -rf undefined",
+    "prepublish": "yarn build",
+    "watch": "rollup -c -w"
+  },
   "repository": {
     "directory": "packages/cascara",
     "type": "git",
@@ -34,7 +40,7 @@
     "reakit": "1.1.2"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "^2.0.0",
+    "@espressive/legacy-css": "^2.0.1",
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2"
   },
@@ -42,12 +48,6 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "semantic-ui-react": "^1.2.1"
-  },
-  "scripts": {
-    "build": "yarn clean && rollup -c",
-    "clean": "rm -rf dist && rm -rf undefined",
-    "prepublish": "yarn build",
-    "watch": "rollup -c -w"
   },
   "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }

@@ -8,8 +8,7 @@ import { ModuleContext } from '../../modules/context';
 
 import ActionBar from './ActionBar';
 
-// Data
-// @manu: let's document this one
+// todo @manu: let's document this one
 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
 
 import ModuleError from '../../modules/ModuleError';
@@ -68,11 +67,12 @@ const TableRow = ({ config = {}, record = {} }) => {
   const rowCells = columns.map((column) => {
     const { module, isLabeled, ...rest } = column;
     const Module = dataModules[module];
+    const moduleValue = record[column.attribute];
 
     return (
       <td className={styles.Cell} key={column.attribute}>
         {Module ? (
-          <Module isLabeled={false} {...rest} />
+          <Module {...rest} isLabeled={false} value={moduleValue} />
         ) : (
           <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
         )}

@@ -11,7 +11,6 @@ import {
   Button,
   Dashboard,
   JsonPlaceholder,
-  Pagination,
   Table,
 } from '@espressive/cascara';
 
@@ -43,7 +42,6 @@ const MDX_COMPONENTS = {
   Button: (props) => <Button {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
-  Pagination: (props) => <Pagination {...props} />,
   Table: (props) => <Table {...props} />,
 
   // Private

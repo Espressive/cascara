@@ -9469,7 +9469,6 @@ img.ui.bordered.image {
 .ui.transparent.input input {
   border-color: transparent !important;
   background-color: transparent !important;
-  padding: 0 0.51785714em 0.625em !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 } /*!
