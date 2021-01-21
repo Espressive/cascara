@@ -7,13 +7,17 @@ import {
 } from 'reakit/Popover';
 import styles from './Popover.module.scss';
 
+import { popperOverTrigger } from '../../shared/popperModifiers';
+
 const Popover = ({ children, trigger }) => {
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
   const triggerRef = useRef();
 
   const popover = usePopoverState({
     gutter: 0,
+    modal: true,
     placement: 'bottom-end',
+    unstable_popperModifiers: [popperOverTrigger],
   });
 
   return (

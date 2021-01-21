@@ -1,23 +1,22 @@
 ._ {
   z-index: 100;
   background-color: #fff;
-  border-radius: 0.25em;
-  border: 1px solid #999;
-  box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.05);
+  // border: 1px solid #999;
+  // box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.05);
 
   &:focus {
     outline: none;
-    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.25);
+    // box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.25);
 
     // Only show a backdrop if the popover is in focus
-    & + .Backdrop {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      position: fixed;
-      background-color: #000;
-      opacity: 0.04;
-    }
+    // & + .Backdrop {
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
+    //   bottom: 0;
+    //   position: fixed;
+    //   background-color: #000;
+    //   opacity: 0.04;
+    // }
   }
 }
