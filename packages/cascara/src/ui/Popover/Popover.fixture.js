@@ -20,7 +20,7 @@ const Fixture = () => (
 
     <Popover trigger={<Button content='Greeting' />}>Hello!</Popover>
 
-    <ActionsMenu items={menuItems} trigger={<Button content='More' />} />
+    <ActionsMenu actions={menuItems} trigger={<Button content='More' />} />
   </main>
 );
 

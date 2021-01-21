@@ -5,10 +5,10 @@ import { Menu, MenuButton, MenuItem, useMenuState } from 'reakit/Menu';
 import { popperOverTrigger } from '../../shared/popperModifiers';
 
 const propTypes = {
-  items: pt.arrayOf(pt.object).isRequired,
+  actions: pt.arrayOf(pt.object).isRequired,
 };
 
-const ActionsMenu = ({ trigger, items }) => {
+const ActionsMenu = ({ trigger, actions }) => {
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
   const triggerRef = useRef();
 
@@ -39,7 +39,7 @@ const ActionsMenu = ({ trigger, items }) => {
           className='menu transition visible'
           style={{ position: 'initial' }}
         >
-          {items.map(({ content, ...rest }) => (
+          {actions.map(({ content, ...rest }) => (
             <MenuItem
               {...menu}
               {...rest}
