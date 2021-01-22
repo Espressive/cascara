@@ -25,6 +25,11 @@ const ActionsMenu = ({ trigger, actions }) => {
     unstable_popperModifiers: [popperOverTrigger],
   });
 
+  const onItemClick = (item) => {
+    menu.hide();
+    item.onClick();
+  };
+
   return (
     <>
       <MenuButton {...menu} {...trigger.props} ref={triggerRef}>
@@ -47,6 +52,7 @@ const ActionsMenu = ({ trigger, actions }) => {
               as='div'
               className={'item ' + styles.ActionsMenuItem}
               key={content}
+              onClick={() => onItemClick(rest)}
               style={{ paddingTop: '.5rem !important' }}
             >
               {content}
