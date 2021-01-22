@@ -1,11 +1,11 @@
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 import pt from 'prop-types';
 import React, { forwardRef } from 'react';
 import { Button as ReakitButton } from 'reakit';
 import { getSafeLinkRel } from '../../shared/linkUtils';
-import styles from './Button.module.scss';
+// import styles from './Button.module.scss';
 
-const cx = classNames.bind(styles);
+const cx = classNames;
 
 const propTypes = {
   /** Can render as a different tag or component */
@@ -39,21 +39,32 @@ const Button = forwardRef(
     },
     ref
   ) => {
-    const internalClassName = cx(rest.className, {
-      _: true,
+    // Leaving this here for when we decide to run our own styles
+    // const internalClassName = cx(rest.className, {
+    //   _: true,
+    //   basic: !outcome,
+    //   fluid: fluid,
+    //   large: size === 'large',
+    //   negative: outcome === 'negative',
+    //   positive: outcome === 'positive',
+    //   small: size === 'small',
+    // });
+
+    const legacyClassname = cx(rest.className, {
       basic: !outcome,
       fluid: fluid,
       large: size === 'large',
       negative: outcome === 'negative',
       positive: outcome === 'positive',
       small: size === 'small',
+      'ui button': true,
     });
 
     return (
       <ReakitButton
         {...rest}
         as={as}
-        className={internalClassName}
+        className={legacyClassname}
         ref={ref}
         rel={getSafeLinkRel(rest)}
       >
