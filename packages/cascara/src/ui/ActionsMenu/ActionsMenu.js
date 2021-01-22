@@ -1,6 +1,7 @@
 import pt from 'prop-types';
 import React, { useLayoutEffect, useRef } from 'react';
 import { Menu, MenuButton, MenuItem, useMenuState } from 'reakit/Menu';
+import styles from './ActionsMenu.module.scss';
 
 import { popperOverTrigger } from '../../shared/popperModifiers';
 
@@ -32,7 +33,7 @@ const ActionsMenu = ({ trigger, actions }) => {
       <Menu
         {...menu}
         aria-label='Menu'
-        className='ui active dropdown'
+        className={'ui dropdown active visible ' + styles.ActionsMenu}
         preventBodyScroll
       >
         <div
@@ -44,8 +45,9 @@ const ActionsMenu = ({ trigger, actions }) => {
               {...menu}
               {...rest}
               as='div'
-              className='item'
+              className={'item ' + styles.ActionsMenuItem}
               key={content}
+              style={{ paddingTop: '.5rem !important' }}
             >
               {content}
             </MenuItem>
