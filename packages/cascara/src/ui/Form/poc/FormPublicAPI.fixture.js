@@ -44,8 +44,14 @@ const dataConfig = {
           label: 'Last Name',
           module: 'text',
         },
+        {
+          attribute: 'firstName',
+          label: 'First Name Again',
+          module: 'text',
+        },
       ],
       module: 'row',
+      ratio: [1, 1, 2],
     },
     {
       attribute: 'homePhone',

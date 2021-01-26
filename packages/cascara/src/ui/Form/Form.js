@@ -71,11 +71,15 @@ const formFields = (display, data) => {
     // Check to see if we have a form module, which will probably only be a FormRow
     const FormModule = formModules[module];
 
-    return Boolean(FormModule) ? (
-      // TODO: We should concat the form ID with this row index for a more robust key value
-      <FormModule key={i}>{renderFields(field.fields)}</FormModule>
-    ) : (
-      renderField(field)
+    return (
+      <ErrorBoundary>
+        {Boolean(FormModule) ? (
+          // TODO: We should concat the form ID with this row index for a more robust key value
+          <FormModule {...field}>{renderFields(field.fields)}</FormModule>
+        ) : (
+          renderField(field)
+        )}
+      </ErrorBoundary>
     );
   });
 };
