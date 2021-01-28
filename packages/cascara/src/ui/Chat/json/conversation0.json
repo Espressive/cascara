@@ -1,0 +1,32 @@
+{
+  "count": 1,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": "f6f446f0-e653-4ac0-92b9-2c92ad26e5fb",
+      "metadata": null,
+      "sys_date_created": "2020-06-29T21:17:06.670690Z",
+      "user_id": 3,
+      "text": "June birthday team!",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "b4c19c11-ba2a-4b96-becc-4227af87a9d9",
+      "metadata": {
+        "attachment_eid": "1a32b7ee-a571-4449-a3e8-40260a62b1c0",
+        "url": "https://q.evisserp.se/media/espressive/base_attachments/aad7c663-18d9-4608-abbe-561347308ec6/DC2B52C6-A510-439C-9F6D-55BE655FAF6A.gif?Expires=1611792193&Signature=MEQCIFD9hufy6Ks8XjmcLiAyRXdOqCqpFcnWNgmfh06T-RdnAiBQ4UzIYmnLxxwipnmStrK49txz1QgE-d8N85XsFI8ZSg__&Key-Pair-Id=APKAIOQ7Z3WLZHFWAQAQ",
+        "size": 533574,
+        "width": 480,
+        "height": 360,
+        "type": "gif"
+      },
+      "sys_date_created": "2020-06-21T18:17:41.197832Z",
+      "user_id": 7,
+      "text": "I've sent you an attachment, please check it.",
+      "type": "attachment",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    }
+  ]
+}

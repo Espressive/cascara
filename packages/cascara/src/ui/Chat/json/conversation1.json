@@ -1,0 +1,152 @@
+{
+  "count": 11,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": "f6f446f0-e653-4ac0-92b9-2c92ad26e5fb",
+      "metadata": null,
+      "sys_date_created": "2020-06-29T21:17:06.670690Z",
+      "user_id": 3,
+      "text": "June birthday team!",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "b4c19c11-ba2a-4b96-becc-4227af87a9d9",
+      "metadata": {
+        "attachment_eid": "1a32b7ee-a571-4449-a3e8-40260a62b1c0",
+        "url": "https://media.giphy.com/media/ytwDCpH2VqBVXphoKk/source.gif",
+        "size": 533574,
+        "width": 480,
+        "height": 360,
+        "type": "gif"
+      },
+      "sys_date_created": "2020-06-21T18:17:41.197832Z",
+      "user_id": 7,
+      "text": "I've sent you an attachment, please check it.",
+      "type": "attachment",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "bed1f924-0610-4e1b-94d6-de3d1a7494ae",
+      "metadata": null,
+      "sys_date_created": "2020-06-21T18:16:55.051008Z",
+      "user_id": 7,
+      "text": "Happy bday https://",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "28445222-25eb-49bd-9fcd-871fee37327e",
+      "metadata": {
+        "attachment_eid": "5040097f-e3b3-4655-b197-827c5d621837",
+        "url": "https://media.giphy.com/media/RLCSAx4DQEJb2/source.gif",
+        "size": 673569,
+        "width": 500,
+        "height": 268,
+        "type": "gif"
+      },
+      "sys_date_created": "2020-04-06T20:38:50.572947Z",
+      "user_id": 3,
+      "text": "I've sent you an attachment, please check it.",
+      "type": "attachment",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "494ffd5e-76f1-4ccb-a478-8f8d48bad803",
+      "metadata": null,
+      "sys_date_created": "2019-12-12T16:39:01.296651Z",
+      "user_id": 3,
+      "text": "Ugh. I still hate these notification designs...",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "f39a0f00-5282-4d3b-bc0f-2a12381183b1",
+      "metadata": {
+        "attachment_eid": "31da025d-e9ce-4dd4-9058-1b283ef4a899",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Hello_%28yellow%29.png",
+        "size": 98447,
+        "width": 472,
+        "height": 1024,
+        "type": "png"
+      },
+      "sys_date_created": "2019-12-12T02:12:26.117020Z",
+      "user_id": 7,
+      "text": "I've sent you an attachment, please check it.",
+      "type": "attachment",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "f5972164-1d46-4995-af33-d77843990ff0",
+      "metadata": null,
+      "sys_date_created": "2019-12-12T02:12:07.463289Z",
+      "user_id": 7,
+      "text": "Would be cool yes! ",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "7556c3dc-519f-4088-80e4-e071677c3558",
+      "metadata": {
+        "attachment_eid": "2edebbbf-4336-40eb-826e-f386c68c9ac4",
+        "url": "https://media.giphy.com/media/SDogLD4FOZMM8/source.gif",
+        "size": 1784404,
+        "width": 540,
+        "height": 274,
+        "type": "gif"
+      },
+      "sys_date_created": "2019-12-12T02:09:46.240342Z",
+      "user_id": 3,
+      "text": "I've sent you an attachment, please check it.",
+      "type": "attachment",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "dab4c65s4-94cb-11e7-9e45-0a5860750930",
+      "metadata": null,
+      "sys_date_created": "2017-09-08T19:30:19.670220Z",
+      "user_id": 3,
+      "text": "Cool story brah!",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "dab4c61a-94cb-11e7-9e45-0a5860750930",
+      "metadata": null,
+      "sys_date_created": "2017-09-08T19:29:48.670220Z",
+      "user_id": 3,
+      "text": "Hopefully",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "dab4c61a-94cb-11e7-9e45-0a5864600930",
+      "metadata": null,
+      "sys_date_created": "2017-09-08T19:28:12.670220Z",
+      "user_id": 3,
+      "text": "I think it would be cool to have emojis show up larger when rendered by themselves like this.",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "7eecdf64-8f82-11e7-ac48-0a5864600924",
+      "metadata": null,
+      "sys_date_created": "2017-09-02T02:00:29.612436Z",
+      "user_id": 7,
+      "text": "👯",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "2feffb44-8f7d-11e7-abe6-0a5864600924",
+      "metadata": null,
+      "sys_date_created": "2017-09-02T01:22:29.609093Z",
+      "user_id": 3,
+      "text": "Look at this guy with the SWEET border around his profile image!",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    }
+  ]
+}

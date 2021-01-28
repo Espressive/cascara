@@ -25,6 +25,7 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "7.11.2",
+    "@fluentui/react-northstar": "0.51.4",
     "@nivo/bar": "0.61.0",
     "@nivo/bump": "0.61.0",
     "@nivo/core": "0.61.0",
@@ -35,12 +36,15 @@
     "@nivo/tooltip": "0.61.0",
     "@nivo/treemap": "0.61.0",
     "classnames": "2.2.6",
+    "ramda": "0.27.0",
     "react-hook-form": "6.8.4",
     "react-textarea-autosize": "8.2.0",
     "reakit": "1.1.2"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "^2.0.1",
+    "@espressive/legacy-css": "latest",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2"
   },
