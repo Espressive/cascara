@@ -8,6 +8,7 @@ import ChatAvatar from './ChatAvatar';
 // parent FUIChat.Message component props in a different way or adjust styles.
 const attachmentTypes = {
   gif: Image,
+  jpeg: Image,
   png: Image,
 };
 

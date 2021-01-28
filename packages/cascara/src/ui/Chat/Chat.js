@@ -31,7 +31,7 @@ const getMessageGroup = (current, previous = fallback, next = fallback) => {
     current: new Date(currentUTC).getTime(),
     next: new Date(nextUTC).getTime(),
   };
-  const timeDiff = 15;
+  const timeDiffMins = 15;
   const prevMinDiff = Math.floor((time.current - time.prev) / 1000 / 60);
   const nextMinDiff = Math.floor((time.next - time.current) / 1000 / 60);
 
@@ -42,9 +42,9 @@ const getMessageGroup = (current, previous = fallback, next = fallback) => {
     bottom: nextUser !== currentUser && previousUser === currentUser,
   };
   const timeRangeGroup = {
-    top: previousUser === currentUser && prevMinDiff > timeDiff,
-    middle: prevMinDiff < timeDiff && nextMinDiff < timeDiff,
-    bottom: nextUser === currentUser && nextMinDiff > timeDiff,
+    top: previousUser === currentUser && prevMinDiff > timeDiffMins,
+    middle: prevMinDiff < timeDiffMins && nextMinDiff < timeDiffMins,
+    bottom: nextUser === currentUser && nextMinDiff > timeDiffMins,
   };
 
   let messageGrouping;
