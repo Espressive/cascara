@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import pt from 'prop-types';
 import { identity, memoizeWith } from 'ramda';
 import {
@@ -82,13 +82,38 @@ const getMessageGroup = (current, previous = fallback, next = fallback) => {
 };
 
 const Chat = ({ currentUserID, messages, users }) => {
+  const latestMessageRef = useRef(null);
+
+  const handleScrollToBottom = () => {
+    // console.log(latestMessageRef?.current);
+    return latestMessageRef?.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+    });
+  };
+
+  // When messages change
+  useEffect(() => {
+    handleScrollToBottom();
+  }, [messages]);
+
+  // On mount
+  useEffect(() => {
+    handleScrollToBottom();
+  }, []);
+
   const getMessageAuthorDetails = memoizeWith(identity, (userID) => {
     const user = users[userID];
+    const fullName = [user?.firstName, user?.lastName]
+      .filter((name) => name != null)
+      .join(' ');
 
-    return { ...user, fullName: user?.firstName + ' ' + user?.lastName };
+    return { ...user, fullName };
   });
 
-  const items = messages.map((msg, index, array) => {
+  // NOTE: Some of our messages return arrays of objects and not
+  // just an object, so we need to use flatMap here
+  let items = messages.flatMap((msg, index, array) => {
     const previousMessage = array[index - 1];
     const nextMessage = array[index + 1];
     const getMessageObject = messageTypes[msg.type];
@@ -99,18 +124,33 @@ const Chat = ({ currentUserID, messages, users }) => {
     return Boolean(getMessageObject)
       ? getMessageObject({
           attached: getMessageGroup(msg, previousMessage, nextMessage),
+          handleScrollToBottom,
           isSessionUser,
           message: msg,
           messageAuthor: getMessageAuthorDetails(msg.user_id),
+          ref: latestMessageRef,
         })
       : null;
   });
 
-  // console.log(items);
-
   return (
-    <Provider theme={teamsTheme}>
-      <FUIChat items={items} />
+    <Provider
+      style={{
+        backgroundColor: 'lightgray',
+        height: '100vh',
+        padding: '1em',
+      }}
+      theme={teamsTheme}
+    >
+      <button onClick={handleScrollToBottom}>Scroll</button>
+      <div
+        style={{
+          height: '80vh',
+          overflowY: 'auto',
+        }}
+      >
+        <FUIChat items={items} />
+      </div>
     </Provider>
   );
 };

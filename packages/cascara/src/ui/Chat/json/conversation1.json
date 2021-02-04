@@ -4,6 +4,15 @@
   "previous": null,
   "results": [
     {
+      "id": "f6f446f0-e653-4ac0-92b9-2c92ad65ad4f",
+      "metadata": null,
+      "sys_date_created": "2020-06-29T21:19:06.670690Z",
+      "user_id": 7,
+      "text": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.\n\n   Laudantium, consectetur! Consequuntur minus, fuga perferendis, rerum ab nihil itaque inventore et eaque delectus porro, voluptates optio doloremque incidunt pariatur saepe aut?\n\nExplicabo quo aut debitis, pariatur maiores iure. Iusto dolorum nihil, eaque id nesciunt provident natus ipsum tenetur nam, sapiente earum eius recusandae ab aliquam assumenda eos. Earum, reprehenderit a? Consequatur harum laborum error, autem molestias sed eaque in deleniti accusamus, voluptate tempora necessitatibus magnam ea. Labore vero magni iusto pariatur sequi molestiae quisquam delectus facilis vitae veritatis dolorem officiis facere magnam harum numquam quas, iure unde sit. Harum porro ipsum atque unde, necessitatibus sed expedita repudiandae placeat quia omnis eligendi rem nobis saepe libero. Omnis suscipit exercitationem magnam officia alias eius, facilis aliquid perspiciatis provident quos odit mollitia reiciendis amet culpa sapiente voluptas dignissimos architecto assumenda ut nihil fugiat! Iusto nam quis mollitia quam quia eum, consectetur porro molestias quisquam quod odit, qui saepe facilis reiciendis dolore dolor quae, quasi suscipit tempora. Harum cum cupiditate aliquam possimus. Earum, ratione! Eos, libero asperiores. Cupiditate perspiciatis animi culpa illo deserunt ducimus cumque iste, at dignissimos possimus consectetur quo odio sed enim quia? Rerum porro enim dolor? Ut veritatis nesciunt ipsum quisquam, at dicta a! Maiores, dolorum! Aperiam, minus perferendis nostrum molestiae distinctio consequatur iusto, similique aliquam saepe maiores maxime consequuntur autem voluptatibus! Minima sit a similique ad! Officia, magnam doloremque molestias asperiores laborum, est iusto illo tenetur iste earum ipsa ut. A quia accusantium iusto ut enim animi ad iste magni, velit rem sapiente debitis accusamus quae labore modi dolorum mollitia? Suscipit in pariatur similique quo culpa distinctio omnis quod provident? Illum voluptate asperiores accusamus esse doloribus expedita veniam ipsa et eligendi natus eaque laborum eos at commodi labore architecto recusandae hic enim ut, blanditiis quae iure pariatur magnam. Nobis, velit vero eveniet adipisci sed porro maiores dicta nemo consectetur, saepe nisi sequi voluptas! Sapiente totam reprehenderit vero est ex suscipit fugit aperiam dignissimos accusamus, illum repellendus asperiores officia laborum, dolores impedit cupiditate? Perspiciatis dolores aliquam facere commodi illum obcaecati alias nobis et, sed neque voluptates in, magnam ea officiis repudiandae ipsam unde accusantium. Dolore molestiae ad dolor dolorum id corporis obcaecati quia, provident labore commodi neque repellat exercitationem aperiam beatae ipsa in veritatis suscipit quas laborum. Laboriosam magnam sit nemo, cum dignissimos ipsa labore iste unde explicabo eaque, ut omnis. Natus officia consequatur sapiente cupiditate veniam repellendus dolore, voluptates illo ullam cumque maxime aspernatur expedita, iste libero adipisci sint deserunt sit fugiat! Magnam earum, numquam dolores eos quam maxime reprehenderit molestiae a quae facere accusantium, ad iusto eligendi iste aut? Libero ipsum inventore mollitia eius magnam? Molestiae delectus praesentium pariatur inventore consequatur in. Vel esse aut, cum ab numquam quae minima assumenda tenetur itaque nemo expedita, aliquam nulla laboriosam quidem porro nam voluptas ipsum fugiat? Harum ducimus vitae deserunt. Aut eligendi, recusandae earum praesentium voluptates vel doloribus id natus reprehenderit, quasi optio iusto voluptate harum libero asperiores ipsa voluptatem sunt, esse non hic quis. Provident perferendis fuga, optio aut eligendi quasi.",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
       "id": "f6f446f0-e653-4ac0-92b9-2c92ad26e5fb",
       "metadata": null,
       "sys_date_created": "2020-06-29T21:17:06.670690Z",
@@ -41,11 +50,11 @@
       "id": "28445222-25eb-49bd-9fcd-871fee37327e",
       "metadata": {
         "attachment_eid": "5040097f-e3b3-4655-b197-827c5d621837",
-        "url": "https://media.giphy.com/media/RLCSAx4DQEJb2/source.gif",
+        "url": "https://www.espressive.com/wp-content/uploads/2020/11/Espressive_Omnichannel_DS.pdf",
         "size": 673569,
         "width": 500,
         "height": 268,
-        "type": "gif"
+        "type": "pdf"
       },
       "sys_date_created": "2020-04-06T20:38:50.572947Z",
       "user_id": 3,

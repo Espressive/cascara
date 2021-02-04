@@ -1,58 +1,114 @@
 import React from 'react';
-import { Chat as FUIChat, Image } from '@fluentui/react-northstar';
+import { Attachment, Chat as FUIChat, Image } from '@fluentui/react-northstar';
+import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
+import getSharedMessageKeys from './getSharedMessageKeys';
 
-import ChatAvatar from './ChatAvatar';
+const IMAGE_ATTACHMENT_TYPES = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'tiff'];
 
-// There will be other attachment types we need to add support for. Some
-// attachment display components may need additional logic to set the
-// parent FUIChat.Message component props in a different way or adjust styles.
-const attachmentTypes = {
-  gif: Image,
-  jpeg: Image,
-  png: Image,
+const bytesToSize = (bytes) => {
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  const int = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+  return bytes
+    ? Math.round(bytes / Math.pow(1024, int), 2) + ' ' + sizes[int]
+    : null;
 };
 
-const Attachment = ({ authorName, isSessionUser, metadata, timestamp }) => {
-  const Component = attachmentTypes[metadata.type];
+const ChatAttachment = ({
+  authorName,
+  isSessionUser,
+  metadata,
+  timestamp,
+  handleScrollToBottom,
+}) => {
+  const { url, size, width, height, type } = metadata;
+  const fileName = url.split('/').pop();
+  // const fileExtension = fileName.split('.').pop();
 
-  if (Component) {
-    return (
-      <FUIChat.Message
-        author={authorName}
-        content={<Component fluid src={metadata.url} />}
-        mine={isSessionUser}
-        timestamp={timestamp}
-      />
-    );
-  } else {
-    // eslint-disable-next-line no-console
-    console.error('Unsupported attachment: ' + metadata.type);
-    return null;
-  }
+  // TODO: Make the file download when clicked
+  const handleDownload = () => {
+    alert('handleDownload()');
+  };
+
+  const attachment = IMAGE_ATTACHMENT_TYPES.includes(metadata.type) ? (
+    // Display an image if one of the supported image attachment types is present
+    // NOTE: For now, we are passing the scroll bottom handler to all onLoad events for an image,
+    // this way we can make sure the bottom gets scrolled to when the image is done loading.
+    <Image
+      fluid
+      height={height}
+      onLoad={handleScrollToBottom}
+      src={url}
+      width={width}
+    />
+  ) : (
+    // Otherwise, display as a file instead
+    <Attachment
+      actionable
+      description={bytesToSize(size)}
+      header={fileName}
+      icon={
+        // TODO: Extract these to CSS modules
+        <div
+          style={{
+            position: 'relative',
+          }}
+        >
+          <div
+            style={{
+              bottom: '.375em',
+              fontSize: '.75em',
+              position: 'absolute',
+              textAlign: 'center',
+              width: '100%',
+              zIndex: 1,
+            }}
+          >
+            {type}
+          </div>
+          <FilesEmptyIcon outline />
+        </div>
+      }
+      onClick={handleDownload}
+    />
+  );
+
+  return (
+    <FUIChat.Message
+      author={authorName}
+      content={attachment}
+      mine={isSessionUser}
+      timestamp={timestamp}
+    />
+  );
 };
 
-Attachment.displayName = 'Chat.Message';
+ChatAttachment.displayName = 'Chat.Message';
 
 // This returns the object that FUI is expecting, along with the component and props
-const chatAttachment = ({
-  attached,
-  isSessionUser,
-  message,
-  messageAuthor,
-}) => {
+const getChatAttachmentObj = (obj) => {
+  const {
+    handleScrollToBottom,
+    isSessionUser,
+    message,
+    messageAuthor,
+    ref,
+  } = obj;
+
   return {
-    attached,
-    contentPosition: isSessionUser ? 'end' : 'start',
-    gutter: <ChatAvatar {...messageAuthor} />,
-    key: message.id,
+    ...getSharedMessageKeys(obj),
     message: (
-      <Attachment
-        authorName={messageAuthor.fullName}
-        isSessionUser={isSessionUser}
-        {...message}
-      />
+      <span id={message.id} ref={ref}>
+        <ChatAttachment
+          authorName={messageAuthor.fullName}
+          handleScrollToBottom={handleScrollToBottom}
+          isSessionUser={isSessionUser}
+          {...message}
+        />
+      </span>
     ),
   };
 };
 
-export default chatAttachment;
+export { getChatAttachmentObj };
+
+export default ChatAttachment;

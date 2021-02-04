@@ -1,34 +1,39 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Chat as FUIChat } from '@fluentui/react-northstar';
+import getSharedMessageKeys from './getSharedMessageKeys';
 
-import ChatAvatar from './ChatAvatar';
-
-const Message = ({ authorName, isSessionUser, text, timestamp }) => (
-  <FUIChat.Message
-    author={authorName}
-    content={text}
-    mine={isSessionUser}
-    timestamp={timestamp}
-  />
+const ChatMessage = forwardRef(
+  ({ authorName, isSessionUser, text, timestamp }, ref) => (
+    <FUIChat.Message
+      author={authorName}
+      content={text}
+      mine={isSessionUser}
+      ref={ref}
+      timestamp={timestamp}
+    />
+  )
 );
-
-Message.displayName = 'Chat.Message';
+ChatMessage.displayName = 'Chat.Message';
 
 // This returns the object that FUI is expecting, along with the component and props
-const chatMessage = ({ attached, isSessionUser, message, messageAuthor }) => {
+const getChatMessageObj = (obj) => {
+  const { isSessionUser, message, messageAuthor, ref } = obj;
+
   return {
-    attached,
-    contentPosition: isSessionUser ? 'end' : 'start',
-    gutter: <ChatAvatar {...messageAuthor} />,
-    key: message.id,
+    ...getSharedMessageKeys(obj),
     message: (
-      <Message
-        authorName={messageAuthor.fullName}
-        isSessionUser={isSessionUser}
-        {...message}
-      />
+      <span id={message.id} ref={ref}>
+        <ChatMessage
+          authorName={messageAuthor.fullName}
+          id={message.id}
+          isSessionUser={isSessionUser}
+          {...message}
+        />
+      </span>
     ),
   };
 };
 
-export default chatMessage;
+export { getChatMessageObj };
+
+export default ChatMessage;

@@ -4,29 +4,278 @@
   "previous": null,
   "results": [
     {
-      "id": "f6f446f0-e653-4ac0-92b9-2c92ad26e5fb",
-      "metadata": null,
-      "sys_date_created": "2020-06-29T21:17:06.670690Z",
-      "user_id": 3,
-      "text": "June birthday team!",
-      "type": "message",
-      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+      "type": "typing",
+      "user_id": 0,
+      "channel_id": "68026a32-7459-4e3c-b08f-f14dc2eff515"
     },
     {
-      "id": "b4c19c11-ba2a-4b96-becc-4227af87a9d9",
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "5896ca5a-bb13-4480-aaea-6b201cd11d95",
+      "text": "",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:53:15.052418Z",
       "metadata": {
-        "attachment_eid": "1a32b7ee-a571-4449-a3e8-40260a62b1c0",
-        "url": "https://q.evisserp.se/media/espressive/base_attachments/aad7c663-18d9-4608-abbe-561347308ec6/DC2B52C6-A510-439C-9F6D-55BE655FAF6A.gif?Expires=1611792193&Signature=MEQCIFD9hufy6Ks8XjmcLiAyRXdOqCqpFcnWNgmfh06T-RdnAiBQ4UzIYmnLxxwipnmStrK49txz1QgE-d8N85XsFI8ZSg__&Key-Pair-Id=APKAIOQ7Z3WLZHFWAQAQ",
-        "size": 533574,
-        "width": 480,
-        "height": 360,
-        "type": "gif"
+        "user_input": {
+          "api_action_button": {
+            "label": "REOPEN",
+            "url": "/api/task/v0.1/tasks/19996/reopen_conversation/",
+            "clicked": false,
+            "url_type": "post"
+          }
+        }
       },
-      "sys_date_created": "2020-06-21T18:17:41.197832Z",
-      "user_id": 7,
-      "text": "I've sent you an attachment, please check it.",
-      "type": "attachment",
-      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "038848d4-fcb2-4a0a-a853-7e82a982625c",
+      "text": "",
+      "user_id": null,
+      "sys_date_created": "2020-04-08T18:51:26.305558Z",
+      "metadata": {
+        "user_input": {
+          "api_action_button": {
+            "close_channel": true
+          }
+        }
+      },
+      "type": "system"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "7da7978c-fe9a-4df6-bbe1-d1c8f0b93da7",
+      "text": "Did this resolve your issue or answer your question?",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:51:24.841837Z",
+      "metadata": {
+        "user_input": {
+          "select": [
+            {
+              "required": null,
+              "is_default": false,
+              "is_primary": false,
+              "match_origin": null,
+              "instance": null,
+              "is_global": false,
+              "actual_text": "Yes, it was helpful",
+              "score": null,
+              "original": "Yes, it was helpful",
+              "ml_score": null,
+              "param_eid": null,
+              "type": "custom",
+              "ml_threshold": null,
+              "default_value": null,
+              "ml_probability": null,
+              "label_lemma": null,
+              "label": "Yes, it was helpful",
+              "eid": "77a7d80a-b88b-4b52-a0bf-a2bf81ab84ef",
+              "bring_always": false,
+              "entity": "Feedback.Inquiryv2",
+              "pk": "2341",
+              "order": null,
+              "phrase": null,
+              "sub_label": null
+            },
+            {
+              "required": null,
+              "is_default": false,
+              "is_primary": false,
+              "match_origin": null,
+              "instance": null,
+              "is_global": false,
+              "actual_text": "No, I need additional assistance",
+              "score": null,
+              "original": "No, I need additional assistance",
+              "ml_score": null,
+              "param_eid": null,
+              "type": "custom",
+              "ml_threshold": null,
+              "default_value": null,
+              "ml_probability": null,
+              "label_lemma": null,
+              "label": "No, I need additional assistance",
+              "eid": "f197aeae-1491-47e7-8c90-a180258f5a23",
+              "bring_always": false,
+              "entity": "Feedback.Inquiryv2",
+              "pk": "2342",
+              "order": null,
+              "phrase": null,
+              "sub_label": null
+            }
+          ]
+        }
+      },
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "27d1c077-77c4-4743-8868-7djdg45e4a7d",
+      "text": "sdfh",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:51:23.161824Z",
+      "metadata": {},
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "781e322a-6c11-4828-8b1f-d2ae08f0b68a",
+      "text": "sdfg",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:51:21.867689Z",
+      "metadata": {},
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "fc38ed3d-a999-4d8d-8f7f-d1dackkh13",
+      "text": "",
+      "user_id": null,
+      "sys_date_created": "2020-04-08T18:51:20.336029Z",
+      "metadata": {
+        "widget": {
+          "eid": "2646674e-25cd-48df-8505-c6a3cc38acee",
+          "widget": "Ticket Resolved Survey",
+          "body": [
+            {
+              "eid": "7da40ca6-c812-46bb-b8d5-b9c8f7d95e0c",
+              "order": 1,
+              "children": [
+                {
+                  "eid": "025b2ac9-befd-40ca-b1aa-299be48a6f99",
+                  "order": 1,
+                  "children": [
+                    {
+                      "eid": "169f2c5c-b4ba-4c62-995f-91efb055907a",
+                      "order": 1,
+                      "children": [
+                        {
+                          "eid": "acd3dba1-3b2b-432c-aacb-e9debd2cbead",
+                          "icon": "directions_walk",
+                          "order": 1,
+                          "widget": "Icon"
+                        },
+                        {
+                          "widget": "Text",
+                          "eid": "0351540f-a2d6-46e5-8805-776a65a0c917",
+                          "order": 2,
+                          "text": "Did this resolve your request?"
+                        }
+                      ],
+                      "widget": "Row"
+                    },
+                    {
+                      "eid": "1ffd13d6-ac4c-4ba2-aec5-1d6670d60bf6",
+                      "order": 2,
+                      "widget": "Separator"
+                    },
+                    {
+                      "eid": "63b6fe6c-d62c-4b8e-a9db-7cddf0ef09a4",
+                      "order": 3,
+                      "children": [
+                        {
+                          "action": "is_resolved",
+                          "widget": "Button",
+                          "order": 1,
+                          "eid": "c0914e6e-db77-4af8-b843-f5774b6b8999",
+                          "label": "Yes, my request is resolved",
+                          "value": "yes_resolved",
+                          "button_type": "radio"
+                        },
+                        {
+                          "action": "is_resolved",
+                          "widget": "Button",
+                          "order": 3,
+                          "eid": "587c295d-c766-4fe6-9b4a-d1eb743a30ab",
+                          "label": "No, please reopen it",
+                          "value": "no_do_reopen",
+                          "button_type": "radio"
+                        }
+                      ],
+                      "widget": "Row"
+                    }
+                  ],
+                  "widget": "Column"
+                }
+              ],
+              "widget": "Container"
+            }
+          ]
+        }
+      },
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "802a0abe-6d03-4123-bd10-2252ec4wkejr",
+      "text": "tester3 user3 has resolved the request",
+      "user_id": null,
+      "sys_date_created": "2020-04-08T18:51:19.987273Z",
+      "metadata": null,
+      "type": "system"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03c",
+      "id": "cec14b32-0f12-4e96-ab7d-8bd220d02286",
+      "text": "Testing test",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:50:10.533700Z",
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03x",
+      "id": "cec14b32-0f12-4e96-ab7d-8bd265sdfg4hb",
+      "text": null,
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:50:10.533700Z",
+      "metadata": {
+        "user_input": {
+          "count": 2,
+          "none_label": "Select None",
+          "trigger_label": "View List of 20 results",
+          "select_special": [
+            {
+              "index": 1,
+              "label": "label 1",
+              "value": "value 1",
+              "description": "description 1"
+            },
+            {
+              "index": 2,
+              "label": "label 2",
+              "value": "value 2",
+              "description": "description 2"
+            }
+          ]
+        }
+      },
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03x",
+      "id": "cec14b32-0f12-4e96-ab7d-8bd22a1s2rg",
+      "text": "This is [text title](esp.kbArticle AAABBCC)",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:50:10.533700Z",
+      "metadata": {},
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03x",
+      "id": "cec14b32-0f12-4e96-ab7d-8bd220d7c9vj,",
+      "text": "[Testing](confluence.KB 278298793)",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:50:10.533700Z",
+      "metadata": {},
+      "type": "message"
+    },
+    {
+      "channel": "ca5e9f8f-7940-464b-89e1-f2557ad9b03x",
+      "id": "cec14b32-0f12-4e96-ab7d-8bd221v3h2jk1hjk",
+      "text": "[Testing](zendesk.KB 278298793)",
+      "user_id": 0,
+      "sys_date_created": "2020-04-08T18:50:10.533700Z",
+      "metadata": {},
+      "type": "message"
     }
   ]
 }
