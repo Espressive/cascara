@@ -4,7 +4,9 @@
   "previous": null,
   "results": [
     {
+      "id": "typing",
       "type": "typing",
+      "sys_date_created": "now",
       "user_id": 0,
       "channel_id": "68026a32-7459-4e3c-b08f-f14dc2eff515"
     },

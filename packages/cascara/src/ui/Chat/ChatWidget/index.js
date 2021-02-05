@@ -1,4 +1,6 @@
 import React from 'react';
+import pt from 'prop-types';
+import { validateMessageObj } from '../utils';
 import SupportFeedback from './SupportFeedback';
 import TicketResolved from './TicketResolved';
 
@@ -14,8 +16,17 @@ const ChatWidget = (message) => {
   return <Widget {...message} />;
 };
 
+const objPropTypes = {
+  isSessionUser: pt.bool,
+  message: pt.object.isRequired,
+  messageAuthor: pt.object.isRequired,
+  ref: pt.object.isRequired,
+};
+
 const getChatWidgetObj = (obj) => {
-  const { isSessionUser, message, messageAuthor } = obj;
+  const { isSessionUser, message, messageAuthor, ref } = obj;
+
+  validateMessageObj(objPropTypes, obj, 'Widget');
 
   // System widgets should not include a user_id or they will break message grouping.
   // This message may need to be separated to throw errors on other components like
@@ -27,11 +38,13 @@ const getChatWidgetObj = (obj) => {
   return {
     // NOTE: System messages are expected to be returned as children, not as a `message` key
     children: (
-      <ChatWidget
-        authorName={messageAuthor.fullName}
-        isSessionUser={isSessionUser}
-        {...message}
-      />
+      <span id={message.id} ref={ref}>
+        <ChatWidget
+          authorName={messageAuthor.fullName}
+          isSessionUser={isSessionUser}
+          {...message}
+        />
+      </span>
     ),
     key: message.id,
   };

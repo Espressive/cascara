@@ -1,4 +1,5 @@
 import React from 'react';
+import pt from 'prop-types';
 import {
   Button,
   Dropdown,
@@ -6,11 +7,24 @@ import {
   Flex,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
-import getSharedMessageKeys from './getSharedMessageKeys';
+import { getSharedMessageKeys, validateMessageObj } from './utils';
+
+const propTypes = {
+  authorName: pt.string,
+  isSessionUser: pt.bool,
+  options: pt.arrayOf(
+    pt.shape({
+      content: pt.string.isRequired,
+      key: pt.string.isRequired,
+      onClick: pt.func.isRequired,
+    })
+  ).isRequired,
+  timestamp: pt.string.isRequired,
+};
 
 const ChatButtons = ({
   authorName,
-  isSessionUser,
+  isSessionUser = false,
   options = [],
   timestamp,
 }) => (
@@ -40,10 +54,20 @@ const ChatButtons = ({
 );
 
 ChatButtons.displayName = 'Chat.Buttons';
+ChatButtons.propTypes = propTypes;
+
+const objPropTypes = {
+  isSessionUser: pt.bool,
+  message: pt.object.isRequired,
+  messageAuthor: pt.object.isRequired,
+  ref: pt.object.isRequired,
+};
 
 // This returns the object that FUI is expecting, along with the component and props
 const getChatButtonsObj = (obj) => {
-  const { isSessionUser, message, messageAuthor } = obj;
+  const { isSessionUser, message, messageAuthor, ref } = obj;
+
+  validateMessageObj(objPropTypes, obj, ChatButtons.displayName);
 
   // NOTE: We are returning an array of objects here. This works because Chat will do a flatMap
   // on all arrays and return their objects.
@@ -54,11 +78,13 @@ const getChatButtonsObj = (obj) => {
       ...getSharedMessageKeys(obj),
       key: message.id + '_buttons',
       message: (
-        <ChatButtons
-          authorName={messageAuthor.fullName}
-          isSessionUser={isSessionUser}
-          {...message}
-        />
+        <span id={message.id} ref={ref}>
+          <ChatButtons
+            {...message}
+            authorName={messageAuthor.fullName}
+            isSessionUser={isSessionUser}
+          />
+        </span>
       ),
     },
   ];

@@ -13,8 +13,6 @@ const users = {
   },
   3: {
     firstName: 'Kieran',
-    imageUrl:
-      'https://www.arsenal.com/sites/default/files/styles/player_listing_image_400x252/public/images/Tierney_1045x658_0.jpg',
     lastName: 'Tierney',
   },
   7: {
@@ -28,9 +26,6 @@ const users = {
     imageUrl:
       'https://www.arsenal.com/sites/default/files/styles/player_listing_image_400x252/public/images/Lacazette_1045x658_1.jpg',
     lastName: 'Lacazette',
-    // status: {
-    //   color: 'green',
-    // },
   },
 };
 
@@ -70,8 +65,6 @@ const messageReplacement = (text) => {
 // which we can use to remove message objects from being passed.
 const messages = convo.results
   .map((message) => {
-    const options = getOptionsObjects(message?.metadata?.user_input?.select);
-
     // There are some scenarios where we need to change the message type
     // to match our message components. This flat map can be extended with
     // more types if needed.
@@ -81,14 +74,17 @@ const messages = convo.results
       widget: (msg) => Boolean(msg?.metadata?.widget),
     };
 
-    // Every message will start off with the initial system type
-    let type = message.type;
+    let type = message.type; // Every message will start off with the initial system type
+    let options; // Not all messages will utilize options arrays
 
     // We have some unique scenarios where we want to change the type for
     // the Chat component to display something differently
     for (const [key, testFunc] of Object.entries(customMessageTypes)) {
       if (testFunc(message)) {
         type = key;
+        // Most messages do not use options, so we do not want to try to calculate
+        // them unless they are one of our custom types
+        options = getOptionsObjects(message?.metadata?.user_input?.select);
       }
     }
 
@@ -104,7 +100,7 @@ const messages = convo.results
   })
   .reverse();
 
-const ChatPublicAPI = () => (
+const ChatPublicAPI = (
   <Chat currentUserID={3} messages={messages} users={users} />
 );
 

@@ -1,24 +1,25 @@
 import React from 'react';
+import pt from 'prop-types';
 import { Attachment, Chat as FUIChat, Image } from '@fluentui/react-northstar';
 import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
-import getSharedMessageKeys from './getSharedMessageKeys';
+import { bytesToSize, getSharedMessageKeys, validateMessageObj } from './utils';
 
 const IMAGE_ATTACHMENT_TYPES = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'tiff'];
 
-const bytesToSize = (bytes) => {
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-  const int = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-  return bytes
-    ? Math.round(bytes / Math.pow(1024, int), 2) + ' ' + sizes[int]
-    : null;
+const propTypes = {
+  authorName: pt.string,
+  handleScrollToLatestMessage: pt.func.isRequired,
+  isSessionUser: pt.bool,
+  metadata: pt.object.isRequired,
+  timestamp: pt.string.isRequired,
 };
 
 const ChatAttachment = ({
   authorName,
-  isSessionUser,
+  handleScrollToLatestMessage,
+  isSessionUser = false,
   metadata,
   timestamp,
-  handleScrollToBottom,
 }) => {
   const { url, size, width, height, type } = metadata;
   const fileName = url.split('/').pop();
@@ -36,7 +37,7 @@ const ChatAttachment = ({
     <Image
       fluid
       height={height}
-      onLoad={handleScrollToBottom}
+      onLoad={handleScrollToLatestMessage}
       src={url}
       width={width}
     />
@@ -82,27 +83,38 @@ const ChatAttachment = ({
   );
 };
 
-ChatAttachment.displayName = 'Chat.Message';
+ChatAttachment.displayName = 'Chat.Attachment';
+ChatAttachment.propTypes = propTypes;
+
+const objPropTypes = {
+  handleScrollToLatestMessage: pt.func.isRequired,
+  isSessionUser: pt.bool,
+  message: pt.object.isRequired,
+  messageAuthor: pt.object.isRequired,
+  ref: pt.object.isRequired,
+};
 
 // This returns the object that FUI is expecting, along with the component and props
 const getChatAttachmentObj = (obj) => {
   const {
-    handleScrollToBottom,
+    handleScrollToLatestMessage,
     isSessionUser,
     message,
     messageAuthor,
     ref,
   } = obj;
 
+  validateMessageObj(objPropTypes, obj, ChatAttachment.displayName);
+
   return {
     ...getSharedMessageKeys(obj),
     message: (
       <span id={message.id} ref={ref}>
         <ChatAttachment
-          authorName={messageAuthor.fullName}
-          handleScrollToBottom={handleScrollToBottom}
-          isSessionUser={isSessionUser}
           {...message}
+          authorName={messageAuthor.fullName}
+          handleScrollToLatestMessage={handleScrollToLatestMessage}
+          isSessionUser={isSessionUser}
         />
       </span>
     ),

@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import { Card, Flex, RadioGroup, Text } from '@fluentui/react-northstar';
 import ChatAvatar from '../ChatAvatar';
 
-const surveyOptions = [
+const SURVEY_OPTIONS = [
   {
+    key: 'yes',
     label: 'Yes, my request is resolved',
     value: 'yes',
   },
   {
+    key: 'no',
     label: 'No, but no need to reopen',
     value: 'no',
   },
   {
+    key: 'reopen',
     label: 'No, please reopen this request',
     value: 'reopen',
   },
 ];
+
+const propTypes = {};
 
 const TicketResolved = () => {
   const [surveyResponse, setSurveyResponse] = useState();
@@ -24,7 +29,10 @@ const TicketResolved = () => {
     <Card aria-roledescription='Ticket resolved survey'>
       <Card.Header>
         <Flex gap='gap.small' vAlign='center'>
-          <ChatAvatar />
+          <ChatAvatar
+            imageUrl='https://www.espressive.com/wp-content/uploads/2018/07/barista-notalk-bubble.png'
+            square
+          />
           <Flex column>
             <Text content='Did this resolve your request?' weight='bold' />
           </Flex>
@@ -33,7 +41,7 @@ const TicketResolved = () => {
       <Card.Body>
         <Flex column gap='gap.small'>
           <RadioGroup
-            items={surveyOptions.map((option) => ({
+            items={SURVEY_OPTIONS.map((option) => ({
               ...option,
               disabled: Boolean(surveyResponse),
               onClick: (e, props) => setSurveyResponse(props.value),
@@ -49,5 +57,8 @@ const TicketResolved = () => {
     </Card>
   );
 };
+
+TicketResolved.displayName = 'Widget.TicketResolved';
+TicketResolved.propTypes = propTypes;
 
 export default TicketResolved;
