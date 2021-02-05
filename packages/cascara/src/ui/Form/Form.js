@@ -12,12 +12,9 @@ import ActionBar from './atoms/ActionBar';
 
 const bundledActionModules = {
   ...actionModules,
-  ...formActionModules, // Spread our component specific modules last just in case there is a conflict from globals
+  ...formActionModules,
 };
-const formDataModules = {
-  ...dataModules,
-  ...formModules, // Spread our component specific modules last just in case there is a conflict from globals
-};
+const formDataModules = { ...formModules, ...dataModules };
 const actionModuleOptions = Object.keys(bundledActionModules);
 const dataModuleOptions = Object.keys(formDataModules);
 
@@ -63,9 +60,10 @@ const formFields = (display, data) => {
     const { module, label, ...rest } = field;
     const Module = dataModules[module];
     const moduleValue = data[field.attribute];
+    const key = `${module}.${field.attribute}.${moduleValue}`;
 
     return Module ? (
-      <Module {...rest} key={label} label={label} value={moduleValue} />
+      <Module {...rest} key={key} label={label} value={moduleValue} />
     ) : (
       <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
     );
@@ -74,42 +72,94 @@ const formFields = (display, data) => {
   const renderFields = (fields) => fields.map((field) => renderField(field));
 
   return display.map((field, i) => {
-    const { module } = field;
+    const { attribute, module, fields = [] } = field;
 
     // Check to see if we have a form module, which will probably only be a FormRow
     const FormModule = formModules[module];
 
-    return Boolean(FormModule) ? (
-      // TODO: We should concat the form ID with this row index for a more robust key value
-      <FormModule key={i}>{renderFields(field.fields)}</FormModule>
-    ) : (
-      renderField(field)
+    const key = fields.reduce(
+      (key, { attribute }) => `${key}.${i}.${attribute}`,
+      `${attribute ? `field.${module}.${attribute}` : 'row'}`
+    );
+
+    return (
+      <ErrorBoundary key={key}>
+        {Boolean(FormModule) ? (
+          <FormModule {...field}>{renderFields(field.fields)}</FormModule>
+        ) : (
+          renderField(field)
+        )}
+      </ErrorBoundary>
     );
   });
 };
 
+const renderActions = (actions) =>
+  actions.map((action, id) => {
+    const { module, ...rest } = action;
+    const Action = bundledActionModules[module];
+
+    /**
+     * In certain predefined-action modules in which a label is not required, e.g. `edit`,
+     * the following unique key generation fails, as it relies on the label (content). */
+    const key = `${id}.${module}.${rest.label || module}`;
+
+    return Action ? (
+      <Action key={key} {...rest} />
+    ) : (
+      <ModuleError
+        key={key}
+        moduleName={module}
+        moduleOptions={actionModuleOptions}
+      />
+    );
+  });
+
 const Form = ({
   data,
   dataConfig,
-  onAction,
+  onAction = () => {},
   uniqueIdAttribute,
+  isEditable: incomingIsEditable,
   isInitialEditing = false,
   ...rest
 }) => {
-  const { display } = dataConfig;
+  const { actions = [], display } = dataConfig;
+  const renderedActions = renderActions(actions);
+  const isEditable =
+    typeof incomingIsEditable === 'undefined'
+      ? Boolean(dataConfig?.actions?.find((action) => action.module === 'edit'))
+      : incomingIsEditable;
+
+  const [isEditing, setIsEtiding] = useState(() =>
+    !isEditable ? false : isInitialEditing
+  );
+
+  function enterEditMode(recordId) {
+    setIsEtiding(true);
+  }
+
+  function exitEditMode() {
+    setIsEtiding(false);
+  }
+
   return (
     <ErrorBoundary>
       <FormProvider
         value={{
           data,
           dataConfig,
-          isEditing: isInitialEditing,
+          enterEditMode,
+          exitEditMode,
+          isEditable,
+          isEditing,
           onAction,
           uniqueIdAttribute,
         }}
         {...rest}
       >
         {formFields(display, data)}
+        <ActionBar actions={renderedActions} />
       </FormProvider>
     </ErrorBoundary>
   );
