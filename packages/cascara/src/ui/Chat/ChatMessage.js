@@ -1,8 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-// import t from 'tcomb';
-import { Chat as FUIChat } from '@fluentui/react-northstar';
-// import tcombErrorMessage from '../../shared/tcombErrorMessage';
+import { Chat as FUIChat, Ref } from '@fluentui/react-northstar';
 import {
   getSharedMessageKeys,
   getTranslatedDetails,
@@ -54,7 +52,7 @@ const getChatMessageObj = (obj) => {
   return {
     ...getSharedMessageKeys(obj),
     message: (
-      <span id={message.id} ref={ref}>
+      <Ref id={message.id} innerRef={ref}>
         <ChatMessage
           {...message}
           authorName={messageAuthor.fullName}
@@ -62,7 +60,7 @@ const getChatMessageObj = (obj) => {
           isSessionUser={isSessionUser}
           isTranslated={isTranslated}
         />
-      </span>
+      </Ref>
     ),
   };
 };

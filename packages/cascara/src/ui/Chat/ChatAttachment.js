@@ -1,6 +1,11 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Attachment, Chat as FUIChat, Image } from '@fluentui/react-northstar';
+import {
+  Attachment,
+  Chat as FUIChat,
+  Image,
+  Ref,
+} from '@fluentui/react-northstar';
 import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
 import { bytesToSize, getSharedMessageKeys, validateMessageObj } from './utils';
 
@@ -109,14 +114,14 @@ const getChatAttachmentObj = (obj) => {
   return {
     ...getSharedMessageKeys(obj),
     message: (
-      <span id={message.id} ref={ref}>
+      <Ref id={message.id} innerRef={ref}>
         <ChatAttachment
           {...message}
           authorName={messageAuthor.fullName}
           handleScrollToLatestMessage={handleScrollToLatestMessage}
           isSessionUser={isSessionUser}
         />
-      </span>
+      </Ref>
     ),
   };
 };

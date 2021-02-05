@@ -5,6 +5,7 @@ import {
   Dropdown,
   Chat as FUIChat,
   Flex,
+  Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
 import { getSharedMessageKeys, validateMessageObj } from './utils';
@@ -38,7 +39,7 @@ const ChatButtons = ({
             ...option,
           }))}
           noResultsMessage="We couldn't find any matches."
-          placeholder='Select one...'
+          placeholder='Select an option...'
         />
       ) : (
         <Flex column gap='gap.small'>
@@ -78,13 +79,13 @@ const getChatButtonsObj = (obj) => {
       ...getSharedMessageKeys(obj),
       key: message.id + '_buttons',
       message: (
-        <span id={message.id} ref={ref}>
+        <Ref id={message.id} innerRef={ref}>
           <ChatButtons
             {...message}
             authorName={messageAuthor.fullName}
             isSessionUser={isSessionUser}
           />
-        </span>
+        </Ref>
       ),
     },
   ];

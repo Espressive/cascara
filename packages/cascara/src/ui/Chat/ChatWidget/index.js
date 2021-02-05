@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Ref } from '@fluentui/react-northstar';
 import { validateMessageObj } from '../utils';
 import SupportFeedback from './SupportFeedback';
 import TicketResolved from './TicketResolved';
@@ -38,13 +39,13 @@ const getChatWidgetObj = (obj) => {
   return {
     // NOTE: System messages are expected to be returned as children, not as a `message` key
     children: (
-      <span id={message.id} ref={ref}>
+      <Ref id={message.id} innerRef={ref}>
         <ChatWidget
           authorName={messageAuthor.fullName}
           isSessionUser={isSessionUser}
           {...message}
         />
-      </span>
+      </Ref>
     ),
     key: message.id,
   };

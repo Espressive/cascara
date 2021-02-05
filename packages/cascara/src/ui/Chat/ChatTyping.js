@@ -4,6 +4,7 @@ import {
   Animation,
   Chat as FUIChat,
   Provider,
+  Ref,
 } from '@fluentui/react-northstar';
 import { MoreIcon } from '@fluentui/react-icons-northstar';
 
@@ -60,13 +61,13 @@ const getChatTypingObj = (obj) => {
   return {
     ...getSharedMessageKeys(obj),
     message: (
-      <span id={message.id} ref={ref}>
+      <Ref id={message.id} innerRef={ref}>
         <ChatTyping
           {...message}
           authorName={messageAuthor.fullName}
           isSessionUser={isSessionUser}
         />
-      </span>
+      </Ref>
     ),
   };
 };

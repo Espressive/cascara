@@ -60,7 +60,7 @@ const Chat = ({ currentUserID, messages, users }) => {
     const getMessageObject = messageTypes[msg.type];
 
     const isSessionUser = currentUserID === msg.user_id;
-    const isTranslated = true;
+    const isTranslated = Boolean(msg.isTranslated); // This can probably get cleaned up later.
 
     // Only return if we have a defined component for this type
     return Boolean(getMessageObject)

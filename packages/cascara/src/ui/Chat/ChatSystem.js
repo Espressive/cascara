@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Divider } from '@fluentui/react-northstar';
+import { Divider, Ref } from '@fluentui/react-northstar';
 import { validateMessageObj } from './utils';
 
 const propTypes = {
@@ -28,9 +28,9 @@ const getChatSystemObj = (obj) => {
   return {
     // NOTE: System messages are expected to be returned as children, not as a `message` key
     children: (
-      <span id={message.id} ref={ref}>
+      <Ref id={message.id} innerRef={ref}>
         <ChatSystem {...message} />
-      </span>
+      </Ref>
     ),
     key: message.id,
   };
