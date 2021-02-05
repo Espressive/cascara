@@ -5,7 +5,6 @@ import FormProvider from '../ui/Form/context/FormProvider';
 import tableStyles from '../ui/Table/Table.module.scss';
 import {
   ActionButton,
-  ActionEdit,
   DataCheckbox,
   DataEmail,
   DataNumber,
@@ -14,6 +13,9 @@ import {
   DataText,
   DataTextArea,
 } from './';
+
+import FormActionEdit from '../ui/Form/modules/ActionEdit';
+// import TableActionEdit from '../ui/Table/modules/ActionEdit';
 
 const lorem =
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem hic mollitia, fuga ex architecto cumque accusamus tenetur qui odio quam tempora aliquam minima ipsum laborum?';
@@ -132,7 +134,7 @@ const AllModules = ({ data, dataConfig }) => {
       <FormProvider>
         <h2>Action Modules</h2>
         <ActionButton />
-        <ActionEdit />
+        <FormActionEdit />
       </FormProvider>
 
       <h2>Table Presentation</h2>

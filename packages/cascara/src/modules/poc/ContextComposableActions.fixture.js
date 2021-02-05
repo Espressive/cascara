@@ -2,12 +2,14 @@
 import React from 'react';
 import DataText from '../DataText';
 import ActionButton from '../ActionButton';
-import ActionEdit from '../ActionEdit';
 import { Divider } from 'semantic-ui-react';
 import AreaPlaceholder from '../../placeholders/AreaPlaceholder';
 import FormProvider from '../../ui/Form/context/FormProvider';
 import RowProvider from '../../ui/Table/context/RowProvider';
 import TableProvider from '../../ui/Table/context/TableProvider';
+
+import FormActionEdit from '../../ui/Form/modules/ActionEdit';
+import TableActionEdit from '../../ui/Table/modules/ActionEdit';
 
 const fakeTableData = [
   {
@@ -35,7 +37,7 @@ const FakeRow = ({ defaultValue, label, ...rest }) => (
   >
     <AreaPlaceholder color='green' label='RowProvider'>
       <DataText label={label} value={defaultValue} />
-      <ActionEdit />
+      <TableActionEdit />
     </AreaPlaceholder>
   </RowProvider>
 );
@@ -97,7 +99,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
             }}
           >
             <ActionButton />
-            <ActionEdit />
+            <FormActionEdit />
             <Divider clearing fitted hidden />
           </div>
         </AreaPlaceholder>
@@ -113,7 +115,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
       >
         <AreaPlaceholder color='pink' label='TableProvider'>
           <DataText label='Table Level Module' value='Table' />
-          <ActionEdit />
+          <TableActionEdit />
           {fakeTableData.map((row, i) => (
             <FakeRow {...row} />
           ))}
