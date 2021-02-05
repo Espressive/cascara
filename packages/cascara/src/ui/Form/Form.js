@@ -12,9 +12,12 @@ import ActionBar from './atoms/ActionBar';
 
 const bundledActionModules = {
   ...actionModules,
-  ...formActionModules,
+  ...formActionModules, // Spread our component specific modules last just in case there is a conflict from globals
 };
-const formDataModules = { ...formModules, ...dataModules };
+const formDataModules = {
+  ...dataModules,
+  ...formModules, // Spread our component specific modules last just in case there is a conflict from globals
+};
 const actionModuleOptions = Object.keys(bundledActionModules);
 const dataModuleOptions = Object.keys(formDataModules);
 
