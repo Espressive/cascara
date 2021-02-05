@@ -20,7 +20,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'bje'
+          mentions: 'here'
 
   lint:
     executor:
@@ -39,7 +39,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'bje'
+          mentions: 'here'
 
   test:
     executor:
@@ -60,7 +60,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'bje'
+          mentions: 'here'
 
   build-cascara:
     executor:
@@ -82,7 +82,7 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'bje'
+          mentions: 'here'
 
   build-cosmos:
     executor:
@@ -100,24 +100,24 @@ jobs:
       - slack/status:
           fail_only: true
           include_project_field: false
-          mentions: 'bje'
+          mentions: 'here'
 
-  build-docs:
-    executor:
-      name: node/default
-      tag: '12.0.0'
-    steps:
-      - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
-      - restore_cache:
-          key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
-      - run:
-          name: Build Docs
-          command: yarn cascara build && yarn docs build
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'bje'
+  # build-docs:
+  #   executor:
+  #     name: node/default
+  #     tag: '12.0.0'
+  #   steps:
+  #     - restore_cache:
+  #         key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+  #     - restore_cache:
+  #         key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
+  #     - run:
+  #         name: Build Docs
+  #         command: yarn cascara build && yarn docs build
+  #     - slack/status:
+  #         fail_only: true
+  #         include_project_field: false
+  #         mentions: 'here'
 
 workflows:
   build-and-test:
@@ -139,8 +139,8 @@ workflows:
           requires:
             - lint
             - test
-      - build-docs:
-          requires:
-            - build-cascara
-            - lint
-            - test
+      # - build-docs:
+      #     requires:
+      #       - build-cascara
+      #       - lint
+      #       - test
