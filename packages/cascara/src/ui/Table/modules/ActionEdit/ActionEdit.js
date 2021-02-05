@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
 
-import { ModuleContext } from '../context';
+import { ModuleContext } from '../../../../modules/context';
 import { Button } from 'reakit';
 import { Icon } from 'semantic-ui-react';
 

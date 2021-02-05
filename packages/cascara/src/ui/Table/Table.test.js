@@ -31,11 +31,11 @@ describe('Table', () => {
     const dataConfig = {
       actions: [
         {
+          actionName: 'view',
           content: 'view',
           'data-testid': 'view',
           isLabeled: false,
           module: 'button',
-          name: 'view',
           size: 'small',
         },
         {
@@ -47,7 +47,6 @@ describe('Table', () => {
           },
           isLabeled: false,
           module: 'edit',
-          name: 'edit',
           size: 'small',
         },
       ],
@@ -156,7 +155,7 @@ describe('Table', () => {
     });
 
     test('default props', () => {
-      render(<Table uniqueIdAttribute={'id'} />);
+      render(<Table data={data} dataConfig={dataConfig} />);
 
       expect(view).toMatchSnapshot();
     });

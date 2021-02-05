@@ -14,8 +14,14 @@ import ActionBar from './ActionBar';
 import ModuleError from '../../modules/ModuleError';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
+import { tableActionModules } from './modules';
 
-const actionModuleOptions = Object.keys(actionModules);
+// A table can have common and table-specific modules
+const bundledActionModules = {
+  ...actionModules,
+  ...tableActionModules,
+};
+const actionModuleOptions = Object.keys(bundledActionModules);
 const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
@@ -43,7 +49,7 @@ const TableRow = ({ config = {}, record = {} }) => {
       <ActionBar
         actions={userDefinedActions.map((action) => {
           const { module, ...rest } = action;
-          const Action = actionModules[module];
+          const Action = bundledActionModules[module];
 
           /**
            * In certain predefined-action modules in which a label is not required, e.g. `edit`,
