@@ -23,15 +23,13 @@ jobs:
     steps:
       - name: Get EpicComment.md
         id: get-comment-body
-        run: ls
+        run: |
+          body=$(cat ./.github/EpicComment.md)
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}"
+          echo ::set-output name=body::$body
 
-
-        # run: |
-        #   body=$(cat .github/EpicComment.md)
-        #   body="${body//'%'/'%25'}"
-        #   body="${body//$'\n'/'%0A'}"
-        #   body="${body//$'\r'/'%0D'}"
-        #   echo ::set-output name=body::$body
       # Runs only when a label has been added
       - name: Create Epic Comment
         uses: peter-evans/create-or-update-comment@v1
@@ -47,7 +45,7 @@ jobs:
       - name: Get EpicComment.md
         id: get-comment-body
         run: |
-          body=$(cat .github/EpicComment.md)
+          body=$(cat ./.github/EpicComment.md)
           body="${body//'%'/'%25'}"
           body="${body//$'\n'/'%0A'}"
           body="${body//$'\r'/'%0D'}" 
