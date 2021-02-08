@@ -21,6 +21,8 @@ jobs:
     if: ${{ github.event.label.name == 'Epic' && github.event.action == 'labeled' }}
 
     steps:
+      - uses: actions/checkout@v2
+
       - name: Get EpicComment.md
         uses: actions/checkout@v2
         id: get-comment-body
@@ -44,8 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.label.name == 'Epic' && github.event.action == 'unlabeled' }}
     steps:
+      - uses: actions/checkout@v2
+
       - name: Get EpicComment.md
-        uses: actions/checkout@v2
         id: get-comment-body
         working-directory: ./.github
         run: |
