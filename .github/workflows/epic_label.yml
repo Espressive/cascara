@@ -24,7 +24,7 @@ jobs:
       - name: Get EpicComment.md
         id: get-comment-body
         run: |
-          body=$(cat ../EpicComment.md)
+          body=$(cat .github/EpicComment.md)
           body="${body//'%'/'%25'}"
           body="${body//$'\n'/'%0A'}"
           body="${body//$'\r'/'%0D'}" 
@@ -45,7 +45,7 @@ jobs:
       - name: Get EpicComment.md
         id: get-comment-body
         run: |
-          body=$(cat ../EpicComment.md)
+          body=$(cat .github/EpicComment.md)
           body="${body//'%'/'%25'}"
           body="${body//$'\n'/'%0A'}"
           body="${body//$'\r'/'%0D'}" 
