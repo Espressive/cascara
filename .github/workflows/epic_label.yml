@@ -24,7 +24,6 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Get EpicComment.md
-        uses: actions/checkout@v2
         id: get-comment-body
         working-directory: ./.github
         run: |
