@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.0.1
-  slack: circleci/slack@3.4.2
+  slack: circleci/slack@4.2.1
 
 jobs:
   install:
@@ -102,23 +102,6 @@ jobs:
           include_project_field: false
           mentions: 'here'
 
-  # build-docs:
-  #   executor:
-  #     name: node/default
-  #     tag: '12.0.0'
-  #   steps:
-  #     - restore_cache:
-  #         key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
-  #     - restore_cache:
-  #         key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
-  #     - run:
-  #         name: Build Docs
-  #         command: yarn cascara build && yarn docs build
-  #     - slack/status:
-  #         fail_only: true
-  #         include_project_field: false
-  #         mentions: 'here'
-
 workflows:
   build-and-test:
     jobs:
@@ -139,8 +122,3 @@ workflows:
           requires:
             - lint
             - test
-      # - build-docs:
-      #     requires:
-      #       - build-cascara
-      #       - lint
-      #       - test
