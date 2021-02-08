@@ -42,7 +42,7 @@
     "reakit": "1.1.2"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "latest",
+    "@espressive/legacy-css": "^2.0.1",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
     "mutationobserver-shim": "0.3.7",
