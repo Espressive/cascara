@@ -15,8 +15,6 @@ jobs:
   make_comment:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./.github
 
     # Only runs if the pull_request action has a label of 'Epic', same for both labeled and unlabeled
     # if: contains( github.event.pull_request.labels.*.name, 'Epic')
@@ -25,6 +23,7 @@ jobs:
     steps:
       - name: Get EpicComment.md
         id: get-comment-body
+        working-directory: ./.github
         run: |
           body=$(cat EpicComment.md)
           body="${body//'%'/'%25'}"
@@ -46,6 +45,7 @@ jobs:
     steps:
       - name: Get EpicComment.md
         id: get-comment-body
+        working-directory: ./.github
         run: |
           body=$(cat EpicComment.md)
           body="${body//'%'/'%25'}"
