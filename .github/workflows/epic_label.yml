@@ -21,26 +21,43 @@ jobs:
     if: ${{ github.event.label.name == 'Epic' && github.event.action == 'labeled' }}
 
     steps:
+      - name: Get EpicComment.md
+        id: get-comment-body
+        run: |
+          body=$(cat ../EpicComment.md)
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}" 
+          echo ::set-output name=body::$body
+
       # Runs only when a label has been added
       - name: Create Epic Comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            This is an Epic and a comment made by our bot.
+          body: ${{ steps.get-comment-body.outputs.body }}
           reaction-type: 'rocket'
 
-  update_comment:
+  remove_comment:
     runs-on: ubuntu-latest
     if: ${{ github.event.label.name == 'Epic' && github.event.action == 'unlabeled' }}
     steps:
+      - name: Get EpicComment.md
+        id: get-comment-body
+        run: |
+          body=$(cat ../EpicComment.md)
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}" 
+          echo ::set-output name=body::$body
+
       - name: Find Epic Comment
         uses: peter-evans/find-comment@v1
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
-          body-includes: This is an Epic and a comment made by our bot.
+          body-includes: ${{ steps.get-comment-body.outputs.body }}
 
       - name: Delete comment
         if: ${{ steps.fc.outputs.comment-id != 0 }}
