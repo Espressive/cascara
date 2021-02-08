@@ -22,6 +22,7 @@ jobs:
 
     steps:
       - name: Get EpicComment.md
+        uses: actions/checkout@v2
         id: get-comment-body
         working-directory: ./.github
         run: |
@@ -44,6 +45,7 @@ jobs:
     if: ${{ github.event.label.name == 'Epic' && github.event.action == 'unlabeled' }}
     steps:
       - name: Get EpicComment.md
+        uses: actions/checkout@v2
         id: get-comment-body
         working-directory: ./.github
         run: |
