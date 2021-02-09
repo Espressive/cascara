@@ -2,13 +2,74 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.0.1
-  slack: circleci/slack@3.4.2
+  slack: circleci/slack@4.2.1
+  # ghpr: narrativescience/ghpr@1.1.1
+  # jq: circleci/jq@2.2.0
+
+job_executor: &job_executor
+  executor:
+    name: node/default
+    tag: '12.13.0'
+
+# GITHUB_PR_BASE_BRANCH` - The base branch for the PR.
+# GITHUB_PR_NUMBER` - The number of the PR.
+# GITHUB_PR_TITLE` - The title of the PR.
+# GITHUB_PR_COMMIT_MESSAGE` - The current commit's message. (Optional)
+# GITHUB_PR_AUTHOR_USERNAME` - The PR author's username.
+# GITHUB_PR_AUTHOR_NAME` - The PR author's name. (Optional)
+# GITHUB_PR_AUTHOR_EMAIL` - The PR author's email address. (Optional)
+
+post_steps: &post_steps
+  post-steps:
+    # - jq/install
+    # - ghpr/get-pr-info:
+    #     get_pr_author_email: true
+    #     get_pr_author_name: true
+    - slack/notify:
+        custom: |
+          {
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "[JOB FAILED] ${CIRCLE_BRANCH}",
+                  "emoji": true
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Job*:\n${CIRCLE_JOB}"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Author*:\n${CIRCLE_USERNAME}"
+                  }
+                ]
+              },
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "View Job"
+                    },
+                    "url": "${CIRCLE_BUILD_URL}"
+                  }
+                ]
+              }
+            ]
+          }
+        event: fail
 
 jobs:
   install:
-    executor:
-      name: node/default
-      tag: '12.0.0'
+    <<: *job_executor
     steps:
       - checkout
       - node/install-packages:
@@ -17,15 +78,9 @@ jobs:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
           paths:
             - ~/
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
 
   lint:
-    executor:
-      name: node/default
-      tag: '12.0.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -36,15 +91,9 @@ jobs:
           path: ./coverage
       - store_artifacts:
           path: ./coverage
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
 
   test:
-    executor:
-      name: node/default
-      tag: '12.0.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -57,15 +106,9 @@ jobs:
           path: ./coverage/junit/
       - store_artifacts:
           path: ./coverage
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
 
   build-cascara:
-    executor:
-      name: node/default
-      tag: '12.0.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -79,15 +122,9 @@ jobs:
       - store_artifacts:
           path: ./packages/cascara/dist
           destination: dist
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
 
   build-cosmos:
-    executor:
-      name: node/default
-      tag: '12.0.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -97,27 +134,6 @@ jobs:
       - store_artifacts:
           path: ./build/cosmos
           destination: cosmos
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
-
-  # build-docs:
-  #   executor:
-  #     name: node/default
-  #     tag: '12.0.0'
-  #   steps:
-  #     - restore_cache:
-  #         key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
-  #     - restore_cache:
-  #         key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
-  #     - run:
-  #         name: Build Docs
-  #         command: yarn cascara build && yarn docs build
-  #     - slack/status:
-  #         fail_only: true
-  #         include_project_field: false
-  #         mentions: 'here'
 
 workflows:
   build-and-test:
@@ -126,21 +142,21 @@ workflows:
           pre-steps:
             - run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_INSTALL_AUTH_TOKEN}" >> ~/.npmrc
             - run: echo "@espressive:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          <<: *post_steps
       - lint:
+          <<: *post_steps
           requires:
             - install
       - test:
+          <<: *post_steps
           requires:
             - install
       - build-cascara:
+          <<: *post_steps
           requires:
             - install
       - build-cosmos:
+          <<: *post_steps
           requires:
             - lint
             - test
-      # - build-docs:
-      #     requires:
-      #       - build-cascara
-      #       - lint
-      #       - test
