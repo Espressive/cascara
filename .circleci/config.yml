@@ -18,7 +18,7 @@ job_executor: &job_executor
 # GITHUB_PR_AUTHOR_NAME` - The PR author's name. (Optional)
 # GITHUB_PR_AUTHOR_EMAIL` - The PR author's email address. (Optional)
 
-post_steps: &post_steps:
+post_steps: &post_steps
   post-steps:
     - ghpr/get-pr-info:
         get_pr_author_email: true
