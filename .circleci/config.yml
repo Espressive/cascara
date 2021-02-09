@@ -3,12 +3,78 @@ version: 2.1
 orbs:
   node: circleci/node@4.0.1
   slack: circleci/slack@4.2.1
+  ghpr: narrativescience/ghpr@1.1.1
+
+job_executor: &job_executor
+  executor:
+    name: node/default
+    tag: '12.13.0'
+
+# GITHUB_PR_BASE_BRANCH` - The base branch for the PR.
+# GITHUB_PR_NUMBER` - The number of the PR.
+# GITHUB_PR_TITLE` - The title of the PR.
+# GITHUB_PR_COMMIT_MESSAGE` - The current commit's message. (Optional)
+# GITHUB_PR_AUTHOR_USERNAME` - The PR author's username.
+# GITHUB_PR_AUTHOR_NAME` - The PR author's name. (Optional)
+# GITHUB_PR_AUTHOR_EMAIL` - The PR author's email address. (Optional)
+
+aliases:
+  - &pr_info ghpr/get-pr-info:
+      get_pr_author_email: true
+      get_pr_author_name: true
+  - &notify slack/status:
+      custom: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": $GITHUB_PR_TITLE,
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "This is a plain text section block.",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Author*"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Username*"
+                    },
+                    {
+                      "type": "plain_text",
+                      "text": $GITHUB_PR_AUTHOR_NAME,
+                      "emoji": true
+                    },
+                    {
+                      "type": "plain_text",
+                      "text": $GITHUB_PR_AUTHOR_USERNAME,
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
 
 jobs:
   install:
-    executor:
-      name: node/default
-      tag: '12.13.0'
+    <<: *job_executor
     steps:
       - checkout
       - node/install-packages:
@@ -17,15 +83,11 @@ jobs:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
           paths:
             - ~/
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
+      - *pr_info
+      - *notify
 
   lint:
-    executor:
-      name: node/default
-      tag: '12.13.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -36,15 +98,11 @@ jobs:
           path: ./coverage
       - store_artifacts:
           path: ./coverage
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
+      - *pr_info
+      - *notify
 
   test:
-    executor:
-      name: node/default
-      tag: '12.13.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -57,15 +115,11 @@ jobs:
           path: ./coverage/junit/
       - store_artifacts:
           path: ./coverage
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
+      - *pr_info
+      - *notify
 
   build-cascara:
-    executor:
-      name: node/default
-      tag: '12.13.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -79,15 +133,11 @@ jobs:
       - store_artifacts:
           path: ./packages/cascara/dist
           destination: dist
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
+      - *pr_info
+      - *notify
 
   build-cosmos:
-    executor:
-      name: node/default
-      tag: '12.13.0'
+    <<: *job_executor
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
@@ -97,10 +147,8 @@ jobs:
       - store_artifacts:
           path: ./build/cosmos
           destination: cosmos
-      - slack/status:
-          fail_only: true
-          include_project_field: false
-          mentions: 'here'
+      - *pr_info
+      - *notify
 
 workflows:
   build-and-test:
