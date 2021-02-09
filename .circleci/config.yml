@@ -31,7 +31,7 @@ post_steps: &post_steps
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "[JOB FAILED] $GITHUB_PR_TITLE",
+                  "text": "[JOB FAILED] ${GITHUB_PR_TITLE}",
                   "emoji": true
                 }
               },
@@ -51,15 +51,19 @@ post_steps: &post_steps
                 "fields": [
                   {
                     "type": "mrkdwn",
-                    "text": "*Job*:\\n${CIRCLE_JOB}"
+                    "text": "*Job*:\n${CIRCLE_JOB}"
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Author*:\\n$GITHUB_PR_AUTHOR_NAME"
+                    "text": "*Branch*:\n${GITHUB_PR_BASE_BRANCH}"
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Username*:\\n$GITHUB_PR_AUTHOR_USERNAME"
+                    "text": "*Author*:\n${GITHUB_PR_AUTHOR_NAME}"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Username*:\n${GITHUB_PR_AUTHOR_USERNAME}"
                   }
                 ]
               },
