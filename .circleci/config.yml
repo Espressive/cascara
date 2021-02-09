@@ -4,6 +4,7 @@ orbs:
   node: circleci/node@4.0.1
   slack: circleci/slack@4.2.1
   ghpr: narrativescience/ghpr@1.1.1
+  jq: circleci/jq@2.2.0
 
 job_executor: &job_executor
   executor:
