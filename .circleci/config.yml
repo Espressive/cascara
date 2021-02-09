@@ -24,53 +24,53 @@ aliases:
       get_pr_author_name: true
   - &notify slack/status:
       custom: |
+        {
+          "blocks": [
             {
-              "blocks": [
+              "type": "header",
+              "text": {
+                "type": "plain_text",
+                "text": $GITHUB_PR_TITLE,
+                "emoji": true
+              }
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "section",
+              "text": {
+                "type": "plain_text",
+                "text": "This is a plain text section block.",
+                "emoji": true
+              }
+            },
+            {
+              "type": "section",
+              "fields": [
                 {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": $GITHUB_PR_TITLE,
-                    "emoji": true
-                  }
+                  "type": "mrkdwn",
+                  "text": "*Author*"
                 },
                 {
-                  "type": "divider"
+                  "type": "mrkdwn",
+                  "text": "*Username*"
                 },
                 {
-                  "type": "section",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "This is a plain text section block.",
-                    "emoji": true
-                  }
+                  "type": "plain_text",
+                  "text": $GITHUB_PR_AUTHOR_NAME,
+                  "emoji": true
                 },
                 {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Author*"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Username*"
-                    },
-                    {
-                      "type": "plain_text",
-                      "text": $GITHUB_PR_AUTHOR_NAME,
-                      "emoji": true
-                    },
-                    {
-                      "type": "plain_text",
-                      "text": $GITHUB_PR_AUTHOR_USERNAME,
-                      "emoji": true
-                    }
-                  ]
+                  "type": "plain_text",
+                  "text": $GITHUB_PR_AUTHOR_USERNAME,
+                  "emoji": true
                 }
               ]
             }
-          event: always
+          ]
+        }
+      event: always
 
 jobs:
   install:
