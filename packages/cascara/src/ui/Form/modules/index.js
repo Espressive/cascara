@@ -2,12 +2,10 @@
 import ActionEdit from './ActionEdit';
 import FormRow from './FormRow';
 
-const formActionModules = {
+export const formActionModules = {
   edit: ActionEdit,
 };
 
-const formModules = {
+export const formModules = {
   row: FormRow,
 };
-
-export { formModules, formActionModules };

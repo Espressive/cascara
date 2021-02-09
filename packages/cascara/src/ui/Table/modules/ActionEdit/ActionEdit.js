@@ -135,5 +135,5 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
 ActionEdit.propTypes = propTypes;
 
-export { propTypes };
+export { ActionEdit, propTypes };
 export default ActionEdit;
