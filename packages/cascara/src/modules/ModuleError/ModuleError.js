@@ -12,7 +12,7 @@ const ModuleError = ({ moduleName, moduleOptions }) => {
     ', '
   )}]`;
 
-  // eslint-disable-next-line no-console -- we need to display this error to develop
+  // eslint-disable-next-line no-console -- we need this to be a developer message
   console.error(message);
 
   return (

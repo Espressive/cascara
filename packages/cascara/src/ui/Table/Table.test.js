@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   act,
+  cleanup,
   fireEvent,
   render,
   screen,
