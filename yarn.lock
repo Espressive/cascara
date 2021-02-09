@@ -1512,11 +1512,6 @@
 "@espressive/legacy-css@file:utils/legacy-css":
   version "2.0.1"
 
-"@espressive/legacy-css@latest":
-  version "2.0.1"
-  resolved "https://npm.pkg.github.com/download/@espressive/legacy-css/2.0.1/c370df568b0aee9a0cdd4790dc8ed57185d2734462c37ef4651e7d5795d8ec37#967956414c355006b4f89fc35663b90757b01f59"
-  integrity sha512-QEhLkiu+P0S8wpKTCaweyTIU9jv4cfmSRc/T0RtRQ/6b1sEtWd2AEJPDQUtJozquUNrsgwoX1V0zUTNEJ87h0g==
-
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/@evocateur/libnpmaccess/-/libnpmaccess-3.1.2.tgz#ecf7f6ce6b004e9f942b098d92200be4a4b1c845"

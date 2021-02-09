@@ -30,7 +30,7 @@ const ChatTyping = ({ isSessionUser = false }) => {
             <MoreIcon
               size='larger'
               styles={({ theme: { siteVariables } }) => ({
-                color: siteVariables.colorScheme.brand.foreground,
+                color: siteVariables?.colorScheme?.brand?.foreground,
               })}
             />
           </Animation>

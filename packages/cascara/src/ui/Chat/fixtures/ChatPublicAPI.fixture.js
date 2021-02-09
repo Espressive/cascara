@@ -1,6 +1,30 @@
 import React, { Fragment } from 'react';
 import Chat from '../Chat';
+import {
+  Button,
+  Flex,
+  Provider,
+  TextArea,
+  teamsTheme,
+} from '@fluentui/react-northstar';
 import convo from '../json/conversation1';
+
+const commentsTheme = {
+  componentStyles: {
+    ChatItem: {
+      message: { marginRight: 0 },
+    },
+  },
+  componentVariables: {
+    Chat: { backgroundColor: 'transparent' },
+    ChatMessage: {
+      backgroundColor: 'transparent',
+      backgroundColorMine: 'transparent',
+      offset: 0,
+      padding: 0,
+    },
+  },
+};
 
 const users = {
   0: {
@@ -101,7 +125,30 @@ const messages = convo.results
   .reverse();
 
 const ChatPublicAPI = (
-  <Chat currentUserID={3} messages={messages} users={users} />
+  <Provider
+    style={{
+      height: '100vh',
+      padding: '1em',
+    }}
+    theme={teamsTheme}
+  >
+    <Provider theme={commentsTheme}>
+      {/* <button>Teams Theme</button>
+      <button>Barista Theme</button> */}
+      <div
+        style={{
+          maxHeight: 'calc(100vh - 48px - 3em)',
+          overflowY: 'auto',
+        }}
+      >
+        <Chat currentUserID={null} messages={messages} users={users} />
+      </div>
+      <Flex gap='gap.small' style={{ marginTop: '1em' }}>
+        <TextArea fluid placeholder='Post a comment...' />
+        <Button content='Post' />
+      </Flex>
+    </Provider>
+  </Provider>
 );
 
 export default ChatPublicAPI;

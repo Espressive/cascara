@@ -1,10 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import pt from 'prop-types';
-import {
-  Chat as FUIChat,
-  Provider,
-  teamsTheme,
-} from '@fluentui/react-northstar';
+import { Chat as FUIChat } from '@fluentui/react-northstar';
 import {
   getMessageAuthorDetails,
   getMessageGroup,
@@ -77,26 +73,11 @@ const Chat = ({ currentUserID, messages, users }) => {
   });
 
   return (
-    <Provider
-      style={{
-        backgroundColor: 'lightgray',
-        height: '100vh',
-        padding: '1em',
-      }}
-      theme={teamsTheme}
-    >
-      <button onClick={handleScrollToLatestMessage}>Scroll</button>
-      <button>Teams Theme</button>
-      <button>Barista Theme</button>
-      <div
-        style={{
-          height: '80vh',
-          overflowY: 'auto',
-        }}
-      >
-        <FUIChat items={items} />
-      </div>
-    </Provider>
+    <>
+      {/* <button onClick={handleScrollToLatestMessage}>Scroll</button> */}
+
+      <FUIChat items={items} />
+    </>
   );
 };
 
