@@ -56,7 +56,7 @@ const getChatMessageObj = (obj) => {
       <Ref id={message.id} innerRef={ref}>
         <ChatMessage
           {...message}
-          authorName={messageAuthor.fullName}
+          authorName={messageAuthor?.fullName}
           id={message.id}
           isSessionUser={isSessionUser}
           isTranslated={isTranslated}

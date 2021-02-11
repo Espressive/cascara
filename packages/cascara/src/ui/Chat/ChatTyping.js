@@ -65,7 +65,7 @@ const getChatTypingObj = (obj) => {
       <Ref id={message.id} innerRef={ref}>
         <ChatTyping
           {...message}
-          authorName={messageAuthor.fullName}
+          authorName={messageAuthor?.fullName}
           isSessionUser={isSessionUser}
         />
       </Ref>

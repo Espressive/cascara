@@ -76,6 +76,12 @@ const ChatPublicAPI = (
   </ChatProvider>
 );
 
+const ChatNoUsers = (
+  <ChatProvider inputComponent={teamsChatInput} isThemeSelectable>
+    <Chat messages={getNormalizedMessages(convo1)} sessionUserID={3} />
+  </ChatProvider>
+);
+
 const TeamsChatExample = (
   <Provider style={{ height: '100vh' }} theme={teamsTheme}>
     <Provider style={{ height: '100%' }} theme={teamsCommentsTheme}>
@@ -93,7 +99,10 @@ const TeamsChatExample = (
   </Provider>
 );
 
+/* eslint-disable sort-keys */
 export default {
   default: ChatPublicAPI,
+  no_users: ChatNoUsers,
   teams: TeamsChatExample,
 };
+/* eslint-enable sort-keys */

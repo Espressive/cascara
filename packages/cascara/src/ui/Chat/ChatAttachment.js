@@ -115,7 +115,7 @@ const getChatAttachmentObj = (obj) => {
       <Ref id={message.id} innerRef={ref}>
         <ChatAttachment
           {...message}
-          authorName={messageAuthor.fullName}
+          authorName={messageAuthor?.fullName}
           handleScrollToLatestMessage={handleScrollToLatestMessage}
           isSessionUser={isSessionUser}
         />

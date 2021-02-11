@@ -83,7 +83,7 @@ const getChatOptionsObj = (obj) => {
         <Ref id={message.id} innerRef={ref}>
           <ChatOptions
             {...message}
-            authorName={messageAuthor.fullName}
+            authorName={messageAuthor?.fullName}
             isSessionUser={isSessionUser}
           />
         </Ref>
