@@ -15,6 +15,7 @@ const propTypes = {
   isSessionUser: pt.bool,
 };
 
+/** A Chat can display an indicator that typing is happening */
 const ChatTyping = ({ isSessionUser = false }) => {
   return (
     <FUIChat.Message

@@ -22,7 +22,7 @@ const getNormalizedMessages = (messages) => {
             handleDownloadAttachment,
           },
         },
-        buttons: {
+        options: {
           eval: (msg) =>
             Boolean(
               msg.type === 'message' && msg?.metadata?.user_input?.select

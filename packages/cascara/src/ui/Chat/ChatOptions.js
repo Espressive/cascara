@@ -23,7 +23,8 @@ const propTypes = {
   timestamp: pt.string.isRequired,
 };
 
-const ChatButtons = ({
+/** A Chat can display options as either buttons or a dropdown select if more than 3 options exist */
+const ChatOptions = ({
   authorName,
   isSessionUser = false,
   options = [],
@@ -54,8 +55,8 @@ const ChatButtons = ({
   />
 );
 
-ChatButtons.displayName = 'Chat.Buttons';
-ChatButtons.propTypes = propTypes;
+ChatOptions.displayName = 'Chat.Options';
+ChatOptions.propTypes = propTypes;
 
 const objPropTypes = {
   isSessionUser: pt.bool,
@@ -65,10 +66,10 @@ const objPropTypes = {
 };
 
 // This returns the object that FUI is expecting, along with the component and props
-const getChatButtonsObj = (obj) => {
+const getChatOptionsObj = (obj) => {
   const { isSessionUser, message, messageAuthor, ref } = obj;
 
-  validateMessageObj(objPropTypes, obj, ChatButtons.displayName);
+  validateMessageObj(objPropTypes, obj, ChatOptions.displayName);
 
   // NOTE: We are returning an array of objects here. This works because Chat will do a flatMap
   // on all arrays and return their objects.
@@ -80,7 +81,7 @@ const getChatButtonsObj = (obj) => {
       key: message.id + '_buttons',
       message: (
         <Ref id={message.id} innerRef={ref}>
-          <ChatButtons
+          <ChatOptions
             {...message}
             authorName={messageAuthor.fullName}
             isSessionUser={isSessionUser}
@@ -91,6 +92,6 @@ const getChatButtonsObj = (obj) => {
   ];
 };
 
-export { getChatButtonsObj };
+export { getChatOptionsObj };
 
-export default ChatButtons;
+export default ChatOptions;

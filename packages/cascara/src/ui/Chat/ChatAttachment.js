@@ -20,6 +20,7 @@ const propTypes = {
   timestamp: pt.string.isRequired,
 };
 
+/** NOTE: These are props for the underlying component, not the object. We need to figure out how to define the objects in the docs. A Chat can display an inline image or downloadable file attachment */
 const ChatAttachment = ({
   authorName,
   handleDownloadAttachment,

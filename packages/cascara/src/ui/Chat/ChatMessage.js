@@ -15,6 +15,7 @@ const propTypes = {
   timestamp: pt.string.isRequired,
 };
 
+/** A Chat can display a message */
 const ChatMessage = ({
   authorName,
   isSessionUser = false,

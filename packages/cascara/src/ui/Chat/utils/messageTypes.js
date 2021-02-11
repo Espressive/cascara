@@ -1,5 +1,5 @@
 import { getChatAttachmentObj } from '../ChatAttachment';
-import { getChatButtonsObj } from '../ChatButtons';
+import { getChatOptionsObj } from '../ChatOptions';
 import { getChatMessageObj } from '../ChatMessage';
 import { getChatSystemObj } from '../ChatSystem';
 import { getChatTypingObj } from '../ChatTyping';
@@ -7,8 +7,8 @@ import { getChatWidgetObj } from '../ChatWidget';
 
 const messageTypes = {
   attachment: getChatAttachmentObj,
-  buttons: getChatButtonsObj,
   message: getChatMessageObj,
+  options: getChatOptionsObj,
   system: getChatSystemObj,
   typing: getChatTypingObj,
   widget: getChatWidgetObj,

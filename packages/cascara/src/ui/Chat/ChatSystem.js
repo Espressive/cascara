@@ -7,6 +7,7 @@ const propTypes = {
   text: pt.oneOfType([pt.string, pt.node, pt.arrayOf(pt.node)]),
 };
 
+/** A Chat can display a system message */
 const ChatSystem = ({ text }) => (
   <Divider color='brand' content={text} important />
 );
