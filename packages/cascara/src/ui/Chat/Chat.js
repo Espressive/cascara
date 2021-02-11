@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import pt from 'prop-types';
 import { Chat as FUIChat } from '@fluentui/react-northstar';
-import {
-  getMessageAuthorDetails,
-  getMessageGroup,
-  messageTypes,
-} from './utils';
+import { getMessageAuthorDetails, getMessageGroup } from './utils';
+import messageTypes from './messageTypes';
 
 const propTypes = {
   /** A message object to display one of the allowed chat types */
