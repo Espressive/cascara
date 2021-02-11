@@ -12,9 +12,12 @@ import {
   ModuleProvider,
 } from './modules';
 
+import { ChatProvider } from './ui/Chat';
+
 export {
   ActionButton,
   ActionEdit,
+  ChatProvider,
   DataCheckbox,
   DataEmail,
   DataNumber,

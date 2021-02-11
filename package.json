@@ -71,16 +71,16 @@
     "yalc": "1.0.0-pre.42"
   },
   "scripts": {
-    "cascara": "yarn workspace @espressive/cascara",
     "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
-    "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
-    "docs": "yarn workspace docs",
-    "cosmos": "npx react-cosmos --config .cosmos/config.json",
+    "cascara": "yarn workspace @espressive/cascara",
     "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
+    "cosmos": "npx react-cosmos --config .cosmos/config.json",
+    "docs": "yarn workspace docs",
+    "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
     "framer:publish": "dotenv npx framer-cli publish",
-    "test": "jest",
-    "test:watch": "yarn test --watch",
     "lint": "eslint ./",
+    "test:watch": "yarn test --watch",
+    "test": "jest",
     "tokens": "style-dictionary build -c ./tokens.config.json"
   },
   "husky": {
