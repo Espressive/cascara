@@ -13,6 +13,7 @@ import barDataDevice from '../data/BarDevice';
 const dataInteractions = [
   {
     label: 'Total Interactions',
+    onClick: () => alert('hi'),
     value: '12,535',
   },
   {
@@ -48,6 +49,11 @@ const dataDeflections = [
 
 const dashboardConfig = [
   {
+    actions: [
+      {
+        content: 'view',
+      },
+    ],
     data: dataInteractions,
     title: 'Interactions',
     widget: 'stats',
