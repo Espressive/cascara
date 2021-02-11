@@ -9,7 +9,6 @@ import {
 
 const propTypes = {
   // cool: pt.bool.isRequired,
-  currentUserID: pt.number.isRequired,
   messages: pt.arrayOf(
     pt.shape({
       attached: pt.oneOf(['top', true, 'bottom']),
@@ -19,10 +18,11 @@ const propTypes = {
       user_id: pt.number,
     })
   ).isRequired,
+  sessionUserID: pt.number,
   users: pt.object.isRequired,
 };
 
-const Chat = ({ currentUserID, messages, users }) => {
+const Chat = ({ sessionUserID, messages, users }) => {
   // const useState()
 
   // The latestMessageRef is always assigned to the
@@ -55,7 +55,7 @@ const Chat = ({ currentUserID, messages, users }) => {
     const nextMessage = array[index + 1];
     const getMessageObject = messageTypes[msg.type];
 
-    const isSessionUser = currentUserID === msg.user_id;
+    const isSessionUser = sessionUserID === msg.user_id;
     const isTranslated = Boolean(msg.isTranslated); // This can probably get cleaned up later.
 
     // Only return if we have a defined component for this type

@@ -1,0 +1,39 @@
+{
+  // Place your cascara workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // https://code.visualstudio.com/docs/editor/userdefinedsnippets
+
+  // NOTE: Snippet key names are being used for the autoSnippet extension. If they are changed here, please update settings.json.
+
+  "New React Component": {
+    "scope": "javascript,typescript",
+    "prefix": ["esp", "sfc"],
+    "body": [
+      "import React from 'react';",
+      "import pt from 'prop-types'",
+      "",
+      "const propTypes = {",
+      "  children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),",
+      "};",
+      "",
+      "const $TM_FILENAME_BASE = ({ children }) => {",
+      "  return <div>{children}</div>;",
+      "};",
+      "",
+      "$TM_FILENAME_BASE.propTypes = propTypes;",
+      "",
+      "export default $TM_FILENAME_BASE;"
+    ],
+    "description": "Creates a new functional component from the filename."
+  },
+
+  "Export Component Index": {
+    "scope": "javascript,typescript",
+    "prefix": ["esp", "export-index"],
+    "body": ["export { default } from './${TM_DIRECTORY/^.+\\/(.*)$/$1/}';"],
+    "description": "Exports default member using the directory base name."
+  }
+}

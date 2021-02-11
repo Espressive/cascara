@@ -6,6 +6,16 @@
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "same"
   },
+  "autoSnippet.snippets": [
+    {
+      "pattern": "**/[A-Z]*.js",
+      "snippet": "New React Component"
+    },
+    {
+      "pattern": "**/index.js",
+      "snippet": "Export Component Index"
+    }
+  ],
   "cssModules.camelCase": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,

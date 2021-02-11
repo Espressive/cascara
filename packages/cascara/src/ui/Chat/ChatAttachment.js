@@ -13,6 +13,7 @@ const IMAGE_ATTACHMENT_TYPES = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'tiff'];
 
 const propTypes = {
   authorName: pt.string,
+  handleDownloadAttachment: pt.func.isRequired,
   handleScrollToLatestMessage: pt.func.isRequired,
   isSessionUser: pt.bool,
   metadata: pt.object.isRequired,
@@ -21,6 +22,7 @@ const propTypes = {
 
 const ChatAttachment = ({
   authorName,
+  handleDownloadAttachment,
   handleScrollToLatestMessage,
   isSessionUser = false,
   metadata,
@@ -29,11 +31,6 @@ const ChatAttachment = ({
   const { url, size, width, height, type } = metadata;
   const fileName = url.split('/').pop();
   // const fileExtension = fileName.split('.').pop();
-
-  // TODO: Make the file download when clicked
-  const handleDownload = () => {
-    alert('handleDownload()');
-  };
 
   const attachment = IMAGE_ATTACHMENT_TYPES.includes(metadata.type) ? (
     // Display an image if one of the supported image attachment types is present
@@ -74,7 +71,7 @@ const ChatAttachment = ({
           <FilesEmptyIcon outline />
         </div>
       }
-      onClick={handleDownload}
+      onClick={handleDownloadAttachment}
     />
   );
 
