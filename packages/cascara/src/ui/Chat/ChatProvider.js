@@ -10,19 +10,19 @@ import {
 
 import { barista, slack } from './themes';
 
-const DEFAULT_THEME_INDEX = 1;
+const DEFAULT_THEME_INDEX = 0;
 
 const items = [
-  {
-    header: 'Barista',
-    key: 'barista',
-    value: 'barista',
-  },
-  {
-    header: 'Slack',
-    key: 'slack',
-    value: 'slack',
-  },
+  // {
+  //   header: 'Barista',
+  //   key: 'barista',
+  //   value: 'barista',
+  // },
+  // {
+  //   header: 'Slack',
+  //   key: 'slack',
+  //   value: 'slack',
+  // },
   {
     header: 'Teams Light',
     key: 'light',
@@ -40,12 +40,26 @@ const items = [
   },
 ];
 
+const overrideTheme = {
+  fontFaces: [],
+  staticStyles: [],
+};
+
 const themes = {
   barista: barista,
   slack: slack,
-  teamsDarkTheme: teamsDarkTheme,
-  teamsHighContrastTheme: teamsHighContrastTheme,
-  teamsTheme: teamsTheme,
+  teamsDarkTheme: {
+    ...teamsDarkTheme,
+    ...overrideTheme,
+  },
+  teamsHighContrastTheme: {
+    ...teamsHighContrastTheme,
+    ...overrideTheme,
+  },
+  teamsTheme: {
+    ...teamsTheme,
+    ...overrideTheme,
+  },
 };
 
 const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
