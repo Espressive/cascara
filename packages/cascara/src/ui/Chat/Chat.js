@@ -3,7 +3,7 @@ import pt from 'prop-types';
 import { Chat as FUIChat, Provider } from '@fluentui/react-northstar';
 import { getMessageAuthorDetails, getMessageGroup } from './utils';
 import messageTypes from './messageTypes';
-import { loadingMessages, loadingTheme } from './loading';
+import { loadingMessages, loadingTheme } from './loadingState';
 
 const propTypes = {
   /** A message object to display one of the allowed chat types */
@@ -16,7 +16,7 @@ const propTypes = {
       type: pt.oneOf(Object.keys(messageTypes)).isRequired,
       user_id: pt.number,
     })
-  ).isRequired,
+  ),
   /** The ID of the current logged in user, should match a key in the `users` prop */
   sessionUserID: pt.number,
   /** Flat map of users to display. Keys should be a user ID. */
@@ -28,7 +28,7 @@ const propTypes = {
     //   color: pt.string,
     //   icon: pt.string,
     // }),
-  }).isRequired,
+  }),
 };
 
 // TODO: Set a loading state if no messages are passed yet
@@ -77,6 +77,8 @@ const Chat = ({ sessionUserID, messages, users }) => {
           handleScrollToLatestMessage,
           isSessionUser,
           isTranslated,
+          // We are not relying on the key externally anymore, which allows us to have animations
+          key: index,
           message: msg,
           messageAuthor: getMessageAuthorDetails(users, msg.user_id),
           ref: latestMessageRef,
@@ -85,7 +87,7 @@ const Chat = ({ sessionUserID, messages, users }) => {
   });
 
   return (
-    <Provider theme={!messages && loadingTheme}>
+    <Provider theme={!messages ? loadingTheme : {}}>
       <FUIChat items={items} />
     </Provider>
   );

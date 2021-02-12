@@ -42,7 +42,7 @@ const objPropTypes = {
   isSessionUser: pt.bool,
   isTranslated: pt.bool,
   message: pt.object.isRequired,
-  messageAuthor: pt.object.isRequired,
+  messageAuthor: pt.object,
   ref: pt.object.isRequired,
 };
 
