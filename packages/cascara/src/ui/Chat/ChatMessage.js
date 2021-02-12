@@ -24,7 +24,7 @@ const ChatMessage = ({
   timestamp,
 }) => {
   return (
-    <Animation name='loading'>
+    <Animation name='chatMessage'>
       <FUIChat.Message
         author={authorName}
         content={text}
