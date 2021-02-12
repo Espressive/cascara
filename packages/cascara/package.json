@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.2.13",
+  "version": "0.2.14-alpha.1",
   "main": "dist/cjs/index.js",
   "scripts": {
     "build": "yarn clean && rollup -c",
@@ -35,6 +35,7 @@
     "@nivo/tooltip": "0.61.0",
     "@nivo/treemap": "0.61.0",
     "classnames": "2.2.6",
+    "memoize-one": "5.1.1",
     "react-hook-form": "6.8.4",
     "react-textarea-autosize": "8.2.0",
     "reakit": "1.1.2"
@@ -45,6 +46,9 @@
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
+    "@fluentui/react-northstar": "^0.52.0",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "semantic-ui-react": "^1.2.1"
