@@ -1,7 +1,11 @@
+// Form-specific Action Modules
+import ActionEdit from './ActionEdit';
 import FormRow from './FormRow';
 
-const formModules = {
-  row: FormRow,
+export const formActionModules = {
+  edit: ActionEdit,
 };
 
-export { formModules };
+export const formModules = {
+  row: FormRow,
+};

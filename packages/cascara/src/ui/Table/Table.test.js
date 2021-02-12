@@ -1,5 +1,12 @@
 import React from 'react';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
 
@@ -24,18 +31,16 @@ describe('Table', () => {
    * The test `row actions` corresponds to condition a, whilst the test
    * `editable records` addresses condition b.  */
   describe('component tree', () => {
-    const whileTheUIisReady = async (miliseconds) =>
-      await new Promise((resolve) => setTimeout(resolve, miliseconds));
     const datasetSize = 100;
     const data = generateFakeEmployees(datasetSize);
     const dataConfig = {
       actions: [
         {
+          actionName: 'view',
           content: 'view',
           'data-testid': 'view',
           isLabeled: false,
           module: 'button',
-          name: 'view',
           size: 'small',
         },
         {
@@ -47,7 +52,6 @@ describe('Table', () => {
           },
           isLabeled: false,
           module: 'edit',
-          name: 'edit',
           size: 'small',
         },
       ],
@@ -156,7 +160,9 @@ describe('Table', () => {
     });
 
     test('default props', () => {
-      render(<Table uniqueIdAttribute={'id'} />);
+      render(
+        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
+      );
 
       expect(view).toMatchSnapshot();
     });
@@ -265,7 +271,7 @@ describe('Table', () => {
      * 2.- the data reflects the changes made by the user
      * 3.- the number of buttons present in each case. */
     test('editable records', async (done) => {
-      const testEmail = 'engineering@espressive.com';
+      const testEmail = 'Hayden.Zieme@espressive.com';
       const onAction = jest.fn();
 
       render(
@@ -277,83 +283,59 @@ describe('Table', () => {
         />
       );
 
-      const editButton = screen.getAllByTestId('edit.start');
+      act(() => {
+        // Enter edit mode
+        userEvent.click(screen.getAllByTestId('edit.start')[0]);
+      });
 
-      // Enter edit mode
-      fireEvent(
-        editButton[0],
-        new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-        })
-      );
+      act(() => {
+        userEvent.type(screen.getAllByTestId('email')[0], testEmail);
+      });
 
-      await whileTheUIisReady(100);
+      act(() => {
+        // Exit edit mode
+        userEvent.click(screen.getByTestId('edit.save'));
+      });
 
-      const cancelButton = screen.getByTestId('edit.cancel');
-      const saveButton = screen.getByTestId('edit.save');
-      const emailField = screen.getAllByTestId('email');
+      await waitFor(() => {
+        // The table first reacted with the edit.start event
+        expect(onAction).toBeCalledWith(
+          expect.objectContaining({
+            name: 'edit.start', // this is the name of the action (assigned by Cascara)
+          }),
+          expect.objectContaining({
+            active: true,
+            country: 'Argentina',
+            eid: '024f2316-265a-46e8-965a-837e308ae678',
+            email: 'Hayden.Zieme@espressive.com',
+            employeeNumber: 93912,
+            fullName: 'Hayden Zieme',
+            homePhone: '887.983.0658',
+            officePhone: '(980) 802-1086 x05469',
+            title: 'District Operations Officer',
+          })
+        );
 
-      expect(cancelButton).toBeTruthy();
-      expect(saveButton).toBeTruthy();
-      expect(emailField).toBeTruthy();
+        // Lastly, the table emits the edit.save event
+        expect(onAction).toHaveBeenLastCalledWith(
+          expect.objectContaining({
+            name: 'edit.save',
+          }),
+          expect.objectContaining({
+            active: [],
+            country: 'Argentina',
+            eid: '024f2316-265a-46e8-965a-837e308ae678',
+            email: testEmail,
+            employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
+            fullName: 'Hayden Zieme',
+            homePhone: '887.983.0658',
+            officePhone: '(980) 802-1086 x05469',
+            title: 'District Operations Officer',
+          })
+        );
 
-      // we need to delete the current contents
-      const userEventCommandList = 'Hayden.Zieme@espressive.com'
-        .split('')
-        .reduce((commands) => `${commands}{backspace}`, '');
-
-      userEvent.type(emailField[0], `${userEventCommandList}${testEmail}`);
-
-      await whileTheUIisReady(100);
-
-      fireEvent(
-        saveButton,
-        new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-        })
-      );
-
-      await whileTheUIisReady(100);
-
-      // The table first reacted with the edit.start event
-      expect(onAction).toBeCalledWith(
-        expect.objectContaining({
-          name: 'edit.start', // this is the name of the action (assigned by Cascara)
-        }),
-        expect.objectContaining({
-          active: true,
-          country: 'Argentina',
-          eid: '024f2316-265a-46e8-965a-837e308ae678',
-          email: 'Hayden.Zieme@espressive.com',
-          employeeNumber: 93912,
-          fullName: 'Hayden Zieme',
-          homePhone: '887.983.0658',
-          officePhone: '(980) 802-1086 x05469',
-          title: 'District Operations Officer',
-        })
-      );
-
-      // Lastly, the table emits the edit.save event
-      expect(onAction).toHaveBeenLastCalledWith(
-        expect.objectContaining({
-          name: 'edit.save',
-        }),
-        expect.objectContaining({
-          active: true,
-          country: 'Argentina',
-          eid: '024f2316-265a-46e8-965a-837e308ae678',
-          email: testEmail,
-          employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
-          fullName: 'Hayden Zieme',
-          homePhone: '887.983.0658',
-          officePhone: '(980) 802-1086 x05469',
-          title: 'District Operations Officer',
-        })
-      );
-
-      done();
+        done();
+      });
     });
 
     /**

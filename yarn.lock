@@ -1497,7 +1497,7 @@
   integrity sha512-0o4l6pZC+hI88+bzuaX/6BgOvQVhbt2PfmxauVaYOGgbsAw14wdKyvMCZXnsnsHys94iadcF+RG/wZyx6+ZZBw==
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.2.14-alpha.0"
+  version "0.2.14-alpha.1"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.61.0"

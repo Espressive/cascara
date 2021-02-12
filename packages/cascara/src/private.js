@@ -1,6 +1,5 @@
 import {
   ActionButton,
-  ActionEdit,
   DataCheckbox,
   DataEmail,
   DataNumber,
@@ -13,10 +12,11 @@ import {
 } from './modules';
 
 import { ChatProvider } from './ui/Chat';
+import ActionEdit from './ui/Table/modules/ActionEdit';
 
 export {
-  ActionButton,
   ActionEdit,
+  ActionButton,
   ChatProvider,
   DataCheckbox,
   DataEmail,

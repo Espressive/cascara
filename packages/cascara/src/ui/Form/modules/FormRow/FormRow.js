@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../Form.module.scss';
-import ErrorBoundary from '../../../shared/ErrorBoundary';
+import styles from '../../Form.module.scss';
+import ErrorBoundary from '../../../../shared/ErrorBoundary';
 
 const FormRow = ({ children, ratio }) => {
   if (ratio && ratio.length !== children.length) {
@@ -11,7 +11,7 @@ const FormRow = ({ children, ratio }) => {
 
   const columnRatio =
     ratio?.map((col) => col + 'fr').join(' ') ||
-    'repeat(auto-fit, minmax(10em, 1fr))';
+    'repeat(auto-fill, minmax(10em, 1fr))';
 
   return (
     <ErrorBoundary>

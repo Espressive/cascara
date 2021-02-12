@@ -14,18 +14,22 @@ import ActionBar from './ActionBar';
 import ModuleError from '../../modules/ModuleError';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
+import { tableActionModules } from './modules';
 
-const actionModuleOptions = Object.keys(actionModules);
+// A table can have common and table-specific modules
+const bundledActionModules = {
+  ...actionModules,
+  ...tableActionModules,
+};
+const actionModuleOptions = Object.keys(bundledActionModules);
 const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
   config: pt.shape({
     columns: pt.arrayOf(
-      pt.oneOfType([
-        pt.shape({
-          module: pt.oneOf(dataModuleOptions).isRequired,
-        }).isRequired,
-      ])
+      pt.shape({
+        module: pt.oneOf(dataModuleOptions).isRequired,
+      }).isRequired
     ),
     id: pt.oneOfType([pt.string, pt.number]),
   }),
@@ -43,12 +47,12 @@ const TableRow = ({ config = {}, record = {} }) => {
       <ActionBar
         actions={userDefinedActions.map((action) => {
           const { module, ...rest } = action;
-          const Action = actionModules[module];
+          const Action = bundledActionModules[module];
 
           /**
            * In certain predefined-action modules in which a label is not required, e.g. `edit`,
            * the following unique key generation fails, as it relies on the label (content). */
-          const key = `${id}.${module}.${rest.label || module}`;
+          const key = `${id}.${module}.${rest.label || module}${Date.now()}`;
 
           return Action ? (
             <Action key={key} {...rest} />
@@ -68,13 +72,23 @@ const TableRow = ({ config = {}, record = {} }) => {
     const { module, isLabeled, ...rest } = column;
     const Module = dataModules[module];
     const moduleValue = record[column.attribute];
+    const moduleKey = `${module}.${column.attribute}:${moduleValue}`;
 
     return (
       <td className={styles.Cell} key={column.attribute}>
         {Module ? (
-          <Module {...rest} isLabeled={false} value={moduleValue} />
+          <Module
+            {...rest}
+            isLabeled={false}
+            key={moduleKey}
+            value={moduleValue}
+          />
         ) : (
-          <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
+          <ModuleError
+            key={column.attribute}
+            moduleName={module}
+            moduleOptions={dataModuleOptions}
+          />
         )}
       </td>
     );

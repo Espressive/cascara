@@ -9,7 +9,7 @@ import JsonPlaceholder from './placeholders/JsonPlaceholder';
 import Button from './ui/Button';
 import Chat from './ui/Chat';
 import Dashboard from './ui/Dashboard';
-// import Form from './ui/Form';
+import Form from './ui/Form';
 import Table from './ui/Table';
 
 export {
@@ -18,7 +18,7 @@ export {
   Button,
   Chat,
   Dashboard,
-  // Form,
+  Form,
   JsonPlaceholder,
   Table,
 };

@@ -25,6 +25,13 @@ const dataConfig = {
     {
       module: 'edit',
     },
+    {
+      actionName: 'delete',
+      isLabeled: false,
+      label: 'Delete',
+      module: 'button',
+      size: 'small',
+    },
   ],
   display: [
     {
@@ -45,8 +52,9 @@ const dataConfig = {
           module: 'text',
         },
         {
-          attribute: 'firstName',
-          label: 'First Name Again',
+          attribute: 'password',
+          isSecure: true,
+          label: 'Password',
           module: 'text',
         },
       ],
@@ -91,6 +99,13 @@ const jsonStyle = {
 };
 
 const FormPublicAPI = ({ data, dataConfig }) => {
+  const handleFormAction = (action, data) => {
+    // eslint-ignore-next-line no-console
+    console.log(`Action: '${action.name}' has been invoked:`);
+    // eslint-ignore-next-line no-console
+    console.table(data);
+  };
+
   return (
     <div>
       <div style={{ margin: '1em' }}>
@@ -100,7 +115,12 @@ const FormPublicAPI = ({ data, dataConfig }) => {
       <JsonPlaceholder data={data} style={jsonStyle} title='data' />
       <JsonPlaceholder data={dataConfig} style={jsonStyle} title='dataConfig' />
 
-      <Form data={data} dataConfig={dataConfig} isInitialEditing />
+      <Form
+        data={data}
+        dataConfig={dataConfig}
+        isInitialEditing
+        onAction={handleFormAction}
+      />
     </div>
   );
 };

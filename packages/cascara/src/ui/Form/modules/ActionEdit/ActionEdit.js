@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
 
-import { ModuleContext } from '../context';
+import { ModuleContext } from '../../../../modules/context';
 import { Button } from 'reakit';
 import { Icon } from 'semantic-ui-react';
 
@@ -18,19 +18,15 @@ const propTypes = {
 
 const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   const {
-    idOfRecordInEditMode,
     isEditing,
     enterEditMode,
     exitEditMode,
     formMethods,
-    record,
+    data,
     onAction,
-    uniqueIdAttribute,
   } = useContext(ModuleContext);
   const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
-  const recordId = record[uniqueIdAttribute];
-  const whenAnotherRowIsEditing = Boolean(idOfRecordInEditMode);
 
   /**
    * this seems like ugly, we need to find a better way
@@ -52,7 +48,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
         name: 'edit.cancel',
       },
       {
-        ...record,
+        ...data,
       }
     );
 
@@ -68,31 +64,31 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   const handleEdit = () => {
     /**
-     * FDS-91: We are resetting the form with whatever is in record.
+     * FDS-91: We are resetting the form with whatever is in data.
      * We don't know if this is the best way to do it in React. */
-    reset({ ...record });
+    reset({ ...data });
     onAction(
       // fake target
       {
         name: 'edit.start',
       },
       {
-        ...record,
+        ...data,
       }
     );
 
-    enterEditMode(recordId);
+    enterEditMode();
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = (incomingData) => {
     onAction(
       // fake target
       {
         name: 'edit.save',
       },
       {
-        ...record,
         ...data,
+        ...incomingData,
       }
     );
 
@@ -124,7 +120,6 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     <Button
       {...editTestId}
       className='ui basic button'
-      disabled={whenAnotherRowIsEditing}
       onClick={handleEdit}
       type='button'
     >

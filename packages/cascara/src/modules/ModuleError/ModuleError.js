@@ -12,7 +12,7 @@ const ModuleError = ({ moduleName, moduleOptions }) => {
     ', '
   )}]`;
   // eslint-disable-next-line no-console
-  console.error(message);
+  // console.error(message);
 
   return (
     <div className={styles.Error} data-testid={'module-error'}>

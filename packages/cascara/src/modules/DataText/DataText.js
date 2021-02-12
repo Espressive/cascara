@@ -25,6 +25,7 @@ const DataText = ({
   attribute,
   isEditable = true,
   isLabeled = true,
+  isSecure,
   label,
   value,
   ...rest
@@ -41,7 +42,7 @@ const DataText = ({
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='text'
+        type={'text'}
       />
     </label>
   );
