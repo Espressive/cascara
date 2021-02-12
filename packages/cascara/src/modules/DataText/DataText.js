@@ -13,8 +13,6 @@ const propTypes = {
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
-  /** A module can protect secrets like passwords */
-  isSecure: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
   /** A Module can have a value */
@@ -31,7 +29,6 @@ const DataText = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
-  const type = isSecure ? 'password' : 'text';
 
   const renderEditing = (
     <label htmlFor={label}>

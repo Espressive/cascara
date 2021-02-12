@@ -12,7 +12,7 @@ import {
 } from './modules';
 
 import { ChatProvider } from './ui/Chat';
-import { ActionEdit } from './ui/Table/modules/ActionEdit';
+import ActionEdit from './ui/Table/modules/ActionEdit';
 
 export {
   ActionEdit,
