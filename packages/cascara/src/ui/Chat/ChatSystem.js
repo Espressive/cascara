@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Divider, Ref } from '@fluentui/react-northstar';
+import { Animation, Divider, Ref } from '@fluentui/react-northstar';
 import { validateMessageObj } from './utils';
 
 const propTypes = {
@@ -9,7 +9,9 @@ const propTypes = {
 
 /** A Chat can display a system message */
 const ChatSystem = ({ text }) => (
-  <Divider color='brand' content={text} important />
+  <Animation name='chatMessage'>
+    <Divider color='brand' content={text} important />
+  </Animation>
 );
 
 ChatSystem.displayName = 'Chat.System';

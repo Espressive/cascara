@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import pt from 'prop-types';
-import { Chat as FUIChat, Provider } from '@fluentui/react-northstar';
+import {
+  Chat as FUIChat,
+  Provider,
+  teamsTheme,
+} from '@fluentui/react-northstar';
 import { getMessageAuthorDetails, getMessageGroup } from './utils';
 import messageTypes from './messageTypes';
 import { loadingMessages, loadingTheme } from './loadingState';
@@ -46,6 +50,15 @@ const Chat = ({ sessionUserID, messages, users }) => {
     });
   };
 
+  // For initial load or image load, we want to scroll fully to the bottom
+  // right away. This does mean that when images load, we may scroll. We
+  // may want to explore adding both of these to a throttle
+  const handleScrollToBottom = () => {
+    return latestMessageRef?.current?.scrollIntoView({
+      block: 'end',
+    });
+  };
+
   // When messages change
   useEffect(() => {
     handleScrollToLatestMessage();
@@ -53,7 +66,7 @@ const Chat = ({ sessionUserID, messages, users }) => {
 
   // On mount
   useEffect(() => {
-    handleScrollToLatestMessage();
+    handleScrollToBottom();
   }, []);
 
   // We do this instead of defining default props so we can make sure we use the loading messages for
@@ -74,11 +87,9 @@ const Chat = ({ sessionUserID, messages, users }) => {
     return Boolean(getMessageObject)
       ? getMessageObject({
           attached: getMessageGroup(msg, previousMessage, nextMessage),
-          handleScrollToLatestMessage,
+          handleScrollToBottom,
           isSessionUser,
           isTranslated,
-          // We are not relying on the key externally anymore, which allows us to have animations
-          key: index,
           message: msg,
           messageAuthor: getMessageAuthorDetails(users, msg.user_id),
           ref: latestMessageRef,
@@ -86,8 +97,20 @@ const Chat = ({ sessionUserID, messages, users }) => {
       : null;
   });
 
+  const animations = {
+    chatMessage: messages
+      ? { ...teamsTheme.animations.scaleEnterNormal }
+      : {
+          ...teamsTheme.animations.fadeEnterUltraSlow,
+          direction: 'alternate-reverse',
+          iterationCount: 'infinite',
+        },
+  };
+
   return (
-    <Provider theme={!messages ? loadingTheme : {}}>
+    <Provider
+      theme={messages ? { animations } : { animations, ...loadingTheme }}
+    >
       <FUIChat items={items} />
     </Provider>
   );

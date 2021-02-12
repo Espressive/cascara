@@ -12,7 +12,7 @@ const propTypes = {
 
 // NOTE: Status will need to be coming from enumerated object values at some point
 const ChatAvatar = ({ fullName, imageUrl, square, status, userID }) => (
-  <Animation name='loading'>
+  <Animation name='chatMessage'>
     <FUIAvatar
       image={imageUrl}
       name={fullName}

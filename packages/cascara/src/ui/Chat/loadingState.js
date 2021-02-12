@@ -1,5 +1,3 @@
-import { loading } from '../../animations';
-
 const loadingMessages = [
   {
     id: '1',
@@ -67,9 +65,6 @@ const loadingMessages = [
 ];
 
 const loadingTheme = {
-  animations: {
-    loading,
-  },
   // componentStyles: {
   //   Avatar: ({ colorScheme }) => ({
   //     image: {
