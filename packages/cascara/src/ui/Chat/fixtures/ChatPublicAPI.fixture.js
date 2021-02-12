@@ -77,8 +77,14 @@ const ChatPublicAPI = (
 );
 
 const ChatNoUsers = (
-  <ChatProvider inputComponent={teamsChatInput} isThemeSelectable>
+  <ChatProvider>
     <Chat messages={getNormalizedMessages(convo1)} sessionUserID={3} />
+  </ChatProvider>
+);
+
+const ChatNoMessages = (
+  <ChatProvider isThemeSelectable>
+    <Chat />
   </ChatProvider>
 );
 
@@ -103,6 +109,7 @@ const TeamsChatExample = (
 export default {
   default: ChatPublicAPI,
   no_users: ChatNoUsers,
+  no_messages: ChatNoMessages,
   teams: TeamsChatExample,
 };
 /* eslint-enable sort-keys */

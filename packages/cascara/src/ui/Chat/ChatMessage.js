@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Chat as FUIChat, Ref } from '@fluentui/react-northstar';
+import { Animation, Chat as FUIChat, Ref } from '@fluentui/react-northstar';
 import {
   getSharedMessageKeys,
   getTranslatedDetails,
@@ -24,13 +24,15 @@ const ChatMessage = ({
   timestamp,
 }) => {
   return (
-    <FUIChat.Message
-      author={authorName}
-      content={text}
-      details={getTranslatedDetails(isTranslated)}
-      mine={isSessionUser}
-      timestamp={timestamp}
-    />
+    <Animation name='loading'>
+      <FUIChat.Message
+        author={authorName}
+        content={text}
+        details={getTranslatedDetails(isTranslated)}
+        mine={isSessionUser}
+        timestamp={timestamp}
+      />
+    </Animation>
   );
 };
 ChatMessage.displayName = 'Chat.Message';

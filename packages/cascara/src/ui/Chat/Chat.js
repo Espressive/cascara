@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import pt from 'prop-types';
-import { Chat as FUIChat } from '@fluentui/react-northstar';
+import { Chat as FUIChat, Provider } from '@fluentui/react-northstar';
 import { getMessageAuthorDetails, getMessageGroup } from './utils';
 import messageTypes from './messageTypes';
+import { loadingMessages, loadingTheme } from './loading';
 
 const propTypes = {
   /** A message object to display one of the allowed chat types */
@@ -31,7 +32,7 @@ const propTypes = {
 };
 
 // TODO: Set a loading state if no messages are passed yet
-const Chat = ({ sessionUserID, messages = {}, users }) => {
+const Chat = ({ sessionUserID, messages, users }) => {
   // The latestMessageRef is always assigned to the
   // latest message that has appeared in the Chat
   const latestMessageRef = useRef(null);
@@ -55,9 +56,13 @@ const Chat = ({ sessionUserID, messages = {}, users }) => {
     handleScrollToLatestMessage();
   }, []);
 
+  // We do this instead of defining default props so we can make sure we use the loading messages for
+  // undefined, null, or empty arrays
+  const currentMessages = messages || loadingMessages;
+
   // NOTE: Some of our messages return arrays of objects and not
   // just an object, so we need to use flatMap here
-  const items = messages.flatMap((msg, index, array) => {
+  const items = currentMessages.flatMap((msg, index, array) => {
     const previousMessage = array[index - 1];
     const nextMessage = array[index + 1];
     const getMessageObject = messageTypes[msg.type];
@@ -79,7 +84,11 @@ const Chat = ({ sessionUserID, messages = {}, users }) => {
       : null;
   });
 
-  return <FUIChat items={items} />;
+  return (
+    <Provider theme={!messages && loadingTheme}>
+      <FUIChat items={items} />
+    </Provider>
+  );
 };
 
 Chat.propTypes = propTypes;
