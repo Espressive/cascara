@@ -41,7 +41,7 @@ const getChatWidgetObj = (obj) => {
     children: (
       <Ref id={message.id} innerRef={ref}>
         <ChatWidget
-          authorName={messageAuthor.fullName}
+          authorName={messageAuthor?.fullName}
           isSessionUser={isSessionUser}
           {...message}
         />

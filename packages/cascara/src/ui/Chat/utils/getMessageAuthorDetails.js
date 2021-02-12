@@ -1,12 +1,16 @@
 import memoizeOne from 'memoize-one';
 
 const authorDetails = (users, userID) => {
-  const user = users[userID];
-  const fullName = [user?.firstName, user?.lastName]
-    .filter((name) => name != null)
-    .join(' ');
+  if (users) {
+    const user = users[userID];
+    const fullName = [user?.firstName, user?.lastName]
+      .filter((name) => name != null)
+      .join(' ');
 
-  return { ...user, fullName, userID };
+    return { ...user, fullName, userID };
+  } else {
+    return null;
+  }
 };
 
 // memoizeOne only caches latest arguments so we do not end up

@@ -6,11 +6,12 @@ const getSharedMessageKeys = ({
   isSessionUser,
   message,
   messageAuthor,
+  key,
 }) => ({
   attached,
   contentPosition: isSessionUser ? 'end' : 'start',
   gutter: <ChatAvatar {...messageAuthor} />,
-  key: message.id,
+  key,
 });
 
 export { getSharedMessageKeys };
