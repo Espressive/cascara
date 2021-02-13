@@ -127,7 +127,7 @@ const Form = ({
   isInitialEditing = false,
   ...rest
 }) => {
-  const { actions = [], display } = dataConfig;
+  const { actions, display } = dataConfig;
   const renderedActions = renderActions(actions);
   const isEditable =
     typeof incomingIsEditable === 'undefined'
