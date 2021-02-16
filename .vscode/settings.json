@@ -6,6 +6,9 @@
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "same"
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "autoSnippet.snippets": [
     {
       "pattern": "**/[A-Z]*.js",
