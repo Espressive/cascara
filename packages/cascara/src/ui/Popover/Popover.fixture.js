@@ -31,10 +31,7 @@ const ActionsMenuFixture = (
       inside Table Actions to stack any of our `actions.length &gt; 1` inside of
       this menu.
     </p>
-    <ActionsMenu
-      actions={menuItems}
-      trigger={<Button className='icon' content={<b>{'⋯'}</b>} />}
-    />
+    <ActionsMenu actions={menuItems} />
   </main>
 );
 
