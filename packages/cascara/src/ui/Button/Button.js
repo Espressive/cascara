@@ -1,11 +1,11 @@
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 import pt from 'prop-types';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Button as ReakitButton } from 'reakit';
 import { getSafeLinkRel } from '../../shared/linkUtils';
-import styles from './Button.module.scss';
+// import styles from './Button.module.scss';
 
-const cx = classNames.bind(styles);
+const cx = classNames;
 
 const propTypes = {
   /** Can render as a different tag or component */
@@ -26,36 +26,53 @@ const propTypes = {
 // prop is being used with a React component, we need to pass the ref directly to
 // Reakit. Otherwise, we need to use React.forwardRef()
 
-const Button = ({
-  as = 'button',
-  content = 'Default Content',
-  fluid = false,
-  isBrandColor = false,
-  outcome,
-  size = 'regular',
-  ...rest
-}) => {
-  const internalClassName = cx(rest.className, {
-    _: true,
-    basic: !outcome,
-    fluid: fluid,
-    large: size === 'large',
-    negative: outcome === 'negative',
-    positive: outcome === 'positive',
-    small: size === 'small',
-  });
+const Button = forwardRef(
+  (
+    {
+      as = 'button',
+      content = 'Default Content',
+      fluid = false,
+      isBrandColor = false,
+      outcome,
+      size = 'regular',
+      ...rest
+    },
+    ref
+  ) => {
+    // Leaving this here for when we decide to run our own styles
+    // const internalClassName = cx(rest.className, {
+    //   _: true,
+    //   basic: !outcome,
+    //   fluid: fluid,
+    //   large: size === 'large',
+    //   negative: outcome === 'negative',
+    //   positive: outcome === 'positive',
+    //   small: size === 'small',
+    // });
 
-  return (
-    <ReakitButton
-      {...rest}
-      as={as}
-      className={internalClassName}
-      rel={getSafeLinkRel(rest)}
-    >
-      {content}
-    </ReakitButton>
-  );
-};
+    const legacyClassname = cx(rest.className, {
+      basic: !outcome,
+      fluid: fluid,
+      large: size === 'large',
+      negative: outcome === 'negative',
+      positive: outcome === 'positive',
+      small: size === 'small',
+      'ui button': true,
+    });
+
+    return (
+      <ReakitButton
+        {...rest}
+        as={as}
+        className={legacyClassname}
+        ref={ref}
+        rel={getSafeLinkRel(rest)}
+      >
+        {content}
+      </ReakitButton>
+    );
+  }
+);
 Button.propTypes = propTypes;
 
 export default Button;
