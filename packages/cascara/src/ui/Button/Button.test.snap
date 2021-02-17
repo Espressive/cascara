@@ -3,7 +3,7 @@
 exports[`Button default renders without any props 1`] = `
 <div>
   <button
-    class="_ basic"
+    class="basic ui button"
     data-testid="default"
     type="button"
   >
