@@ -9,5 +9,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Dangerfile
         uses: danger/danger-js@9.1.6
+        with:
+          args: '--dangerfile .danger/dangerfile.ts'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
