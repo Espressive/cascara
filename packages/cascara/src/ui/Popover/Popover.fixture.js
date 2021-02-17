@@ -33,7 +33,7 @@ const ActionsMenuFixture = (
     </p>
     <ActionsMenu
       actions={menuItems}
-      trigger={<Button className='icon' content='⋯' />}
+      trigger={<Button className='icon' content={<b>{'⋯'}</b>} />}
     />
   </main>
 );
