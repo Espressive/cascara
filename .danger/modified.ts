@@ -1,8 +1,8 @@
-import { danger } from 'danger';
+import { danger, message } from 'danger';
 
-// Alert that snapshot files have been changed
-export const snapshots = () => {
+export const assignees = () => {
+  // No PR is too small to include a description of why you made a change
   if (danger.git.modified_files.length > 1) {
-    const files = danger.git.modified_files.map((file) => console.log(file));
+    message('You have modified more than one file');
   }
 };
