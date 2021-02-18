@@ -1,22 +1,35 @@
-import { danger, warn, message } from 'danger';
+import { danger, warn, fail, message } from 'danger';
 
+// Git specific values
 const modifiedFiles = danger.git.modified_files;
 const newFiles = danger.git.created_files;
 const changedFiles = [...modifiedFiles, ...newFiles];
 
+// Github specific values
+const github = {
+  description: danger.github.pr.body,
+  assignee: danger.github.pr.assignee,
+};
+
+// Changed file evaluations
 const changed = {
   fixtures: modifiedFiles.filter((file) => file.includes('fixture.js')),
   packages: changedFiles.filter((file) => file.includes('package.json')),
   snapshots: modifiedFiles.filter((file) => file.includes('test.snap')),
 };
 
+// PR description evaluations
+const descHas = {
+  dependencies: github.description.includes('### Dependencies\n'),
+};
+
 // No PR is too small to include a description of why you made a change
-if (danger.github.pr.body.length < 10) {
+if (github.description.length < 10) {
   warn('Please include a description of your PR changes.');
 }
 
 // Check that someone has been assigned to this PR
-if (danger.github.pr.assignee === null) {
+if (github.assignee === null) {
   warn(
     'Please assign someone to merge this PR, and optionally include people who should review.'
   );
@@ -30,11 +43,10 @@ if (changed.fixtures) {
 }
 
 // Check if we are updating or adding any package dependencies
-if (changed.packages) {
+if (changed.packages && !descHas.dependencies) {
   for (let file of changed.packages) {
-    warn(
-      `**${file}**: Please provide a reason we are changing package dependencies.`,
-      file
+    fail(
+      'Please provide a comments about why we are changing dependencies. This can be done by adding a `### Dependencies` section to our PR description.'
     );
   }
 }
