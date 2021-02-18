@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   act,
-  cleanup,
   fireEvent,
   render,
   screen,
@@ -9,6 +8,7 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
+import { Provider } from 'reakit';
 
 import Table from './';
 import { generateFakeEmployees } from '../../lib/mock/fakeData';
@@ -153,24 +153,16 @@ describe('Table', () => {
       ],
     };
 
-    let view;
-
-    beforeAll(() => {
-      view = render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
-      ).container;
-    });
-
-    afterEach(cleanup);
-
     test('snapshot test', () => {
-      expect(view).toMatchSnapshot();
-    });
-
-    test('default props', () => {
-      render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
-      );
+      const view = render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      ).container;
 
       expect(view).toMatchSnapshot();
     });
@@ -203,16 +195,18 @@ describe('Table', () => {
     });
 
     test('without row actions', () => {
-      render(
-        <Table
-          data={data}
-          dataConfig={{
-            ...dataConfig,
-            actions: [],
-          }}
-          uniqueIdAttribute={'eid'}
-        />
-      );
+      const view = render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={{
+              ...dataConfig,
+              actions: [],
+            }}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      ).container;
 
       expect(view).toMatchSnapshot();
     });
