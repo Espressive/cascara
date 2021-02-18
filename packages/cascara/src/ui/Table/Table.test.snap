@@ -217,21 +217,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-agh12o"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -383,21 +383,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-k68thb"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -550,21 +550,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-ac7lmq"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -717,21 +717,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-uo1ef4"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -884,21 +884,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5r6dlo"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -1050,21 +1050,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-84f4d8"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -1217,21 +1217,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-m2lf3e"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -1384,21 +1384,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-85217s"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -1551,21 +1551,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-9u1a0a"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -1717,21 +1717,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-8sja50"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -1883,21 +1883,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-9o89r8"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -2050,21 +2050,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-rg0ksr"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -2216,21 +2216,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-9ab9dc"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -2383,21 +2383,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-q66uvp"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -2549,21 +2549,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-pv9g0e"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -2716,21 +2716,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-uvqj9u"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -2883,21 +2883,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5en19f"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -3050,21 +3050,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-9nu89u"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -3217,21 +3217,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-rffsol"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -3384,21 +3384,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5nlcd0"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -3550,21 +3550,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-dh91rp"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -3716,21 +3716,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-bv8qau"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -3883,21 +3883,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-urkep1"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -4050,21 +4050,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-7hki9j"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -4217,21 +4217,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-l89mc5"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -4384,21 +4384,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-be88sg"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -4551,21 +4551,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-4ddvdc"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -4718,21 +4718,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-2cfg0j"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -4884,21 +4884,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-bh51ii"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -5050,21 +5050,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5grb0m"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -5217,21 +5217,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-93o3oe"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -5383,21 +5383,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-ns4iko"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -5549,21 +5549,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5me20n"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -5716,21 +5716,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-fhm26h"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -5882,21 +5882,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5u9lkr"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -6049,21 +6049,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-m72stg"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -6215,21 +6215,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-q9ka8t"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -6382,21 +6382,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-qq325k"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -6549,21 +6549,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-10ucqo"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -6715,21 +6715,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-mjgvnd"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -6881,21 +6881,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-0et31v"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -7048,21 +7048,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-tngfa7"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -7215,21 +7215,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-aus88m"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -7381,21 +7381,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-rv6111"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -7548,21 +7548,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-dtv7lc"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -7715,21 +7715,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-7c7011"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -7882,21 +7882,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-lhjej3"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -8049,21 +8049,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-qc5onc"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -8215,21 +8215,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-mfhs5e"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -8381,21 +8381,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-tdbs4q"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -8547,21 +8547,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-cvcuj3"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -8713,21 +8713,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5prtl7"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -8880,21 +8880,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-icnh3g"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -9046,21 +9046,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-vinj2h"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -9213,21 +9213,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-1srq03"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -9379,21 +9379,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-bq803s"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -9545,21 +9545,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-v043du"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -9711,21 +9711,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-djkkhp"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -9877,21 +9877,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-0e61fq"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -10043,21 +10043,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-969a3i"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -10209,21 +10209,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-ti8g9f"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -10375,21 +10375,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-aco6tl"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -10541,21 +10541,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-oaa6ma"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -10708,21 +10708,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-t1t3qo"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -10874,21 +10874,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-k63ept"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -11040,21 +11040,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-jdng6b"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -11207,21 +11207,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-lhhcci"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -11373,21 +11373,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-tcibh0"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -11540,21 +11540,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-apk8cu"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -11707,21 +11707,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-1tv57v"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -11873,21 +11873,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-7pi9mi"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -12040,21 +12040,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-nvjfu8"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -12207,21 +12207,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-gsbi96"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -12374,21 +12374,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-ivqhrd"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -12540,21 +12540,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-isc7ad"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -12707,21 +12707,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-igvekm"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -12874,21 +12874,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-mab2ek"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -13041,21 +13041,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-pugme4"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -13207,21 +13207,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-g5sge1"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -13374,21 +13374,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-1oe37b"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -13540,21 +13540,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-k3qp8m"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -13707,21 +13707,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-sdgskc"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -13874,21 +13874,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-9o8b9t"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -14040,21 +14040,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-sda1ku"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -14207,21 +14207,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5duntc"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -14373,21 +14373,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-427tia"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -14540,21 +14540,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-jhabjd"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -14707,21 +14707,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-kh6jmt"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -14873,21 +14873,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-d5d4cq"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -15039,21 +15039,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-f953fk"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -15205,21 +15205,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-uun5qd"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -15372,21 +15372,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-cgtbb2"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -15539,21 +15539,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-vqjbj5"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -15706,21 +15706,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-5nn5h0"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -15872,21 +15872,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-20lr75"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -16039,21 +16039,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-8ktrf4"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -16206,21 +16206,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-eqtibu"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -16373,21 +16373,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-ntlhbh"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -16539,21 +16539,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-avh1rl"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>
@@ -16705,21 +16705,21 @@ exports[`Table component tree snapshot test 1`] = `
           <td
             class="CellActions"
           >
-            
-            <button
-              class="ui basic button"
-              content="view"
-              data-testid="view"
-              type="button"
-            >
-              ActionButton
-            </button>
             <button
               class="ui basic button"
               data-testid="edit.start"
               type="button"
             >
               Edit
+            </button>
+            <button
+              aria-controls="id-4i1qlg"
+              aria-expanded="false"
+              aria-haspopup="menu"
+              class="icon basic ui button"
+              type="button"
+            >
+              ...
             </button>
           </td>
         </tr>

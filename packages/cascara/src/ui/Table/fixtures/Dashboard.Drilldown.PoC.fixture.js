@@ -3,7 +3,7 @@ import React from 'react';
 
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
-import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
+import { generateFakeEmployees } from '../../../lib/mock/fakeData';
 import Table from '..';
 
 const data = generateFakeEmployees(50).map((employee) => ({

@@ -22,6 +22,7 @@ const ActionButton = ({
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
+  const { content = label, ...restWithoutLabel } = rest;
 
   const handleClick = ({ currentTarget }) => {
     onAction(currentTarget, record);
@@ -29,13 +30,13 @@ const ActionButton = ({
 
   return isEditing ? null : (
     <Button
-      {...rest}
+      {...restWithoutLabel}
       className='ui basic button'
       name={actionName}
       onClick={handleClick}
       type='button'
     >
-      {label}
+      {content}
     </Button>
   );
 };

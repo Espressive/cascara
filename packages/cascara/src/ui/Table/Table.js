@@ -66,7 +66,12 @@ const Table = ({
   return (
     <ErrorBoundary>
       <TableProvider
-        value={{ data, dataConfig, onAction, uniqueIdAttribute }}
+        value={{
+          data,
+          dataConfig,
+          onAction,
+          uniqueIdAttribute,
+        }}
         {...rest}
       >
         <table
