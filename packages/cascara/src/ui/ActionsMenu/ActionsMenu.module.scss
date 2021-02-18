@@ -1,0 +1,17 @@
+.ActionsMenu {
+  // transition: opacity 250ms ease-in-out;
+  // opacity: 0;
+  // transform-origin: top center;
+
+  // &:global([data-enter]) {
+  //   opacity: 1;
+  // }
+
+  &:global(.ui.dropdown) :global(.menu) {
+    .ActionsMenuItem,
+    & > .ActionsMenuItem:global(.item) {
+      font-size: 0.875em;
+      padding: 0.625rem 1.125rem !important;
+    }
+  }
+}

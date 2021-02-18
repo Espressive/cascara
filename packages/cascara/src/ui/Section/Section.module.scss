@@ -1,0 +1,19 @@
+$section-padding: 0.5rem;
+
+._ {
+}
+
+.Header {
+  border-bottom: 1px solid #999;
+  padding: $section-padding;
+}
+
+.Content {
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.Footer {
+  background-color: #eaeaea;
+  padding: $section-padding;
+}
