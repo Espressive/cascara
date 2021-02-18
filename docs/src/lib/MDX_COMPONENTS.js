@@ -9,6 +9,7 @@
 import {
   Admin,
   Button,
+  Chat,
   Dashboard,
   JsonPlaceholder,
   Table,
@@ -17,6 +18,7 @@ import {
 import {
   ActionButton,
   ActionEdit,
+  ChatProvider,
   DataCheckbox,
   DataEmail,
   DataNumber,
@@ -40,6 +42,11 @@ const MDX_COMPONENTS = {
   // Cascara
   Admin: (props) => <Admin {...props} />,
   Button: (props) => <Button {...props} />,
+  Chat: (props) => (
+    <ChatProvider>
+      <Chat {...props} />
+    </ChatProvider>
+  ),
   Dashboard: (props) => <Dashboard {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   Table: (props) => <Table {...props} />,
