@@ -1,23 +1,18 @@
 import pt from 'prop-types';
-import React, { useLayoutEffect, useRef } from 'react';
-import { Button } from 'reakit/Button';
+import React, { useContext, useLayoutEffect, useRef } from 'react';
 import { Menu, MenuButton, MenuItem, useMenuState } from 'reakit/Menu';
+
 import styles from './ActionsMenu.module.scss';
-
 import { popperOverTrigger } from '../../shared/popperModifiers';
-
-const DEFAULT_TRIGGER = (
-  <Button className='ui basic icon button'>
-    <b>⋯</b>
-  </Button>
-);
-// const DEFAULT_TRIGGER = <p>'Trigger'</p>;
+import { ModuleContext } from '../../modules/context';
 
 const propTypes = {
   actions: pt.arrayOf(pt.object).isRequired,
 };
 
-const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
+const ActionsMenu = ({ trigger, actions }) => {
+  const { onAction, record } = useContext(ModuleContext);
+
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
   const triggerRef = useRef();
 
@@ -33,9 +28,10 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
     unstable_popperModifiers: [popperOverTrigger],
   });
 
-  const onItemClick = (item) => {
+  const handleMenuItemClick = (item) => {
     menu.hide();
-    item.onClick();
+
+    onAction(item, record);
   };
 
   return (
@@ -53,14 +49,14 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
           className='menu transition visible'
           style={{ position: 'initial' }}
         >
-          {actions.map(({ content, ...rest }) => (
+          {actions.map(({ content, isLabeled, ...rest }) => (
             <MenuItem
               {...menu}
               {...rest}
               as='div'
               className={'item ' + styles.ActionsMenuItem}
               key={content}
-              onClick={() => onItemClick(rest)}
+              onClick={() => handleMenuItemClick(rest)}
               style={{ paddingTop: '.5rem !important' }}
             >
               {content}

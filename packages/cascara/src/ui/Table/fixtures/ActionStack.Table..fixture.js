@@ -3,109 +3,61 @@ import { Dropdown, Header } from 'semantic-ui-react';
 
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
-import { generateFakeEmployees } from '../../../lib/mock/fakeData';
+import { generateFakeInteractions } from '../../../lib/mock/fakeData';
 import Table from '..';
+
+const defaultColumns = [
+  {
+    attribute: 'created',
+    isEditable: true,
+    isLabeled: false,
+    label: 'Created',
+    module: 'text',
+  },
+  {
+    attribute: 'phrase',
+    isEditable: false,
+    isLabeled: false,
+    label: 'Phrase',
+    module: 'text',
+  },
+  {
+    attribute: 'user',
+    isEditable: true,
+    isLabeled: false,
+    label: 'User',
+    module: 'email',
+  },
+  {
+    attribute: 'response',
+    isEditable: true,
+    isLabeled: false,
+    label: 'Response',
+    module: 'checkbox',
+  },
+  {
+    attribute: 'deflected',
+    isEditable: true,
+    isLabeled: false,
+    label: 'Deflected',
+    module: 'checkbox',
+  },
+  {
+    attribute: 'matchedIntent',
+    isEditable: true,
+    isLabeled: false,
+    label: 'Matched Intent',
+    module: 'text',
+  },
+];
 
 class Fixture extends PureComponent {
   state = {
-    columns: [
-      {
-        attribute: 'active',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Active',
-        module: 'checkbox',
-      },
-      {
-        attribute: 'eid',
-        isEditable: false,
-        isLabeled: false,
-        label: 'ID',
-        module: 'text',
-      },
-      {
-        attribute: 'email',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Email',
-        module: 'email',
-      },
-      {
-        attribute: 'country',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Country',
-        module: 'select',
-        options: [
-          {
-            label: 'Argentina',
-            value: 'Argentina',
-          },
-          {
-            label: 'Brazil',
-            value: 'Brazil',
-          },
-          {
-            label: 'USA',
-            value: 'USA',
-          },
-        ],
-      },
-      {
-        attribute: 'employeeNumber',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Employee Number',
-        module: 'number',
-      },
-      {
-        attribute: 'fullName',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Full Name',
-        module: 'text',
-      },
-      {
-        attribute: 'homePhone',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Home Phone',
-        module: 'text',
-      },
-      {
-        attribute: 'officePhone',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Office Phone',
-        module: 'text',
-      },
-      {
-        attribute: 'title',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Title',
-        module: 'text',
-      },
-    ],
-    data: generateFakeEmployees(50).map((employee) => ({
-      ...employee,
+    columns: [...defaultColumns],
+    data: generateFakeInteractions(50).map((interaction) => ({
+      ...interaction,
     })),
-    display: [
-      {
-        attribute: 'fullName',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Full Name',
-        module: 'text',
-      },
-      {
-        attribute: 'email',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Email',
-        module: 'email',
-      },
-    ],
+    display: [...defaultColumns],
   };
 
   handleColumnSelection = (_, { value: selectedColumns }) => {
@@ -155,10 +107,17 @@ class Fixture extends PureComponent {
     const dataConfig = {
       actions: [
         {
-          content: 'view',
+          content: 'View interaction',
           isLabeled: false,
           module: 'button',
           name: 'view',
+          size: 'small',
+        },
+        {
+          content: 'View FAQ',
+          isLabeled: false,
+          module: 'button',
+          name: 'delete',
           size: 'small',
         },
         {

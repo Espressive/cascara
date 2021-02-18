@@ -23,6 +23,7 @@ const ActionButton = ({
 }) => {
   const { data, isEditing, onAction, record } = useContext(ModuleContext);
   const dataOrRecord = record || data;
+  const { content = label, ...restWithoutLabel } = rest;
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -40,13 +41,13 @@ const ActionButton = ({
 
   return isEditing ? null : (
     <Button
-      {...rest}
+      {...restWithoutLabel}
       className='ui basic button'
       name={actionName}
       onClick={handleClick}
       type='button'
     >
-      {label}
+      {content}
     </Button>
   );
 };
