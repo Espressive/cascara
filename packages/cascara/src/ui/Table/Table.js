@@ -9,8 +9,13 @@ import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
+import { tableActionModules } from './modules';
 
-const actionModuleOptions = Object.keys(actionModules);
+const bundledActionModules = {
+  ...actionModules,
+  ...tableActionModules,
+};
+const actionModuleOptions = Object.keys(bundledActionModules);
 const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
@@ -51,7 +56,7 @@ const propTypes = {
 /** This is a Table */
 const Table = ({
   data = [],
-  dataConfig = {},
+  dataConfig,
   onAction = (type, data) => type,
   uniqueIdAttribute,
   ...rest

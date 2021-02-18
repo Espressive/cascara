@@ -1,7 +1,5 @@
 // Action Modules
 import ActionButton from './ActionButton';
-// import DownloadButton from './DownloadButton'
-import ActionEdit from './ActionEdit';
 
 // Data Modules
 import DataCheckbox from './DataCheckbox';
@@ -14,8 +12,6 @@ import DataTextArea from './DataTextArea';
 
 const actionModules = {
   button: ActionButton,
-  // download: DownloadButton,
-  edit: ActionEdit,
 };
 
 const dataModules = {

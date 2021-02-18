@@ -222,6 +222,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -388,6 +389,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -555,6 +557,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -722,6 +725,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -889,6 +893,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -1055,6 +1060,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -1222,6 +1228,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -1389,6 +1396,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -1556,6 +1564,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -1722,6 +1731,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -1888,6 +1898,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -2055,6 +2066,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -2221,6 +2233,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -2388,6 +2401,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -2554,6 +2568,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -2721,6 +2736,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -2888,6 +2904,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -3055,6 +3072,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -3222,6 +3240,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -3389,6 +3408,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -3555,6 +3575,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -3721,6 +3742,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -3888,6 +3910,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -4055,6 +4078,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -4222,6 +4246,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -4389,6 +4414,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -4556,6 +4582,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -4723,6 +4750,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -4889,6 +4917,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -5055,6 +5084,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -5222,6 +5252,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -5388,6 +5419,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -5554,6 +5586,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -5721,6 +5754,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -5887,6 +5921,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -6054,6 +6089,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -6220,6 +6256,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -6387,6 +6424,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -6554,6 +6592,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -6720,6 +6759,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -6886,6 +6926,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -7053,6 +7094,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -7220,6 +7262,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -7386,6 +7429,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -7553,6 +7597,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -7720,6 +7765,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -7887,6 +7933,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -8054,6 +8101,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -8220,6 +8268,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -8386,6 +8435,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -8552,6 +8602,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -8718,6 +8769,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -8885,6 +8937,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -9051,6 +9104,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -9218,6 +9272,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -9384,6 +9439,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -9550,6 +9606,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -9716,6 +9773,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -9882,6 +9940,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -10048,6 +10107,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -10214,6 +10274,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -10380,6 +10441,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -10546,6 +10608,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -10713,6 +10776,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -10879,6 +10943,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -11045,6 +11110,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -11212,6 +11278,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -11378,6 +11445,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -11545,6 +11613,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -11712,6 +11781,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -11878,6 +11948,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -12045,6 +12116,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -12212,6 +12284,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -12379,6 +12452,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -12545,6 +12619,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -12712,6 +12787,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -12879,6 +12955,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -13046,6 +13123,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -13212,6 +13290,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -13379,6 +13458,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -13545,6 +13625,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -13712,6 +13793,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -13879,6 +13961,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -14045,6 +14128,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -14212,6 +14296,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -14378,6 +14463,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -14545,6 +14631,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -14712,6 +14799,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -14878,6 +14966,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -15044,6 +15133,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -15210,6 +15300,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -15377,6 +15468,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -15544,6 +15636,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -15711,6 +15804,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -15877,6 +15971,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -16044,6 +16139,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -16211,6 +16307,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -16378,6 +16475,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -16544,6 +16642,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton
@@ -16710,6 +16809,7 @@ exports[`Table component tree snapshot test 1`] = `
               class="ui basic button"
               content="view"
               data-testid="view"
+              name="view"
               type="button"
             >
               ActionButton

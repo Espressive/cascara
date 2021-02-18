@@ -4,7 +4,7 @@ import pt from 'prop-types';
 
 // external prop types
 import { propTypes as actionButtonPT } from '../../modules/ActionButton';
-import { propTypes as actionEditPT } from '../../modules/ActionEdit';
+import { propTypes as actionEditPT } from './modules/ActionEdit';
 
 const propTypes = {
   actions: pt.arrayOf(

@@ -1,5 +1,283 @@
 ---
 title: Form
-# propTable: Form.js
-status: 'WIP'
+propTable: Form.js
+status: 'Alpha'
 ---
+
+# Public API
+
+## data
+
+You can pass your own data, **Form** will then use it as the initial values for any fields it generates from the `modules` you describe in `dataConfig.display`.
+
+An example data shape:
+
+```javascript
+---
+title: An example data shape
+---
+const data = {
+  id: '1',
+  userEmail: 'john@doe.it',
+  userName: 'John Doe',
+}
+```
+
+By passing the `data` prop, you are basically describing the initial state of the data you will get back when **Form** emits an `onAction` event, because you will get a merge of the `data` object you passed plus the changes made by User:
+
+```javascript
+---
+title: An example data shape
+---
+/**
+ * onAction, event handler
+ *
+ * @param {Object} action the element that was clicked
+ * @param {Object} record the data that represents the Form fields */
+const onAction = (action, record) => {
+  // record is
+  {
+    ...data,       // the object passed as `data` prop
+    ...formFields, // the changes made to `data`
+  }
+}
+```
+
+> **Hidden fields** - Every property of `data` that is not used by any `module` in the form will still be part of the data you'll get when a `onAction` event is emitted. In that sense, those act as hidden fields.
+
+## dataConfig
+
+This is the core of **Form**'s configuration, here you can define:
+
+### actions
+
+`actions` represent `verbs` we want make available to the User, like `View Terms and Conditions` to diplay a popu with such information.
+Another example would be `Delete` to delete an entity instance represented by `data`. `actions` will be displayed at the bottom of the **Form**, they'll appear as buttons.
+
+> Form does not provide the logic to handle `actions`, the implementation for deleting a entity insntances, display popups, etc. it's up to you.
+
+By defining an `action`, you are telling **Form** how you want to be notified when your `action` button is pressed. Via the `onAction` event.
+
+```javascript
+---
+title: The shape of an action
+---
+const action = {
+  isLabeled: false,    // label can be hidden
+  module: 'button',    // either button or edit
+  actionName: 'view',  // the action name
+  label: 'View',       // button text
+  size: 'small',       // button size
+},
+```
+
+#### Action modules
+
+At the moment, we have only two types of modules.
+
+- `button`, for simple actions like deleting a row, navigating to another page, etc.
+- `edit`, to be used if you want to allow the **Form** to be `editable`.
+
+In the case of `button`, the `onAction` event will be emitted whenever the button is clicked.
+In the case of `edit`, the `onAction` event will be emitted up to 3 times as it creates extra buttons:
+
+1. `edit.start` when entering in `edit` mode
+2. `edit.cancel` when exiting the `edit` mode via the `cancel` button
+3. `edit.save` when exiting the `edit` mode via the `save` button
+
+As with **Table**, all this information is part of the `onAction` event signature, please make sure you review it as well.
+
+An example set of actions:
+
+```javascript
+---
+title: An example set of actions
+---
+
+const actions: [
+
+  // simple button
+  {
+    isLabeled: false,
+    module: 'button',
+    actionName: 'view',
+    label: 'view',
+    size: 'small',
+  },
+
+  // or
+
+  // edit button combo (for editable rows)
+  {
+    isLabeled: false,
+    module: 'edit',
+    size: 'small',
+    cancelLabel: 'Cancelar', // you can specify localized labels
+    editLabel: 'Editar',
+    saveLabel: 'Guardar',
+  },
+];
+```
+
+### display
+
+An Array of `objects` to display. Every object in this array can potentially be rendered in the form.
+`display` items have a special shape too, good news is that you have plenty more options to choose from. Please choose the one that best fits your `data` type.
+
+#### supported data types (modules)
+
+- [checkbox](../modules/DataCheckbox)
+- [email](../modules/DataEmail)
+- [number](../modules/DataNumber)
+- [radio](../modules/DataRadio)
+- [select](../modules/DataSelect)
+- [text](../modules/DataText)
+- [textarea](../modules/DataTextArea)
+
+```javasccript
+/**
+ * In this example we are displaying all the properties in `data` except the `id`, because we want it to be hidden.
+ * But it's up to you how many and which properties to display. */
+const display = [
+  {
+    attribute: 'userEmail',
+    isEditable: false,
+    isLabeled: false,
+    label: 'eMail',
+    module: 'text',
+  },
+  {
+    attribute: 'userName',
+    isEditable: false,
+    isLabeled: false,
+    label: 'Name',
+    module: 'text',
+  },
+];
+```
+
+## isInitialEditing
+
+By default, **Form** starts in `View mode`, that means that it displays the `non-editable` version of your data. Pass this prop if you want **Form** to start in `Edit mode`.
+
+## onAction (event handler)
+
+A function you can pass to handle every event your **Form** emits. Every event carries two pieces of information:
+
+- action, the object (button) that was actually clicked and
+- record, the object that represents the row upon which the action was applied.
+
+```javascript
+---
+title: an example onAction handler
+---
+
+/**
+ * onAction, event handler
+ *
+ * @param {Object} action the element that was clicked
+ * @param {Object} record the data that represents the table row of the button */
+const onAction = (action, record) => {
+
+  // action.name here is the `actinName` you specified for your action
+  switch (action.name) {
+    case 'delete':
+      // do something with record
+      break;
+
+    // in the case of `edit` module, you need these 3 cases
+    case 'edit.start':
+      // do something when the user starts editing the row via `edit` button
+      break;
+    case 'edit.cancel':
+      // do something if the user exits edit mode via `cancel` button
+      break;
+    case 'edit.save':
+      // do something when the user exits edit mode via `save` button
+      break;
+  }
+};
+```
+
+> **tip:** do not bloat your form! keep the number of buttons low, specially if you are targetting mobile devices.
+
+## uniqueIdAttribute
+
+Specifies the attribute that uniquely identifies the entity instance described by the `data` prop. It is not required if you do not specify `data`.
+
+# Mixing everyting together
+
+With the props described above, we can easily create a **Form**: (open your dev tools!)
+
+```jsx
+---
+title: Everything together!
+---
+
+<Form
+  data={{
+      id: 1,
+      userEmail: 'john@doe.it',
+      userName: 'John Doe',
+    }}
+  dataConfig={{
+    actions: [
+      {
+        isLabeled: false,
+        module: 'button',
+        actionName: 'delete',
+        label: 'Delete',
+        size: 'small',
+      },
+      {
+        isLabeled: false,
+        module: 'edit',
+        size: 'small',
+        cancelLabel: 'Cancelar',
+        editLabel: 'Editar',
+        saveLabel: 'Guardar',
+      },
+    ],
+    display: [
+      {
+        attribute: 'userEmail',
+        isEditable: true,
+        isLabeled: false,
+        label: 'eMail',
+        module: 'text',
+      },
+      {
+        attribute: 'userName',
+        isEditable: true,
+        isLabeled: false,
+        label: 'Name',
+        module: 'text',
+      },
+    ],
+  }}
+  onAction={(action, record) => {
+    console.clear();
+    console.log(`Action ${action.name} invoked`);
+    console.table(record);
+
+    switch (action.name) {
+      case 'delete':
+        // do something
+        break;
+
+      case 'edit.start':
+        // do something
+        break;
+
+      case 'edit.cancel':
+        // do something
+        break;
+
+      case 'edit.save':
+        // do something
+        break;
+    }
+  }}
+  uniqueIdAttribute={'id'}
+/>
+```

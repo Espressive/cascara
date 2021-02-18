@@ -7,21 +7,23 @@ import TableRow from './TableRow';
 
 const TableBody = () => {
   const { data, dataConfig, uniqueIdAttribute } = useContext(ModuleContext);
-  const rows = data.map((data) => ({
+  const bodyKey = Date.now();
+
+  const rows = data.map((recordData) => ({
     columns: dataConfig.display.map((itemConfig) => ({
       ...itemConfig,
     })),
-    data,
-    id: data[uniqueIdAttribute],
+    id: recordData[uniqueIdAttribute],
+    recordData,
   }));
 
   return (
     <ErrorBoundary>
-      <tbody className={styles.BodyContainer}>
+      <tbody className={styles.BodyContainer} key={bodyKey}>
         {rows.map((record) => {
-          const { data, ...rest } = record;
+          const { recordData, ...rest } = record;
 
-          return <TableRow config={rest} key={record.id} record={data} />;
+          return <TableRow config={rest} key={record.id} record={recordData} />;
         })}
       </tbody>
     </ErrorBoundary>

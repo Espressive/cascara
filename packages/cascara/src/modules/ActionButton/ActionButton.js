@@ -21,10 +21,21 @@ const ActionButton = ({
   label = 'ActionButton',
   ...rest
 }) => {
-  const { isEditing, onAction, record } = useContext(ModuleContext);
+  const { data, isEditing, onAction, record } = useContext(ModuleContext);
+  const dataOrRecord = record || data;
 
-  const handleClick = ({ currentTarget }) => {
-    onAction(currentTarget, record);
+  const handleClick = (e) => {
+    e.preventDefault();
+    const {
+      currentTarget: { name },
+    } = e;
+
+    onAction(
+      {
+        name,
+      },
+      dataOrRecord
+    );
   };
 
   return isEditing ? null : (
