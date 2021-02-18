@@ -5,9 +5,9 @@ const newFiles = danger.git.created_files;
 const changedFiles = [...modifiedFiles, ...newFiles];
 
 const changed = {
-  fixtures: changedFiles.filter((file) => file.includes('fixture.js')),
+  fixtures: modifiedFiles.filter((file) => file.includes('fixture.js')),
   packages: changedFiles.filter((file) => file.includes('package.json')),
-  snapshots: changedFiles.filter((file) => file.includes('test.snap')),
+  snapshots: modifiedFiles.filter((file) => file.includes('test.snap')),
 };
 
 // No PR is too small to include a description of why you made a change
@@ -22,21 +22,24 @@ if (danger.github.pr.assignee === null) {
   );
 }
 
-// Check if a package.json file has been modified anywhere
+// Check if we are modifying any Cosmos fixtures
 if (changed.fixtures) {
   for (let file of changed.fixtures) {
     message(`**${file}**: This fixture has been changed.`, file);
   }
 }
 
-if (changed.snapshots) {
-  for (let file of changed.snapshots) {
+// Check if we are updating or adding any package dependencies
+if (changed.packages) {
+  for (let file of changed.packages) {
     warn(
-      `**${file}**: Please provide a reason we are having to change test snapshots.`
+      `**${file}**: Please provide a reason we are changing package dependencies.`,
+      file
     );
   }
 }
 
+// Check if we are modifying any Jest snapshots
 if (changed.snapshots) {
   for (let file of changed.snapshots) {
     warn(
