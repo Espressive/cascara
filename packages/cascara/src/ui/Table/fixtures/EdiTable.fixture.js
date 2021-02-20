@@ -156,14 +156,12 @@ class Fixture extends PureComponent {
       actions: [
         {
           content: 'view',
-          isLabeled: false,
           module: 'button',
           name: 'view',
           size: 'small',
         },
         {
           content: 'edit',
-          isLabeled: false,
           module: 'edit',
           name: 'edit',
           size: 'small',

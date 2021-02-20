@@ -43,7 +43,6 @@ const ActionButton = ({
     <Button
       {...restWithoutLabel}
       className='ui basic button'
-      name={actionName}
       onClick={handleClick}
       type='button'
     >
