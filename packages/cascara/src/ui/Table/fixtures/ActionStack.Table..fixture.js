@@ -105,25 +105,22 @@ class Fixture extends PureComponent {
   render() {
     const { columns, data, display } = this.state;
     const dataConfig = {
-      actionButtonMenuIndex: -1,
+      actionButtonMenuIndex: 1,
       actions: [
         {
           content: 'View interaction',
-          isLabeled: false,
           module: 'button',
           name: 'view',
           size: 'small',
         },
         {
           content: 'View FAQ',
-          isLabeled: false,
           module: 'button',
           name: 'delete',
           size: 'small',
         },
         {
           content: 'edit',
-          isLabeled: false,
           module: 'edit',
           name: 'edit',
           size: 'small',
@@ -134,7 +131,7 @@ class Fixture extends PureComponent {
 
     const availableColumns = columns.map((columnDef) => ({
       key: columnDef.attribute,
-      text: columnDef.label,
+      text: columnDef.content,
       value: columnDef.attribute,
     }));
 

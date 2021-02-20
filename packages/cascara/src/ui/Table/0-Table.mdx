@@ -43,14 +43,6 @@ const data = {[
 Here you can specify the columns to display as well as the available actions (if any) for each row.
 This is the core of Table's configuration, here you can define:
 
-### actionButtonMenuIndex
-
-Tables can become bloated if you use lots of actions, in order to prevent this, the actions are wrapped by an `ActionsMenu`, a contextual menu accessible via the `meatball` button of each row.
-
-You can specify which actions are sent to the `ActionsMenu` using the `actionButtonMenuIndex` prop, a number that acts like a partition index that will take your actions array and slice it. The actions whose index is greater or equal to `actionButtonMenuIndex` will be part of `ActionsMenu`, the rest will be displayed as usual.
-
-> This only applies to `button` actions, `edit` actions will always be displayed as usual.
-
 ### actions
 
 Actions represent 'verbs' we want to apply to our Table rows, like 'view' to navigate to another page with detailed information about the row.
@@ -65,10 +57,9 @@ By defining an 'action', you are telling Table how you want to be notified when 
 title: The shape of an action
 ---
 const action = {
-  isLabeled: false, // label can be hidden
   module: 'button', // either button or edit
-  actionName: 'view', // the action name
-  label: 'View', // button text
+  name: 'view', // the action name
+  content: 'View', // button text
   size: 'small',  // button size
 },
 ```
@@ -100,9 +91,8 @@ const actions: [
 
   // simple button
   {
-    isLabeled: false,
     module: 'button',
-    actionName: 'view',
+    name: 'view',
     content: 'view',
     size: 'small',
   },
@@ -111,7 +101,6 @@ const actions: [
 
   // edit button combo (for editable rows)
   {
-    isLabeled: false,
     module: 'edit',
     size: 'small',
     cancelLabel: 'Cancelar', // you can specify localized labels
@@ -120,6 +109,14 @@ const actions: [
   },
 ];
 ```
+
+### actionButtonMenuIndex
+
+Tables can become bloated if you use lots of actions, in order to prevent this, the actions are wrapped by an `ActionsMenu`, a contextual menu accessible via the `meatball` button of each row.
+
+You can specify which actions are sent to the `ActionsMenu` using the `actionButtonMenuIndex` prop, a number that acts like a partition index that will take your actions array and slice it. The actions whose index is greater or equal to `actionButtonMenuIndex` will be part of `ActionsMenu`, the rest will be displayed as usual.
+
+> This only applies to `button` actions, `edit` actions will always be displayed as usual.
 
 ### display
 
@@ -248,28 +245,24 @@ title: Everything together!
     actionButtonMenuIndex: 1,
     actions: [
       {
-        isLabeled: false,
         module: 'button',
-        actionName: 'new',
+        name: 'new',
         content: 'New',
         size: 'small',
       },
       {
-        isLabeled: false,
         module: 'button',
-        actionName: 'delete',
+        name: 'delete',
         content: 'Delete',
         size: 'small',
       },
       {
-        isLabeled: false,
         module: 'button',
-        actionName: 'view',
+        name: 'view',
         content: 'View',
         size: 'small',
       },
       {
-        isLabeled: false,
         module: 'edit',
         size: 'small',
         cancelLabel: 'Cancelar',
