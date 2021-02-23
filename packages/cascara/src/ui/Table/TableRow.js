@@ -6,7 +6,6 @@ import ErrorBoundary from '../../shared/ErrorBoundary';
 import RowProvider from './context/RowProvider';
 import { ModuleContext } from '../../modules/context';
 
-import Button from '../Button';
 import ActionsMenu from '../ActionsMenu';
 
 // todo @manu: let's document this one
@@ -76,10 +75,7 @@ const TableRow = ({ config = {}, record = {} }) => {
     <td className={styles.CellActions} key={`${id}-actionbar`}>
       {outsideActions.map(renderActionModule)}
       {Boolean(insideButtonActions.length) ? (
-        <ActionsMenu
-          actions={insideButtonActions}
-          trigger={<Button className='icon' content='...' />}
-        />
+        <ActionsMenu actions={insideButtonActions} />
       ) : null}
     </td>
   );

@@ -314,7 +314,7 @@ describe('Table', () => {
       const allDeleteButtons = screen.getAllByTestId('delete');
       expect(allDeleteButtons).toHaveLength(datasetSize);
 
-      const allMeatBallButtons = screen.queryAllByText('...');
+      const allMeatBallButtons = screen.queryAllByText('⋯');
       expect(allMeatBallButtons).toHaveLength(datasetSize);
     });
 
