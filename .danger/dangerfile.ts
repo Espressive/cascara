@@ -18,9 +18,14 @@ const changed = {
   snapshots: modifiedFiles.filter((file) => file.includes('test.snap')),
 };
 
+// PR description sections
+const decSection = {
+  description: '### Dependencies',
+};
+
 // PR description evaluations
 const descHas = {
-  dependencies: github.description.includes('### Dependencies\n'),
+  dependencies: github.description.includes(decSection.description),
 };
 
 // No PR is too small to include a description of why you made a change
@@ -46,7 +51,7 @@ if (changed.fixtures) {
 if (changed.packages && !descHas.dependencies) {
   for (let file of changed.packages) {
     fail(
-      'Please provide a comments about why we are changing dependencies. This can be done by adding a `### Dependencies` section to our PR description.'
+      `Please provide a comments about why we are changing dependencies. This can be done by adding a '${decSection.description}' section to our PR description.`
     );
   }
 }
