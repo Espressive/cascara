@@ -1,16 +1,23 @@
 import pt from 'prop-types';
 import React, { useContext, useLayoutEffect, useRef } from 'react';
 import { Menu, MenuButton, MenuItem, useMenuState } from 'reakit/Menu';
+import { Button } from 'reakit/Button';
 
 import styles from './ActionsMenu.module.scss';
 import { popperOverTrigger } from '../../shared/popperModifiers';
 import { ModuleContext } from '../../modules/context';
 
+const DEFAULT_TRIGGER = (
+  <Button className='ui basic icon button'>
+    <b>⋯</b>
+  </Button>
+);
+
 const propTypes = {
   actions: pt.arrayOf(pt.object).isRequired,
 };
 
-const ActionsMenu = ({ trigger, actions }) => {
+const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
   const { onAction, record } = useContext(ModuleContext);
 
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
