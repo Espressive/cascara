@@ -105,18 +105,17 @@ class Fixture extends PureComponent {
   render() {
     const { columns, data, display } = this.state;
     const dataConfig = {
-      actionButtonMenuIndex: 1,
+      actionButtonMenuIndex: 0,
       actions: [
         {
-          content: 'View interaction',
+          actionName: 'view',
           module: 'button',
-          name: 'view',
           size: 'small',
         },
         {
           content: 'View FAQ',
           module: 'button',
-          name: 'delete',
+          name: 'view.faq',
           size: 'small',
         },
         {

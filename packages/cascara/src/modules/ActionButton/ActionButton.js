@@ -25,28 +25,33 @@ const ActionButton = ({
   const dataOrRecord = record || data;
   const { content = label, ...restWithoutLabel } = rest;
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const {
-      currentTarget: { name },
-    } = e;
+  /** 
+    initially, this was called actionName, but now we ...spread
+    all props into the button. So the correct way of calling it 
+    is just 'name'.
 
-    onAction(
-      {
-        name,
-      },
-      dataOrRecord
-    );
+    This is a breaking change. in order to prevent any breakage
+    in the our Apps, we are temporarily deriving it from one if 
+    the other is not passed. Once we have the resources to go 
+    and update our Apps we will revisit. */
+  const name = actionName || rest.name;
+
+  // FDS-137: use action name for button name if no content is specified
+  const buttonText = content || name;
+
+  const handleClick = ({ currentTarget }) => {
+    onAction(currentTarget, dataOrRecord);
   };
 
   return isEditing ? null : (
     <Button
       {...restWithoutLabel}
       className='ui basic button'
+      name={name}
       onClick={handleClick}
       type='button'
     >
-      {content}
+      {buttonText}
     </Button>
   );
 };
