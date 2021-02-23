@@ -1,10 +1,11 @@
 import React from 'react';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
+import { Provider } from 'reakit';
 
 import Table from './';
-import { generateFakeEmployees } from '../../lib/mock/generateFakeEmployees';
+import { generateFakeEmployees } from '../../lib/mock/fakeData';
 
 describe('Table', () => {
   /**
@@ -36,6 +37,14 @@ describe('Table', () => {
           isLabeled: false,
           module: 'button',
           name: 'view',
+          size: 'small',
+        },
+        {
+          content: 'delete',
+          'data-testid': 'delete',
+          isLabeled: false,
+          module: 'button',
+          name: 'delete',
           size: 'small',
         },
         {
@@ -141,22 +150,16 @@ describe('Table', () => {
       ],
     };
 
-    let view;
-
-    beforeAll(() => {
-      view = render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
-      ).container;
-    });
-
-    afterEach(cleanup);
-
     test('snapshot test', () => {
-      expect(view).toMatchSnapshot();
-    });
-
-    test('default props', () => {
-      render(<Table uniqueIdAttribute={'id'} />);
+      const view = render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      ).container;
 
       expect(view).toMatchSnapshot();
     });
@@ -189,16 +192,18 @@ describe('Table', () => {
     });
 
     test('without row actions', () => {
-      render(
-        <Table
-          data={data}
-          dataConfig={{
-            ...dataConfig,
-            actions: [],
-          }}
-          uniqueIdAttribute={'eid'}
-        />
-      );
+      const view = render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={{
+              ...dataConfig,
+              actions: [],
+            }}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      ).container;
 
       expect(view).toMatchSnapshot();
     });
@@ -251,6 +256,63 @@ describe('Table', () => {
           title: 'District Operations Officer',
         })
       );
+    });
+
+    /**
+     * Actions wrapped in an ActionsMenu */
+    test('it renders no <ActionsMenu /> if actionButtonMenuIndex equals button actions number', () => {
+      const onAction = jest.fn();
+
+      render(
+        <Table
+          data={data}
+          dataConfig={{
+            ...dataConfig,
+            actionButtonMenuIndex: 2,
+          }}
+          onAction={onAction}
+          uniqueIdAttribute={'eid'}
+        />
+      );
+
+      const allEditButtons = screen.getAllByTestId('edit.start');
+      expect(allEditButtons).toHaveLength(datasetSize);
+
+      const allViewButtons = screen.getAllByTestId('view');
+      expect(allViewButtons).toHaveLength(datasetSize);
+
+      const allDeleteButtons = screen.getAllByTestId('delete');
+      expect(allDeleteButtons).toHaveLength(datasetSize);
+
+      const allMeatBallButtons = screen.queryAllByText('...');
+      expect(allMeatBallButtons).toHaveLength(0);
+    });
+
+    /**
+     * Actions wrapped in an ActionsMenu */
+    test('it renders <ActionsMenu /> if actionButtonMenuIndex is less than the button actions number', () => {
+      const onAction = jest.fn();
+
+      render(
+        <Table
+          data={data}
+          dataConfig={dataConfig}
+          onAction={onAction}
+          uniqueIdAttribute={'eid'}
+        />
+      );
+
+      const allEditButtons = screen.getAllByTestId('edit.start');
+      expect(allEditButtons).toHaveLength(datasetSize);
+
+      const allViewButtons = screen.getAllByTestId('view');
+      expect(allViewButtons).toHaveLength(datasetSize);
+
+      const allDeleteButtons = screen.getAllByTestId('delete');
+      expect(allDeleteButtons).toHaveLength(datasetSize);
+
+      const allMeatBallButtons = screen.queryAllByText('⋯');
+      expect(allMeatBallButtons).toHaveLength(datasetSize);
     });
 
     /**

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import './TableStyleTest.module.scss';
-import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
+import { generateFakeEmployees } from '../../../lib/mock/fakeData';
 
 import TableContext, { TableContextProvider } from '../context';
 // import SelectionToggle from '../atoms/SelectionToggle';

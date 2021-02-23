@@ -22,6 +22,18 @@ const ActionButton = ({
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
+  const { content = label, ...restWithoutLabel } = rest;
+
+  /** 
+    initially, this was called actionName, but now we ...spread
+    all props into the button. So the correct way of calling it 
+    is just 'name'.
+
+    This is a breaking change. in order to prevent any breakage
+    in the our Apps, we are temporarily deriving it from one if 
+    the other is not passed. Once we have the resources to go 
+    and update our Apps we will revisit. */
+  const name = actionName || rest.name;
 
   const handleClick = ({ currentTarget }) => {
     onAction(currentTarget, record);
@@ -29,13 +41,13 @@ const ActionButton = ({
 
   return isEditing ? null : (
     <Button
-      {...rest}
+      {...restWithoutLabel}
       className='ui basic button'
-      name={actionName}
+      name={name}
       onClick={handleClick}
       type='button'
     >
-      {label}
+      {content}
     </Button>
   );
 };
