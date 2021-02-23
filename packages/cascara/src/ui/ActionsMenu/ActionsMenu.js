@@ -56,19 +56,27 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
           className='menu transition visible'
           style={{ position: 'initial' }}
         >
-          {actions.map(({ content, isLabeled, ...rest }) => (
-            <MenuItem
-              {...menu}
-              {...rest}
-              as='div'
-              className={'item ' + styles.ActionsMenuItem}
-              key={content}
-              onClick={() => handleMenuItemClick(rest)}
-              style={{ paddingTop: '.5rem !important' }}
-            >
-              {content}
-            </MenuItem>
-          ))}
+          {actions.map(({ content, isLabeled, ...rest }, actionIndex) => {
+            // FDS-137: use action name for button name if no content is specified
+            const buttonText = content || rest.name;
+            const key = `action.${actionIndex}-${rest.name}.${content}`;
+
+            return (
+              <MenuItem
+                {...menu}
+                {...rest}
+                as='div'
+                className={'item ' + styles.ActionsMenuItem}
+                key={key}
+                onClick={() => handleMenuItemClick(rest)}
+                style={{
+                  paddingTop: '.5rem !important',
+                }}
+              >
+                {buttonText}
+              </MenuItem>
+            );
+          })}
         </div>
       </Menu>
     </>
