@@ -19,14 +19,14 @@ const changed = {
 };
 
 // PR description sections
-const decSection = {
-  description: '### Dependencies',
+const descSection = {
+  dependencies: '### Dependencies',
+  snapshots: '### Snapshots',
 };
 
-// PR description evaluations
-const descHas = {
-  dependencies: github.description.includes(decSection.description),
-};
+// Evaluates the description to see if it contains a particular section
+const hasDescriptionSection = (section: keyof typeof descSection) =>
+  github.description.includes(descSection[section]);
 
 // No PR is too small to include a description of why you made a change
 if (github.description.length < 10) {
@@ -48,10 +48,10 @@ if (changed.fixtures) {
 }
 
 // Check if we are updating or adding any package dependencies
-if (changed.packages && !descHas.dependencies) {
+if (changed.packages && hasDescriptionSection('dependencies')) {
   for (let file of changed.packages) {
     fail(
-      `Please provide a comments about why we are changing dependencies. This can be done by adding a '${decSection.description}' section to our PR description.`
+      `Please provide a comments about why we are changing dependencies. This can be done by adding a '${descSection.dependencies}' section to our PR description.`
     );
   }
 }
