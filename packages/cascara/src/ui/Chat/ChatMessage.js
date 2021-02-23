@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Chat as FUIChat, Ref } from '@fluentui/react-northstar';
+import { Animation, Chat as FUIChat, Ref } from '@fluentui/react-northstar';
 import {
   getSharedMessageKeys,
   getTranslatedDetails,
@@ -24,13 +24,15 @@ const ChatMessage = ({
   timestamp,
 }) => {
   return (
-    <FUIChat.Message
-      author={authorName}
-      content={text}
-      details={getTranslatedDetails(isTranslated)}
-      mine={isSessionUser}
-      timestamp={timestamp}
-    />
+    <Animation name='chatMessage'>
+      <FUIChat.Message
+        author={authorName}
+        content={text}
+        details={getTranslatedDetails(isTranslated)}
+        mine={isSessionUser}
+        timestamp={timestamp}
+      />
+    </Animation>
   );
 };
 ChatMessage.displayName = 'Chat.Message';
@@ -40,7 +42,7 @@ const objPropTypes = {
   isSessionUser: pt.bool,
   isTranslated: pt.bool,
   message: pt.object.isRequired,
-  messageAuthor: pt.object.isRequired,
+  messageAuthor: pt.object,
   ref: pt.object.isRequired,
 };
 
@@ -56,7 +58,7 @@ const getChatMessageObj = (obj) => {
       <Ref id={message.id} innerRef={ref}>
         <ChatMessage
           {...message}
-          authorName={messageAuthor.fullName}
+          authorName={messageAuthor?.fullName}
           id={message.id}
           isSessionUser={isSessionUser}
           isTranslated={isTranslated}

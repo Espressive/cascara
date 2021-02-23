@@ -18,28 +18,30 @@ const propTypes = {
 /** A Chat can display an indicator that typing is happening */
 const ChatTyping = ({ isSessionUser = false }) => {
   return (
-    <FUIChat.Message
-      content={
-        <Provider
-          theme={{
-            animations: {
-              wiggle,
-            },
-          }}
-        >
-          <Animation name='wiggle'>
-            <MoreIcon
-              size='larger'
-              styles={({ theme: { siteVariables } }) => ({
-                color: siteVariables?.colorScheme?.brand?.foreground,
-              })}
-            />
-          </Animation>
-        </Provider>
-      }
-      mine={isSessionUser}
-      style={{ minWidth: 'auto' }}
-    />
+    <Animation name='chatMessage'>
+      <FUIChat.Message
+        content={
+          <Provider
+            theme={{
+              animations: {
+                wiggle,
+              },
+            }}
+          >
+            <Animation name='wiggle'>
+              <MoreIcon
+                size='larger'
+                styles={({ theme: { siteVariables } }) => ({
+                  color: siteVariables?.colorScheme?.brand?.foreground,
+                })}
+              />
+            </Animation>
+          </Provider>
+        }
+        mine={isSessionUser}
+        style={{ minWidth: 'auto' }}
+      />
+    </Animation>
   );
 };
 
@@ -65,7 +67,7 @@ const getChatTypingObj = (obj) => {
       <Ref id={message.id} innerRef={ref}>
         <ChatTyping
           {...message}
-          authorName={messageAuthor.fullName}
+          authorName={messageAuthor?.fullName}
           isSessionUser={isSessionUser}
         />
       </Ref>

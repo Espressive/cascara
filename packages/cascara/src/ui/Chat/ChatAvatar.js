@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Avatar as FUIAvatar } from '@fluentui/react-northstar';
+import { Animation, Avatar as FUIAvatar } from '@fluentui/react-northstar';
 
 const propTypes = {
   fullName: pt.string,
@@ -12,12 +12,14 @@ const propTypes = {
 
 // NOTE: Status will need to be coming from enumerated object values at some point
 const ChatAvatar = ({ fullName, imageUrl, square, status, userID }) => (
-  <FUIAvatar
-    image={imageUrl}
-    name={fullName}
-    square={square ? square : userID === 0} // Make the display square for Barista
-    status={status}
-  />
+  <Animation name='chatMessage'>
+    <FUIAvatar
+      image={imageUrl}
+      name={fullName}
+      square={square ? square : userID === 0} // Make the display square for Barista
+      status={status}
+    />
+  </Animation>
 );
 
 ChatAvatar.displayName = 'Chat.Avatar';

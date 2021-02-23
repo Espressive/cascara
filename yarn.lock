@@ -1372,7 +1372,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@7.12.5", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.10.4", "@babel/runtime@^7.10.5", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@7.12.5", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.10.4", "@babel/runtime@^7.10.5", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
@@ -1383,6 +1383,13 @@
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.0.tgz#337eda67401f5b066a6f205a3113d4ac18ba495b"
   integrity sha512-cTIudHnzuWLS56ik4DnRnqqNf8MkdUzV4iFFI1h7Jo9xvrpQROYaAnaSd2mHLQAzzZAPfATynX5ord6YlNYNMA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.5.5", "@babel/runtime@^7.8.7":
+  version "7.12.13"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
+  integrity sha512-8+3UMPBrjFa/6TtKi/7sehPKqfAm4g6K+YQjyyFOLUTxzOngcRZTlAVY8sc2CORJYqdHQY8gRPHmn+qo15rCBw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -1490,11 +1497,9 @@
   integrity sha512-0o4l6pZC+hI88+bzuaX/6BgOvQVhbt2PfmxauVaYOGgbsAw14wdKyvMCZXnsnsHys94iadcF+RG/wZyx6+ZZBw==
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.2.13"
+  version "0.2.14-alpha.1"
   dependencies:
     "@babel/runtime" "7.11.2"
-    "@fluentui/react-northstar" "0.52.0"
-    "@fluentui/styles" "0.52.0"
     "@nivo/bar" "0.61.0"
     "@nivo/bump" "0.61.0"
     "@nivo/core" "0.61.0"
@@ -1508,7 +1513,7 @@
     memoize-one "5.1.1"
     react-hook-form "6.8.4"
     react-textarea-autosize "8.2.0"
-    reakit "1.1.2"
+    reakit next
 
 "@espressive/legacy-css@file:utils/legacy-css":
   version "2.0.1"
@@ -1675,13 +1680,13 @@
     react-is "^16.6.3"
 
 "@fluentui/react-compose@^0.19.6":
-  version "0.19.13"
-  resolved "https://registry.yarnpkg.com/@fluentui/react-compose/-/react-compose-0.19.13.tgz#1aa154ccc29d0ab60b65a3ae46bd77bce5a84c50"
-  integrity sha512-LcSeF5TpgwBMVfwan/pQzj7P6b9IuyK4OH1hXFLzcVY3kE+SMzON1LWSWRbUn28aZXJJ77BEvH2il9LLOO8uDw==
+  version "0.19.14"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-compose/-/react-compose-0.19.14.tgz#179da4076550dd7ed8e8080c92713a1b48348f15"
+  integrity sha512-sc5fnGnO9JPpZt2xlLVUp9oa8o4EZxSsC+Y8zxCoGGSC/evuRO3FWnp6gSSR1jaZ82/RtyhCFjYHSdAY8JhfWg==
   dependencies:
     "@types/classnames" "^2.2.9"
     "@uifabric/set-version" "^7.0.23"
-    "@uifabric/utilities" "^7.33.3"
+    "@uifabric/utilities" "^7.33.4"
     classnames "^2.2.6"
     tslib "^1.10.0"
 
@@ -1731,7 +1736,7 @@
     "@babel/runtime" "^7.10.4"
     "@fluentui/styles" "^0.52.0"
 
-"@fluentui/react-northstar@0.52.0":
+"@fluentui/react-northstar@^0.52.0":
   version "0.52.0"
   resolved "https://registry.yarnpkg.com/@fluentui/react-northstar/-/react-northstar-0.52.0.tgz#b42ba9258a05a007dc02fc8e24770bd13371f76b"
   integrity sha512-AthHZyA7SKuQEGK1D8C57b3Jp6tHN7sT+ssczRGWHLwbMYsu+Qt6KSkTwpk/ZgQswHM9kz/C38105pz+ecBKaA==
@@ -1776,7 +1781,7 @@
   dependencies:
     "@babel/runtime" "^7.10.4"
 
-"@fluentui/styles@0.52.0", "@fluentui/styles@^0.52.0":
+"@fluentui/styles@^0.52.0":
   version "0.52.0"
   resolved "https://registry.yarnpkg.com/@fluentui/styles/-/styles-0.52.0.tgz#b3fcb5ac3254c2237eb4df42d8fe9c6ed533ad17"
   integrity sha512-/Eto2gzzgZZAmDWreqetyANNEB3asnIt8W9X/KN3CyvlGk/eDj/2YMS6Wq6bIj464tAuh8UNCtwHpnvcTVZI+Q==
@@ -3290,7 +3295,7 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
-"@popperjs/core@^2.4.2", "@popperjs/core@^2.4.4":
+"@popperjs/core@^2.4.2", "@popperjs/core@^2.5.4":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
@@ -3669,20 +3674,28 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
 
-"@types/react-dom@^16.8.0":
-  version "16.9.10"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.10.tgz#4485b0bec3d41f856181b717f45fd7831101156f"
-  integrity sha512-ItatOrnXDMAYpv6G8UCk2VhbYVTjZT9aorLtA/OzDN9XJ2GKcfam68jutoAcILdRjsRUO8qb7AmyObF77Q8QFw==
+"@types/react-dom@16.8.0":
+  version "16.8.0"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.8.0.tgz#c565f43f9d2ec911f9e0b8f3b74e25e67879aa3f"
+  integrity sha512-Jp4ufcEEjVJEB0OHq2MCZcE1u3KYUKO6WnSuiU/tZeYeiZxUoQavfa/TZeiIT+1XoN6l0lQVNM30VINZFDeolQ==
   dependencies:
-    "@types/react" "^16"
+    "@types/react" "*"
 
-"@types/react@^16", "@types/react@^16.8.0":
-  version "16.14.2"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.2.tgz#85dcc0947d0645349923c04ccef6018a1ab7538c"
-  integrity sha512-BzzcAlyDxXl2nANlabtT4thtvbbnhee8hMmH/CcJrISDBVcJS1iOsP1f0OAgSdGE0MsY9tqcrb9YoZcOFv9dbQ==
+"@types/react@*":
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.1.tgz#eb1f1407dea8da3bc741879c1192aa703ab9975b"
+  integrity sha512-w8t9f53B2ei4jeOqf/gxtc2Sswnc3LBK5s0DyJcg5xd10tMHXts2N31cKjWfH9IC/JvEPa/YF1U4YeP1t4R6HQ==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
+
+"@types/react@16.8.0":
+  version "16.8.0"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.0.tgz#0933e105ea21739948b1525920e0536312d54c58"
+  integrity sha512-phBajeyF9ZIYGWUHJV1+X5GHOtdUO0+qHamY4PXFPf6ntoDfW+VqOG8oyruD2K4rqApfOB1QKuQiNYUX8ejEpQ==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
 
 "@types/resolve@1.17.1":
   version "1.17.1"
@@ -3783,10 +3796,10 @@
   dependencies:
     tslib "^1.10.0"
 
-"@uifabric/utilities@^7.32.3", "@uifabric/utilities@^7.33.3":
-  version "7.33.3"
-  resolved "https://registry.yarnpkg.com/@uifabric/utilities/-/utilities-7.33.3.tgz#65f214d243760dfc9fb0d697eabf2f333138e50b"
-  integrity sha512-rS/gpE3xLJBztVu3Ec7EEQetOc4YQYFRhS+BO5srZ6m2cEDnntFhhLKDWIH6QUJucB42S992NJNJEiq7rAnD6A==
+"@uifabric/utilities@^7.32.3", "@uifabric/utilities@^7.33.4":
+  version "7.33.4"
+  resolved "https://registry.yarnpkg.com/@uifabric/utilities/-/utilities-7.33.4.tgz#11ce778c420c1f72b1f29032530c39545affb53a"
+  integrity sha512-FgEL2+GWOHMNMQqmI5Mko293W3c9PWIc/WrlU6jQ5AU83M1BQSxhS0LPNnRbahukiEFNkosCOOKzKCNdjzkCwA==
   dependencies:
     "@fluentui/dom-utilities" "^1.1.1"
     "@uifabric/merge-styles" "^7.19.1"
@@ -5002,7 +5015,7 @@ body-parser@1.19.0, body-parser@^1.19.0:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
-body-scroll-lock@^3.0.2:
+body-scroll-lock@^3.1.5:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.1.5.tgz#c1392d9217ed2c3e237fee1e910f6cdd80b7aaec"
   integrity sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==
@@ -6570,7 +6583,7 @@ cssstyle@^2.2.0:
   dependencies:
     cssom "~0.3.6"
 
-csstype@^2.5.5, csstype@^2.5.7, csstype@^2.6.7:
+csstype@^2.2.0, csstype@^2.5.5, csstype@^2.5.7, csstype@^2.6.7:
   version "2.6.14"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.14.tgz#004822a4050345b55ad4dcc00be1d9cf2f4296de"
   integrity sha512-2mSc+VEpGPblzAxyeR+vZhJKgYg0Og0nnRi7pmRXFYYxSfnOnW8A5wwQb4n4cE2nIOzqKOAzLCaEX6aBmNEv8A==
@@ -15071,35 +15084,35 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-reakit-system@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/reakit-system/-/reakit-system-0.13.1.tgz#e756b9a1b9d6cfe75f9a5e77531e5b0f9eb8227b"
-  integrity sha512-qglfQ53FsJh5+VSkjMtBg7eZiowj9zXOyfJJxfaXh/XYTVe/5ibzWg6rvGHyvSm6C3D7Q2sg/NPCLmCtYGGvQA==
+reakit-system@^0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/reakit-system/-/reakit-system-0.15.1.tgz#bf5cc7a03f60a817373bc9cbb4a689c1f4100547"
+  integrity sha512-PkqfAyEohtcEu/gUvKriCv42NywDtUgvocEN3147BI45dOFAB89nrT7wRIbIcKJiUT598F+JlPXAZZVLWhc1Kg==
   dependencies:
-    reakit-utils "^0.13.1"
+    reakit-utils "^0.15.1"
 
-reakit-utils@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/reakit-utils/-/reakit-utils-0.13.1.tgz#060b8b2a55eea1170c6d8ff37cd98c10c63ee55c"
-  integrity sha512-NBKgsot3tU91gZgK5MTInI/PR0T3kIsTmbU5MbGggSOcwU2dG/kbE8IrM2lC6ayCSL2W2QWkijT6kewdrIX7Gw==
+reakit-utils@^0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/reakit-utils/-/reakit-utils-0.15.1.tgz#797f0a43f6a1dbc22d161224d5d2272e287dbfe3"
+  integrity sha512-6cZgKGvOkAMQgkwU9jdYbHfkuIN1Pr+vwcB19plLvcTfVN0Or10JhIuj9X+JaPZyI7ydqTDFaKNdUcDP69o/+Q==
 
-reakit-warning@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/reakit-warning/-/reakit-warning-0.4.1.tgz#a715302812c5fc7f89f35772d650423f09029b00"
-  integrity sha512-AgnRN6cf8DYBF/mK2JEMFVL67Sbon8fDbFy1kfm0EDibtGsMOQtsFYfozZL7TwmJ4yg68VMhg8tmPHchVQRrlg==
+reakit-warning@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/reakit-warning/-/reakit-warning-0.6.1.tgz#dba33bb8866aebe30e67ac433ead707d16d38a36"
+  integrity sha512-poFUV0EyxB+CcV9uTNBAFmcgsnR2DzAbOTkld4Ul+QOKSeEHZB3b3+MoZQgcYHmbvG19Na1uWaM7ES+/Eyr8tQ==
   dependencies:
-    reakit-utils "^0.13.1"
+    reakit-utils "^0.15.1"
 
-reakit@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.1.2.tgz#e644017de4f07b09433981cdad8bf66002dffe38"
-  integrity sha512-UJEeWJ+OwtBBY6gpOkbc2rflASID+t+B6GlqCmqwO4eD0YIGJwmF2O5U7HzV5igtyNBGPyKMhpodm2Yhx6UfHw==
+reakit@next:
+  version "1.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/reakit/-/reakit-1.4.0-alpha.0.tgz#be4d78bbb89819fb3d443ebc2c73d28ec4a2298a"
+  integrity sha512-qK/jpQOW6/MY9Mr3yyqNy15P91ld3a5eLA5vKBVKI90o0YZumg8C8KUgnZ2NErjPwcpYmMv5GfWx5+vqefkcVQ==
   dependencies:
-    "@popperjs/core" "^2.4.4"
-    body-scroll-lock "^3.0.2"
-    reakit-system "^0.13.1"
-    reakit-utils "^0.13.1"
-    reakit-warning "^0.4.1"
+    "@popperjs/core" "^2.5.4"
+    body-scroll-lock "^3.1.5"
+    reakit-system "^0.15.1"
+    reakit-utils "^0.15.1"
+    reakit-warning "^0.6.1"
 
 realpath-native@^1.1.0:
   version "1.1.0"

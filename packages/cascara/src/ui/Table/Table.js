@@ -22,6 +22,7 @@ const propTypes = {
   /** The main configuration for your table. Here you can specify the columns to display
    * as well as the available actions (if any) for each row. */
   dataConfig: pt.shape({
+    actionButtonMenuIndex: pt.number,
     /** Actions will be appended to each row, they'll appear as buttons. */
     actions: pt.arrayOf(
       pt.shape({
@@ -66,7 +67,12 @@ const Table = ({
   return (
     <ErrorBoundary>
       <TableProvider
-        value={{ data, dataConfig, onAction, uniqueIdAttribute }}
+        value={{
+          data,
+          dataConfig,
+          onAction,
+          uniqueIdAttribute,
+        }}
         {...rest}
       >
         <table

@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.2.14-alpha.0",
+  "version": "0.3.0",
   "main": "dist/cjs/index.js",
   "scripts": {
     "build": "yarn clean && rollup -c",
@@ -25,8 +25,6 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "7.11.2",
-    "@fluentui/react-northstar": "0.52.0",
-    "@fluentui/styles": "0.52.0",
     "@nivo/bar": "0.61.0",
     "@nivo/bump": "0.61.0",
     "@nivo/core": "0.61.0",
@@ -40,16 +38,17 @@
     "memoize-one": "5.1.1",
     "react-hook-form": "6.8.4",
     "react-textarea-autosize": "8.2.0",
-    "reakit": "1.1.2"
+    "reakit": "next"
   },
   "devDependencies": {
     "@espressive/legacy-css": "^2.0.1",
-    "@types/react": "^16.8.0",
-    "@types/react-dom": "^16.8.0",
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
+    "@fluentui/react-northstar": "^0.52.0",
+    "@types/react": "^16.8.0",
+    "@types/react-dom": "^16.8.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "semantic-ui-react": "^1.2.1"

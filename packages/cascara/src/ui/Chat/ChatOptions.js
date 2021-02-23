@@ -1,6 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 import {
+  Animation,
   Button,
   Dropdown,
   Chat as FUIChat,
@@ -30,29 +31,31 @@ const ChatOptions = ({
   options = [],
   timestamp,
 }) => (
-  <FUIChat.Message
-    author={authorName}
-    content={
-      options.length > 3 ? (
-        <Dropdown
-          itemToString={(value) => value.content}
-          items={options.map((option, i) => ({
-            ...option,
-          }))}
-          noResultsMessage="We couldn't find any matches."
-          placeholder='Select an option...'
-        />
-      ) : (
-        <Flex column gap='gap.small'>
-          {options.map((option) => (
-            <Button {...option} fluid />
-          ))}
-        </Flex>
-      )
-    }
-    mine={isSessionUser}
-    timestamp={timestamp}
-  />
+  <Animation name='chatMessage'>
+    <FUIChat.Message
+      author={authorName}
+      content={
+        options.length > 3 ? (
+          <Dropdown
+            itemToString={(value) => value.content}
+            items={options.map((option, i) => ({
+              ...option,
+            }))}
+            noResultsMessage="We couldn't find any matches."
+            placeholder='Select an option...'
+          />
+        ) : (
+          <Flex column gap='gap.small'>
+            {options.map((option) => (
+              <Button {...option} fluid />
+            ))}
+          </Flex>
+        )
+      }
+      mine={isSessionUser}
+      timestamp={timestamp}
+    />
+  </Animation>
 );
 
 ChatOptions.displayName = 'Chat.Options';
@@ -83,7 +86,7 @@ const getChatOptionsObj = (obj) => {
         <Ref id={message.id} innerRef={ref}>
           <ChatOptions
             {...message}
-            authorName={messageAuthor.fullName}
+            authorName={messageAuthor?.fullName}
             isSessionUser={isSessionUser}
           />
         </Ref>

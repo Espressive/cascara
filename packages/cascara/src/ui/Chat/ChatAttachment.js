@@ -1,6 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 import {
+  Animation,
   Attachment,
   Chat as FUIChat,
   Image,
@@ -14,7 +15,7 @@ const IMAGE_ATTACHMENT_TYPES = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'tiff'];
 const propTypes = {
   authorName: pt.string,
   handleDownloadAttachment: pt.func.isRequired,
-  handleScrollToLatestMessage: pt.func.isRequired,
+  handleScrollToBottom: pt.func.isRequired,
   isSessionUser: pt.bool,
   metadata: pt.object.isRequired,
   timestamp: pt.string.isRequired,
@@ -24,7 +25,7 @@ const propTypes = {
 const ChatAttachment = ({
   authorName,
   handleDownloadAttachment,
-  handleScrollToLatestMessage,
+  handleScrollToBottom,
   isSessionUser = false,
   metadata,
   timestamp,
@@ -40,7 +41,7 @@ const ChatAttachment = ({
     <Image
       fluid
       height={height}
-      onLoad={handleScrollToLatestMessage}
+      onLoad={handleScrollToBottom}
       src={url}
       width={width}
     />
@@ -77,12 +78,14 @@ const ChatAttachment = ({
   );
 
   return (
-    <FUIChat.Message
-      author={authorName}
-      content={attachment}
-      mine={isSessionUser}
-      timestamp={timestamp}
-    />
+    <Animation name='chatMessage'>
+      <FUIChat.Message
+        author={authorName}
+        content={attachment}
+        mine={isSessionUser}
+        timestamp={timestamp}
+      />
+    </Animation>
   );
 };
 
@@ -90,7 +93,7 @@ ChatAttachment.displayName = 'Chat.Attachment';
 ChatAttachment.propTypes = propTypes;
 
 const objPropTypes = {
-  handleScrollToLatestMessage: pt.func.isRequired,
+  handleScrollToBottom: pt.func.isRequired,
   isSessionUser: pt.bool,
   message: pt.object.isRequired,
   messageAuthor: pt.object.isRequired,
@@ -100,7 +103,7 @@ const objPropTypes = {
 // This returns the object that FUI is expecting, along with the component and props
 const getChatAttachmentObj = (obj) => {
   const {
-    handleScrollToLatestMessage,
+    handleScrollToBottom,
     isSessionUser,
     message,
     messageAuthor,
@@ -115,8 +118,8 @@ const getChatAttachmentObj = (obj) => {
       <Ref id={message.id} innerRef={ref}>
         <ChatAttachment
           {...message}
-          authorName={messageAuthor.fullName}
-          handleScrollToLatestMessage={handleScrollToLatestMessage}
+          authorName={messageAuthor?.fullName}
+          handleScrollToBottom={handleScrollToBottom}
           isSessionUser={isSessionUser}
         />
       </Ref>
