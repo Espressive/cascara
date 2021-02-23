@@ -30,7 +30,6 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
   });
 
   const menu = useMenuState({
-    modal: true,
     placement: 'bottom-end',
     unstable_popperModifiers: [popperOverTrigger],
   });

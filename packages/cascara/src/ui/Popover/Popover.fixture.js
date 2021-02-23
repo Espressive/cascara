@@ -32,6 +32,9 @@ const ActionsMenuFixture = (
       this menu.
     </p>
     <ActionsMenu actions={menuItems} />
+    <ActionsMenu actions={menuItems} />
+    <ActionsMenu actions={menuItems} />
+    <ActionsMenu actions={menuItems} />
   </main>
 );
 
