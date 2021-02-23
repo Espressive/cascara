@@ -60,6 +60,9 @@ const Button = forwardRef(
       'ui button': true,
     });
 
+    // FDS-137: use action name for button name if no content is specified
+    const buttonText = content || rest.name;
+
     return (
       <ReakitButton
         {...rest}
@@ -68,7 +71,7 @@ const Button = forwardRef(
         ref={ref}
         rel={getSafeLinkRel(rest)}
       >
-        {content}
+        {buttonText}
       </ReakitButton>
     );
   }
