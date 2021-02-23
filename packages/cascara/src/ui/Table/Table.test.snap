@@ -239,6 +239,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-2"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-2-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-2-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -413,6 +452,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-4"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-4-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-4-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -588,6 +666,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-6"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-6-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-6-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -763,6 +880,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-8"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-8-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-8-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -938,6 +1094,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-10"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-10-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-10-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -1112,6 +1307,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-12"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-12-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-12-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -1287,6 +1521,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-14"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-14-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-14-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -1462,6 +1735,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-16"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-16-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-16-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -1637,6 +1949,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-18"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-18-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-18-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -1811,6 +2162,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-20"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-20-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-20-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -1985,6 +2375,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-22"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-22-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-22-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -2160,6 +2589,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-24"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-24-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-24-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -2334,6 +2802,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-26"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-26-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-26-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -2509,6 +3016,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-28"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-28-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-28-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -2683,6 +3229,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-30"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-30-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-30-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -2858,6 +3443,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-32"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-32-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-32-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -3033,6 +3657,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-34"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-34-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-34-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -3208,6 +3871,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-36"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-36-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-36-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -3383,6 +4085,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-38"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-38-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-38-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -3558,6 +4299,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-40"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-40-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-40-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -3732,6 +4512,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-42"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-42-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-42-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -3906,6 +4725,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-44"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-44-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-44-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -4081,6 +4939,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-46"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-46-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-46-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -4256,6 +5153,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-48"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-48-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-48-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -4431,6 +5367,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-50"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-50-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-50-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -4606,6 +5581,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-52"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-52-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-52-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -4781,6 +5795,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-54"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-54-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-54-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -4956,6 +6009,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-56"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-56-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-56-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -5130,6 +6222,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-58"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-58-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-58-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -5304,6 +6435,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-60"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-60-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-60-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -5479,6 +6649,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-62"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-62-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-62-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -5653,6 +6862,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-64"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-64-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-64-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -5827,6 +7075,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-66"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-66-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-66-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -6002,6 +7289,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-68"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-68-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-68-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -6176,6 +7502,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-70"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-70-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-70-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -6351,6 +7716,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-72"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-72-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-72-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -6525,6 +7929,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-74"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-74-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-74-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -6700,6 +8143,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-76"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-76-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-76-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -6875,6 +8357,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-78"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-78-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-78-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -7049,6 +8570,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-80"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-80-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-80-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -7223,6 +8783,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-82"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-82-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-82-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -7398,6 +8997,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-84"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-84-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-84-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -7573,6 +9211,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-86"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-86-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-86-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -7747,6 +9424,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-88"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-88-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-88-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -7922,6 +9638,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-90"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-90-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-90-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -8097,6 +9852,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-92"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-92-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-92-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -8272,6 +10066,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-94"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-94-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-94-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -8447,6 +10280,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-96"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-96-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-96-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -8621,6 +10493,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-98"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-98-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-98-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -8795,6 +10706,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-100"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-100-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-100-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -8969,6 +10919,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-102"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-102-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-102-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -9143,6 +11132,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-104"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-104-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-104-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -9318,6 +11346,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-106"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-106-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-106-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -9492,6 +11559,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-108"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-108-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-108-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -9667,6 +11773,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-110"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-110-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-110-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -9841,6 +11986,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-112"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-112-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-112-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -10015,6 +12199,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-114"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-114-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-114-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -10189,6 +12412,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-116"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-116-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-116-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -10363,6 +12625,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-118"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-118-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-118-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -10537,6 +12838,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-120"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-120-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-120-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -10711,6 +13051,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-122"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-122-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-122-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -10885,6 +13264,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-124"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-124-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-124-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -11059,6 +13477,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-126"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-126-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-126-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -11234,6 +13691,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-128"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-128-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-128-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -11408,6 +13904,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-130"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-130-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-130-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -11582,6 +14117,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-132"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-132-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-132-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -11757,6 +14331,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-134"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-134-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-134-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -11931,6 +14544,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-136"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-136-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-136-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -12106,6 +14758,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-138"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-138-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-138-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -12281,6 +14972,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-140"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-140-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-140-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -12455,6 +15185,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-142"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-142-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-142-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -12630,6 +15399,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-144"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-144-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-144-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -12805,6 +15613,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-146"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-146-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-146-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -12980,6 +15827,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-148"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-148-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-148-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -13154,6 +16040,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-150"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-150-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-150-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -13329,6 +16254,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-152"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-152-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-152-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -13504,6 +16468,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-154"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-154-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-154-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -13679,6 +16682,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-156"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-156-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-156-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -13853,6 +16895,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-158"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-158-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-158-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -14028,6 +17109,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-160"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-160-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-160-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -14202,6 +17322,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-162"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-162-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-162-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -14377,6 +17536,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-164"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-164-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-164-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -14552,6 +17750,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-166"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-166-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-166-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -14726,6 +17963,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-168"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-168-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-168-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -14901,6 +18177,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-170"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-170-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-170-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -15075,6 +18390,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-172"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-172-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-172-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -15250,6 +18604,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-174"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-174-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-174-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -15425,6 +18818,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-176"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-176-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-176-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -15599,6 +19031,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-178"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-178-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-178-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -15773,6 +19244,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-180"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-180-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-180-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -15947,6 +19457,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-182"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-182-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-182-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -16122,6 +19671,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-184"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-184-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-184-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -16297,6 +19885,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-186"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-186-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-186-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -16472,6 +20099,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-188"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-188-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-188-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -16646,6 +20312,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-190"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-190-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-190-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -16821,6 +20526,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-192"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-192-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-192-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -16996,6 +20740,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-194"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-194-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-194-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -17171,6 +20954,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-196"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-196-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-196-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -17345,6 +21167,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-198"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-198-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-198-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         <tr
@@ -17519,6 +21380,45 @@ exports[`Table component tree snapshot test 1`] = `
                 ⋯
               </b>
             </button>
+            <div
+              aria-label="Menu"
+              aria-orientation="vertical"
+              class="ui dropdown active visible ActionsMenu"
+              data-dialog="true"
+              hidden=""
+              id="id-200"
+              role="menu"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <div
+                class="menu transition visible"
+                style="position: initial;"
+              >
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="view"
+                  id="id-200-1"
+                  module="button"
+                  name="view"
+                  role="menuitem"
+                  tabindex="0"
+                >
+                  view
+                </div>
+                <div
+                  class="item ActionsMenuItem"
+                  data-testid="delete"
+                  id="id-200-2"
+                  module="button"
+                  name="delete"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  delete
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
       </tbody>
