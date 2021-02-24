@@ -108,21 +108,26 @@ class Fixture extends PureComponent {
       actionButtonMenuIndex: 0,
       actions: [
         {
-          actionName: 'view',
           module: 'button',
-          size: 'small',
+          name: 'test',
+        },
+        {
+          module: 'button',
+          name: 'stuff',
+        },
+        {
+          module: 'button',
+          name: 'okay',
         },
         {
           content: 'View FAQ',
           module: 'button',
           name: 'view.faq',
-          size: 'small',
         },
         {
           content: 'edit',
           module: 'edit',
           name: 'edit',
-          size: 'small',
         },
       ],
       display,
