@@ -1,6 +1,17 @@
 name: 'Danger JS'
-on: pull_request
-  types: [opened, synchronize, reopened, assigned, unassigned, labeled, unlabeled, edited]
+on:
+  pull_request:
+    types:
+      [
+        assigned,
+        edited,
+        labeled,
+        opened,
+        reopened,
+        synchronize,
+        unassigned,
+        unlabeled,
+      ]
 
 jobs:
   danger:
