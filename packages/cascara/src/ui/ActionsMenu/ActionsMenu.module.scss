@@ -1,11 +1,5 @@
 .ActionsMenu {
-  // transition: opacity 250ms ease-in-out;
-  // opacity: 0;
-  // transform-origin: top center;
-
-  // &:global([data-enter]) {
-  //   opacity: 1;
-  // }
+  z-index: 11;
 
   &:global(.ui.dropdown) :global(.menu) {
     .ActionsMenuItem,
