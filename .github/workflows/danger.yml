@@ -1,5 +1,6 @@
 name: 'Danger JS'
 on: [pull_request]
+  types: [opened, synchronize, reopened, assigned, unassigned, labeled, unlabeled, edited]
 
 jobs:
   danger:

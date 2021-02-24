@@ -51,7 +51,7 @@ if (changed.fixtures) {
 if (changed.packages && !hasDescriptionSection('dependencies')) {
   for (let file of changed.packages) {
     fail(
-      `Please provide a comments about why we are changing dependencies. This can be done by adding a '${descSection.dependencies}' section to our PR description.`
+      `Please add a '${descSection.dependencies}' section to explain the reason we are changing dependencies.`
     );
   }
 }
@@ -60,8 +60,7 @@ if (changed.packages && !hasDescriptionSection('dependencies')) {
 if (changed.snapshots && !hasDescriptionSection('snapshots')) {
   for (let file of changed.snapshots) {
     fail(
-      `**${file}**: Please provide a reason we are having to change test snapshots.`,
-      file
+      `Please add a '${descSection.snapshots}' section to explain the reason we are changing snapshots.`
     );
   }
 }
