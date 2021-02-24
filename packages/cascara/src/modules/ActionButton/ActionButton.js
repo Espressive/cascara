@@ -35,6 +35,9 @@ const ActionButton = ({
     and update our Apps we will revisit. */
   const name = actionName || rest.name;
 
+  // FDS-137: use action name for button name if no content is specified
+  const buttonText = content || name;
+
   const handleClick = ({ currentTarget }) => {
     onAction(currentTarget, record);
   };
@@ -47,7 +50,7 @@ const ActionButton = ({
       onClick={handleClick}
       type='button'
     >
-      {content}
+      {buttonText}
     </Button>
   );
 };

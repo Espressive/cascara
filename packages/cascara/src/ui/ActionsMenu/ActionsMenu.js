@@ -1,5 +1,5 @@
 import pt from 'prop-types';
-import React, { useContext, useLayoutEffect, useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Menu, MenuButton, MenuItem, useMenuState } from 'reakit/Menu';
 import { Button } from 'reakit/Button';
 
@@ -23,15 +23,13 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
   const triggerRef = useRef();
 
-  useLayoutEffect(() => {
-    if (triggerRef.current) {
-      // console.warn(window.getComputedStyle(triggerRef.current)['float']);
-    }
-  });
-
   const menu = useMenuState({
+    // This MUST be modal: true in order to render in a portal or else we
+    // will have problems with any menus rendered inside of positioned
+    // elements other than "relative"
     modal: true,
     placement: 'bottom-end',
+    preventBodyScroll: true,
     unstable_popperModifiers: [popperOverTrigger],
   });
 
@@ -48,27 +46,32 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
       </MenuButton>
       <Menu
         {...menu}
-        aria-label='Menu'
+        aria-label='Actions Menu'
         className={'ui dropdown active visible ' + styles.ActionsMenu}
-        preventBodyScroll
+        tabIndex={0}
       >
         <div
           className='menu transition visible'
           style={{ position: 'initial' }}
         >
-          {actions.map(({ content, isLabeled, ...rest }) => (
-            <MenuItem
-              {...menu}
-              {...rest}
-              as='div'
-              className={'item ' + styles.ActionsMenuItem}
-              key={content}
-              onClick={() => handleMenuItemClick(rest)}
-              style={{ paddingTop: '.5rem !important' }}
-            >
-              {content}
-            </MenuItem>
-          ))}
+          {actions.map(({ content, isLabeled, name, ...rest }, actionIndex) => {
+            // FDS-137: use action name for button name if no content is specified
+            const buttonText = content || name;
+            const key = `action.${actionIndex}-${name}.${content}`;
+
+            return (
+              <MenuItem
+                {...menu}
+                {...rest}
+                as='div'
+                className={'item ' + styles.ActionsMenuItem}
+                key={key}
+                onClick={() => handleMenuItemClick(rest)}
+              >
+                {buttonText}
+              </MenuItem>
+            );
+          })}
         </div>
       </Menu>
     </>
