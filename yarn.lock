@@ -1505,7 +1505,7 @@
   integrity sha512-0o4l6pZC+hI88+bzuaX/6BgOvQVhbt2PfmxauVaYOGgbsAw14wdKyvMCZXnsnsHys94iadcF+RG/wZyx6+ZZBw==
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.2.14-alpha.1"
+  version "0.3.0"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.61.0"
@@ -6760,6 +6760,11 @@ damerau-levenshtein@^1.0.4, damerau-levenshtein@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.6.tgz#143c1641cb3d85c60c32329e26899adea8701791"
   integrity sha512-JVrozIeElnj3QzfUIt8tB8YMluBJom4Vw9qTPpjGYQ9fYlB3D/rb6OordUxf3xeFB35LKWs0xqcO5U6ySvBtug==
+
+danger-plugin-jira-issue@1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/danger-plugin-jira-issue/-/danger-plugin-jira-issue-1.4.1.tgz#1e2317ae8a291d96dc19762a55cb905681320940"
+  integrity sha512-B/XaW8YigUboK4BH4sMM8GmE0e+Bc6ibAg+Xyf0HFGph4DIawNYOuwKbCh2K1fAyXafott6tGpxFMe9Tc0Aabw==
 
 danger@10.6.2:
   version "10.6.2"
