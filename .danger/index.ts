@@ -48,7 +48,7 @@ if (changed.fixtures) {
 }
 
 // Check if we are updating or adding any package dependencies
-if (changed.packages && hasDescriptionSection('dependencies')) {
+if (changed.packages && !hasDescriptionSection('dependencies')) {
   for (let file of changed.packages) {
     fail(
       `Please provide a comments about why we are changing dependencies. This can be done by adding a '${descSection.dependencies}' section to our PR description.`
@@ -57,9 +57,9 @@ if (changed.packages && hasDescriptionSection('dependencies')) {
 }
 
 // Check if we are modifying any Jest snapshots
-if (changed.snapshots) {
+if (changed.snapshots && !hasDescriptionSection('snapshots')) {
   for (let file of changed.snapshots) {
-    warn(
+    fail(
       `**${file}**: Please provide a reason we are having to change test snapshots.`,
       file
     );
