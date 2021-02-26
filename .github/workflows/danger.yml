@@ -1,0 +1,27 @@
+name: 'Danger JS'
+on:
+  pull_request:
+    types:
+      [
+        assigned,
+        edited,
+        labeled,
+        opened,
+        reopened,
+        synchronize,
+        unassigned,
+        unlabeled,
+      ]
+
+jobs:
+  danger:
+    name: Danger JS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Dangerfile
+        uses: danger/danger-js@10.6.2
+        with:
+          args: '--dangerfile .danger/index.ts'
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
