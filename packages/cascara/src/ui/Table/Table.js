@@ -43,6 +43,10 @@ const propTypes = {
    * An event handler you can pass to handle every event your table emits.*/
   onAction: pt.func,
 
+  /** Resolve record actions.
+   * A function that returns the actions available to the current row */
+  resolveRecordActions: pt.func,
+
   /** Unique ID Attribute.
    *
    * specifies the attribute that uniquely identifies every object in the 'data' array. */
@@ -54,6 +58,7 @@ const Table = ({
   data = [],
   dataConfig = {},
   onAction = (type, data) => type,
+  resolveRecordActions,
   uniqueIdAttribute,
   ...rest
 }) => {
@@ -71,6 +76,7 @@ const Table = ({
           data,
           dataConfig,
           onAction,
+          resolveRecordActions,
           uniqueIdAttribute,
         }}
         {...rest}

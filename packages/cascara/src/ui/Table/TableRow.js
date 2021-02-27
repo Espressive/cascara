@@ -35,21 +35,25 @@ const propTypes = {
 const TableRow = ({ config = {}, record = {} }) => {
   const { id, columns } = config;
   const {
+    resolveRecordActions,
     dataConfig: { actionButtonMenuIndex = 0, actions: userDefinedActions = [] },
   } = useContext(ModuleContext);
+
+  // If a resolver is passed, get actions from it
+  const actions = resolveRecordActions
+    ? resolveRecordActions(record, userDefinedActions)
+    : resolveRecordActions; // otherwise continue as normal
+
   const outsideButtonActions = [];
   const insideButtonActions = [];
-  userDefinedActions
+  actions
     .filter(({ module }) => module === 'button')
     .map((action, index) =>
       index >= actionButtonMenuIndex
         ? insideButtonActions.push(action)
         : outsideButtonActions.push(action)
     );
-  const specialActions = userDefinedActions.filter(
-    ({ module }) => module !== 'button'
-  );
-
+  const specialActions = actions.filter(({ module }) => module !== 'button');
   const outsideActions = [...specialActions, ...outsideButtonActions];
 
   const renderActionModule = (action, index) => {
@@ -68,7 +72,7 @@ const TableRow = ({ config = {}, record = {} }) => {
     );
   };
 
-  const actions = (
+  const rowActions = (
     <td className={styles.CellActions} key={`${id}-actionbar`}>
       {outsideActions.map(renderActionModule)}
       {Boolean(insideButtonActions.length) ? (
@@ -94,7 +98,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   });
 
   if (userDefinedActions.length) {
-    rowCells.push(actions);
+    rowCells.push(rowActions);
   }
 
   return (
