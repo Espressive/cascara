@@ -24,9 +24,11 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
   const triggerRef = useRef();
 
   const menu = useMenuState({
-    // This MUST be modal: true in order to render in a portal or else we
-    // will have problems with any menus rendered inside of positioned
-    // elements other than "relative"
+    /*
+     * This MUST be modal: true in order to render in a portal or else we
+     * will have problems with any menus rendered inside of positioned
+     * elements other than "relative"
+     */
     modal: true,
     placement: 'bottom-end',
     preventBodyScroll: true,

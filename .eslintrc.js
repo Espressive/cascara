@@ -10,6 +10,13 @@ module.exports = {
         'react/react-in-jsx-scope': 0,
       },
     },
+    {
+      files: ['**/fixtures/**/*.js'],
+      rules: {
+        'no-alert': 0,
+        'no-console': 0,
+      },
+    },
   ],
   root: true,
 };

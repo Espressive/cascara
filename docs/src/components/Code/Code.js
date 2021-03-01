@@ -5,8 +5,10 @@ import { Button } from '@espressive/cascara';
 import styles from './Code.module.scss';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 
-// NOTE: We have to mute these properties as part of the theme so we can add
-// styles in our CSS class names.
+/*
+ * NOTE: We have to mute these properties as part of the theme so we can add
+ * styles in our CSS class names.
+ */
 theme.plain.backgroundColor = undefined;
 theme.plain.fontFamily = undefined;
 
@@ -17,9 +19,11 @@ const Code = ({ children, className, live = true, title, ...rest }) => {
   const [editorCode, setEditorCode] = useState(children.trim());
 
   const handleEditorToggle = () => {
-    // TODO: Make cursor focus on editor when opening
-    // should also update styles for focus on editor so it is easier to see that it
-    // is actually editable
+    /*
+     * TODO: Make cursor focus on editor when opening
+     * should also update styles for focus on editor so it is easier to see that it
+     * is actually editable
+     */
     setEditorOpen(!editorOpen);
   };
 

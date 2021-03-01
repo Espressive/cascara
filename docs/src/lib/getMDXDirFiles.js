@@ -1,8 +1,10 @@
-// This is needed to get any MDX files in the directory associated with
-// the current route. Maybe we could replace this later as a lookup on
-// the tree generated from getMDXTree for efficiency... but in theory
-// this is only used during development or when rendering our static
-// pages and then we are done.
+/*
+ * This is needed to get any MDX files in the directory associated with
+ * the current route. Maybe we could replace this later as a lookup on
+ * the tree generated from getMDXTree for efficiency... but in theory
+ * this is only used during development or when rendering our static
+ * pages and then we are done.
+ */
 
 import dirTree from 'directory-tree';
 

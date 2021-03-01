@@ -4,8 +4,8 @@ import {
   Animation,
   Button,
   Dropdown,
-  Chat as FUIChat,
   Flex,
+  Chat as FUIChat,
   Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
@@ -74,8 +74,10 @@ const getChatOptionsObj = (obj) => {
 
   validateMessageObj(objPropTypes, obj, ChatOptions.displayName);
 
-  // NOTE: We are returning an array of objects here. This works because Chat will do a flatMap
-  // on all arrays and return their objects.
+  /*
+   * NOTE: We are returning an array of objects here. This works because Chat will do a flatMap
+   * on all arrays and return their objects.
+   */
   return [
     // This is getting a ChatMessage object and returning it to display "text" before our buttons
     getChatMessageObj(obj),

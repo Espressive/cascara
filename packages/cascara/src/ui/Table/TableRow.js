@@ -8,8 +8,10 @@ import { ModuleContext } from '../../modules/context';
 
 import ActionsMenu from '../ActionsMenu';
 
-// todo @manu: let's document this one
-// https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
+/*
+ * todo @manu: let's document this one
+ * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
+ */
 
 import ModuleError from '../../modules/ModuleError';
 

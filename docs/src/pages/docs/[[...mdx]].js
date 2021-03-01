@@ -4,7 +4,7 @@ import { Tabs } from '../../components';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { POSTS_PATH, postFilePaths } from '../../lib/mdxUtils';
+import { postFilePaths, POSTS_PATH } from '../../lib/mdxUtils';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
 import getMDXTree from '../../lib/getMDXTree';
@@ -29,8 +29,10 @@ const Doc = ({ mdxDirSource }) => {
 
   const activeSource = mdxDirSource[router?.query?.doc || 0];
 
-  // Set the query parameter to 0 if none is set and make
-  // sure we are doing this as a replace() in history
+  /*
+   * Set the query parameter to 0 if none is set and make
+   * sure we are doing this as a replace() in history
+   */
   useEffect(() => {
     if (router?.query?.doc === undefined) {
       router.replace(
@@ -118,14 +120,16 @@ const Doc = ({ mdxDirSource }) => {
 export const getStaticPaths = async () => {
   const tree = getMDXTree();
 
-  let staticPaths = [];
+  const staticPaths = [];
 
   tree.forEach((element) => {
     const { name, children } = element;
     children.forEach((child) => {
-      // We only want a static path for directories that have files in them.
-      // Technically the file size returned is based on the files being filtered
-      // in getMDXTree() which are only MDX files at this time.
+      /*
+       * We only want a static path for directories that have files in them.
+       * Technically the file size returned is based on the files being filtered
+       * in getMDXTree() which are only MDX files at this time.
+       */
       if (child.type === 'directory' && child.size > 0) {
         staticPaths.push({ params: { mdx: [name, child.name] } });
       }
@@ -139,8 +143,10 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  // Any deps needed for getStaticProps should be declared as requirements
-  // here instead of at the top of a file
+  /*
+   * Any deps needed for getStaticProps should be declared as requirements
+   * here instead of at the top of a file
+   */
   const matter = require('gray-matter');
   const reactDocgen = require('react-docgen');
   const path = require('path');
@@ -149,13 +155,17 @@ export const getStaticProps = async ({ params }) => {
 
   const mdxDir = getMDXDirFiles(params);
 
-  // We need to make sure this is only actual files and not a directory
-  // so we are filtering it to make sure the size of the file is not zero.
+  /*
+   * We need to make sure this is only actual files and not a directory
+   * so we are filtering it to make sure the size of the file is not zero.
+   */
   const mdxDirFiles = mdxDir.filter((file) => file.size > 0 && file);
 
-  // This needs to be async or it will blow up since `next-mdx-remote` is
-  // asyncrhonously getting all MDX files and rendering them to string.
-  // Without the Promise.all pattern this will blow up on us.
+  /*
+   * This needs to be async or it will blow up since `next-mdx-remote` is
+   * asyncrhonously getting all MDX files and rendering them to string.
+   * Without the Promise.all pattern this will blow up on us.
+   */
 
   const mdxDirSource = await Promise.all(
     mdxDirFiles.map(async (file) => {

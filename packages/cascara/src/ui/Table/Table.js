@@ -14,13 +14,17 @@ const actionModuleOptions = Object.keys(actionModules);
 const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
-  /** An array of objects.
+  /**
+   * An array of objects.
    *
-   * Every object in this array will potencially be rendered as a table row. */
+   * Every object in this array will potencially be rendered as a table row.
+   */
   data: pt.arrayOf(pt.shape({})),
 
-  /** The main configuration for your table. Here you can specify the columns to display
-   * as well as the available actions (if any) for each row. */
+  /**
+   * The main configuration for your table. Here you can specify the columns to display
+   * as well as the available actions (if any) for each row.
+   */
   dataConfig: pt.shape({
     actionButtonMenuIndex: pt.number,
     /** Actions will be appended to each row, they'll appear as buttons. */
@@ -38,14 +42,18 @@ const propTypes = {
     ),
   }),
 
-  /** Event handler.
+  /**
+   * Event handler.
    *
-   * An event handler you can pass to handle every event your table emits.*/
+   * An event handler you can pass to handle every event your table emits.
+   */
   onAction: pt.func,
 
-  /** Unique ID Attribute.
+  /**
+   * Unique ID Attribute.
    *
-   * specifies the attribute that uniquely identifies every object in the 'data' array. */
+   * specifies the attribute that uniquely identifies every object in the 'data' array.
+   */
   uniqueIdAttribute: pt.string,
 };
 

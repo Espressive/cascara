@@ -2,16 +2,12 @@
   "name": "@espressive/babel-preset-espressive",
   "version": "0.2.3",
   "description": "Babel preset used by Espressive",
-  "license": "MIT",
   "repository": {
-    "directory": "utils/babel-preset-espressive",
     "type": "git",
-    "url": "ssh://git@github.com:Espressive/cascara.git"
+    "url": "ssh://git@github.com:Espressive/cascara.git",
+    "directory": "utils/babel-preset-espressive"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "license": "MIT",
   "files": [
     "index.js",
     "src"
@@ -21,6 +17,10 @@
     "@babel/core": "7.12.3",
     "@babel/plugin-proposal-export-default-from": "7.12.1",
     "babel-preset-react-app": "9.1.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
   },
   "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }

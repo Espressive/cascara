@@ -51,17 +51,19 @@ const getMessageGroup = (
     messageGrouping = 'bottom';
   }
 
-  // console.table({
-  //   userTop: userGroup.top,
-  //   timeTop: timeRangeGroup.top,
-  //   userMiddle: userGroup.middle,
-  //   timeMiddle: timeRangeGroup.middle,
-  //   userBottom: userGroup.bottom,
-  //   timeBottom: timeRangeGroup.bottom,
-  //   prevTimeDiff: prevMinDiff,
-  //   nextTimeDiff: nextMinDiff,
-  //   attachment,
-  // });
+  /*
+   * console.table({
+   *   userTop: userGroup.top,
+   *   timeTop: timeRangeGroup.top,
+   *   userMiddle: userGroup.middle,
+   *   timeMiddle: timeRangeGroup.middle,
+   *   userBottom: userGroup.bottom,
+   *   timeBottom: timeRangeGroup.bottom,
+   *   prevTimeDiff: prevMinDiff,
+   *   nextTimeDiff: nextMinDiff,
+   *   attachment,
+   * });
+   */
 
   /* eslint-enable sort-keys */
 

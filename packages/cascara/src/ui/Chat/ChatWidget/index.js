@@ -29,9 +29,11 @@ const getChatWidgetObj = (obj) => {
 
   validateMessageObj(objPropTypes, obj, 'Widget');
 
-  // System widgets should not include a user_id or they will break message grouping.
-  // This message may need to be separated to throw errors on other components like
-  // system type messages
+  /*
+   * System widgets should not include a user_id or they will break message grouping.
+   * This message may need to be separated to throw errors on other components like
+   * system type messages
+   */
   if (message.user_id !== (undefined || null)) {
     // eslint-disable-next-line no-console
     console.error('System widgets should not include a `user_id` key.');

@@ -143,7 +143,6 @@ class Fixture extends PureComponent {
         break;
 
       default:
-        return;
     }
   };
 

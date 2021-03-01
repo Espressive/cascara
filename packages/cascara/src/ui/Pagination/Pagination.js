@@ -49,7 +49,8 @@ const Pagination = ({
    * @param {Event} _ Usually the click event
    * @param {Object} component Component object passed by SUIR
    * @param {String} component.name The name of the component
-   * @param {Any} component.value The new value in the component */
+   * @param {Any} component.value The new value in the component
+   */
   const handlePaginationChange = (_, component) => {
     let newPage = currentPage;
     let newitemsPerPageLimit = itemsPerPageLimit;
@@ -81,7 +82,8 @@ const Pagination = ({
    *
    * @param {Event} _ Usually the click event
    * @param {Object} component Component object passed by SUIR
-   * @param {String} component.name The name of the component */
+   * @param {String} component.name The name of the component
+   */
   const handleButtonClick = (_, button) => {
     let newPage = currentPage;
 

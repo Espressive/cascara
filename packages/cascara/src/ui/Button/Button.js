@@ -22,9 +22,11 @@ const propTypes = {
   size: pt.oneOf(['small', 'regular', 'large']),
 };
 
-// We are going to need a utility to help us dealing with refs. When a composable `as`
-// prop is being used with a React component, we need to pass the ref directly to
-// Reakit. Otherwise, we need to use React.forwardRef()
+/*
+ * We are going to need a utility to help us dealing with refs. When a composable `as`
+ * prop is being used with a React component, we need to pass the ref directly to
+ * Reakit. Otherwise, we need to use React.forwardRef()
+ */
 
 const Button = forwardRef(
   (
@@ -39,16 +41,18 @@ const Button = forwardRef(
     },
     ref
   ) => {
-    // Leaving this here for when we decide to run our own styles
-    // const internalClassName = cx(rest.className, {
-    //   _: true,
-    //   basic: !outcome,
-    //   fluid: fluid,
-    //   large: size === 'large',
-    //   negative: outcome === 'negative',
-    //   positive: outcome === 'positive',
-    //   small: size === 'small',
-    // });
+    /*
+     * Leaving this here for when we decide to run our own styles
+     * const internalClassName = cx(rest.className, {
+     *   _: true,
+     *   basic: !outcome,
+     *   fluid: fluid,
+     *   large: size === 'large',
+     *   negative: outcome === 'negative',
+     *   positive: outcome === 'positive',
+     *   small: size === 'small',
+     * });
+     */
 
     const legacyClassname = cx(rest.className, {
       basic: !outcome,

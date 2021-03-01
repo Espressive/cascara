@@ -33,20 +33,22 @@ const options = [
   },
 ];
 
-// const boolOptions = [
-//   {
-//     label: 'Test A',
-//     value: false,
-//   },
-//   {
-//     label: 'Test B',
-//     value: false,
-//   },
-//   {
-//     label: 'Test C',
-//     value: false,
-//   },
-// ];
+/*
+ * const boolOptions = [
+ *   {
+ *     label: 'Test A',
+ *     value: false,
+ *   },
+ *   {
+ *     label: 'Test B',
+ *     value: false,
+ *   },
+ *   {
+ *     label: 'Test C',
+ *     value: false,
+ *   },
+ * ];
+ */
 
 const ALL_DATA_MODULES = (
   <>

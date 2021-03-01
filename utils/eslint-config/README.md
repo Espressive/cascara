@@ -4,7 +4,11 @@ Eslint config used by Espressive
 
 ## Note
 
-This config extends the `react-scripts` eslint config as a baseline because we use these lint rules on the `react-scripts` toolchain. There are lint rules in that preset that are requried for code to run and build correctly in a CRA environment.
+This config extends the `eslint-config-react-app` eslint config as a baseline because we use these lint rules on the `eslint-config-react-app` toolchain. There are lint rules in that preset that are requried for code to run and build correctly in a CRA environment.
+
+Our `peerDependencies` should always match the version of `eslint-config-react-app` that we are using: https://github.com/facebook/create-react-app/blob/master/packages/eslint-config-react-app/package.json
+
+Any plugins we are using that are not part of `eslint-config-react-app` should be defined as full `dependencies`
 
 ## Getting Started
 

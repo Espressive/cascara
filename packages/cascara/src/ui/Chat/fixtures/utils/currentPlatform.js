@@ -4,16 +4,20 @@ const platforms = {
 };
 
 const getCurrentPlatform = () => {
+  let pf = 'web';
+
   for (const platform in platforms) {
     if (platforms[platform]) {
-      // Once we match a platform we return and do not test any other platforms,
-      // so the order of the `platforms` object is potentially important.
-      return platform;
-    } else {
-      // If we do not match any other platform, set `web` as our platform
-      return 'web';
+      /*
+       * Once we match a platform we return and do not test any other platforms,
+       * so the order of the `platforms` object is potentially important.
+       */
+      pf = platform;
+      return pf;
     }
   }
+
+  return pf;
 };
 
 const currentPlatform = getCurrentPlatform();

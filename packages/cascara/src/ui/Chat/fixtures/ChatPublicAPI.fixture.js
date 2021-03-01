@@ -4,8 +4,8 @@ import {
   Button,
   Flex,
   Provider,
-  TextArea,
   teamsTheme,
+  TextArea,
 } from '@fluentui/react-northstar';
 import { getNormalizedMessages } from './utils';
 

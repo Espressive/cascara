@@ -27,7 +27,7 @@ const getPostCSSOptions = () => ({
   modules: {
     generateScopedName: function (name, filename, css) {
       const path = require('path');
-      const file = path.basename(filename).split('.')[0];
+      const [file] = path.basename(filename).split('.');
       const hash = isDevelopment(process)
         ? 'DEV_MODE'
         : stringHash(css).toString(36).substr(0, 5);
@@ -38,8 +38,10 @@ const getPostCSSOptions = () => ({
   use: ['sass'],
 });
 
-// NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
-// app_web is updated to support es6 modules in Webpack builds.
+/*
+ * NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
+ * app_web is updated to support es6 modules in Webpack builds.
+ */
 const external = (id) => !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
