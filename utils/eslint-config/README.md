@@ -1,6 +1,10 @@
-# eslint-config-espressive
+# eslint-config
 
 Eslint config used by Espressive
+
+## Note
+
+This config extends the `react-scripts` eslint config as a baseline because we use these lint rules on the `react-scripts` toolchain. There are lint rules in that preset that are requried for code to run and build correctly in a CRA environment.
 
 ## Getting Started
 
@@ -10,7 +14,7 @@ This eslint config can be used at the root of a repository (recommended) OR at t
 
 ```
 "devDependencies": {
-  "eslint-config-espressive": "*"
+  "@espressive/eslint-config": "*"
 },
 ```
 
@@ -20,17 +24,26 @@ After installing all peer dependencies, there should be no warnings from this pa
 
 #### Add An Eslint Config
 
+##### Option 1:
+
+Add an "eslintConfig" parameter to the package.json file as an object containing an "extends" parameter:
+
+```
+{
+  "name": "my-library",
+  "version": "9000.0.1",
+  "eslintConfig": {
+    "extends": "@espressive"
+  }
+}
+```
+
+Option 2:
 At the root of where eslint is expected to be used, add an `eslint.config.js` file:
 
 ```
 module.exports = {
   root: true,
-  extends: 'espressive',
+  extends: '@espressive',
 };
 ```
-
-This [config could be extended](https://eslint.org/docs/user-guide/configuring) from here, but hopefully that is not needed.
-
-## Future
-
-As of the creation of this file, we are not including the peer dependencies so we can set the dependencies from one location in the repository tree. We might end up later including these dependencies in the package so they do not also need to be added as dependencies wherever eslint is being set up.
