@@ -1,0 +1,43 @@
+{
+  "name": "@espressive/eslint-config",
+  "version": "0.2.2",
+  "description": "Eslint config used by Espressive",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:Espressive/cascara.git",
+    "directory": "utils/eslint-config"
+  },
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "index.js",
+    "src"
+  ],
+  "dependencies": {
+    "eslint-config-react-app": "6.0.0",
+    "eslint-plugin-json-format": "2.0.1"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.0.0",
+    "@typescript-eslint/parser": "^4.0.0",
+    "babel-eslint": "^10.0.0",
+    "eslint": "^7.5.0",
+    "eslint-plugin-deprecate": "^0.7.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-testing-library": "^3.9.0"
+  },
+  "engines": {
+    "node": "^10.12.0 || >=12.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
+}

@@ -33,7 +33,7 @@ const getChatWidgetObj = (obj) => {
   // This message may need to be separated to throw errors on other components like
   // system type messages
   if (message.user_id !== (undefined || null)) {
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console -- this is intentional and for developers to see issues with data
     console.error('System widgets should not include a `user_id` key.');
   }
   return {

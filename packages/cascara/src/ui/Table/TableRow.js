@@ -71,12 +71,11 @@ const TableRow = ({ config = {}, record = {} }) => {
   const actions = (
     <td className={styles.CellActions} key={`${id}-actionbar`}>
       {outsideActions.map(renderActionModule)}
-      {Boolean(insideButtonActions.length) ? (
+      {insideButtonActions.length ? (
         <ActionsMenu actions={insideButtonActions} />
       ) : null}
     </td>
   );
-
   const rowCells = columns.map((column) => {
     const { module, isLabeled, ...rest } = column;
     const Module = dataModules[module];

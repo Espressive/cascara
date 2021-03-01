@@ -58,5 +58,4 @@ const Fixture = () => (
     />
   </>
 );
-
 export default Fixture;

@@ -8,7 +8,7 @@ const testJson = {
   },
 };
 
-/* eslint-disable sort-keys */
+/* eslint-disable sort-keys -- fixture export sorting not needed */
 export default {
   default: <JsonPlaceholder data={testJson} />,
   isInitialOpen: <JsonPlaceholder data={testJson} isInitialOpen />,

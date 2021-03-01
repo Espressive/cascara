@@ -21,7 +21,6 @@ const ChatAvatar = ({ fullName, imageUrl, square, status, userID }) => (
     />
   </Animation>
 );
-
 ChatAvatar.displayName = 'Chat.Avatar';
 ChatAvatar.propTypes = propTypes;
 

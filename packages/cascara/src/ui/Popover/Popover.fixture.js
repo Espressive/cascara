@@ -21,7 +21,6 @@ const PopoverFixture = (
     <Popover trigger={<Button content='Greeting' />}>Hello!</Popover>
   </main>
 );
-
 const ActionsMenuFixture = (
   <main className='ui container'>
     <h1>ActionsMenu</h1>
@@ -37,7 +36,6 @@ const ActionsMenuFixture = (
     <ActionsMenu actions={menuItems} />
   </main>
 );
-
-/* eslint-disable sort-keys */
+/* eslint-disable sort-keys -- fixture export sorting not needed */
 export default { Popover: PopoverFixture, ActionsMenu: ActionsMenuFixture };
 /* eslint-enable sort-keys */

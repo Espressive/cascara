@@ -12,7 +12,6 @@ const DEFAULT_TRIGGER = (
     <b>⋯</b>
   </Button>
 );
-
 const propTypes = {
   actions: pt.arrayOf(pt.object).isRequired,
 };
@@ -47,7 +46,7 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
       <Menu
         {...menu}
         aria-label='Actions Menu'
-        className={'ui dropdown active visible ' + styles.ActionsMenu}
+        className={`ui dropdown active visible ${styles.ActionsMenu}`}
         tabIndex={0}
       >
         <div
@@ -64,7 +63,7 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
                 {...menu}
                 {...rest}
                 as='div'
-                className={'item ' + styles.ActionsMenuItem}
+                className={`item ${styles.ActionsMenuItem}`}
                 key={key}
                 onClick={() => handleMenuItemClick(rest)}
               >

@@ -1,7 +1,7 @@
 import React from 'react';
 import AreaPlaceholder from './AreaPlaceholder';
 
-/* eslint-disable sort-keys */
+/* eslint-disable sort-keys -- fixture export sorting not needed */
 export default {
   default: (
     <AreaPlaceholder label='Label'>

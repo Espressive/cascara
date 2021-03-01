@@ -11,7 +11,7 @@ const ModuleError = ({ moduleName, moduleOptions }) => {
   const message = `${moduleName} is not a valid value for module. Try using one of [${moduleOptions.join(
     ', '
   )}]`;
-  // eslint-disable-next-line no-console
+  // eslint-disable-next-line no-console -- we are intentionally throwing an error here for developers
   console.error(message);
 
   return (

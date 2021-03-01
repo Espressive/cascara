@@ -13,7 +13,6 @@ const ChatSystem = ({ text }) => (
     <Divider color='brand' content={text} important />
   </Animation>
 );
-
 ChatSystem.displayName = 'Chat.System';
 ChatSystem.propTypes = propTypes;
 

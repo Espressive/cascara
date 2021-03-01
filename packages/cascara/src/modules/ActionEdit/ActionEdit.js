@@ -34,10 +34,11 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   /**
    * this seems like ugly, we need to find a better way
-   * to ease testing.. */
-  let cancelTestId = {};
-  let editTestId = {};
-  let saveTestId = {};
+   * to ease testing..
+   */
+  const cancelTestId = {};
+  const editTestId = {};
+  const saveTestId = {};
 
   if (typeof dataTestIDs === 'object') {
     cancelTestId['data-testid'] = dataTestIDs['cancel'];
@@ -61,7 +62,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   const handleCancel = () => {
     isDirty
-      ? // eslint-disable-next-line no-restricted-globals
+      ? // eslint-disable-next-line no-alert, no-restricted-globals -- for now we do not have confirmation dialogs
         confirm('Abandon unsaved changes?') && handleReset()
       : handleReset();
   };
@@ -69,7 +70,8 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   const handleEdit = () => {
     /**
      * FDS-91: We are resetting the form with whatever is in record.
-     * We don't know if this is the best way to do it in React. */
+     * We don't know if this is the best way to do it in React.
+     */
     reset({ ...record });
     onAction(
       // fake target

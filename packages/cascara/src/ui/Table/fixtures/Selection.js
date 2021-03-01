@@ -95,7 +95,6 @@ const Table = () => {
       </div>
     </caption>
   );
-
   // this will have its own context
   const renderRow = (row) => (
     <tr>
@@ -115,7 +114,6 @@ const Table = () => {
       )}
     </tr>
   );
-
   return (
     <table
       style={{
@@ -137,5 +135,4 @@ const Fixture = (
     <Table />
   </TableContextProvider>
 );
-
 export default Fixture;

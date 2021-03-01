@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React, { useContext } from 'react';
 import JsonPlaceholder from '../../placeholders/JsonPlaceholder';
 import ReusableModuleContext from './ReusableModuleContext';

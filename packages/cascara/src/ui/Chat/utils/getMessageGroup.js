@@ -12,7 +12,7 @@ const getMessageGroup = (
   const { sys_date_created: previousUTC, user_id: previousUser } = previous;
   const { sys_date_created: nextUTC, user_id: nextUser } = next;
 
-  /* eslint-disable sort-keys */
+  /* eslint-disable sort-keys -- this is being done before, current, after clarity */
 
   const time = {
     prev: new Date(previousUTC).getTime(),

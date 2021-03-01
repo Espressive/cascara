@@ -4,7 +4,7 @@ import { Tabs } from '../../components';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { POSTS_PATH, postFilePaths } from '../../lib/mdxUtils';
+import { postFilePaths, POSTS_PATH } from '../../lib/mdxUtils';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
 import getMDXTree from '../../lib/getMDXTree';
@@ -22,7 +22,6 @@ const MODULE_MESSAGE = (
     </p>
   </blockquote>
 );
-
 const Doc = ({ mdxDirSource }) => {
   // const [activeDoc, setActiveDoc] = useState(0);
   const router = useRouter();
@@ -118,7 +117,7 @@ const Doc = ({ mdxDirSource }) => {
 export const getStaticPaths = async () => {
   const tree = getMDXTree();
 
-  let staticPaths = [];
+  const staticPaths = [];
 
   tree.forEach((element) => {
     const { name, children } = element;

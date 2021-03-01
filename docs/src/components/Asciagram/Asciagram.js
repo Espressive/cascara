@@ -21,7 +21,7 @@ const Asciagram = ({
   <details
     {...rest}
     className={
-      rest?.className ? styles.Details + ' ' + rest.className : styles.Details
+      rest?.className ? `${styles.Details} ${rest.className}` : styles.Details
     }
     open={isInitialOpen}
   >
@@ -31,7 +31,6 @@ const Asciagram = ({
     </pre>
   </details>
 );
-
 Asciagram.propTypes = propTypes;
 
 export default Asciagram;

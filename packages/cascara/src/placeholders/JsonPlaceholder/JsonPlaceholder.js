@@ -20,7 +20,7 @@ const JsonPlaceholder = ({
   <details
     {...rest}
     className={
-      rest?.className ? styles.Details + ' ' + rest.className : styles.Details
+      rest?.className ? `${styles.Details} ${rest.className}` : styles.Details
     }
     open={isInitialOpen}
   >
@@ -30,7 +30,6 @@ const JsonPlaceholder = ({
     </pre>
   </details>
 );
-
 JsonPlaceholder.propTypes = propTypes;
 
 export default JsonPlaceholder;

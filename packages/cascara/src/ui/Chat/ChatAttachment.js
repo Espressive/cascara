@@ -76,7 +76,6 @@ const ChatAttachment = ({
       onClick={handleDownloadAttachment}
     />
   );
-
   return (
     <Animation name='chatMessage'>
       <FUIChat.Message

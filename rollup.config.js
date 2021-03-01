@@ -13,28 +13,28 @@ const getBabelOptions = ({
   babelConfigFile = '../../babel.config.js',
   useESModules,
 }) => ({
-  exclude: '**/node_modules/**',
   babelHelpers: 'runtime',
   configFile: babelConfigFile,
+  exclude: '**/node_modules/**',
   plugins: [['@babel/plugin-transform-runtime', { useESModules }]],
 });
 
 // Also making this a function since we may need to move some of the PostCSS config to the package root to be used in Cosmos or Doc tooling.
 const getPostCSSOptions = () => ({
   // extract: 'styles.css',
-  sourceMap: true,
   minimize: true,
   modules: {
     generateScopedName: function (name, filename, css) {
       const path = require('path');
-      const file = path.basename(filename).split('.')[0];
+      const [file] = path.basename(filename).split('.');
       const hash = isDevelopment(process)
         ? 'DEV_MODE'
         : stringHash(css).toString(36).substr(0, 5);
 
-      return '☕️_' + file + '_' + name + '__' + hash;
+      return `☕️_${file}_${name}__${hash}`;
     },
   },
+  sourceMap: true,
   use: ['sass'],
 });
 
@@ -63,12 +63,12 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
 
   // Common JS configuration
   const cjsConfig = {
+    external,
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
       format: 'cjs',
     },
-    external,
     plugins: [
       babel(
         getBabelOptions({
@@ -84,12 +84,12 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
 
   // Modules configuration
   const esConfig = {
+    external,
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
     },
-    external,
     plugins: [
       babel(
         getBabelOptions({

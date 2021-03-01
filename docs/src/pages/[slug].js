@@ -1,6 +1,6 @@
 import hydrate from 'next-mdx-remote/hydrate';
 import Head from 'next/head';
-import { POSTS_PATH, postFilePaths } from '../lib/mdxUtils';
+import { postFilePaths, POSTS_PATH } from '../lib/mdxUtils';
 import getMDXTree from '../lib/getMDXTree';
 import MDX_COMPONENTS from '../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../lib/MDX_OPTIONS';

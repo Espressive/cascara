@@ -23,7 +23,8 @@ describe('Table', () => {
    * In either cases, the extra column displays the action modules.
    *
    * The test `row actions` corresponds to condition a, whilst the test
-   * `editable records` addresses condition b.  */
+   * `editable records` addresses condition b.
+   */
   describe('component tree', () => {
     const whileTheUIisReady = async (miliseconds) =>
       await new Promise((resolve) => setTimeout(resolve, miliseconds));
@@ -173,7 +174,8 @@ describe('Table', () => {
      *  Does the number of (found) testIDs match the result of multiplying `datasetSize`
      *  by the number of columns in `dataConfig.display`?
      *
-     * */
+     *
+     */
     test('table markup vs. dataset', () => {
       const { display = [] } = dataConfig;
       render(
@@ -215,7 +217,8 @@ describe('Table', () => {
      * one being the element that was clicked, the second is the data of the
      * row that was clicked.
      *
-     * This test validates the Actions specified in `dataConfig.actions`.  */
+     * This test validates the Actions specified in `dataConfig.actions`.
+     */
     test('with row actions', () => {
       const onAction = jest.fn();
 
@@ -259,7 +262,8 @@ describe('Table', () => {
     });
 
     /**
-     * Actions wrapped in an ActionsMenu */
+     * Actions wrapped in an ActionsMenu
+     */
     test('it renders no <ActionsMenu /> if actionButtonMenuIndex equals button actions number', () => {
       const onAction = jest.fn();
 
@@ -289,7 +293,8 @@ describe('Table', () => {
     });
 
     /**
-     * Actions wrapped in an ActionsMenu */
+     * Actions wrapped in an ActionsMenu
+     */
     test('it renders <ActionsMenu /> if actionButtonMenuIndex is less than the button actions number', () => {
       const onAction = jest.fn();
 
@@ -325,7 +330,8 @@ describe('Table', () => {
      *
      * 1.- the events are actualy emitted by the Table
      * 2.- the data reflects the changes made by the user
-     * 3.- the number of buttons present in each case. */
+     * 3.- the number of buttons present in each case.
+     */
     test('editable records', async (done) => {
       const testEmail = 'engineering@espressive.com';
       const onAction = jest.fn();
@@ -427,7 +433,8 @@ describe('Table', () => {
      * edit.cancel - when clicking the cancel button
      *
      * This test validates the events are actualy emitted by the Table, as well
-     * as the number of buttons present in each case. */
+     * as the number of buttons present in each case.
+     */
     test('cancelling record edition', () => {
       const onAction = jest.fn();
 
@@ -518,7 +525,7 @@ describe('Table', () => {
       );
     });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- TODO: Find way to have tests for these error scenarios
     // test('actions with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(
@@ -548,7 +555,7 @@ describe('Table', () => {
     //   expect(moduleError).toBeTruthy();
     // });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- TODO: Find way to have tests for these error scenarios
     // test('columns with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(

@@ -4,8 +4,8 @@ import {
   Animation,
   Button,
   Dropdown,
-  Chat as FUIChat,
   Flex,
+  Chat as FUIChat,
   Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
@@ -57,7 +57,6 @@ const ChatOptions = ({
     />
   </Animation>
 );
-
 ChatOptions.displayName = 'Chat.Options';
 ChatOptions.propTypes = propTypes;
 
@@ -81,7 +80,7 @@ const getChatOptionsObj = (obj) => {
     getChatMessageObj(obj),
     {
       ...getSharedMessageKeys(obj),
-      key: message.id + '_buttons',
+      key: `${message.id}_buttons`,
       message: (
         <Ref id={message.id} innerRef={ref}>
           <ChatOptions
