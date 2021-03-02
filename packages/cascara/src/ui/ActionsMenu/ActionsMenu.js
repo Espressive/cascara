@@ -36,7 +36,9 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
   const handleMenuItemClick = (item) => {
     menu.hide();
 
-    onAction(item, record);
+    if (onAction) {
+      onAction(item, record);
+    }
   };
 
   return (

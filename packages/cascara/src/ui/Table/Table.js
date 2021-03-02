@@ -19,6 +19,21 @@ const actionModuleOptions = Object.keys(bundledActionModules);
 const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
+  /** Actions will be appended to each row, they'll appear as buttons. */
+  actions: pt.shape({
+    actionButtonMenuIndex: pt.number,
+
+    modules: pt.arrayOf(
+      pt.shape({
+        module: pt.oneOf(actionModuleOptions).isRequired,
+      })
+    ),
+
+    /** Resolve record actions.
+     * A function that returns the actions available to the current row */
+    resolveRecordActions: pt.func,
+  }),
+
   /** An array of objects.
    *
    * Every object in this array will potencially be rendered as a table row. */
@@ -28,6 +43,7 @@ const propTypes = {
    * as well as the available actions (if any) for each row. */
   dataConfig: pt.shape({
     actionButtonMenuIndex: pt.number,
+
     /** Actions will be appended to each row, they'll appear as buttons. */
     actions: pt.arrayOf(
       pt.shape({
@@ -60,17 +76,42 @@ const propTypes = {
 
 /** This is a Table */
 const Table = ({
-  data = [],
+  actions,
+  data,
   dataConfig,
-  onAction = (type, data) => type,
-  resolveRecordActions,
+  onAction,
   uniqueIdAttribute,
   ...rest
 }) => {
-  const { actions = [], display = [] } = dataConfig;
+  const display = dataConfig?.display;
+
+  // // FDS-142: new action props
+  let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
+  let modules = actions?.modules;
+  let resolveRecordActions = actions?.resolveRecordActions;
+
+  // old action props
+  const unwantedActions = dataConfig?.actions;
+  if (unwantedActions) {
+    modules = unwantedActions;
+    // eslint-disable-next-line no-console
+    console.warn(
+      'Prop "dataConfig.actions" has been deprecated. Actions have been moved to the root of the Table component as their own prop.'
+    );
+  }
+
+  const unwantedActionButtonIndex = dataConfig?.actionButtonIndex;
+  if (unwantedActionButtonIndex) {
+    actionButtonMenuIndex = unwantedActionButtonIndex;
+    // eslint-disable-next-line no-console
+    console.warn(
+      'Prop "dataConfig.actionButtonIndex" has been deprecated. Actions have been moved to the root of the Table component as their own prop.'
+    );
+  }
+
   let columnCount = display.length;
 
-  if (actions.length) {
+  if (modules.length) {
     columnCount++;
   }
 
@@ -78,8 +119,10 @@ const Table = ({
     <ErrorBoundary>
       <TableProvider
         value={{
+          actionButtonMenuIndex,
           data,
           dataConfig,
+          modules,
           onAction,
           resolveRecordActions,
           uniqueIdAttribute,

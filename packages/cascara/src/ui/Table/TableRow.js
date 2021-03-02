@@ -40,13 +40,14 @@ const TableRow = ({ config = {}, record = {} }) => {
   const { id, columns } = config;
   const {
     resolveRecordActions,
-    dataConfig: { actionButtonMenuIndex = 0, actions: userDefinedActions = [] },
+    actionButtonMenuIndex = 0,
+    modules: userDefinedModules = [],
   } = useContext(ModuleContext);
 
-  // If a resolver is passed, get actions from it
+  // FDS-142: If a resolver is passed, get actions from it
   const actions = resolveRecordActions
-    ? resolveRecordActions(record, userDefinedActions)
-    : resolveRecordActions; // otherwise continue as normal
+    ? resolveRecordActions(record, userDefinedModules)
+    : userDefinedModules; // otherwise continue as normal
 
   const outsideButtonActions = [];
   const insideButtonActions = [];
@@ -113,7 +114,7 @@ const TableRow = ({ config = {}, record = {} }) => {
     );
   });
 
-  if (userDefinedActions.length) {
+  if (userDefinedModules.length) {
     rowCells.push(rowActions);
   }
 
