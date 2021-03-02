@@ -1,8 +1,9 @@
 {
-  "name": "@espressive/eslint-config-espressive",
+  "name": "@espressive/eslint-config",
   "version": "0.2.2",
   "description": "Eslint config used by Espressive",
   "license": "MIT",
+  "main": "src/index.js",
   "repository": {
     "directory": "utils/eslint-config-espressive",
     "type": "git",
