@@ -1,28 +1,25 @@
 {
   "name": "@espressive/cascara",
   "version": "0.3.3",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:Espressive/cascara.git",
+    "directory": "packages/cascara"
+  },
+  "license": "MIT",
+  "sideEffects": false,
   "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
+  "files": [
+    "dist",
+    "private"
+  ],
   "scripts": {
     "build": "yarn clean && rollup -c",
     "clean": "rm -rf dist && rm -rf undefined",
     "prepublish": "yarn build",
     "watch": "rollup -c -w"
   },
-  "repository": {
-    "directory": "packages/cascara",
-    "type": "git",
-    "url": "ssh://git@github.com:Espressive/cascara.git"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "module": "dist/es/index.js",
-  "files": [
-    "dist",
-    "private"
-  ],
-  "license": "MIT",
-  "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "7.11.2",
     "@nivo/bar": "0.61.0",
@@ -52,6 +49,9 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "semantic-ui-react": "^1.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }
