@@ -1527,7 +1527,7 @@
     strip-json-comments "^3.1.1"
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.3.3"
+  version "0.3.4"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.61.0"
@@ -1550,7 +1550,7 @@
   uid ""
 
 "@espressive/legacy-css@file:utils/legacy-css":
-  version "2.0.2"
+  version "2.0.3"
 
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
