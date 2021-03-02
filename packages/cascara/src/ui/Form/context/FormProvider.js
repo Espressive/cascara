@@ -6,10 +6,7 @@ const FormProvider = ({ children, value, ...props }) => {
   const formMethods = useForm();
   const { handleSubmit } = formMethods;
 
-  const onSubmit = (data) => {
-    // eslint-disable-next-line no-console
-    console.table(data);
-  };
+  const onSubmit = (data) => {};
 
   const mergedValues = {
     ...ModuleContext.defaultValue,

@@ -79,5 +79,4 @@ const Fixture = () => (
     />
   </Container>
 );
-
 export default Fixture;

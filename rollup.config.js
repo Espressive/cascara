@@ -13,16 +13,15 @@ const getBabelOptions = ({
   babelConfigFile = '../../babel.config.js',
   useESModules,
 }) => ({
-  exclude: '**/node_modules/**',
   babelHelpers: 'runtime',
   configFile: babelConfigFile,
+  exclude: '**/node_modules/**',
   plugins: [['@babel/plugin-transform-runtime', { useESModules }]],
 });
 
 // Also making this a function since we may need to move some of the PostCSS config to the package root to be used in Cosmos or Doc tooling.
 const getPostCSSOptions = () => ({
   // extract: 'styles.css',
-  sourceMap: true,
   minimize: true,
   modules: {
     generateScopedName: function (name, filename, css) {
@@ -32,16 +31,15 @@ const getPostCSSOptions = () => ({
         ? 'DEV_MODE'
         : stringHash(css).toString(36).substr(0, 5);
 
-      return '☕️_' + file + '_' + name + '__' + hash;
+      return `☕️_${file}_${name}__${hash}`;
     },
   },
+  sourceMap: true,
   use: ['sass'],
 });
 
-/*
- * NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
- * app_web is updated to support es6 modules in Webpack builds.
- */
+// NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
+// app_web is updated to support es6 modules in Webpack builds.
 const external = (id) => !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
@@ -65,12 +63,12 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
 
   // Common JS configuration
   const cjsConfig = {
+    external,
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
       format: 'cjs',
     },
-    external,
     plugins: [
       babel(
         getBabelOptions({
@@ -86,12 +84,12 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
 
   // Modules configuration
   const esConfig = {
+    external,
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
     },
-    external,
     plugins: [
       babel(
         getBabelOptions({

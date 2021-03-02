@@ -3,11 +3,9 @@ import faker from 'faker';
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 import { Select } from 'semantic-ui-react';
 
-/*
- * TODO: this might make sense to abstract into a memoized generator function
- * or potentially if we could define data schemas for mocks, then generate
- * deterministic data to output with a consistent seed that we can then reuse.
- */
+// TODO: this might make sense to abstract into a memoized generator function
+// or potentially if we could define data schemas for mocks, then generate
+// deterministic data to output with a consistent seed that we can then reuse.
 
 // zero is not a valid seed for faker
 faker.seed(1);

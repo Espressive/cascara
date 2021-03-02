@@ -8,10 +8,8 @@ import { ModuleContext } from '../../modules/context';
 
 import ActionsMenu from '../ActionsMenu';
 
-/*
- * todo @manu: let's document this one
- * https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
- */
+// todo @manu: let's document this one
+// https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
 
 import ModuleError from '../../modules/ModuleError';
 
@@ -73,12 +71,11 @@ const TableRow = ({ config = {}, record = {} }) => {
   const actions = (
     <td className={styles.CellActions} key={`${id}-actionbar`}>
       {outsideActions.map(renderActionModule)}
-      {Boolean(insideButtonActions.length) ? (
+      {insideButtonActions.length ? (
         <ActionsMenu actions={insideButtonActions} />
       ) : null}
     </td>
   );
-
   const rowCells = columns.map((column) => {
     const { module, isLabeled, ...rest } = column;
     const Module = dataModules[module];

@@ -3,13 +3,18 @@
 // them below. If we are overriding a recommended rule, we should make a comment for
 // each rule.
 //
-// https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
+// https://github.com/AlexMost/eslint-plugin-deprecate
 
 module.exports = {
-  extends: 'plugin:jsx-a11y/strict',
-  plugins: ['jsx-a11y'],
+  plugins: ['deprecate'],
   rules: {
-    // Disabling this rule which has been deprecated but is still in the strict set for some reason
-    'jsx-a11y/label-has-for': 0,
+    'deprecate/import': [
+      'warn',
+      {
+        name: 'memobind',
+        use: 'the eslint doc suggestions to correctly resolve',
+      },
+      { name: 'fela', use: 'CSS Modules' },
+    ],
   },
 };

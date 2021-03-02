@@ -1,12 +1,8 @@
-/* eslint-disable react/no-multi-comp */
-
-/*
- * All components that we intend to use in our MDX files _must_ be defined here
- * or else they will not be rendered in our MDX files. This includes
- * all components in Cascara. Our implementation of MDX in these docs does
- * not allow imports in the MDX file itself. This is an unfortunate limitation
- * until there is a better way to import static data dynamically in Nextjs
- */
+// All components that we intend to use in our MDX files _must_ be defined here
+// or else they will not be rendered in our MDX files. This includes
+// all components in Cascara. Our implementation of MDX in these docs does
+// not allow imports in the MDX file itself. This is an unfortunate limitation
+// until there is a better way to import static data dynamically in Nextjs
 
 import {
   Admin,
@@ -33,7 +29,7 @@ import {
 
 import { Asciagram, Code, Placeholder } from '../components';
 
-/* eslint-disable sort-keys */
+/* eslint-disable react/no-multi-comp, sort-keys -- We are not sorting so it is easier to keep track of these components from different imports */
 const MDX_COMPONENTS = {
   // Docs
   Asciagram: (props) => <Asciagram {...props} />,
@@ -65,6 +61,6 @@ const MDX_COMPONENTS = {
   DataTextArea: (props) => <DataTextArea {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable react/no-multi-comp, sort-keys */
 
 export default MDX_COMPONENTS;

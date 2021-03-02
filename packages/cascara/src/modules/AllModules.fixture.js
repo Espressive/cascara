@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { ModuleProvider } from './context';
 import FormProvider from '../ui/Form/context/FormProvider';
@@ -33,22 +32,20 @@ const options = [
   },
 ];
 
-/*
- * const boolOptions = [
- *   {
- *     label: 'Test A',
- *     value: false,
- *   },
- *   {
- *     label: 'Test B',
- *     value: false,
- *   },
- *   {
- *     label: 'Test C',
- *     value: false,
- *   },
- * ];
- */
+// const boolOptions = [
+//   {
+//     label: 'Test A',
+//     value: false,
+//   },
+//   {
+//     label: 'Test B',
+//     value: false,
+//   },
+//   {
+//     label: 'Test C',
+//     value: false,
+//   },
+// ];
 
 const ALL_DATA_MODULES = (
   <>
@@ -56,12 +53,11 @@ const ALL_DATA_MODULES = (
     <DataNumber label='Number' value={2354} />
     <DataSelect label='Select' options={options} value='Washington' />
     <DataText label='Text' value={lorem} />
-    <DataCheckbox label='Checkbox A' value={true} />
+    <DataCheckbox label='Checkbox A' value />
     {/* {<DataRadio label='Radio' options={boolOptions} />} */}
     <DataTextArea label='TextArea' value={lorem} />
   </>
 );
-
 const colStyle = {
   display: 'inline-block',
   verticalAlign: 'top',
@@ -79,7 +75,6 @@ const fakeHeader = (
     <th className={tableStyles.HeadCell}>DataTextArea</th>
   </tr>
 );
-
 const fakeRow = (
   <tr className={tableStyles.Row}>
     <td className={tableStyles.Cell}>
@@ -95,7 +90,7 @@ const fakeRow = (
       <DataText isLabeled={false} label='Text' value='I like cats.' />
     </td>
     <td className={tableStyles.Cell}>
-      <DataCheckbox isLabeled={false} label='Checkbox' value={true} />
+      <DataCheckbox isLabeled={false} label='Checkbox' value />
     </td>
     {/* {<td className={tableStyles.Cell}>
       <DataRadio isLabeled={false} label='Radio' value='Cats' />
@@ -105,7 +100,6 @@ const fakeRow = (
     </td>
   </tr>
 );
-
 const AllModules = ({ data, dataConfig }) => {
   return (
     <div style={{ margin: '1em' }}>

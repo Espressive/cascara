@@ -49,7 +49,6 @@ const DataRadio = ({
       )}
     </label>
   );
-
   const renderEditing = (
     <RadioGroup
       {...radio}
@@ -62,7 +61,6 @@ const DataRadio = ({
         : renderRadio(value)}
     </RadioGroup>
   );
-
   const renderDisplay = (
     <ErrorBoundary>
       <div className={styles.Radio}>
@@ -77,7 +75,6 @@ const DataRadio = ({
       </div>
     </ErrorBoundary>
   );
-
   // Do not render an editable input if the module is not editable
   return isEditing && isEditable ? renderEditing : renderDisplay;
 };

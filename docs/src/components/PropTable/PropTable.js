@@ -5,10 +5,8 @@ import styles from './PropTable.module.scss';
 const PropTable = ({ docData, ...rest }) => {
   const propsArray = docData?.props ? Object.entries(docData?.props) : [];
 
-  /*
-   * TODO: Update this to be a recursive switch that has a display style for each type. Some types will have no recursion, others will.
-   * https://reactjs.org/docs/typechecking-with-proptypes.html
-   */
+  // TODO: Update this to be a recursive switch that has a display style for each type. Some types will have no recursion, others will.
+  // https://reactjs.org/docs/typechecking-with-proptypes.html
 
   return (
     <div className={styles.PropTable} {...rest}>
@@ -51,17 +49,15 @@ const PropTable = ({ docData, ...rest }) => {
                         {JSON.stringify(propData?.type?.value, null, '  ')}
                       </pre>
                     ) : (
-                      /*
-                       * propData.type.value.map((value, i) => {
-                       * const item = value.name ? (
-                       *  <span key={i}>{value.name}</span>
-                       * ) : (
-                       *  <code key={i}>{value.value}</code>
-                       * );
-                       *
-                       * return item;
-                       * })
-                       */
+                      // propData.type.value.map((value, i) => {
+                      // const item = value.name ? (
+                      //  <span key={i}>{value.name}</span>
+                      // ) : (
+                      //  <code key={i}>{value.value}</code>
+                      // );
+                      //
+                      // return item;
+                      // })
                       <pre>
                         {JSON.stringify(propData?.type?.value, null, '  ')}
                       </pre>

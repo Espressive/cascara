@@ -28,27 +28,21 @@ const propTypes = {
     firstName: pt.string,
     imageUrl: pt.string,
     lastName: pt.string,
-    /*
-     * status: pt.shape({
-     *   color: pt.string,
-     *   icon: pt.string,
-     * }),
-     */
+    // status: pt.shape({
+    //   color: pt.string,
+    //   icon: pt.string,
+    // }),
   }),
 };
 
 // TODO: Set a loading state if no messages are passed yet
 const Chat = ({ sessionUserID, messages, users }) => {
-  /*
-   * The latestMessageRef is always assigned to the
-   * latest message that has appeared in the Chat
-   */
+  // The latestMessageRef is always assigned to the
+  // latest message that has appeared in the Chat
   const latestMessageRef = useRef(null);
 
-  /*
-   * We scroll to the latest message, not to the bottom of the chat
-   * which leads to a better user experience when the last message is long
-   */
+  // We scroll to the latest message, not to the bottom of the chat
+  // which leads to a better user experience when the last message is long
   const handleScrollToLatestMessage = () => {
     return latestMessageRef?.current?.scrollIntoView({
       behavior: 'smooth',
@@ -56,11 +50,9 @@ const Chat = ({ sessionUserID, messages, users }) => {
     });
   };
 
-  /*
-   * For initial load or image load, we want to scroll fully to the bottom
-   * right away. This does mean that when images load, we may scroll. We
-   * may want to explore adding both of these to a throttle
-   */
+  // For initial load or image load, we want to scroll fully to the bottom
+  // right away. This does mean that when images load, we may scroll. We
+  // may want to explore adding both of these to a throttle
   const handleScrollToBottom = () => {
     return latestMessageRef?.current?.scrollIntoView({
       block: 'end',
@@ -77,16 +69,12 @@ const Chat = ({ sessionUserID, messages, users }) => {
     handleScrollToBottom();
   }, []);
 
-  /*
-   * We do this instead of defining default props so we can make sure we use the loading messages for
-   * undefined, null, or empty arrays
-   */
+  // We do this instead of defining default props so we can make sure we use the loading messages for
+  // undefined, null, or empty arrays
   const currentMessages = messages || loadingMessages;
 
-  /*
-   * NOTE: Some of our messages return arrays of objects and not
-   * just an object, so we need to use flatMap here
-   */
+  // NOTE: Some of our messages return arrays of objects and not
+  // just an object, so we need to use flatMap here
   const items = currentMessages.flatMap((msg, index, array) => {
     const previousMessage = array[index - 1];
     const nextMessage = array[index + 1];
@@ -96,7 +84,7 @@ const Chat = ({ sessionUserID, messages, users }) => {
     const isTranslated = Boolean(msg.isTranslated); // This can probably get cleaned up later.
 
     // Only return if we have a defined component for this type
-    return Boolean(getMessageObject)
+    return getMessageObject
       ? getMessageObject({
           attached: getMessageGroup(msg, previousMessage, nextMessage),
           handleScrollToBottom,

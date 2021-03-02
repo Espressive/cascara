@@ -1,27 +1,20 @@
-/* eslint-disable react/no-multi-comp */
 import React, { useContext } from 'react';
 import JsonPlaceholder from '../../placeholders/JsonPlaceholder';
 import ReusableModuleContext from './ReusableModuleContext';
 
-/*
- * Here is a custom provider that can exist alone, or it can also exist with a parent context.
- * The magic for each use case can exist with how we define these providers and what we need them to do
- */
+// Here is a custom provider that can exist alone, or it can also exist with a parent context.
+// The magic for each use case can exist with how we define these providers and what we need them to do
 const ReusableProvider = ({ children, value, ...props }) => {
-  /*
-   * Consuming the next context up inside the provider works because we will probably not be
-   * in a situation where a component tree will have one complex Module based structure inside
-   * of another. If that DOES happen to be a need, we could simply make a "great grandparent"
-   * context that was an empty insulator which does not have any of the special functionality
-   * below... it would essentially mute anything else from coming in from upstream Module contexts.
-   */
+  // Consuming the next context up inside the provider works because we will probably not be
+  // in a situation where a component tree will have one complex Module based structure inside
+  // of another. If that DOES happen to be a need, we could simply make a "great grandparent"
+  // context that was an empty insulator which does not have any of the special functionality
+  // below... it would essentially mute anything else from coming in from upstream Module contexts.
   const grandparentValues = useContext(ReusableModuleContext);
 
-  /*
-   * 1. Defaults must be spread first so we can override with values passed
-   * 2. This pattern can be used to make sure we always have props present for things a Module might need
-   * 3. The same reusable context can now also be used to compose a special provider that does this on a case by case basis
-   */
+  // 1. Defaults must be spread first so we can override with values passed
+  // 2. This pattern can be used to make sure we always have props present for things a Module might need
+  // 3. The same reusable context can now also be used to compose a special provider that does this on a case by case basis
   const mergedValues = {
     ...ReusableModuleContext.defaultValue,
     ...grandparentValues,
@@ -30,10 +23,8 @@ const ReusableProvider = ({ children, value, ...props }) => {
   return (
     <ReusableModuleContext.Provider value={mergedValues} {...props}>
       <div
-        /*
-         * We PROBABLY do not want to put any markup inside of context providers... this is just
-         * to illustrate where a context exists
-         */
+        // We PROBABLY do not want to put any markup inside of context providers... this is just
+        // to illustrate where a context exists
         style={{
           border: '1px dotted red',
           margin: '1em 0',
@@ -46,12 +37,10 @@ const ReusableProvider = ({ children, value, ...props }) => {
   );
 };
 
-/*
- * Our modules can always be looking for the closest provider for what they need.
- * Because the provider itself has its own logic on how it decides to do special
- * things with that context, the Modules to not need to reference a different
- * context for all scenarios when we reach for useContext()
- */
+// Our modules can always be looking for the closest provider for what they need.
+// Because the provider itself has its own logic on how it decides to do special
+// things with that context, the Modules to not need to reference a different
+// context for all scenarios when we reach for useContext()
 const ReusableModule = (props) => {
   const contextValues = useContext(ReusableModuleContext);
 
@@ -130,10 +119,8 @@ const ContextComposability = ({ data, dataConfig }) => {
         {/* This provider is being used with no value to insulate from inheriting from a great grandparent context or global context, in case we ever happen to encounter that problem */}
         <ReusableModuleContext.Provider>
           <div
-            /*
-             * We PROBABLY do not want to put any markup inside of context providers... this is just
-             * to illustrate where a context exists
-             */
+            // We PROBABLY do not want to put any markup inside of context providers... this is just
+            // to illustrate where a context exists
             style={{
               border: '2px dotted blue',
               margin: '1em 0',

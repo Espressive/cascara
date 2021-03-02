@@ -27,7 +27,6 @@ const AreaPlaceholder = ({
     {children}
   </div>
 );
-
 AreaPlaceholder.propTypes = propTypes;
 
 export default AreaPlaceholder;

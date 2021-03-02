@@ -6,10 +6,8 @@ import AdminMain from './AdminMain';
 import AdminNav from './AdminNav';
 import useSetLayoutAttribute from '../../shared/hooks/useSetLayoutAttribute';
 
-/*
- * TODO: Would be nice to be able to pass an element or array of React elements
- * and if they do not have the proper grid container, just add it automatically.
- */
+// TODO: Would be nice to be able to pass an element or array of React elements
+// and if they do not have the proper grid container, just add it automatically.
 const propTypes = {
   drawer: pt.oneOfType([pt.node, pt.array]),
   header: pt.element,
@@ -18,10 +16,8 @@ const propTypes = {
 };
 
 const Admin = ({ drawer, header, main, nav }) => {
-  /*
-   * This hook sets a `data-layout` attribute on the html tag, which is needed
-   * for CSS specificity in global styles
-   */
+  // This hook sets a `data-layout` attribute on the html tag, which is needed
+  // for CSS specificity in global styles
   useSetLayoutAttribute('admin');
 
   return (

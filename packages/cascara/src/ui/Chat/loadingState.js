@@ -65,23 +65,21 @@ const loadingMessages = [
 ];
 
 const loadingTheme = {
-  /*
-   * componentStyles: {
-   *   Avatar: ({ colorScheme }) => ({
-   *     image: {
-   *       backgroundColor: 'red',
-   *       opacity: 0,
-   *     },
-   *   }),
-   *   Text: ({ colorScheme }) => ({
-   *     root: {
-   *       backgroundColor: colorScheme.default.background3,
-   *       color: 'red',
-   *       opacity: 0,
-   *     },
-   *   }),
-   * },
-   */
+  // componentStyles: {
+  //   Avatar: ({ colorScheme }) => ({
+  //     image: {
+  //       backgroundColor: 'red',
+  //       opacity: 0,
+  //     },
+  //   }),
+  //   Text: ({ colorScheme }) => ({
+  //     root: {
+  //       backgroundColor: colorScheme.default.background3,
+  //       color: 'red',
+  //       opacity: 0,
+  //     },
+  //   }),
+  // },
   componentVariables: {
     ChatMessage: ({ colorScheme }) => ({
       backgroundColor: colorScheme.default.background3,

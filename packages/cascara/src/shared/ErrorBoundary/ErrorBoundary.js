@@ -22,10 +22,8 @@ class ErrorBoundary extends PureComponent {
     errorInfo: null,
   };
 
-  /*
-   * Catch errors in any components below and re-render with error message
-   * You can also log error messages to an error reporting service here
-   */
+  // Catch errors in any components below and re-render with error message
+  // You can also log error messages to an error reporting service here
   componentDidCatch = (error, errorInfo) => {
     this.setState({
       error: error,

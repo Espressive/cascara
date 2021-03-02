@@ -51,3 +51,7 @@ module.exports = {
   extends: '@espressive',
 };
 ```
+
+## Other Plugins
+
+There are a number of [other great eslint plugins](https://github.com/dustinspecker/awesome-eslint#plugins) which we may decide to include here at at later date.

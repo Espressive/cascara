@@ -35,11 +35,9 @@ const ChatAttachment = ({
   // const fileExtension = fileName.split('.').pop();
 
   const attachment = IMAGE_ATTACHMENT_TYPES.includes(metadata.type) ? (
-    /*
-     * Display an image if one of the supported image attachment types is present
-     * NOTE: For now, we are passing the scroll bottom handler to all onLoad events for an image,
-     * this way we can make sure the bottom gets scrolled to when the image is done loading.
-     */
+    // Display an image if one of the supported image attachment types is present
+    // NOTE: For now, we are passing the scroll bottom handler to all onLoad events for an image,
+    // this way we can make sure the bottom gets scrolled to when the image is done loading.
     <Image
       fluid
       height={height}
@@ -78,7 +76,6 @@ const ChatAttachment = ({
       onClick={handleDownloadAttachment}
     />
   );
-
   return (
     <Animation name='chatMessage'>
       <FUIChat.Message

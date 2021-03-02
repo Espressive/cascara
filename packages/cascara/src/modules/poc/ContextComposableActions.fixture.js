@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import DataText from '../DataText';
 import ActionButton from '../ActionButton';
@@ -39,7 +38,6 @@ const FakeRow = ({ defaultValue, label, ...rest }) => (
     </AreaPlaceholder>
   </RowProvider>
 );
-
 const fakeInputLayout = {
   display: 'block',
 };

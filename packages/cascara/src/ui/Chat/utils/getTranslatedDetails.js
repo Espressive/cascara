@@ -6,7 +6,6 @@ const translatedDetails = (
     Translated <TranslationIcon size='small' />
   </>
 );
-
 const getTranslatedDetails = (isTranslated) =>
   isTranslated ? translatedDetails : null;
 

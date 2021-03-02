@@ -18,7 +18,6 @@ const ActionBar = ({ actions = [], title = '' }) => (
     {actions.length && actions}
   </>
 );
-
 ActionBar.propTypes = propTypes;
 
 export default ActionBar;

@@ -47,7 +47,6 @@ const DataCheckbox = ({
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </label>
   );
-
   const renderDisplay = (
     <span>
       <span
@@ -60,7 +59,6 @@ const DataCheckbox = ({
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
     </span>
   );
-
   // Do not render an editable input if the module is not editable
   return (
     <ErrorBoundary>

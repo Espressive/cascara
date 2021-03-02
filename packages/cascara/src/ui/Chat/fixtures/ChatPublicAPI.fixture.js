@@ -65,7 +65,6 @@ const teamsChatInput = (
     <Button content='Post' />
   </Flex>
 );
-
 const ChatPublicAPI = (
   <ChatProvider inputComponent={teamsChatInput} isThemeSelectable>
     <Chat
@@ -75,19 +74,16 @@ const ChatPublicAPI = (
     />
   </ChatProvider>
 );
-
 const ChatNoUsers = (
   <ChatProvider>
     <Chat messages={getNormalizedMessages(convo1)} sessionUserID={3} />
   </ChatProvider>
 );
-
 const ChatNoMessages = (
   <ChatProvider isThemeSelectable>
     <Chat />
   </ChatProvider>
 );
-
 const TeamsChatExample = (
   <Provider style={{ height: '100vh' }} theme={teamsTheme}>
     <Provider style={{ height: '100%' }} theme={teamsCommentsTheme}>
@@ -104,8 +100,7 @@ const TeamsChatExample = (
     </Provider>
   </Provider>
 );
-
-/* eslint-disable sort-keys */
+/* eslint-disable sort-keys -- fixture export sorting not needed */
 export default {
   default: ChatPublicAPI,
   no_users: ChatNoUsers,

@@ -62,7 +62,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   const handleCancel = () => {
     isDirty
-      ? // eslint-disable-next-line no-alert, no-restricted-globals
+      ? // eslint-disable-next-line no-alert, no-restricted-globals -- for now we do not have confirmation dialogs
         confirm('Abandon unsaved changes?') && handleReset()
       : handleReset();
   };

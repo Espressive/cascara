@@ -10,13 +10,22 @@ module.exports = {
         'react/react-in-jsx-scope': 0,
       },
     },
-    {
-      files: ['**/fixtures/**/*.js'],
-      rules: {
-        'no-alert': 0,
-        'no-console': 0,
-      },
-    },
   ],
   root: true,
+  rules: {
+    // TODO: Remove each of these disabled rules and resolve the lint errors in separate PRs for each.
+    'import/named': 0,
+    'import/no-named-as-default': 0,
+    'import/no-named-as-default-member': 0,
+    'import/no-unresolved': 0,
+    'jest/no-done-callback': 0,
+    'no-prototype-builtins': 0,
+    'react/button-has-type': 0,
+    'react/display-name': 0,
+    'react/forbid-prop-types': 0,
+    'react/function-component-definition': 0,
+    'react/jsx-key': 0,
+    'react/jsx-no-bind': 0,
+    'react/prop-types': 0,
+  },
 };

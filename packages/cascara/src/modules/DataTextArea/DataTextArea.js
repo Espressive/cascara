@@ -33,7 +33,6 @@ const DataTextArea = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
 
   const renderEditing = (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label htmlFor={label}>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <Input
@@ -47,7 +46,6 @@ const DataTextArea = ({
       />
     </label>
   );
-
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
@@ -56,7 +54,6 @@ const DataTextArea = ({
       </span>
     </span>
   );
-
   // Do not render an editable input if the module is not editable
   return (
     <ErrorBoundary>

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import faker from 'faker';
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
@@ -77,10 +76,8 @@ const getValue = (data, config) => {
 const prepareRowData = (data, rowConfig) =>
   rowConfig.map((field) => getValue(data, field));
 
-/*
- * We will want to make this more robust to test multi-dimensional arrays and
- * then include it in the prepareFormData switch
- */
+// We will want to make this more robust to test multi-dimensional arrays and
+// then include it in the prepareFormData switch
 const isRow = (value) => {
   switch (typeof value[0]) {
     case 'undefined':
@@ -98,10 +95,8 @@ const prepareFormData = (data, config) => {
       // This case is actually for an object at the root of the array
       case 'undefined':
         return getValue(data, field);
-      /*
-       * This case is technically telling us we have an object at the first index
-       * which means we have a multi-dimensional array.
-       */
+      // This case is technically telling us we have an object at the first index
+      // which means we have a multi-dimensional array.
       case 'object':
         return prepareRowData(data, field);
       default:

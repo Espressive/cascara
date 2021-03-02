@@ -136,7 +136,6 @@ const Pagination = ({
     }));
 
   const itemsPerPageLimitSelect = () => (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label className={cx({ label: true })} htmlFor={'itemsPerPageLimit'}>
       {`${entityNamePlural} per page:`}
       <Select
@@ -151,9 +150,7 @@ const Pagination = ({
       />
     </label>
   );
-
   const pageSelect = () => (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label className={cx({ label: true })} htmlFor={'page'}>
       {'Page '}
       <Select
@@ -169,7 +166,6 @@ const Pagination = ({
       {` of ${availablePages} `}
     </label>
   );
-
   const backButton = (className) => (
     <Button
       basic
@@ -180,7 +176,6 @@ const Pagination = ({
       onClick={handleButtonClick}
     />
   );
-
   const forwardButton = (className) => (
     <Button
       basic
@@ -191,7 +186,6 @@ const Pagination = ({
       onClick={handleButtonClick}
     />
   );
-
   const header = (className) => (
     <Header
       className={cx({
@@ -213,7 +207,6 @@ const Pagination = ({
       )}
     </Header>
   );
-
   const footer = (className) => (
     <Header
       className={cx({
@@ -235,14 +228,12 @@ const Pagination = ({
       )}
     </Header>
   );
-
   const pageNavigation = (className) => (
     <div className={className}>
       {itemsPerPageLimitSelect()}
       {pageSelect()}
     </div>
   );
-
   const mobilePageNavigation = (
     <div className={cx({ mobilePageNav: true })}>
       {itemsPerPageLimitSelect()}
@@ -250,7 +241,6 @@ const Pagination = ({
       {pageSelect()}
     </div>
   );
-
   const mobileHeader = (
     <div className={cx({ mobileHeader: true })}>
       <Popup
@@ -262,7 +252,6 @@ const Pagination = ({
       />
     </div>
   );
-
   const mobileFooter = (
     <div className={cx({ mobileFooter: true })}>
       <Popup
@@ -274,7 +263,6 @@ const Pagination = ({
       />
     </div>
   );
-
   return (
     <ComponentType className={cx({ _: true })} {...rest}>
       {header(cx({ headerTotals: true }))}

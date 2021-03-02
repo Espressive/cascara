@@ -12,7 +12,6 @@ const DEFAULT_TRIGGER = (
     <b>⋯</b>
   </Button>
 );
-
 const propTypes = {
   actions: pt.arrayOf(pt.object).isRequired,
 };
@@ -24,11 +23,9 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
   const triggerRef = useRef();
 
   const menu = useMenuState({
-    /*
-     * This MUST be modal: true in order to render in a portal or else we
-     * will have problems with any menus rendered inside of positioned
-     * elements other than "relative"
-     */
+    // This MUST be modal: true in order to render in a portal or else we
+    // will have problems with any menus rendered inside of positioned
+    // elements other than "relative"
     modal: true,
     placement: 'bottom-end',
     preventBodyScroll: true,
@@ -49,7 +46,7 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
       <Menu
         {...menu}
         aria-label='Actions Menu'
-        className={'ui dropdown active visible ' + styles.ActionsMenu}
+        className={`ui dropdown active visible ${styles.ActionsMenu}`}
         tabIndex={0}
       >
         <div
@@ -66,7 +63,7 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
                 {...menu}
                 {...rest}
                 as='div'
-                className={'item ' + styles.ActionsMenuItem}
+                className={`item ${styles.ActionsMenuItem}`}
                 key={key}
                 onClick={() => handleMenuItemClick(rest)}
               >

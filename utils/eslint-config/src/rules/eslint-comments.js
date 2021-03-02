@@ -3,13 +3,15 @@
 // them below. If we are overriding a recommended rule, we should make a comment for
 // each rule.
 //
-// https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
+// https://github.com/mysticatea/eslint-plugin-eslint-comments
 
 module.exports = {
-  extends: 'plugin:jsx-a11y/strict',
-  plugins: ['jsx-a11y'],
+  extends: ['plugin:eslint-comments/recommended'],
   rules: {
-    // Disabling this rule which has been deprecated but is still in the strict set for some reason
-    'jsx-a11y/label-has-for': 0,
+    'eslint-comments/no-unused-disable': 'error',
+    'eslint-comments/require-description': [
+      'error',
+      { ignore: ['eslint-enable'] },
+    ],
   },
 };

@@ -8,10 +8,8 @@ const getCurrentPlatform = () => {
 
   for (const platform in platforms) {
     if (platforms[platform]) {
-      /*
-       * Once we match a platform we return and do not test any other platforms,
-       * so the order of the `platforms` object is potentially important.
-       */
+      // Once we match a platform we return and do not test any other platforms,
+      // so the order of the `platforms` object is potentially important.
       pf = platform;
       return pf;
     }

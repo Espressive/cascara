@@ -22,17 +22,14 @@ const MODULE_MESSAGE = (
     </p>
   </blockquote>
 );
-
 const Doc = ({ mdxDirSource }) => {
   // const [activeDoc, setActiveDoc] = useState(0);
   const router = useRouter();
 
   const activeSource = mdxDirSource[router?.query?.doc || 0];
 
-  /*
-   * Set the query parameter to 0 if none is set and make
-   * sure we are doing this as a replace() in history
-   */
+  // Set the query parameter to 0 if none is set and make
+  // sure we are doing this as a replace() in history
   useEffect(() => {
     if (router?.query?.doc === undefined) {
       router.replace(
@@ -125,11 +122,9 @@ export const getStaticPaths = async () => {
   tree.forEach((element) => {
     const { name, children } = element;
     children.forEach((child) => {
-      /*
-       * We only want a static path for directories that have files in them.
-       * Technically the file size returned is based on the files being filtered
-       * in getMDXTree() which are only MDX files at this time.
-       */
+      // We only want a static path for directories that have files in them.
+      // Technically the file size returned is based on the files being filtered
+      // in getMDXTree() which are only MDX files at this time.
       if (child.type === 'directory' && child.size > 0) {
         staticPaths.push({ params: { mdx: [name, child.name] } });
       }
@@ -143,10 +138,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  /*
-   * Any deps needed for getStaticProps should be declared as requirements
-   * here instead of at the top of a file
-   */
+  // Any deps needed for getStaticProps should be declared as requirements
+  // here instead of at the top of a file
   const matter = require('gray-matter');
   const reactDocgen = require('react-docgen');
   const path = require('path');
@@ -155,17 +148,13 @@ export const getStaticProps = async ({ params }) => {
 
   const mdxDir = getMDXDirFiles(params);
 
-  /*
-   * We need to make sure this is only actual files and not a directory
-   * so we are filtering it to make sure the size of the file is not zero.
-   */
+  // We need to make sure this is only actual files and not a directory
+  // so we are filtering it to make sure the size of the file is not zero.
   const mdxDirFiles = mdxDir.filter((file) => file.size > 0 && file);
 
-  /*
-   * This needs to be async or it will blow up since `next-mdx-remote` is
-   * asyncrhonously getting all MDX files and rendering them to string.
-   * Without the Promise.all pattern this will blow up on us.
-   */
+  // This needs to be async or it will blow up since `next-mdx-remote` is
+  // asyncrhonously getting all MDX files and rendering them to string.
+  // Without the Promise.all pattern this will blow up on us.
 
   const mdxDirSource = await Promise.all(
     mdxDirFiles.map(async (file) => {

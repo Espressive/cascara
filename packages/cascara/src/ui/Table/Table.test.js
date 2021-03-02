@@ -525,76 +525,64 @@ describe('Table', () => {
       );
     });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
-    /*
-     * test('actions with non-existent module', () => {
-     *   const wrongModuleName = 'Superdooper';
-     *   render(
-     *     <Table
-     *       data={data}
-     *       dataConfig={{
-     *         ...dataConfig,
-     *         actions: [
-     *           {
-     *             content: 'view',
-     *             'data-testid': 'view',
-     *             isLabeled: false,
-     *             module: wrongModuleName,
-     *             name: 'view',
-     *             size: 'small',
-     *           },
-     *         ],
-     *       }}
-     *       uniqueIdAttribute={'eid'}
-     *     />
-     *   );
-     */
+    // eslint-disable-next-line jest/no-commented-out-tests -- TODO: Find way to have tests for these error scenarios
+    // test('actions with non-existent module', () => {
+    //   const wrongModuleName = 'Superdooper';
+    //   render(
+    //     <Table
+    //       data={data}
+    //       dataConfig={{
+    //         ...dataConfig,
+    //         actions: [
+    //           {
+    //             content: 'view',
+    //             'data-testid': 'view',
+    //             isLabeled: false,
+    //             module: wrongModuleName,
+    //             name: 'view',
+    //             size: 'small',
+    //           },
+    //         ],
+    //       }}
+    //       uniqueIdAttribute={'eid'}
+    //     />
+    //   );
 
-    /*
-     *   const moduleError = screen.findByText(
-     *     `${wrongModuleName} is not a valid value for module. Try using one of [button, edit]`
-     *   );
-     */
+    //   const moduleError = screen.findByText(
+    //     `${wrongModuleName} is not a valid value for module. Try using one of [button, edit]`
+    //   );
 
-    /*
-     *   expect(moduleError).toBeTruthy();
-     * });
-     */
+    //   expect(moduleError).toBeTruthy();
+    // });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
-    /*
-     * test('columns with non-existent module', () => {
-     *   const wrongModuleName = 'Superdooper';
-     *   render(
-     *     <Table
-     *       data={data}
-     *       dataConfig={{
-     *         ...dataConfig,
-     *         display: [
-     *           {
-     *             attribute: 'active',
-     *             'data-testid': 'active',
-     *             isEditable: true,
-     *             isLabeled: false,
-     *             label: 'Active',
-     *             module: wrongModuleName,
-     *           },
-     *         ],
-     *       }}
-     *       uniqueIdAttribute={'eid'}
-     *     />
-     *   );
-     */
+    // eslint-disable-next-line jest/no-commented-out-tests -- TODO: Find way to have tests for these error scenarios
+    // test('columns with non-existent module', () => {
+    //   const wrongModuleName = 'Superdooper';
+    //   render(
+    //     <Table
+    //       data={data}
+    //       dataConfig={{
+    //         ...dataConfig,
+    //         display: [
+    //           {
+    //             attribute: 'active',
+    //             'data-testid': 'active',
+    //             isEditable: true,
+    //             isLabeled: false,
+    //             label: 'Active',
+    //             module: wrongModuleName,
+    //           },
+    //         ],
+    //       }}
+    //       uniqueIdAttribute={'eid'}
+    //     />
+    //   );
 
-    /*
-     *   const moduleError = screen.findByText(
-     *     `${wrongModuleName} is not a valid value for module. Try using one of [button, edit]`
-     *   );
-     */
+    //   const moduleError = screen.findByText(
+    //     `${wrongModuleName} is not a valid value for module. Try using one of [button, edit]`
+    //   );
 
-    /*
-     *   expect(moduleError).toBeTruthy();
-     * });
-     */
+    //   expect(moduleError).toBeTruthy();
+    // });
   });
 });

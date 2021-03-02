@@ -57,7 +57,6 @@ const ChatOptions = ({
     />
   </Animation>
 );
-
 ChatOptions.displayName = 'Chat.Options';
 ChatOptions.propTypes = propTypes;
 
@@ -74,16 +73,14 @@ const getChatOptionsObj = (obj) => {
 
   validateMessageObj(objPropTypes, obj, ChatOptions.displayName);
 
-  /*
-   * NOTE: We are returning an array of objects here. This works because Chat will do a flatMap
-   * on all arrays and return their objects.
-   */
+  // NOTE: We are returning an array of objects here. This works because Chat will do a flatMap
+  // on all arrays and return their objects.
   return [
     // This is getting a ChatMessage object and returning it to display "text" before our buttons
     getChatMessageObj(obj),
     {
       ...getSharedMessageKeys(obj),
-      key: message.id + '_buttons',
+      key: `${message.id}_buttons`,
       message: (
         <Ref id={message.id} innerRef={ref}>
           <ChatOptions

@@ -45,7 +45,6 @@ const DataNumber = ({
       />
     </label>
   );
-
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
@@ -54,7 +53,6 @@ const DataNumber = ({
       </span>
     </span>
   );
-
   // Do not render an editable input if the module is not editable
   return (
     <ErrorBoundary>

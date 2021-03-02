@@ -26,7 +26,6 @@ const DefaultErrorTemplate = ({
     {...rest}
   />
 );
-
 DefaultErrorTemplate.propTypes = {
   error: PropTypes.instanceOf(Error),
   errorInfo: PropTypes.shape({
