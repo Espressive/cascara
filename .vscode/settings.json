@@ -2,6 +2,9 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "files.associations": {
+    "**/package.json": "plaintext"
+  },
   "[mdx]": {
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "same"

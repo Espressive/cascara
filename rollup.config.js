@@ -43,7 +43,7 @@ const getPostCSSOptions = () => ({
 const external = (id) => !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
-export const getRollupConfig = ({ pwd, babelConfigFile }) => {
+const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const SOURCE_DIR = path.resolve(pwd);
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
@@ -107,3 +107,5 @@ export const getRollupConfig = ({ pwd, babelConfigFile }) => {
 
   return [cjsConfig, esConfig];
 };
+
+export default getRollupConfig;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import CheckBox from '../../Checkbox';
-import TableContext from '../context';
+import TableContext from '../context/TableContext';
 
 const SelectionToggle = ({ id }) => {
   const {
