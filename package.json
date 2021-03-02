@@ -1,23 +1,47 @@
 {
   "name": "cascara",
   "version": "0.1.0",
+  "private": true,
   "description": "Espressive's Functional Design System",
   "repository": "https://github.com/Espressive/cascara.git",
-  "author": "Brian Espinosa <brian@espressive.com>",
   "license": "CC0-1.0",
-  "private": true,
-  "engines": {
-    "node": "12.x"
-  },
-  "resolutions": {
-    "ast-types": "^0.14.0"
-  },
+  "author": "Brian Espinosa <brian@espressive.com>",
   "workspaces": {
     "packages": [
       "docs",
       "packages/*",
       "utils/*"
     ]
+  },
+  "scripts": {
+    "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
+    "cascara": "yarn workspace @espressive/cascara",
+    "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
+    "cosmos": "npx react-cosmos --config .cosmos/config.json",
+    "docs": "yarn workspace docs",
+    "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
+    "framer:publish": "dotenv npx framer-cli publish",
+    "lint": "eslint ./",
+    "test:watch": "yarn test --watch",
+    "test": "jest",
+    "tokens": "style-dictionary build -c ./tokens.config.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,mdx,html,css,scss}": [
+      "prettier --write"
+    ]
+  },
+  "resolutions": {
+    "ast-types": "^0.14.0"
   },
   "devDependencies": {
     "@babel/core": "7.10.5",
@@ -80,31 +104,7 @@
     "typescript": "4.0.2",
     "yalc": "1.0.0-pre.42"
   },
-  "scripts": {
-    "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
-    "cascara": "yarn workspace @espressive/cascara",
-    "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
-    "cosmos": "npx react-cosmos --config .cosmos/config.json",
-    "docs": "yarn workspace docs",
-    "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
-    "framer:publish": "dotenv npx framer-cli publish",
-    "lint": "eslint ./",
-    "test:watch": "yarn test --watch",
-    "test": "jest",
-    "tokens": "style-dictionary build -c ./tokens.config.json"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{md,mdx,html,css,scss}": [
-      "prettier --write"
-    ]
+  "engines": {
+    "node": "12.x"
   }
 }
