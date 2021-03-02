@@ -1505,7 +1505,7 @@
   integrity sha512-0o4l6pZC+hI88+bzuaX/6BgOvQVhbt2PfmxauVaYOGgbsAw14wdKyvMCZXnsnsHys94iadcF+RG/wZyx6+ZZBw==
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.3.0"
+  version "0.3.3"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@nivo/bar" "0.61.0"
@@ -1523,8 +1523,12 @@
     react-textarea-autosize "8.2.0"
     reakit next
 
+"@espressive/eslint-config@link:./utils/eslint-config":
+  version "0.0.0"
+  uid ""
+
 "@espressive/legacy-css@file:utils/legacy-css":
-  version "2.0.1"
+  version "2.0.2"
 
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
