@@ -83,7 +83,7 @@ const Table = ({
   // // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
   let modules = actions?.modules;
-  let resolveRecordActions = actions?.resolveRecordActions;
+  const resolveRecordActions = actions?.resolveRecordActions;
 
   // old action props
   const unwantedActions = dataConfig?.actions;

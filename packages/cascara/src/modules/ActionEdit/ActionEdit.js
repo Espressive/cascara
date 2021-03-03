@@ -34,9 +34,9 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   // this seems like ugly, we need to find a better way
   // to ease testing..
-  let cancelTestId = {};
-  let editTestId = {};
-  let saveTestId = {};
+  const cancelTestId = {};
+  const editTestId = {};
+  const saveTestId = {};
 
   if (typeof dataTestIDs === 'object') {
     cancelTestId['data-testid'] = dataTestIDs['cancel'];

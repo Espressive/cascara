@@ -18,7 +18,7 @@ const InfoPopover = ({ message, style }) => {
     <>
       <PopoverDisclosure
         {...popover}
-        className={styles.Disclosure + ' ui small basic circular icon button'}
+        className={`${styles.Disclosure} ui small basic circular icon button`}
         style={style}
       >
         <i aria-hidden='true' className='info icon' />
