@@ -74,6 +74,8 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+      - store_artifacts:
+          path: ./node_modules # check to see why we do not have @espressive/cascara
       - save_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
           paths:

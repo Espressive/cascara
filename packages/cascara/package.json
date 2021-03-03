@@ -17,7 +17,7 @@
   "scripts": {
     "build": "yarn clean && rollup -c",
     "clean": "rm -rf dist && rm -rf undefined",
-    "prepublish": "yarn build",
+    "prepare": "yarn build",
     "watch": "rollup -c -w"
   },
   "dependencies": {
