@@ -54,7 +54,7 @@ const ALL_DATA_MODULES = (
     <DataNumber label='Number' value={2354} />
     <DataSelect label='Select' options={options} value='Washington' />
     <DataText label='Text' value={lorem} />
-    <DataCheckbox label='Checkbox A' value={true} />
+    <DataCheckbox label='Checkbox A' value />
     {/* {<DataRadio label='Radio' options={boolOptions} />} */}
     <DataTextArea label='TextArea' value={lorem} />
   </>
@@ -93,7 +93,7 @@ const fakeRow = (
       <DataText isLabeled={false} label='Text' value='I like cats.' />
     </td>
     <td className={tableStyles.Cell}>
-      <DataCheckbox isLabeled={false} label='Checkbox' value={true} />
+      <DataCheckbox isLabeled={false} label='Checkbox' value />
     </td>
     {/* {<td className={tableStyles.Cell}>
       <DataRadio isLabeled={false} label='Radio' value='Cats' />
