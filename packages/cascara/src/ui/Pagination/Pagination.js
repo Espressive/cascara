@@ -40,16 +40,16 @@ const Pagination = ({
   currentPage = 1,
   ...rest
 }) => {
-  /**
-   * Handles pagination changes
-   *
-   * This function updates the pagination values
-   * and invokes upstream logic to handle the change.
-   *
-   * @param {Event} _ Usually the click event
-   * @param {Object} component Component object passed by SUIR
-   * @param {String} component.name The name of the component
-   * @param {Any} component.value The new value in the component */
+  //
+  // Handles pagination changes
+  //
+  // This function updates the pagination values
+  // and invokes upstream logic to handle the change.
+  //
+  // @param {Event} _ Usually the click event
+  // @param {Object} component Component object passed by SUIR
+  // @param {String} component.name The name of the component
+  // @param {Any} component.value The new value in the component
   const handlePaginationChange = (_, component) => {
     let newPage = currentPage;
     let newitemsPerPageLimit = itemsPerPageLimit;
@@ -73,15 +73,15 @@ const Pagination = ({
     });
   };
 
-  /**
-   * Handles button's click event
-   *
-   * This handler decides wether to increase or decrease page
-   * based on button name. It acts as a proxy for `handlePaginationChange`
-   *
-   * @param {Event} _ Usually the click event
-   * @param {Object} component Component object passed by SUIR
-   * @param {String} component.name The name of the component */
+  //
+  // Handles button's click event
+  //
+  // This handler decides wether to increase or decrease page
+  // based on button name. It acts as a proxy for `handlePaginationChange`
+  //
+  // @param {Event} _ Usually the click event
+  // @param {Object} component Component object passed by SUIR
+  // @param {String} component.name The name of the component
   const handleButtonClick = (_, button) => {
     let newPage = currentPage;
 

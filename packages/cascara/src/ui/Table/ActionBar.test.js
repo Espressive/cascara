@@ -9,8 +9,8 @@ const ACTION_MODULES = {
 };
 
 describe('ActionBar', () => {
-  /**
-   * */
+  //
+  //
   describe('component tree', () => {
     const actions = [
       {
@@ -33,9 +33,9 @@ describe('ActionBar', () => {
       const { module, ...rest } = action;
       const Action = ACTION_MODULES[module];
 
-      /**
-       * In certain predefined-action modules in which a label is not required, e.g. `edit`,
-       * the following unique key generation fails, as it relies on the label (content). */
+      //
+      // In certain predefined-action modules in which a label is not required, e.g. `edit`,
+      // the following unique key generation fails, as it relies on the label (content).
       const key = `${module}.${rest.label || module}`;
 
       return <Action key={key} {...rest} />;
