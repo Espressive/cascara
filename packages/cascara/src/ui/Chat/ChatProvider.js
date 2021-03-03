@@ -72,6 +72,10 @@ const propTypes = {
 const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
   const [theme, setTheme] = useState(items[DEFAULT_THEME_INDEX].value);
 
+  function handleDropdownChange(e, data) {
+    setTheme(data.value.value);
+  }
+
   return (
     <Provider theme={themes[theme]}>
       <Flex column gap='gap.small' style={{ maxHeight: '100vh' }}>
@@ -83,7 +87,7 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
               items={items.map((option) => ({
                 ...option,
               }))}
-              onChange={(e, data) => setTheme(data.value.value)}
+              onChange={handleDropdownChange}
               placeholder='Select a theme'
             />
           </div>
