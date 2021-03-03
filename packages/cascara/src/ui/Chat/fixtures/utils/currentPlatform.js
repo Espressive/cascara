@@ -1,5 +1,5 @@
 const platforms = {
-  cordova: Boolean(window.hasOwnProperty('cordova')),
+  cordova: Boolean(Object.prototype.hasOwnProperty.call(window, 'cordova')),
   electron: Boolean(process.versions['electron']),
 };
 

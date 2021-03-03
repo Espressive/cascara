@@ -84,7 +84,7 @@ const Chat = ({ sessionUserID, messages, users }) => {
     const isTranslated = Boolean(msg.isTranslated); // This can probably get cleaned up later.
 
     // Only return if we have a defined component for this type
-    return Boolean(getMessageObject)
+    return getMessageObject
       ? getMessageObject({
           attached: getMessageGroup(msg, previousMessage, nextMessage),
           handleScrollToBottom,

@@ -32,9 +32,8 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   const recordId = record[uniqueIdAttribute];
   const whenAnotherRowIsEditing = Boolean(idOfRecordInEditMode);
 
-  /**
-   * this seems like ugly, we need to find a better way
-   * to ease testing.. */
+  // this seems like ugly, we need to find a better way
+  // to ease testing..
   let cancelTestId = {};
   let editTestId = {};
   let saveTestId = {};
@@ -61,15 +60,14 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
 
   const handleCancel = () => {
     isDirty
-      ? // eslint-disable-next-line no-restricted-globals
+      ? // eslint-disable-next-line no-restricted-globals, no-alert -- For now we do not have our own confirmation dialog so we are using native confirms
         confirm('Abandon unsaved changes?') && handleReset()
       : handleReset();
   };
 
   const handleEdit = () => {
-    /**
-     * FDS-91: We are resetting the form with whatever is in record.
-     * We don't know if this is the best way to do it in React. */
+    // FDS-91: We are resetting the form with whatever is in record.
+    // We don't know if this is the best way to do it in React.
     reset({ ...record });
     onAction(
       // fake target
