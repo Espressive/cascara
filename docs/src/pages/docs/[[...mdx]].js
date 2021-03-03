@@ -118,7 +118,7 @@ const Doc = ({ mdxDirSource }) => {
 export const getStaticPaths = async () => {
   const tree = getMDXTree();
 
-  let staticPaths = [];
+  const staticPaths = [];
 
   tree.forEach((element) => {
     const { name, children } = element;

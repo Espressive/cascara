@@ -27,12 +27,12 @@ const getPostCSSOptions = () => ({
   modules: {
     generateScopedName: function (name, filename, css) {
       const path = require('path');
-      const file = path.basename(filename).split('.')[0];
+      const [file] = path.basename(filename).split('.');
       const hash = isDevelopment(process)
         ? 'DEV_MODE'
         : stringHash(css).toString(36).substr(0, 5);
 
-      return '☕️_' + file + '_' + name + '__' + hash;
+      return `☕️_${file}_${name}__${hash}`;
     },
   },
   use: ['sass'],
