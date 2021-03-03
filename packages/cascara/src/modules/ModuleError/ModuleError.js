@@ -4,7 +4,7 @@ import styles from '../DataModule.module.scss';
 
 const propTypes = {
   moduleName: pt.string.isRequired,
-  moduleOptions: pt.array.isRequired,
+  moduleOptions: pt.arrayOF(pt.shape()).isRequired,
 };
 
 const ModuleError = ({ moduleName, moduleOptions }) => {

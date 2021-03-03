@@ -11,6 +11,7 @@ const cx = classNames.bind(styles);
 const propTypes = {
   /** Can render as a different tag or component */
   as: pt.oneOfType([pt.string, pt.node]),
+  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
   /** current page */
   currentPage: pt.number,
   /** entity name in plural form */
@@ -23,6 +24,8 @@ const propTypes = {
   itemsPerPageLimit: pt.number,
   /** a message to be displayed when no items to display */
   notFoundMessage: pt.string,
+  /** a function to handle pagination changes */
+  onPaginationChange: pt.func,
   /** the items collection length */
   recordCount: pt.number,
 };

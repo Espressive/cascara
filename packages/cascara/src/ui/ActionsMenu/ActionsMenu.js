@@ -15,6 +15,7 @@ const DEFAULT_TRIGGER = (
 
 const propTypes = {
   actions: pt.arrayOf(pt.object).isRequired,
+  trigger: pt.element,
 };
 
 const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {

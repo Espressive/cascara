@@ -17,7 +17,13 @@ const propTypes = {
   handleDownloadAttachment: pt.func.isRequired,
   handleScrollToBottom: pt.func.isRequired,
   isSessionUser: pt.bool,
-  metadata: pt.object.isRequired,
+  metadata: pt.shape({
+    url: pt.string,
+    size: pt.oneOf([pt.number, pt.string]),
+    width: pt.number,
+    height: pt.number,
+    type: pt.string,
+  }).isRequired,
   timestamp: pt.string.isRequired,
 };
 

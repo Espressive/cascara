@@ -4,7 +4,7 @@ module.exports = {
   extends: ['@espressive', 'prettier'], // prettier must be last so we override any rules that potentially conflict with Prettier
   overrides: [
     {
-      files: ['**/next-*/**/*', 'docs/**/*'],
+      files: ['**/next-*/**`/*', 'docs/**/*'],
       rules: {
         'jsx-a11y/anchor-is-valid': 0,
         'react/react-in-jsx-scope': 0,
@@ -19,11 +19,9 @@ module.exports = {
     'eslint-comments/no-unused-disable': 0,
     'eslint-comments/require-description': 0,
     'jest/no-done-callback': 0,
-    'react/forbid-prop-types': 0,
     'react/jsx-key': 0,
     'react/jsx-no-bind': 0,
     'react/no-unknown-property': 0,
-    'react/prop-types': 0,
     'sort-imports': 0,
     'sort-keys': 0,
   },

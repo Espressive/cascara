@@ -1,8 +1,20 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import pt from 'prop-types';
 
 const TableContext = React.createContext();
 
-export const TableContextProvider = ({ data, dataConfig, children }) => {
+const propTypes = {
+  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  data: pt.arrayOf(pt.shape({})),
+  dataConfig: pt.shape({
+    actions: pt.arrayOf(pt.shape({})),
+    bulkActions: pt.arrayOf(pt.shape({})),
+    uniqueIdAttribute: pt.string,
+  }),
+  value: pt.shape({}),
+};
+
+const TableContextProvider = ({ children, data, dataConfig }) => {
   const { actions = [], bulkActions = [], uniqueIdAttribute } = dataConfig;
   const selectionIsEnabled = bulkActions.length > 0;
 
@@ -75,4 +87,7 @@ export const TableContextProvider = ({ data, dataConfig, children }) => {
   );
 };
 
+TableContextProvider.propTypes = propTypes;
+
+export { TableContextProvider };
 export default TableContext;

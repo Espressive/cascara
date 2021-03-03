@@ -1,8 +1,12 @@
-import '@espressive/legacy-css';
-import '../styles/_app.scss';
+import React from 'react';
+import pt from 'prop-types';
 import Head from 'next/head';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+
+import '@espressive/legacy-css';
+import '../styles/_app.scss';
+
 import { Admin } from '@espressive/cascara';
 import { Header, Main, Nav, PropTable } from '../components';
 
@@ -12,6 +16,13 @@ import { Header, Main, Nav, PropTable } from '../components';
 // that the tag is changing. Below the viewport tag does not have a key added
 // because that should never be changed. But the description does have a key
 // since we will possibly want to change that on a per-page basis.
+
+const propTypes = {
+  Component: pt.string,
+  pageProps: pt.shape({
+    mdxDirSource: pt.shape({}),
+  }),
+};
 
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -63,5 +74,7 @@ const MyApp = ({ Component, pageProps }) => {
     </>
   );
 };
+
+MyApp.propTypes = propTypes;
 
 export default MyApp;

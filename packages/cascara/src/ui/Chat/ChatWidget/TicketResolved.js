@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import pt from 'prop-types';
+
 import { Card, Flex, RadioGroup, Text } from '@fluentui/react-northstar';
 import ChatAvatar from '../ChatAvatar';
 
@@ -20,7 +22,9 @@ const SURVEY_OPTIONS = [
   },
 ];
 
-const propTypes = {};
+const propTypes = {
+  value: pt.shape({}),
+};
 
 const TicketResolved = () => {
   const [surveyResponse, setSurveyResponse] = useState();

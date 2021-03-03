@@ -1,12 +1,13 @@
 import React from 'react';
+import pt from 'prop-types';
+import { Popover, PopoverDisclosure, usePopoverState } from 'reakit/Popover';
+
 import styles from './InfoPopover.module.scss';
 
-import {
-  Popover,
-  // PopoverArrow,
-  PopoverDisclosure,
-  usePopoverState,
-} from 'reakit/Popover';
+const propTypes = {
+  message: pt.string,
+  style: pt.shape(),
+};
 
 const InfoPopover = ({ message, style }) => {
   const popover = usePopoverState({
@@ -34,5 +35,7 @@ const InfoPopover = ({ message, style }) => {
     </>
   );
 };
+
+InfoPopover.propTypes = propTypes;
 
 export default InfoPopover;

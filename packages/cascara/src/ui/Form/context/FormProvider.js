@@ -1,6 +1,13 @@
 import React from 'react';
-import { ModuleContext, ModuleProvider } from '../../../modules/context';
+import pt from 'prop-types';
 import { useForm } from 'react-hook-form';
+
+import { ModuleContext, ModuleProvider } from '../../../modules/context';
+
+const propTypes = {
+  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  value: pt.shape({}),
+};
 
 const FormProvider = ({ children, value, ...props }) => {
   const formMethods = useForm();
@@ -23,5 +30,7 @@ const FormProvider = ({ children, value, ...props }) => {
     </ModuleProvider>
   );
 };
+
+FormProvider.propTypes = propTypes;
 
 export default FormProvider;
