@@ -13,6 +13,9 @@
     "index.js",
     "src"
   ],
+  "scripts": {
+    "prepare": "echo 'No prepare scripts for this package'"
+  },
   "dependencies": {
     "eslint-config-react-app": "6.0.0",
     "eslint-plugin-json-format": "2.0.1"
@@ -34,9 +37,6 @@
   },
   "engines": {
     "node": "^10.12.0 || >=12.0.0"
-  },
-  "scripts": {
-    "prepare": "echo 'No prepare scripts for this package'"
   },
   "publishConfig": {
     "access": "public",

@@ -32,9 +32,12 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx,json}": [
       "eslint --fix",
       "prettier --write"
+    ],
+    "package.json": [
+      "eslint --fix"
     ],
     "*.{md,mdx,html,css,scss}": [
       "prettier --write"
