@@ -200,7 +200,9 @@ const FormPublicAPI = ({ data, dataConfig }) => {
         })}
         <div style={{ margin: '1em', textAlign: 'right' }}>
           {prepareFormData(data, dataConfig).actions.map((action, i) => (
-            <button key={i}>{action.label}</button>
+            <button key={i} type='button'>
+              {action.label}
+            </button>
           ))}
         </div>
       </div>

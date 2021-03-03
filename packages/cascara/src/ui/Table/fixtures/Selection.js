@@ -90,7 +90,9 @@ const Table = () => {
         }}
       >
         {bulkActions?.map((action) => (
-          <button key={action.label}>{action.label}</button>
+          <button key={action.label} type='button'>
+            {action.label}
+          </button>
         ))}
       </div>
     </caption>
@@ -108,7 +110,9 @@ const Table = () => {
         [
           <td>
             {actions.map((action) => (
-              <button key={action.label}>{action.label}</button>
+              <button key={action.label} type='button'>
+                {action.label}
+              </button>
             ))}
           </td>,
         ]

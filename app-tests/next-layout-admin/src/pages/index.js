@@ -3,7 +3,7 @@ import pkg from '../../package';
 
 import { Admin } from '@espressive/cascara';
 
-export default function Home() {
+const Home = () => {
   return (
     <Admin>
       <Head>
@@ -20,4 +20,6 @@ export default function Home() {
       <Admin.Main>{'Admin.Main'}</Admin.Main>
     </Admin>
   );
-}
+};
+
+export default Home;

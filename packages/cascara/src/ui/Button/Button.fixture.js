@@ -31,7 +31,9 @@ export default {
   fluid: (
     <div>
       <Button content='Fluid' fluid />
-      <button className='ui primary fluid button'>Hello</button>
+      <button className='ui primary fluid button' type='button'>
+        Hello
+      </button>
     </div>
   ),
   positive: <Button content='Positive' outcome='positive' />,
