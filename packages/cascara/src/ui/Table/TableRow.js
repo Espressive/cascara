@@ -35,21 +35,26 @@ const propTypes = {
 const TableRow = ({ config = {}, record = {} }) => {
   const { id, columns } = config;
   const {
-    dataConfig: { actionButtonMenuIndex = 0, actions: userDefinedActions = [] },
+    resolveRecordActions,
+    actionButtonMenuIndex = 0,
+    modules: userDefinedModules = [],
   } = useContext(ModuleContext);
+
+  // FDS-142: If a resolver is passed, get actions from it
+  const actions = resolveRecordActions
+    ? resolveRecordActions(record, userDefinedModules)
+    : userDefinedModules; // otherwise continue as normal
+
   const outsideButtonActions = [];
   const insideButtonActions = [];
-  userDefinedActions
+  actions
     .filter(({ module }) => module === 'button')
     .map((action, index) =>
       index >= actionButtonMenuIndex
         ? insideButtonActions.push(action)
         : outsideButtonActions.push(action)
     );
-  const specialActions = userDefinedActions.filter(
-    ({ module }) => module !== 'button'
-  );
-
+  const specialActions = actions.filter(({ module }) => module !== 'button');
   const outsideActions = [...specialActions, ...outsideButtonActions];
 
   const renderActionModule = (action, index) => {
@@ -68,7 +73,7 @@ const TableRow = ({ config = {}, record = {} }) => {
     );
   };
 
-  const actions = (
+  const rowActions = (
     <td className={styles.CellActions} key={`${id}-actionbar`}>
       {outsideActions.map(renderActionModule)}
       {Boolean(insideButtonActions.length) ? (
@@ -93,8 +98,8 @@ const TableRow = ({ config = {}, record = {} }) => {
     );
   });
 
-  if (userDefinedActions.length) {
-    rowCells.push(actions);
+  if (userDefinedModules.length) {
+    rowCells.push(rowActions);
   }
 
   return (
