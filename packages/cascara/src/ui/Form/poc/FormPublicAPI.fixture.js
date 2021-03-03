@@ -105,7 +105,7 @@ const prepareFormData = (data, config) => {
     }
   });
 
-  const actions = dataConfig.actions;
+  const { actions } = dataConfig;
 
   return {
     actions,

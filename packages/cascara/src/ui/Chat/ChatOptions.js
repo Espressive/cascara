@@ -81,7 +81,7 @@ const getChatOptionsObj = (obj) => {
     getChatMessageObj(obj),
     {
       ...getSharedMessageKeys(obj),
-      key: message.id + '_buttons',
+      key: `${message.id}_buttons`,
       message: (
         <Ref id={message.id} innerRef={ref}>
           <ChatOptions

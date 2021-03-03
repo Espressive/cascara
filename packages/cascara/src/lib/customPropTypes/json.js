@@ -5,11 +5,7 @@ const json = (props, propName, componentName) => {
     JSON.parse(props[propName]);
   } catch (e) {
     return new Error(
-      'Invalid prop `' +
-        propName +
-        '` supplied to `' +
-        componentName +
-        '`. Validation failed.'
+      `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Validation failed.`
     );
   }
 };
