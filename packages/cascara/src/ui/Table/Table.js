@@ -24,18 +24,18 @@ const propTypes = {
       })
     ),
 
-    /** Resolve record actions.
-     * A function that returns the actions available to the current row */
+    // Resolve record actions.
+    // A function that returns the actions available to the current row
     resolveRecordActions: pt.func,
   }),
 
-  /** An array of objects.
-   *
-   * Every object in this array will potencially be rendered as a table row. */
+  // An array of objects.
+  //
+  // Every object in this array will potencially be rendered as a table row.
   data: pt.arrayOf(pt.shape({})),
 
-  /** The main configuration for your table. Here you can specify the columns to display
-   * as well as the available actions (if any) for each row. */
+  // The main configuration for your table. Here you can specify the columns to display
+  // as well as the available actions (if any) for each row.
   dataConfig: pt.shape({
     actionButtonMenuIndex: pt.number,
 
@@ -54,18 +54,18 @@ const propTypes = {
     ),
   }),
 
-  /** Event handler.
-   *
-   * An event handler you can pass to handle every event your table emits.*/
+  // Event handler.
+  //
+  // An event handler you can pass to handle every event your table emits.
   onAction: pt.func,
 
-  /** Resolve record actions.
-   * A function that returns the actions available to the current row */
+  // Resolve record actions.
+  // A function that returns the actions available to the current row
   resolveRecordActions: pt.func,
 
-  /** Unique ID Attribute.
-   *
-   * specifies the attribute that uniquely identifies every object in the 'data' array. */
+  // Unique ID Attribute.
+  //
+  // specifies the attribute that uniquely identifies every object in the 'data' array.
   uniqueIdAttribute: pt.string,
 };
 

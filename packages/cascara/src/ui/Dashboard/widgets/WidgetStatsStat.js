@@ -17,8 +17,8 @@ const WidgetStatsStat = ({ onClick, label, value, sub }) => {
   return (
     <Clickable
       as='div'
-      className={Boolean(onClick) ? styles.ClickableStat : styles.Stat}
-      disabled={!Boolean(onClick)}
+      className={onClick ? styles.ClickableStat : styles.Stat}
+      disabled={!onClick}
       focusable={Boolean(onClick)}
       key={label}
       onClick={onClick}
