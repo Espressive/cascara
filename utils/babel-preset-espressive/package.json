@@ -12,6 +12,9 @@
     "index.js",
     "src"
   ],
+  "scripts": {
+    "prepare": "echo 'No prepare scripts for this package'"
+  },
   "dependencies": {
     "@babel/cli": "7.12.1",
     "@babel/core": "7.12.3",

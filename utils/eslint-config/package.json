@@ -35,6 +35,9 @@
   "engines": {
     "node": "^10.12.0 || >=12.0.0"
   },
+  "scripts": {
+    "prepare": "echo 'No prepare scripts for this package'"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com/"

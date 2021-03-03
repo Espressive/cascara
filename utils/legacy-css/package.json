@@ -12,6 +12,9 @@
   "files": [
     "src"
   ],
+  "scripts": {
+    "prepare": "echo 'No prepare scripts for this package'"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com/"
