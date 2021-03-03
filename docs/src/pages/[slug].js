@@ -5,7 +5,7 @@ import getMDXTree from '../lib/getMDXTree';
 import MDX_COMPONENTS from '../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../lib/MDX_OPTIONS';
 
-export default function PostPage({ source, frontMatter }) {
+const PostPage = ({ source, frontMatter }) => {
   const content = hydrate(source, { components: MDX_COMPONENTS });
   return (
     <div style={{ maxWidth: '60em' }}>
@@ -26,9 +26,9 @@ export default function PostPage({ source, frontMatter }) {
       {content}
     </div>
   );
-}
+};
 
-export const getStaticPaths = async () => {
+const getStaticPaths = async () => {
   const paths = postFilePaths
     // Do not generate a path for the index file
     .filter((path) => path !== 'index.mdx')
@@ -43,7 +43,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+const getStaticProps = async ({ params }) => {
   const fs = require('fs');
   const path = require('path');
   const matter = require('gray-matter');
@@ -80,3 +80,7 @@ export const getStaticProps = async ({ params }) => {
     },
   };
 };
+
+export { getStaticPaths, getStaticProps };
+
+export default PostPage;

@@ -1,5 +1,3 @@
-/* eslint-disable react/no-multi-comp */
-
 // All components that we intend to use in our MDX files _must_ be defined here
 // or else they will not be rendered in our MDX files. This includes
 // all components in Cascara. Our implementation of MDX in these docs does
@@ -32,15 +30,15 @@ import {
 
 import { Asciagram, Code, Placeholder } from '../components';
 
-/* eslint-disable sort-keys */
-const MDX_COMPONENTS = {
-  // Docs
+/* eslint-disable react/display-name, react/no-multi-comp  -- We need to do this in order to get all of our components into MDX */
+const docsComponents = {
   Asciagram: (props) => <Asciagram {...props} />,
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
   Props: (props) => <Placeholder {...props} componentName='Props' />,
   code: (props) => <Code {...props} />,
+};
 
-  // Cascara
+const cascaraComponents = {
   Admin: (props) => <Admin {...props} />,
   Button: (props) => <Button {...props} />,
   Chat: (props) => (
@@ -52,8 +50,9 @@ const MDX_COMPONENTS = {
   Form: (props) => <Form {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   Table: (props) => <Table {...props} />,
+};
 
-  // Private
+const privateComponents = {
   ActionButton: (props) => <ActionButton {...props} />,
   ActionEdit: (props) => <ActionEdit {...props} />,
   DataCheckbox: (props) => <DataCheckbox {...props} />,
@@ -65,6 +64,12 @@ const MDX_COMPONENTS = {
   DataTextArea: (props) => <DataTextArea {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
 };
-/* eslint-enable sort-keys */
+/* eslint-enable react/no-multi-comp */
+
+const MDX_COMPONENTS = {
+  ...cascaraComponents,
+  ...docsComponents,
+  ...privateComponents,
+};
 
 export default MDX_COMPONENTS;

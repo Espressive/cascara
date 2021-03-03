@@ -13,7 +13,7 @@ import { Header, Main, Nav, PropTable } from '../components';
 // because that should never be changed. But the description does have a key
 // since we will possibly want to change that on a per-page basis.
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const propTable = pageProps?.mdxDirSource?.[router?.query?.doc]?.docData;
 
@@ -62,6 +62,6 @@ function MyApp({ Component, pageProps }) {
       />
     </>
   );
-}
+};
 
 export default MyApp;
