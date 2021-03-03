@@ -76,7 +76,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   const rowActions = (
     <td className={styles.CellActions} key={`${id}-actionbar`}>
       {outsideActions.map(renderActionModule)}
-      {Boolean(insideButtonActions.length) ? (
+      {insideButtonActions.length ? (
         <ActionsMenu actions={insideButtonActions} />
       ) : null}
     </td>

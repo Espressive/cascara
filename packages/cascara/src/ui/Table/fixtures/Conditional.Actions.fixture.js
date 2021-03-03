@@ -106,19 +106,18 @@ class Fixture extends PureComponent {
         break;
 
       default:
-        return;
     }
   };
 
   resolveRecordActions(record, actions) {
     return actions.reduce((actionsForRecord, action) => {
       switch (action.name) {
-        /**
-         * Idealy, Cascara actions would always go first
-         * because they go outside the ActionsMenu.
-         *
-         * Since that is something we cannot control, we
-         * will have to filter them out inside Cascara. */
+        //
+        // Idealy, Cascara actions would always go first
+        // because they go outside the ActionsMenu.
+        //
+        // Since that is something we cannot control, we
+        // will have to filter them out inside Cascara.
         case 'edit':
           // do not show if record is deflected
           if (!record.deflected) {
