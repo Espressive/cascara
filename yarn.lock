@@ -1526,31 +1526,9 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@espressive/cascara@file:packages/cascara":
-  version "0.3.3"
-  dependencies:
-    "@babel/runtime" "7.11.2"
-    "@nivo/bar" "0.61.0"
-    "@nivo/bump" "0.61.0"
-    "@nivo/core" "0.61.0"
-    "@nivo/geo" "0.61.0"
-    "@nivo/heatmap" "0.61.0"
-    "@nivo/line" "0.61.0"
-    "@nivo/pie" "0.61.0"
-    "@nivo/tooltip" "0.61.0"
-    "@nivo/treemap" "0.61.0"
-    classnames "2.2.6"
-    memoize-one "5.1.1"
-    react-hook-form "6.8.4"
-    react-textarea-autosize "8.2.0"
-    reakit next
-
 "@espressive/eslint-config@link:./utils/eslint-config":
   version "0.0.0"
   uid ""
-
-"@espressive/legacy-css@file:utils/legacy-css":
-  version "2.0.2"
 
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
@@ -5733,15 +5711,10 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001093, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001113, caniuse-lite@^1.0.30001173:
-  version "1.0.30001173"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001173.tgz#3c47bbe3cd6d7a9eda7f50ac016d158005569f56"
-  integrity sha512-R3aqmjrICdGCTAnSXtNyvWYMK3YtV5jwudbq0T7nN9k4kmE4CBuwPqyJ+KBzepSTh0huivV2gLbSMEzTTmfeYw==
-
-caniuse-lite@^1.0.30001154:
-  version "1.0.30001176"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001176.tgz#e44bac506d4656bae4944a1417f41597bd307335"
-  integrity sha512-VWdkYmqdkDLRe0lvfJlZQ43rnjKqIGKHWhWWRbkqMsJIUaYDNf/K/sdZZcVO6YKQklubokdkJY+ujArsuJ5cag==
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001093, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001113, caniuse-lite@^1.0.30001154, caniuse-lite@^1.0.30001173:
+  version "1.0.30001194"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001194.tgz"
+  integrity sha512-iDUOH+oFeBYk5XawYsPtsx/8fFpndAPUQJC7gBTfxHM8xw5nOZv7ceAD4frS1MKCLUac7QL5wdAJiFQlDRjXlA==
 
 capture-exit@^2.0.0:
   version "2.0.0"

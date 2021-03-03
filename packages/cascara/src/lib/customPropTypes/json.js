@@ -14,4 +14,4 @@ const json = (props, propName, componentName) => {
   }
 };
 
-export default json;
+export { json };
