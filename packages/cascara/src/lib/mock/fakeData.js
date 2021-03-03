@@ -43,6 +43,7 @@ export const generateFakeInteractions = (qty) =>
       matchedIntent,
       phrase: faker.lorem.sentence(5),
       response: faker.random.boolean(),
+      type: faker.random.arrayElement(['faq', 'other', 'interaction']),
       user: `${firstName} ${lastName}`,
     });
   });
