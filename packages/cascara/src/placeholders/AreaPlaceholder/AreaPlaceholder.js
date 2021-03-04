@@ -9,7 +9,8 @@ const propTypes = {
   /** Label for the container */
   label: pt.string,
   /** Label can have style */
-  style: pt.shape({}),
+  // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
+  style: pt.object,
 };
 
 const AreaPlaceholder = ({
