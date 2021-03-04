@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import pt from 'prop-types';
+
 import { Card, Flex, RadioGroup, Text } from '@fluentui/react-northstar';
 import ChatAvatar from '../ChatAvatar';
 
@@ -20,7 +22,10 @@ const SURVEY_OPTIONS = [
   },
 ];
 
-const propTypes = {};
+const propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
+  value: pt.object,
+};
 
 const TicketResolved = () => {
   const [surveyResponse, setSurveyResponse] = useState();

@@ -1,6 +1,12 @@
-import { Admin } from '@espressive/cascara';
+import pt from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+
+import { Admin } from '@espressive/cascara';
+
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+};
 
 const Main = ({ children, ...rest }) => {
   const { query } = useRouter();
@@ -20,5 +26,7 @@ const Main = ({ children, ...rest }) => {
     </AnimatePresence>
   );
 };
+
+Main.propTypes = propTypes;
 
 export default Main;

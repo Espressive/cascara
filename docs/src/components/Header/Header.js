@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Admin } from '@espressive/cascara';
 import Logo from './Logo';
 
-const Header = ({ data }) => {
+const Header = () => {
   return (
     <Admin.Header>
       <Link href='/'>

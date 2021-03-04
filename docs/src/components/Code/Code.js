@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import theme from 'prism-react-renderer/themes/synthwave84';
+import pt from 'prop-types';
+
 import { Button } from '@espressive/cascara';
 import styles from './Code.module.scss';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
@@ -9,6 +11,13 @@ import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 // styles in our CSS class names.
 theme.plain.backgroundColor = undefined;
 theme.plain.fontFamily = undefined;
+
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  className: pt.string,
+  live: pt.bool,
+  title: pt.string,
+};
 
 const Code = ({ children, className, live = true, title, ...rest }) => {
   const [editorOpen, setEditorOpen] = useState(false);
@@ -77,5 +86,7 @@ const Code = ({ children, className, live = true, title, ...rest }) => {
     </LiveProvider>
   );
 };
+
+Code.propTypes = propTypes;
 
 export default Code;

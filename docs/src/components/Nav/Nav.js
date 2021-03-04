@@ -1,11 +1,18 @@
 import { Fragment } from 'react';
-import { Admin } from '@espressive/cascara';
+import pt from 'prop-types';
 import { useRouter } from 'next/router';
+
+import { Admin } from '@espressive/cascara';
 import NavSection from './NavSection';
 import NavList from './NavList';
 import NavItem from './NavItem';
 
 const docPath = (path) => path.replace('../packages/cascara/src', '/docs');
+
+const propTypes = {
+  mdxTree: pt.arrayOf(pt.shape()),
+  posts: pt.arrayOf(pt.shape()),
+};
 
 const Nav = ({ mdxTree, posts }) => {
   const router = useRouter();
@@ -74,5 +81,7 @@ const Nav = ({ mdxTree, posts }) => {
     </Admin.Nav>
   );
 };
+
+Nav.propTypes = propTypes;
 
 export default Nav;

@@ -1,4 +1,11 @@
+import pt from 'prop-types';
+
 import styles from './Placeholder.module.css';
+
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  componentName: pt.string,
+};
 
 const Placeholder = ({ children, componentName, ...rest }) => {
   const restEntries = Object.entries(rest);
@@ -18,5 +25,7 @@ const Placeholder = ({ children, componentName, ...rest }) => {
     </div>
   );
 };
+
+Placeholder.propTypes = propTypes;
 
 export default Placeholder;

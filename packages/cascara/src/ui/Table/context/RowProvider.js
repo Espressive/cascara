@@ -1,5 +1,14 @@
 import React, { useContext } from 'react';
+import pt from 'prop-types';
+
 import { ModuleContext, ModuleProvider } from '../../../modules/context';
+
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  value: pt.shape({
+    record: pt.shape({}),
+  }),
+};
 
 const RowProvider = ({ children, value, ...props }) => {
   const grandparentValues = useContext(ModuleContext);
@@ -30,5 +39,7 @@ const RowProvider = ({ children, value, ...props }) => {
     </ModuleProvider>
   );
 };
+
+RowProvider.propTypes = propTypes;
 
 export default RowProvider;

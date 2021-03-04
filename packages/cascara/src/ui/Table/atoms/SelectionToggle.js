@@ -1,7 +1,12 @@
 import React, { useContext } from 'react';
+import pt from 'prop-types';
 
 import CheckBox from '../../Checkbox';
 import TableContext from '../context/TableContext';
+
+const propTypes = {
+  id: pt.string,
+};
 
 const SelectionToggle = ({ id }) => {
   const {
@@ -46,5 +51,7 @@ const SelectionToggle = ({ id }) => {
     />
   );
 };
+
+SelectionToggle.propTypes = propTypes;
 
 export default SelectionToggle;

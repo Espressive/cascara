@@ -1,7 +1,15 @@
 import React from 'react';
+import pt from 'prop-types';
+
 import styles from './Section.module.scss';
 
-const Section = ({ header, children, footer }) => {
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  footer: pt.string,
+  header: pt.string,
+};
+
+const Section = ({ children, footer, header }) => {
   return (
     <section className={styles._}>
       {header && <header className={styles.Header}>{header}</header>}
@@ -10,5 +18,7 @@ const Section = ({ header, children, footer }) => {
     </section>
   );
 };
+
+Section.propTypes = propTypes;
 
 export default Section;
