@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Head from 'next/head';
 import pkg from '../../package';
 import styles from '../styles/Home.module.css';
