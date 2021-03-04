@@ -6,7 +6,8 @@ import styles from './InfoPopover.module.scss';
 
 const propTypes = {
   message: pt.string,
-  style: pt.shape(),
+  // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
+  style: pt.object,
 };
 
 const InfoPopover = ({ message, style }) => {

@@ -1,11 +1,11 @@
-import React from 'react';
 import pt from 'prop-types';
 
 import '@espressive/legacy-css';
 
 const propTypes = {
   Component: pt.element,
-  pageProps: pt.shape({}),
+  // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
+  pageProps: pt.object,
 };
 
 const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;

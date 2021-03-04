@@ -23,7 +23,8 @@ const SURVEY_OPTIONS = [
 ];
 
 const propTypes = {
-  value: pt.shape({}),
+  // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
+  value: pt.object,
 };
 
 const TicketResolved = () => {

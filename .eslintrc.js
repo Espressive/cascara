@@ -4,7 +4,7 @@ module.exports = {
   extends: ['@espressive', 'prettier'], // prettier must be last so we override any rules that potentially conflict with Prettier
   overrides: [
     {
-      files: ['**/next-*/**`/*', 'docs/**/*'],
+      files: ['**/next-*/**/*', 'docs/**/*'],
       rules: {
         'jsx-a11y/anchor-is-valid': 0,
         'react/react-in-jsx-scope': 0,
