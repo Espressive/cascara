@@ -58,14 +58,14 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     exitEditMode();
   };
 
-  const handleCancel = () => {
+  function handleCancel() {
     isDirty
       ? // eslint-disable-next-line no-restricted-globals, no-alert -- For now we do not have our own confirmation dialog so we are using native confirms
         confirm('Abandon unsaved changes?') && handleReset()
       : handleReset();
-  };
+  }
 
-  const handleEdit = () => {
+  function handleEdit() {
     // FDS-91: We are resetting the form with whatever is in record.
     // We don't know if this is the best way to do it in React.
     reset({ ...record });
@@ -80,9 +80,9 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     );
 
     enterEditMode(recordId);
-  };
+  }
 
-  const onSubmit = (data) => {
+  function onSubmit(data) {
     onAction(
       // fake target
       {
@@ -95,7 +95,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     );
 
     exitEditMode();
-  };
+  }
 
   return isEditing ? (
     <>

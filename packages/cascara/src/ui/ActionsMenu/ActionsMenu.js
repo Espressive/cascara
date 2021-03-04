@@ -70,6 +70,7 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
                   as='div'
                   className={`item ${styles.ActionsMenuItem}`}
                   key={key}
+                  // eslint-disable-next-line react/jsx-no-bind -- rest needs to be passed, hence the in-situ arrow function
                   onClick={() => handleMenuItemClick(rest)}
                 >
                   {buttonText}

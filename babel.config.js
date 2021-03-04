@@ -1,19 +1,4 @@
 module.exports = {
-  presets: [
-    [
-      '@babel/preset-env',
-      {
-        modules: false,
-        loose: true,
-      },
-    ],
-    '@babel/preset-react',
-  ],
-  plugins: [
-    '@babel/plugin-proposal-export-default-from',
-    '@babel/plugin-proposal-optional-chaining',
-    ['@babel/plugin-proposal-class-properties', { loose: true }],
-  ],
   env: {
     // Jest
     test: {
@@ -23,4 +8,24 @@ module.exports = {
       ],
     },
   },
+  plugins: [
+    '@babel/plugin-proposal-export-default-from',
+    '@babel/plugin-proposal-optional-chaining',
+    [
+      '@babel/plugin-proposal-class-properties',
+      {
+        loose: true,
+      },
+    ],
+  ],
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        loose: true,
+        modules: false,
+      },
+    ],
+    '@babel/preset-react',
+  ],
 };

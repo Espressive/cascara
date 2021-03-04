@@ -36,9 +36,9 @@ const ActionButton = ({
   // FDS-137: use action name for button name if no content is specified
   const buttonText = content || name;
 
-  const handleClick = ({ currentTarget }) => {
+  function handleClick({ currentTarget }) {
     onAction(currentTarget, record);
-  };
+  }
 
   return isEditing ? null : (
     <Button

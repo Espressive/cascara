@@ -326,7 +326,7 @@ describe('Table', () => {
     // 1.- the events are actualy emitted by the Table
     // 2.- the data reflects the changes made by the user
     // 3.- the number of buttons present in each case.
-    test('editable records', async (done) => {
+    test('editable records', async () => {
       const testEmail = 'engineering@espressive.com';
       const onAction = jest.fn();
 
@@ -414,8 +414,6 @@ describe('Table', () => {
           title: 'District Operations Officer',
         })
       );
-
-      done();
     });
 
     //
@@ -518,7 +516,7 @@ describe('Table', () => {
       );
     });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- these two break the build
     // test('actions with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(
@@ -548,7 +546,7 @@ describe('Table', () => {
     //   expect(moduleError).toBeTruthy();
     // });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- these two break the build
     // test('columns with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(

@@ -6,7 +6,7 @@ import Section from './Section';
 const sectionHeader = (
   <div className='ui fluid icon input'>
     <Input style={{ borderRadius: '2em' }} type='text' />
-    <i aria-hidden='true' class='search icon' />
+    <i aria-hidden='true' className='search icon' />
   </div>
 );
 

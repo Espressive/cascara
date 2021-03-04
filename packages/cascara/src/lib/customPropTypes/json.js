@@ -1,6 +1,7 @@
 // This propType function should validate if we are using JSON data
 
-const json = (props, propName, componentName) => {
+// eslint-disable-next-line consistent-return -- this can't return anything
+function json(props, propName, componentName) {
   try {
     JSON.parse(props[propName]);
   } catch (e) {
@@ -8,6 +9,6 @@ const json = (props, propName, componentName) => {
       `Invalid prop \`${propName}\` supplied to \`${componentName}\`. Validation failed.`
     );
   }
-};
+}
 
 export { json };

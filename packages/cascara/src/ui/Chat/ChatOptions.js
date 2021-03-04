@@ -4,8 +4,8 @@ import {
   Animation,
   Button,
   Dropdown,
-  Chat as FUIChat,
   Flex,
+  Chat as FUIChat,
   Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
@@ -24,6 +24,10 @@ const propTypes = {
   timestamp: pt.string.isRequired,
 };
 
+function itemToString(value) {
+  return value.content;
+}
+
 /** A Chat can display options as either buttons or a dropdown select if more than 3 options exist */
 const ChatOptions = ({
   authorName,
@@ -37,7 +41,7 @@ const ChatOptions = ({
       content={
         options.length > 3 ? (
           <Dropdown
-            itemToString={(value) => value.content}
+            itemToString={itemToString}
             items={options.map((option, i) => ({
               ...option,
             }))}
@@ -47,7 +51,7 @@ const ChatOptions = ({
         ) : (
           <Flex column gap='gap.small'>
             {options.map((option) => (
-              <Button {...option} fluid />
+              <Button {...option} fluid key={option.key} />
             ))}
           </Flex>
         )

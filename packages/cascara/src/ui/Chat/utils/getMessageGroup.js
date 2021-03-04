@@ -12,12 +12,10 @@ const getMessageGroup = (
   const { sys_date_created: previousUTC, user_id: previousUser } = previous;
   const { sys_date_created: nextUTC, user_id: nextUser } = next;
 
-  /* eslint-disable sort-keys */
-
   const time = {
-    prev: new Date(previousUTC).getTime(),
     current: new Date(currentUTC).getTime(),
     next: new Date(nextUTC).getTime(),
+    prev: new Date(previousUTC).getTime(),
   };
   const timeDiffMins = 15;
   const prevMinDiff = Math.floor((time.current - time.prev) / 1000 / 60);
@@ -25,14 +23,14 @@ const getMessageGroup = (
 
   // Messages can be grouped in two scenarios:
   const userGroup = {
-    top: previousUser !== currentUser && nextUser === currentUser,
-    middle: previousUser === currentUser && nextUser === currentUser,
     bottom: nextUser !== currentUser && previousUser === currentUser,
+    middle: previousUser === currentUser && nextUser === currentUser,
+    top: previousUser !== currentUser && nextUser === currentUser,
   };
   const timeRangeGroup = {
-    top: previousUser === currentUser && prevMinDiff > timeDiffMins,
-    middle: prevMinDiff < timeDiffMins && nextMinDiff < timeDiffMins,
     bottom: nextUser === currentUser && nextMinDiff > timeDiffMins,
+    middle: prevMinDiff < timeDiffMins && nextMinDiff < timeDiffMins,
+    top: previousUser === currentUser && prevMinDiff > timeDiffMins,
   };
 
   let messageGrouping;
@@ -62,8 +60,6 @@ const getMessageGroup = (
   //   nextTimeDiff: nextMinDiff,
   //   attachment,
   // });
-
-  /* eslint-enable sort-keys */
 
   // Any message not in a group should not have any messageGrouping (return undefined)
   return messageGrouping;

@@ -26,7 +26,7 @@ const SelectionToggle = ({ id }) => {
   const checked = id !== '__ALL__' ? selection.includes(id) : someItemsSelected;
   const indeterminate = id ? false : !allItemsSelected;
 
-  const handleSelectionToggle = ({ checked, name }) => {
+  function handleSelectionToggle({ checked, name }) {
     if (name === '__ALL__') {
       if (checked) {
         selectAll();
@@ -40,7 +40,7 @@ const SelectionToggle = ({ id }) => {
         addToSelection(name);
       }
     }
-  };
+  }
 
   return (
     <CheckBox

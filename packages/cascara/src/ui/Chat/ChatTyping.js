@@ -17,6 +17,11 @@ const propTypes = {
 
 /** A Chat can display an indicator that typing is happening */
 const ChatTyping = ({ isSessionUser = false }) => {
+  function handleMoreIconClick({ theme: { siteVariables } }) {
+    return {
+      color: siteVariables?.colorScheme?.brand?.foreground,
+    };
+  }
   return (
     <Animation name='chatMessage'>
       <FUIChat.Message
@@ -29,12 +34,7 @@ const ChatTyping = ({ isSessionUser = false }) => {
             }}
           >
             <Animation name='wiggle'>
-              <MoreIcon
-                size='larger'
-                styles={({ theme: { siteVariables } }) => ({
-                  color: siteVariables?.colorScheme?.brand?.foreground,
-                })}
-              />
+              <MoreIcon size='larger' styles={handleMoreIconClick} />
             </Animation>
           </Provider>
         }
