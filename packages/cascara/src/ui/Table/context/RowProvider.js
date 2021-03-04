@@ -4,7 +4,7 @@ import pt from 'prop-types';
 import { ModuleContext, ModuleProvider } from '../../../modules/context';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   value: pt.shape({
     record: pt.shape({}),
   }),

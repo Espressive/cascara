@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 const propTypes = {
   /** Can render as a different tag or component */
   as: pt.oneOfType([pt.string, pt.node]),
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   /** current page */
   currentPage: pt.number,
   /** entity name in plural form */

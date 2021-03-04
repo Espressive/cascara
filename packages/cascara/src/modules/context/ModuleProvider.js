@@ -5,7 +5,7 @@ import ModuleContext, { defaultValue } from './ModuleContext';
 import useToggle from '../../hooks/useToggle';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   value: pt.shape({
     isEditing: pt.bool,
   }),

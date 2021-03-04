@@ -3,7 +3,7 @@ import pt from 'prop-types';
 import styles from './AreaPlaceholder.module.scss';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   /** Color of the border */
   color: pt.string,
   /** Label for the container */

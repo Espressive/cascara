@@ -4,7 +4,7 @@ import pt from 'prop-types';
 const TableContext = React.createContext();
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   data: pt.shape({}),
   dataConfig: pt.shape({
     actions: pt.arrayOf(pt.shape({})),

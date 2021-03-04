@@ -4,7 +4,7 @@ import pt from 'prop-types';
 import styles from './Section.module.scss';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   footer: pt.string,
   header: pt.string,
 };
