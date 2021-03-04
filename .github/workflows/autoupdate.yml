@@ -1,3 +1,7 @@
+# This action will update any of our PRs that are out of date with their target branch.
+# tibdex/auto-update@v1 will only log the issue if there is a failure, usually due to conflicts
+# https://github.com/tibdex/auto-update/issues/2
+
 name: Auto-update
 on:
   push:
