@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { Admin } from '@espressive/cascara';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
 };
 
 const Main = ({ children, ...rest }) => {

@@ -3,7 +3,7 @@ import pt from 'prop-types';
 import styles from './Placeholder.module.css';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   componentName: pt.string,
 };
 

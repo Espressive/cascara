@@ -4,7 +4,7 @@ import TabsTab from './TabsTab';
 import styles from './Tabs.module.scss';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element(), pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
 };
 
 const Tabs = ({ children }) => {
