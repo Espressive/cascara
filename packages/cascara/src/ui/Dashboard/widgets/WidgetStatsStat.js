@@ -1,6 +1,15 @@
 import React, { useCallback } from 'react';
+import pt from 'prop-types';
+
 import { Clickable } from 'reakit';
 import styles from '../Dashboard.module.scss';
+
+const propTypes = {
+  label: pt.string,
+  onClick: pt.func,
+  sub: pt.oneOf([pt.number, pt.string]),
+  value: pt.oneOf([pt.number, pt.string]),
+};
 
 const WidgetStatsStat = ({ onClick, label, value, sub }) => {
   // Instead of maintaining separate, competing styles for focus, we are setting focus on this clickable item on hover. This may be something we consider doing on other Clickable components with Reakit.
@@ -33,5 +42,6 @@ const WidgetStatsStat = ({ onClick, label, value, sub }) => {
 };
 
 WidgetStatsStat.displayName = 'stats.stat';
+WidgetStatsStat.propTypes = propTypes;
 
 export default WidgetStatsStat;

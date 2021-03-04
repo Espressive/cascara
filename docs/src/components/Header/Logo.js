@@ -1,4 +1,9 @@
 import React from 'react';
+import pt from 'prop-types';
+
+const propTypes = {
+  textColor: pt.string,
+};
 
 const Logo = ({ textColor = 'var(--document-text, #fff)', ...rest }) => (
   <svg
@@ -69,5 +74,7 @@ const Logo = ({ textColor = 'var(--document-text, #fff)', ...rest }) => (
     </g>
   </svg>
 );
+
+Logo.propTypes = propTypes;
 
 export default Logo;

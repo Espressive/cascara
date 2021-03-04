@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import pt from 'prop-types';
 import {
   Dropdown,
   Flex,
@@ -62,6 +63,12 @@ const themes = {
   },
 };
 
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  inputComponent: pt.element,
+  isThemeSelectable: pt.bool,
+};
+
 const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
   const [theme, setTheme] = useState(items[DEFAULT_THEME_INDEX].value);
 
@@ -89,5 +96,7 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
     </Provider>
   );
 };
+
+ChatProvider.propTypes = propTypes;
 
 export default ChatProvider;

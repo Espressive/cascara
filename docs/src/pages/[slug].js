@@ -1,9 +1,19 @@
 import hydrate from 'next-mdx-remote/hydrate';
 import Head from 'next/head';
+import pt from 'prop-types';
+
 import { POSTS_PATH, postFilePaths } from '../lib/mdxUtils';
 import getMDXTree from '../lib/getMDXTree';
 import MDX_COMPONENTS from '../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../lib/MDX_OPTIONS';
+
+const propTypes = {
+  frontMatter: pt.shape({
+    title: pt.string,
+    description: pt.string,
+  }),
+  source: pt.string,
+};
 
 const PostPage = ({ source, frontMatter }) => {
   const content = hydrate(source, { components: MDX_COMPONENTS });
@@ -81,6 +91,7 @@ const getStaticProps = async ({ params }) => {
   };
 };
 
-export { getStaticPaths, getStaticProps };
+PostPage.propTypes = propTypes;
 
+export { getStaticPaths, getStaticProps };
 export default PostPage;

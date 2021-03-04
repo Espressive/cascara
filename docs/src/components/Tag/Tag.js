@@ -1,4 +1,10 @@
+import pt from 'prop-types';
+
 import styles from './Tag.module.scss';
+
+const propTypes = {
+  content: pt.string,
+};
 
 const Tag = ({ content, ...rest }) => {
   return (
@@ -7,5 +13,7 @@ const Tag = ({ content, ...rest }) => {
     </span>
   );
 };
+
+Tag.propTypes = propTypes;
 
 export default Tag;

@@ -100,7 +100,7 @@ const Table = ({
     );
   }
 
-  const unwantedActionButtonIndex = dataConfig?.actionButtonIndex;
+  const unwantedActionButtonIndex = dataConfig?.actionButtonMenuIndex;
   if (unwantedActionButtonIndex) {
     actionButtonMenuIndex = unwantedActionButtonIndex;
     // eslint-disable-next-line no-console

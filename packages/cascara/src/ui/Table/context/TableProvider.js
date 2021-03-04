@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import { ModuleContext, ModuleProvider } from '../../../modules/context';
+import pt from 'prop-types';
 import { useForm } from 'react-hook-form';
+
+import { ModuleContext, ModuleProvider } from '../../../modules/context';
+
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  value: pt.shape({}),
+};
 
 const TableProvider = ({ children, value, ...props }) => {
   const [idOfRecordInEditMode, setIdOfRecordInEditMode] = useState(null);
@@ -39,5 +46,7 @@ const TableProvider = ({ children, value, ...props }) => {
     </ModuleProvider>
   );
 };
+
+TableProvider.propTypes = propTypes;
 
 export default TableProvider;

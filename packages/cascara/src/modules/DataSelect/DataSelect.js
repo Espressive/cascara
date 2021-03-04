@@ -15,6 +15,13 @@ const propTypes = {
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
+  /** Select module can have selectable options */
+  options: pt.arrayOf(
+    pt.shape({
+      key: pt.string,
+      value: pt.oneOfType([pt.string, pt.number]),
+    })
+  ),
   /** A Module can have a value */
   value: pt.string,
 };
