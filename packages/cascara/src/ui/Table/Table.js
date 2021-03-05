@@ -94,7 +94,7 @@ const Table = ({
   const unwantedActions = dataConfig?.actions;
   if (unwantedActions) {
     modules = unwantedActions;
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console -- we need to let developers know about this error
     console.warn(
       'Prop "dataConfig.actions" has been deprecated. Actions have been moved to the root of the Table component as their own prop.'
     );
@@ -103,7 +103,7 @@ const Table = ({
   const unwantedActionButtonIndex = dataConfig?.actionButtonMenuIndex;
   if (unwantedActionButtonIndex) {
     actionButtonMenuIndex = unwantedActionButtonIndex;
-    // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console -- we need to let developers know about this error
     console.warn(
       'Prop "dataConfig.actionButtonIndex" has been deprecated. Actions have been moved to the root of the Table component as their own prop.'
     );

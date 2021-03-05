@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { ModuleProvider } from './context';
 import FormProvider from '../ui/Form/context/FormProvider';

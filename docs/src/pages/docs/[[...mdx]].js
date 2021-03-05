@@ -6,7 +6,7 @@ import Head from 'next/head';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import { Tabs } from '../../components';
-import { POSTS_PATH, postFilePaths } from '../../lib/mdxUtils';
+import { postFilePaths, POSTS_PATH } from '../../lib/mdxUtils';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
 import getMDXTree from '../../lib/getMDXTree';
@@ -29,12 +29,12 @@ const propTypes = {
   mdxDirSource: pt.arrayOf(
     pt.shape({
       frontMatter: pt.shape({
-        title: pt.string,
         description: pt.shape(),
+        title: pt.string,
       }),
       frontmatter: pt.shape({
-        title: pt.string,
         description: pt.shape(),
+        title: pt.string,
         type: pt.string,
       }),
       router: pt.shape(),

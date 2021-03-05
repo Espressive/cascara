@@ -497,7 +497,7 @@ describe('Table', () => {
       );
     });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- @manu todo: FDS-154 - resolve failint negative tests
     // test('actions with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(
@@ -527,7 +527,7 @@ describe('Table', () => {
     //   expect(moduleError).toBeTruthy();
     // });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- @manu todo: FDS-154 - resolve failint negative tests
     // test('columns with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(

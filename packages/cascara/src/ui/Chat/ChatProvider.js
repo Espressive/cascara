@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import pt from 'prop-types';
 import {
   Dropdown,
@@ -72,6 +72,13 @@ const propTypes = {
 const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
   const [theme, setTheme] = useState(items[DEFAULT_THEME_INDEX].value);
 
+  const handleDropdownChange = useCallback(
+    (e, data) => {
+      setTheme(data.value.value);
+    },
+    [setTheme]
+  );
+
   return (
     <Provider theme={themes[theme]}>
       <Flex column gap='gap.small' style={{ maxHeight: '100vh' }}>
@@ -83,7 +90,7 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
               items={items.map((option) => ({
                 ...option,
               }))}
-              onChange={(e, data) => setTheme(data.value.value)}
+              onChange={handleDropdownChange}
               placeholder='Select a theme'
             />
           </div>

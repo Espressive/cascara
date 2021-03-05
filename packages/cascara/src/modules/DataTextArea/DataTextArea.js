@@ -31,7 +31,6 @@ const DataTextArea = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
 
   const renderEditing = (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label htmlFor={label}>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input

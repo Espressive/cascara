@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 import Dashboard from '../Dashboard';

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import pt from 'prop-types';
 
 import CheckBox from '../../Checkbox';
@@ -26,21 +26,24 @@ const SelectionToggle = ({ id }) => {
   const checked = id !== '__ALL__' ? selection.includes(id) : someItemsSelected;
   const indeterminate = id ? false : !allItemsSelected;
 
-  const handleSelectionToggle = ({ checked, name }) => {
-    if (name === '__ALL__') {
-      if (checked) {
-        selectAll();
+  const handleSelectionToggle = useCallback(
+    ({ checked, name }) => {
+      if (name === '__ALL__') {
+        if (checked) {
+          selectAll();
+        } else {
+          clearSelection();
+        }
       } else {
-        clearSelection();
+        if (selection.includes(name)) {
+          removeFromSelection(name);
+        } else {
+          addToSelection(name);
+        }
       }
-    } else {
-      if (selection.includes(name)) {
-        removeFromSelection(name);
-      } else {
-        addToSelection(name);
-      }
-    }
-  };
+    },
+    [selectAll, clearSelection, removeFromSelection, addToSelection, selection]
+  );
 
   return (
     <CheckBox

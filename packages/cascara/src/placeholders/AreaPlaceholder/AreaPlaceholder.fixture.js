@@ -1,13 +1,7 @@
 import React from 'react';
 import AreaPlaceholder from './AreaPlaceholder';
 
-/* eslint-disable sort-keys */
 export default {
-  default: (
-    <AreaPlaceholder label='Label'>
-      <p>Yo</p>
-    </AreaPlaceholder>
-  ),
   contextExample: (
     <div style={{ padding: '1em' }}>
       <AreaPlaceholder label='Tenant Context'>
@@ -17,5 +11,9 @@ export default {
       </AreaPlaceholder>
     </div>
   ),
+  default: (
+    <AreaPlaceholder label='Label'>
+      <p>Yo</p>
+    </AreaPlaceholder>
+  ),
 };
-/* eslint-enable sort-keys */
