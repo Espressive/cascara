@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import DataText from '../DataText';
 import ActionButton from '../ActionButton';
@@ -115,7 +114,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
           <DataText label='Table Level Module' value='Table' />
           <ActionEdit />
           {fakeTableData.map((row, i) => (
-            <FakeRow {...row} />
+            <FakeRow {...row} key={`${row.key}${i}`} />
           ))}
         </AreaPlaceholder>
       </TableProvider>

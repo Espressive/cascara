@@ -15,35 +15,34 @@ const propTypes = {
   isSessionUser: pt.bool,
 };
 
-/** A Chat can display an indicator that typing is happening */
-const ChatTyping = ({ isSessionUser = false }) => {
-  return (
-    <Animation name='chatMessage'>
-      <FUIChat.Message
-        content={
-          <Provider
-            theme={{
-              animations: {
-                wiggle,
-              },
-            }}
-          >
-            <Animation name='wiggle'>
-              <MoreIcon
-                size='larger'
-                styles={({ theme: { siteVariables } }) => ({
-                  color: siteVariables?.colorScheme?.brand?.foreground,
-                })}
-              />
-            </Animation>
-          </Provider>
-        }
-        mine={isSessionUser}
-        style={{ minWidth: 'auto' }}
-      />
-    </Animation>
-  );
+const handleMoreIconClick = ({ theme: { siteVariables } }) => {
+  return {
+    color: siteVariables?.colorScheme?.brand?.foreground,
+  };
 };
+
+/** A Chat can display an indicator that typing is happening */
+const ChatTyping = ({ isSessionUser = false }) => (
+  <Animation name='chatMessage'>
+    <FUIChat.Message
+      content={
+        <Provider
+          theme={{
+            animations: {
+              wiggle,
+            },
+          }}
+        >
+          <Animation name='wiggle'>
+            <MoreIcon size='larger' styles={handleMoreIconClick} />
+          </Animation>
+        </Provider>
+      }
+      mine={isSessionUser}
+      style={{ minWidth: 'auto' }}
+    />
+  </Animation>
+);
 
 ChatTyping.displayName = 'Chat.Typing';
 ChatTyping.propTypes = propTypes;

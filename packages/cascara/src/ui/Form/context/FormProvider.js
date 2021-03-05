@@ -15,8 +15,7 @@ const FormProvider = ({ children, value, ...props }) => {
   const { handleSubmit } = formMethods;
 
   const onSubmit = (data) => {
-    // eslint-disable-next-line no-console
-    console.table(data);
+    return data;
   };
 
   const mergedValues = {

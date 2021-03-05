@@ -1,4 +1,4 @@
-import React, { useState, useCallback, memo } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 
 const Button = ({ onClick, children }) => {
   console.log('Button rendered');
@@ -15,7 +15,8 @@ const WithoutCallback = () => {
   console.log('WithoutCallback rendered');
   const [count, setCount] = useState(0);
 
-  const handleIncrement = () => setCount(count + 1);
+  const handleIncrement = useCallback(() => setCount(count + 1), [count]);
+
   return (
     <div>
       {count}

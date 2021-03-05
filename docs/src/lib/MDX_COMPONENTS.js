@@ -62,7 +62,7 @@ const privateComponents = {
   DataTextArea: (props) => <DataTextArea {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
 };
-/* eslint-enable react/no-multi-comp */
+/* eslint-enable react/display-name, react/no-multi-comp */
 
 const MDX_COMPONENTS = {
   ...cascaraComponents,

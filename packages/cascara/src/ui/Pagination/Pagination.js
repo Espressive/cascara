@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import pt from 'prop-types';
 import classNames from 'classnames/bind';
 import { noop } from 'lodash';
@@ -53,28 +53,31 @@ const Pagination = ({
   // @param {Object} component Component object passed by SUIR
   // @param {String} component.name The name of the component
   // @param {Any} component.value The new value in the component
-  const handlePaginationChange = (_, component) => {
-    let newPage = currentPage;
-    let newitemsPerPageLimit = itemsPerPageLimit;
+  const handlePaginationChange = useCallback(
+    (_, component) => {
+      let newPage = currentPage;
+      let newitemsPerPageLimit = itemsPerPageLimit;
 
-    if (component.name === 'page') {
-      newPage = component.value;
-    }
-
-    if (component.name === 'itemsPerPageLimit') {
-      newitemsPerPageLimit = component.value;
-
-      // safeguard
-      if (newitemsPerPageLimit >= recordCount) {
-        newPage = 1;
+      if (component.name === 'page') {
+        newPage = component.value;
       }
-    }
 
-    onPaginationChange({
-      limit: newitemsPerPageLimit,
-      page: newPage,
-    });
-  };
+      if (component.name === 'itemsPerPageLimit') {
+        newitemsPerPageLimit = component.value;
+
+        // safeguard
+        if (newitemsPerPageLimit >= recordCount) {
+          newPage = 1;
+        }
+      }
+
+      onPaginationChange({
+        limit: newitemsPerPageLimit,
+        page: newPage,
+      });
+    },
+    [currentPage, itemsPerPageLimit, onPaginationChange, recordCount]
+  );
 
   //
   // Handles button's click event
@@ -85,20 +88,23 @@ const Pagination = ({
   // @param {Event} _ Usually the click event
   // @param {Object} component Component object passed by SUIR
   // @param {String} component.name The name of the component
-  const handleButtonClick = (_, button) => {
-    let newPage = currentPage;
+  const handleButtonClick = useCallback(
+    (_, button) => {
+      let newPage = currentPage;
 
-    if (button.name === 'forward') {
-      newPage++;
-    } else {
-      newPage--;
-    }
+      if (button.name === 'forward') {
+        newPage++;
+      } else {
+        newPage--;
+      }
 
-    handlePaginationChange(null, {
-      name: 'page',
-      value: newPage,
-    });
-  };
+      handlePaginationChange(null, {
+        name: 'page',
+        value: newPage,
+      });
+    },
+    [currentPage, handlePaginationChange]
+  );
 
   const availablePages = Math.ceil(recordCount / itemsPerPageLimit) || 1;
   const canGoForward = currentPage < availablePages;
@@ -137,7 +143,6 @@ const Pagination = ({
     }));
 
   const itemsPerPageLimitSelect = () => (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label className={cx({ label: true })} htmlFor={'itemsPerPageLimit'}>
       {`${entityNamePlural} per page:`}
       <Select
@@ -154,7 +159,6 @@ const Pagination = ({
   );
 
   const pageSelect = () => (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label className={cx({ label: true })} htmlFor={'page'}>
       {'Page '}
       <Select

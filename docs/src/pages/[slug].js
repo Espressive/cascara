@@ -2,15 +2,15 @@ import hydrate from 'next-mdx-remote/hydrate';
 import Head from 'next/head';
 import pt from 'prop-types';
 
-import { POSTS_PATH, postFilePaths } from '../lib/mdxUtils';
+import { postFilePaths, POSTS_PATH } from '../lib/mdxUtils';
 import getMDXTree from '../lib/getMDXTree';
 import MDX_COMPONENTS from '../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../lib/MDX_OPTIONS';
 
 const propTypes = {
   frontMatter: pt.shape({
-    title: pt.string,
     description: pt.string,
+    title: pt.string,
   }),
   source: pt.string,
 };

@@ -4,7 +4,6 @@ import styles from '../DataModule.module.scss';
 
 const propTypes = {
   moduleName: pt.string.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
   moduleOptions: pt.arrayOf(pt.object).isRequired,
 };
 
@@ -12,7 +11,8 @@ const ModuleError = ({ moduleName, moduleOptions }) => {
   const message = `${moduleName} is not a valid value for module. Try using one of [${moduleOptions.join(
     ', '
   )}]`;
-  // eslint-disable-next-line no-console
+
+  // eslint-disable-next-line no-console -- we need to display this error to develop
   console.error(message);
 
   return (

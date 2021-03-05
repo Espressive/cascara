@@ -49,12 +49,14 @@ const MyApp = ({ Component, pageProps }) => {
           propTable?.length > 0 && (
             <Admin.Drawer>
               {propTable.map((componentProps) => (
-                <AnimatePresence exitBeforeEnter>
+                <AnimatePresence
+                  exitBeforeEnter
+                  key={router.query.mdx + componentProps}
+                >
                   <motion.div
                     animate={{ opacity: 1, translateX: 0 }}
                     exit={{ opacity: 0, translateX: 100 }}
                     initial={{ opacity: 0, translateX: 100 }}
-                    key={router.query.mdx + componentProps}
                   >
                     <PropTable docData={componentProps} />
                   </motion.div>

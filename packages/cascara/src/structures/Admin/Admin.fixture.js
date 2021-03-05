@@ -106,7 +106,6 @@ const longContent = (
   </ul>
 );
 
-/* eslint-disable sort-keys */
 export default {
   NoDrawer: (
     <Admin
@@ -133,4 +132,3 @@ export default {
     />
   ),
 };
-/* eslint-enable sort-keys */

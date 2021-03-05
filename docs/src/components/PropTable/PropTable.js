@@ -5,9 +5,9 @@ import styles from './PropTable.module.scss';
 
 const propTypes = {
   docData: pt.shape({
-    props: pt.shape({}),
-    displayName: pt.string,
     description: pt.string,
+    displayName: pt.string,
+    props: pt.shape({}),
   }),
 };
 
