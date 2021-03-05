@@ -1,8 +1,21 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import pt from 'prop-types';
 
 const TableContext = React.createContext();
 
-export const TableContextProvider = ({
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  data: pt.shape({}),
+  dataConfig: pt.shape({
+    actions: pt.arrayOf(pt.shape({})),
+    bulkActions: pt.arrayOf(pt.shape({})),
+    display: pt.arrayOf(pt.shape({})),
+    uniqueIdAttribute: pt.string,
+  }),
+  onAction: pt.func,
+};
+
+const TableContextProvider = ({
   data = [],
   dataConfig,
   children,
@@ -127,4 +140,7 @@ export const TableContextProvider = ({
   );
 };
 
+TableContextProvider.propTypes = propTypes;
+
+export { TableContextProvider };
 export default TableContext;

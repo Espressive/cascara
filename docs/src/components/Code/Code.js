@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import theme from 'prism-react-renderer/themes/synthwave84';
+import pt from 'prop-types';
+
 import { Button } from '@espressive/cascara';
 import styles from './Code.module.scss';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
@@ -10,22 +12,32 @@ import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 theme.plain.backgroundColor = undefined;
 theme.plain.fontFamily = undefined;
 
+const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  className: pt.string,
+  live: pt.bool,
+  title: pt.string,
+};
+
 const Code = ({ children, className, live = true, title, ...rest }) => {
   const [editorOpen, setEditorOpen] = useState(false);
   const language = className && className.replace(/language-/, '');
 
   const [editorCode, setEditorCode] = useState(children.trim());
 
-  const handleEditorToggle = () => {
+  const handleEditorToggle = useCallback(() => {
     // TODO: Make cursor focus on editor when opening
     // should also update styles for focus on editor so it is easier to see that it
     // is actually editable
     setEditorOpen(!editorOpen);
-  };
+  }, [setEditorOpen, editorOpen]);
 
-  const handleCodeChange = (code) => {
-    setEditorCode(code.trim());
-  };
+  const handleCodeChange = useCallback(
+    (code) => {
+      setEditorCode(code.trim());
+    },
+    [setEditorCode]
+  );
 
   useEffect(() => {
     setEditorCode(children.trim());
@@ -77,5 +89,7 @@ const Code = ({ children, className, live = true, title, ...rest }) => {
     </LiveProvider>
   );
 };
+
+Code.propTypes = propTypes;
 
 export default Code;

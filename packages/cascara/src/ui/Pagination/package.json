@@ -1,14 +1,19 @@
 {
   "name": "pagination",
   "version": "0.1.0",
+  "license": "MIT",
+  "sideEffects": false,
   "main": "cjs/index.js",
   "module": "es/index.js",
   "files": [
     "cjs",
     "dist"
   ],
-  "license": "MIT",
-  "sideEffects": false,
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf es",
+    "build": "yarn clean && rollup -c",
+    "watch": "rollup -c -w"
+  },
   "dependencies": {
     "classnames": "2.2.6",
     "prop-types": "15.7.2",
@@ -16,10 +21,5 @@
     "react-dom": "16.13.1",
     "react-scripts": "3.4.1",
     "semantic-ui-react": "0.88.2"
-  },
-  "scripts": {
-    "clean": "rm -rf dist && rm -rf es",
-    "build": "yarn clean && rollup -c",
-    "watch": "rollup -c -w"
   }
 }

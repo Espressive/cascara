@@ -1,20 +1,23 @@
 {
   "name": "@espressive/legacy-css",
+  "version": "2.0.4",
   "description": "Legacy custom compiled CSS for Espressive",
-  "version": "2.0.2",
-  "main": "src/css/semantic.min.css",
-  "license": "MIT",
   "repository": {
-    "directory": "utils/legacy-css",
     "type": "git",
-    "url": "ssh://git@github.com:Espressive/cascara.git"
+    "url": "ssh://git@github.com:Espressive/cascara.git",
+    "directory": "utils/legacy-css"
+  },
+  "license": "MIT",
+  "main": "src/css/semantic.min.css",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "prepare": "echo 'No prepare scripts for this package'"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com/"
   },
-  "files": [
-    "src"
-  ],
   "gitHead": "7b25443adcaa677d9b2a28565ab8a4c0793d65d3"
 }

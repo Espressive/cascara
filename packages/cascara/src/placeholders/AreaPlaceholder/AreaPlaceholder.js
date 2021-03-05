@@ -3,10 +3,14 @@ import pt from 'prop-types';
 import styles from './AreaPlaceholder.module.scss';
 
 const propTypes = {
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   /** Color of the border */
   color: pt.string,
   /** Label for the container */
   label: pt.string,
+  /** Label can have style */
+  // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
+  style: pt.object,
 };
 
 const AreaPlaceholder = ({

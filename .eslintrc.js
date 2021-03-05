@@ -1,7 +1,7 @@
 // We should almost definitely not be adding rules here. Instead, we should be modifying rules in our eslint-config-espressive package
 
 module.exports = {
-  extends: '@espressive/eslint-config-espressive',
+  extends: ['@espressive', 'prettier'], // prettier must be last so we override any rules that potentially conflict with Prettier
   overrides: [
     {
       files: ['**/next-*/**/*', 'docs/**/*'],

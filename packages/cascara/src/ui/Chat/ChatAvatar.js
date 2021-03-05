@@ -6,7 +6,21 @@ const propTypes = {
   fullName: pt.string,
   imageUrl: pt.string,
   square: pt.bool,
-  status: pt.object,
+  status: pt.shape({
+    accessibility: pt.string,
+    color: pt.string,
+    icon: pt.oneOf(['success', 'info', 'warning', 'error', 'unknown']),
+    size: pt.oneOf([
+      'smallest',
+      'smaller',
+      'small',
+      'medium',
+      'large',
+      'larger',
+      'largest',
+    ]),
+    state: pt.oneOf(['success', 'info', 'warning', 'error', 'unknown']),
+  }),
   userID: pt.number,
 };
 

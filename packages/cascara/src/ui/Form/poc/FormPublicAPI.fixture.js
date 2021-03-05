@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import faker from 'faker';
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
@@ -105,7 +104,7 @@ const prepareFormData = (data, config) => {
     }
   });
 
-  const actions = dataConfig.actions;
+  const { actions } = dataConfig;
 
   return {
     actions,
@@ -200,7 +199,9 @@ const FormPublicAPI = ({ data, dataConfig }) => {
         })}
         <div style={{ margin: '1em', textAlign: 'right' }}>
           {prepareFormData(data, dataConfig).actions.map((action, i) => (
-            <button key={i}>{action.label}</button>
+            <button key={i} type='button'>
+              {action.label}
+            </button>
           ))}
         </div>
       </div>

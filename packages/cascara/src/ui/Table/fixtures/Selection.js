@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import './TableStyleTest.module.scss';
 import { generateFakeEmployees } from '../../../lib/mock/fakeData';
 
-import TableContext, { TableContextProvider } from '../context';
+import TableContext, { TableContextProvider } from '../context/TableContext';
 // import SelectionToggle from '../atoms/SelectionToggle';
 
 const fakeEmployees = generateFakeEmployees(50);
@@ -65,7 +65,9 @@ const Table = () => {
     uniqueIdAttribute,
   } = useContext(TableContext);
 
-  const columns = dataConfig.display.map((column) => <th>{column.label}</th>);
+  const columns = dataConfig.display.map((column) => (
+    <th key={column.label}>{column.label}</th>
+  ));
   if (bulkActions.length) {
     columns.push(<th />);
   }
@@ -90,7 +92,9 @@ const Table = () => {
         }}
       >
         {bulkActions?.map((action) => (
-          <button key={action.label}>{action.label}</button>
+          <button key={action.label} type='button'>
+            {action.label}
+          </button>
         ))}
       </div>
     </caption>
@@ -99,16 +103,18 @@ const Table = () => {
   // this will have its own context
   const renderRow = (row) => (
     <tr>
-      {[<td>[]</td>].concat(
-        dataConfig.display.map((column) => (
+      {[<td key={`${row[uniqueIdAttribute]}`}>[]</td>].concat(
+        dataConfig.display.map((column, i) => (
           <td key={`${row[uniqueIdAttribute]}-${row[column.attribute]}`}>
             {row[column.attribute]}
           </td>
         )),
         [
-          <td>
+          <td key={`${row[uniqueIdAttribute]}0`}>
             {actions.map((action) => (
-              <button key={action.label}>{action.label}</button>
+              <button key={action.label} type='button'>
+                {action.label}
+              </button>
             ))}
           </td>,
         ]

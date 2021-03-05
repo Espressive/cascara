@@ -6,7 +6,14 @@ import styles from '../Dashboard.module.scss';
 
 const propTypes = {
   /** A widget can display action buttons */
-  actions: pt.array,
+  actions: pt.arrayOf(
+    pt.shape({
+      content: pt.string,
+    })
+  ),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  /** aWidget can have a css class name */
+  className: pt.string,
   /** A widget can have a clickable info icon with a description */
   description: pt.string,
   /** The height of a widget */
