@@ -1,6 +1,6 @@
 {
   "name": "@espressive/babel-preset-espressive",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Babel preset used by Espressive",
   "repository": {
     "type": "git",
