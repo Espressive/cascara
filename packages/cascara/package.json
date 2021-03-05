@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git",
@@ -38,7 +38,7 @@
     "reakit": "next"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "^2.0.3",
+    "@espressive/legacy-css": "^2.0.4",
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2"
   },
