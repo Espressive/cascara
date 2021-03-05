@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import pt from 'prop-types';
 import {
   Dropdown,
@@ -72,9 +72,12 @@ const propTypes = {
 const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
   const [theme, setTheme] = useState(items[DEFAULT_THEME_INDEX].value);
 
-  function handleDropdownChange(e, data) {
-    setTheme(data.value.value);
-  }
+  const handleDropdownChange = useCallback(
+    (e, data) => {
+      setTheme(data.value.value);
+    },
+    [setTheme]
+  );
 
   return (
     <Provider theme={themes[theme]}>

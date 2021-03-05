@@ -16,8 +16,8 @@
   "scripts": {
     "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
     "cascara": "yarn workspace @espressive/cascara",
-    "cosmos:build": "npx -p react-cosmos cosmos-export --config .cosmos/config.json",
-    "cosmos": "npx react-cosmos --config .cosmos/config.json",
+    "cosmos:build": "npx -p react-cosmos@5.5.3 cosmos-export --config .cosmos/config.json",
+    "cosmos": "npx react-cosmos@5.5.3 --config .cosmos/config.json",
     "docs": "yarn workspace docs",
     "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
     "framer:publish": "dotenv npx framer-cli publish",

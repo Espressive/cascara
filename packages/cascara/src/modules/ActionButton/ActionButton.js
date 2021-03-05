@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
@@ -36,9 +36,12 @@ const ActionButton = ({
   // FDS-137: use action name for button name if no content is specified
   const buttonText = content || name;
 
-  function handleClick({ currentTarget }) {
-    onAction(currentTarget, record);
-  }
+  const handleClick = useCallback(
+    ({ currentTarget }) => {
+      onAction(currentTarget, record);
+    },
+    [onAction, record]
+  );
 
   return isEditing ? null : (
     <Button

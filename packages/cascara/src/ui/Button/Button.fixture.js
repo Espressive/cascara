@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Button } from '../../../src';
 
 const handleAlert = () => alert('Alerted!');
@@ -6,10 +6,10 @@ const handleAlert = () => alert('Alerted!');
 const ButtonRef = () => {
   const buttonRef = useRef(null);
 
-  function handleRefLog() {
+  const handleRefLog = useCallback(() => {
     console.log(buttonRef);
     alert('See console for log...');
-  }
+  }, []);
 
   return <Button content='Ref' onClick={handleRefLog} ref={buttonRef} />;
 };

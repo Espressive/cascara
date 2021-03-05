@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import pt from 'prop-types';
 import {
   Animation,
@@ -24,43 +24,45 @@ const propTypes = {
   timestamp: pt.string.isRequired,
 };
 
-function itemToString(value) {
-  return value.content;
-}
-
 /** A Chat can display options as either buttons or a dropdown select if more than 3 options exist */
 const ChatOptions = ({
   authorName,
   isSessionUser = false,
   options = [],
   timestamp,
-}) => (
-  <Animation name='chatMessage'>
-    <FUIChat.Message
-      author={authorName}
-      content={
-        options.length > 3 ? (
-          <Dropdown
-            itemToString={itemToString}
-            items={options.map((option, i) => ({
-              ...option,
-            }))}
-            noResultsMessage="We couldn't find any matches."
-            placeholder='Select an option...'
-          />
-        ) : (
-          <Flex column gap='gap.small'>
-            {options.map((option) => (
-              <Button {...option} fluid key={option.key} />
-            ))}
-          </Flex>
-        )
-      }
-      mine={isSessionUser}
-      timestamp={timestamp}
-    />
-  </Animation>
-);
+}) => {
+  const itemToString = useCallback((value) => {
+    return value.content;
+  }, []);
+
+  return (
+    <Animation name='chatMessage'>
+      <FUIChat.Message
+        author={authorName}
+        content={
+          options.length > 3 ? (
+            <Dropdown
+              itemToString={itemToString}
+              items={options.map((option, i) => ({
+                ...option,
+              }))}
+              noResultsMessage="We couldn't find any matches."
+              placeholder='Select an option...'
+            />
+          ) : (
+            <Flex column gap='gap.small'>
+              {options.map((option) => (
+                <Button {...option} fluid key={option.key} />
+              ))}
+            </Flex>
+          )
+        }
+        mine={isSessionUser}
+        timestamp={timestamp}
+      />
+    </Animation>
+  );
+};
 
 ChatOptions.displayName = 'Chat.Options';
 ChatOptions.propTypes = propTypes;

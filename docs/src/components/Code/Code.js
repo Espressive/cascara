@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live';
 import theme from 'prism-react-renderer/themes/synthwave84';
 import pt from 'prop-types';
@@ -25,16 +25,19 @@ const Code = ({ children, className, live = true, title, ...rest }) => {
 
   const [editorCode, setEditorCode] = useState(children.trim());
 
-  function handleEditorToggle() {
+  const handleEditorToggle = useCallback(() => {
     // TODO: Make cursor focus on editor when opening
     // should also update styles for focus on editor so it is easier to see that it
     // is actually editable
     setEditorOpen(!editorOpen);
-  }
+  }, [setEditorOpen, editorOpen]);
 
-  function handleCodeChange(code) {
-    setEditorCode(code.trim());
-  }
+  const handleCodeChange = useCallback(
+    (code) => {
+      setEditorCode(code.trim());
+    },
+    [setEditorCode]
+  );
 
   useEffect(() => {
     setEditorCode(children.trim());

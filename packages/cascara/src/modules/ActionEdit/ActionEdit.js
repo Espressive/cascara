@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
@@ -44,7 +44,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     saveTestId['data-testid'] = dataTestIDs['save'];
   }
 
-  const handleReset = () => {
+  const handleReset = useCallback(() => {
     onAction(
       // fake target
       {
@@ -56,16 +56,16 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     );
 
     exitEditMode();
-  };
+  }, [exitEditMode, onAction, record]);
 
-  function handleCancel() {
+  const handleCancel = useCallback(() => {
     isDirty
       ? // eslint-disable-next-line no-restricted-globals, no-alert -- For now we do not have our own confirmation dialog so we are using native confirms
         confirm('Abandon unsaved changes?') && handleReset()
       : handleReset();
-  }
+  }, [handleReset, isDirty]);
 
-  function handleEdit() {
+  const handleEdit = useCallback(() => {
     // FDS-91: We are resetting the form with whatever is in record.
     // We don't know if this is the best way to do it in React.
     reset({ ...record });
@@ -80,22 +80,25 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     );
 
     enterEditMode(recordId);
-  }
+  }, [enterEditMode, onAction, record, recordId, reset]);
 
-  function onSubmit(data) {
-    onAction(
-      // fake target
-      {
-        name: 'edit.save',
-      },
-      {
-        ...record,
-        ...data,
-      }
-    );
+  const onSubmit = useCallback(
+    (data) => {
+      onAction(
+        // fake target
+        {
+          name: 'edit.save',
+        },
+        {
+          ...record,
+          ...data,
+        }
+      );
 
-    exitEditMode();
-  }
+      exitEditMode();
+    },
+    [exitEditMode, onAction, record]
+  );
 
   return isEditing ? (
     <>
