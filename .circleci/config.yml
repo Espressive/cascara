@@ -128,12 +128,17 @@ jobs:
 
   release:
     <<: *job_executor
+    parameters:
+      options:
+        description: 'Option flags passed to the Lerna release command'
+        default: ''
+        type: string
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
           name: Publish Cascara
-          command: yarn publish-packages --yes
+          command: yarn publish-packages << parameters.options >> --yes
 
 workflows:
   build-and-test:
@@ -163,6 +168,16 @@ workflows:
       - release:
           filters:
             branches:
-              only: main
+              only:
+                - develop
+          options: prerelease
+          requires:
+            - build-cascara
+      - release:
+          filters:
+            branches:
+              only:
+                - main
+          options: --conventional-graduate
           requires:
             - build-cascara
