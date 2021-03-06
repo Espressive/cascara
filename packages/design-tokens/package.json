@@ -17,7 +17,8 @@
   "scripts": {
     "build": "yarn clean && style-dictionary build -c config",
     "clean": "rm -rf dist && rm -rf undefined",
-    "version": "yarn build"
+    "version": "yarn build",
+    "prepare": "echo 'No prepare scripts for this package'"
   },
   "devDependencies": {
     "style-dictionary": "3.0.0-rc.5"
