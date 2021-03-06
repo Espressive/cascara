@@ -3,28 +3,14 @@ version: 2.1
 orbs:
   node: circleci/node@4.0.1
   slack: circleci/slack@4.2.1
-  # ghpr: narrativescience/ghpr@1.1.1
-  # jq: circleci/jq@2.2.0
 
 job_executor: &job_executor
   executor:
     name: node/default
     tag: '12.13.0'
 
-# GITHUB_PR_BASE_BRANCH` - The base branch for the PR.
-# GITHUB_PR_NUMBER` - The number of the PR.
-# GITHUB_PR_TITLE` - The title of the PR.
-# GITHUB_PR_COMMIT_MESSAGE` - The current commit's message. (Optional)
-# GITHUB_PR_AUTHOR_USERNAME` - The PR author's username.
-# GITHUB_PR_AUTHOR_NAME` - The PR author's name. (Optional)
-# GITHUB_PR_AUTHOR_EMAIL` - The PR author's email address. (Optional)
-
 post_steps: &post_steps
   post-steps:
-    # - jq/install
-    # - ghpr/get-pr-info:
-    #     get_pr_author_email: true
-    #     get_pr_author_name: true
     - slack/notify:
         custom: |
           {
@@ -119,7 +105,7 @@ jobs:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
           name: Build Cascara Runtimes
-          command: make
+          command: yarn cascara build
       - save_cache:
           key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
           paths:
@@ -139,6 +125,20 @@ jobs:
       - store_artifacts:
           path: ./build/cosmos
           destination: cosmos
+
+  release:
+    <<: *job_executor
+    parameters:
+      options:
+        description: 'Option flags passed to the Lerna release command'
+        default: ''
+        type: string
+    steps:
+      - restore_cache:
+          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+      - run:
+          name: Publish Cascara
+          command: yarn publish-packages << parameters.options >> --yes
 
 workflows:
   build-and-test:
@@ -165,3 +165,19 @@ workflows:
           requires:
             - lint
             - test
+      - release:
+          filters:
+            branches:
+              only:
+                - develop
+          options: prerelease
+          requires:
+            - build-cascara
+      - release:
+          filters:
+            branches:
+              only:
+                - main
+          options: --conventional-graduate
+          requires:
+            - build-cascara
