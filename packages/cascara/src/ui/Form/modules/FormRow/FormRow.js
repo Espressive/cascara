@@ -1,6 +1,13 @@
 import React from 'react';
+import pt from 'prop-types';
+
 import styles from '../../Form.module.scss';
 import ErrorBoundary from '../../../../shared/ErrorBoundary';
+
+const propTypes = {
+  children: pt.oneOf([pt.element, pt.arrayOf(pt.element)]),
+  ratio: pt.arrayOf(pt.oneOfType([pt.number, pt.string])),
+};
 
 const FormRow = ({ children, ratio }) => {
   if (ratio && ratio.length !== children.length) {
@@ -10,7 +17,7 @@ const FormRow = ({ children, ratio }) => {
   }
 
   const columnRatio =
-    ratio?.map((col) => col + 'fr').join(' ') ||
+    ratio?.map((col) => `${col}fr`).join(' ') ||
     'repeat(auto-fill, minmax(10em, 1fr))';
 
   return (
@@ -24,5 +31,7 @@ const FormRow = ({ children, ratio }) => {
     </ErrorBoundary>
   );
 };
+
+FormRow.propTypes = propTypes;
 
 export default FormRow;

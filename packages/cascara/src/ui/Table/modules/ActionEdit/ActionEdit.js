@@ -106,6 +106,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
         {...cancelTestId}
         className='ui negative icon button'
         disabled={isSubmitting}
+        name={'edit.cancel'}
         onClick={handleCancel}
         type='button'
       >
@@ -115,6 +116,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
         {...saveTestId}
         className='ui positive icon button'
         disabled={!isDirty || isSubmitting}
+        name={'edit.save'}
         onClick={handleSubmit(onSubmit)}
         type='button'
       >
@@ -126,6 +128,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
       {...editTestId}
       className='ui basic button'
       disabled={whenAnotherRowIsEditing}
+      name={'edit.start'}
       onClick={handleEdit}
       type='button'
     >

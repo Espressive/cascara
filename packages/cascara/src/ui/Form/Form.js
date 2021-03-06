@@ -19,9 +19,9 @@ const actionModuleOptions = Object.keys(bundledActionModules);
 const dataModuleOptions = Object.keys(formDataModules);
 
 const propTypes = {
-  /** An object of modules to display.
-   *
-   * Every parameter in this object can potentially be rendered in the form. */
+  // An object of modules to display.
+  //
+  // Every parameter in this object can potentially be rendered in the form.
   data: pt.shape({}),
 
   /** The main configuration for your form. Here you can specify fields or rows of fields to display as well as the actions to take on the form itself. */
@@ -41,17 +41,20 @@ const propTypes = {
     ),
   }).isRequired,
 
+  /** a form can be editable */
+  isEditable: pt.bool,
+
   /** A form can start in an editing state */
   isInitialEditing: pt.bool,
 
-  /** Event handler.
-   *
-   * An event handler you can pass to handle every event your table emits.*/
+  // Event handler.
+  //
+  // An event handler you can pass to handle every event your table emits.
   onAction: pt.func,
 
-  /** Unique ID Attribute.
-   *
-   * specifies the attribute that uniquely identifies every object in the 'data' array. */
+  // Unique ID Attribute.
+  //
+  // specifies the attribute that uniquely identifies every object in the 'data' array.
   uniqueIdAttribute: pt.string,
 };
 
@@ -84,7 +87,7 @@ const formFields = (display, data) => {
 
     return (
       <ErrorBoundary key={key}>
-        {Boolean(FormModule) ? (
+        {FormModule ? (
           <FormModule {...field}>{renderFields(field.fields)}</FormModule>
         ) : (
           renderField(field)
@@ -99,9 +102,9 @@ const renderActions = (actions) =>
     const { module, ...rest } = action;
     const Action = bundledActionModules[module];
 
-    /**
-     * In certain predefined-action modules in which a label is not required, e.g. `edit`,
-     * the following unique key generation fails, as it relies on the label (content). */
+    //
+    // In certain predefined-action modules in which a label is not required, e.g. `edit`,
+    // the following unique key generation fails, as it relies on the label (content).
     const key = `${id}.${module}.${rest.label || module}`;
 
     return Action ? (

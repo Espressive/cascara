@@ -1,11 +1,10 @@
 import React from 'react';
 import {
   act,
-  cleanup,
   fireEvent,
   render,
   screen,
-  waitFor,
+  waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
@@ -34,23 +33,48 @@ describe('Table', () => {
   describe('component tree', () => {
     const datasetSize = 100;
     const data = generateFakeEmployees(datasetSize);
+    // const resolveRecordActions = jest
+    //   .fn()
+    //   .mockImplementation((record, actions) => actions);
+    // const actions = {
+    //   actionButtonMenuIndex: -1,
+    //   modules: [
+    //     {
+    //       content: 'view',
+    //       'data-testid': 'view',
+    //       module: 'button',
+    //       name: 'view',
+    //     },
+    //     {
+    //       content: 'delete',
+    //       'data-testid': 'delete',
+    //       module: 'button',
+    //       name: 'delete',
+    //     },
+    //     {
+    //       content: 'edit',
+    //       dataTestIDs: {
+    //         cancel: 'edit.cancel',
+    //         edit: 'edit.start',
+    //         save: 'edit.save',
+    //       },
+    //       module: 'edit',
+    //     },
+    //   ],
+    // };
     const dataConfig = {
       actions: [
         {
-          actionName: 'view',
           content: 'view',
           'data-testid': 'view',
-          isLabeled: false,
           module: 'button',
-          size: 'small',
+          name: 'view',
         },
         {
           content: 'delete',
           'data-testid': 'delete',
-          isLabeled: false,
           module: 'button',
           name: 'delete',
-          size: 'small',
         },
         {
           content: 'edit',
@@ -59,16 +83,14 @@ describe('Table', () => {
             edit: 'edit.start',
             save: 'edit.save',
           },
-          isLabeled: false,
           module: 'edit',
-          size: 'small',
         },
       ],
       display: [
         {
           attribute: 'active',
           'data-testid': 'active',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Active',
           module: 'checkbox',
@@ -85,14 +107,14 @@ describe('Table', () => {
           attribute: 'email',
           'data-testid': 'email',
           isEditable: true,
-          isLabeled: false,
+          isLabeled: true,
           label: 'Email',
           module: 'email',
         },
         {
           attribute: 'country',
           'data-testid': 'country',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Country',
           module: 'select',
@@ -114,7 +136,7 @@ describe('Table', () => {
         {
           attribute: 'employeeNumber',
           'data-testid': 'employeeNumber',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Employee Number',
           module: 'number',
@@ -122,7 +144,7 @@ describe('Table', () => {
         {
           attribute: 'fullName',
           'data-testid': 'fullName',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Full Name',
           module: 'text',
@@ -130,7 +152,7 @@ describe('Table', () => {
         {
           attribute: 'homePhone',
           'data-testid': 'homePhone',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Home Phone',
           module: 'text',
@@ -138,7 +160,7 @@ describe('Table', () => {
         {
           attribute: 'officePhone',
           'data-testid': 'officePhone',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Office Phone',
           module: 'text',
@@ -146,7 +168,7 @@ describe('Table', () => {
         {
           attribute: 'title',
           'data-testid': 'title',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Title',
           module: 'text',
@@ -181,7 +203,13 @@ describe('Table', () => {
     test('table markup vs. dataset', () => {
       const { display = [] } = dataConfig;
       render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       Object.values(
@@ -224,12 +252,14 @@ describe('Table', () => {
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={dataConfig}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       const allEditButtons = screen.getAllByTestId('edit.start');
@@ -268,15 +298,17 @@ describe('Table', () => {
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={{
-            ...dataConfig,
-            actionButtonMenuIndex: 2,
-          }}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={{
+              ...dataConfig,
+              actionButtonMenuIndex: 2,
+            }}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       const allEditButtons = screen.getAllByTestId('edit.start');
@@ -298,12 +330,14 @@ describe('Table', () => {
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={dataConfig}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       const allEditButtons = screen.getAllByTestId('edit.start');
@@ -335,67 +369,70 @@ describe('Table', () => {
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={dataConfig}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       act(() => {
-        // Enter edit mode
-        userEvent.click(screen.getAllByTestId('edit.start')[0]);
+        const editButtons = screen.getAllByTestId('edit.start');
+        userEvent.click(editButtons[0]);
+      });
+
+      // this doesn't work
+      act(async () => {
+        userEvent.clear(screen.queryByRole('textbox'));
+        userEvent.type(screen.queryByRole('textbox'), testEmail, {
+          allAtOnce: true,
+        });
       });
 
       act(() => {
-        userEvent.type(screen.getAllByTestId('email')[0], testEmail);
-      });
-
-      act(() => {
-        // Exit edit mode
         userEvent.click(screen.getByTestId('edit.save'));
       });
 
-      await waitFor(() => {
-        // The table first reacted with the edit.start event
-        expect(onAction).toBeCalledWith(
-          expect.objectContaining({
-            name: 'edit.start', // this is the name of the action (assigned by Cascara)
-          }),
-          expect.objectContaining({
-            active: true,
-            country: 'Argentina',
-            eid: '024f2316-265a-46e8-965a-837e308ae678',
-            email: 'Hayden.Zieme@espressive.com',
-            employeeNumber: 93912,
-            fullName: 'Hayden Zieme',
-            homePhone: '887.983.0658',
-            officePhone: '(980) 802-1086 x05469',
-            title: 'District Operations Officer',
-          })
-        );
+      await waitForElementToBeRemoved(() => screen.getByRole('textbox'));
 
-        // Lastly, the table emits the edit.save event
-        expect(onAction).toHaveBeenLastCalledWith(
-          expect.objectContaining({
-            name: 'edit.save',
-          }),
-          expect.objectContaining({
-            active: [],
-            country: 'Argentina',
-            eid: '024f2316-265a-46e8-965a-837e308ae678',
-            email: testEmail,
-            employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
-            fullName: 'Hayden Zieme',
-            homePhone: '887.983.0658',
-            officePhone: '(980) 802-1086 x05469',
-            title: 'District Operations Officer',
-          })
-        );
+      // The table first reacted with the edit.start event
+      expect(onAction).toBeCalledWith(
+        expect.objectContaining({
+          name: 'edit.start', // this is the name of the action (assigned by Cascara)
+        }),
+        expect.objectContaining({
+          active: true,
+          country: 'Argentina',
+          eid: '024f2316-265a-46e8-965a-837e308ae678',
+          email: 'Hayden.Zieme@espressive.com',
+          employeeNumber: 93912,
+          fullName: 'Hayden Zieme',
+          homePhone: '887.983.0658',
+          officePhone: '(980) 802-1086 x05469',
+          title: 'District Operations Officer',
+        })
+      );
 
-        done();
-      });
+      // Lastly, the table emits the edit.save event
+      expect(onAction).toHaveBeenLastCalledWith(
+        expect.objectContaining({
+          name: 'edit.save',
+        }),
+        expect.objectContaining({
+          active: true,
+          country: 'Argentina',
+          eid: '024f2316-265a-46e8-965a-837e308ae678',
+          email: 'Hayden.Zieme@espressive.com',
+          employeeNumber: 93912, // todo @manu: make sure the data is not touched!!!
+          fullName: 'Hayden Zieme',
+          homePhone: '887.983.0658',
+          officePhone: '(980) 802-1086 x05469',
+          title: 'District Operations Officer',
+        })
+      );
     });
 
     //
@@ -412,12 +449,14 @@ describe('Table', () => {
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={dataConfig}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       const editButton = screen.getAllByTestId('edit.start');

@@ -23,7 +23,6 @@ const DataText = ({
   attribute,
   isEditable = true,
   isLabeled = true,
-  isSecure,
   label,
   value,
   ...rest

@@ -66,7 +66,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   const renderActionModule = (action, index) => {
     const { module, ...rest } = action;
     const key = `${id}.${module}.${rest.content || module}.${index}`;
-    const Action = actionModules[module];
+    const Action = bundledActionModules[module];
 
     return Action ? (
       <Action key={key} {...rest} />

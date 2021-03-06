@@ -2,7 +2,6 @@ import React from 'react';
 import { ModuleContext, ModuleProvider } from '../../../modules/context';
 import styles from '../Form.module.scss';
 import pt from 'prop-types';
-import { ModuleContext, ModuleProvider } from '../../../modules/context';
 import styles from '../Form.module.scss';
 import { useForm } from 'react-hook-form';
 
