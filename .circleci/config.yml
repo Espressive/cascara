@@ -105,7 +105,7 @@ jobs:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
       - run:
           name: Build Cascara Runtimes
-          command: make
+          command: yarn cascara build
       - save_cache:
           key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
           paths:
@@ -128,20 +128,9 @@ jobs:
 
   release:
     <<: *job_executor
-    # docker:
-    #   - image: circleci/node
-    # resource_class: small
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
-      # - node/with-cache:
-      #     steps:
-      #       - add_ssh_keys:
-      #           fingerprints:
-      #             - $GITHUB_PACKAGE_DEPLOY_FINGERPRINT
-      - run:
-          name: Prepare Lerna
-          command: yarn lerna bootstrap --hoist --ci
       - run:
           name: Publish Cascara
           command: yarn lerna version --no-private --conventional-commits --create-release github --yes
