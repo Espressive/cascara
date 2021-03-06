@@ -136,9 +136,13 @@ jobs:
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+
       - run:
           name: Publish Cascara
-          command: yarn publish-packages << parameters.options >> --yes
+          command: |
+            git config user.email "brian@espressive.com"
+            git config user.name "Brian Espinosa"
+            yarn publish-packages << parameters.options >> --yes
 
 workflows:
   build-and-test:
