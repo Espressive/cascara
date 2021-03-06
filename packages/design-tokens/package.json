@@ -1,0 +1,28 @@
+{
+  "name": "@espressive/design-tokens",
+  "version": "0.1.0",
+  "description": "Cascara design tokens",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:Espressive/cascara.git",
+    "directory": "packages/design-tokens"
+  },
+  "license": "CC0-1.0",
+  "sideEffects": false,
+  "main": "./dist/tokens.json",
+  "style": "./dist/_variables.scss",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn clean && style-dictionary build -c config",
+    "clean": "rm -rf dist && rm -rf undefined",
+    "version": "yarn build"
+  },
+  "devDependencies": {
+    "style-dictionary": "3.0.0-rc.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
