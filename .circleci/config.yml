@@ -134,13 +134,17 @@ jobs:
     steps:
       - restore_cache:
           key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
-      - node/with-cache:
-          steps:
-            - add_ssh_keys:
-                fingerprints:
-                  - $GITHUB_PACKAGE_DEPLOY_FINGERPRINT
-            - run: yarn lerna bootstrap --hoist --ci
-            - run: yarn lerna version --no-private --conventional-commits --create-release github --yes
+      # - node/with-cache:
+      #     steps:
+      #       - add_ssh_keys:
+      #           fingerprints:
+      #             - $GITHUB_PACKAGE_DEPLOY_FINGERPRINT
+      - run:
+          name: Prepare Lerna
+          command: yarn lerna bootstrap --hoist --ci
+      - run:
+          name: Publish Cascara
+          command: yarn lerna version --no-private --conventional-commits --create-release github --yes
 
 workflows:
   build-and-test:
