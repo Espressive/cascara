@@ -39,9 +39,9 @@ const ActionButton = ({
 
   const handleClick = useCallback(
     ({ currentTarget }) => {
-      onAction(currentTarget, record);
+      onAction(currentTarget, dataOrRecord);
     },
-    [onAction, record]
+    [onAction, dataOrRecord]
   );
 
   return isEditing ? null : (

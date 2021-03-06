@@ -58,7 +58,7 @@ const TableRow = ({ config = {}, record = {} }) => {
         ? insideButtonActions.push(action)
         : outsideButtonActions.push(action)
     );
-  const specialActions = userDefinedActions.filter(
+  const specialActions = userDefinedModules.filter(
     ({ module }) => module !== 'button'
   );
   const outsideActions = [...specialActions, ...outsideButtonActions];

@@ -111,7 +111,7 @@ const Table = ({
 
   let columnCount = display.length;
 
-  if (modules.length) {
+  if (modules?.length) {
     columnCount++;
   }
 

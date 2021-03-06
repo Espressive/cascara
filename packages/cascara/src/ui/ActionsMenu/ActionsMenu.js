@@ -48,14 +48,18 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
           className='menu transition visible'
           style={{ position: 'initial' }}
         >
-          {actions.map((action, actionIndex) => (
-            <MemoActionsMenuItem
-              key={action.name}
-              {...action}
-              actionIndex={actionIndex}
-              menu={menu}
-            />
-          ))}
+          {actions.map((action, actionIndex) => {
+            const key = `${action.name}.${actionIndex}`;
+
+            return (
+              <MemoActionsMenuItem
+                key={key}
+                {...action}
+                actionIndex={actionIndex}
+                menu={menu}
+              />
+            );
+          })}
         </div>
       </Menu>
     </>

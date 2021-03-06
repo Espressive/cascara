@@ -9,44 +9,44 @@ import Table from '..';
 const defaultColumns = [
   {
     attribute: 'created',
+    content: 'Created',
     isEditable: true,
     isLabeled: false,
-    label: 'Created',
     module: 'text',
   },
   {
     attribute: 'phrase',
+    content: 'Phrase',
     isEditable: false,
     isLabeled: false,
-    label: 'Phrase',
     module: 'text',
   },
   {
     attribute: 'user',
+    content: 'User',
     isEditable: true,
     isLabeled: false,
-    label: 'User',
     module: 'email',
   },
   {
     attribute: 'response',
+    content: 'Response',
     isEditable: true,
     isLabeled: false,
-    label: 'Response',
     module: 'checkbox',
   },
   {
     attribute: 'deflected',
+    content: 'Deflected',
     isEditable: true,
     isLabeled: false,
-    label: 'Deflected',
     module: 'checkbox',
   },
   {
     attribute: 'matchedIntent',
+    content: 'Matched Intent',
     isEditable: true,
     isLabeled: false,
-    label: 'Matched Intent',
     module: 'text',
   },
 ];
@@ -98,14 +98,32 @@ class Fixture extends PureComponent {
         break;
 
       default:
+        break;
     }
+  };
+
+  resolveRecordActions = (record, actions) => {
+    return actions.reduce((actions, action) => {
+      switch (action.name) {
+        case 'view.faq':
+          if (record.type === 'faq') {
+            actions.push(action);
+          }
+          break;
+
+        default:
+          actions.push(action);
+          break;
+      }
+
+      return actions;
+    }, []);
   };
 
   render() {
     const { columns, data, display } = this.state;
-    const dataConfig = {
-      actionButtonMenuIndex: 0,
-      actions: [
+    const actions = {
+      modules: [
         {
           module: 'button',
           name: 'test',
@@ -129,6 +147,9 @@ class Fixture extends PureComponent {
           name: 'edit',
         },
       ],
+      resolveRecordActions: this.resolveRecordActions,
+    };
+    const dataConfig = {
       display,
     };
 
@@ -142,6 +163,7 @@ class Fixture extends PureComponent {
 
     return (
       <>
+        <JsonPlaceholder data={actions} title='actions' />
         <JsonPlaceholder data={dataConfig} title='dataConfig' />
         <JsonPlaceholder
           data={{ availableColumns, selectedColumns }}
@@ -166,6 +188,7 @@ class Fixture extends PureComponent {
         </Header>
 
         <Table
+          actions={actions}
           data={data}
           dataConfig={dataConfig}
           onAction={this.handleTableAction}

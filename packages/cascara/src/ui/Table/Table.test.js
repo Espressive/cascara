@@ -33,35 +33,6 @@ describe('Table', () => {
   describe('component tree', () => {
     const datasetSize = 100;
     const data = generateFakeEmployees(datasetSize);
-    // const resolveRecordActions = jest
-    //   .fn()
-    //   .mockImplementation((record, actions) => actions);
-    // const actions = {
-    //   actionButtonMenuIndex: -1,
-    //   modules: [
-    //     {
-    //       content: 'view',
-    //       'data-testid': 'view',
-    //       module: 'button',
-    //       name: 'view',
-    //     },
-    //     {
-    //       content: 'delete',
-    //       'data-testid': 'delete',
-    //       module: 'button',
-    //       name: 'delete',
-    //     },
-    //     {
-    //       content: 'edit',
-    //       dataTestIDs: {
-    //         cancel: 'edit.cancel',
-    //         edit: 'edit.start',
-    //         save: 'edit.save',
-    //       },
-    //       module: 'edit',
-    //     },
-    //   ],
-    // };
     const dataConfig = {
       actions: [
         {
@@ -240,6 +211,142 @@ describe('Table', () => {
       expect(view).toMatchSnapshot();
     });
 
+    test('with new actions prop', () => {
+      const dataConfig = {
+        display: [
+          {
+            attribute: 'active',
+            'data-testid': 'active',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Active',
+            module: 'checkbox',
+          },
+          {
+            attribute: 'eid',
+            'data-testid': 'eid',
+            isEditable: false,
+            isLabeled: false,
+            label: 'ID',
+            module: 'text',
+          },
+          {
+            attribute: 'email',
+            'data-testid': 'email',
+            isEditable: true,
+            isLabeled: true,
+            label: 'Email',
+            module: 'email',
+          },
+          {
+            attribute: 'country',
+            'data-testid': 'country',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Country',
+            module: 'select',
+            options: [
+              {
+                label: 'Argentina',
+                value: 'Argentina',
+              },
+              {
+                label: 'Brazil',
+                value: 'Brazil',
+              },
+              {
+                label: 'USA',
+                value: 'USA',
+              },
+            ],
+          },
+          {
+            attribute: 'employeeNumber',
+            'data-testid': 'employeeNumber',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Employee Number',
+            module: 'number',
+          },
+          {
+            attribute: 'fullName',
+            'data-testid': 'fullName',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Full Name',
+            module: 'text',
+          },
+          {
+            attribute: 'homePhone',
+            'data-testid': 'homePhone',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Home Phone',
+            module: 'text',
+          },
+          {
+            attribute: 'officePhone',
+            'data-testid': 'officePhone',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Office Phone',
+            module: 'text',
+          },
+          {
+            attribute: 'title',
+            'data-testid': 'title',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Title',
+            module: 'text',
+          },
+        ],
+      };
+      const resolveRecordActions = jest
+        .fn()
+        .mockImplementation((record, actions) => actions);
+      const actions = {
+        actionButtonMenuIndex: 0,
+        modules: [
+          {
+            content: 'view',
+            'data-testid': 'view',
+            module: 'button',
+            name: 'view',
+          },
+          {
+            content: 'delete',
+            'data-testid': 'delete',
+            module: 'button',
+            name: 'delete',
+          },
+          {
+            content: 'edit',
+            dataTestIDs: {
+              cancel: 'edit.cancel',
+              edit: 'edit.start',
+              save: 'edit.save',
+            },
+            module: 'edit',
+          },
+        ],
+        resolveRecordActions,
+      };
+
+      render(
+        <Provider>
+          <Table
+            actions={actions}
+            data={data}
+            dataConfig={dataConfig}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      );
+
+      expect(resolveRecordActions).toHaveBeenCalledTimes(datasetSize);
+    });
+
     //
     // Actions and onAction.
     //
@@ -364,7 +471,7 @@ describe('Table', () => {
     // 1.- the events are actualy emitted by the Table
     // 2.- the data reflects the changes made by the user
     // 3.- the number of buttons present in each case.
-    test('editable records', async (done) => {
+    test('editable records', async () => {
       const testEmail = 'Hayden.Zieme@espressive.com';
       const onAction = jest.fn();
 

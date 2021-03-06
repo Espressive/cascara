@@ -63,51 +63,8 @@ exports[`Table component tree snapshot test 1`] = `
           />
         </tr>
       </thead>
-      <div
-        class="ui small error message"
-      >
-        <div
-          class="content"
-        >
-          <div
-            class="header"
-          >
-            ReferenceError: userDefinedActions is not defined
-          </div>
-          <details
-            style="font-size: 12px; white-space: pre-wrap;"
-          >
-            
-    in TableRow (created by TableBody)
-    in tbody (created by TableBody)
-    in ErrorBoundary (created by TableBody)
-    in TableBody (created by Table)
-    in table (created by Table)
-    in form (created by TableProvider)
-    in ModuleProvider (created by TableProvider)
-    in TableProvider (created by Table)
-    in ErrorBoundary (created by Table)
-    in Table
-    in SystemProvider (created by Provider)
-    in unstable_IdProvider (created by Provider)
-    in Provider
-          </details>
-        </div>
-      </div>
-    </table>
-  </form>
-</div>
-`;
-
-exports[`Table component tree without row actions 1`] = `
-<div>
-  <form>
-    <table
-      class="Table"
-      style="grid-template-columns: repeat(9, auto);"
-    >
-      <thead
-        class="HeadContainer"
+      <tbody
+        class="BodyContainer"
       >
         <tr
           class="Row"
@@ -31648,81 +31605,147 @@ exports[`Table component tree without row actions 1`] = `
           <td
             class="Cell"
           >
-            Active
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Checkbox"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="active"
+                />
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            ID
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Text"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="eid"
+                >
+                  68d20212-a3d7-42d9-9e93-8281034ffc22
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            Email
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Email"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="email"
+                >
+                  Karianne81@espressive.com
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            Country
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="country"
+                >
+                  Brazil
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            Employee Number
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Number"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="employeeNumber"
+                >
+                  31135
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            Full Name
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Text"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="fullName"
+                >
+                  Karianne Osinski
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            Home Phone
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Text"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="homePhone"
+                >
+                  (746) 968-9321
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            Office Phone
-          </th>
-          <th
-            class="HeadCell"
+            <div
+              class="Text"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="officePhone"
+                >
+                  410.626.7105 x546
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
           >
-            Title
-          </th>
+            <div
+              class="Text"
+            >
+              <span>
+                <span
+                  class="Input"
+                  data-testid="title"
+                >
+                  Regional Security Architect
+                </span>
+              </span>
+            </div>
+          </td>
         </tr>
-      </thead>
-      <div
-        class="ui small error message"
-      >
-        <div
-          class="content"
-        >
-          <div
-            class="header"
-          >
-            ReferenceError: userDefinedActions is not defined
-          </div>
-          <details
-            style="font-size: 12px; white-space: pre-wrap;"
-          >
-            
-    in TableRow (created by TableBody)
-    in tbody (created by TableBody)
-    in ErrorBoundary (created by TableBody)
-    in TableBody (created by Table)
-    in table (created by Table)
-    in form (created by TableProvider)
-    in ModuleProvider (created by TableProvider)
-    in TableProvider (created by Table)
-    in ErrorBoundary (created by Table)
-    in Table
-    in SystemProvider (created by Provider)
-    in unstable_IdProvider (created by Provider)
-    in Provider
-          </details>
-        </div>
-      </div>
+      </tbody>
     </table>
   </form>
 </div>
