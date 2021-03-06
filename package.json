@@ -23,7 +23,7 @@
     "framer:publish": "dotenv npx framer-cli publish",
     "lint": "eslint ./",
     "test:watch": "yarn test --watch",
-    "test": "jest",
+    "test": "jest -c ./.jest/config.js",
     "tokens": "style-dictionary build -c ./tokens.config.json",
     "publish-packages": "lerna version --amend --conventional-commits --no-private --create-release github"
   },
