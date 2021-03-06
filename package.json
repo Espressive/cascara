@@ -24,7 +24,8 @@
     "lint": "eslint ./",
     "test:watch": "yarn test --watch",
     "test": "jest",
-    "tokens": "style-dictionary build -c ./tokens.config.json"
+    "tokens": "style-dictionary build -c ./tokens.config.json",
+    "publish-packages": "lerna version --amend --conventional-commits --conventional-graduate --no-private --create-release github"
   },
   "husky": {
     "hooks": {
