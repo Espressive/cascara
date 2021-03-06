@@ -140,8 +140,9 @@ jobs:
       - run:
           name: Publish Cascara
           command: |
-            git config user.email "brian@espressive.com"
-            git config user.name "Brian Espinosa"
+            git config --global -l
+            git config --global user.email circleci@circleci
+            git config --global user.name CircleCI
             yarn publish-packages << parameters.options >> --yes
 
 workflows:
