@@ -23,7 +23,9 @@ commands:
         type: string
         default: ''
     steps:
-      - run: yarn vercel -t $VERCEL_TOKEN --no-clipboard --confirm << parameters.vercel-args >>
+      - run:
+          name: Deploy Vercel
+          command: yarn vercel -t $VERCEL_TOKEN --no-clipboard --confirm << parameters.vercel-args >>
 
 job_executor: &job_executor
   executor:
