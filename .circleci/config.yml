@@ -33,11 +33,11 @@ job_executor: &job_executor
     tag: '12.13.0'
 
 # We use this condition to evaluate when to do a --prod deploy of the docs
-is_dev_or_prod: &is_dev_or_prod
-  condition:
-    or:
-      - *is_main
-      - *is_develop
+# is_dev_or_prod: &is_dev_or_prod
+#   condition:
+#     or:
+#       - *is_main
+#       - *is_develop
 
 post_steps: &post_steps
   post-steps:
@@ -193,12 +193,12 @@ jobs:
       - restore_cache:
           key: << pipeline.parameters.installed-key >>
       - when:
-          <<: *is_dev_or_prod
+          condition: *is_main
           steps:
             - deploy-vercel:
                 vercel-args: --prod
       - unless:
-          <<: *is_dev_or_prod
+          condition: *is_main
           steps:
             - deploy-vercel
 
@@ -221,7 +221,8 @@ workflows:
       - build-cascara:
           <<: *post_steps
           requires:
-            - install
+            - lint
+            - test
       - build-cosmos:
           <<: *post_steps
           requires:
@@ -234,10 +235,7 @@ workflows:
                 - main
                 - develop
           requires:
-            - install
-          #   - lint
-          #   - test
+            - build-cascara
       - deploy-docs:
           requires:
-            - install
-          #   - release
+            - release-packages
