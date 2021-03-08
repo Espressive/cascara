@@ -23,7 +23,7 @@ commands:
         type: string
         default: ''
     steps:
-      - run: yarn vercel --no-clipboard --confirm << parameters.vercel-args >>
+      - run: yarn vercel -t $VERCEL_TOKEN --no-clipboard --confirm << parameters.vercel-args >>
 
 job_executor: &job_executor
   executor:
@@ -238,5 +238,4 @@ workflows:
       - deploy-docs:
           requires:
             - install
-          #   - lint
-          #   - test
+          #   - release
