@@ -9,6 +9,12 @@ parameters:
     type: string
     default: cascara-MONOREPO_INSTALLED-{{ .Revision }}
 
+aliases:
+  - &is_main
+    equal: [main, << pipeline.git.branch >>]
+  - &is_develop
+    equal: [develop, << pipeline.git.branch >>]
+
 commands:
   deploy-vercel:
     description: Deploys our docs to Vercel
@@ -28,8 +34,8 @@ job_executor: &job_executor
 is_dev_or_prod: &is_dev_or_prod
   condition:
     or:
-      - equal: [master, << pipeline.git.branch >>]
-      - equal: [develop, << pipeline.git.branch >>]
+      - *is_main
+      - *is_develop
 
 post_steps: &post_steps
   post-steps:
@@ -159,7 +165,7 @@ jobs:
       - restore_cache:
           key: << pipeline.parameters.installed-key >>
       - when:
-          <<: *is_dev_or_prod
+          condition: *is_main
           steps:
             - run:
                 name: Publish Cascara
@@ -167,7 +173,17 @@ jobs:
                   git config --global -l
                   git config --global user.email circleci@circleci
                   git config --global user.name CircleCI
-                  yarn publish-packages << parameters.options >> --yes
+                  yarn publish-packages --conventional-graduate --yes
+      - unless:
+          condition: *is_develop
+          steps:
+            - run:
+                name: Publish Cascara
+                command: |
+                  git config --global -l
+                  git config --global user.email circleci@circleci
+                  git config --global user.name CircleCI
+                  yarn publish-packages prerelease --yes
 
   deploy-docs:
     <<: *job_executor
@@ -213,18 +229,8 @@ workflows:
           filters:
             branches:
               only:
-                - develop
-          options: prerelease
-          requires:
-            - build-cascara
-      - release:
-          filters:
-            branches:
-              only:
                 - main
-          options: --conventional-graduate
-          requires:
-            - build-cascara
+                - develop
       - deploy-docs:
           requires:
             - build-cascara
