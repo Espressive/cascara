@@ -3,7 +3,7 @@ import { Dropdown, Header } from 'semantic-ui-react';
 
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
-import { generateFakeEmployees } from '../../../lib/mock/generateFakeEmployees';
+import { generateFakeEmployees } from '../../../lib/mock/fakeData';
 import Table from '..';
 
 class Fixture extends PureComponent {
@@ -146,7 +146,6 @@ class Fixture extends PureComponent {
         break;
 
       default:
-        return;
     }
   };
 
@@ -156,14 +155,12 @@ class Fixture extends PureComponent {
       actions: [
         {
           content: 'view',
-          isLabeled: false,
           module: 'button',
           name: 'view',
           size: 'small',
         },
         {
           content: 'edit',
-          isLabeled: false,
           module: 'edit',
           name: 'edit',
           size: 'small',

@@ -6,7 +6,7 @@ import ErrorBoundary from '../../shared/ErrorBoundary';
 import RowProvider from './context/RowProvider';
 import { ModuleContext } from '../../modules/context';
 
-import ActionBar from './ActionBar';
+import ActionsMenu from '../ActionsMenu';
 
 // todo @manu: let's document this one
 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
@@ -39,32 +39,52 @@ const propTypes = {
 const TableRow = ({ config = {}, record = {} }) => {
   const { id, columns } = config;
   const {
-    dataConfig: { actions: userDefinedActions = [] },
+    resolveRecordActions,
+    actionButtonMenuIndex = 0,
+    modules: userDefinedModules = [],
   } = useContext(ModuleContext);
 
-  const actionBarCell = (
-    <td className={styles.CellActions} key={`${id}-actionbar`}>
-      <ActionBar
-        actions={userDefinedActions.map((action) => {
-          const { module, ...rest } = action;
-          const Action = bundledActionModules[module];
+  // FDS-142: If a resolver is passed, get actions from it
+  const actions = resolveRecordActions
+    ? resolveRecordActions(record, userDefinedModules)
+    : userDefinedModules; // otherwise continue as normal
 
-          /**
-           * In certain predefined-action modules in which a label is not required, e.g. `edit`,
-           * the following unique key generation fails, as it relies on the label (content). */
-          const key = `${id}.${module}.${rest.label || module}${Date.now()}`;
+  const outsideButtonActions = [];
+  const insideButtonActions = [];
+  actions
+    .filter(({ module }) => module === 'button')
+    .map((action, index) =>
+      index >= actionButtonMenuIndex
+        ? insideButtonActions.push(action)
+        : outsideButtonActions.push(action)
+    );
+  const specialActions = userDefinedModules.filter(
+    ({ module }) => module !== 'button'
+  );
+  const outsideActions = [...specialActions, ...outsideButtonActions];
 
-          return Action ? (
-            <Action key={key} {...rest} />
-          ) : (
-            <ModuleError
-              key={key}
-              moduleName={module}
-              moduleOptions={actionModuleOptions}
-            />
-          );
-        })}
+  const renderActionModule = (action, index) => {
+    const { module, ...rest } = action;
+    const key = `${id}.${module}.${rest.content || module}.${index}`;
+    const Action = bundledActionModules[module];
+
+    return Action ? (
+      <Action key={key} {...rest} />
+    ) : (
+      <ModuleError
+        key={key}
+        moduleName={module}
+        moduleOptions={actionModuleOptions}
       />
+    );
+  };
+
+  const rowActions = (
+    <td className={styles.CellActions} key={`${id}-actionbar`}>
+      {outsideActions.map(renderActionModule)}
+      {insideButtonActions.length ? (
+        <ActionsMenu actions={insideButtonActions} />
+      ) : null}
     </td>
   );
 
@@ -94,8 +114,8 @@ const TableRow = ({ config = {}, record = {} }) => {
     );
   });
 
-  if (userDefinedActions.length) {
-    rowCells.push(actionBarCell);
+  if (userDefinedModules.length) {
+    rowCells.push(rowActions);
   }
 
   return (

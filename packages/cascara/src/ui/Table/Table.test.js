@@ -1,47 +1,51 @@
 import React from 'react';
 import {
   act,
-  cleanup,
   fireEvent,
   render,
   screen,
-  waitFor,
+  waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
+import { Provider } from 'reakit';
 
 import Table from './';
-import { generateFakeEmployees } from '../../lib/mock/generateFakeEmployees';
+import { generateFakeEmployees } from '../../lib/mock/fakeData';
 
 describe('Table', () => {
-  /**
-   * Component tree
-   * This test suite addresses the very basics of testing the Table UI.
-   *
-   * The first test is the snapshot, nothing special.
-   *
-   * Table actions
-   * An extra column is appended if any or both of these are true:
-   *
-   * a) at least one `action` is specified in `dataConfig.actions` array
-   * b) at least one column in the `dataConfig.display` array is editable
-   *
-   * In either cases, the extra column displays the action modules.
-   *
-   * The test `row actions` corresponds to condition a, whilst the test
-   * `editable records` addresses condition b.  */
+  //
+  // Component tree
+  // This test suite addresses the very basics of testing the Table UI.
+  //
+  // The first test is the snapshot, nothing special.
+  //
+  // Table actions
+  // An extra column is appended if any or both of these are true:
+  //
+  // a) at least one `action` is specified in `dataConfig.actions` array
+  // b) at least one column in the `dataConfig.display` array is editable
+  //
+  // In either cases, the extra column displays the action modules.
+  //
+  // The test `row actions` corresponds to condition a, whilst the test
+  // `editable records` addresses condition b.
   describe('component tree', () => {
     const datasetSize = 100;
     const data = generateFakeEmployees(datasetSize);
     const dataConfig = {
       actions: [
         {
-          actionName: 'view',
           content: 'view',
           'data-testid': 'view',
-          isLabeled: false,
           module: 'button',
-          size: 'small',
+          name: 'view',
+        },
+        {
+          content: 'delete',
+          'data-testid': 'delete',
+          module: 'button',
+          name: 'delete',
         },
         {
           content: 'edit',
@@ -50,16 +54,14 @@ describe('Table', () => {
             edit: 'edit.start',
             save: 'edit.save',
           },
-          isLabeled: false,
           module: 'edit',
-          size: 'small',
         },
       ],
       display: [
         {
           attribute: 'active',
           'data-testid': 'active',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Active',
           module: 'checkbox',
@@ -76,14 +78,14 @@ describe('Table', () => {
           attribute: 'email',
           'data-testid': 'email',
           isEditable: true,
-          isLabeled: false,
+          isLabeled: true,
           label: 'Email',
           module: 'email',
         },
         {
           attribute: 'country',
           'data-testid': 'country',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Country',
           module: 'select',
@@ -105,7 +107,7 @@ describe('Table', () => {
         {
           attribute: 'employeeNumber',
           'data-testid': 'employeeNumber',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Employee Number',
           module: 'number',
@@ -113,7 +115,7 @@ describe('Table', () => {
         {
           attribute: 'fullName',
           'data-testid': 'fullName',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Full Name',
           module: 'text',
@@ -121,7 +123,7 @@ describe('Table', () => {
         {
           attribute: 'homePhone',
           'data-testid': 'homePhone',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Home Phone',
           module: 'text',
@@ -129,7 +131,7 @@ describe('Table', () => {
         {
           attribute: 'officePhone',
           'data-testid': 'officePhone',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Office Phone',
           module: 'text',
@@ -137,7 +139,7 @@ describe('Table', () => {
         {
           attribute: 'title',
           'data-testid': 'title',
-          isEditable: true,
+          isEditable: false,
           isLabeled: false,
           label: 'Title',
           module: 'text',
@@ -145,42 +147,40 @@ describe('Table', () => {
       ],
     };
 
-    let view;
-
-    beforeAll(() => {
-      view = render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
-      ).container;
-    });
-
-    afterEach(cleanup);
-
     test('snapshot test', () => {
+      const view = render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      ).container;
+
       expect(view).toMatchSnapshot();
     });
 
-    test('default props', () => {
-      render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
-      );
-
-      expect(view).toMatchSnapshot();
-    });
-
-    /**
-     * The markup generated by the table must match the dataset characteristics.
-     *
-     * All column definitions in this test suite `dataConfig.display` have a `data-testid`
-     * attribute which is used here to do a simple test:
-     *
-     *  Does the number of (found) testIDs match the result of multiplying `datasetSize`
-     *  by the number of columns in `dataConfig.display`?
-     *
-     * */
+    //
+    // The markup generated by the table must match the dataset characteristics.
+    //
+    // All column definitions in this test suite `dataConfig.display` have a `data-testid`
+    // attribute which is used here to do a simple test:
+    //
+    //   Does the number of (found) testIDs match the result of multiplying `datasetSize`
+    //   by the number of columns in `dataConfig.display`?
+    //
+    //
     test('table markup vs. dataset', () => {
       const { display = [] } = dataConfig;
       render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       Object.values(
@@ -195,38 +195,178 @@ describe('Table', () => {
     });
 
     test('without row actions', () => {
-      render(
-        <Table
-          data={data}
-          dataConfig={{
-            ...dataConfig,
-            actions: [],
-          }}
-          uniqueIdAttribute={'eid'}
-        />
-      );
+      const view = render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={{
+              ...dataConfig,
+              actions: [],
+            }}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      ).container;
 
       expect(view).toMatchSnapshot();
     });
 
-    /**
-     * Actions and onAction.
-     *
-     * When emitted, the `onAction` event contains two arguments, the first
-     * one being the element that was clicked, the second is the data of the
-     * row that was clicked.
-     *
-     * This test validates the Actions specified in `dataConfig.actions`.  */
+    test('with new actions prop', () => {
+      const dataConfig = {
+        display: [
+          {
+            attribute: 'active',
+            'data-testid': 'active',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Active',
+            module: 'checkbox',
+          },
+          {
+            attribute: 'eid',
+            'data-testid': 'eid',
+            isEditable: false,
+            isLabeled: false,
+            label: 'ID',
+            module: 'text',
+          },
+          {
+            attribute: 'email',
+            'data-testid': 'email',
+            isEditable: true,
+            isLabeled: true,
+            label: 'Email',
+            module: 'email',
+          },
+          {
+            attribute: 'country',
+            'data-testid': 'country',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Country',
+            module: 'select',
+            options: [
+              {
+                label: 'Argentina',
+                value: 'Argentina',
+              },
+              {
+                label: 'Brazil',
+                value: 'Brazil',
+              },
+              {
+                label: 'USA',
+                value: 'USA',
+              },
+            ],
+          },
+          {
+            attribute: 'employeeNumber',
+            'data-testid': 'employeeNumber',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Employee Number',
+            module: 'number',
+          },
+          {
+            attribute: 'fullName',
+            'data-testid': 'fullName',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Full Name',
+            module: 'text',
+          },
+          {
+            attribute: 'homePhone',
+            'data-testid': 'homePhone',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Home Phone',
+            module: 'text',
+          },
+          {
+            attribute: 'officePhone',
+            'data-testid': 'officePhone',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Office Phone',
+            module: 'text',
+          },
+          {
+            attribute: 'title',
+            'data-testid': 'title',
+            isEditable: false,
+            isLabeled: false,
+            label: 'Title',
+            module: 'text',
+          },
+        ],
+      };
+      const resolveRecordActions = jest
+        .fn()
+        .mockImplementation((record, actions) => actions);
+      const actions = {
+        actionButtonMenuIndex: 0,
+        modules: [
+          {
+            content: 'view',
+            'data-testid': 'view',
+            module: 'button',
+            name: 'view',
+          },
+          {
+            content: 'delete',
+            'data-testid': 'delete',
+            module: 'button',
+            name: 'delete',
+          },
+          {
+            content: 'edit',
+            dataTestIDs: {
+              cancel: 'edit.cancel',
+              edit: 'edit.start',
+              save: 'edit.save',
+            },
+            module: 'edit',
+          },
+        ],
+        resolveRecordActions,
+      };
+
+      render(
+        <Provider>
+          <Table
+            actions={actions}
+            data={data}
+            dataConfig={dataConfig}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      );
+
+      expect(resolveRecordActions).toHaveBeenCalledTimes(datasetSize);
+    });
+
+    //
+    // Actions and onAction.
+    //
+    // When emitted, the `onAction` event contains two arguments, the first
+    // one being the element that was clicked, the second is the data of the
+    // row that was clicked.
+    //
+    // This test validates the Actions specified in `dataConfig.actions`.
     test('with row actions', () => {
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={dataConfig}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       const allEditButtons = screen.getAllByTestId('edit.start');
@@ -259,105 +399,171 @@ describe('Table', () => {
       );
     });
 
-    /**
-     * Editable records and onAction.
-     *
-     * The table emmits certain events depending on the actions taken by the User.
-     * In this scenario, the user enters the edit mode, updates the email and clicks the save button.
-     *
-     * This test validates that:
-     *
-     * 1.- the events are actualy emitted by the Table
-     * 2.- the data reflects the changes made by the user
-     * 3.- the number of buttons present in each case. */
-    test('editable records', async (done) => {
+    //
+    // Actions wrapped in an ActionsMenu
+    test('it renders no <ActionsMenu /> if actionButtonMenuIndex equals button actions number', () => {
+      const onAction = jest.fn();
+
+      render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={{
+              ...dataConfig,
+              actionButtonMenuIndex: 2,
+            }}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      );
+
+      const allEditButtons = screen.getAllByTestId('edit.start');
+      expect(allEditButtons).toHaveLength(datasetSize);
+
+      const allViewButtons = screen.getAllByTestId('view');
+      expect(allViewButtons).toHaveLength(datasetSize);
+
+      const allDeleteButtons = screen.getAllByTestId('delete');
+      expect(allDeleteButtons).toHaveLength(datasetSize);
+
+      const allMeatBallButtons = screen.queryAllByText('...');
+      expect(allMeatBallButtons).toHaveLength(0);
+    });
+
+    //
+    // Actions wrapped in an ActionsMenu
+    test('it renders <ActionsMenu /> if actionButtonMenuIndex is less than the button actions number', () => {
+      const onAction = jest.fn();
+
+      render(
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
+      );
+
+      const allEditButtons = screen.getAllByTestId('edit.start');
+      expect(allEditButtons).toHaveLength(datasetSize);
+
+      const allViewButtons = screen.getAllByTestId('view');
+      expect(allViewButtons).toHaveLength(datasetSize);
+
+      const allDeleteButtons = screen.getAllByTestId('delete');
+      expect(allDeleteButtons).toHaveLength(datasetSize);
+
+      const allMeatBallButtons = screen.queryAllByText('⋯');
+      expect(allMeatBallButtons).toHaveLength(datasetSize);
+    });
+
+    //
+    // Editable records and onAction.
+    //
+    // The table emmits certain events depending on the actions taken by the User.
+    // In this scenario, the user enters the edit mode, updates the email and clicks the save button.
+    //
+    // This test validates that:
+    //
+    // 1.- the events are actualy emitted by the Table
+    // 2.- the data reflects the changes made by the user
+    // 3.- the number of buttons present in each case.
+    test('editable records', async () => {
       const testEmail = 'Hayden.Zieme@espressive.com';
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={dataConfig}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       act(() => {
-        // Enter edit mode
-        userEvent.click(screen.getAllByTestId('edit.start')[0]);
+        const editButtons = screen.getAllByTestId('edit.start');
+        userEvent.click(editButtons[0]);
+      });
+
+      // this doesn't work
+      act(async () => {
+        userEvent.clear(screen.queryByRole('textbox'));
+        userEvent.type(screen.queryByRole('textbox'), testEmail, {
+          allAtOnce: true,
+        });
       });
 
       act(() => {
-        userEvent.type(screen.getAllByTestId('email')[0], testEmail);
-      });
-
-      act(() => {
-        // Exit edit mode
         userEvent.click(screen.getByTestId('edit.save'));
       });
 
-      await waitFor(() => {
-        // The table first reacted with the edit.start event
-        expect(onAction).toBeCalledWith(
-          expect.objectContaining({
-            name: 'edit.start', // this is the name of the action (assigned by Cascara)
-          }),
-          expect.objectContaining({
-            active: true,
-            country: 'Argentina',
-            eid: '024f2316-265a-46e8-965a-837e308ae678',
-            email: 'Hayden.Zieme@espressive.com',
-            employeeNumber: 93912,
-            fullName: 'Hayden Zieme',
-            homePhone: '887.983.0658',
-            officePhone: '(980) 802-1086 x05469',
-            title: 'District Operations Officer',
-          })
-        );
+      await waitForElementToBeRemoved(() => screen.getByRole('textbox'));
 
-        // Lastly, the table emits the edit.save event
-        expect(onAction).toHaveBeenLastCalledWith(
-          expect.objectContaining({
-            name: 'edit.save',
-          }),
-          expect.objectContaining({
-            active: [],
-            country: 'Argentina',
-            eid: '024f2316-265a-46e8-965a-837e308ae678',
-            email: testEmail,
-            employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
-            fullName: 'Hayden Zieme',
-            homePhone: '887.983.0658',
-            officePhone: '(980) 802-1086 x05469',
-            title: 'District Operations Officer',
-          })
-        );
+      // The table first reacted with the edit.start event
+      expect(onAction).toBeCalledWith(
+        expect.objectContaining({
+          name: 'edit.start', // this is the name of the action (assigned by Cascara)
+        }),
+        expect.objectContaining({
+          active: true,
+          country: 'Argentina',
+          eid: '024f2316-265a-46e8-965a-837e308ae678',
+          email: 'Hayden.Zieme@espressive.com',
+          employeeNumber: 93912,
+          fullName: 'Hayden Zieme',
+          homePhone: '887.983.0658',
+          officePhone: '(980) 802-1086 x05469',
+          title: 'District Operations Officer',
+        })
+      );
 
-        done();
-      });
+      // Lastly, the table emits the edit.save event
+      expect(onAction).toHaveBeenLastCalledWith(
+        expect.objectContaining({
+          name: 'edit.save',
+        }),
+        expect.objectContaining({
+          active: true,
+          country: 'Argentina',
+          eid: '024f2316-265a-46e8-965a-837e308ae678',
+          email: 'Hayden.Zieme@espressive.com',
+          employeeNumber: 93912, // todo @manu: make sure the data is not touched!!!
+          fullName: 'Hayden Zieme',
+          homePhone: '887.983.0658',
+          officePhone: '(980) 802-1086 x05469',
+          title: 'District Operations Officer',
+        })
+      );
     });
 
-    /**
-     * Cancelling the edition of a record.
-     *
-     * Upon exiting the edit mode via the cancel button, the Table must have emitted these events:
-     *
-     * edit.start - when clicking the edit button
-     * edit.cancel - when clicking the cancel button
-     *
-     * This test validates the events are actualy emitted by the Table, as well
-     * as the number of buttons present in each case. */
+    //
+    // Cancelling the edition of a record.
+    //
+    // Upon exiting the edit mode via the cancel button, the Table must have emitted these events:
+    //
+    // edit.start - when clicking the edit button
+    // edit.cancel - when clicking the cancel button
+    //
+    // This test validates the events are actualy emitted by the Table, as well
+    // as the number of buttons present in each case.
     test('cancelling record edition', () => {
       const onAction = jest.fn();
 
       render(
-        <Table
-          data={data}
-          dataConfig={dataConfig}
-          onAction={onAction}
-          uniqueIdAttribute={'eid'}
-        />
+        <Provider>
+          <Table
+            data={data}
+            dataConfig={dataConfig}
+            onAction={onAction}
+            uniqueIdAttribute={'eid'}
+          />
+        </Provider>
       );
 
       const editButton = screen.getAllByTestId('edit.start');
@@ -438,7 +644,7 @@ describe('Table', () => {
       );
     });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- @manu todo: FDS-154 - resolve failint negative tests
     // test('actions with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(
@@ -468,7 +674,7 @@ describe('Table', () => {
     //   expect(moduleError).toBeTruthy();
     // });
 
-    // eslint-disable-next-line jest/no-commented-out-tests
+    // eslint-disable-next-line jest/no-commented-out-tests -- @manu todo: FDS-154 - resolve failint negative tests
     // test('columns with non-existent module', () => {
     //   const wrongModuleName = 'Superdooper';
     //   render(

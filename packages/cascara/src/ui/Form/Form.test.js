@@ -184,7 +184,7 @@ describe('Form', () => {
     expect(saveButton).toBeDisabled();
 
     // edit some data
-    let firstName = await screen.findByLabelText('First Name');
+    const firstName = await screen.findByLabelText('First Name');
     expect(firstName).toBeInTheDocument();
 
     userEvent.type(firstName, 'nio');
@@ -232,8 +232,8 @@ describe('Form', () => {
     render(<Form data={data} dataConfig={dataConfig} onAction={onAction} />);
 
     // verify buttons are there
-    let deleteButton = screen.queryByTestId('deleteButton');
-    let editButton = screen.queryByTestId('editButton');
+    const deleteButton = screen.queryByTestId('deleteButton');
+    const editButton = screen.queryByTestId('editButton');
 
     expect(deleteButton).toBeInTheDocument();
     expect(editButton).toBeInTheDocument();

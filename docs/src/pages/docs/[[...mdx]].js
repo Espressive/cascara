@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import pt from 'prop-types';
 import hydrate from 'next-mdx-remote/hydrate';
 import Head from 'next/head';
-import { Tabs } from '../../components';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { POSTS_PATH, postFilePaths } from '../../lib/mdxUtils';
+
+import { Tabs } from '../../components';
+import { postFilePaths, POSTS_PATH } from '../../lib/mdxUtils';
 import MDX_COMPONENTS from '../../lib/MDX_COMPONENTS';
 import MDX_OPTIONS from '../../lib/MDX_OPTIONS';
 import getMDXTree from '../../lib/getMDXTree';
@@ -22,6 +24,23 @@ const MODULE_MESSAGE = (
     </p>
   </blockquote>
 );
+
+const propTypes = {
+  mdxDirSource: pt.arrayOf(
+    pt.shape({
+      frontMatter: pt.shape({
+        description: pt.shape(),
+        title: pt.string,
+      }),
+      frontmatter: pt.shape({
+        description: pt.shape(),
+        title: pt.string,
+        type: pt.string,
+      }),
+      router: pt.shape(),
+    })
+  ),
+};
 
 const Doc = ({ mdxDirSource }) => {
   // const [activeDoc, setActiveDoc] = useState(0);
@@ -115,10 +134,10 @@ const Doc = ({ mdxDirSource }) => {
   );
 };
 
-export const getStaticPaths = async () => {
+const getStaticPaths = async () => {
   const tree = getMDXTree();
 
-  let staticPaths = [];
+  const staticPaths = [];
 
   tree.forEach((element) => {
     const { name, children } = element;
@@ -138,7 +157,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+const getStaticProps = async ({ params }) => {
   // Any deps needed for getStaticProps should be declared as requirements
   // here instead of at the top of a file
   const matter = require('gray-matter');
@@ -215,4 +234,7 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
+Doc.propTypes = propTypes;
+
+export { getStaticPaths, getStaticProps };
 export default Doc;

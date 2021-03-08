@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import pt from 'prop-types';
 import {
   Animation,
   Button,
   Dropdown,
-  Chat as FUIChat,
   Flex,
+  Chat as FUIChat,
   Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
@@ -30,33 +30,39 @@ const ChatOptions = ({
   isSessionUser = false,
   options = [],
   timestamp,
-}) => (
-  <Animation name='chatMessage'>
-    <FUIChat.Message
-      author={authorName}
-      content={
-        options.length > 3 ? (
-          <Dropdown
-            itemToString={(value) => value.content}
-            items={options.map((option, i) => ({
-              ...option,
-            }))}
-            noResultsMessage="We couldn't find any matches."
-            placeholder='Select an option...'
-          />
-        ) : (
-          <Flex column gap='gap.small'>
-            {options.map((option) => (
-              <Button {...option} fluid />
-            ))}
-          </Flex>
-        )
-      }
-      mine={isSessionUser}
-      timestamp={timestamp}
-    />
-  </Animation>
-);
+}) => {
+  const itemToString = useCallback((value) => {
+    return value.content;
+  }, []);
+
+  return (
+    <Animation name='chatMessage'>
+      <FUIChat.Message
+        author={authorName}
+        content={
+          options.length > 3 ? (
+            <Dropdown
+              itemToString={itemToString}
+              items={options.map((option, i) => ({
+                ...option,
+              }))}
+              noResultsMessage="We couldn't find any matches."
+              placeholder='Select an option...'
+            />
+          ) : (
+            <Flex column gap='gap.small'>
+              {options.map((option) => (
+                <Button {...option} fluid key={option.key} />
+              ))}
+            </Flex>
+          )
+        }
+        mine={isSessionUser}
+        timestamp={timestamp}
+      />
+    </Animation>
+  );
+};
 
 ChatOptions.displayName = 'Chat.Options';
 ChatOptions.propTypes = propTypes;
@@ -81,7 +87,7 @@ const getChatOptionsObj = (obj) => {
     getChatMessageObj(obj),
     {
       ...getSharedMessageKeys(obj),
-      key: message.id + '_buttons',
+      key: `${message.id}_buttons`,
       message: (
         <Ref id={message.id} innerRef={ref}>
           <ChatOptions

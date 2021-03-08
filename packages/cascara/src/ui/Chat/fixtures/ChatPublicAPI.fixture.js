@@ -4,14 +4,13 @@ import {
   Button,
   Flex,
   Provider,
-  TextArea,
   teamsTheme,
+  TextArea,
 } from '@fluentui/react-northstar';
 import { getNormalizedMessages } from './utils';
 
 import { results as convo0 } from '../json/conversation0';
 import { results as convo1 } from '../json/conversation1';
-// import { results as convo2 } from '../json/conversation2';
 
 const teamsCommentsTheme = {
   componentStyles: {
@@ -105,11 +104,9 @@ const TeamsChatExample = (
   </Provider>
 );
 
-/* eslint-disable sort-keys */
 export default {
   default: ChatPublicAPI,
-  no_users: ChatNoUsers,
   no_messages: ChatNoMessages,
+  no_users: ChatNoUsers,
   teams: TeamsChatExample,
 };
-/* eslint-enable sort-keys */

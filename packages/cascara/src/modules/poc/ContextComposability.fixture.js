@@ -1,7 +1,6 @@
-/* eslint-disable react/no-multi-comp */
 import React, { useContext } from 'react';
 import JsonPlaceholder from '../../placeholders/JsonPlaceholder';
-import ReusableModuleContext from './ReusableModuleContext';
+import ReusableModuleContext, { defaultValue } from './ReusableModuleContext';
 
 // Here is a custom provider that can exist alone, or it can also exist with a parent context.
 // The magic for each use case can exist with how we define these providers and what we need them to do
@@ -17,7 +16,7 @@ const ReusableProvider = ({ children, value, ...props }) => {
   // 2. This pattern can be used to make sure we always have props present for things a Module might need
   // 3. The same reusable context can now also be used to compose a special provider that does this on a case by case basis
   const mergedValues = {
-    ...ReusableModuleContext.defaultValue,
+    ...defaultValue,
     ...grandparentValues,
     ...value,
   };

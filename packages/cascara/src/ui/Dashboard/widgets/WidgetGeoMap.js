@@ -15,10 +15,7 @@ const propTypes = {
  * Widget for @nivo/geo (Chloropleth).
  */
 const WidgetGeoMap = ({ data, ...rest }) => {
-  const largestValue = Math.max.apply(
-    Math,
-    data.map((object) => object.value)
-  );
+  const largestValue = Math.max(...data.map((object) => object.value));
 
   const CHART_CONFIG = {
     ...CHART_DEFAULTS,

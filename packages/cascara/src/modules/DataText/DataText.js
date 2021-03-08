@@ -9,8 +9,6 @@ import ErrorBoundary from '../../shared/ErrorBoundary';
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
   attribute: pt.string,
-  /** A module can have a data test id, which will be used in tests */
-  'data-testid': pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
@@ -25,7 +23,6 @@ const DataText = ({
   attribute,
   isEditable = true,
   isLabeled = true,
-  isSecure,
   label,
   value,
   ...rest

@@ -1,42 +1,37 @@
 import pt from 'prop-types';
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useRef } from 'react';
+import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
 import { Button } from 'reakit/Button';
-import { Menu, MenuButton, MenuItem, useMenuState } from 'reakit/Menu';
-import styles from './ActionsMenu.module.scss';
 
+import ActionsMenuItem from './ActionsMenuItem';
+import styles from './ActionsMenu.module.scss';
 import { popperOverTrigger } from '../../shared/popperModifiers';
 
+const MemoActionsMenuItem = React.memo(ActionsMenuItem);
 const DEFAULT_TRIGGER = (
   <Button className='ui basic icon button'>
     <b>⋯</b>
   </Button>
 );
-// const DEFAULT_TRIGGER = <p>'Trigger'</p>;
 
 const propTypes = {
   actions: pt.arrayOf(pt.object).isRequired,
+  trigger: pt.element,
 };
 
 const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
   const triggerRef = useRef();
 
-  useLayoutEffect(() => {
-    if (triggerRef.current) {
-      // console.warn(window.getComputedStyle(triggerRef.current)['float']);
-    }
-  });
-
   const menu = useMenuState({
+    // This MUST be modal: true in order to render in a portal or else we
+    // will have problems with any menus rendered inside of positioned
+    // elements other than "relative"
     modal: true,
     placement: 'bottom-end',
+    preventBodyScroll: true,
     unstable_popperModifiers: [popperOverTrigger],
   });
-
-  const onItemClick = (item) => {
-    menu.hide();
-    item.onClick();
-  };
 
   return (
     <>
@@ -45,27 +40,26 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
       </MenuButton>
       <Menu
         {...menu}
-        aria-label='Menu'
-        className={'ui dropdown active visible ' + styles.ActionsMenu}
-        preventBodyScroll
+        aria-label='Actions Menu'
+        className={`ui dropdown active visible ${styles.ActionsMenu}`}
+        tabIndex={0}
       >
         <div
           className='menu transition visible'
           style={{ position: 'initial' }}
         >
-          {actions.map(({ content, ...rest }) => (
-            <MenuItem
-              {...menu}
-              {...rest}
-              as='div'
-              className={'item ' + styles.ActionsMenuItem}
-              key={content}
-              onClick={() => onItemClick(rest)}
-              style={{ paddingTop: '.5rem !important' }}
-            >
-              {content}
-            </MenuItem>
-          ))}
+          {actions.map((action, actionIndex) => {
+            const key = `${action.name}.${actionIndex}`;
+
+            return (
+              <MemoActionsMenuItem
+                key={key}
+                {...action}
+                actionIndex={actionIndex}
+                menu={menu}
+              />
+            );
+          })}
         </div>
       </Menu>
     </>

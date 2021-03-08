@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
@@ -7,8 +7,6 @@ import { Button } from 'reakit';
 const propTypes = {
   /** Every action can have a name */
   actionName: pt.string,
-  /** Test ids to ease testing */
-  'data-testid': pt.string,
   /** Presents the button without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** An action needs to have a unique label relative to its context */
@@ -23,30 +21,38 @@ const ActionButton = ({
 }) => {
   const { data, isEditing, onAction, record } = useContext(ModuleContext);
   const dataOrRecord = record || data;
+  const { content = label, ...restWithoutLabel } = rest;
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const {
-      currentTarget: { name },
-    } = e;
+  //
+  // initially, this was called actionName, but now we ...spread
+  // all props into the button. So the correct way of calling it
+  // is just 'name'.
+  //
+  // This is a breaking change. in order to prevent any breakage
+  // in the our Apps, we are temporarily deriving it from one if
+  // the other is not passed. Once we have the resources to go
+  // and update our Apps we will revisit.
+  const name = actionName || rest.name;
 
-    onAction(
-      {
-        name,
-      },
-      dataOrRecord
-    );
-  };
+  // FDS-137: use action name for button name if no content is specified
+  const buttonText = content || name;
+
+  const handleClick = useCallback(
+    ({ currentTarget }) => {
+      onAction(currentTarget, dataOrRecord);
+    },
+    [onAction, dataOrRecord]
+  );
 
   return isEditing ? null : (
     <Button
-      {...rest}
+      {...restWithoutLabel}
       className='ui basic button'
-      name={actionName}
+      name={name}
       onClick={handleClick}
       type='button'
     >
-      {label}
+      {buttonText}
     </Button>
   );
 };

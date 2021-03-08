@@ -8,18 +8,7 @@ const testJson = {
   },
 };
 
-/* eslint-disable sort-keys */
 export default {
-  default: <JsonPlaceholder data={testJson} />,
-  isInitialOpen: <JsonPlaceholder data={testJson} isInitialOpen />,
-  title: <JsonPlaceholder data={testJson} title='Custom Title' />,
-  style: (
-    <JsonPlaceholder
-      data={testJson}
-      style={{ maxWidth: '50%', backgroundColor: 'red' }}
-      title='Style'
-    />
-  ),
   className: (
     <JsonPlaceholder
       className='test-class'
@@ -27,5 +16,17 @@ export default {
       title='Custom className'
     />
   ),
+  default: <JsonPlaceholder data={testJson} />,
+  isInitialOpen: <JsonPlaceholder data={testJson} isInitialOpen />,
+  style: (
+    <JsonPlaceholder
+      data={testJson}
+      style={{
+        backgroundColor: 'red',
+        maxWidth: '50%',
+      }}
+      title='Style'
+    />
+  ),
+  title: <JsonPlaceholder data={testJson} title='Custom Title' />,
 };
-/* eslint-enable sort-keys */

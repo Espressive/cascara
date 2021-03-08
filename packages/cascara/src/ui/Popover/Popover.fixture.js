@@ -32,9 +32,13 @@ const ActionsMenuFixture = (
       this menu.
     </p>
     <ActionsMenu actions={menuItems} />
+    <ActionsMenu actions={menuItems} />
+    <ActionsMenu actions={menuItems} />
+    <ActionsMenu actions={menuItems} />
   </main>
 );
 
-/* eslint-disable sort-keys */
-export default { Popover: PopoverFixture, ActionsMenu: ActionsMenuFixture };
-/* eslint-enable sort-keys */
+export default {
+  ActionsMenu: ActionsMenuFixture,
+  Popover: PopoverFixture,
+};

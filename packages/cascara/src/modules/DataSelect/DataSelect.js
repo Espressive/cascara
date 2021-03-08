@@ -9,14 +9,19 @@ import ErrorBoundary from '../../shared/ErrorBoundary';
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
   attribute: pt.string,
-  /** A module can have a data test id, which will be used in tests */
-  'data-testid': pt.string,
   /** A Module can be defined to not present an editing state */
   isEditable: pt.bool,
   /** Presents the input without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
+  /** Select module can have selectable options */
+  options: pt.arrayOf(
+    pt.shape({
+      key: pt.string,
+      value: pt.oneOfType([pt.string, pt.number]),
+    })
+  ),
   /** A Module can have a value */
   value: pt.string,
 };

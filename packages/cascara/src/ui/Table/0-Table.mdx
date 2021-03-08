@@ -38,36 +38,47 @@ const data = {[
 ]}
 ```
 
-## dataConfig
+## actions
 
-Here you can specify the columns to display as well as the available actions (if any) for each row.
-This is the core of Table's configuration, here you can define:
+Actions represent 'verbs' we want to apply to our Table rows, like 'view' to navigate to another page with detailed information about the row.
+Another example would be 'Delete' to delete a row. 'actions' will be appended to each row, they'll appear as buttons.
+By defining an 'action', you are telling Table how you want to be notified when your 'action' button is pressed. Via the 'onAction' event.
 
-### actions
+> Table does not provide the logic to handle 'actions', the implementation for deleting a row, navigating to another page, etc. it's up to you.
 
-`actions` represent `verbs` we want to apply to our table rows, like `View` to navigate to another page with detailed information about the row.
-Another example would be `Delete` to delete a row. `actions` will be appended to each row, they'll appear as buttons.
+The shape of `actions` is as follows:
 
-> Table does not provide the logic to handle `actions`, the implementation for deleting a row, navigating to another page, etc. it's up to you.
-
-By defining an `action`, you are telling Table how you want to be notified when your `action` button is pressed. Via the `onAction` event.
-
-```javascript
----
-title: The shape of an action
----
-const action = {
-  isLabeled: false, // label can be hidden
-  module: 'button', // either button or edit
-  actionName: 'view', // the action name
-  label: 'View', // button text
-  size: 'small',  // button size
-},
+```javasccript
+const actions = {
+  actionButtonMenuIndex: 0,
+  modules: [
+   {
+      module: 'button',
+      name: 'view',
+      content: 'view',
+    },
+    {
+      module: 'edit',
+      cancelLabel: 'Cancelar',
+      editLabel: 'Editar',
+      saveLabel: 'Guardar',
+    },
+  ],
+  resolveRecordActions: (record, actions) => (actionsForRecord),
+}
 ```
 
-#### Action modules
+### actionButtonMenuIndex
 
-At the moment, we have only two types of modules.
+Tables can become bloated if you use lots of actions, in order to prevent this, the actions are wrapped by an `ActionsMenu`, a contextual menu accessible via the `meatball` button of each row.
+
+You can specify which actions are sent to the `ActionsMenu` using the `actionButtonMenuIndex` prop, a number that acts like a partition index that will take your actions array and slice it. The actions whose index is greater or equal to `actionButtonMenuIndex` will be part of `ActionsMenu`, the rest will be displayed as usual.
+
+> This only applies to `button` actions, `edit` actions will always be displayed as usual.
+
+### modules
+
+At the moment, we have only two types of action modules.
 
 - `button`, for simple actions like deleting a row, navigating to another page, etc.
 - `edit`, to be used if you want to allow the data to be `editable`.
@@ -81,37 +92,41 @@ In the case of `edit`, the `onAction` event will be emitted up to 3 times as it 
 
 All this information is part of the `onAction` event signature, please make sure you review it as well.
 
-An example set of actions:
+### resolveRecordActions
 
-```javascript
----
-title: An example set of actions
----
+A function that returns the actions available to the current row.
 
-const actions: [
+```javasccript
+resolveRecordActions(record, actions) {
+  return actions.reduce((actionsForRecord, action) => {
+    switch (action.name) {
+      case 'edit':
+        // do not show if record is deflected
+        if (!record.deflected) {
+          actionsForRecord.push(action);
+        }
+        break;
 
-  // simple button
-  {
-    isLabeled: false,
-    module: 'button',
-    actionName: 'view',
-    label: 'view',
-    size: 'small',
-  },
+      case 'view.faq':
+        // do not show view button for FAQs
+        if (record.type !== 'faq') {
+          actionsForRecord.push(action);
+        }
+        break;
 
-  // or
+      default:
+        actionsForRecord.push(action);
+    }
 
-  // edit button combo (for editable rows)
-  {
-    isLabeled: false,
-    module: 'edit',
-    size: 'small',
-    cancelLabel: 'Cancelar', // you can specify localized labels
-    editLabel: 'Editar',
-    saveLabel: 'Guardar',
-  },
-];
+    return actionsForRecord;
+  }, []);
+};
 ```
+
+## dataConfig
+
+Here you can specify the columns to display as well as the available actions (if any) for each row.
+This is the core of Table's configuration, here you can define:
 
 ### display
 
@@ -237,30 +252,27 @@ title: Everything together!
     },
   ]}
   dataConfig={{
+    actionButtonMenuIndex: 1,
     actions: [
       {
-        isLabeled: false,
         module: 'button',
-        actionName: 'new',
-        label: 'New',
+        name: 'new',
+        content: 'New',
         size: 'small',
       },
       {
-        isLabeled: false,
         module: 'button',
-        actionName: 'delete',
-        label: 'Delete',
+        name: 'delete',
+        content: 'Delete',
         size: 'small',
       },
       {
-        isLabeled: false,
         module: 'button',
-        actionName: 'view',
-        label: 'View',
+        name: 'view',
+        content: 'View',
         size: 'small',
       },
       {
-        isLabeled: false,
         module: 'edit',
         size: 'small',
         cancelLabel: 'Cancelar',

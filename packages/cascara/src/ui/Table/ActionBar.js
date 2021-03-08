@@ -10,6 +10,7 @@ const propTypes = {
   actions: pt.arrayOf(
     pt.oneOfType([pt.shape(actionButtonPT), pt.shape(actionEditPT)])
   ),
+  title: pt.string,
 };
 
 const ActionBar = ({ actions = [], title = '' }) => (

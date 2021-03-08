@@ -1,6 +1,15 @@
+import pt from 'prop-types';
+
 import Tag from '../Tag';
-// import {JsonPlaceholder} from '@espressive/cascara'
 import styles from './PropTable.module.scss';
+
+const propTypes = {
+  docData: pt.shape({
+    description: pt.string,
+    displayName: pt.string,
+    props: pt.shape({}),
+  }),
+};
 
 const PropTable = ({ docData, ...rest }) => {
   const propsArray = docData?.props ? Object.entries(docData?.props) : [];
@@ -49,15 +58,15 @@ const PropTable = ({ docData, ...rest }) => {
                         {JSON.stringify(propData?.type?.value, null, '  ')}
                       </pre>
                     ) : (
-                      /* propData.type.value.map((value, i) => {
-                        const item = value.name ? (
-                          <span key={i}>{value.name}</span>
-                        ) : (
-                          <code key={i}>{value.value}</code>
-                        );
-
-                        return item;
-                      }) */
+                      // propData.type.value.map((value, i) => {
+                      // const item = value.name ? (
+                      //     <span key={i}>{value.name}</span>
+                      // ) : (
+                      //     <code key={i}>{value.value}</code>
+                      // );
+                      //
+                      // return item;
+                      // })
                       <pre>
                         {JSON.stringify(propData?.type?.value, null, '  ')}
                       </pre>
@@ -90,5 +99,7 @@ const PropTable = ({ docData, ...rest }) => {
     </div>
   );
 };
+
+PropTable.propTypes = propTypes;
 
 export default PropTable;

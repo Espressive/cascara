@@ -21,7 +21,7 @@ const Asciagram = ({
   <details
     {...rest}
     className={
-      rest?.className ? styles.Details + ' ' + rest.className : styles.Details
+      rest?.className ? `${styles.Details} ${rest.className}` : styles.Details
     }
     open={isInitialOpen}
   >

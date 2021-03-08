@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import pt from 'prop-types';
 import classNames from 'classnames/bind';
 import { noop } from 'lodash';
@@ -11,6 +11,7 @@ const cx = classNames.bind(styles);
 const propTypes = {
   /** Can render as a different tag or component */
   as: pt.oneOfType([pt.string, pt.node]),
+  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
   /** current page */
   currentPage: pt.number,
   /** entity name in plural form */
@@ -23,6 +24,8 @@ const propTypes = {
   itemsPerPageLimit: pt.number,
   /** a message to be displayed when no items to display */
   notFoundMessage: pt.string,
+  /** a function to handle pagination changes */
+  onPaginationChange: pt.func,
   /** the items collection length */
   recordCount: pt.number,
 };
@@ -40,62 +43,68 @@ const Pagination = ({
   currentPage = 1,
   ...rest
 }) => {
-  /**
-   * Handles pagination changes
-   *
-   * This function updates the pagination values
-   * and invokes upstream logic to handle the change.
-   *
-   * @param {Event} _ Usually the click event
-   * @param {Object} component Component object passed by SUIR
-   * @param {String} component.name The name of the component
-   * @param {Any} component.value The new value in the component */
-  const handlePaginationChange = (_, component) => {
-    let newPage = currentPage;
-    let newitemsPerPageLimit = itemsPerPageLimit;
+  //
+  // Handles pagination changes
+  //
+  // This function updates the pagination values
+  // and invokes upstream logic to handle the change.
+  //
+  // @param {Event} _ Usually the click event
+  // @param {Object} component Component object passed by SUIR
+  // @param {String} component.name The name of the component
+  // @param {Any} component.value The new value in the component
+  const handlePaginationChange = useCallback(
+    (_, component) => {
+      let newPage = currentPage;
+      let newitemsPerPageLimit = itemsPerPageLimit;
 
-    if (component.name === 'page') {
-      newPage = component.value;
-    }
-
-    if (component.name === 'itemsPerPageLimit') {
-      newitemsPerPageLimit = component.value;
-
-      // safeguard
-      if (newitemsPerPageLimit >= recordCount) {
-        newPage = 1;
+      if (component.name === 'page') {
+        newPage = component.value;
       }
-    }
 
-    onPaginationChange({
-      limit: newitemsPerPageLimit,
-      page: newPage,
-    });
-  };
+      if (component.name === 'itemsPerPageLimit') {
+        newitemsPerPageLimit = component.value;
 
-  /**
-   * Handles button's click event
-   *
-   * This handler decides wether to increase or decrease page
-   * based on button name. It acts as a proxy for `handlePaginationChange`
-   *
-   * @param {Event} _ Usually the click event
-   * @param {Object} component Component object passed by SUIR
-   * @param {String} component.name The name of the component */
-  const handleButtonClick = (_, button) => {
-    let newPage = currentPage;
+        // safeguard
+        if (newitemsPerPageLimit >= recordCount) {
+          newPage = 1;
+        }
+      }
 
-    if (button.name === 'forward') {
-      newPage++;
-    } else {
-      newPage--;
-    }
+      onPaginationChange({
+        limit: newitemsPerPageLimit,
+        page: newPage,
+      });
+    },
+    [currentPage, itemsPerPageLimit, onPaginationChange, recordCount]
+  );
 
-    handlePaginationChange(null, {
-      name: 'page',
-      value: newPage,
-    });
-  };
+  //
+  // Handles button's click event
+  //
+  // This handler decides wether to increase or decrease page
+  // based on button name. It acts as a proxy for `handlePaginationChange`
+  //
+  // @param {Event} _ Usually the click event
+  // @param {Object} component Component object passed by SUIR
+  // @param {String} component.name The name of the component
+  const handleButtonClick = useCallback(
+    (_, button) => {
+      let newPage = currentPage;
+
+      if (button.name === 'forward') {
+        newPage++;
+      } else {
+        newPage--;
+      }
+
+      handlePaginationChange(null, {
+        name: 'page',
+        value: newPage,
+      });
+    },
+    [currentPage, handlePaginationChange]
+  );
 
   const availablePages = Math.ceil(recordCount / itemsPerPageLimit) || 1;
   const canGoForward = currentPage < availablePages;
@@ -134,7 +143,6 @@ const Pagination = ({
     }));
 
   const itemsPerPageLimitSelect = () => (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label className={cx({ label: true })} htmlFor={'itemsPerPageLimit'}>
       {`${entityNamePlural} per page:`}
       <Select
@@ -151,7 +159,6 @@ const Pagination = ({
   );
 
   const pageSelect = () => (
-    // eslint-disable-next-line jsx-a11y/label-has-for
     <label className={cx({ label: true })} htmlFor={'page'}>
       {'Page '}
       <Select

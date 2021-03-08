@@ -1,4 +1,12 @@
 import React, { useEffect, useRef } from 'react';
+import pt from 'prop-types';
+
+const propTypes = {
+  checked: pt.bool,
+  indeterminate: pt.bool,
+  name: pt.string,
+  onChange: pt.func,
+};
 
 const Checkbox = ({
   checked = false,
@@ -32,5 +40,7 @@ const Checkbox = ({
     />
   );
 };
+
+Checkbox.propTypes = propTypes;
 
 export default Checkbox;

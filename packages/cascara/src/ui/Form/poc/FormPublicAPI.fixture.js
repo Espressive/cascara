@@ -1,5 +1,4 @@
-/* eslint-disable react/no-multi-comp */
-import React from 'react';
+import React, { useCallback } from 'react';
 import faker from 'faker';
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
@@ -32,6 +31,13 @@ const dataConfig = {
       module: 'button',
       size: 'small',
     },
+    {
+      actionName: 'delete',
+      isLabeled: false,
+      label: 'Delete',
+      module: 'button',
+      size: 'small',
+    },
   ],
   display: [
     {
@@ -51,15 +57,8 @@ const dataConfig = {
           label: 'Last Name',
           module: 'text',
         },
-        {
-          attribute: 'password',
-          isSecure: true,
-          label: 'Password',
-          module: 'text',
-        },
       ],
       module: 'row',
-      ratio: [1, 1, 2],
     },
     {
       attribute: 'homePhone',
@@ -99,12 +98,12 @@ const jsonStyle = {
 };
 
 const FormPublicAPI = ({ data, dataConfig }) => {
-  const handleFormAction = (action, data) => {
-    // eslint-ignore-next-line no-console
+  const handleFormAction = useCallback((action, data) => {
+    // eslint-ignore-next-line no-console -- we need this to be a developer message
     console.log(`Action: '${action.name}' has been invoked:`);
-    // eslint-ignore-next-line no-console
+    // eslint-ignore-next-line no-console -- we need this to be a developer message
     console.table(data);
-  };
+  }, []);
 
   return (
     <div>

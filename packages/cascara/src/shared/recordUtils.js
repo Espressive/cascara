@@ -1,5 +1,8 @@
 const getAttributeValueFromRecord = (attribute, record = {}) => {
-  const attributeExists = record.hasOwnProperty(attribute);
+  const attributeExists = Object.prototype.hasOwnProperty.call(
+    record,
+    attribute
+  );
 
   if (attributeExists) {
     return record[attribute];

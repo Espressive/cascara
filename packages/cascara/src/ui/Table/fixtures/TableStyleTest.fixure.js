@@ -12,7 +12,7 @@ const fakeRowData = () => ({
 });
 
 const tableRow = (count) => {
-  let rows = [];
+  const rows = [];
   for (let i = 0; i < count; i++) {
     // Get new, fake data for each row
     const thisRowData = Object.entries(fakeRowData());

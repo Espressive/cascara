@@ -29,7 +29,6 @@
   .FormRow {
     display: grid;
     grid-gap: 1em;
-    // This default column template is applied inline on the module itself
-    // grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   }
 }

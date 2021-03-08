@@ -1,8 +1,12 @@
-import '@espressive/legacy-css';
-import '../styles/_app.scss';
+import React from 'react';
+import pt from 'prop-types';
 import Head from 'next/head';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+
+import '@espressive/legacy-css';
+import '../styles/_app.scss';
+
 import { Admin } from '@espressive/cascara';
 import { Header, Main, Nav, PropTable } from '../components';
 
@@ -13,7 +17,14 @@ import { Header, Main, Nav, PropTable } from '../components';
 // because that should never be changed. But the description does have a key
 // since we will possibly want to change that on a per-page basis.
 
-function MyApp({ Component, pageProps }) {
+const propTypes = {
+  Component: pt.string,
+  pageProps: pt.shape({
+    mdxDirSource: pt.shape({}),
+  }),
+};
+
+const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const propTable = pageProps?.mdxDirSource?.[router?.query?.doc]?.docData;
 
@@ -38,12 +49,14 @@ function MyApp({ Component, pageProps }) {
           propTable?.length > 0 && (
             <Admin.Drawer>
               {propTable.map((componentProps) => (
-                <AnimatePresence exitBeforeEnter>
+                <AnimatePresence
+                  exitBeforeEnter
+                  key={router.query.mdx + componentProps}
+                >
                   <motion.div
                     animate={{ opacity: 1, translateX: 0 }}
                     exit={{ opacity: 0, translateX: 100 }}
                     initial={{ opacity: 0, translateX: 100 }}
-                    key={router.query.mdx + componentProps}
                   >
                     <PropTable docData={componentProps} />
                   </motion.div>
@@ -62,6 +75,8 @@ function MyApp({ Component, pageProps }) {
       />
     </>
   );
-}
+};
+
+MyApp.propTypes = propTypes;
 
 export default MyApp;
