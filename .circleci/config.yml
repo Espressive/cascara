@@ -174,7 +174,7 @@ jobs:
                   git config --global user.email circleci@circleci
                   git config --global user.name CircleCI
                   yarn publish-packages --conventional-graduate --yes
-      - unless:
+      - when:
           condition: *is_develop
           steps:
             - run:
