@@ -154,7 +154,7 @@ jobs:
           path: ./build/cosmos
           destination: cosmos
 
-  release:
+  release-packages:
     <<: *job_executor
     parameters:
       options:
@@ -225,7 +225,7 @@ workflows:
           requires:
             - lint
             - test
-      - release:
+      - release-packages:
           filters:
             branches:
               only:
