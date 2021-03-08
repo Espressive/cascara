@@ -231,6 +231,12 @@ workflows:
               only:
                 - main
                 - develop
+          requires:
+            - install
+          #   - lint
+          #   - test
       - deploy-docs:
           requires:
-            - build-cascara
+            - install
+          #   - lint
+          #   - test
