@@ -36,6 +36,9 @@ commands:
         type: string
         default: ''
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - f2:23:e9:d2:80:73:d4:b2:cc:a4:7d:fe:32:6d:29:49
       - run: git status
       - run:
           name: Set Up Git config
