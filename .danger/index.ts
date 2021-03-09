@@ -37,7 +37,7 @@ if (github.description.length < 10) {
 }
 
 // Check that someone has been assigned to this PR
-if (github.assignee === null) {
+if (github.assignee === null && !isSnyk) {
   warn(
     'Please assign someone to merge this PR, and optionally include people who should review.'
   );
