@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.4.1-alpha.0",
+  "version": "0.4.1-alpha.1",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.11.2",
-    "@espressive/design-tokens": "^0.1.1-alpha.0",
+    "@espressive/design-tokens": "^0.1.1-alpha.1",
     "@nivo/bar": "0.61.0",
     "@nivo/bump": "0.61.0",
     "@nivo/core": "0.61.0",
