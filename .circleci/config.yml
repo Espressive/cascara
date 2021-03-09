@@ -176,6 +176,9 @@ jobs:
                   git config --global user.email circleci@circleci
                   git config --global user.name CircleCI
                   yarn publish-packages --conventional-graduate --yes
+                  git status
+                  git push 
+                  git push --tags
       - when:
           condition: *is_develop
           steps:
@@ -186,6 +189,9 @@ jobs:
                   git config --global user.email circleci@circleci
                   git config --global user.name CircleCI
                   yarn publish-packages prerelease --yes
+                  git status
+                  git push 
+                  git push --tags
 
   deploy-docs:
     <<: *job_executor
