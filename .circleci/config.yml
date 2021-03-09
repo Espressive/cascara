@@ -165,6 +165,15 @@ jobs:
           name: Build Cascara Runtimes
           command: yarn cascara build
 
+  build-docs:
+    <<: *job_executor
+    steps:
+      - restore_cache:
+          key: << pipeline.parameters.installed-key >>
+      - run:
+          name: Build Docs
+          command: yarn docs build
+
   build-cosmos:
     <<: *job_executor
     steps:
@@ -235,6 +244,11 @@ workflows:
           requires:
             - lint
             - test
+      - build-docs:
+          <<: *post_steps
+          requires:
+            - lint
+            - test
       - build-cosmos:
           <<: *post_steps
           requires:
@@ -252,4 +266,5 @@ workflows:
       - deploy-docs:
           <<: *post_steps
           requires:
+            - build-docs
             - release-packages
