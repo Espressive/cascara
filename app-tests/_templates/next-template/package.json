@@ -7,10 +7,19 @@
     "build": "next build",
     "serve": "next start"
   },
+  "prettier": "@bjeco/prettier-config",
+  "eslintConfig": {
+    "extends": "@espressive",
+    "rules": {
+      "react/react-in-jsx-scope": 0
+    }
+  },
   "dependencies": {
-    "@espressive/cascara": "link:../../packages/cascara",
-    "@espressive/legacy-css": "link:../../utils/legacy-css",
-    "next": "10.0.7",
+    "@bjeco/prettier-config": "latest",
+    "@espressive/cascara": "latest",
+    "@espressive/eslint-config": "latest",
+    "@espressive/legacy-css": "latest",
+    "next": "10.0.8",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom"
   }

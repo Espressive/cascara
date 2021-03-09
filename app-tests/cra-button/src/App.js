@@ -3,16 +3,16 @@ import './App.css';
 import { Button } from '@espressive/cascara';
 
 import {
-  Container,
-  Form as SUIF,
-  Button as SUIButton,
-  Divider,
-  Radio,
   Checkbox,
+  Container,
+  Divider,
   Input,
+  Radio,
+  Button as SUIButton,
+  Form as SUIF,
 } from 'semantic-ui-react';
 
-function App() {
+const App = () => {
   return (
     <Container className='App'>
       <header className='App-header'>
@@ -36,6 +36,6 @@ function App() {
       </header>
     </Container>
   );
-}
+};
 
 export default App;
