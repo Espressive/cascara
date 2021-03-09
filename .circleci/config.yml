@@ -161,14 +161,14 @@ jobs:
           name: Build Cascara Runtimes
           command: yarn cascara build
 
-  build-docs:
-    <<: *job_executor
-    steps:
-      - restore_cache:
-          key: << pipeline.parameters.installed-key >>
-      - run:
-          name: Build Docs
-          command: yarn docs build
+  # build-docs:
+  #   <<: *job_executor
+  #   steps:
+  #     - restore_cache:
+  #         key: << pipeline.parameters.installed-key >>
+  #     - run:
+  #         name: Build Docs
+  #         command: yarn docs build
 
   build-cosmos:
     <<: *job_executor
@@ -203,18 +203,18 @@ jobs:
           steps:
             - lerna-publish
 
-  deploy-docs:
-    <<: *job_executor
-    steps:
-      - when:
-          condition: *is_main
-          steps:
-            - deploy-vercel:
-                vercel-deploy-hook: $VERCEL_DEPLOY_MAIN
-      - when:
-          condition: *is_develop
-          steps:
-            - deploy-vercel
+  # deploy-docs:
+  #   <<: *job_executor
+  #   steps:
+  #     - when:
+  #         condition: *is_main
+  #         steps:
+  #           - deploy-vercel:
+  #               vercel-deploy-hook: $VERCEL_DEPLOY_MAIN
+  #     - when:
+  #         condition: *is_develop
+  #         steps:
+  #           - deploy-vercel
 
 workflows:
   build-and-test:
@@ -237,11 +237,11 @@ workflows:
           requires:
             - lint
             - test
-      - build-docs:
-          <<: *post_steps
-          requires:
-            - lint
-            - test
+      # - build-docs:
+      #     <<: *post_steps
+      #     requires:
+      #       - lint
+      #       - test
       - build-cosmos:
           <<: *post_steps
           requires:
@@ -256,8 +256,8 @@ workflows:
                 - develop
           requires:
             - build-cascara
-      - deploy-docs:
-          <<: *post_steps
-          requires:
-            - build-docs
-            - release-packages
+      # - deploy-docs:
+      #     <<: *post_steps
+      #     requires:
+      #       - build-docs
+      #       - release-packages
