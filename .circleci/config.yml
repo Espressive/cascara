@@ -160,13 +160,6 @@ jobs:
       - run:
           name: Build Cascara Runtimes
           command: yarn cascara build
-      # - save_cache:
-      #     key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
-      #     paths:
-      #       - /home/circleci/project/packages/cascara/dist
-      # - store_artifacts:
-      #     path: ./packages/cascara/dist
-      #     destination: dist
 
   build-cosmos:
     <<: *job_executor
