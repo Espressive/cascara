@@ -56,10 +56,10 @@ commands:
             yarn lerna publish from-git --yes
       - run: git status
       # - run: git add -A
-      - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
-      - run: git status
+      # - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
+      # - run: git status
       - run:
-          name: Commit & Push
+          name: Push
           command: |
             git push --follow-tags --no-verify --atomic
 
