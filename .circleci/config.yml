@@ -26,6 +26,32 @@ commands:
       - run:
           name: Deploy Vercel
           command: yarn vercel -t $VERCEL_TOKEN --no-clipboard --confirm << parameters.vercel-args >>
+  lerna-publish:
+    description: Publishes our monorepo packages with Lerna
+    parameters:
+      prerelease:
+        type: boolean
+        default: true
+      lerna-args:
+        type: string
+        default: ''
+    steps:
+      - run:
+          name: Set Up Git config
+          command: |
+            git config --global -l
+            git config --global user.email circleci@circleci
+            git config --global user.name CircleCI
+      - run:
+          name: Publish Cascara
+          command: |
+            yarn lerna publish <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --amend --conventional-commits --create-release github --yes << parameters.lerna-args >>
+      - run:
+          name: Commit & Push
+          command: |
+            git add .
+            git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
+            git push --follow-tags
 
 job_executor: &job_executor
   executor:
@@ -169,30 +195,14 @@ jobs:
       - when:
           condition: *is_main
           steps:
-            - run:
-                name: Publish Cascara
-                command: |
-                  git config --global -l
-                  git config --global user.email circleci@circleci
-                  git config --global user.name CircleCI
-                  yarn publish-packages --conventional-graduate --yes
-                  git add .
-                  git commit -m "chore(release) CircleCI"
-                  git push --follow-tags
+            - lerna-publish:
+                prerelease: false
+                lerna-args: --conventional-graduate
 
       - when:
           condition: *is_develop
           steps:
-            - run:
-                name: Publish Cascara
-                command: |
-                  git config --global -l
-                  git config --global user.email circleci@circleci
-                  git config --global user.name CircleCI
-                  yarn publish-packages prerelease --yes
-                  git add .
-                  git commit -m "chore(prerelease) CircleCI"
-                  git push --follow-tags
+            - lerna-publish
 
   deploy-docs:
     <<: *job_executor
