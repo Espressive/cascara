@@ -19,9 +19,6 @@ commands:
   deploy-vercel:
     description: Deploys our docs to Vercel
     parameters:
-      vercel-args:
-        type: string
-        default: ''
       vercel-deploy-hook:
         type: string
         default: $VERCEL_DEPLOY_DEVELOP
@@ -29,7 +26,6 @@ commands:
       - run:
           name: Deploy Vercel
           command: curl -X << parameters.vercel-deploy-hook >>
-          # command: yarn vercel -t $VERCEL_TOKEN --no-clipboard --confirm << parameters.vercel-args >>
   lerna-publish:
     description: Publishes our monorepo packages with Lerna
     parameters:
@@ -210,16 +206,13 @@ jobs:
   deploy-docs:
     <<: *job_executor
     steps:
-      # - restore_cache:
-      #     key: << pipeline.parameters.installed-key >>
       - when:
           condition: *is_main
           steps:
             - deploy-vercel:
-                # vercel-args: --prod
                 vercel-deploy-hook: $VERCEL_DEPLOY_MAIN
-      - unless:
-          condition: *is_main
+      - when:
+          condition: *is_develop
           steps:
             - deploy-vercel
 
