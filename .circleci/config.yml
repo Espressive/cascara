@@ -228,7 +228,7 @@ workflows:
     jobs:
       - install:
           pre-steps:
-            - run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_INSTALL_AUTH_TOKEN}" >> ~/.npmrc
+            - run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN_REPO_PACKAGES}" >> ~/.npmrc
             - run: echo "@espressive:registry=https://npm.pkg.github.com" >> ~/.npmrc
           <<: *post_steps
       - lint:
