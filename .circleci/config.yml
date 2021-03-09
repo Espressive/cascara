@@ -25,7 +25,7 @@ commands:
     steps:
       - run:
           name: Deploy Vercel
-          command: curl -X << parameters.vercel-deploy-hook >>
+          command: curl -X POST << parameters.vercel-deploy-hook >>
   lerna-publish:
     description: Publishes our monorepo packages with Lerna
     parameters:
