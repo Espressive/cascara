@@ -46,7 +46,7 @@ commands:
           name: Publish Cascara
           command: |
             yarn lerna publish <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --amend --conventional-commits --create-release github --yes << parameters.lerna-args >>
-      - run: git status
+      - run: git diff @{push}
       - run: git add .
       - run: git status
       - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
