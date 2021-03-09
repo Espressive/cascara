@@ -20,6 +20,7 @@
     "semantic-ui-react": "1.2.1"
   },
   "devDependencies": {
+    "current-git-branch": "1.1.0",
     "directory-tree": "2.2.4",
     "gray-matter": "4.0.2",
     "next-remote-watch": "0.2.0",
