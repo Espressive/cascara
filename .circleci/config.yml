@@ -46,24 +46,20 @@ commands:
           name: Publish Cascara
           command: |
             yarn lerna publish <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --amend --conventional-commits --create-release github --yes << parameters.lerna-args >>
+      - run: git status
+      - run: git add .
+      - run: git status
+      - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
+      - run: git status
       - run:
           name: Commit & Push
           command: |
-            git add .
-            git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
             git push --follow-tags
 
 job_executor: &job_executor
   executor:
     name: node/default
     tag: '12.13.0'
-
-# We use this condition to evaluate when to do a --prod deploy of the docs
-# is_dev_or_prod: &is_dev_or_prod
-#   condition:
-#     or:
-#       - *is_main
-#       - *is_develop
 
 post_steps: &post_steps
   post-steps:
@@ -162,13 +158,13 @@ jobs:
       - run:
           name: Build Cascara Runtimes
           command: yarn cascara build
-      - save_cache:
-          key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
-          paths:
-            - /home/circleci/project/packages/cascara/dist
-      - store_artifacts:
-          path: ./packages/cascara/dist
-          destination: dist
+      # - save_cache:
+      #     key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
+      #     paths:
+      #       - /home/circleci/project/packages/cascara/dist
+      # - store_artifacts:
+      #     path: ./packages/cascara/dist
+      #     destination: dist
 
   build-cosmos:
     <<: *job_executor
@@ -198,7 +194,6 @@ jobs:
             - lerna-publish:
                 prerelease: false
                 lerna-args: --conventional-graduate
-
       - when:
           condition: *is_develop
           steps:
