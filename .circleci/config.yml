@@ -53,7 +53,7 @@ commands:
       - run:
           name: Publish Packages
           command: |
-            yarn lerna publish from-git
+            yarn lerna publish from-git --yes
       - run: git status
       # - run: git add -A
       - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
