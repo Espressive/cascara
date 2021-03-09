@@ -36,17 +36,19 @@ commands:
         type: string
         default: ''
     steps:
+      - run: git status
       - run:
           name: Set Up Git config
           command: |
             git config --global -l
             git config --global user.email circleci@circleci
             git config --global user.name CircleCI
+      - run: git status
       - run:
           name: Publish Cascara
           command: |
             yarn lerna publish <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --amend --conventional-commits --create-release github --yes << parameters.lerna-args >>
-      - run: git diff @{push}
+      - run: git status
       - run: git add .
       - run: git status
       - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
