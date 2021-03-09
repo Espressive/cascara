@@ -22,10 +22,14 @@ commands:
       vercel-args:
         type: string
         default: ''
+      vercel-deploy-hook:
+        type: string
+        default: $VERCEL_DEPLOY_DEVELOP
     steps:
       - run:
           name: Deploy Vercel
-          command: yarn vercel -t $VERCEL_TOKEN --no-clipboard --confirm << parameters.vercel-args >>
+          command: curl -X << parameters.vercel-deploy-hook >>
+          # command: yarn vercel -t $VERCEL_TOKEN --no-clipboard --confirm << parameters.vercel-args >>
   lerna-publish:
     description: Publishes our monorepo packages with Lerna
     parameters:
@@ -48,15 +52,15 @@ commands:
       - run:
           name: Bump Package Versions
           command: |
-            yarn lerna version <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --conventional-commits --create-release github --no-push --yes << parameters.lerna-args >>
+            yarn lerna version <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --conventional-commits --create-release github --yes << parameters.lerna-args >>
       - run:
           name: Publish Packages
           command: |
             yarn lerna publish from-git --yes
-      - run:
-          name: Git Push Changes
-          command: |
-            git push --follow-tags --no-verify --atomic
+      # - run:
+      #     name: Git Push Changes
+      #     command: |
+      #       git push --follow-tags --no-verify --atomic
 
 job_executor: &job_executor
   executor:
@@ -197,13 +201,14 @@ jobs:
   deploy-docs:
     <<: *job_executor
     steps:
-      - restore_cache:
-          key: << pipeline.parameters.installed-key >>
+      # - restore_cache:
+      #     key: << pipeline.parameters.installed-key >>
       - when:
           condition: *is_main
           steps:
             - deploy-vercel:
-                vercel-args: --prod
+                # vercel-args: --prod
+                vercel-deploy-hook: $VERCEL_DEPLOY_MAIN
       - unless:
           condition: *is_main
           steps:
@@ -236,6 +241,7 @@ workflows:
             - lint
             - test
       - release-packages:
+          <<: *post_steps
           filters:
             branches:
               only:
@@ -244,5 +250,6 @@ workflows:
           requires:
             - build-cascara
       - deploy-docs:
+          <<: *post_steps
           requires:
             - release-packages
