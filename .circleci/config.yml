@@ -46,17 +46,17 @@ commands:
       - run:
           name: Publish Cascara
           command: |
-            yarn lerna publish <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --amend --conventional-commits --create-release github --yes << parameters.lerna-args >>
-      - run: git pull --commit
+            yarn lerna publish <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --conventional-commits --create-release github --yes << parameters.lerna-args >>
+      # - run: git pull --commit
       - run: git status
-      - run: git add .
-      - run: git status
-      - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
-      - run: git status
-      - run:
-          name: Commit & Push
-          command: |
-            git push --follow-tags
+      # - run: git add .
+      # - run: git status
+      # - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
+      # - run: git status
+      # - run:
+      #     name: Commit & Push
+      #     command: |
+      #       git push --follow-tags
 
 job_executor: &job_executor
   executor:
