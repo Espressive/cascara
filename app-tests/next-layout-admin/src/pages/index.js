@@ -1,3 +1,4 @@
+import '@espressive/legacy-css';
 import Head from 'next/head';
 import pkg from '../../package';
 
@@ -5,19 +6,19 @@ import { Admin } from '@espressive/cascara';
 
 const Home = () => {
   return (
-    <Admin>
+    <Admin
+      header={
+        <Admin.Header>
+          <h1>{pkg.name}</h1>
+        </Admin.Header>
+      }
+      main={<Admin.Main>{'Admin.Main'}</Admin.Main>}
+      nav={<Admin.Nav>{'Admin.Nav'}</Admin.Nav>}
+    >
       <Head>
         <title>{pkg.name}</title>
         <link href='/favicon.ico' rel='icon' />
       </Head>
-
-      <Admin.Header>
-        <h1>{pkg.name}</h1>
-      </Admin.Header>
-
-      <Admin.Nav>{'Admin.Nav'}</Admin.Nav>
-
-      <Admin.Main>{'Admin.Main'}</Admin.Main>
     </Admin>
   );
 };
