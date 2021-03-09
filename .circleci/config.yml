@@ -36,10 +36,9 @@ commands:
         type: string
         default: ''
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - f2:23:e9:d2:80:73:d4:b2:cc:a4:7d:fe:32:6d:29:49
-      - run: git status
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - f2:23:e9:d2:80:73:d4:b2:cc:a4:7d:fe:32:6d:29:49
       - run:
           name: Set Up Git config
           command: |
@@ -47,19 +46,22 @@ commands:
             git config --global user.email circleci@circleci
             git config --global user.name CircleCI
       - run:
-          name: Publish Cascara
+          name: Bump Version
           command: |
-            yarn lerna publish <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --conventional-commits --create-release github --yes << parameters.lerna-args >>
-      # - run: git pull --commit
+            yarn lerna version <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --conventional-commits --create-release github --no-push --yes << parameters.lerna-args >>
       - run: git status
-      # - run: git add .
-      # - run: git status
-      # - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
-      # - run: git status
-      # - run:
-      #     name: Commit & Push
-      #     command: |
-      #       git push --follow-tags
+      - run:
+          name: Publish Packages
+          command: |
+            yarn lerna publish from-git
+      - run: git status
+      # - run: git add -A
+      - run: git commit -m "chore(<<# parameters.prerelease >>pre<</ parameters.prerelease >>release) CircleCI"
+      - run: git status
+      - run:
+          name: Commit & Push
+          command: |
+            git push --follow-tags --no-verify --atomic
 
 job_executor: &job_executor
   executor:
