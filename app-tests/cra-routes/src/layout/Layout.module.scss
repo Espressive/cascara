@@ -1,0 +1,50 @@
+@keyframes loading-pulse {
+  0% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: loading-pulse ease-in-out 1s infinite;
+}
+
+.Header,
+.List,
+.Nav {
+  height: 100%;
+}
+
+.Detail,
+.Nav,
+.Header {
+  background-color: rgba(117, 61, 61, 0.03);
+}
+
+.Detail {
+  margin: 1em;
+  border-radius: 0.25em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: calc(100% - 2em);
+  max-width: 36em;
+}
+
+.Heading {
+  display: block;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+// .List {
+// }
+
+// .Nav {
+// }
+
+// .Header {
+// }

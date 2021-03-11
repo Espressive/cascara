@@ -1,0 +1,14 @@
+.Link {
+  display: block;
+  padding: 1rem;
+  color: #111;
+  line-height: 1;
+
+  .Icon {
+    margin-right: 0.5em;
+  }
+}
+
+.ActiveLink {
+  background-color: #fff;
+}
