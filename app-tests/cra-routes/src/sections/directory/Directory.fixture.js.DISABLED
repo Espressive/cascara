@@ -1,0 +1,11 @@
+import React from 'react';
+import { DirectoryDetail, DirectoryList } from './';
+
+const List = () => <DirectoryList />;
+
+const Detail = () => <DirectoryDetail />;
+
+export default {
+  detail: Detail,
+  list: List,
+};

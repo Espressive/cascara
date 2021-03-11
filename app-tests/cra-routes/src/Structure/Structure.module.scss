@@ -1,0 +1,41 @@
+$border: 1px solid rgba(0, 0, 0, 0.15);
+
+:global {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  #root {
+    display: grid;
+    grid-template-columns: 16em 24em auto;
+    grid-template-rows: 6em auto;
+    grid-template-areas:
+      'header header header'
+      'nav list detail';
+  }
+}
+
+.List {
+  grid-area: list;
+  border-right: $border;
+}
+
+.Detail {
+  grid-area: detail;
+}
+
+.Nav {
+  grid-area: nav;
+  border-right: $border;
+}
+
+.Header {
+  grid-area: header;
+  border-bottom: $border;
+}
+
+.Main {
+  display: contents;
+}

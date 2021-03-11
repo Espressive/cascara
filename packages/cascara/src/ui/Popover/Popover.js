@@ -11,7 +11,7 @@ import styles from './Popover.module.scss';
 import { popperOverTrigger } from '../../shared/popperModifiers';
 
 const propTypes = {
-  children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
+  children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   trigger: pt.element,
 };
 
