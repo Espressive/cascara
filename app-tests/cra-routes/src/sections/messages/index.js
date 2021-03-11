@@ -1,7 +1,10 @@
 import icon from '@iconify/icons-ic/twotone-message';
-import React from 'react';
-import MessagesDetail from './MessagesDetail';
-import MessagesList from './MessagesList';
+import React, { lazy } from 'react';
+
+// We use the React dynamic/lazy import syntax because these components are
+// being rendered in a route wrapped with a suspense fallback for code splitting
+const MessagesDetail = lazy(() => import('./MessagesDetail'));
+const MessagesList = lazy(() => import('./MessagesList'));
 
 const basePath = {
   icon,

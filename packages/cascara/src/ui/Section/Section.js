@@ -5,8 +5,8 @@ import styles from './Section.module.scss';
 
 const propTypes = {
   children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
-  footer: pt.string,
-  header: pt.string,
+  footer: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  header: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
 };
 
 const Section = ({ children, footer, header }) => {

@@ -2,6 +2,8 @@ import React from 'react';
 import pt from 'prop-types';
 import styles from './Layout.module.scss';
 import classNames from 'classnames/bind';
+
+import Loader from './LayoutLoader';
 const cx = classNames.bind(styles);
 
 const propTypes = {
@@ -22,6 +24,8 @@ const LayoutDetail = ({ children, heading, isLoading = false, ...rest }) => {
     >
       {heading && <h2 className={styles.Heading}>{heading}</h2>}
       {children}
+
+      {isLoading && !children && <Loader />}
     </div>
   );
 };

@@ -1,28 +1,33 @@
 import React from 'react';
 import pt from 'prop-types';
-import styles from './Layout.module.scss';
+import styles from './BaristaStructure.module.scss';
 import classNames from 'classnames/bind';
 
-import Loader from './LayoutLoader';
+import Loader from '../../ui/Loader';
 const cx = classNames.bind(styles);
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  heading: pt.string,
+  header: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   isLoading: pt.bool,
 };
 
-const LayoutList = ({ children, heading, isLoading = false, ...rest }) => {
+const BaristaStructureDetail = ({
+  children,
+  header,
+  isLoading = false,
+  ...rest
+}) => {
   const { className, ...props } = rest;
   return (
     <div
       {...props}
       className={cx(className, {
-        List: true,
+        Detail: true,
         loading: isLoading,
       })}
     >
-      {heading && <h3 className={styles.Heading}>{heading}</h3>}
+      {header && <h2 className={styles.Heading}>{header}</h2>}
       {children}
 
       {isLoading && !children && <Loader />}
@@ -30,6 +35,7 @@ const LayoutList = ({ children, heading, isLoading = false, ...rest }) => {
   );
 };
 
-LayoutList.propTypes = propTypes;
+BaristaStructureDetail.propTypes = propTypes;
+BaristaStructureDetail.displayName = 'BaristaStructure.Detail';
 
-export default LayoutList;
+export default BaristaStructureDetail;

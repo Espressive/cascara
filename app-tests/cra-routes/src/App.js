@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import Structure from './Structure';
 
 import { Header, Nav } from './components';
+
+import { Detail, List } from './layout';
 
 import { DetailRoutes, ListRoutes } from './routes';
 
@@ -16,10 +18,14 @@ const App = () => {
         <Nav />
       </Structure.Nav>
       <Structure.List>
-        <ListRoutes />
+        <Suspense fallback={<List isLoading />}>
+          <ListRoutes />
+        </Suspense>
       </Structure.List>
       <Structure.Detail>
-        <DetailRoutes />
+        <Suspense fallback={<Detail isLoading />}>
+          <DetailRoutes />
+        </Suspense>
       </Structure.Detail>
     </Structure>
   );
