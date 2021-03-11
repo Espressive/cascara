@@ -11,7 +11,7 @@ const propTypes = {
       content: pt.string,
     })
   ),
-  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   /** aWidget can have a css class name */
   className: pt.string,
   /** A widget can have a clickable info icon with a description */
