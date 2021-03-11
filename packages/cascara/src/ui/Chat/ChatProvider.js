@@ -64,7 +64,7 @@ const themes = {
 };
 
 const propTypes = {
-  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   inputComponent: pt.element,
   isThemeSelectable: pt.bool,
 };
