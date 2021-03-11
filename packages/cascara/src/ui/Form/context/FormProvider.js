@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { ModuleContext, ModuleProvider } from '../../../modules/context';
 
 const propTypes = {
-  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   // eslint-disable-next-line react/forbid-prop-types -- We do not know what the object params might be in this case
   value: pt.object,
 };
