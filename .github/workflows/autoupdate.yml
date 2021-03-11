@@ -11,9 +11,9 @@ on:
       - main
 
 jobs:
-  Auto:
-    name: Auto-update
-    runs-on: ubuntu-18.04
+  auto:
+    name: Auto Update PRs
+    runs-on: ubuntu-latest
     steps:
       - uses: tibdex/auto-update@v1
         with:

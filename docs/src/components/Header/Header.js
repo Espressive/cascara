@@ -1,10 +1,21 @@
+import pt from 'prop-types';
 import Link from 'next/link';
 import { Admin } from '@espressive/cascara';
 import Logo from './Logo';
+import Tag from '../Tag';
 
-const Header = () => {
+const propTypes = {
+  branch: pt.string,
+  cascaraVersion: pt.string,
+};
+
+const Header = ({ branch, cascaraVersion }) => {
   return (
     <Admin.Header>
+      <div style={{ float: 'right', lineHeight: '4em', padding: '0 1em' }}>
+        <Tag content={cascaraVersion} />
+        {/* {branch !== 'main' && <Tag content={branch} />} */}
+      </div>
       <Link href='/'>
         <a>
           <h1
@@ -36,5 +47,7 @@ const Header = () => {
     </Admin.Header>
   );
 };
+
+Header.propTypes = propTypes;
 
 export default Header;

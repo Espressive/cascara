@@ -9,6 +9,8 @@ const changedFiles = [...modifiedFiles, ...newFiles];
 const github = {
   description: danger.github.pr.body,
   assignee: danger.github.pr.assignee,
+  description: danger.github.pr.body,
+  title: danger.github.pr.title,
 };
 
 // Changed file evaluations
@@ -24,6 +26,8 @@ const descSection = {
   snapshots: '### Snapshots',
 };
 
+const isSnyk = github.title.includes('fix(Snyk)');
+
 // Evaluates the description to see if it contains a particular section
 const hasDescriptionSection = (section: keyof typeof descSection) =>
   github.description.includes(descSection[section]);
@@ -34,7 +38,7 @@ if (github.description.length < 10) {
 }
 
 // Check that someone has been assigned to this PR
-if (github.assignee === null) {
+if (github.assignee === null && !isSnyk) {
   warn(
     'Please assign someone to merge this PR, and optionally include people who should review.'
   );
@@ -48,7 +52,7 @@ if (changed.fixtures) {
 }
 
 // Check if we are updating or adding any package dependencies
-if (changed.packages && !hasDescriptionSection('dependencies')) {
+if (changed.packages && !hasDescriptionSection('dependencies') && !isSnyk) {
   for (let file of changed.packages) {
     fail(
       `Please add a '${descSection.dependencies}' section to explain the reason we are changing dependencies.`

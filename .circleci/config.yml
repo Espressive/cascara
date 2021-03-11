@@ -3,28 +3,68 @@ version: 2.1
 orbs:
   node: circleci/node@4.0.1
   slack: circleci/slack@4.2.1
-  # ghpr: narrativescience/ghpr@1.1.1
-  # jq: circleci/jq@2.2.0
+
+parameters:
+  installed-key:
+    type: string
+    default: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+
+aliases:
+  - &is_main
+    equal: [main, << pipeline.git.branch >>]
+  - &is_develop
+    equal: [develop, << pipeline.git.branch >>]
+
+commands:
+  deploy-vercel:
+    description: Deploys our docs to Vercel
+    parameters:
+      vercel-deploy-hook:
+        type: string
+        default: $VERCEL_DEPLOY_DEVELOP
+    steps:
+      - run:
+          name: Deploy Vercel
+          command: curl -X POST << parameters.vercel-deploy-hook >>
+  lerna-publish:
+    description: Publishes our monorepo packages with Lerna
+    parameters:
+      prerelease:
+        type: boolean
+        default: true
+      lerna-args:
+        type: string
+        default: ''
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - $GITHUB_PACKAGE_DEPLOY_FINGERPRINT
+      - run:
+          name: Set Up Git config
+          command: |
+            git config --global -l
+            git config --global user.email circleci@circleci
+            git config --global user.name CircleCI
+      - run:
+          name: Bump Package Versions
+          command: |
+            yarn lerna version <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --conventional-commits --create-release github --yes << parameters.lerna-args >>
+      - run:
+          name: Publish Packages
+          command: |
+            yarn lerna publish from-git --yes
+      # - run:
+      #     name: Git Push Changes
+      #     command: |
+      #       git push --follow-tags --no-verify --atomic
 
 job_executor: &job_executor
   executor:
     name: node/default
     tag: '12.13.0'
 
-# GITHUB_PR_BASE_BRANCH` - The base branch for the PR.
-# GITHUB_PR_NUMBER` - The number of the PR.
-# GITHUB_PR_TITLE` - The title of the PR.
-# GITHUB_PR_COMMIT_MESSAGE` - The current commit's message. (Optional)
-# GITHUB_PR_AUTHOR_USERNAME` - The PR author's username.
-# GITHUB_PR_AUTHOR_NAME` - The PR author's name. (Optional)
-# GITHUB_PR_AUTHOR_EMAIL` - The PR author's email address. (Optional)
-
 post_steps: &post_steps
   post-steps:
-    # - jq/install
-    # - ghpr/get-pr-info:
-    #     get_pr_author_email: true
-    #     get_pr_author_name: true
     - slack/notify:
         custom: |
           {
@@ -80,7 +120,7 @@ jobs:
       - store_artifacts:
           path: ./node_modules/@espressive/cascara # check to see why we do not have @espressive/cascara
       - save_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+          key: << pipeline.parameters.installed-key >>
           paths:
             - ~/
 
@@ -88,7 +128,7 @@ jobs:
     <<: *job_executor
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+          key: << pipeline.parameters.installed-key >>
       - run:
           name: Run Eslint
           command: yarn lint --format junit --output-file ./coverage/eslint.xml
@@ -101,7 +141,7 @@ jobs:
     <<: *job_executor
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+          key: << pipeline.parameters.installed-key >>
       - run:
           name: Run Unit Tests
           command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
@@ -116,23 +156,25 @@ jobs:
     <<: *job_executor
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+          key: << pipeline.parameters.installed-key >>
       - run:
           name: Build Cascara Runtimes
-          command: make
-      - save_cache:
-          key: cascara-CASCARA_RUNTIMES-{{ .Revision }}-{{ checksum "yarn.lock" }}
-          paths:
-            - /home/circleci/project/packages/cascara/dist
-      - store_artifacts:
-          path: ./packages/cascara/dist
-          destination: dist
+          command: yarn cascara build
+
+  # build-docs:
+  #   <<: *job_executor
+  #   steps:
+  #     - restore_cache:
+  #         key: << pipeline.parameters.installed-key >>
+  #     - run:
+  #         name: Build Docs
+  #         command: yarn docs build
 
   build-cosmos:
     <<: *job_executor
     steps:
       - restore_cache:
-          key: cascara-MONOREPO_INSTALLED-{{ .Revision }}
+          key: << pipeline.parameters.installed-key >>
       - run:
           name: Build Cosmos
           command: yarn cosmos:build
@@ -140,12 +182,46 @@ jobs:
           path: ./build/cosmos
           destination: cosmos
 
+  release-packages:
+    <<: *job_executor
+    parameters:
+      options:
+        description: 'Option flags passed to the Lerna release command'
+        default: ''
+        type: string
+    steps:
+      - restore_cache:
+          key: << pipeline.parameters.installed-key >>
+      - when:
+          condition: *is_main
+          steps:
+            - lerna-publish:
+                prerelease: false
+                lerna-args: --conventional-graduate
+      - when:
+          condition: *is_develop
+          steps:
+            - lerna-publish
+
+  # deploy-docs:
+  #   <<: *job_executor
+  #   steps:
+  #     - when:
+  #         condition: *is_main
+  #         steps:
+  #           - deploy-vercel:
+  #               vercel-deploy-hook: $VERCEL_DEPLOY_MAIN
+  #     - when:
+  #         condition: *is_develop
+  #         steps:
+  #           - deploy-vercel
+
 workflows:
   build-and-test:
     jobs:
       - install:
           pre-steps:
-            - run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_INSTALL_AUTH_TOKEN}" >> ~/.npmrc
+            - run: echo "//npm.pkg.github.com/:_authToken=${GH_TOKEN}" >> ~/.npmrc
             - run: echo "@espressive:registry=https://npm.pkg.github.com" >> ~/.npmrc
           <<: *post_steps
       - lint:
@@ -159,9 +235,29 @@ workflows:
       - build-cascara:
           <<: *post_steps
           requires:
-            - install
+            - lint
+            - test
+      # - build-docs:
+      #     <<: *post_steps
+      #     requires:
+      #       - lint
+      #       - test
       - build-cosmos:
           <<: *post_steps
           requires:
             - lint
             - test
+      - release-packages:
+          <<: *post_steps
+          filters:
+            branches:
+              only:
+                - main
+                - develop
+          requires:
+            - build-cascara
+      # - deploy-docs:
+      #     <<: *post_steps
+      #     requires:
+      #       - build-docs
+      #       - release-packages

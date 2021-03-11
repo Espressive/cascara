@@ -234,26 +234,9 @@ title: Everything together!
 ---
 
 <Table
-  data={[
-    {
-      id: 1,
-      userEmail: 'john@doe.it',
-      userName: 'John Doe',
-    },
-    {
-      id: 2,
-      userEmail: 'jane@doe.it',
-      userName: 'Jane Doe',
-    },
-    {
-      id: 3,
-      userEmail: 'jim@doe.it',
-      userName: 'Jim Doe',
-    },
-  ]}
-  dataConfig={{
-    actionButtonMenuIndex: 1,
-    actions: [
+  actions={{
+    actionButtonMenuIndex: -1,
+    modules: [
       {
         module: 'button',
         name: 'new',
@@ -280,6 +263,25 @@ title: Everything together!
         saveLabel: 'Guardar',
       },
     ],
+  }}
+  data={[
+    {
+      id: 1,
+      userEmail: 'john@doe.it',
+      userName: 'John Doe',
+    },
+    {
+      id: 2,
+      userEmail: 'jane@doe.it',
+      userName: 'Jane Doe',
+    },
+    {
+      id: 3,
+      userEmail: 'jim@doe.it',
+      userName: 'Jim Doe',
+    },
+  ]}
+  dataConfig={{
     display: [
       {
         attribute: 'id',

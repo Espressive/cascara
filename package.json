@@ -19,11 +19,12 @@
     "cosmos:build": "npx -p react-cosmos@5.5.3 cosmos-export --config .cosmos/config.json",
     "cosmos": "npx react-cosmos@5.5.3 --config .cosmos/config.json",
     "docs": "yarn workspace docs",
-    "eslint-config": "yarn workspace @espressive/eslint-config-espressive",
+    "eslint-config": "yarn workspace @espressive/eslint-config",
+    "design-tokens": "yarn workspace @espressive/design-tokens",
     "framer:publish": "dotenv npx framer-cli publish",
     "lint": "eslint ./",
     "test:watch": "yarn test --watch",
-    "test": "jest",
+    "test": "jest -c ./.jest/config.js",
     "tokens": "style-dictionary build -c ./tokens.config.json"
   },
   "husky": {
@@ -105,7 +106,7 @@
     "semantic-ui-react": "1.3.1",
     "style-dictionary": "2.10.1",
     "typescript": "4.0.2",
-    "yalc": "1.0.0-pre.42"
+    "vercel": "21.3.2"
   },
   "engines": {
     "node": "12.x"
