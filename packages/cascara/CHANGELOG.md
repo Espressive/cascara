@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1-alpha.3](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.1-alpha.2...@espressive/cascara@0.4.1-alpha.3) (2021-03-11)
+
+
+### Bug Fixes
+
+* **fds-160:** use node instead of element in prop types ([#186](https://github.com/Espressive/cascara/issues/186)) ([1782e96](https://github.com/Espressive/cascara/commit/1782e965804321d2130a46602dc5f2ca3a442bd2))
+
+
+
+
+
 ## [0.4.1-alpha.2](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.1-alpha.1...@espressive/cascara@0.4.1-alpha.2) (2021-03-09)
 
 **Note:** Version bump only for package @espressive/cascara
