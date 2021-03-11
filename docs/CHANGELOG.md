@@ -7,10 +7,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package docs
 
-
-
-
-
 ## [0.4.1-alpha.6](https://github.com/Espressive/cascara/compare/docs@0.4.1-alpha.5...docs@0.4.1-alpha.6) (2021-03-11)
 
 **Note:** Version bump only for package docs

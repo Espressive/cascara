@@ -7,6 +7,7 @@ const changedFiles = [...modifiedFiles, ...newFiles];
 
 // Github specific values
 const github = {
+  description: danger.github.pr.body,
   assignee: danger.github.pr.assignee,
   description: danger.github.pr.body,
   title: danger.github.pr.title,
