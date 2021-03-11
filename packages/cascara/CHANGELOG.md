@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1-alpha.4](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.1-alpha.3...@espressive/cascara@0.4.1-alpha.4) (2021-03-11)
+
+
+### Bug Fixes
+
+* **fds-164:** table header not adding an extra column to display actionsMenu ([#185](https://github.com/Espressive/cascara/issues/185)) ([edd4d60](https://github.com/Espressive/cascara/commit/edd4d604c3ab56fca1abf51a94d57ab571f92038))
+
+
+
+
+
 ## [0.4.1-alpha.3](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.1-alpha.2...@espressive/cascara@0.4.1-alpha.3) (2021-03-11)
 
 
