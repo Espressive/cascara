@@ -103,9 +103,8 @@ class Fixture extends PureComponent {
 
   render() {
     const { columns, data, display } = this.state;
-    const dataConfig = {
-      actionButtonMenuIndex: 0,
-      actions: [
+    const actions = {
+      modules: [
         {
           module: 'button',
           name: 'test',
@@ -129,6 +128,10 @@ class Fixture extends PureComponent {
           name: 'edit',
         },
       ],
+    };
+    const dataConfig = {
+      actionButtonMenuIndex: 0,
+
       display,
     };
 
@@ -166,6 +169,7 @@ class Fixture extends PureComponent {
         </Header>
 
         <Table
+          actions={actions}
           data={data}
           dataConfig={dataConfig}
           onAction={this.handleTableAction}
