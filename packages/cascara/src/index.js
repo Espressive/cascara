@@ -1,5 +1,6 @@
 // Structures
 import Admin from './structures/Admin';
+import BaristaStructure from './structures/BaristaStructure';
 
 // Placeholders
 import AreaPlaceholder from './placeholders/AreaPlaceholder';
@@ -16,6 +17,7 @@ export {
   Admin,
   AreaPlaceholder,
   Button,
+  BaristaStructure,
   Chat,
   Dashboard,
   // Form,
