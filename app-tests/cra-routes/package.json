@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@bjeco/prettier-config": "latest",
-    "@espressive/cascara": "latest",
+    "@espressive/cascara": "0.4.1-alpha.6",
     "@espressive/eslint-config": "latest",
     "@espressive/legacy-css": "latest",
     "@iconify/icons-ic": "1.1.3",

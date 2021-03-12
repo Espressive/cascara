@@ -1,33 +1,27 @@
 import React, { Suspense } from 'react';
 
-import Structure from './Structure';
+import { BaristaStructure } from '@espressive/cascara';
 
-import { Header, Nav } from './components';
-
-import { Detail, List } from './layout';
+import AppNav from './components/AppNav';
 
 import { DetailRoutes, ListRoutes } from './routes';
 
 const App = () => {
   return (
-    <Structure>
-      <Structure.Header>
-        <Header />
-      </Structure.Header>
-      <Structure.Nav>
-        <Nav />
-      </Structure.Nav>
-      <Structure.List>
-        <Suspense fallback={<List isLoading />}>
-          <ListRoutes />
-        </Suspense>
-      </Structure.List>
-      <Structure.Detail>
-        <Suspense fallback={<Detail isLoading />}>
+    <BaristaStructure
+      detail={
+        <Suspense fallback={<BaristaStructure.Detail isLoading />}>
           <DetailRoutes />
         </Suspense>
-      </Structure.Detail>
-    </Structure>
+      }
+      header={<BaristaStructure.Header title='Cool Company' />}
+      list={
+        <Suspense fallback={<BaristaStructure.List isLoading />}>
+          <ListRoutes />
+        </Suspense>
+      }
+      nav={<AppNav />}
+    />
   );
 };
 
