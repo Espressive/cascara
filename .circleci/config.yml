@@ -218,12 +218,15 @@ requires_tests: &requires_tests
     - lint
     - test
 
-filter_tags: &filter_tags
+filter_main_and_dev: &filter_main_and_dev
   filters:
-    branches: &only_main_and_dev
+    branches:
       only:
         - main
         - develop
+
+filter_tags: &filter_tags
+  filters:
     tags:
       only: /^@espressive.*/
 
@@ -246,12 +249,10 @@ workflows:
           <<: *post_steps
           <<: *requires_tests
       - bump-packages:
+          <<: *filter_main_and_dev
           <<: *post_steps
           requires:
             - build-cascara
-          filters:
-            branches:
-              <<: *only_main_and_dev
 
   publish-tagged-packages:
     jobs:
