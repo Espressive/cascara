@@ -264,15 +264,7 @@ workflows:
           <<: *filter_tags
           <<: *install_pre_steps
           <<: *post_steps
-      - lint:
-          <<: *filter_tags
-          <<: *post_steps
-          <<: *requires_install
-      - test:
-          <<: *filter_tags
-          <<: *post_steps
-          <<: *requires_install
       - publish-packages:
           <<: *filter_tags
           <<: *post_steps
-          <<: *requires_tests
+          <<: *requires_install
