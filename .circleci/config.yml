@@ -227,6 +227,9 @@ filter_main_and_dev: &filter_main_and_dev
 
 filter_tags: &filter_tags
   filters:
+    # Ignore all branch commits
+    branches:
+      ignore: /.*/
     tags:
       only: /^@espressive.*/
 
