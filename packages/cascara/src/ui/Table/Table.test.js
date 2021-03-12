@@ -81,6 +81,7 @@ describe('Table', () => {
           module: 'text',
         },
         {
+          'aria-label': 'Email',
           attribute: 'email',
           'data-testid': 'email',
           isEditable: true,
