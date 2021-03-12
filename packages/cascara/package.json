@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@babel/runtime": "7.11.2",
-    "@espressive/design-tokens": "^0.1.1-alpha.2",
     "@iconify/react": "1.1.4",
     "@nivo/bar": "0.61.0",
     "@nivo/bump": "0.61.0",
@@ -46,6 +45,7 @@
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
+    "@espressive/design-tokens": "*",
     "@fluentui/react-northstar": "^0.52.0",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
