@@ -25,11 +25,12 @@
     "lint": "eslint ./",
     "test:watch": "yarn test --watch",
     "test": "jest -c ./.jest/config.js",
-    "tokens": "style-dictionary build -c ./tokens.config.json"
+    "tokens": "style-dictionary build -c ./tokens.config.json",
+    "validate-ci": "circleci config validate"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && validate-ci"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

@@ -202,9 +202,7 @@ jobs:
     steps:
       - restore_cache:
           key: << pipeline.parameters.installed-key >>
-      - lerna-publish:
-          prerelease: false
-          lerna-args: --conventional-graduate
+      - lerna-publish
 
 install_pre_steps: &install_pre_steps
   pre-steps:
@@ -254,6 +252,7 @@ workflows:
           filters:
             branches:
               <<: *only_main_and_dev
+
   publish-tagged-packages:
     jobs:
       - install:
