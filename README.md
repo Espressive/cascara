@@ -95,3 +95,5 @@ yarn -v
 
 3. If the output of the above command is `1.22.4` (or higher) you are done! 🎉
 4. If not... get some help from a teammate on how to update your version of `yarn`
+
+We need to update this soon...

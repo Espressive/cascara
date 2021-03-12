@@ -275,4 +275,4 @@ workflows:
       - publish-packages:
           <<: *filter_tags
           <<: *post_steps
-          <<: *requires_tests
+          <<: *requires_install
