@@ -1,5 +1,10 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
 import { Provider } from 'reakit';
@@ -25,12 +30,10 @@ describe('Table', () => {
   // The test `row actions` corresponds to condition a, whilst the test
   // `editable records` addresses condition b.
   describe('component tree', () => {
-    const whileTheUIisReady = async (miliseconds) =>
-      await new Promise((resolve) => setTimeout(resolve, miliseconds));
-    const datasetSize = 100;
+    const datasetSize = 5;
     const data = generateFakeEmployees(datasetSize);
-    const dataConfig = {
-      actions: [
+    const actions = {
+      modules: [
         {
           content: 'view',
           'data-testid': 'view',
@@ -48,18 +51,18 @@ describe('Table', () => {
           size: 'small',
         },
         {
+          cancelLabel: 'Cancel',
           content: 'edit',
-          dataTestIDs: {
-            cancel: 'edit.cancel',
-            edit: 'edit.start',
-            save: 'edit.save',
-          },
           isLabeled: false,
           module: 'edit',
           name: 'edit',
+          saveLabel: 'Save',
           size: 'small',
         },
       ],
+    };
+
+    const dataConfig = {
       display: [
         {
           attribute: 'active',
@@ -154,6 +157,7 @@ describe('Table', () => {
       const view = render(
         <Provider>
           <Table
+            actions={actions}
             data={data}
             dataConfig={dataConfig}
             uniqueIdAttribute={'eid'}
@@ -177,7 +181,12 @@ describe('Table', () => {
     test('table markup vs. dataset', () => {
       const { display = [] } = dataConfig;
       render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
+        <Table
+          actions={actions}
+          data={data}
+          dataConfig={dataConfig}
+          uniqueIdAttribute={'eid'}
+        />
       );
 
       Object.values(
@@ -195,6 +204,7 @@ describe('Table', () => {
       const view = render(
         <Provider>
           <Table
+            actions={actions}
             data={data}
             dataConfig={{
               ...dataConfig,
@@ -221,6 +231,7 @@ describe('Table', () => {
 
       render(
         <Table
+          actions={actions}
           data={data}
           dataConfig={dataConfig}
           onAction={onAction}
@@ -228,7 +239,9 @@ describe('Table', () => {
         />
       );
 
-      const allEditButtons = screen.getAllByTestId('edit.start');
+      const allEditButtons = screen.getAllByRole('button', {
+        name: 'Edit',
+      });
       expect(allEditButtons).toHaveLength(datasetSize);
 
       const editButton = screen.getAllByTestId('view');
@@ -265,6 +278,7 @@ describe('Table', () => {
 
       render(
         <Table
+          actions={actions}
           data={data}
           dataConfig={{
             ...dataConfig,
@@ -275,7 +289,9 @@ describe('Table', () => {
         />
       );
 
-      const allEditButtons = screen.getAllByTestId('edit.start');
+      const allEditButtons = screen.getAllByRole('button', {
+        name: 'Edit',
+      });
       expect(allEditButtons).toHaveLength(datasetSize);
 
       const allViewButtons = screen.getAllByTestId('view');
@@ -295,6 +311,7 @@ describe('Table', () => {
 
       render(
         <Table
+          actions={actions}
           data={data}
           dataConfig={dataConfig}
           onAction={onAction}
@@ -302,7 +319,9 @@ describe('Table', () => {
         />
       );
 
-      const allEditButtons = screen.getAllByTestId('edit.start');
+      const allEditButtons = screen.getAllByRole('button', {
+        name: 'Edit',
+      });
       expect(allEditButtons).toHaveLength(datasetSize);
 
       const allViewButtons = screen.getAllByTestId('view');
@@ -332,6 +351,7 @@ describe('Table', () => {
 
       render(
         <Table
+          actions={actions}
           data={data}
           dataConfig={dataConfig}
           onAction={onAction}
@@ -339,81 +359,87 @@ describe('Table', () => {
         />
       );
 
-      const editButton = screen.getAllByTestId('edit.start');
+      const editButton = screen.getAllByRole('button', {
+        name: 'Edit',
+      });
 
       // Enter edit mode
-      fireEvent(
-        editButton[0],
-        new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-        })
+      // fireEvent(
+      //   editButton[0],
+      //   new MouseEvent('click', {
+      //     bubbles: true,
+      //     cancelable: true,
+      //   })
+      // );
+      userEvent.click(editButton[0]);
+
+      await screen.findAllByRole('button', {
+        name: 'Cancel',
+      });
+
+      const emailTextbox = screen.getByRole('textbox', { name: 'Email' });
+      userEvent.clear(emailTextbox);
+      await userEvent.type(emailTextbox, testEmail, {
+        allAtOnce: false,
+        delay: 100,
+      });
+
+      // this is to validate that we are actually changing the email
+      expect(emailTextbox.value).toBe(testEmail);
+
+      const saveButtons = screen.getAllByRole('button', {
+        name: 'Save',
+      });
+
+      // long hours of troubleshoting... finally came to an end...
+      // It turns out that I was picking the wrong button, which was disabled.
+      const enabledSaveButton = saveButtons
+        .filter((button) => !button.disabled)
+        .pop();
+
+      fireEvent.click(enabledSaveButton);
+
+      const [firstRow] = screen.getAllByRole('cell');
+
+      await waitForElementToBeRemoved(
+        () =>
+          screen.getAllByRole('button', {
+            name: 'Save',
+          }),
+        { container: firstRow }
       );
 
-      await whileTheUIisReady(100);
+      // await screen.findByRole('cell', { name: testEmail });
 
-      const cancelButton = screen.getByTestId('edit.cancel');
-      const saveButton = screen.getByTestId('edit.save');
-      const emailField = screen.getAllByTestId('email');
-
-      expect(cancelButton).toBeTruthy();
-      expect(saveButton).toBeTruthy();
-      expect(emailField).toBeTruthy();
-
-      // we need to delete the current contents
-      const userEventCommandList = 'Hayden.Zieme@espressive.com'
-        .split('')
-        .reduce((commands) => `${commands}{backspace}`, '');
-
-      userEvent.type(emailField[0], `${userEventCommandList}${testEmail}`);
-
-      await whileTheUIisReady(100);
-
-      fireEvent(
-        saveButton,
-        new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-        })
-      );
-
-      await whileTheUIisReady(100);
+      expect(onAction.mock.calls).toHaveLength(2);
 
       // The table first reacted with the edit.start event
-      expect(onAction).toBeCalledWith(
-        expect.objectContaining({
-          name: 'edit.start', // this is the name of the action (assigned by Cascara)
-        }),
-        expect.objectContaining({
-          active: true,
-          country: 'Argentina',
-          eid: '024f2316-265a-46e8-965a-837e308ae678',
-          email: 'Hayden.Zieme@espressive.com',
-          employeeNumber: 93912,
-          fullName: 'Hayden Zieme',
-          homePhone: '887.983.0658',
-          officePhone: '(980) 802-1086 x05469',
-          title: 'District Operations Officer',
-        })
-      );
+      expect(onAction.mock.calls[0][0]).toEqual({ name: 'edit.start' });
+      expect(onAction.mock.calls[0][1]).toEqual({
+        active: true,
+        country: 'Argentina',
+        eid: '024f2316-265a-46e8-965a-837e308ae678',
+        email: 'Hayden.Zieme@espressive.com',
+        employeeNumber: 93912,
+        fullName: 'Hayden Zieme',
+        homePhone: '887.983.0658',
+        officePhone: '(980) 802-1086 x05469',
+        title: 'District Operations Officer',
+      });
 
       // Lastly, the table emits the edit.save event
-      expect(onAction).toHaveBeenLastCalledWith(
-        expect.objectContaining({
-          name: 'edit.save',
-        }),
-        expect.objectContaining({
-          active: true,
-          country: 'Argentina',
-          eid: '024f2316-265a-46e8-965a-837e308ae678',
-          email: testEmail,
-          employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
-          fullName: 'Hayden Zieme',
-          homePhone: '887.983.0658',
-          officePhone: '(980) 802-1086 x05469',
-          title: 'District Operations Officer',
-        })
-      );
+      expect(onAction.mock.calls[1][0]).toEqual({ name: 'edit.save' });
+      expect(onAction.mock.calls[1][1]).toEqual({
+        active: true,
+        country: 'Argentina',
+        eid: '024f2316-265a-46e8-965a-837e308ae678',
+        email: testEmail,
+        employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
+        fullName: 'Hayden Zieme',
+        homePhone: '887.983.0658',
+        officePhone: '(980) 802-1086 x05469',
+        title: 'District Operations Officer',
+      });
     });
 
     //
@@ -431,6 +457,7 @@ describe('Table', () => {
 
       render(
         <Table
+          actions={actions}
           data={data}
           dataConfig={dataConfig}
           onAction={onAction}
@@ -438,10 +465,9 @@ describe('Table', () => {
         />
       );
 
-      const editButton = screen.getAllByTestId('edit.start');
-
+      const editButtons = screen.getAllByRole('button', { name: 'Edit' });
       fireEvent(
-        editButton[0],
+        editButtons[0],
         new MouseEvent('click', {
           bubbles: true,
           cancelable: true,
@@ -463,14 +489,10 @@ describe('Table', () => {
         })
       );
 
-      const cancelButton = screen.getByTestId('edit.cancel');
-      const saveButton = screen.getByTestId('edit.save');
-
-      expect(cancelButton).toBeTruthy();
-      expect(saveButton).toBeTruthy();
-
       fireEvent(
-        cancelButton,
+        screen.getByRole('button', {
+          name: 'Cancel',
+        }),
         new MouseEvent('click', {
           bubbles: true,
           cancelable: true,
@@ -491,29 +513,61 @@ describe('Table', () => {
           title: 'District Operations Officer',
         })
       );
-
-      const saveButtons = screen.getAllByTestId('edit.start');
-      expect(saveButtons).toHaveLength(datasetSize);
     });
 
     test('actions without onAction handler', () => {
       render(
-        <Table data={data} dataConfig={dataConfig} uniqueIdAttribute={'eid'} />
+        <Table
+          actions={actions}
+          data={data}
+          dataConfig={dataConfig}
+          uniqueIdAttribute={'eid'}
+        />
       );
 
-      const allEditButtons = screen.getAllByTestId('edit.start');
+      const allEditButtons = screen.getAllByRole('button', {
+        name: 'Edit',
+      });
+
       expect(allEditButtons).toHaveLength(datasetSize);
+    });
 
-      const editButton = screen.getAllByTestId('view');
-      expect(editButton).toBeTruthy();
+    // FDS-164: table header not adding an extra column for actions
+    test("deprecated dataConfig.actions prop doesn't break header number of columns", () => {
+      const oldDataConfig = {
+        ...dataConfig,
+        actions: actions.modules,
+      };
 
-      fireEvent(
-        editButton[0],
-        new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-        })
+      render(
+        <Table
+          data={data}
+          dataConfig={oldDataConfig}
+          uniqueIdAttribute={'eid'}
+        />
       );
+
+      const renderedCells = screen.getAllByRole('cell');
+      const expectedCells = (dataConfig.display.length + 1) * datasetSize;
+
+      expect(renderedCells).toHaveLength(expectedCells);
+    });
+
+    // FDS-164: table header not adding an extra column for actions
+    test("new actions prop doesn't break header number of columns", () => {
+      render(
+        <Table
+          actions={actions}
+          data={data}
+          dataConfig={dataConfig}
+          uniqueIdAttribute={'eid'}
+        />
+      );
+
+      const renderedCells = screen.getAllByRole('cell');
+      const expectedCells = (dataConfig.display.length + 1) * datasetSize;
+
+      expect(renderedCells).toHaveLength(expectedCells);
     });
 
     // eslint-disable-next-line jest/no-commented-out-tests -- @manu todo: FDS-154 - resolve failint negative tests

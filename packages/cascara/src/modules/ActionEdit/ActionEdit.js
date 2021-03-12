@@ -6,17 +6,19 @@ import { Button } from 'reakit';
 import { Icon } from 'semantic-ui-react';
 
 const propTypes = {
-  cancelLabel: pt.string,
-  dataTestIDs: pt.shape({
-    cancel: pt.string,
-    edit: pt.string,
-    save: pt.string,
-  }),
+  cancelLabel: pt.node,
   editLabel: pt.string,
-  saveLabel: pt.string,
+  saveLabel: pt.node,
 };
 
-const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
+const DEFAULT_SAVE = <Icon name='check' />;
+const DEFAULT_CANCEL = <Icon name='delete' />;
+
+const ActionEdit = ({
+  cancelLabel = DEFAULT_CANCEL,
+  editLabel = 'Edit',
+  saveLabel = DEFAULT_SAVE,
+}) => {
   const {
     idOfRecordInEditMode,
     isEditing,
@@ -31,18 +33,6 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   const { isDirty, isSubmitting } = formState;
   const recordId = record[uniqueIdAttribute];
   const whenAnotherRowIsEditing = Boolean(idOfRecordInEditMode);
-
-  // this seems like ugly, we need to find a better way
-  // to ease testing..
-  const cancelTestId = {};
-  const editTestId = {};
-  const saveTestId = {};
-
-  if (typeof dataTestIDs === 'object') {
-    cancelTestId['data-testid'] = dataTestIDs['cancel'];
-    editTestId['data-testid'] = dataTestIDs['edit'];
-    saveTestId['data-testid'] = dataTestIDs['save'];
-  }
 
   const handleReset = useCallback(() => {
     onAction(
@@ -103,29 +93,29 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   return isEditing ? (
     <>
       <Button
-        {...cancelTestId}
         className='ui negative icon button'
         disabled={isSubmitting}
+        name={'edit.cancel'}
         onClick={handleCancel}
         type='button'
       >
-        <Icon name='delete' />
+        {cancelLabel}
       </Button>
       <Button
-        {...saveTestId}
         className='ui positive icon button'
         disabled={!isDirty || isSubmitting}
+        name={'edit.save'}
         onClick={handleSubmit(onSubmit)}
         type='button'
       >
-        <Icon name='check' />
+        {saveLabel}
       </Button>
     </>
   ) : (
     <Button
-      {...editTestId}
       className='ui basic button'
       disabled={whenAnotherRowIsEditing}
+      name={'edit.start'}
       onClick={handleEdit}
       type='button'
     >
