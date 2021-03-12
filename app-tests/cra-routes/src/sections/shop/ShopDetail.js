@@ -3,24 +3,24 @@ import pt from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { BaristaStructure } from '@espressive/cascara';
 import { TestLink } from '../../components';
-import { basePath as shop } from '../shop';
-import { basePath as messages } from './';
+import { basePath as directory } from '../directory';
+import { basePath as shop } from '.';
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
 
-const MessagesDetail = ({ children }) => {
+const ShopDetail = ({ children }) => {
   const { id } = useParams();
 
   return (
-    <BaristaStructure.Detail header={`${messages.label} ${id}`}>
-      <TestLink to={`//${shop.path}/3`}>{shop.label} 3</TestLink>
+    <BaristaStructure.Detail header={`${shop.label} ${id}`}>
+      <TestLink to={`//${directory.path}/3`}>{directory.label} 3</TestLink>
       {children}
     </BaristaStructure.Detail>
   );
 };
 
-MessagesDetail.propTypes = propTypes;
+ShopDetail.propTypes = propTypes;
 
-export default MessagesDetail;
+export default ShopDetail;
