@@ -256,6 +256,7 @@ workflows:
           <<: *post_steps
           requires:
             - build-cascara
+            - build-cascara
 
   publish-tagged-packages:
     jobs:
