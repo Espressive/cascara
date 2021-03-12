@@ -108,8 +108,10 @@ exports[`Table component tree snapshot test 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Hayden.Zieme@espressive.com
                 </span>
@@ -276,8 +278,10 @@ exports[`Table component tree snapshot test 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Hubert_Denesik@espressive.com
                 </span>
@@ -445,8 +449,10 @@ exports[`Table component tree snapshot test 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Kathryn.Bernier40@espressive.com
                 </span>
@@ -614,8 +620,10 @@ exports[`Table component tree snapshot test 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Vito4@espressive.com
                 </span>
@@ -783,8 +791,10 @@ exports[`Table component tree snapshot test 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Damaris_Bednar52@espressive.com
                 </span>
@@ -1021,8 +1031,10 @@ exports[`Table component tree without row actions 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Hayden.Zieme@espressive.com
                 </span>
@@ -1167,8 +1179,10 @@ exports[`Table component tree without row actions 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Hubert_Denesik@espressive.com
                 </span>
@@ -1314,8 +1328,10 @@ exports[`Table component tree without row actions 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Kathryn.Bernier40@espressive.com
                 </span>
@@ -1461,8 +1477,10 @@ exports[`Table component tree without row actions 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Vito4@espressive.com
                 </span>
@@ -1608,8 +1626,10 @@ exports[`Table component tree without row actions 1`] = `
             >
               <span>
                 <span
+                  aria-label="Email"
                   class="Input"
                   data-testid="email"
+                  label="Email"
                 >
                   Damaris_Bednar52@espressive.com
                 </span>
