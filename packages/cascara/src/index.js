@@ -1,5 +1,6 @@
 // Structures
 import Admin from './structures/Admin';
+import AdminStructure from './structures/AdminStructure';
 import BaristaStructure from './structures/BaristaStructure';
 
 // Placeholders
@@ -15,6 +16,7 @@ import Table from './ui/Table';
 
 export {
   Admin,
+  AdminStructure,
   AreaPlaceholder,
   Button,
   BaristaStructure,

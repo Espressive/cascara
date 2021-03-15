@@ -12,7 +12,11 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   }
 }
 
-:global html[data-structure='Barista'] {
+:global html[data-structure='Admin'] {
+  --main-max-width: 60em;
+  --drawer-max-width: 30em;
+  --nav-max-width: 20em;
+
   body,
   #root,
   #next {
@@ -22,52 +26,51 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   #root,
   #next {
     display: grid;
-    grid-template-columns: 16em 24em auto;
-    grid-template-rows: 6em auto;
+    grid-template-columns: var(--nav-max-width) auto var(--drawer-max-width);
+    grid-template-rows: 4em auto;
     grid-template-areas:
       'header header header'
-      'nav list detail';
+      'nav main drawer';
   }
 }
 
-._list {
-  grid-area: list;
-  border-right: $border;
-}
-
-._detail {
-  grid-area: detail;
-}
-
-._nav {
-  grid-area: nav;
-  border-right: $border;
+._drawer {
+  grid-area: drawer;
 }
 
 ._header {
   grid-area: header;
-  border-bottom: $border;
 }
 
 ._main {
-  display: contents;
+  grid-row: main;
+  grid-column-start: main;
+  grid-column-end: drawer;
+
+  &.with_drawer {
+    grid-column-end: main;
+  }
+}
+
+._nav {
+  grid-area: nav;
 }
 
 .Header {
   .Title {
     padding: 0 1rem;
-    line-height: 6rem;
+    line-height: 4rem;
   }
 }
 
-.Detail,
+.Main,
 .Nav,
 .Header {
   background-color: rgba(0, 0, 0, 0.04);
 }
 
-.Detail,
-.List {
+.Main,
+.Drawer {
   .Heading {
     display: block;
     padding: 1rem;
@@ -81,17 +84,16 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   }
 }
 
-.List,
+.Drawer,
 .Nav {
   height: 100%;
 }
 
-.Detail {
+.Main {
   margin: 1em;
   border-radius: 0.25em;
   border: 1px solid rgba(0, 0, 0, 0.2);
   height: calc(100% - 2em);
-  max-width: 36em;
 }
 
 .loading {

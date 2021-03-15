@@ -2,7 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 import StructureNavLink from '../components/StructureNavLink';
 
-import styles from './BaristaStructure.module.scss';
+import styles from './AdminStructure.module.scss';
 
 const propTypes = {
   linkComponent: pt.shape({
@@ -21,7 +21,7 @@ const propTypes = {
   ),
 };
 
-const BaristaStructureNav = ({ links, linkComponent }) => (
+const AdminStructureNav = ({ links, linkComponent }) => (
   <div className={styles.Nav}>
     {links?.map((link) => {
       const { linkComponentProps, ...props } = link;
@@ -39,7 +39,7 @@ const BaristaStructureNav = ({ links, linkComponent }) => (
   </div>
 );
 
-BaristaStructureNav.propTypes = propTypes;
-BaristaStructureNav.displayName = 'BaristaStructure.Nav';
+AdminStructureNav.propTypes = propTypes;
+AdminStructureNav.displayName = 'AdminStructure.Nav';
 
-export default BaristaStructureNav;
+export default AdminStructureNav;

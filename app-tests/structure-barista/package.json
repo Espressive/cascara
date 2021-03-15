@@ -1,5 +1,5 @@
 {
-  "name": "cra-routes",
+  "name": "structure-barista",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,15 +26,15 @@
   },
   "dependencies": {
     "@bjeco/prettier-config": "latest",
-    "@espressive/cascara": "0.4.1-alpha.6",
-    "@espressive/eslint-config": "latest",
-    "@espressive/legacy-css": "latest",
+    "@espressive/cascara": "link:../../node_modules/@espressive/cascara",
+    "@espressive/eslint-config": "link:../../node_modules/@espressive/eslint-config",
+    "@espressive/legacy-css": "link:../../node_modules/@espressive/legacy-css",
     "@iconify/icons-ic": "1.1.3",
     "@iconify/react": "1.1.4",
     "classnames": "2.2.6",
     "history": "5.0.0",
-    "react": "link:../node_modules/react",
-    "react-dom": "link:../node_modules/react-dom",
+    "react": "link:../../node_modules/react",
+    "react-dom": "link:../../node_modules/react-dom",
     "react-router-dom": "6.0.0-beta.0",
     "react-scripts": "4.0.3",
     "semantic-ui-react": "2.0.3"

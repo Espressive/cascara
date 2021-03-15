@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import pt from 'prop-types';
 import styles from './BaristaStructure.module.scss';
+import { useStructureName } from '../hooks';
 
 const propTypes = {
   detail: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
@@ -10,6 +11,8 @@ const propTypes = {
 };
 
 const BaristaStructure = ({ detail, header, list, nav }) => {
+  useStructureName('Barista');
+
   return (
     <>
       <header className={styles._header}>{header}</header>
