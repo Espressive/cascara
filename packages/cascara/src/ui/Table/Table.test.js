@@ -24,7 +24,7 @@ describe('Table', () => {
   // The test `row actions` corresponds to condition a, whilst the test
   // `editable records` addresses condition b.
   describe('component tree', () => {
-    const datasetSize = 100;
+    const datasetSize = 10;
     const data = generateFakeEmployees(datasetSize);
     const actions = {
       actionButtonMenuIndex: 2,
@@ -431,7 +431,7 @@ describe('Table', () => {
     //
     // This test validates the events are actualy emitted by the Table, as well
     // as the number of buttons present in each case.
-    test('cancelling record edition', () => {
+    test('cancelling record edition', async () => {
       const onAction = jest.fn();
 
       render(
@@ -452,6 +452,10 @@ describe('Table', () => {
           cancelable: true,
         })
       );
+
+      await screen.findAllByRole('button', {
+        name: 'Save',
+      });
 
       expect(onAction).toBeCalledWith(
         expect.any(Object),
@@ -477,6 +481,10 @@ describe('Table', () => {
           cancelable: true,
         })
       );
+
+      await screen.findAllByRole('button', {
+        name: 'Edit',
+      });
 
       expect(onAction).toBeCalledWith(
         expect.any(Object),

@@ -23,7 +23,7 @@
     "design-tokens": "yarn workspace @espressive/design-tokens",
     "framer:publish": "dotenv npx framer-cli publish",
     "lint": "eslint ./",
-    "test": "jest -c ./.jest/config.js --detectOpenHandles",
+    "test": "jest -c ./.jest/config.js",
     "test:watch": "yarn test --watch",
     "tokens": "style-dictionary build -c ./tokens.config.json",
     "validate-ci": "circleci config validate"
