@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import pt from 'prop-types';
 import styles from './BaristaStructure.module.scss';
 
@@ -15,8 +15,16 @@ const BaristaStructure = ({ detail, header, list, nav }) => {
       <header className={styles._header}>{header}</header>
       <nav className={styles._nav}>{nav}</nav>
       <main className={styles._main}>
-        <section className={styles._list}>{list}</section>
-        <section className={styles._detail}>{detail}</section>
+        <section className={styles._list}>
+          <Suspense fallback={<BaristaStructure.List isLoading />}>
+            {list}
+          </Suspense>
+        </section>
+        <section className={styles._detail}>
+          <Suspense fallback={<BaristaStructure.Detail isLoading />}>
+            {detail}
+          </Suspense>
+        </section>
       </main>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import { BaristaStructure } from '@espressive/cascara';
 
@@ -9,17 +9,9 @@ import { DetailRoutes, ListRoutes } from './routes';
 const App = () => {
   return (
     <BaristaStructure
-      detail={
-        <Suspense fallback={<BaristaStructure.Detail isLoading />}>
-          <DetailRoutes />
-        </Suspense>
-      }
+      detail={<DetailRoutes />}
       header={<BaristaStructure.Header title='Cool Company' />}
-      list={
-        <Suspense fallback={<BaristaStructure.List isLoading />}>
-          <ListRoutes />
-        </Suspense>
-      }
+      list={<ListRoutes />}
       nav={<AppNav />}
     />
   );
