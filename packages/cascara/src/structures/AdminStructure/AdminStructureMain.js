@@ -2,13 +2,14 @@ import React from 'react';
 import pt from 'prop-types';
 import styles from './AdminStructure.module.scss';
 import classNames from 'classnames/bind';
-
 import Loader from '../../ui/Loader';
+
 const cx = classNames.bind(styles);
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  header: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  drawer: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  header: pt.string,
   isLoading: pt.bool,
 };
 
