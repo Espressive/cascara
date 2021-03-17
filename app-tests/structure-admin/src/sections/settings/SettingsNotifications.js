@@ -11,11 +11,11 @@ const SettingsNotifications = ({ children }) => {
 
   return (
     <>
-      <h1>SettingsNotifications</h1>
-      {/* <TestLink to={`//${directory.path}/3`}>{directory.label} 3</TestLink> */}
-      {children}
-      <AdminStructure.Drawer>
-        <h1>Notifs Drawer</h1>
+      <h4>SettingsNotifications</h4>
+
+      <AdminStructure.Drawer style={{ padding: '1em' }}>
+        <h4>Notifs Drawer</h4>
+        <p>No special padding used here if someone wants to do that.</p>
       </AdminStructure.Drawer>
     </>
   );

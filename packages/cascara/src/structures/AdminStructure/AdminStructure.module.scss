@@ -13,9 +13,9 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 :global html[data-structure='Admin'] {
-  --main-max-width: 60em;
-  --drawer-max-width: 30em;
-  --nav-max-width: 20em;
+  --main-max-width: 60rem;
+  --drawer-max-width: 30rem;
+  --nav-max-width: 20rem;
 
   body,
   #root,
@@ -26,7 +26,9 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   #root,
   #next {
     display: grid;
-    grid-template-columns: var(--nav-max-width) auto var(--drawer-max-width);
+    grid-template-columns: var(--nav-max-width) minmax(0, 1fr) var(
+        --drawer-max-width
+      );
     grid-template-rows: 4em auto;
     grid-template-areas:
       'header header header'
@@ -56,7 +58,17 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   grid-area: nav;
 }
 
+.Nav,
+.Main,
+.Drawer {
+  max-width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
 .Header {
+  background-color: rgba(0, 0, 0, 0.04);
+
   .Title {
     padding: 0 1rem;
     line-height: 4rem;
@@ -64,19 +76,7 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .Main,
-.Nav,
-.Header {
-  background-color: rgba(0, 0, 0, 0.04);
-}
-
-.Main,
 .Drawer {
-  .Heading {
-    display: block;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  }
-
   &.loading {
     display: flex;
     justify-content: center;
@@ -84,16 +84,8 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   }
 }
 
-.Drawer,
-.Nav {
-  height: 100%;
-}
-
 .Main {
-  margin: 1em;
-  border-radius: 0.25em;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  height: calc(100% - 2em);
+  padding: 2em;
 }
 
 .loading {
@@ -101,16 +93,24 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .Nav {
+  padding: 0.5rem;
+
   .Link {
     display: block;
     padding: 1rem;
-    color: #333;
+    color: #666;
     line-height: 1;
-    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
-  }
+    border-radius: 0.5em;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 
-  .ActiveLink {
-    color: #000;
-    background-color: #fff;
+    &:hover {
+      color: #000;
+      background-color: rgba(0, 0, 0, 0.08);
+    }
+
+    &:global.active {
+      color: #333;
+      background-color: rgba(0, 0, 0, 0.04);
+    }
   }
 }

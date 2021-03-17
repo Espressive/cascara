@@ -23,14 +23,16 @@ const propTypes = {
 
 const AdminStructureNav = ({ links }) => (
   <div className={styles.Nav}>
-    {links?.map((link) => (
-      <StructureNavLink
-        activeClassName={styles.ActiveLink}
-        className={styles.Link}
-        key={link.label}
-        {...link}
-      />
-    ))}
+    {links?.map((link) => {
+      return (
+        <StructureNavLink
+          activeClassName={styles.ActiveLink}
+          className={styles.Link}
+          key={link.label}
+          {...link}
+        />
+      );
+    })}
   </div>
 );
 

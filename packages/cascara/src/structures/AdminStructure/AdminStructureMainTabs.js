@@ -1,12 +1,8 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Icon } from '@iconify/react';
-import styles from './StructureNavLink.module.scss';
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  // eslint-disable-next-line react/forbid-prop-types -- SVG shows up as an object
-  icon: pt.object,
   label: pt.string.isRequired,
   linkComponent: pt.shape({
     // Kind of a hack, but making sure that there is a render function
@@ -17,32 +13,21 @@ const propTypes = {
   linkComponentProps: pt.object,
 };
 
-const StructureNavLink = ({
+const AdminStructureMainTabs = ({
   children,
-  icon,
   label,
   linkComponent,
   linkComponentProps,
-  ...rest
 }) => {
   const LinkComponent = linkComponent;
 
   return (
-    <LinkComponent {...rest} {...linkComponentProps}>
-      {children ? (
-        children
-      ) : (
-        <>
-          {icon && (
-            <Icon className={styles.Icon} icon={icon} inline width={18} />
-          )}
-          {label}
-        </>
-      )}
+    <LinkComponent className='item' {...linkComponentProps}>
+      {children ? children : label}
     </LinkComponent>
   );
 };
 
-StructureNavLink.propTypes = propTypes;
+AdminStructureMainTabs.propTypes = propTypes;
 
-export default StructureNavLink;
+export default AdminStructureMainTabs;

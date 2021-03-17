@@ -104,11 +104,11 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     padding: 1rem;
     color: #333;
     line-height: 1;
-    transition: background-color 500ms ease-in-out, color 500ms ease-in-out;
-  }
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 
-  .ActiveLink {
-    color: #000;
-    background-color: #fff;
+    &:global.active {
+      color: #000;
+      background-color: #fff;
+    }
   }
 }

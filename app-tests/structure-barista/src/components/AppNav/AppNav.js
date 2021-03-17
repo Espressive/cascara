@@ -8,10 +8,13 @@ import { basePath as shop } from '../../sections/shop';
 
 const links = [messages, directory, shop];
 
-const prepareLinkData = ({ path, ...rest }) => {
+const prepareLinkData = ({ path, icon, label }) => {
   return {
-    ...rest,
+    icon: icon,
+    label: label,
+    linkComponent: NavLink,
     linkComponentProps: {
+      end: path === '',
       to: path,
     },
   };
@@ -19,8 +22,6 @@ const prepareLinkData = ({ path, ...rest }) => {
 
 const preparedLinks = links.map(prepareLinkData);
 
-const AppNav = () => (
-  <BaristaStructure.Nav linkComponent={NavLink} links={preparedLinks} />
-);
+const AppNav = () => <BaristaStructure.Nav links={preparedLinks} />;
 
 export default AppNav;

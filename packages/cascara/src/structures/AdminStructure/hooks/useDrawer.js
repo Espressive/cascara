@@ -3,12 +3,12 @@
 
 import { AdminContext } from '../context';
 import { useContext, useEffect } from 'react';
-import { renderToString } from 'react-dom/server';
+import compare from 'react-fast-compare';
 
 const useDrawer = (drawer) => {
   const { drawer: prevDrawer, setDrawer } = useContext(AdminContext);
 
-  const isUpdated = renderToString(drawer) !== renderToString(prevDrawer);
+  const isUpdated = !compare(drawer, prevDrawer);
 
   useEffect(() => {
     // Setup

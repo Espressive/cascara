@@ -5,11 +5,6 @@ import StructureNavLink from '../components/StructureNavLink';
 import styles from './BaristaStructure.module.scss';
 
 const propTypes = {
-  linkComponent: pt.shape({
-    // Kind of a hack, but making sure that there is a render function
-    // on the link component being passed so we know it is supposed to render
-    render: pt.func,
-  }),
   links: pt.arrayOf(
     pt.shape({
       // eslint-disable-next-line react/forbid-prop-types -- SVG shows up as an object
@@ -21,21 +16,11 @@ const propTypes = {
   ),
 };
 
-const BaristaStructureNav = ({ links, linkComponent }) => (
+const BaristaStructureNav = ({ links }) => (
   <div className={styles.Nav}>
-    {links?.map((link) => {
-      const { linkComponentProps, ...props } = link;
-      return (
-        <StructureNavLink
-          activeClassName={styles.ActiveLink}
-          className={styles.Link}
-          key={link.label}
-          linkComponent={linkComponent}
-          {...props}
-          {...linkComponentProps}
-        />
-      );
-    })}
+    {links?.map((link) => (
+      <StructureNavLink className={styles.Link} key={link.label} {...link} />
+    ))}
   </div>
 );
 

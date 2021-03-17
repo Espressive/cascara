@@ -1,20 +1,28 @@
 import { AdminStructure } from '@espressive/cascara';
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import settings from './';
-import TestLink from '../../components/TestLink';
+
+const prepareLinkData = ({ path, label }) => {
+  return {
+    label: label,
+    linkComponent: NavLink,
+    linkComponentProps: {
+      end: path === '',
+      to: path,
+    },
+  };
+};
 
 const Settings = () => {
-  return (
-    <AdminStructure.Main links={[]}>
-      {settings.routes.children.map((route) => (
-        <TestLink key={route.path} to={route.path}>
-          {route.label}
-        </TestLink>
-      ))}
+  const preparedLinks = settings?.routes?.children.map(prepareLinkData);
 
-      <Outlet />
-    </AdminStructure.Main>
+  return (
+    <AdminStructure.Main
+      body={<Outlet />}
+      header='Settings'
+      links={preparedLinks}
+    />
   );
 };
 

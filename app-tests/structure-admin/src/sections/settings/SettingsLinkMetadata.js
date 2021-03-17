@@ -8,13 +8,7 @@ const propTypes = {
 const SettingsLinkMetadata = ({ children }) => {
   // const { id } = useParams();
 
-  return (
-    <>
-      <h1>SettingsLinkMetadata</h1>
-      {/* <TestLink to={`//${directory.path}/3`}>{directory.label} 3</TestLink> */}
-      {children}
-    </>
-  );
+  return <h4>SettingsLinkMetadata</h4>;
 };
 
 SettingsLinkMetadata.propTypes = propTypes;

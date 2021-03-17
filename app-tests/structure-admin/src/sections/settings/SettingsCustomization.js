@@ -10,7 +10,7 @@ const SettingsCustomization = ({ children }) => {
 
   return (
     <>
-      <h1>SettingsCustomization</h1>
+      <h4>SettingsCustomization</h4>
       {/* <TestLink to={`//${directory.path}/3`}>{directory.label} 3</TestLink> */}
       {children}
     </>
