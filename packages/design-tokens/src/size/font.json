@@ -1,21 +1,29 @@
 {
   "size": {
     "font": {
-      "small": {
-        "value": "0.75",
-        "comment": "the small size of the font"
+      "0": {
+        "value": "{scale.0}"
       },
-      "medium": {
-        "value": "1",
-        "comment": "the medium size of the font"
+      "1": {
+        "value": "{scale.1}"
       },
-      "large": {
-        "value": "2",
-        "comment": "the large size of the font"
+      "2": {
+        "value": "{scale.2}"
+      },
+      "3": {
+        "value": "{scale.3}"
+      },
+      "4": {
+        "value": "{scale.4}"
+      },
+      "5": {
+        "value": "{scale.5}"
+      },
+      "6": {
+        "value": "{scale.6}"
       },
       "base": {
-        "value": "{size.font.medium.value}",
-        "comment": "the base size of the font"
+        "value": "{scale.3}"
       }
     }
   }

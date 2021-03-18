@@ -115,21 +115,21 @@ const links = [
     icon: house,
     label: 'Home',
     linkComponentProps: {
-      to: 'home',
+      href: '#',
     },
   },
   {
     icon: clock,
     label: 'Alarms',
     linkComponentProps: {
-      to: 'alarms',
+      href: '#',
     },
   },
   {
     icon: settings,
     label: 'Settings',
     linkComponentProps: {
-      to: 'settings',
+      href: '#',
     },
   },
 ];
@@ -137,33 +137,31 @@ const links = [
 export default {
   components: (
     <AdminStructure
-      drawer={<AdminStructure.Drawer header='Drawer' />}
       header={<AdminStructure.Header title='Cool Company' />}
-      main={<AdminStructure.Main header='Main' />}
       nav={<AdminStructure.Nav linkComponent={NavLink} links={links} />}
-    />
+    >
+      <AdminStructure.Main header='Main'>
+        <AdminStructure.Drawer>
+          <p>I am a drawer</p>
+        </AdminStructure.Drawer>
+      </AdminStructure.Main>
+    </AdminStructure>
   ),
   loading: (
     <AdminStructure
-      drawer={<AdminStructure.Drawer isLoading />}
       header={<AdminStructure.Header />}
-      main={<AdminStructure.Main isLoading />}
       nav={<AdminStructure.Nav />}
-    />
+    >
+      <AdminStructure.Main isLoading />
+    </AdminStructure>
   ),
   'no-drawer': (
     <AdminStructure
       header={<AdminStructure.Header title='Cool Company' />}
-      main={<AdminStructure.Main header='Main' />}
       nav={<AdminStructure.Nav linkComponent={NavLink} links={links} />}
-    />
+    >
+      <AdminStructure.Main header='Main' />
+    </AdminStructure>
   ),
-  scrolling: (
-    <AdminStructure
-      drawer={longContent}
-      header={longContent}
-      main={longContent}
-      nav={longContent}
-    />
-  ),
+  scrolling: <AdminStructure header={longContent} nav={longContent} />,
 };

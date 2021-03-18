@@ -9,19 +9,22 @@
   },
   "license": "CC0-1.0",
   "sideEffects": false,
-  "main": "./dist/tokens.json",
   "style": "./dist/_variables.scss",
   "files": [
-    "dist"
+    "css",
+    "dist",
+    "scss"
   ],
   "scripts": {
     "build": "yarn clean && style-dictionary build -c config",
-    "clean": "rm -rf dist && rm -rf undefined",
+    "clean": "rm -rf dist",
     "version": "yarn build",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
   "devDependencies": {
-    "style-dictionary": "3.0.0-rc.5"
+    "chokidar-cli": "2.1.0",
+    "style-dictionary": "3.0.0-rc.6"
   },
   "publishConfig": {
     "access": "public",

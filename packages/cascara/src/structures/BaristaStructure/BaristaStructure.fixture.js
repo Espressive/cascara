@@ -115,21 +115,21 @@ const links = [
     icon: house,
     label: 'Home',
     linkComponentProps: {
-      to: 'home',
+      href: '#',
     },
   },
   {
     icon: clock,
     label: 'Alarms',
     linkComponentProps: {
-      to: 'alarms',
+      href: '#',
     },
   },
   {
     icon: settings,
     label: 'Settings',
     linkComponentProps: {
-      to: 'settings',
+      href: '#',
     },
   },
 ];

@@ -12,7 +12,7 @@ const propTypes = {
     // Kind of a hack, but making sure that there is a render function
     // on the link component being passed so we know it is supposed to render
     render: pt.func,
-  }).isRequired,
+  }),
   // eslint-disable-next-line react/forbid-prop-types -- Could be anything
   linkComponentProps: pt.object,
 };
@@ -21,7 +21,7 @@ const StructureNavLink = ({
   children,
   icon,
   label,
-  linkComponent,
+  linkComponent = 'a',
   linkComponentProps,
   ...rest
 }) => {
