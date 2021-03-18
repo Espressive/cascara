@@ -19,7 +19,8 @@
     "build": "yarn clean && style-dictionary build -c config",
     "clean": "rm -rf dist",
     "version": "yarn build",
-    "prepare": "yarn build",
+    "postinstall": "yarn build",
+    "prepare": "echo 'No prepare scripts for this package'",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
   "devDependencies": {
