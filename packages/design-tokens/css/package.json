@@ -1,0 +1,7 @@
+{
+  "name": "@espressive/design-tokens/css",
+  "private": true,
+  "sideEffects": false,
+  "main": "../dist/variables.css",
+  "css": "../dist/variables.css"
+}

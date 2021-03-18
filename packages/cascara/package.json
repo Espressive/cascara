@@ -11,14 +11,16 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "files": [
+    "styles",
     "dist",
     "private"
   ],
   "scripts": {
-    "build": "yarn clean && rollup -c",
+    "roll": "rollup -c",
+    "build": "yarn clean && yarn roll",
     "clean": "rm -rf dist && rm -rf undefined",
     "prepare": "yarn build",
-    "watch": "rollup -c -w"
+    "watch": "yarn roll -w"
   },
   "dependencies": {
     "@babel/runtime": "7.11.2",
@@ -34,6 +36,7 @@
     "@nivo/treemap": "0.61.0",
     "classnames": "2.2.6",
     "memoize-one": "5.1.1",
+    "react-fast-compare": "3.2.0",
     "react-hook-form": "6.8.4",
     "react-textarea-autosize": "8.2.0",
     "reakit": "next"

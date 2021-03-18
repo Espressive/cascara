@@ -25,7 +25,6 @@
     "lint": "eslint ./",
     "test": "jest -c ./.jest/config.js",
     "test:watch": "yarn test --watch",
-    "tokens": "style-dictionary build -c ./tokens.config.json",
     "validate-ci": "circleci config validate"
   },
   "husky": {
@@ -48,6 +47,7 @@
   "resolutions": {
     "ast-types": "^0.14.0"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.10.5",
     "@babel/parser": "7.10.5",
@@ -75,6 +75,7 @@
     "babel-eslint": "10.1.0",
     "babel-jest": "26.2.2",
     "danger": "10.6.2",
+    "dotenv": "8.2.0",
     "eslint": "7.21.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-deprecate": "0.7.0",

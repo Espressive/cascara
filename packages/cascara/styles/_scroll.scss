@@ -1,0 +1,42 @@
+@use '~@espressive/design-tokens/scss' as *;
+
+%scrollbars {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-clip: content-box;
+    background-color: $color-base-gray-medium;
+    border: 0.3em solid rgba(0, 0, 0, 0);
+    border-radius: 1em;
+    box-shadow: inset 0 0 0 0.05em rgba(255, 255, 255, 0.2);
+  }
+
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 0.65em;
+    }
+  }
+}
+
+@mixin vertical {
+  overflow-y: overlay;
+
+  @extend %scrollbars;
+}
+
+@mixin horizontal {
+  overflow-x: overlay;
+
+  @extend %scrollbars;
+}
+
+@mixin all {
+  overflow: overlay;
+
+  @extend %scrollbars;
+}

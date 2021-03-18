@@ -35,7 +35,28 @@ const getPostCSSOptions = () => ({
     },
   },
   sourceMap: true,
-  use: ['sass'],
+  use: [
+    'sass',
+    // [
+    //   'sass',
+    //   {
+    //     // includePaths: [path.resolve('../../node_modules/@espressive/')],
+    //     importer: [
+    //       (url, prev, done) => {
+    //         // Convert `@use "foo/bar"` to "node_modules/foo/sass/bar".
+    //         const components = url.split('/');
+    //         const file = path.resolve('../../node_modules/', ...components);
+
+    //         // console.log(file);
+    //         done({
+    //           // file: `node_modules/${components.first}/sass/${innerPath}`,
+    //           file,
+    //         });
+    //       },
+    //     ],
+    //   },
+    // ],
+  ],
 });
 
 // NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
@@ -53,6 +74,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // Shared Rollup plugins
   const rollupPlugins = [
     nodeResolve({
+      // I think this is the default and not neccessary
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
