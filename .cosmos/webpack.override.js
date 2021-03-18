@@ -11,6 +11,7 @@ const cosmosConfig = require('./config.json');
 // the same way react-scripts does this in their paths.js file for CRA
 // https://github.com/facebook/create-react-app/blob/2da5517689b7510ff8d8b0148ce372782cb285d7/packages/react-scripts/config/paths.js#L15
 const appDirectory = fs.realpathSync(process.cwd());
+
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 module.exports = (webpackConfig, env, whatev) => {

@@ -29,6 +29,10 @@ const Fixture = () => (
         SCSS variable is present.
       </p>
     </section>
+    <section>
+      <h3>Responsive</h3>
+      <p className={styles.ResponsiveModule}> screen size</p>
+    </section>
   </div>
 );
 

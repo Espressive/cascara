@@ -74,6 +74,7 @@
     "babel-eslint": "10.1.0",
     "babel-jest": "26.2.2",
     "danger": "10.6.2",
+    "dotenv": "8.2.0",
     "eslint": "7.21.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-deprecate": "0.7.0",

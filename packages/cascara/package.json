@@ -11,6 +11,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "files": [
+    "styles",
     "dist",
     "private"
   ],

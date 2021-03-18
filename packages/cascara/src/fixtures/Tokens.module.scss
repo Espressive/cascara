@@ -1,4 +1,4 @@
-@use '@espressive/design-tokens/scss' as *;
+@use '@espressive/cascara/styles' as *;
 
 .Fixture {
   & > * {
@@ -17,5 +17,41 @@
 }
 
 .Module {
+  @include scroll-vertical;
   background-color: $color-base-green;
+}
+
+.ResponsiveModule {
+  background-color: grey;
+
+  @include media-gt-sm {
+    background-color: hotpink;
+  }
+
+  &:before {
+    @include media-xs {
+      content: 'xs';
+      color: red;
+    }
+
+    @include media-sm {
+      content: 'sm';
+      color: blue;
+    }
+
+    @include media-md {
+      content: 'md';
+      color: green;
+    }
+
+    @include media-lg {
+      content: 'lg';
+      color: purple;
+    }
+
+    @include media-xl {
+      content: 'xl';
+      color: orange;
+    }
+  }
 }
