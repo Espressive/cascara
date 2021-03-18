@@ -1571,10 +1571,8 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@espressive/cascara@^0.4.1-alpha.6":
-  version "0.4.1"
-  resolved "https://npm.pkg.github.com/download/@espressive/cascara/0.4.1/c0f7894b3fafddb356f9ccf41222013ac6303b689dcc80071e58aa1c1501f228#f817c9819b9430dab44a9db9b5b44253055b0267"
-  integrity sha512-F23QSa3MmrDaJpuuiUvvX3uRJI7ZhZkxrhGilTb/endRJJWcEUZY8IUbm3hxX35cFqkQgsk+KdJJxHGzv6IZOw==
+"@espressive/cascara@link:node_modules/@espressive/cascara":
+  version "0.4.2-alpha.0"
   dependencies:
     "@babel/runtime" "7.11.2"
     "@iconify/react" "1.1.4"
@@ -1589,6 +1587,7 @@
     "@nivo/treemap" "0.61.0"
     classnames "2.2.6"
     memoize-one "5.1.1"
+    react-fast-compare "3.2.0"
     react-hook-form "6.8.4"
     react-textarea-autosize "8.2.0"
     reakit next
@@ -1596,6 +1595,9 @@
 "@espressive/eslint-config@link:./utils/eslint-config":
   version "0.0.0"
   uid ""
+
+"@espressive/legacy-css@link:node_modules/@espressive/legacy-css":
+  version "2.0.5"
 
 "@evocateur/libnpmaccess@^3.1.2":
   version "3.1.2"
@@ -5899,15 +5901,10 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001093, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001113, caniuse-lite@^1.0.30001154:
-  version "1.0.30001194"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001194.tgz"
-  integrity sha512-iDUOH+oFeBYk5XawYsPtsx/8fFpndAPUQJC7gBTfxHM8xw5nOZv7ceAD4frS1MKCLUac7QL5wdAJiFQlDRjXlA==
-
-caniuse-lite@^1.0.30001181:
-  version "1.0.30001196"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001196.tgz#00518a2044b1abf3e0df31fadbe5ed90b63f4e64"
-  integrity sha512-CPvObjD3ovWrNBaXlAIGWmg2gQQuJ5YhuciUOjPRox6hIQttu8O+b51dx6VIpIY9ESd2d0Vac1RKpICdG4rGUg==
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, caniuse-lite@^1.0.30001093, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001113, caniuse-lite@^1.0.30001154, caniuse-lite@^1.0.30001181:
+  version "1.0.30001202"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001202.tgz"
+  integrity sha512-ZcijQNqrcF8JNLjzvEiXqX4JUYxoZa7Pvcsd9UD8Kz4TvhTonOSNRsK+qtvpVL4l6+T1Rh4LFtLfnNWg6BGWCQ==
 
 capture-exit@^2.0.0:
   version "2.0.0"

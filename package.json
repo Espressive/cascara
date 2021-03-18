@@ -47,6 +47,7 @@
   "resolutions": {
     "ast-types": "^0.14.0"
   },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.10.5",
     "@babel/parser": "7.10.5",
