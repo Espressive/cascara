@@ -85,13 +85,13 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 .Header {
   background-color: var(--brand-color);
   height: 100%;
+  display: flex;
 
   .Company {
     max-width: 20rem;
     display: inline-block;
     height: 100%;
     padding: 0.5em;
-    overflow: hidden;
     transition: transform 100ms ease-in-out;
 
     &:hover {
@@ -103,7 +103,11 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
       line-height: 4rem;
 
       &.hidden {
+        padding: 0;
+        font-size: 0;
+        display: inline;
         text-indent: -999em;
+        margin: 0;
       }
     }
 

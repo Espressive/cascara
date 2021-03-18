@@ -2,6 +2,13 @@ import React from 'react';
 import pt from 'prop-types';
 import styles from './AdminStructure.module.scss';
 import classNames from 'classnames/bind';
+import { HeaderToggle } from './components';
+
+import navClosed from '@iconify-icons/ic/twotone-menu';
+import navOpen from '@iconify-icons/ic/twotone-menu-open';
+import drawerOpen from '@iconify-icons/ic/twotone-label-off';
+import drawerClosed from '@iconify-icons/ic/twotone-label';
+
 const cx = classNames.bind(styles);
 
 const TestLogo =
@@ -15,8 +22,8 @@ const propTypes = {
 const AdminStructureHeader = ({ logo = TestLogo, title }) => {
   return (
     <div className={styles.Header}>
+      <HeaderToggle iconClosed={navClosed} iconOpen={navOpen} />
       <a className={styles.Company} href='/'>
-        {logo && <img alt={title} className={styles.Logo} src={logo} />}
         <h1
           className={cx({
             Title: true,
@@ -25,7 +32,13 @@ const AdminStructureHeader = ({ logo = TestLogo, title }) => {
         >
           {title}
         </h1>
+        {logo && <img alt={title} className={styles.Logo} src={logo} />}
       </a>
+      <HeaderToggle
+        iconClosed={drawerClosed}
+        iconOpen={drawerOpen}
+        style={{ marginLeft: 'auto' }}
+      />
     </div>
   );
 };
