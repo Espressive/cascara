@@ -69,46 +69,8 @@ job_executor: &job_executor
 post_steps: &post_steps
   post-steps:
     - slack/notify:
-        # custom: |
-        #   {
-        #     "blocks": [
-        #       {
-        #         "type": "header",
-        #         "text": {
-        #           "type": "plain_text",
-        #           "text": "[JOB FAILED] ${CIRCLE_BRANCH}",
-        #           "emoji": true
-        #         }
-        #       },
-        #       {
-        #         "type": "section",
-        #         "fields": [
-        #           {
-        #             "type": "mrkdwn",
-        #             "text": "*Job*:\n${CIRCLE_JOB}"
-        #           },
-        #           {
-        #             "type": "mrkdwn",
-        #             "text": "*Author*:\n${CIRCLE_USERNAME}"
-        #           }
-        #         ]
-        #       },
-        #       {
-        #         "type": "actions",
-        #         "elements": [
-        #           {
-        #             "type": "button",
-        #             "text": {
-        #               "type": "plain_text",
-        #               "text": "View Job"
-        #             },
-        #             "url": "${CIRCLE_BUILD_URL}"
-        #           }
-        #         ]
-        #       }
-        #     ]
-        #   }
         event: fail
+        template: basic_fail_1
 
 jobs:
   install:
@@ -203,6 +165,9 @@ jobs:
       - restore_cache:
           key: << pipeline.parameters.installed-key >>
       - lerna-publish
+      - slack/notify:
+          event: pass
+          template: success_tagged_deploy_1
 
 install_pre_steps: &install_pre_steps
   pre-steps:
