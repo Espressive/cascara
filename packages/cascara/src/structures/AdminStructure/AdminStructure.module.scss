@@ -1,3 +1,5 @@
+@use '~@espressive/cascara/styles' as *;
+
 $border: 1px solid rgba(0, 0, 0, 0.15);
 
 @keyframes loading-pulse {
@@ -13,9 +15,20 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 :global html[data-structure='Admin'] {
-  --main-max-width: 60rem;
-  --drawer-max-width: 30rem;
-  --nav-max-width: 20rem;
+  --brand-color: #1db954;
+  --brand-text-color: #fff;
+  --drawer-max-width: 4rem;
+  --nav-max-width: 4.25rem;
+
+  @include media-gt-sm {
+    --drawer-max-width: 20rem;
+    --nav-max-width: 15rem;
+  }
+
+  @include media-gt-md {
+    --drawer-max-width: 30rem;
+    --nav-max-width: 20rem;
+  }
 
   body,
   #root,
@@ -29,7 +42,7 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     grid-template-columns: var(--nav-max-width) minmax(0, 1fr) var(
         --drawer-max-width
       );
-    grid-template-rows: 4em auto;
+    grid-template-rows: minmax(0, 4em) auto;
     grid-template-areas:
       'header header header'
       'nav main drawer';
@@ -37,14 +50,17 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 ._drawer {
+  // background-color: mediumaquamarine;
   grid-area: drawer;
 }
 
 ._header {
+  // background-color: fuchsia;
   grid-area: header;
 }
 
 ._main {
+  // background-color: hotpink;
   grid-row: main;
   grid-column-start: main;
   grid-column-end: drawer;
@@ -55,23 +71,47 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 ._nav {
+  // background-color: purple;
   grid-area: nav;
 }
 
 .Nav,
 .Main,
 .Drawer {
-  max-width: 100%;
   height: 100%;
   overflow: auto;
 }
 
 .Header {
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: var(--brand-color);
+  height: 100%;
 
-  .Title {
-    padding: 0 1rem;
-    line-height: 4rem;
+  .Company {
+    max-width: 20rem;
+    display: inline-block;
+    height: 100%;
+    padding: 0.5em;
+    overflow: hidden;
+    transition: transform 100ms ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    .Title {
+      padding: 0 1rem;
+      line-height: 4rem;
+
+      &.hidden {
+        text-indent: -999em;
+      }
+    }
+
+    .Logo {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+    }
   }
 }
 
@@ -94,6 +134,46 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 
 .Nav {
   padding: 0.5rem;
+  background-color: #f6f6f6;
+  position: relative;
+  z-index: 100;
+  width: 4.25rem;
+  transition: width 200ms ease-in-out;
+
+  :global .icon {
+    margin-right: 0.5em;
+  }
+
+  :global .label {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  &:hover {
+    width: 15rem;
+
+    .Link {
+      text-overflow: ellipsis;
+    }
+
+    :global .label {
+      opacity: 1;
+    }
+  }
+
+  @include media-gt-sm {
+    width: auto;
+    transition: none;
+    background-color: initial;
+
+    &:hover {
+      width: auto;
+    }
+
+    :global .label {
+      opacity: 1;
+    }
+  }
 
   .Link {
     display: block;
@@ -102,6 +182,12 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     line-height: 1;
     border-radius: 0.5em;
     transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+
+    @include media-gt-sm {
+      text-overflow: ellipsis;
+    }
 
     &:hover {
       color: #000;
@@ -109,8 +195,8 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     }
 
     &:global.active {
-      color: #333;
-      background-color: rgba(0, 0, 0, 0.04);
+      color: var(--brand-text-color);
+      background-color: var(--brand-color);
     }
   }
 }

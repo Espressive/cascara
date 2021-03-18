@@ -3,7 +3,6 @@ import pt from 'prop-types';
 import styles from './AdminStructure.module.scss';
 import classNames from 'classnames/bind';
 import { useDrawer } from './hooks';
-
 import Loader from '../../ui/Loader';
 const cx = classNames.bind(styles);
 

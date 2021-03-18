@@ -120,7 +120,7 @@ const links = [
   },
   {
     icon: clock,
-    label: 'Alarms',
+    label: 'Alarms Long Name To Test Our Styles With Ellipsis',
     linkComponentProps: {
       href: '#',
     },

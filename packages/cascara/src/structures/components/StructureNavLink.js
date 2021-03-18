@@ -1,7 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
 import { Icon } from '@iconify/react';
-import styles from './StructureNavLink.module.scss';
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
@@ -33,10 +32,8 @@ const StructureNavLink = ({
         children
       ) : (
         <>
-          {icon && (
-            <Icon className={styles.Icon} icon={icon} inline width={18} />
-          )}
-          {label}
+          {icon && <Icon className='icon' icon={icon} inline width={18} />}
+          <span className='label'>{label}</span>
         </>
       )}
     </LinkComponent>

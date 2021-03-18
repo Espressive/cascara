@@ -1,15 +1,31 @@
 import React from 'react';
 import pt from 'prop-types';
 import styles from './AdminStructure.module.scss';
+import classNames from 'classnames/bind';
+const cx = classNames.bind(styles);
+
+const TestLogo =
+  'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png';
 
 const propTypes = {
-  title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  logo: pt.node,
+  title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]).isRequired,
 };
 
-const AdminStructureHeader = ({ title }) => {
+const AdminStructureHeader = ({ logo = TestLogo, title }) => {
   return (
     <div className={styles.Header}>
-      <h1 className={styles.Title}>{title}</h1>
+      <a className={styles.Company} href='/'>
+        {logo && <img alt={title} className={styles.Logo} src={logo} />}
+        <h1
+          className={cx({
+            Title: true,
+            hidden: logo,
+          })}
+        >
+          {title}
+        </h1>
+      </a>
     </div>
   );
 };

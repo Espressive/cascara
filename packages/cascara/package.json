@@ -16,10 +16,11 @@
     "private"
   ],
   "scripts": {
-    "build": "yarn clean && rollup -c",
+    "roll": "rollup -c",
+    "build": "yarn clean && yarn roll",
     "clean": "rm -rf dist && rm -rf undefined",
     "prepare": "yarn build",
-    "watch": "rollup -c -w"
+    "watch": "yarn roll -w"
   },
   "dependencies": {
     "@babel/runtime": "7.11.2",

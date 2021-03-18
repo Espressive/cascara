@@ -1,4 +1,4 @@
-// @use '@espressive/design-tokens/scss' as *;
+// @use '~@espressive/design-tokens/scss' as *;
 // Bug in design tokens causing PX vals to get stripped and replaced with rem without conversion :/
 
 $size-screen-0: 320px;
