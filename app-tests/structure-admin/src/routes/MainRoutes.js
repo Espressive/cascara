@@ -8,7 +8,7 @@ import { routes } from '.';
 // routing and navigating.
 const MainRoutes = () => {
   // console.log(routes);
-  const element = useRoutes(routes);
+  const element = useRoutes(routes, process.env.PUBLIC_URL);
 
   return element;
 };

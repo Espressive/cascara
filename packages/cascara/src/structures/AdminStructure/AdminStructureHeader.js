@@ -23,7 +23,7 @@ const AdminStructureHeader = ({ logo = TestLogo, title }) => {
   return (
     <div className={styles.Header}>
       <HeaderToggle iconClosed={navClosed} iconOpen={navOpen} />
-      <a className={styles.Company} href='/'>
+      <a className={styles.Company} href={process.env.PUBLIC_URL || '/'}>
         <h1
           className={cx({
             Title: true,

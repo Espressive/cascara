@@ -1,7 +1,8 @@
 {
-  "name": "structure-barista",
+  "name": "structure-admin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "admin",
   "main": "src/routes/index.js",
   "scripts": {
     "analyze": "npx source-map-explorer@2.5.2 'build/**/*.js'",
@@ -38,6 +39,7 @@
     "react-dom": "link:../../node_modules/react-dom",
     "react-router-dom": "6.0.0-beta.0",
     "react-scripts": "4.0.3",
+    "resolve-path": "1.4.0",
     "semantic-ui-react": "2.0.3"
   }
 }
