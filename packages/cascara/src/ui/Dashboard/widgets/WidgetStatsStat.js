@@ -7,8 +7,8 @@ import styles from '../Dashboard.module.scss';
 const propTypes = {
   label: pt.string,
   onClick: pt.func,
-  sub: pt.oneOf([pt.number, pt.string]),
-  value: pt.oneOf([pt.number, pt.string]),
+  sub: pt.oneOfType([pt.number, pt.string]),
+  value: pt.oneOfType([pt.number, pt.string]),
 };
 
 const WidgetStatsStat = ({ onClick, label, value, sub }) => {
