@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2-alpha.2](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.1...@espressive/cascara@0.4.2-alpha.2) (2021-03-24)
+
+
+### Bug Fixes
+
+* **FDS-179:** [Dashboard] fix prop type warnings ([#195](https://github.com/Espressive/cascara/issues/195)) ([045bcb1](https://github.com/Espressive/cascara/commit/045bcb1b4475f34cc9e9e07d5ff1242183c83ed7))
+
+
+
+
+
 ## [0.4.2-alpha.1](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.0...@espressive/cascara@0.4.2-alpha.1) (2021-03-18)
 
 
