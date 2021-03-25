@@ -9,7 +9,7 @@ const TestLogo =
 
 const propTypes = {
   logo: pt.node,
-  title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]).isRequired,
 };
 
 const AdminStructureHeader = ({ logo = TestLogo, title }) => {
