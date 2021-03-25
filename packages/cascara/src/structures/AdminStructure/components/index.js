@@ -1,1 +1,1 @@
-export { default as HeaderToggle } from './HeaderToggle';
+export { default as HeaderMenuButton } from './HeaderMenuButton';

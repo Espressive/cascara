@@ -94,21 +94,15 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     padding: 0.5em;
     transition: transform 100ms ease-in-out;
 
-    &:hover {
+    &:hover,
+    &:focus {
+      outline: none;
       transform: scale(1.02);
     }
 
     .Title {
       padding: 0 1rem;
       line-height: 4rem;
-
-      &.hidden {
-        padding: 0;
-        font-size: 0;
-        display: inline;
-        text-indent: -999em;
-        margin: 0;
-      }
     }
 
     .Logo {
@@ -153,8 +147,10 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     transition: opacity 200ms ease-in-out;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     width: 15rem;
+    outline: none;
 
     .Link {
       text-overflow: ellipsis;
@@ -170,7 +166,8 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     transition: none;
     background-color: initial;
 
-    &:hover {
+    &:hover,
+    &:focus {
       width: auto;
     }
 
@@ -185,7 +182,8 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     color: #666;
     line-height: 1;
     border-radius: 0.5em;
-    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out,
+      box-shadow 200ms ease-in-out;
     white-space: nowrap;
     overflow: hidden;
 
@@ -193,14 +191,20 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
       text-overflow: ellipsis;
     }
 
-    &:hover {
+    &:focus {
       color: #000;
       background-color: rgba(0, 0, 0, 0.08);
+      outline: none;
+      box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.08);
     }
 
     &:global.active {
       color: var(--brand-text-color);
       background-color: var(--brand-color);
+
+      &:focus {
+        box-shadow: 0 0 0 0.1rem var(--brand-color);
+      }
     }
   }
 }

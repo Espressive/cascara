@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import pt from 'prop-types';
 import styles from './AdminStructure.module.scss';
-import classNames from 'classnames/bind';
-import { HeaderToggle } from './components';
+import { HeaderMenuButton } from './components';
+import { VisuallyHidden } from 'reakit';
+import { AdminContext } from './context';
 
 import navClosed from '@iconify-icons/ic/twotone-menu';
 import navOpen from '@iconify-icons/ic/twotone-menu-open';
 import drawerOpen from '@iconify-icons/ic/twotone-label-off';
 import drawerClosed from '@iconify-icons/ic/twotone-label';
-
-const cx = classNames.bind(styles);
 
 const TestLogo =
   'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png';
@@ -20,21 +19,30 @@ const propTypes = {
 };
 
 const AdminStructureHeader = ({ logo = TestLogo, title }) => {
+  const { menuDrawer, menuNav, isSizeMedium } = useContext(AdminContext);
   return (
     <div className={styles.Header}>
-      <HeaderToggle iconClosed={navClosed} iconOpen={navOpen} />
+      {isSizeMedium && (
+        <HeaderMenuButton
+          {...menuNav}
+          iconClosed={navClosed}
+          iconOpen={navOpen}
+        />
+      )}
       <a className={styles.Company} href={process.env.PUBLIC_URL || '/'}>
-        <h1
-          className={cx({
-            Title: true,
-            hidden: logo,
-          })}
-        >
-          {title}
-        </h1>
-        {logo && <img alt={title} className={styles.Logo} src={logo} />}
+        {logo ? (
+          <>
+            <VisuallyHidden>
+              <h1>{title}</h1>
+            </VisuallyHidden>
+            <img alt={title} className={styles.Logo} src={logo} />
+          </>
+        ) : (
+          <h1 className={styles.Title}>{title}</h1>
+        )}
       </a>
-      <HeaderToggle
+      <HeaderMenuButton
+        {...menuDrawer}
         iconClosed={drawerClosed}
         iconOpen={drawerOpen}
         style={{ marginLeft: 'auto' }}

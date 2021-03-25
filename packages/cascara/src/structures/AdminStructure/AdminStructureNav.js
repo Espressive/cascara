@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import pt from 'prop-types';
+import { Menu } from 'reakit';
 import StructureNavLink from '../components/StructureNavLink';
+import { AdminContext } from './context';
 
 import styles from './AdminStructure.module.scss';
 
@@ -21,20 +23,32 @@ const propTypes = {
   ),
 };
 
-const AdminStructureNav = ({ links }) => (
-  <div className={styles.Nav}>
-    {links?.map((link) => {
-      return (
-        <StructureNavLink
-          activeClassName={styles.ActiveLink}
-          className={styles.Link}
-          key={link.label}
-          {...link}
-        />
-      );
-    })}
-  </div>
-);
+const AdminStructureNav = ({ links }) => {
+  const { isSizeSmall, menuNav } = useContext(AdminContext);
+
+  return (
+    <Menu
+      {...menuNav}
+      aria-label='Navigation'
+      className={styles.Nav}
+      focusable={false}
+      hideOnClickOutside={isSizeSmall}
+    >
+      {links?.map((link) => {
+        return (
+          <StructureNavLink
+            {...link}
+            {...menuNav}
+            activeClassName={styles.ActiveLink}
+            className={styles.Link}
+            key={link.label}
+            onClick={menuNav.hide}
+          />
+        );
+      })}
+    </Menu>
+  );
+};
 
 AdminStructureNav.propTypes = propTypes;
 AdminStructureNav.displayName = 'AdminStructure.Nav';

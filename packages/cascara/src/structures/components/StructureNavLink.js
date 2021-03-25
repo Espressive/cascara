@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { MenuItem } from 'reakit';
 import { Icon } from '@iconify/react';
 
 const propTypes = {
@@ -24,10 +25,8 @@ const StructureNavLink = ({
   linkComponentProps,
   ...rest
 }) => {
-  const LinkComponent = linkComponent;
-
   return (
-    <LinkComponent {...rest} {...linkComponentProps}>
+    <MenuItem as={linkComponent} {...rest} {...linkComponentProps}>
       {children ? (
         children
       ) : (
@@ -36,7 +35,7 @@ const StructureNavLink = ({
           <span className='label'>{label}</span>
         </>
       )}
-    </LinkComponent>
+    </MenuItem>
   );
 };
 

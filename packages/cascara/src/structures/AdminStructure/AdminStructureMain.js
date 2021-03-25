@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { TabList, TabPanel, useTabState } from 'reakit';
 import styles from './AdminStructure.module.scss';
 import classNames from 'classnames/bind';
 import Loader from '../../ui/Loader';
@@ -40,23 +41,29 @@ const AdminStructureMain = ({
   ...rest
 }) => {
   const { className, ...props } = rest;
+  const tabs = useTabState();
   return (
     <div className={styles.Main}>
       {header && <h2 className='ui header'>{header}</h2>}
       {links && (
-        <div className='ui tabular top attached stackable menu'>
+        <TabList
+          {...tabs}
+          aria-label='Section Navigation'
+          className='ui tabular top attached stackable menu'
+        >
           {links.map((link) => (
             <StructureMainTabs
+              {...tabs}
               activeClassName={styles.ActiveLink}
               className={styles.Link}
               key={link.label}
               {...link}
             />
           ))}
-        </div>
+        </TabList>
       )}
       {body && (
-        <div
+        <TabPanel
           {...props}
           className={cx('ui segment', {
             attached: links && footer,
@@ -64,11 +71,12 @@ const AdminStructureMain = ({
             loading: isLoading,
             'top attached': footer && !links,
           })}
+          visible
         >
           {body}
 
           {isLoading && <Loader />}
-        </div>
+        </TabPanel>
       )}
 
       {children}

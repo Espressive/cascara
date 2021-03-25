@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Tab } from 'reakit';
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
@@ -19,12 +20,10 @@ const AdminStructureMainTabs = ({
   linkComponent,
   linkComponentProps,
 }) => {
-  const LinkComponent = linkComponent;
-
   return (
-    <LinkComponent className='item' {...linkComponentProps}>
+    <Tab as={linkComponent} className='item' {...linkComponentProps}>
       {children ? children : label}
-    </LinkComponent>
+    </Tab>
   );
 };
 
