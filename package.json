@@ -45,7 +45,8 @@
     ]
   },
   "resolutions": {
-    "ast-types": "^0.14.0"
+    "ast-types": "^0.14.0",
+    "react-spring": "npm:@react-spring/web@^9.0.0"
   },
   "dependencies": {},
   "devDependencies": {
