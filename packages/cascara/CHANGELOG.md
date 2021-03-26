@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2-alpha.4](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.3...@espressive/cascara@0.4.2-alpha.4) (2021-03-26)
+
+**Note:** Version bump only for package @espressive/cascara
+
+
+
+
+
 ## [0.4.2-alpha.3](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.2...@espressive/cascara@0.4.2-alpha.3) (2021-03-25)
 
 
