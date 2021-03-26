@@ -8,8 +8,9 @@
     "prepare": "echo 'No prepare scripts for this package'"
   },
   "dependencies": {
-    "@espressive/cascara": "link:../node_modules/@espressive/cascara",
-    "@espressive/legacy-css": "link:../node_modules/@espressive/legacy-css",
+    "@espressive/cascara": "file:../packages/cascara",
+    "@espressive/legacy-css": "file:../utils/legacy-css",
+    "@fluentui/react-northstar": "0.53.0",
     "framer-motion": "2.5.5",
     "next": "10.0.5",
     "next-mdx-remote": "1.0.0",
