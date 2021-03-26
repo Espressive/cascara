@@ -49,7 +49,7 @@
   },
   "peerDependencies": {
     "@espressive/design-tokens": "*",
-    "@fluentui/react-northstar": "^0.52.0",
+    "@fluentui/react-northstar": ">=0.52.0",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
     "react": "^16.8.0",

@@ -59,7 +59,7 @@
     "@babel/preset-env": "7.11.0",
     "@babel/preset-react": "7.10.4",
     "@espressive/eslint-config": "link:./utils/eslint-config",
-    "@fluentui/react-northstar": "^0.52.0",
+    "@fluentui/react-northstar": "0.53.0",
     "@octokit/core": "3.2.5",
     "@rollup/plugin-babel": "5.1.0",
     "@rollup/plugin-json": "4.1.0",
