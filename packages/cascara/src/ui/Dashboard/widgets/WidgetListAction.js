@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import pt from 'prop-types';
-import { Button } from 'reakit/button';
+import { Button } from 'reakit';
 
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types -- We have no way of knowing the item/object keys
