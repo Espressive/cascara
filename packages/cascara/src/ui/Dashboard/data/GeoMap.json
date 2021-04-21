@@ -18,5 +18,21 @@
   {
     "id": "USA",
     "value": 50
+  },
+  {
+    "id": "MEX",
+    "value": 90
+  },
+  {
+    "id": "CHN",
+    "value": 45
+  },
+  {
+    "id": "CAN",
+    "value": 15
+  },
+  {
+    "id": "BRZ",
+    "value": 8
   }
 ]

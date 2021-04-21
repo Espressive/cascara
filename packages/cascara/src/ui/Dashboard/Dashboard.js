@@ -4,9 +4,11 @@ import pt from 'prop-types';
 import styles from './Dashboard.module.scss';
 
 import WidgetBar from './widgets/WidgetBar';
+import WidgetBubble from './widgets/WidgetBubble';
 import WidgetGeoMap from './widgets/WidgetGeoMap';
 import WidgetHeatMap from './widgets/WidgetHeatMap';
 import WidgetLine from './widgets/WidgetLine';
+import WidgetList from './widgets/WidgetList';
 import WidgetPie from './widgets/WidgetPie';
 import WidgetStats from './widgets/WidgetStats';
 // import WidgetTreeMap from './widgets/WidgetTreeMap';
@@ -15,9 +17,11 @@ import WidgetError from './widgets/WidgetError';
 
 const WIDGETS = {
   bar: WidgetBar,
+  bubble: WidgetBubble,
   'geo-map': WidgetGeoMap,
   'heat-map': WidgetHeatMap,
   line: WidgetLine,
+  list: WidgetList,
   pie: WidgetPie,
   stats: WidgetStats,
   // 'tree-map': WidgetTreeMap,
