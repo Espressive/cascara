@@ -23,10 +23,11 @@
     "watch": "yarn roll -w"
   },
   "dependencies": {
-    "@babel/runtime": "7.11.2",
+    "@babel/runtime": "7.13.16",
     "@iconify/react": "1.1.4",
     "@nivo/bar": "0.67.0",
     "@nivo/bump": "0.67.0",
+    "@nivo/circle-packing": "0.67.0",
     "@nivo/core": "0.67.0",
     "@nivo/geo": "0.67.0",
     "@nivo/heatmap": "0.67.0",
@@ -34,15 +35,15 @@
     "@nivo/pie": "0.67.0",
     "@nivo/tooltip": "0.67.0",
     "@nivo/treemap": "0.67.0",
-    "classnames": "2.2.6",
+    "classnames": "2.3.1",
     "memoize-one": "5.1.1",
     "react-fast-compare": "3.2.0",
     "react-hook-form": "6.8.4",
-    "react-textarea-autosize": "8.2.0",
+    "react-textarea-autosize": "8.3.2",
     "reakit": "next"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "^2.0.4",
+    "@espressive/legacy-css": "^2.0.5",
     "@iconify/icons-ic": "1.1.3",
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2"

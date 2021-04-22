@@ -1,47 +1,3 @@
-const COLOR_MODIFIER = {
-  from: 'color',
-  modifiers: [['darker', 0.4]],
-};
-
-const CHART_DEFAULTS = {
-  animate: true,
-  borderColor: COLOR_MODIFIER,
-  borderWidth: 1,
-  colors: 'nivo',
-  defs: [
-    {
-      background: 'inherit',
-      color: 'rgba(0,0,0,0.1)',
-      id: 'dots',
-      padding: 1,
-      size: 4,
-      stagger: true,
-      type: 'patternDots',
-    },
-    {
-      background: 'inherit',
-      color: 'rgba(0,0,0,0.1)',
-      id: 'lines',
-      lineWidth: 6,
-      rotation: -45,
-      spacing: 10,
-      type: 'patternLines',
-    },
-    {
-      background: 'inherit',
-      color: 'rgba(0,0,0,0.1)',
-      id: 'squares',
-      padding: 4,
-      size: 4,
-      stagger: false,
-      type: 'patternSquares',
-    },
-  ],
-  labelTextColor: COLOR_MODIFIER,
-  motionDamping: 15,
-  motionStiffness: 90,
-};
-
 const AXIS_CONFIG = {
   legendPosition: 'middle',
   tickPadding: 5,
@@ -49,4 +5,37 @@ const AXIS_CONFIG = {
   tickSize: 5,
 };
 
-export { CHART_DEFAULTS, COLOR_MODIFIER, AXIS_CONFIG };
+const COLOR_MODIFIER = {
+  from: 'color',
+  modifiers: [['darker', 1.5]],
+};
+
+const BORDER_COLOR_MODIFIER = {
+  from: 'color',
+  modifiers: [['darker', 0.25]],
+};
+
+const CHART_DEFAULTS = {
+  animate: true,
+  borderColor: BORDER_COLOR_MODIFIER,
+  borderWidth: 1,
+  colors: 'nivo',
+  labelTextColor: COLOR_MODIFIER,
+  motionDamping: 15,
+  motionStiffness: 90,
+};
+
+const MARGIN_CONFIG = {
+  bottom: 16,
+  left: 32,
+  right: 32,
+  top: 16,
+};
+
+export {
+  AXIS_CONFIG,
+  BORDER_COLOR_MODIFIER,
+  CHART_DEFAULTS,
+  COLOR_MODIFIER,
+  MARGIN_CONFIG,
+};
