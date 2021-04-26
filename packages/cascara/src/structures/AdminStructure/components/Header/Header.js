@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
-import styles from './AdminStructure.module.scss';
-import { HeaderMenuButton } from './components';
+import { HeaderMenuButton, styles } from './';
 import { VisuallyHidden } from 'reakit';
-import { AdminContext } from './context';
+import { AdminContext } from '../../context';
 
 import navClosed from '@iconify-icons/ic/twotone-menu';
 import navOpen from '@iconify-icons/ic/twotone-menu-open';
@@ -18,7 +17,7 @@ const propTypes = {
   title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]).isRequired,
 };
 
-const AdminStructureHeader = ({ logo = TestLogo, title }) => {
+const Header = ({ logo = TestLogo, title }) => {
   const { menuDrawer, menuNav, isSizeMedium } = useContext(AdminContext);
   return (
     <div className={styles.Header}>
@@ -51,7 +50,7 @@ const AdminStructureHeader = ({ logo = TestLogo, title }) => {
   );
 };
 
-AdminStructureHeader.propTypes = propTypes;
-AdminStructureHeader.displayName = 'AdminStructure.Header';
+Header.propTypes = propTypes;
+Header.displayName = 'AdminStructure.Header';
 
-export default AdminStructureHeader;
+export default Header;

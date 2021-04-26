@@ -1,8 +1,5 @@
 import AdminStructure from './AdminStructure';
-import Drawer from './AdminStructureDrawer';
-import Header from './AdminStructureHeader';
-import Main from './AdminStructureMain';
-import Nav from './AdminStructureNav';
+import { Drawer, Header, Main, Nav } from './components';
 
 AdminStructure.Drawer = Drawer;
 AdminStructure.Header = Header;

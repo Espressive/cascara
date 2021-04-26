@@ -14,12 +14,7 @@ const propTypes = {
   linkComponentProps: pt.object,
 };
 
-const AdminStructureMainTabs = ({
-  children,
-  label,
-  linkComponent,
-  linkComponentProps,
-}) => {
+const MainTabs = ({ children, label, linkComponent, linkComponentProps }) => {
   // const LinkComponent = linkComponent;
 
   return (
@@ -29,6 +24,6 @@ const AdminStructureMainTabs = ({
   );
 };
 
-AdminStructureMainTabs.propTypes = propTypes;
+MainTabs.propTypes = propTypes;
 
-export default AdminStructureMainTabs;
+export default MainTabs;

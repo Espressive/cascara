@@ -2,7 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 import { MenuButton } from 'reakit';
 import { Icon } from '@iconify/react';
-import styles from './HeaderMenuButton.module.scss';
+import { styles } from './';
 
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types -- SVG shows up as an object

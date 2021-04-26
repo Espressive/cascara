@@ -1,10 +1,10 @@
 import React from 'react';
 import pt from 'prop-types';
 import { TabList, TabPanel, useTabState } from 'reakit';
-import styles from './AdminStructure.module.scss';
+import styles from './Main.module.scss';
 import classNames from 'classnames/bind';
-import Loader from '../../ui/Loader';
-import StructureMainTabs from './AdminStructureMainTabs';
+import Loader from '../../../../ui/Loader';
+import StructureMainTabs from './MainTabs';
 
 const cx = classNames.bind(styles);
 
@@ -31,7 +31,7 @@ const propTypes = {
   ),
 };
 
-const AdminStructureMain = ({
+const Main = ({
   children,
   header,
   body,
@@ -88,7 +88,7 @@ const AdminStructureMain = ({
   );
 };
 
-AdminStructureMain.propTypes = propTypes;
-AdminStructureMain.displayName = 'AdminStructure.Main';
+Main.propTypes = propTypes;
+Main.displayName = 'AdminStructure.Main';
 
-export default AdminStructureMain;
+export default Main;

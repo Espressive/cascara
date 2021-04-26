@@ -1,0 +1,12 @@
+.Main {
+  padding: 2em;
+  height: 100%;
+  overflow: auto;
+
+  &.loading {
+    animation: loading-pulse ease-in-out 1s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
