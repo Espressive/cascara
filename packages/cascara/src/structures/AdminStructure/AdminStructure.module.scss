@@ -92,6 +92,7 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     display: inline-block;
     height: 100%;
     padding: 0.5em;
+    overflow: hidden;
     transition: transform 100ms ease-in-out;
 
     &:hover,
@@ -103,6 +104,10 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     .Title {
       padding: 0 1rem;
       line-height: 4rem;
+
+      &.hidden {
+        text-indent: -999em;
+      }
     }
 
     .Logo {

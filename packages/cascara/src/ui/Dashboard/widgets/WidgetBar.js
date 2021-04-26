@@ -15,7 +15,7 @@ const propTypes = {
   /** The unique value to index by on `data` */
   indexBy: pt.string,
   /** Values to show from `data` */
-  keys: pt.arrayOf(pt.shape({})),
+  keys: pt.arrayOf(pt.string),
   /** The value to use for displaying bar labels */
   label: pt.string,
   /** Direction to orient the bar */

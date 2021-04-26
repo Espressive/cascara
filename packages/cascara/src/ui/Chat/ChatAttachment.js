@@ -19,7 +19,7 @@ const propTypes = {
   isSessionUser: pt.bool,
   metadata: pt.shape({
     height: pt.number,
-    size: pt.oneOf([pt.number, pt.string]),
+    size: pt.oneOfType([pt.number, pt.string]),
     type: pt.string,
     url: pt.string,
     width: pt.number,

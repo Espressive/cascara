@@ -25,6 +25,8 @@ const StructureNavLink = ({
   linkComponentProps,
   ...rest
 }) => {
+  // const LinkComponent = linkComponent;
+
   return (
     <MenuItem as={linkComponent} {...rest} {...linkComponentProps}>
       {children ? (

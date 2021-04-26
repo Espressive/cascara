@@ -20,6 +20,8 @@ const AdminStructureMainTabs = ({
   linkComponent,
   linkComponentProps,
 }) => {
+  // const LinkComponent = linkComponent;
+
   return (
     <Tab as={linkComponent} className='item' {...linkComponentProps}>
       {children ? children : label}
