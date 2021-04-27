@@ -4,7 +4,7 @@ import faker from 'faker';
 const fakeRowData = () => ({
   avatar: faker.image.avatar(),
   country: faker.address.countryCode(),
-  eid: faker.random.uuid(),
+  eid: faker.datatype.uuid(),
   fullName: faker.fake('{{name.lastName}}, {{name.firstName}} {{name.suffix}}'),
   homePhone: faker.phone.phoneNumber(),
   officePhone: faker.phone.phoneNumber(),

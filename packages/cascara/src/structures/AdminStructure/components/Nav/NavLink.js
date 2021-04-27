@@ -1,10 +1,10 @@
 import React from 'react';
 import pt from 'prop-types';
-import { MenuItem } from 'reakit';
+import { Button } from 'reakit';
 import { Icon } from '@iconify/react';
+import { styles } from './';
 
 const propTypes = {
-  children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   // eslint-disable-next-line react/forbid-prop-types -- SVG shows up as an object
   icon: pt.object,
   label: pt.string.isRequired,
@@ -17,30 +17,24 @@ const propTypes = {
   linkComponentProps: pt.object,
 };
 
-const StructureNavLink = ({
-  children,
+const NavLink = ({
   icon,
-  label,
+  label = 'NavLink',
   linkComponent = 'a',
   linkComponentProps,
   ...rest
-}) => {
-  // const LinkComponent = linkComponent;
+}) => (
+  <Button
+    {...rest}
+    {...linkComponentProps}
+    as={linkComponent}
+    className={styles.NavLink}
+  >
+    {icon && <Icon className='icon' icon={icon} inline width={18} />}
+    <span className='label'>{label}</span>
+  </Button>
+);
 
-  return (
-    <MenuItem as={linkComponent} {...rest} {...linkComponentProps}>
-      {children ? (
-        children
-      ) : (
-        <>
-          {icon && <Icon className='icon' icon={icon} inline width={18} />}
-          <span className='label'>{label}</span>
-        </>
-      )}
-    </MenuItem>
-  );
-};
+NavLink.propTypes = propTypes;
 
-StructureNavLink.propTypes = propTypes;
-
-export default StructureNavLink;
+export default NavLink;

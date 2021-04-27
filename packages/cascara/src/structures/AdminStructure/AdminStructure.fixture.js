@@ -110,7 +110,7 @@ const longContent = (
   </ul>
 );
 
-const links = [
+const sectionLinks = [
   {
     icon: house,
     label: 'Home',
@@ -131,6 +131,22 @@ const links = [
     linkComponentProps: {
       href: '#',
     },
+  },
+];
+
+const links = [
+  {
+    label: 'Section A',
+    links: sectionLinks,
+  },
+  {
+    label: 'Section B',
+    links: sectionLinks,
+  },
+  ...sectionLinks,
+  {
+    label: 'Section C',
+    links: sectionLinks,
   },
 ];
 

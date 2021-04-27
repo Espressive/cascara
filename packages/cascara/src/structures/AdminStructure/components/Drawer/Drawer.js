@@ -1,9 +1,9 @@
 import React from 'react';
 import pt from 'prop-types';
-import styles from './AdminStructure.module.scss';
+import styles from './Drawer.module.scss';
 import classNames from 'classnames/bind';
-import { useDrawer } from './hooks';
-import Loader from '../../ui/Loader';
+import { useDrawer } from '../../hooks';
+import Loader from '../../../../ui/Loader';
 const cx = classNames.bind(styles);
 
 const propTypes = {
@@ -12,12 +12,7 @@ const propTypes = {
   isLoading: pt.bool,
 };
 
-const AdminStructureMainDrawer = ({
-  children,
-  header,
-  isLoading = false,
-  ...rest
-}) => {
+const Drawer = ({ children, header, isLoading = false, ...rest }) => {
   const { className, ...props } = rest;
   // Instead of using the normal return, we put all of our
   // drawer logic here to go into context
@@ -41,7 +36,7 @@ const AdminStructureMainDrawer = ({
   return null;
 };
 
-AdminStructureMainDrawer.propTypes = propTypes;
-AdminStructureMainDrawer.displayName = 'AdminStructure.Main.Drawer';
+Drawer.propTypes = propTypes;
+Drawer.displayName = 'AdminStructure.Drawer';
 
-export default AdminStructureMainDrawer;
+export default Drawer;

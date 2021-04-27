@@ -7,66 +7,35 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.4](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.3...@espressive/cascara@0.4.2-alpha.4) (2021-03-26)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.3](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.2...@espressive/cascara@0.4.2-alpha.3) (2021-03-25)
-
 
 ### Bug Fixes
 
-* **FDS-179:** [Chat, Structures] fix prop type warnings ([#196](https://github.com/Espressive/cascara/issues/196)) ([d7737cc](https://github.com/Espressive/cascara/commit/d7737cccd7d5cf4183d7675f09a2b54d0bae8b1f))
-
-
-
-
+- **FDS-179:** [Chat, Structures] fix prop type warnings ([#196](https://github.com/Espressive/cascara/issues/196)) ([d7737cc](https://github.com/Espressive/cascara/commit/d7737cccd7d5cf4183d7675f09a2b54d0bae8b1f))
 
 ## [0.4.2-alpha.2](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.1...@espressive/cascara@0.4.2-alpha.2) (2021-03-24)
 
-
 ### Bug Fixes
 
-* **FDS-179:** [Dashboard] fix prop type warnings ([#195](https://github.com/Espressive/cascara/issues/195)) ([045bcb1](https://github.com/Espressive/cascara/commit/045bcb1b4475f34cc9e9e07d5ff1242183c83ed7))
-
-
-
-
+- **FDS-179:** [Dashboard] fix prop type warnings ([#195](https://github.com/Espressive/cascara/issues/195)) ([045bcb1](https://github.com/Espressive/cascara/commit/045bcb1b4475f34cc9e9e07d5ff1242183c83ed7))
 
 ## [0.4.2-alpha.1](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.0...@espressive/cascara@0.4.2-alpha.1) (2021-03-18)
 
-
 ### Features
 
-* **FDS-62:** Admin Structure & Design Tokens ([#194](https://github.com/Espressive/cascara/issues/194)) ([7413c3a](https://github.com/Espressive/cascara/commit/7413c3aad20374ed00a80ced35aa08c6c73f40d0))
-
-
-
-
+- **FDS-62:** Admin Structure & Design Tokens ([#194](https://github.com/Espressive/cascara/issues/194)) ([7413c3a](https://github.com/Espressive/cascara/commit/7413c3aad20374ed00a80ced35aa08c6c73f40d0))
 
 ## [0.4.2-alpha.0](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.1...@espressive/cascara@0.4.2-alpha.0) (2021-03-17)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.1](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.1-alpha.11...@espressive/cascara@0.4.1) (2021-03-13)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.1-alpha.11](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.1-alpha.10...@espressive/cascara@0.4.1-alpha.11) (2021-03-12)
 

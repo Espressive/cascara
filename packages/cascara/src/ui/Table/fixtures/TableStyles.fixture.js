@@ -15,11 +15,11 @@ const testData = (qty) =>
     const lastName = faker.name.lastName();
 
     return (e = {
-      active: faker.random.boolean(),
+      active: faker.datatype.boolean(),
       country: faker.random.arrayElement(['USA', 'Brazil', 'Argentina']),
-      eid: faker.random.uuid(),
+      eid: faker.datatype.uuid(),
       email: faker.internet.email(),
-      employeeNumber: faker.random.number(),
+      employeeNumber: faker.datatype.number(),
       fullName: `${firstName} ${lastName}`,
       homePhone: faker.phone.phoneNumber(),
       long:

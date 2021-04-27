@@ -26,7 +26,7 @@ const useDrawer = (drawer) => {
       setDrawer(drawer);
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want to run once
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- We only want to run if drawer has changed
   }, [isUpdated]);
 };
 
