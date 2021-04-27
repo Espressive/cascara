@@ -105,7 +105,7 @@
     "react-dom": "16.13.1",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "3.4.4",
     "react-test-renderer": "16.13.1",
     "resolve-path": "1.4.0",
     "rollup": "2.45.2",
