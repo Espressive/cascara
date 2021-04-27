@@ -1,3 +1,5 @@
+// NOTE: This file is for the v3 version of react-scripts and is not compatible with v4
+
 const path = require('path');
 const fs = require('fs');
 const glob = require('glob');
