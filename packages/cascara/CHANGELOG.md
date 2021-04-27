@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2-alpha.6](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.5...@espressive/cascara@0.4.2-alpha.6) (2021-04-27)
+
+
+### Features
+
+* **FDS-62:** Admin Structure PAC ([#200](https://github.com/Espressive/cascara/issues/200)) ([112241a](https://github.com/Espressive/cascara/commit/112241a8a25171fdc199d9a1941c76ad90cbc7a5))
+
+
+
+
+
 ## [0.4.2-alpha.5](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.4...@espressive/cascara@0.4.2-alpha.5) (2021-04-22)
 
 **Note:** Version bump only for package @espressive/cascara
