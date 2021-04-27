@@ -5,17 +5,28 @@ import { validateMessageObj } from '../utils';
 import SupportFeedback from './SupportFeedback';
 import TicketResolved from './TicketResolved';
 
-const systemWidgetTypes = {
+const SYSTEM_WIDGET_TYPES = {
   'Support Feedback': SupportFeedback,
   'Ticket Resolved Survey': TicketResolved,
 };
 
-const ChatWidget = (message) => {
-  const systemWidget = message.metadata.widget.widget;
-  const Widget = systemWidgetTypes[systemWidget];
-
-  return <Widget {...message} />;
+const propTypes = {
+  metadata: pt.shape({
+    widget: pt.shape({
+      widget: pt.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
+
+const ChatWidget = (props) => {
+  const { metadata } = props;
+  const systemWidget = metadata.widget.widget;
+  const Widget = SYSTEM_WIDGET_TYPES[systemWidget];
+
+  return <Widget {...props} />;
+};
+
+ChatWidget.propTypes = propTypes;
 
 const objPropTypes = {
   isSessionUser: pt.bool,

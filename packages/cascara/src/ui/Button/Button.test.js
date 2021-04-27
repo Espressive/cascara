@@ -114,6 +114,6 @@ describe('Button', () => {
   });
 
   describe('isBrandColor', () => {
-    test.todo('Set up test for brand color from provider');
+    test.todo('set up test for brand color from provider');
   });
 });
