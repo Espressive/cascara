@@ -72,16 +72,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const input = [`${SOURCE_DIR}/src/index.js`, `${SOURCE_DIR}/src/private.js`];
 
   // Shared Rollup plugins
-  const rollupPlugins = [
-    nodeResolve({
-      // I think this is the default and not neccessary
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
-    }),
-    postcss(getPostCSSOptions()),
-    json(),
-  ];
+  const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
   // Common JS configuration
   const cjsConfig = {

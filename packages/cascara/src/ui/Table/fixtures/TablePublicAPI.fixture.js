@@ -17,7 +17,7 @@ const data = new Array(20).fill(null).map((e, i) => {
     country: faker.address.countryCode(),
     date: faker.date.future(),
     department: faker.name.jobArea(),
-    eid: faker.random.uuid(),
+    eid: faker.datatype.uuid(),
     fullName: faker.fake(
       '{{name.lastName}}, {{name.firstName}} {{name.suffix}}'
     ),
