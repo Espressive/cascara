@@ -7,7 +7,6 @@ const changedFiles = [...modifiedFiles, ...newFiles];
 
 // Github specific values
 const github = {
-  description: danger.github.pr.body,
   assignee: danger.github.pr.assignee,
   description: danger.github.pr.body,
   title: danger.github.pr.title,
@@ -26,7 +25,8 @@ const descSection = {
   snapshots: '### Snapshots',
 };
 
-const isSnyk = github.title.includes('fix(Snyk)');
+const isSnyk =
+  github.title.includes('fix(Snyk)') || github.title.includes('[Snyk]');
 
 // Evaluates the description to see if it contains a particular section
 const hasDescriptionSection = (section: keyof typeof descSection) =>
