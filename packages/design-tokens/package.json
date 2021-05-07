@@ -13,6 +13,7 @@
   "files": [
     "css",
     "dist",
+    "src",
     "scss"
   ],
   "scripts": {
