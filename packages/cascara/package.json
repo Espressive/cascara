@@ -23,7 +23,7 @@
     "watch": "yarn roll -w"
   },
   "dependencies": {
-    "@babel/runtime": "7.13.17",
+    "@babel/runtime": "7.14.0",
     "@iconify-icons/ic": "1.1.3",
     "@iconify/react": "1.1.4",
     "@nivo/bar": "0.67.0",
@@ -37,6 +37,8 @@
     "@nivo/tooltip": "0.67.0",
     "@nivo/treemap": "0.67.0",
     "classnames": "2.3.1",
+    "color": "3.1.3",
+    "color-string": "1.5.5",
     "memoize-one": "5.2.1",
     "react-fast-compare": "3.2.0",
     "react-hook-form": "6.8.4",
@@ -50,6 +52,7 @@
     "prop-types": "15.7.2"
   },
   "peerDependencies": {
+    "@espressive/design-tokens": ">=0.1.2",
     "@fluentui/react-northstar": ">=0.52.0",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",

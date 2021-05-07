@@ -150,12 +150,18 @@ const links = [
   },
 ];
 
+const exampleHeader = <AdminStructure.Header title='Cool Company' />;
+const exampleNav = <AdminStructure.Nav linkComponent={NavLink} links={links} />;
+const exampleTheme = {
+  color: {
+    primary: '#a00',
+    secondary: '#00a',
+  },
+};
+
 export default {
   components: (
-    <AdminStructure
-      header={<AdminStructure.Header title='Cool Company' />}
-      nav={<AdminStructure.Nav linkComponent={NavLink} links={links} />}
-    >
+    <AdminStructure header={exampleHeader} nav={exampleNav}>
       <AdminStructure.Main header='Main'>
         <AdminStructure.Drawer>
           <p>I am a drawer</p>
@@ -172,12 +178,22 @@ export default {
     </AdminStructure>
   ),
   'no-drawer': (
-    <AdminStructure
-      header={<AdminStructure.Header title='Cool Company' />}
-      nav={<AdminStructure.Nav linkComponent={NavLink} links={links} />}
-    >
+    <AdminStructure header={exampleHeader} nav={exampleNav}>
       <AdminStructure.Main header='Main' />
     </AdminStructure>
   ),
   scrolling: <AdminStructure header={longContent} nav={longContent} />,
+  theme: (
+    <AdminStructure
+      header={exampleHeader}
+      nav={exampleNav}
+      theme={exampleTheme}
+    >
+      <AdminStructure.Main header='Main'>
+        <AdminStructure.Drawer>
+          <p>I am a drawer</p>
+        </AdminStructure.Drawer>
+      </AdminStructure.Main>
+    </AdminStructure>
+  ),
 };
