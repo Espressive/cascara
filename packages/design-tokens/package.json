@@ -21,6 +21,7 @@
     "clean": "rm -rf dist",
     "version": "yarn build",
     "prepare": "yarn build",
+    "postinstall": "yarn build",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
   "devDependencies": {
