@@ -16,16 +16,16 @@
     "scss"
   ],
   "scripts": {
-    "build": "yarn clean && style-dictionary build -c config",
+    "dictionary": "style-dictionary build -c config",
+    "build": "yarn clean && yarn dictionary",
     "clean": "rm -rf dist",
     "version": "yarn build",
-    "postinstall": "yarn build",
-    "prepare": "echo 'No prepare scripts for this package'",
+    "prepare": "yarn build",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
   "devDependencies": {
     "chokidar-cli": "2.1.0",
-    "style-dictionary": "3.0.0-rc.6"
+    "style-dictionary": "3.0.0-rc.9"
   },
   "publishConfig": {
     "access": "public",
