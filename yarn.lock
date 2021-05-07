@@ -1768,6 +1768,9 @@
   resolved "https://npm.pkg.github.com/download/@espressive/design-tokens/0.1.2/fa6de9509411cfdcfcd8d5ec37d85e8c8595b2c0e09e7a2ef0fa6b6b4546b690#9435e5292c3f616e6789910e4a40608b05c02675"
   integrity sha512-jYGviO+CMK8SO/xTGLxvaixyi77i0+Yku8IAku03k8FFeUHzvzF12pYJyVYsHTFddb8i+qeYPmsc5+wtQfpDrw==
 
+"@espressive/design-tokens@file:packages/design-tokens":
+  version "0.1.3-alpha.0"
+
 "@espressive/eslint-config@link:./utils/eslint-config":
   version "0.0.0"
   uid ""
