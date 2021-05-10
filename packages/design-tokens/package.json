@@ -11,6 +11,7 @@
   "sideEffects": false,
   "style": "./dist/_variables.scss",
   "files": [
+    "config",
     "css",
     "dist",
     "src",
