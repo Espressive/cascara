@@ -1,3 +1,6 @@
+// Hooks
+import { useStructureName, useThemeCustomProperties } from './structures/hooks';
+
 // Structures
 import Admin from './structures/Admin';
 import AdminStructure from './structures/AdminStructure';
@@ -25,4 +28,7 @@ export {
   // Form,
   JsonPlaceholder,
   Table,
+  // Hooks
+  useStructureName,
+  useThemeCustomProperties,
 };
