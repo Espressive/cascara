@@ -25,9 +25,11 @@
     "postinstall": "yarn build",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
-  "devDependencies": {
-    "chokidar-cli": "2.1.0",
+  "dependencies": {
     "style-dictionary": "3.0.0-rc.9"
+  },
+  "devDependencies": {
+    "chokidar-cli": "2.1.0"
   },
   "publishConfig": {
     "access": "public",
