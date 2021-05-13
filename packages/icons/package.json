@@ -12,7 +12,7 @@
   "scripts": {
     "build": "yarn clean && yarn collection",
     "collection": "node src/buildCollection",
-    "clean": "find . -maxdepth 1 -type f -not -name 'package.json' -delete",
+    "clean": "find . -maxdepth 1 -type f -name '*.js' -delete",
     "prepare": "yarn build",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
