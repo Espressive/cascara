@@ -13,8 +13,5 @@ yarn-error.log
 .vercel
 .npmrc
 
-# Ignore everything in the icons package
-packages/icons/*
-# Except for the contents of src and the package.json file
-!packages/icons/src
-!packages/icons/package.json
+# Ignore all JS files in the root of icons
+packages/icons/*.js
