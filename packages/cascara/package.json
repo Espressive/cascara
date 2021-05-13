@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.14.0",
+    "@espressive/icons": "*",
     "@iconify-icons/ic": "1.1.3",
     "@iconify/react": "1.1.4",
     "@nivo/bar": "0.67.0",

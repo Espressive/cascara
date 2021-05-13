@@ -22,6 +22,7 @@
     "eslint-config": "yarn workspace @espressive/eslint-config",
     "design-tokens": "yarn workspace @espressive/design-tokens",
     "framer:publish": "dotenv npx framer-cli publish",
+    "icons": "yarn workspace @espressive/icons",
     "lint": "eslint ./",
     "test": "jest -c ./.jest/config.js",
     "test:watch": "yarn test --watch",
