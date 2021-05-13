@@ -1,1 +1,5 @@
-<svg viewBox="0 0 140 140" height="140" width="140" xmlns="http://www.w3.org/2000/svg">,,<g transform="matrix(5.833333333333333,0,0,5.833333333333333,0,0)"><path d="M23.25 11.998L12.75 11.998" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M19.5 15.748L23.25 11.998 19.5 8.248" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M0.750 0.748 L8.250 0.748 L8.250 23.248 L0.750 23.248 Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140">
+  <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+    <path stroke-width="8.749995" d="M135.625 69.988h-61.25M113.75 91.863l21.875-21.875-21.875-21.875M4.375 4.363h43.75v131.25H4.375z"/>
+  </g>
+</svg>
