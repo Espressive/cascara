@@ -1,0 +1,26 @@
+{
+  "name": "@espressive/icons",
+  "version": "0.0.1",
+  "description": "Cascara icons",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:Espressive/cascara.git",
+    "directory": "packages/icons"
+  },
+  "license": "CC0-1.0",
+  "sideEffects": false,
+  "scripts": {
+    "build": "yarn clean && yarn collection",
+    "collection": "node src/buildCollection",
+    "clean": "find . -maxdepth 1 -type f -not -name 'package.json' -delete",
+    "postinstall": "yarn build",
+    "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
+  },
+  "dependencies": {
+    "@iconify/tools": "1.3.17"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

@@ -10,6 +10,20 @@ module.exports = {
         'react/react-in-jsx-scope': 0,
       },
     },
+    {
+      // We use node to build our icon JSON and also output errors
+      files: ['packages/icons/src/*'],
+      rules: {
+        'no-console': 0,
+      },
+    },
+    {
+      // We export icon assets to the root, so we need to disable here
+      files: ['packages/icons/*.js'],
+      rules: {
+        'no-var': 0,
+      },
+    },
   ],
   root: true,
 };
