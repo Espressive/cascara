@@ -1,6 +1,5 @@
 import { pxToRem } from '../../../utils';
 
-/* eslint-disable sort-keys -- We do not want necessarily sort these for consistent grouping */
 export const chatStyles = {
   root: ({ variables: v }) => ({
     backgroundColor: v.backgroundColor,
@@ -12,4 +11,3 @@ export const chatStyles = {
     margin: 0,
   }),
 };
-/* eslint-enable sort-keys*/

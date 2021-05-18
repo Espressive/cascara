@@ -1,6 +1,5 @@
 import { pxToRem } from '../../../utils';
 
-/* eslint-disable sort-keys -- We do not want necessarily sort these for consistent grouping */
 export const chatItemStyles = {
   root: ({ props: p, variables: v }) => ({
     position: 'relative',
@@ -27,4 +26,3 @@ export const chatItemStyles = {
     marginRight: v.messageMargin,
   }),
 };
-/* eslint-enable sort-keys*/

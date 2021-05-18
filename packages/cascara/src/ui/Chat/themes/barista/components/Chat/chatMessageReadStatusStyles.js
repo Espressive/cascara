@@ -1,6 +1,5 @@
 import { screenReaderContainerStyles } from '../../../utils';
 
-/* eslint-disable sort-keys -- We do not want necessarily sort these for consistent grouping */
 export const chatMessageReadStatusStyles = {
   root: ({ props: p, variables: v }) => ({
     position: 'absolute',
@@ -12,4 +11,3 @@ export const chatMessageReadStatusStyles = {
     },
   }),
 };
-/* eslint-enable sort-keys*/

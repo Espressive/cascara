@@ -29,6 +29,7 @@ module.exports = {
       files: ['packages/cascara/src/ui/Chat/themes/**/*.js'],
       rules: {
         'import/no-namespace': 0,
+        'sort-keys': 0,
       },
     },
   ],

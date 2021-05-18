@@ -7,16 +7,34 @@ import siteVariables from './siteVariables';
 import * as componentStyles from './componentStyles';
 import * as componentVariables from './componentVariables';
 
+// These are component themes that we want to copy over without modification
+const COPY_COMPONENTS = ['Flex', 'Image', 'Text'];
+
 // Temporarily merging
 const mergedComponentStyles = {
-  ...teamsTheme.componentStyles,
+  // ...teamsTheme.componentStyles, // This will eventually be commented out
+  ...Object.fromEntries(
+    COPY_COMPONENTS.map((component) => [
+      component,
+      teamsTheme.componentStyles[component],
+    ])
+  ),
   ...componentStyles,
 };
+// console.log(mergedComponentStyles);
 
 const mergedComponentVariables = {
-  ...teamsTheme.componentVariables,
+  // ...teamsTheme.componentVariables,
+  ...Object.fromEntries(
+    COPY_COMPONENTS.map((component) => [
+      component,
+      teamsTheme.componentVariables[component],
+    ])
+  ),
   ...componentVariables,
 };
+
+// console.log(mergedComponentVariables);
 
 const barista = createTheme(
   {

@@ -3,5 +3,5 @@
 // }
 
 export const chatVariables = ({ colors }) => ({
-  backgroundColor: colors.grey[100],
+  backgroundColor: colors.white,
 });

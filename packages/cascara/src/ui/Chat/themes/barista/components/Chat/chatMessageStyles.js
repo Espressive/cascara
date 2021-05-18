@@ -6,7 +6,26 @@ import {
   screenReaderContainerStyles,
 } from '../../../utils';
 
-/* eslint-disable sort-keys -- We do not want necessarily sort these for consistent grouping */
+const messageRadiusStyles = ({ p, v }) => ({
+  borderTopRightRadius: v.borderRadius,
+  borderTopLeftRadius: v.borderRadius,
+  borderBottomRightRadius: v.borderRadius,
+  borderBottomLeftRadius: v.borderRadius,
+
+  ...(p.attached === true && {
+    [p.mine ? 'borderTopRightRadius' : 'borderTopLeftRadius']: 0,
+    [p.mine ? 'borderBottomRightRadius' : 'borderBottomLeftRadius']: 0,
+  }),
+
+  ...(p.attached === 'top' && {
+    [p.mine ? 'borderBottomRightRadius' : 'borderBottomLeftRadius']: 0,
+  }),
+
+  ...(p.attached === 'bottom' && {
+    [p.mine ? 'borderTopRightRadius' : 'borderTopLeftRadius']: 0,
+  }),
+});
+
 export const chatMessageStyles = {
   root: ({ props: p, variables: v, theme: { siteVariables } }) => ({
     display: 'inline-block',
@@ -17,12 +36,8 @@ export const chatMessageStyles = {
     maxWidth: `calc(100% - ${v.offset})`,
     minWidth: v.offset,
 
-    paddingLeft: v.padding,
-    paddingRight: v.padding,
-    paddingTop: pxToRem(8),
-    paddingBottom: pxToRem(10),
+    ...messageRadiusStyles({ p, v }),
 
-    borderRadius: v.borderRadius,
     border: v.border,
     outline: 0,
 
@@ -62,21 +77,6 @@ export const chatMessageStyles = {
         },
       },
     }),
-
-    ...(p.attached === true && {
-      [p.mine ? 'borderTopRightRadius' : 'borderTopLeftRadius']: 0,
-      [p.mine ? 'borderBottomRightRadius' : 'borderBottomLeftRadius']: 0,
-      paddingTop: pxToRem(5),
-      paddingBottom: pxToRem(7),
-    }),
-    ...(p.attached === 'top' && {
-      [p.mine ? 'borderBottomRightRadius' : 'borderBottomLeftRadius']: 0,
-    }),
-    ...(p.attached === 'bottom' && {
-      [p.mine ? 'borderTopRightRadius' : 'borderTopLeftRadius']: 0,
-      paddingTop: pxToRem(5),
-      paddingBottom: pxToRem(7),
-    }),
   }),
 
   actionMenu: ({ props: p, variables: v }) => ({
@@ -113,8 +113,14 @@ export const chatMessageStyles = {
     color: v.authorColor,
     borderRadius: pxToRem(12),
     marginRight: v.authorMarginRight,
-    marginBottom: v.headerMarginBottom,
+    // marginBottom: v.headerMarginBottom,
     fontWeight: v.authorFontWeight,
+
+    '&:not(:empty)': {
+      display: 'inline-block',
+      paddingTop: v.padding,
+      paddingLeft: v.padding,
+    },
   }),
 
   timestamp: ({ props: p, variables: v }) => ({
@@ -126,6 +132,15 @@ export const chatMessageStyles = {
       !p.hasReactionGroup &&
       screenReaderContainerStyles),
 
+    '&:not(:empty)': {
+      display: 'inline-block',
+      paddingTop: v.padding,
+      paddingLeft: v.padding,
+      paddingRight: v.padding,
+    },
+
+    // This is our message caret, which should only show on messages with a timestamp
+    // as these are also messages that have avatars
     '::after': {
       content: '""',
       [p.mine ? 'right' : 'left']: pxToRem(-6),
@@ -143,8 +158,25 @@ export const chatMessageStyles = {
   }),
 
   content: ({ props: p, variables: v }) => ({
-    color: v.contentColor,
+    color: p.mine ? v.contentColorMine : v.contentColor,
+    // color: v.contentColor,
+    padding: v.padding,
     display: 'block',
+
+    '& > img': {
+      marginTop: !p.attached ? `-${pxToRem(4)}` : `-${v.padding}`,
+      marginLeft: `-${v.padding}`,
+      marginRight: `-${v.padding}`,
+      marginBottom: `-${v.padding}`,
+      width: `calc(100% + 2*${v.padding})`,
+
+      ...messageRadiusStyles({ p, v }),
+      // This should override the radius styles for images on top if there is a time stamp
+      ...(!p.attached && {
+        borderTopLeftRadius: pxToRem(4),
+        borderTopRightRadius: pxToRem(4),
+      }),
+    },
     '& a': {
       outline: 'none',
       color: p.mine ? v.linkColorMine : v.linkColor,
@@ -191,4 +223,3 @@ export const chatMessageStyles = {
     float: 'right',
   }),
 };
-/* eslint-enable sort-keys*/
