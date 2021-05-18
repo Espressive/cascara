@@ -24,6 +24,13 @@ module.exports = {
         'no-var': 0,
       },
     },
+    {
+      // Namespace imports are an important part for theme building
+      files: ['packages/cascara/src/ui/Chat/themes/**/*.js'],
+      rules: {
+        'import/no-namespace': 0,
+      },
+    },
   ],
   root: true,
 };

@@ -14,16 +14,16 @@ import { barista, slack } from './themes';
 const DEFAULT_THEME_INDEX = 0;
 
 const items = [
-  // {
-  //   header: 'Barista',
-  //   key: 'barista',
-  //   value: 'barista',
-  // },
-  // {
-  //   header: 'Slack',
-  //   key: 'slack',
-  //   value: 'slack',
-  // },
+  {
+    header: 'Barista',
+    key: 'barista',
+    value: 'barista',
+  },
+  {
+    header: 'Slack',
+    key: 'slack',
+    value: 'slack',
+  },
   {
     header: 'Teams Light',
     key: 'light',
