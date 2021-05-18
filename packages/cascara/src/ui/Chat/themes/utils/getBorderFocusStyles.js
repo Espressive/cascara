@@ -22,7 +22,6 @@ const defaultColor = 'transparent';
  * pseudo elements created on focus can be properly positioned.
  */
 
-/* eslint-disable sort-keys -- We do not want necessarily sort these for consistent grouping */
 const getBorderFocusStyles = (args) => {
   const sv = args.variables;
   const {
@@ -83,6 +82,5 @@ const getBorderFocusStyles = (args) => {
     },
   };
 };
-/* eslint-enable sort-keys*/
 
 export default getBorderFocusStyles;
