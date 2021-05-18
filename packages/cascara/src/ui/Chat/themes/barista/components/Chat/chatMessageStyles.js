@@ -111,6 +111,7 @@ export const chatMessageStyles = {
     ...((p.mine || p.attached === 'bottom' || p.attached === true) &&
       screenReaderContainerStyles),
     color: v.authorColor,
+    borderRadius: pxToRem(12),
     marginRight: v.authorMarginRight,
     marginBottom: v.headerMarginBottom,
     fontWeight: v.authorFontWeight,
@@ -133,7 +134,7 @@ export const chatMessageStyles = {
       }`,
       display: 'block',
       position: 'absolute',
-      top: pxToRem(10),
+      top: pxToRem(14),
       width: 0,
       height: 0,
       borderTop: `${pxToRem(6)} solid transparent`,
