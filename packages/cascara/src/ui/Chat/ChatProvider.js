@@ -42,9 +42,11 @@ const items = [
 ];
 
 const overrideTheme = {
-  fontFaces: [],
+  // fontFaces: [],
   staticStyles: [],
 };
+
+// console.log(teamsTheme);
 
 const themes = {
   barista: barista,
@@ -79,8 +81,10 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
     [setTheme]
   );
 
+  // console.log(themes[theme].staticStyles);
+
   return (
-    <Provider theme={themes[theme]}>
+    <Provider overwrite theme={themes[theme]}>
       <Flex column gap='gap.small' style={{ maxHeight: '100vh' }}>
         {isThemeSelectable && (
           <div>
