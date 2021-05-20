@@ -85,6 +85,7 @@ const loadingTheme = {
       backgroundColor: colorScheme.default.background3,
       backgroundColorMine: colorScheme.default.background3,
       contentColor: colorScheme.default.background3,
+      contentColorMine: colorScheme.default.background3,
       iconBackgroundColor: colorScheme.default.background3,
     }),
   },
