@@ -11,6 +11,7 @@ import { getNormalizedMessages } from './utils';
 
 import { results as convo0 } from '../json/conversation0';
 import { results as convo1 } from '../json/conversation1';
+import { results as convo2 } from '../json/conversation2';
 
 const teamsCommentsTheme = {
   componentStyles: {
@@ -68,7 +69,7 @@ const teamsChatInput = (
 const ChatPublicAPI = (
   <ChatProvider inputComponent={teamsChatInput} isThemeSelectable>
     <Chat
-      messages={getNormalizedMessages(convo1)}
+      messages={getNormalizedMessages(convo2)}
       sessionUserID={3}
       users={users}
     />
