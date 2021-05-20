@@ -3,3 +3,4 @@ export { default as getIconFillOrOutlineStyles } from './getIconFillOrOutlineSty
 export { default as pxToRem } from './pxToRem';
 export { default as screenReaderContainerStyles } from './screenReaderContainerStyles';
 export { default as stringLiteralsArray } from './stringLiteralsArray';
+export * from './colorUtils';

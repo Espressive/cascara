@@ -9,5 +9,5 @@ import { pxToRem } from '../../../utils';
 export const chatItemVariables = () => ({
   gutterMargin: pxToRem(4),
   margin: pxToRem(8),
-  messageMargin: pxToRem(40),
+  messageMargin: pxToRem(44),
 });

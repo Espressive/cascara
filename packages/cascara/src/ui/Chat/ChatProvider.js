@@ -1,17 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import pt from 'prop-types';
-import {
-  Dropdown,
-  Flex,
-  Provider,
-  teamsDarkTheme,
-  teamsHighContrastTheme,
-  teamsTheme,
-} from '@fluentui/react-northstar';
+import { Dropdown, Flex, Provider } from '@fluentui/react-northstar';
+import teamsOverrides from './themes/teamsOverrides';
 
 import { barista, slack } from './themes';
 
-const DEFAULT_THEME_INDEX = 0;
+const DEFAULT_THEME_INDEX = 1;
 
 const items = [
   {
@@ -41,28 +35,12 @@ const items = [
   },
 ];
 
-const overrideTheme = {
-  // fontFaces: [],
-  staticStyles: [],
-};
-
-// console.log(teamsTheme);
-
 const themes = {
   barista: barista,
   slack: slack,
-  teamsDarkTheme: {
-    ...teamsDarkTheme,
-    ...overrideTheme,
-  },
-  teamsHighContrastTheme: {
-    ...teamsHighContrastTheme,
-    ...overrideTheme,
-  },
-  teamsTheme: {
-    ...teamsTheme,
-    ...overrideTheme,
-  },
+  teamsDarkTheme: teamsOverrides('teamsDarkTheme'),
+  teamsHighContrastTheme: teamsOverrides('teamsHighContrastTheme'),
+  teamsTheme: teamsOverrides('teamsTheme'),
 };
 
 const propTypes = {

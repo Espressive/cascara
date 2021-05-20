@@ -13,7 +13,7 @@ export const chatItemStyles = {
   gutter: ({ props: p, variables: v }) => ({
     position: 'absolute',
     marginTop: v.gutterMargin,
-    [p.contentPosition === 'end' ? 'right' : 'left']: 0,
+    left: 0,
     ...((p.attached === 'bottom' || p.attached === true) && {
       display: 'none',
     }),
@@ -21,7 +21,7 @@ export const chatItemStyles = {
 
   message: ({ props: p, variables: v }) => ({
     position: 'relative',
-    float: p.contentPosition === 'end' ? 'right' : 'left',
+    float: 'left',
     marginLeft: v.messageMargin,
     marginRight: v.messageMargin,
   }),

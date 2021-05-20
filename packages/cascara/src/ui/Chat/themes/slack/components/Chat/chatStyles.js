@@ -8,9 +8,14 @@ export const chatStyles = {
       display: 'flex',
       flexDirection: 'column',
       fontFamily: siteVariables.bodyFontFamily,
+      fontSize: siteVariables.bodyFontSize,
       listStyle: 'none',
-      padding: `0 ${pxToRem(10)} 0 ${pxToRem(10)}`,
+      padding: `0 ${pxToRem(16)} 0 ${pxToRem(16)}`,
       margin: 0,
+
+      '[hidden]': {
+        display: 'none!important',
+      },
     };
   },
 };

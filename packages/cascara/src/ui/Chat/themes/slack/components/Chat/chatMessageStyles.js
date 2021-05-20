@@ -6,43 +6,20 @@ import {
   screenReaderContainerStyles,
 } from '../../../utils';
 
-const messageRadiusStyles = ({ p, v }) => ({
-  borderTopRightRadius: v.borderRadius,
-  borderTopLeftRadius: v.borderRadius,
-  borderBottomRightRadius: v.borderRadius,
-  borderBottomLeftRadius: v.borderRadius,
-
-  ...(p.attached === true && {
-    [p.mine ? 'borderTopRightRadius' : 'borderTopLeftRadius']: 0,
-    [p.mine ? 'borderBottomRightRadius' : 'borderBottomLeftRadius']: 0,
-  }),
-
-  ...(p.attached === 'top' && {
-    [p.mine ? 'borderBottomRightRadius' : 'borderBottomLeftRadius']: 0,
-  }),
-
-  ...(p.attached === 'bottom' && {
-    [p.mine ? 'borderTopRightRadius' : 'borderTopLeftRadius']: 0,
-  }),
-});
-
 export const chatMessageStyles = {
   root: ({ props: p, variables: v, theme: { siteVariables } }) => ({
     display: 'inline-block',
     position: 'relative',
 
-    marginLeft: p.mine ? v.offset : 0,
-    marginRight: !p.mine ? v.offset : 0,
+    marginLeft: 0,
+    marginRight: v.offset,
     maxWidth: `calc(100% - ${v.offset})`,
     minWidth: v.offset,
-
-    ...messageRadiusStyles({ p, v }),
 
     border: v.border,
     outline: 0,
 
     color: v.color,
-    backgroundColor: p.mine ? v.backgroundColorMine : v.backgroundColor,
 
     wordBreak: 'break-word',
     wordWrap: 'break-word',
@@ -108,78 +85,29 @@ export const chatMessageStyles = {
   }),
 
   author: ({ props: p, variables: v }) => ({
-    ...((p.mine || p.attached === 'bottom' || p.attached === true) &&
+    ...((p.attached === 'bottom' || p.attached === true) &&
       screenReaderContainerStyles),
     color: v.authorColor,
-    borderRadius: pxToRem(12),
     marginRight: v.authorMarginRight,
-    // marginBottom: v.headerMarginBottom,
     fontWeight: v.authorFontWeight,
-
-    '&:not(:empty)': {
-      display: 'inline-block',
-      paddingTop: v.padding,
-      paddingLeft: v.padding,
-    },
+    fontSize: '1rem',
   }),
 
   timestamp: ({ props: p, variables: v }) => ({
     marginBottom: v.headerMarginBottom,
-    ...(p.mine && {
-      color: v.timestampColorMine,
-    }),
+    color: 'rgba(97,96,97,1)',
     ...((p.attached === 'bottom' || p.attached === true) &&
       !p.hasReactionGroup &&
       screenReaderContainerStyles),
-
-    '&:not(:empty)': {
-      display: 'inline-block',
-      paddingTop: v.padding,
-      paddingLeft: v.padding,
-      paddingRight: v.padding,
-    },
-
-    // This is our message caret, which should only show on messages with a timestamp
-    // as these are also messages that have avatars
-    '::after': {
-      content: '""',
-      [p.mine ? 'right' : 'left']: pxToRem(-6),
-      [p.mine ? 'borderLeft' : 'borderRight']: `${pxToRem(6)} solid ${
-        p.mine ? v.backgroundColorMine : v.backgroundColor
-      }`,
-      display: 'block',
-      position: 'absolute',
-      top: pxToRem(14),
-      width: 0,
-      height: 0,
-      borderTop: `${pxToRem(6)} solid transparent`,
-      borderBottom: `${pxToRem(6)} solid transparent`,
-    },
   }),
 
   content: ({ props: p, variables: v }) => ({
-    color: p.mine ? v.contentColorMine : v.contentColor,
-    // color: v.contentColor,
-    padding: v.padding,
+    color: v.contentColor,
     display: 'block',
 
-    '& > img': {
-      marginTop: !p.attached ? `-${pxToRem(4)}` : `-${v.padding}`,
-      marginLeft: `-${v.padding}`,
-      marginRight: `-${v.padding}`,
-      marginBottom: `-${v.padding}`,
-      width: `calc(100% + 2*${v.padding})`,
-
-      ...messageRadiusStyles({ p, v }),
-      // This should override the radius styles for images on top if there is a time stamp
-      ...(!p.attached && {
-        borderTopLeftRadius: pxToRem(4),
-        borderTopRightRadius: pxToRem(4),
-      }),
-    },
     '& a': {
       outline: 'none',
-      color: p.mine ? v.linkColorMine : v.linkColor,
+      color: v.linkColor,
       ':focus': {
         textDecoration: 'underline',
       },

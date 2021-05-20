@@ -57,9 +57,9 @@ export const avatarVariables = (siteVariables) => ({
   statusColor: siteVariables.colorScheme.default.foreground4,
   imageWidth: undefined,
   imageHeight: undefined,
-  imageAvatarRadius: pxToRem(9999),
-  imageAvatarSize: pxToRem(32),
-  imageCircularRadius: pxToRem(9999),
+  imageAvatarRadius: pxToRem(4),
+  imageAvatarSize: pxToRem(36),
+  imageCircularRadius: pxToRem(1),
 
   labelCircularRadius: pxToRem(9999),
   labelColor: 'rgba(0, 0, 0, 0.6)',

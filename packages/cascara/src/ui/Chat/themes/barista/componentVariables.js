@@ -22,6 +22,8 @@ export { chatMessageVariables as ChatMessage } from './components/Chat/chatMessa
 export { chatMessageDetailsVariables as ChatMessageDetails } from './components/Chat/chatMessageDetailsVariables';
 export { chatMessageReadStatusVariables as ChatMessageReadStatus } from './components/Chat/chatMessageReadStatusVariables';
 
+export { dividerVariables as Divider } from './components/Divider/dividerVariables';
+
 export { dropdownVariables as Dropdown } from './components/Dropdown/dropdownVariables';
 export { dropdownItemVariables as DropdownItem } from './components/Dropdown/dropdownItemVariables';
 export { dropdownSearchInputVariables as DropdownSearchInput } from './components/Dropdown/dropdownSearchInputVariables';
@@ -29,5 +31,7 @@ export { dropdownSelectedItemVariables as DropdownSelectedItem } from './compone
 
 export { inputVariables as Input } from './components/Input/inputVariables';
 export { inputLabelVariables as InputLabel } from './components/Input/inputLabelVariables';
+
+export { radioGroupItemVariables as RadioGroupItem } from './components/RadioGroup/radioGroupItemVariables';
 
 export { textAreaVariables as TextArea } from './components/TextArea/textAreaVariables';

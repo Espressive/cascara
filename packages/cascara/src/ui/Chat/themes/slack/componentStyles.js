@@ -22,6 +22,9 @@ export { chatMessageStyles as ChatMessage } from './components/Chat/chatMessageS
 export { chatMessageDetailsStyles as ChatMessageDetails } from './components/Chat/chatMessageDetailsStyles';
 export { chatMessageReadStatusStyles as ChatMessageReadStatus } from './components/Chat/chatMessageReadStatusStyles';
 
+export { dividerStyles as Divider } from './components/Divider/dividerStyles';
+export { dividerContentStyles as DividerContent } from './components/Divider/dividerContentStyles';
+
 export { dropdownStyles as Dropdown } from './components/Dropdown/dropdownStyles';
 export { dropdownSearchInputStyles as DropdownSearchInput } from './components/Dropdown/dropdownSearchInputStyles';
 export { dropdownSelectedItemStyles as DropdownSelectedItem } from './components/Dropdown/dropdownSelectedItemStyles';
@@ -29,5 +32,8 @@ export { dropdownItemStyles as DropdownItem } from './components/Dropdown/dropdo
 
 export { inputStyles as Input } from './components/Input/inputStyles';
 export { inputLabelStyles as InputLabel } from './components/Input/inputLabelStyles';
+
+export { radioGroupStyles as RadioGroup } from './components/RadioGroup/radioGroupStyles';
+export { radioGroupItemStyles as RadioGroupItem } from './components/RadioGroup/radioGroupItemStyles';
 
 export { textAreaStyles as TextArea } from './components/TextArea/textAreaStyles';

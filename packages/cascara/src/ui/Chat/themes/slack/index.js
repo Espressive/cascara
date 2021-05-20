@@ -8,7 +8,7 @@ import * as componentStyles from './componentStyles';
 import * as componentVariables from './componentVariables';
 
 // These are component themes that we want to copy over without modification
-const COPY_COMPONENTS = ['Flex', 'Image', 'Text'];
+const COPY_COMPONENTS = ['Flex', 'Image', 'Text', 'Card', 'Layout', 'List'];
 
 // Temporarily merging
 const mergedComponentStyles = {
