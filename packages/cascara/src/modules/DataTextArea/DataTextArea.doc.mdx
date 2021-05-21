@@ -1,17 +1,92 @@
 ---
-title: DataTextArea
+title: Data Textarea
 propTable: DataTextArea.js
 type: 'module'
 public: false
 ---
 
-```
-{
-  module: 'textarea'
-  isEditable: true;
-}
+A data module to display `string` values, it renders a input of type `textarea`.
+
+## Text shape
+
+Use the following properties to configure your `textarea` data module:
+
+| property   | type               | description                                                                                               |
+| ---------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
+| attribute  | required `String`  | the attribute name in your data object you want this module to display                                    |
+| module     | required `String`  | specifies the type of module, in this case `textarea`                                                     |
+| isEditable | optional `Boolean` | specifies if the module should render the edition markup when parent enters in `edit` mode                |
+| isLabeled  | optional `Boolean` | specifies if the module should render a lable next to it (useful in `Form`, set it to `false` in `Table`) |
+| label      | optional `String`  | the label text to display if a label is rendered                                                          |
+
+module
+
+Adding this module to your **Cascara** `Table` or `Form` would look like this:
+
+```jsx
+
+---
+title: A Table displaying a `textarea` module
+---
+
+<Table
+
+  // we need to enable edition by passing the `edit` module
+  actions={{
+    actionButtonMenuIndex: -1,
+    modules: [
+      {
+        module: 'edit',
+        cancelLabel: 'Cancelar',
+        editLabel: 'Editar',
+        saveLabel: 'Guardar',
+      },
+    ],
+  }}
+
+  // your data
+  data={[
+    {
+      id: 1,
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+  ]}
+
+  // the fields in our data you want to display
+  dataConfig={{
+    display: [
+      {
+        attribute: 'description',
+        isEditable: true,
+        isLabeled: false,
+        label: 'Description',
+        module: 'textarea',
+      },
+    ],
+  }}
+
+  // the action handler is invoken when a button is clicked
+  onAction={(action, record) => {
+    console.clear();
+    console.log(`Action ${action.name} invoked`);
+    console.table(record);
+
+    switch (action.name) {
+      case 'edit.start':
+        console.log('Entering edit mode');
+        break;
+      case 'edit.cancel':
+        console.log('Exiting edit mode, edit canceled');
+        break;
+      case 'edit.save':
+        console.log('Exitin edit mode, saving changes');
+        break;
+    }
+  }}
+
+  // this defines the unique ID field in your data
+  uniqueIdAttribute={'id'}
+/>
 ```
 
-<ModuleProvider value={{ isEditing: true }}>
-  <DataTextArea label='Text' />
-</ModuleProvider>
+> Open your console!
