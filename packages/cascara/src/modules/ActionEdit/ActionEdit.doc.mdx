@@ -1,11 +1,101 @@
 ---
-title: ActionEdit
+title: Action Edit
 propTable: ActionEdit.js
 type: 'module'
 status: 'Draft'
 public: false
 ---
 
+A special action module, fully controled by `esp-auth`. Use it when you want the data to be editable. It will render 3 types of button depending on the `edit` state of the parent component.
+
+## Button shape
+
+Use the following properties to configure your `edit` module, you can set your own text for each of the buttons to allow i18n:
+
+| property    | type              | description                                       |
+| ----------- | ----------------- | ------------------------------------------------- |
+| module      | required `String` | specifies the type of module, in this case `edit` |
+| cancelLabel | optional `String` | the text for the `cancel` button                  |
+| editLabel   | optional `String` | the text for the `edit` button                    |
+| saveLabel   | optional `String` | the text for the `save` button                    |
+
+Adding this module to your **Cascara** `Table` or `Form` would look like this:
+
+```jsx
+
+---
+title: Action of type 'edit' displayed in a Table
+---
+
+<Table
+
+  // define the actions we want to appear for each table row
+  actions={{
+    actionButtonMenuIndex: -1,
+    modules: [
+      {
+        module: 'edit',
+
+        // Spanish FTW!
+        cancelLabel: 'Cancelar',
+        editLabel: 'Editar',
+        saveLabel: 'Guardar',
+      },
+    ],
+  }}
+
+  // your data
+  data={[
+    {
+      id: 1,
+      userEmail: 'john@doe.it',
+      userName: 'John Doe',
+    },
+  ]}
+
+  // the fields in our data you want to display
+  dataConfig={{
+    display: [
+      {
+        attribute: 'id',
+        isEditable: false,
+        isLabeled: false,
+        label: 'ID',
+        module: 'number',
+      },
+      {
+        attribute: 'userEmail',
+        isEditable: true,
+        isLabeled: false,
+        label: 'eMail',
+        module: 'text',
+      },
+      {
+        attribute: 'userName',
+        isEditable: true,
+        isLabeled: false,
+        label: 'Name',
+        module: 'text',
+      },
+    ],
+  }}
+
+  // the action handler is invoken when a button is clicked
+  onAction={(action, record) => {
+    console.clear();
+    console.log(`Action ${action.name} invoked`);
+    console.table(record);
+
+    switch (action.name) {
+      case 'edit.start':
+        console.log(`Your action '${action.name}' has been invoked!`)
+        break;
+    }
+  }}
+
+  // this defines the unique ID field in your data
+  uniqueIdAttribute={'id'}
+/>
 ```
-<ActionEdit />
-```
+
+> The above example renders a `Table`, this is because modules can only be used inside `Table` of `Form`.

@@ -1,10 +1,98 @@
 ---
-title: ActionButton
+title: Action Button
 propTable: ActionButton.js
 type: 'module'
 public: false
 ---
 
+This action module renders a simple button, use it for custom actions.
+
+## Button shape
+
+Use the following properties to configure your `button` module:
+
+| property | type              | (accepted) value(s)                       | description                                                |
+| -------- | ----------------- | ----------------------------------------- | ---------------------------------------------------------- |
+| module   | required `String` | enum: [`button`, `edit`]                  | specifies the type of module, in this case `button`        |
+| name     | required `String` |                                           | the action name that will passed to the `onAction` handler |
+| content  | required `String` |                                           | the button text                                            |
+| size     | optional `String` | enum: [`mini`, `tiny`, `small`, `medium`] | the button size                                            |
+
+Adding this module to a **Cascara** `Table` would look like this:
+
+```jsx
+
+---
+title: Action of type 'button' displayed in a Table
+---
+
+<Table
+
+  // define the actions we want to appear for each table row
+  actions={{
+    actionButtonMenuIndex: -1,
+    modules: [
+      {
+        module: 'button',
+        name: 'test',
+        content: 'Test',
+        size: 'small',
+      },
+    ],
+  }}
+
+  // your data
+  data={[
+    {
+      id: 1,
+      userEmail: 'john@doe.it',
+      userName: 'John Doe',
+    },
+  ]}
+
+  // the fields in our data you want to display
+  dataConfig={{
+    display: [
+      {
+        attribute: 'id',
+        isEditable: false,
+        isLabeled: false,
+        label: 'ID',
+        module: 'number',
+      },
+      {
+        attribute: 'userEmail',
+        isEditable: false,
+        isLabeled: false,
+        label: 'eMail',
+        module: 'text',
+      },
+      {
+        attribute: 'userName',
+        isEditable: false,
+        isLabeled: false,
+        label: 'Name',
+        module: 'text',
+      },
+    ],
+  }}
+
+  // the action handler is invoken when a button is clicked
+  onAction={(action, record) => {
+    console.clear();
+    console.log(`Action ${action.name} invoked`);
+    console.table(record);
+
+    switch (action.name) {
+      case 'test': // this has to be the same as your action name
+        console.log(`Your action '${action.name}' has been invoked!`)
+        break;
+    }
+  }}
+
+  // this defines the unique ID field in your data
+  uniqueIdAttribute={'id'}
+/>
 ```
-<ActionButton />
-```
+
+> The above example renders a `Table`, this is because modules can only be used inside `Table` of `Form`.
