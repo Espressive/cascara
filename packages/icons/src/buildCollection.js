@@ -102,21 +102,27 @@ tools
 
       const iconFile = `var data = {body: '${svg.getBody()}', height: ${
         svg.height
-      }, width: ${svg.width}};\nexport default data`;
+      }, width: ${svg.width}};\nmodule.exports = data`;
 
       fs.writeFileSync(`${name}.js`, iconFile);
     });
 
-    const indexFile = collectionNames
+    const indexFileImportSection = collectionNames
       .map(
         (iconName) =>
-          `export { default as ${snakeToCamel(
-            iconName
-          )}Icon } from './${iconName}';`
+          `const ${snakeToCamel(iconName)}Icon = require ('./${iconName}');`
       )
       .join('\n');
 
-    fs.writeFileSync('index.js', indexFile);
+    const indexFileExportSection = `module.exports = {
+        ${collectionNames
+          .map((iconName) => ` ${snakeToCamel(iconName)}Icon,`)
+          .join('\n')}`;
+
+    fs.writeFileSync(
+      'index.js',
+      `${indexFileImportSection}\n${indexFileExportSection}};`
+    );
   })
   .catch((err) => {
     console.error(err);
