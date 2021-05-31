@@ -1,34 +1,38 @@
 ---
 title: Action Edit
-propTable: ActionEdit.js
+propTable: ./ActionEdit.js
 type: 'module'
 status: 'Draft'
 public: false
 ---
 
-A special action module, fully controled by `esp-auth`. Use it when you want the data to be editable. It will render 3 types of button depending on the `edit` state of the parent component.
+A special action module, fully controled by **esp-auth**. Use it when you want the data to be editable.
+I contrast with the **button** module, this module renders up to 2 buttons, depending on the **edit** state of the parent context:
+
+1. when not in **edit** mode, it will render a single button with the text you pass as **editLabel** prop, clicking that button will make the **edit** mode kick-in
+2. when in **edit** mode, it will render a button for exiting **edit** mode (AKA cancel) and one for accepting the changes made during **edit** mode (AKA saving).
+
+All these three buttons will cause your Table or Form to emit the following **onAction** events:
+
+1. **edit.start** when entering in **edit** mode
+2. **edit.cancel** when exiting the **edit** mode via the **cancel** button
+3. **edit.save** when exiting the **edit** mode via the **save** button
 
 ## Button shape
 
-Use the following properties to configure your `edit` module, you can set your own text for each of the buttons to allow i18n:
+Use the following properties to configure your **edit** module, you can set your own text for each of the buttons to allow i18n:
 
-| property    | type              | description                                       |
-| ----------- | ----------------- | ------------------------------------------------- |
-| module      | required `String` | specifies the type of module, in this case `edit` |
-| cancelLabel | optional `String` | the text for the `cancel` button                  |
-| editLabel   | optional `String` | the text for the `edit` button                    |
-| saveLabel   | optional `String` | the text for the `save` button                    |
+| property    | type                | description                                         |
+| ----------- | ------------------- | --------------------------------------------------- |
+| module      | required **String** | specifies the type of module, in this case **edit** |
+| cancelLabel | optional **String** | the text for the **cancel** button                  |
+| editLabel   | optional **String** | the text for the **edit** button                    |
+| saveLabel   | optional **String** | the text for the **save** button                    |
 
-Adding this module to your **Cascara** `Table` or `Form` would look like this:
+Adding this module to your **Cascara** **Table** or **Form** would look like this:
 
 ```jsx
-
----
-title: Action of type 'edit' displayed in a Table
----
-
 <Table
-
   // define the actions we want to appear for each table row
   actions={{
     actionButtonMenuIndex: -1,
@@ -43,7 +47,6 @@ title: Action of type 'edit' displayed in a Table
       },
     ],
   }}
-
   // your data
   data={[
     {
@@ -52,7 +55,6 @@ title: Action of type 'edit' displayed in a Table
       userName: 'John Doe',
     },
   ]}
-
   // the fields in our data you want to display
   dataConfig={{
     display: [
@@ -79,7 +81,6 @@ title: Action of type 'edit' displayed in a Table
       },
     ],
   }}
-
   // the action handler is invoken when a button is clicked
   onAction={(action, record) => {
     console.clear();
@@ -88,11 +89,10 @@ title: Action of type 'edit' displayed in a Table
 
     switch (action.name) {
       case 'edit.start':
-        console.log(`Your action '${action.name}' has been invoked!`)
+        console.log(`Your action '${action.name}' has been invoked!`);
         break;
     }
   }}
-
   // this defines the unique ID field in your data
   uniqueIdAttribute={'id'}
 />

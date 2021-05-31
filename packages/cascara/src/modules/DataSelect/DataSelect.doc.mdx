@@ -1,6 +1,6 @@
 ---
 title: Data Select
-propTable: DataSelect.js
+propTable: ./DataSelect.js
 type: 'module'
 status: 'Draft'
 public: false
@@ -10,30 +10,24 @@ A data module to display multiple option values, it renders a select element.
 
 ## Select shape
 
-Use the following properties to configure your `selrct` data module:
+Use the following properties to configure your **selrct** data module:
 
-| property   | type                     | description                                                                                               |
-| ---------- | ------------------------ | --------------------------------------------------------------------------------------------------------- |
-| attribute  | required `String`        | the attribute name in your data object you want this module to display                                    |
-| module     | required `String`        | specifies the type of module, in this case `select`                                                       |
-| options    | required `Array[Object]` | the list of available options                                                                             |
-| isEditable | optional `Boolean`       | specifies if the module should render the edition markup when parent enters in `edit` mode                |
-| isLabeled  | optional `Boolean`       | specifies if the module should render a lable next to it (useful in `Form`, set it to `false` in `Table`) |
-| label      | optional `String`        | the label text to display if a label is rendered                                                          |
-| value      | optional `String`        | the current selection                                                                                     |
+| property   | type                       | description                                                                                                     |
+| ---------- | -------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| attribute  | required **String**        | the attribute name in your data object you want this module to display                                          |
+| module     | required **String**        | specifies the type of module, in this case **select**                                                           |
+| options    | required **Array[Object]** | the list of available options                                                                                   |
+| isEditable | optional **Boolean**       | specifies if the module should render the edition markup when parent enters in **edit** mode                    |
+| isLabeled  | optional **Boolean**       | specifies if the module should render a lable next to it (useful in **Form**, set it to **false** in **Table**) |
+| label      | optional **String**        | the label text to display if a label is rendered                                                                |
+| value      | optional **String**        | the current selection                                                                                           |
 
 module
 
-Adding this module to your **Cascara** `Table` or `Form` would look like this:
+Adding this module to your **Cascara** **Table** or **Form** would look like this:
 
 ```jsx
-
----
-title: A Table displaying a `select` module
----
-
 <Table
-
   // we need to enable edition by passing the `edit` module
   actions={{
     actionButtonMenuIndex: -1,
@@ -46,7 +40,6 @@ title: A Table displaying a `select` module
       },
     ],
   }}
-
   // your data
   data={[
     {
@@ -54,7 +47,6 @@ title: A Table displaying a `select` module
       color: 'blue',
     },
   ]}
-
   // the fields in our data you want to display
   dataConfig={{
     display: [
@@ -80,11 +72,10 @@ title: A Table displaying a `select` module
             value: 'white',
             text: 'White',
           },
-        ]
+        ],
       },
     ],
   }}
-
   // the action handler is invoken when a button is clicked
   onAction={(action, record) => {
     console.clear();
@@ -103,7 +94,6 @@ title: A Table displaying a `select` module
         break;
     }
   }}
-
   // this defines the unique ID field in your data
   uniqueIdAttribute={'id'}
 />

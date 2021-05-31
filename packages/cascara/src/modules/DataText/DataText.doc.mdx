@@ -1,36 +1,30 @@
 ---
 title: Data Text
-propTable: DataText.js
+propTable: ./DataText.js
 type: 'module'
 public: false
 ---
 
-A data module to display `string` values, it renders a input of type `text`.
+A data module to display **string** values, it renders a input of type **text**.
 
 ## Text shape
 
-Use the following properties to configure your `number` data module:
+Use the following properties to configure your **number** data module:
 
-| property   | type               | description                                                                                               |
-| ---------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
-| attribute  | required `String`  | the attribute name in your data object you want this module to display                                    |
-| module     | required `String`  | specifies the type of module, in this case `text`                                                         |
-| isEditable | optional `Boolean` | specifies if the module should render the edition markup when parent enters in `edit` mode                |
-| isLabeled  | optional `Boolean` | specifies if the module should render a lable next to it (useful in `Form`, set it to `false` in `Table`) |
-| label      | optional `String`  | the label text to display if a label is rendered                                                          |
+| property   | type                 | description                                                                                                     |
+| ---------- | -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| attribute  | required **String**  | the attribute name in your data object you want this module to display                                          |
+| module     | required **String**  | specifies the type of module, in this case **text**                                                             |
+| isEditable | optional **Boolean** | specifies if the module should render the edition markup when parent enters in **edit** mode                    |
+| isLabeled  | optional **Boolean** | specifies if the module should render a lable next to it (useful in **Form**, set it to **false** in **Table**) |
+| label      | optional **String**  | the label text to display if a label is rendered                                                                |
 
 module
 
-Adding this module to your **Cascara** `Table` or `Form` would look like this:
+Adding this module to your **Cascara** **Table** or **Form** would look like this:
 
 ```jsx
-
----
-title: A Table displaying a `text` module
----
-
 <Table
-
   // we need to enable edition by passing the `edit` module
   actions={{
     actionButtonMenuIndex: -1,
@@ -43,7 +37,6 @@ title: A Table displaying a `text` module
       },
     ],
   }}
-
   // your data
   data={[
     {
@@ -51,7 +44,6 @@ title: A Table displaying a `text` module
       firstName: 'John',
     },
   ]}
-
   // the fields in our data you want to display
   dataConfig={{
     display: [
@@ -64,7 +56,6 @@ title: A Table displaying a `text` module
       },
     ],
   }}
-
   // the action handler is invoken when a button is clicked
   onAction={(action, record) => {
     console.clear();
@@ -83,7 +74,6 @@ title: A Table displaying a `text` module
         break;
     }
   }}
-
   // this defines the unique ID field in your data
   uniqueIdAttribute={'id'}
 />

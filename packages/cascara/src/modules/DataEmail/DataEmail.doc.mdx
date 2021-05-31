@@ -1,36 +1,31 @@
 ---
 title: Data Email
-propTable: DataEmail.js
+propTable: ./DataEmail.js
 type: 'module'
+status: 'Draft'
 public: false
 ---
 
-A data module to display `email` values, it renders a input of type `email`.
+A data module to display **email** values, it renders a input of type **email**.
 
 ## Email shape
 
-Use the following properties to configure your `email` data module:
+Use the following properties to configure your **email** data module:
 
-| property   | type               | description                                                                                               |
-| ---------- | ------------------ | --------------------------------------------------------------------------------------------------------- |
-| attribute  | required `String`  | the attribute name in your data object you want this module to display                                    |
-| module     | required `String`  | specifies the type of module, in this case `email`                                                        |
-| isEditable | optional `Boolean` | specifies if the module should render the edition markup when parent enters in `edit` mode                |
-| isLabeled  | optional `Boolean` | specifies if the module should render a lable next to it (useful in `Form`, set it to `false` in `Table`) |
-| label      | optional `String`  | the label text to display if a label is rendered                                                          |
+| property   | type                 | description                                                                                                     |
+| ---------- | -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| attribute  | required **String**  | the attribute name in your data object you want this module to display                                          |
+| module     | required **String**  | specifies the type of module, in this case **email**                                                            |
+| isEditable | optional **Boolean** | specifies if the module should render the edition markup when parent enters in **edit** mode                    |
+| isLabeled  | optional **Boolean** | specifies if the module should render a lable next to it (useful in **Form**, set it to **false** in **Table**) |
+| label      | optional **String**  | the label text to display if a label is rendered                                                                |
 
 module
 
-Adding this module to your **Cascara** `Table` or `Form` would look like this:
+Adding this module to your **Cascara** **Table** or **Form** would look like this:
 
 ```jsx
-
----
-title: A Table displaying an `email` module
----
-
 <Table
-
   // we need to enable edition by passing the `edit` module
   actions={{
     actionButtonMenuIndex: -1,
@@ -43,7 +38,6 @@ title: A Table displaying an `email` module
       },
     ],
   }}
-
   // your data
   data={[
     {
@@ -51,7 +45,6 @@ title: A Table displaying an `email` module
       email: 'test@example.com',
     },
   ]}
-
   // the fields in our data you want to display
   dataConfig={{
     display: [
@@ -64,7 +57,6 @@ title: A Table displaying an `email` module
       },
     ],
   }}
-
   // the action handler is invoken when a button is clicked
   onAction={(action, record) => {
     console.clear();
@@ -83,7 +75,6 @@ title: A Table displaying an `email` module
         break;
     }
   }}
-
   // this defines the unique ID field in your data
   uniqueIdAttribute={'id'}
 />

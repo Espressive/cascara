@@ -1,7 +1,8 @@
 ---
 title: Action Button
-propTable: ActionButton.js
+propTable: ./ActionButton.js
 type: 'module'
+status: 'Draft'
 public: false
 ---
 
@@ -9,25 +10,19 @@ This action module renders a simple button, use it for custom actions.
 
 ## Button shape
 
-Use the following properties to configure your `button` module:
+Use the following properties to configure your button module:
 
-| property | type              | (accepted) value(s)                       | description                                                |
-| -------- | ----------------- | ----------------------------------------- | ---------------------------------------------------------- |
-| module   | required `String` | enum: [`button`, `edit`]                  | specifies the type of module, in this case `button`        |
-| name     | required `String` |                                           | the action name that will passed to the `onAction` handler |
-| content  | required `String` |                                           | the button text                                            |
-| size     | optional `String` | enum: [`mini`, `tiny`, `small`, `medium`] | the button size                                            |
+| property | type             | (accepted) value(s)                       | description                                                  |
+| -------- | ---------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| module   | required, String | enum: ['button', 'edit']                  | specifies the type of module, in this case **button**        |
+| name     | required, String |                                           | the action name that will passed to the **onAction** handler |
+| content  | required, String |                                           | the button text                                              |
+| size     | optional, String | enum: ['mini', 'tiny', 'small', 'medium'] | the button size                                              |
 
 Adding this module to a **Cascara** `Table` would look like this:
 
 ```jsx
-
----
-title: Action of type 'button' displayed in a Table
----
-
 <Table
-
   // define the actions we want to appear for each table row
   actions={{
     actionButtonMenuIndex: -1,
@@ -40,7 +35,6 @@ title: Action of type 'button' displayed in a Table
       },
     ],
   }}
-
   // your data
   data={[
     {
@@ -49,7 +43,6 @@ title: Action of type 'button' displayed in a Table
       userName: 'John Doe',
     },
   ]}
-
   // the fields in our data you want to display
   dataConfig={{
     display: [
@@ -76,8 +69,7 @@ title: Action of type 'button' displayed in a Table
       },
     ],
   }}
-
-  // the action handler is invoken when a button is clicked
+  // the action handler is invoked when a button is clicked
   onAction={(action, record) => {
     console.clear();
     console.log(`Action ${action.name} invoked`);
@@ -85,11 +77,10 @@ title: Action of type 'button' displayed in a Table
 
     switch (action.name) {
       case 'test': // this has to be the same as your action name
-        console.log(`Your action '${action.name}' has been invoked!`)
+        console.log(`Your action '${action.name}' has been invoked!`);
         break;
     }
   }}
-
   // this defines the unique ID field in your data
   uniqueIdAttribute={'id'}
 />
