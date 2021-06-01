@@ -5,13 +5,13 @@ import { ModuleContext } from '../context';
 import { Button } from 'reakit';
 
 const propTypes = {
-  /** deprecated - do not use */
+  /** DEPRECATED - do not use */
   actionName: pt.string,
   /** Presents the button without a label. NOT USER CONFIGURABLE */
   isLabeled: pt.bool,
   /** An action needs to have a unique label relative to its context */
   label: pt.string,
-  /** Every action can have a name */
+  /** Every action must have a name */
   name: pt.string,
 };
 

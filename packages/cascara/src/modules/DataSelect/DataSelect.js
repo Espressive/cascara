@@ -19,6 +19,7 @@ const propTypes = {
   options: pt.arrayOf(
     pt.shape({
       key: pt.string,
+      text: pt.oneOfType([pt.string, pt.number]),
       value: pt.oneOfType([pt.string, pt.number]),
     })
   ),

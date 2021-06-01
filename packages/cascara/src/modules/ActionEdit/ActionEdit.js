@@ -6,8 +6,11 @@ import { Button } from 'reakit';
 import { Icon } from 'semantic-ui-react';
 
 const propTypes = {
+  /** An optional text label for the cancel button */
   cancelLabel: pt.node,
-  editLabel: pt.string,
+  /** An optional text label for the edit button */
+  editLabel: pt.node,
+  /** An optional text label for the save button */
   saveLabel: pt.node,
 };
 

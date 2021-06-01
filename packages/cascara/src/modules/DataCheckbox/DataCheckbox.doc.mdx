@@ -1,23 +1,19 @@
 ---
 title: Data Checkbox
-propTable: ./DataCheckbox.js
+propTable: DataCheckbox.js
 type: 'module'
 public: false
 ---
 
 A data module to display **Boolean** values, it renders a checkbox.
 
-## Checkbox shape
+## Using the module
 
-Use the following properties to configure your **checkbox** data module:
+Additional to the props specified aside, please use the following property to configure your module:
 
-| property   | type                 | description                                                                                                     |
-| ---------- | -------------------- | --------------------------------------------------------------------------------------------------------------- |
-| attribute  | required **String**  | the attribute name in your data object you want this module to display                                          |
-| module     | required **String**  | specifies the type of module, in this case **checkbox**                                                         |
-| isEditable | optional **Boolean** | specigies if the module should render the edition markup when parent enters in **edit** mode                    |
-| isLabeled  | optional **Boolean** | specifies if the module should render a lable next to it (useful in **Form**, set it to **false** in **Table**) |
-| label      | optional **String**  | the label text to display if a label is rendered                                                                |
+| property | type                | description                                             |
+| -------- | ------------------- | ------------------------------------------------------- |
+| module   | required **String** | specifies the type of module, in this case **checkbox** |
 
 > Adding this module to your **Cascara** **Table** or **Form** would look like this:
 
@@ -45,6 +41,7 @@ Use the following properties to configure your **checkbox** data module:
   // the fields in our data you want to display
   dataConfig={{
     display: [
+      // add the object that maps your attribute to the module
       {
         attribute: 'active',
         isEditable: true,
@@ -68,7 +65,7 @@ Use the following properties to configure your **checkbox** data module:
         console.log('Exiting edit mode, edit canceled');
         break;
       case 'edit.save':
-        console.log('Exitin edit mode, saving changes');
+        console.log('Exiting edit mode, saving changes');
         break;
     }
   }}

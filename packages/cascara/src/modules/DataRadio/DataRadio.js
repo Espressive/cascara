@@ -15,6 +15,12 @@ const propTypes = {
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
+  /** A Radio module can have multiple options */
+  options: pt.shape({
+    key: pt.string,
+    text: pt.oneOfType([pt.string, pt.number]),
+    value: pt.oneOfType([pt.string, pt.number]),
+  }),
   /** A Module can have a value */
   value: pt.bool,
 };

@@ -1,6 +1,6 @@
 ---
 title: Action Edit
-propTable: ./ActionEdit.js
+propTable: ActionEdit.js
 type: 'module'
 status: 'Draft'
 public: false
@@ -18,16 +18,17 @@ All these three buttons will cause your Table or Form to emit the following **on
 2. **edit.cancel** when exiting the **edit** mode via the **cancel** button
 3. **edit.save** when exiting the **edit** mode via the **save** button
 
-## Button shape
+## Using the module
 
-Use the following properties to configure your **edit** module, you can set your own text for each of the buttons to allow i18n:
+Additional to the props specified aside, please use the following property to configure your module:
 
-| property    | type                | description                                         |
-| ----------- | ------------------- | --------------------------------------------------- |
-| module      | required **String** | specifies the type of module, in this case **edit** |
-| cancelLabel | optional **String** | the text for the **cancel** button                  |
-| editLabel   | optional **String** | the text for the **edit** button                    |
-| saveLabel   | optional **String** | the text for the **save** button                    |
+| property | type                | description                                         |
+| -------- | ------------------- | --------------------------------------------------- |
+| module   | required **String** | specifies the type of module, in this case **edit** |
+
+> Adding this module to your **Cascara** **Table** or **Form** would look like this:
+
+### Example
 
 Adding this module to your **Cascara** **Table** or **Form** would look like this:
 
@@ -40,10 +41,7 @@ Adding this module to your **Cascara** **Table** or **Form** would look like thi
       {
         module: 'edit',
 
-        // Spanish FTW!
-        cancelLabel: 'Cancelar',
-        editLabel: 'Editar',
-        saveLabel: 'Guardar',
+        // any other valid props
       },
     ],
   }}

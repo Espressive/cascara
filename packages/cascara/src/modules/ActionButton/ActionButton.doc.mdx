@@ -1,6 +1,6 @@
 ---
 title: Action Button
-propTable: ./ActionButton.js
+propTable: ActionButton.js
 type: 'module'
 status: 'Draft'
 public: false
@@ -8,16 +8,17 @@ public: false
 
 This action module renders a simple button, use it for custom actions.
 
-## Button shape
+## Using the module
 
-Use the following properties to configure your button module:
+Additional to the props specified aside, please use the following property to configure your module:
 
-| property | type             | (accepted) value(s)                       | description                                                  |
-| -------- | ---------------- | ----------------------------------------- | ------------------------------------------------------------ |
-| module   | required, String | enum: ['button', 'edit']                  | specifies the type of module, in this case **button**        |
-| name     | required, String |                                           | the action name that will passed to the **onAction** handler |
-| content  | required, String |                                           | the button text                                              |
-| size     | optional, String | enum: ['mini', 'tiny', 'small', 'medium'] | the button size                                              |
+| property | type                | description                                           |
+| -------- | ------------------- | ----------------------------------------------------- |
+| module   | required **String** | specifies the type of module, in this case **button** |
+
+> Adding this module to your **Cascara** **Table** or **Form** would look like this:
+
+## Example
 
 Adding this module to a **Cascara** `Table` would look like this:
 
