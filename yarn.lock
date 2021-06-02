@@ -1677,6 +1677,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@bjeco/prettier-config@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@bjeco/prettier-config/-/prettier-config-0.1.6.tgz#cbf103f297d7224eaf9786e6782b2573725bf3d3"
+  integrity sha512-5E55X66PYb5FmGdcSLFWawpOQcGzWZzxMhp8K7Ug25DpXqLT47qskLx3jcEZCXj+yooZCkY6RFgVP/thPrajpg==
+  dependencies:
+    prettier "2.0.5"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1753,7 +1760,7 @@
   dependencies:
     "@babel/runtime" "7.14.0"
     "@espressive/icons" "^0.0.2-alpha.1"
-    "@iconify-icons/ic" "1.1.4"
+    "@iconify-icons/ic" "1.1.5"
     "@iconify/react" "1.1.4"
     "@nivo/bar" "0.67.0"
     "@nivo/bump" "0.67.0"
@@ -2250,10 +2257,10 @@
     gud "^1.0.0"
     warning "^4.0.3"
 
-"@iconify-icons/ic@1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@iconify-icons/ic/-/ic-1.1.4.tgz#a73da0e23c334e1f010efb2f86259a60c2a5ca62"
-  integrity sha512-6GGvRY+JUl1Jr4EZnSmwaeTGpQYV57TU/tPbX+nfXnC3pkmlqSN9nj1FUTRTU1RZcD5jGKkfVnVS1gN36G+TZw==
+"@iconify-icons/ic@1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@iconify-icons/ic/-/ic-1.1.5.tgz#ceb30b9818e4c30f4ced75da3bbebbbe924bfb1d"
+  integrity sha512-KmpTrQCuJT9HLKNYZFCg/1JhIsJctAa37MMH4Thobi1OHoY1mt5JGu9uxpOht9LZfH7K73bbBkvggud5EOgBxA==
 
 "@iconify/json-tools@^1.0.9":
   version "1.0.10"
@@ -15281,6 +15288,11 @@ prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
+
+prettier@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.5.tgz#d6d56282455243f2f92cc1716692c08aa31522d4"
+  integrity sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==
 
 prettier@2.2.1:
   version "2.2.1"
