@@ -9,6 +9,7 @@
   },
   "license": "CC0-1.0",
   "sideEffects": false,
+  "type": "module",
   "scripts": {
     "build": "yarn clean && yarn collection",
     "collection": "node src/buildCollection",
