@@ -1,4 +1,4 @@
-import icon from '@iconify/icons-ic/twotone-settings';
+import icon from '@iconify-icons/ic/twotone-settings';
 import React from 'react';
 
 // We use the React dynamic/lazy import syntax because these components are

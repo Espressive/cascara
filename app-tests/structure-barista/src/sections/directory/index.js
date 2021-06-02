@@ -1,4 +1,4 @@
-import icon from '@iconify/icons-ic/twotone-supervised-user-circle';
+import icon from '@iconify-icons/ic/twotone-supervised-user-circle';
 import React, { lazy } from 'react';
 
 // We use the React dynamic/lazy import syntax because these components are

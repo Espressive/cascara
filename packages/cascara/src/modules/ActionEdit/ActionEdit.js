@@ -3,7 +3,6 @@ import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
 import { Button } from 'reakit';
-import { Icon } from 'semantic-ui-react';
 
 const propTypes = {
   cancelLabel: pt.node,
@@ -11,8 +10,8 @@ const propTypes = {
   saveLabel: pt.node,
 };
 
-const DEFAULT_SAVE = <Icon name='check' />;
-const DEFAULT_CANCEL = <Icon name='delete' />;
+const DEFAULT_SAVE = <i aria-hidden='true' className='check icon' />;
+const DEFAULT_CANCEL = <i aria-hidden='true' className='delete icon' />;
 
 const ActionEdit = ({
   cancelLabel = DEFAULT_CANCEL,

@@ -1,9 +1,9 @@
 import React from 'react';
 import BaristaStructure from '.';
 import { NavLink } from 'react-router-dom';
-import house from '@iconify/icons-ic/twotone-house';
-import clock from '@iconify/icons-ic/twotone-lock-clock';
-import settings from '@iconify/icons-ic/twotone-settings';
+import house from '@iconify-icons/ic/twotone-house';
+import clock from '@iconify-icons/ic/twotone-lock-clock';
+import settings from '@iconify-icons/ic/twotone-settings';
 
 const longContent = (
   <ul>

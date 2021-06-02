@@ -1,7 +1,6 @@
 /** eslint-disable no-console */
 import React from 'react';
 import faker from 'faker';
-import { Container } from 'semantic-ui-react';
 import Table from '..';
 
 faker.seed(1);
@@ -70,14 +69,14 @@ const dataConfig = {
 };
 
 const Fixture = () => (
-  <Container>
+  <div className='ui container'>
     <Table
       data={testData(30)}
       dataConfig={dataConfig}
       onAction={console.log}
       uniqueIdAttribute={'eid'}
     />
-  </Container>
+  </div>
 );
 
 export default Fixture;

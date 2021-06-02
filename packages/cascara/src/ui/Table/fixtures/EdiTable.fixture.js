@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Dropdown, Header } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
 
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
@@ -184,23 +184,21 @@ class Fixture extends PureComponent {
           data={{ availableColumns, selectedColumns }}
           title='available vs. selected columns'
         />
-        <Header as='h4'>
-          <Header.Content>
-            Displaying columns: <br />
-            <Dropdown
-              header='Select columns...'
-              key={'select'}
-              labeled
-              multiple
-              onChange={this.handleColumnSelection}
-              options={availableColumns}
-              placeholder='select columns...'
-              selectedLabel={'Display columns'}
-              selection
-              value={selectedColumns}
-            />
-          </Header.Content>
-        </Header>
+        <h4 className='ui header'>
+          Displaying columns: <br />
+          <Dropdown
+            header='Select columns...'
+            key={'select'}
+            labeled
+            multiple
+            onChange={this.handleColumnSelection}
+            options={availableColumns}
+            placeholder='select columns...'
+            selectedLabel={'Display columns'}
+            selection
+            value={selectedColumns}
+          />
+        </h4>
 
         <Table
           data={data}
