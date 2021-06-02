@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
 import Dashboard from '../Dashboard';
 import pieData from '../data/Pie';
 import pieData2 from '../data/Pie2';
@@ -142,9 +141,9 @@ const dashboardConfig = [
 
 const DashboardPAC = () => {
   return (
-    <Container as='main' style={{ padding: '2em 0' }}>
+    <main className='ui container' style={{ padding: '2em 0' }}>
       <Dashboard config={dashboardConfig} />
-    </Container>
+    </main>
   );
 };
 

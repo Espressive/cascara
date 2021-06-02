@@ -1,4 +1,4 @@
-import icon from '@iconify/icons-ic/twotone-shopping-basket';
+import icon from '@iconify-icons/ic/twotone-shopping-basket';
 import React, { lazy } from 'react';
 
 // We use the React dynamic/lazy import syntax because these components are
