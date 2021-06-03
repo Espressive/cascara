@@ -7,7 +7,7 @@ import { Button } from 'reakit';
 const propTypes = {
   /** DEPRECATED - do not use */
   actionName: pt.string,
-  /** Presents the button without a label. NOT USER CONFIGURABLE */
+  /** PRIVATE: Shows a label */
   isLabeled: pt.bool,
   /** An action needs to have a unique label relative to its context */
   label: pt.string,
