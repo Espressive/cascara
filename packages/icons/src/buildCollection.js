@@ -5,11 +5,13 @@
  * This example uses Iconify Tools to convert icons to Iconify JSON format.
  * For Iconify Tools documentation visit https://docs.iconify.design/tools/node/
  */
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import tools from '@iconify/tools';
 
-// Installation: npm install --save-dev @iconify/tools
-const tools = require('@iconify/tools');
+// Because this is modules based, we need to create dirname for path.resolve
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // SVG files location
 const source = path.resolve(__dirname, 'svg');
