@@ -43,7 +43,7 @@
     "memoize-one": "5.2.1",
     "react-fast-compare": "3.2.0",
     "react-hook-form": "6.8.4",
-    "react-textarea-autosize": "8.3.2",
+    "react-textarea-autosize": "8.3.3",
     "reakit": "next"
   },
   "devDependencies": {
