@@ -17,8 +17,9 @@
     "prepare": "yarn build",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
-  "dependencies": {
-    "@iconify/tools": "1.3.17"
+  "devDependencies": {
+    "@iconify/tools": "1.3.17",
+    "require": "2.4.20"
   },
   "publishConfig": {
     "access": "public",
