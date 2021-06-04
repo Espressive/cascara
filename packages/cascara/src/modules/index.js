@@ -10,6 +10,7 @@ import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
 import ModuleError from './ModuleError';
+import ModuleSandbox from './ModuleSandbox';
 
 export {
   ActionButton,
@@ -24,4 +25,5 @@ export {
   ModuleContext,
   ModuleProvider,
   ModuleError,
+  ModuleSandbox,
 };

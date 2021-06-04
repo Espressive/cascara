@@ -17,76 +17,7 @@ Additional to the props specified in the aside table, you need to pass the `modu
 Feel free to play around with the following code:
 
 ```jsx
-<ModuleExample>
+<ModuleSandbox>
   <ActionButton name='myAction' content='Click me' size='small' />
-</ModuleExample>
-```
-
-### Use in Table
-
-Adding this module to your **Cascara Table** would look like this:
-
-```jsx
-<Table
-  // define the actions we want to appear for each table row
-  actions={{
-    actionButtonMenuIndex: -1,
-    modules: [
-      {
-        module: 'button',
-        name: 'test',
-        content: 'Test',
-        size: 'small',
-      },
-    ],
-  }}
-  // your data
-  data={[
-    {
-      id: 1,
-      userEmail: 'john@doe.it',
-      userName: 'John Doe',
-    },
-  ]}
-  // the fields in our data you want to display
-  dataConfig={{
-    display: [
-      {
-        attribute: 'id',
-        isEditable: false,
-        isLabeled: false,
-        label: 'ID',
-        module: 'number',
-      },
-      {
-        attribute: 'userEmail',
-        isEditable: false,
-        isLabeled: false,
-        label: 'eMail',
-        module: 'text',
-      },
-      {
-        attribute: 'userName',
-        isEditable: false,
-        isLabeled: false,
-        label: 'Name',
-        module: 'text',
-      },
-    ],
-  }}
-  // the action handler is invoken when a button is clicked
-  onAction={(action, record) => {
-    console.clear();
-    console.log(`Action ${action.name} invoked`);
-    console.table(record);
-
-    switch (action.name) {
-      case 'test': // this has to be the same as your action name
-        console.log(`Your action '${action.name}' has been invoked!`);
-        break;
-    }
-  }}
-  // this defines the unique ID field in your data
-  uniqueIdAttribute={'id'}
-/>
+</ModuleSandbox>
 ```

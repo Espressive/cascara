@@ -7,12 +7,12 @@ public: false
 
 A data module to display **Boolean** values, it renders a checkbox.
 
-### Playground
+### Sandbox
 
 Feel free to play around with the following code:
 
 ```jsx
-<ModuleExample
+<ModuleSandbox
   isEditing={true}
   record={{
     id: 1,
@@ -27,70 +27,5 @@ Feel free to play around with the following code:
     module='checkbox'
     value={true}
   />
-</ModuleExample>
+</ModuleSandbox>
 ```
-
-### Use in Table
-
-Adding this module to your **Cascara Table** would look like this:
-
-```jsx
-<Table
-  // we need to enable edition by passing the `edit` module
-  actions={{
-    actionButtonMenuIndex: -1,
-    modules: [
-      {
-        module: 'edit',
-        cancelLabel: 'Cancelar',
-        editLabel: 'Editar',
-        saveLabel: 'Guardar',
-      },
-    ],
-  }}
-  // your data
-  data={[
-    {
-      id: 1,
-      active: false,
-    },
-  ]}
-  // the fields in our data you want to display
-  dataConfig={{
-    display: [
-      // add the object that maps your attribute to the module
-      {
-        attribute: 'active',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Active',
-        module: 'checkbox',
-      },
-    ],
-  }}
-  // the action handler is invoken when a button is clicked
-  onAction={(action, record) => {
-    console.clear();
-    console.log(`Action ${action.name} invoked`);
-    console.table(record);
-
-    switch (action.name) {
-      case 'edit.start':
-        console.log('Entering edit mode');
-        break;
-      case 'edit.cancel':
-        console.log('Exiting edit mode, edit canceled');
-        break;
-      case 'edit.save':
-        console.log('Exiting edit mode, saving changes');
-        break;
-    }
-  }}
-  // this defines the unique ID field in your data
-  uniqueIdAttribute={'id'}
-/>
-```
-
-> When used in **Table** or **Form**, you must pass an additional `module` prop, with its value set to the module name. For most of the modules, the `module` prop is the only one different between them.
-
-> Open your console!

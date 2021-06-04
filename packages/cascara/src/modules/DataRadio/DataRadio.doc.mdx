@@ -7,12 +7,12 @@ public: false
 
 A data module to display **Boolean** values, it renders a set of radio elements.
 
-### Playground
+### Sandbox
 
 Feel free to play around with the following code:
 
 ```jsx
-<ModuleExample
+<ModuleSandbox
   isEditing={true}
   record={{
     id: 1,
@@ -37,78 +37,5 @@ Feel free to play around with the following code:
     ]}
     value='blue'
   />
-</ModuleExample>
+</ModuleSandbox>
 ```
-
-### Use in Table
-
-Adding this module to your **Cascara** **Table** or **Form** would look like this:
-
-```jsx
-<Table
-  // we need to enable edition by passing the `edit` module
-  actions={{
-    actionButtonMenuIndex: -1,
-    modules: [
-      {
-        module: 'edit',
-        cancelLabel: 'Cancelar',
-        editLabel: 'Editar',
-        saveLabel: 'Guardar',
-      },
-    ],
-  }}
-  // your data
-  data={[
-    {
-      id: 1,
-      color: 'blue',
-    },
-  ]}
-  // the fields in our data you want to display
-  dataConfig={{
-    display: [
-      {
-        attribute: 'color',
-        isEditable: true,
-        isLabeled: false,
-        label: 'Color',
-        module: 'radio',
-        options: [
-          {
-            label: 'blue',
-          },
-          {
-            label: 'red',
-          },
-          {
-            label: 'yellow',
-          },
-        ],
-      },
-    ],
-  }}
-  // the action handler is invoken when a button is clicked
-  onAction={(action, record) => {
-    console.clear();
-    console.log(`Action ${action.name} invoked`);
-    console.table(record);
-
-    switch (action.name) {
-      case 'edit.start':
-        console.log('Entering edit mode');
-        break;
-      case 'edit.cancel':
-        console.log('Exiting edit mode, edit canceled');
-        break;
-      case 'edit.save':
-        console.log('Exitin edit mode, saving changes');
-        break;
-    }
-  }}
-  // this defines the unique ID field in your data
-  uniqueIdAttribute={'id'}
-/>
-```
-
-> Open your console!

@@ -5,11 +5,13 @@ import { ModuleContext } from '../context';
 import { Button } from 'reakit';
 
 const propTypes = {
-  /** DEPRECATED - do not use */
+  /** DEPRECATED: please use 'name' instead */
   actionName: pt.string,
+  /** An action needs to have a unique text relative to its context */
+  content: pt.string,
   /** PRIVATE: Shows a label */
   isLabeled: pt.bool,
-  /** An action needs to have a unique label relative to its context */
+  /** DEPRECATED: please use 'content' instead */
   label: pt.string,
   /** Every action must have a name */
   name: pt.string,
@@ -17,14 +19,14 @@ const propTypes = {
 
 const ActionButton = ({
   actionName,
+  content = 'ActionButton',
   isLabeled = false,
-  label = 'ActionButton',
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
 
   // @bje we need to decide if we go for content or label here, both makes no sense
-  const { content = label, ...restWithoutLabel } = rest;
+  const { label, ...restWithoutLabel } = rest;
 
   //
   // initially, this was called actionName, but now we ...spread
@@ -38,11 +40,11 @@ const ActionButton = ({
   const name = actionName || rest.name;
 
   // FDS-137: use action name for button name if no content is specified
-  const buttonText = content || name;
+  const buttonText = content || label || name;
 
   const handleClick = useCallback(
     ({ currentTarget }) => {
-      onAction(currentTarget, record);
+      onAction && onAction(currentTarget, record);
     },
     [onAction, record]
   );

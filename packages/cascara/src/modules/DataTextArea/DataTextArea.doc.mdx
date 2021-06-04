@@ -7,19 +7,18 @@ public: false
 
 A data module to display long **string** values, it renders a input of type **textarea**.
 
-### Playground
+### Sandbox
 
 Feel free to play around with the following code:
 
 ```jsx
-<ModuleExample
+<ModuleSandbox
   isEditing={true}
   record={{
     id: 1,
     firstName: 'John',
     lastName: 'Doe',
-    bio:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
   }}
 >
   <DataTextArea
@@ -29,70 +28,5 @@ Feel free to play around with the following code:
     label='First Name'
     value='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   />
-</ModuleExample>
+</ModuleSandbox>
 ```
-
-### Use in Table
-
-Adding this module to your **Cascara** **Table** or **Form** would look like this:
-
-```jsx
-<Table
-  // we need to enable edition by passing the `edit` module
-  actions={{
-    actionButtonMenuIndex: -1,
-    modules: [
-      {
-        module: 'edit',
-        cancelLabel: 'Cancelar',
-        editLabel: 'Editar',
-        saveLabel: 'Guardar',
-      },
-    ],
-  }}
-  // your data
-  data={[
-    {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      bio:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    },
-  ]}
-  // the fields in our data you want to display
-  dataConfig={{
-    display: [
-      {
-        attribute: 'bio',
-        isEditable: true,
-        isLabeled: true,
-        label: 'Bio',
-        module: 'textarea',
-      },
-    ],
-  }}
-  // the action handler is invoken when a button is clicked
-  onAction={(action, record) => {
-    console.clear();
-    console.log(`Action ${action.name} invoked`);
-    console.table(record);
-
-    switch (action.name) {
-      case 'edit.start':
-        console.log('Entering edit mode');
-        break;
-      case 'edit.cancel':
-        console.log('Exiting edit mode, edit canceled');
-        break;
-      case 'edit.save':
-        console.log('Exitin edit mode, saving changes');
-        break;
-    }
-  }}
-  // this defines the unique ID field in your data
-  uniqueIdAttribute={'id'}
-/>
-```
-
-> Open your console!
