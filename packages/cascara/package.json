@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.4.2-alpha.14",
+  "version": "0.4.2-alpha.15",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.14.0",
-    "@espressive/icons": "^0.0.2-alpha.1",
+    "@espressive/icons": "^0.0.2-alpha.2",
     "@iconify-icons/ic": "1.1.5",
     "@iconify/react": "1.1.4",
     "@nivo/bar": "0.67.0",
@@ -43,7 +43,7 @@
     "memoize-one": "5.2.1",
     "react-fast-compare": "3.2.0",
     "react-hook-form": "6.8.4",
-    "react-textarea-autosize": "8.3.2",
+    "react-textarea-autosize": "8.3.3",
     "reakit": "next"
   },
   "devDependencies": {

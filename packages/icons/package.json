@@ -1,6 +1,6 @@
 {
   "name": "@espressive/icons",
-  "version": "0.0.2-alpha.1",
+  "version": "0.0.2-alpha.2",
   "description": "Cascara icons",
   "repository": {
     "type": "git",
@@ -12,12 +12,12 @@
   "type": "module",
   "scripts": {
     "build": "yarn clean && yarn collection",
-    "collection": "node src/buildCollection",
+    "collection": "node --experimental-modules src/buildCollection.mjs",
     "clean": "find . -maxdepth 1 -type f -name '*.js' -delete",
     "prepare": "yarn build",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
-  "dependencies": {
+  "devDependencies": {
     "@iconify/tools": "1.3.17"
   },
   "publishConfig": {
