@@ -7,15 +7,32 @@ public: false
 
 A data module to display **Boolean** values, it renders a checkbox.
 
-## Using the module
+### Playground
 
-Additional to the props specified aside, please use the following property to configure your module:
+Feel free to play around with the following code:
 
-| property | type                | description                                             |
-| -------- | ------------------- | ------------------------------------------------------- |
-| module   | required **String** | specifies the type of module, in this case **checkbox** |
+```jsx
+<ModuleExample
+  isEditing={true}
+  record={{
+    id: 1,
+    active: true,
+  }}
+>
+  <DataCheckbox
+    attribute='active'
+    isEditable={true}
+    isLabeled={true}
+    label='Active'
+    module='checkbox'
+    value={true}
+  />
+</ModuleExample>
+```
 
-> Adding this module to your **Cascara** **Table** or **Form** would look like this:
+### Use in Table
+
+Adding this module to your **Cascara Table** would look like this:
 
 ```jsx
 <Table
@@ -73,5 +90,7 @@ Additional to the props specified aside, please use the following property to co
   uniqueIdAttribute={'id'}
 />
 ```
+
+> When used in **Table** or **Form**, you must pass an additional `module` prop, with its value set to the module name. For most of the modules, the `module` prop is the only one different between them.
 
 > Open your console!

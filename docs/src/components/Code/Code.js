@@ -19,7 +19,7 @@ const propTypes = {
   title: pt.string,
 };
 
-const Code = ({ children = [], className, live = true, title, ...rest }) => {
+const Code = ({ children, className, live = true, title, ...rest }) => {
   const [editorOpen, setEditorOpen] = useState(false);
   const language = className && className.replace(/language-/, '');
 

@@ -8,13 +8,29 @@ public: false
 
 A data module to display **email** values, it renders a input of type **email**.
 
-## Using the module
+### Playground
 
-Additional to the props specified aside, please use the following property to configure your module:
+Feel free to play around with the following code:
 
-| property | type                | description                                          |
-| -------- | ------------------- | ---------------------------------------------------- |
-| module   | required **String** | specifies the type of module, in this case **email** |
+```jsx
+<ModuleExample
+  isEditing={true}
+  record={{
+    id: 1,
+    email: 'test@example.com',
+  }}
+>
+  <DataEmail
+    attribute='email'
+    isEditable={true}
+    isLabeled={true}
+    label='email'
+    value='test@example.com'
+  />
+</ModuleExample>
+```
+
+### Use in Table
 
 Adding this module to your **Cascara** **Table** or **Form** would look like this:
 

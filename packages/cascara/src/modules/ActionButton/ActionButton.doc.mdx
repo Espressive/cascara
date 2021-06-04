@@ -10,17 +10,21 @@ This action module renders a simple button, use it for custom actions.
 
 ## Using the module
 
-Additional to the props specified aside, please use the following property to configure your module:
+Additional to the props specified in the aside table, you need to pass the `module` prop, with its value set to **edit**.
 
-| property | type                | description                                           |
-| -------- | ------------------- | ----------------------------------------------------- |
-| module   | required **String** | specifies the type of module, in this case **button** |
+### Playground
 
-> Adding this module to your **Cascara** **Table** or **Form** would look like this:
+Feel free to play around with the following code:
 
-## Example
+```jsx
+<ModuleExample>
+  <ActionButton name='myAction' content='Click me' size='small' />
+</ModuleExample>
+```
 
-Adding this module to a **Cascara** `Table` would look like this:
+### Use in Table
+
+Adding this module to your **Cascara Table** would look like this:
 
 ```jsx
 <Table
@@ -70,7 +74,7 @@ Adding this module to a **Cascara** `Table` would look like this:
       },
     ],
   }}
-  // the action handler is invoked when a button is clicked
+  // the action handler is invoken when a button is clicked
   onAction={(action, record) => {
     console.clear();
     console.log(`Action ${action.name} invoked`);
@@ -86,5 +90,3 @@ Adding this module to a **Cascara** `Table` would look like this:
   uniqueIdAttribute={'id'}
 />
 ```
-
-> The above example renders a `Table`, this is because modules can only be used inside `Table` of `Form`.

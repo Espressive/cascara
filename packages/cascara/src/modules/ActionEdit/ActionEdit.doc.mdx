@@ -7,7 +7,7 @@ public: false
 ---
 
 A special action module, fully controled by **esp-auth**. Use it when you want the data to be editable.
-I contrast with the **button** module, this module renders up to 2 buttons, depending on the **edit** state of the parent context:
+In contrast with the **button** module, this module renders up to 2 buttons, depending on the **edit** state of the parent context:
 
 1. when not in **edit** mode, it will render a single button with the text you pass as **editLabel** prop, clicking that button will make the **edit** mode kick-in
 2. when in **edit** mode, it will render a button for exiting **edit** mode (AKA cancel) and one for accepting the changes made during **edit** mode (AKA saving).
@@ -20,17 +20,21 @@ All these three buttons will cause your Table or Form to emit the following **on
 
 ## Using the module
 
-Additional to the props specified aside, please use the following property to configure your module:
+Additional to the props specified in the aside table, you need to pass the `module` prop, with its value set to **edit**.
 
-| property | type                | description                                         |
-| -------- | ------------------- | --------------------------------------------------- |
-| module   | required **String** | specifies the type of module, in this case **edit** |
+### Playground
 
-> Adding this module to your **Cascara** **Table** or **Form** would look like this:
+Feel free to play around with the following code:
 
-### Example
+```jsx
+<ModuleExample>
+  <ActionEdit cancelLabel='Cancelar' editLabel='Editar' saveLabel='Guardar' />
+</ModuleExample>
+```
 
-Adding this module to your **Cascara** **Table** or **Form** would look like this:
+### Use in Table
+
+Adding this module to your **Cascara Table** would look like this:
 
 ```jsx
 <Table
@@ -95,5 +99,3 @@ Adding this module to your **Cascara** **Table** or **Form** would look like thi
   uniqueIdAttribute={'id'}
 />
 ```
-
-> The above example renders a `Table`, this is because modules can only be used inside `Table` of `Form`.

@@ -8,13 +8,46 @@ public: false
 
 A data module to display multiple option values, it renders a select element.
 
-## Using the module
+### Playground
 
-Additional to the props specified aside, please use the following property to configure your module:
+Feel free to play around with the following code:
 
-| property | type                | description                                           |
-| -------- | ------------------- | ----------------------------------------------------- |
-| module   | required **String** | specifies the type of module, in this case **select** |
+```jsx
+<ModuleExample
+  isEditing={true}
+  record={{
+    id: 1,
+    ki: 45,
+  }}
+>
+  <DataSelect
+    attribute='color'
+    isEditable={true}
+    isLabeled={true}
+    label='Color'
+    options={[
+      {
+        key: 'blue',
+        value: 'blue',
+        text: 'Blue',
+      },
+      {
+        key: 'red',
+        value: 'red',
+        text: 'Red',
+      },
+      {
+        key: 'white',
+        value: 'white',
+        text: 'White',
+      },
+    ]}
+    value='blue'
+  />
+</ModuleExample>
+```
+
+### Use in Table
 
 Adding this module to your **Cascara** **Table** or **Form** would look like this:
 
