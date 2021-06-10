@@ -12,7 +12,7 @@ import { popperOverTrigger } from '../../shared/popperModifiers';
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  trigger: pt.element,
+  trigger: pt.node,
 };
 
 const Popover = ({ children, trigger }) => {

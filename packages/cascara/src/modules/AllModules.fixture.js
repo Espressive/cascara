@@ -1,5 +1,4 @@
 import React from 'react';
-import { ModuleProvider } from './context';
 import FormProvider from '../ui/Form/context/FormProvider';
 import tableStyles from '../ui/Table/Table.module.scss';
 import {
@@ -12,6 +11,7 @@ import {
   DataSelect,
   DataText,
   DataTextArea,
+  ModuleSandbox,
 } from './';
 
 const lorem =
@@ -118,14 +118,12 @@ const AllModules = ({ data, dataConfig }) => {
 
       <div style={colStyle}>
         <h2>Data Modules: Display</h2>
-        <ModuleProvider>{ALL_DATA_MODULES}</ModuleProvider>
+        <ModuleSandbox>{ALL_DATA_MODULES}</ModuleSandbox>
       </div>
 
       <div style={colStyle}>
         <h2>Data Modules: Editing</h2>
-        <ModuleProvider value={{ isEditing: true }}>
-          {ALL_DATA_MODULES}
-        </ModuleProvider>
+        <ModuleSandbox isEditing>{ALL_DATA_MODULES}</ModuleSandbox>
       </div>
 
       <FormProvider>

@@ -18,9 +18,16 @@ import { Header, Main, Nav, PropTable } from '../components';
 // since we will possibly want to change that on a per-page basis.
 
 const propTypes = {
-  Component: pt.string,
+  Component: pt.func,
   pageProps: pt.shape({
-    mdxDirSource: pt.shape({}),
+    mdxDirSource: pt.arrayOf(
+      pt.shape({
+        description: pt.string,
+        displayName: pt.string,
+        docData: pt.shape({}),
+        props: pt.shape({}),
+      })
+    ),
   }),
 };
 

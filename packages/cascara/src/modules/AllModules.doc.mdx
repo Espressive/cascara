@@ -1,0 +1,58 @@
+---
+title: Modules
+type: 'module'
+status: 'Draft'
+public: false
+---
+
+Modules are the building blocks for Table and From, they work in two modes: **display** and **edit**.
+
+you can use modules to model your table
+
+There are two types of modules:
+
+- **action** modules that allow the User to do something and
+- **data** modules that display formatted data
+
+## Action modules
+
+Action modules can be used in **Table** or **Form** and render HTML buttons. If the button is clicked, the **Table** or **Form** will emit an **onAction** event, passing two parameters:
+
+| parameter   | type       | description                                                                                            |
+| ----------- | ---------- | ------------------------------------------------------------------------------------------------------ |
+| action      | **Object** | an object that describes the action module that was clicked                                            |
+| action.name | **String** | the **name** you give to your action module. Use this to identify which button was clicked             |
+| data        | **Object** | in **Form** it's the form data. \n in **Table** is the data row sibling to the button that was clicked |
+
+At the moment, these are the available **action** modules:
+
+- [Button](./ActionButton/AcctionButton)
+- [edit](./AdtionEdit/ActionEdit)
+
+### Using an action module
+
+Action modules are specified as part of the **actions** prop as follows:
+
+```js
+const actions = {
+  {
+    modules: [
+      // action module objects go here
+    ],
+  }
+}
+```
+
+## Data modules
+
+Data modules display formatted data to the User, adding the possibility to edit the data.
+
+At the moment, these are the available `data` modules:
+
+- [checkbox](./DataCheckbox)
+- [email](./DataEmail)
+- [number](./DataNumber)
+- [radio](./DataRadio)
+- [select](./DataSelect)
+- [text](./DataText)
+- [textarea](./DataTextArea)

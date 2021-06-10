@@ -26,7 +26,7 @@ const getMDXTree = () => {
 
   const treeWithMeta = cleanTree.map((section) => {
     const sectionData = section.children.filter(isEmpty).map((comp) => {
-      const compDataPath = comp.children[0].path;
+      const compDataPath = comp.children ? comp?.children?.[0].path : comp.path;
       const source = fs.readFileSync(compDataPath);
       const { data } = matter(source);
       return {

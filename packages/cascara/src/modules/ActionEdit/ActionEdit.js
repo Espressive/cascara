@@ -5,8 +5,11 @@ import { ModuleContext } from '../context';
 import { Button } from 'reakit';
 
 const propTypes = {
+  /** An optional text label for the cancel button */
   cancelLabel: pt.node,
-  editLabel: pt.string,
+  /** An optional text label for the edit button */
+  editLabel: pt.node,
+  /** An optional text label for the save button */
   saveLabel: pt.node,
 };
 
@@ -30,20 +33,21 @@ const ActionEdit = ({
   } = useContext(ModuleContext);
   const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
-  const recordId = record[uniqueIdAttribute];
+  const recordId = uniqueIdAttribute && record && record[uniqueIdAttribute];
   const whenAnotherRowIsEditing = Boolean(idOfRecordInEditMode);
 
   const handleReset = useCallback(() => {
-    onAction(
-      // fake target
-      {
-        name: 'edit.cancel',
-      },
-      {
-        ...record,
-      }
-    );
-
+    if (typeof onAction === 'function') {
+      onAction(
+        // fake target
+        {
+          name: 'edit.cancel',
+        },
+        {
+          ...record,
+        }
+      );
+    }
     exitEditMode();
   }, [exitEditMode, onAction, record]);
 
@@ -58,33 +62,36 @@ const ActionEdit = ({
     // FDS-91: We are resetting the form with whatever is in record.
     // We don't know if this is the best way to do it in React.
     reset({ ...record });
-    onAction(
-      // fake target
-      {
-        name: 'edit.start',
-      },
-      {
-        ...record,
-      }
-    );
 
-    enterEditMode(recordId);
+    if (typeof onAction === 'function') {
+      onAction(
+        // fake target
+        {
+          name: 'edit.start',
+        },
+        {
+          ...record,
+        }
+      );
+    }
+    enterEditMode && enterEditMode(recordId);
   }, [enterEditMode, onAction, record, recordId, reset]);
 
   const onSubmit = useCallback(
     (data) => {
-      onAction(
-        // fake target
-        {
-          name: 'edit.save',
-        },
-        {
-          ...record,
-          ...data,
-        }
-      );
-
-      exitEditMode();
+      if (typeof onAction === 'function') {
+        onAction(
+          // fake target
+          {
+            name: 'edit.save',
+          },
+          {
+            ...record,
+            ...data,
+          }
+        );
+      }
+      exitEditMode && exitEditMode();
     },
     [exitEditMode, onAction, record]
   );

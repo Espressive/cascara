@@ -8,8 +8,7 @@ propTable: Table.js
 ## data
 
 Every object in this array will potencially be rendered as a table row.
-The shape is up to you, the only requirement is that every object (a.k.a. row) must
-have an attribute that uniquely identifies the object in the array.
+The shape is up to you, the only requirement is that every object (AKA row) must have an attribute that uniquely identifies the object in the array.
 
 > We call this attribute `uniqueIdAttribute`, which you will be able to specify later on.
 
@@ -40,11 +39,12 @@ const data = {[
 
 ## actions
 
-Actions represent 'verbs' we want to apply to our Table rows, like 'view' to navigate to another page with detailed information about the row.
-Another example would be 'Delete' to delete a row. 'actions' will be appended to each row, they'll appear as buttons.
-By defining an 'action', you are telling Table how you want to be notified when your 'action' button is pressed. Via the 'onAction' event.
+Think of actions as **verbs** you would want to apply to each of the Table rows, like **view** to navigate to another page with detailed information about the row.
+Another example would be **delete** to delete a row. actions will be appended to each row as buttons.
 
-> Table does not provide the logic to handle 'actions', the implementation for deleting a row, navigating to another page, etc. it's up to you.
+When you define an action, you are telling Table how you want to be notified when your action's button is clicked. Via the `onAction` event.
+
+> Table does not provide the logic to handle actions, the implementation for deleting a row, navigating to another page, etc. it's up to you.
 
 The shape of `actions` is as follows:
 
@@ -52,11 +52,14 @@ The shape of `actions` is as follows:
 const actions = {
   actionButtonMenuIndex: 0,
   modules: [
+   // (no)one or many of these
    {
       module: 'button',
       name: 'view',
       content: 'view',
     },
+
+    // (no)one of this
     {
       module: 'edit',
       cancelLabel: 'Cancelar',
@@ -70,27 +73,20 @@ const actions = {
 
 ### actionButtonMenuIndex
 
-Tables can become bloated if you use lots of actions, in order to prevent this, the actions are wrapped by an `ActionsMenu`, a contextual menu accessible via the `meatball` button of each row.
+Tables can become bloated if you use lots of actions, in order to prevent this, the actions are wrapped by an **ActionsMenu**, a contextual menu accessible via the **meat ball** button of each row.
 
-You can specify which actions are sent to the `ActionsMenu` using the `actionButtonMenuIndex` prop, a number that acts like a partition index that will take your actions array and slice it. The actions whose index is greater or equal to `actionButtonMenuIndex` will be part of `ActionsMenu`, the rest will be displayed as usual.
+You can specify which actions are sent to the **ActionsMenu** using the `actionButtonMenuIndex` prop, a number that acts like a partition index that will take your actions array and slice it. The actions whose index is greater or equal to `actionButtonMenuIndex` will be part of **ActionsMenu**, the rest will be displayed as usual.
 
-> This only applies to `button` actions, `edit` actions will always be displayed as usual.
+> This only applies to **button** actions, **edit** actions will always be displayed as usual.
 
 ### modules
 
-At the moment, we have only two types of action modules.
+At the moment, we have only two types of action modules:
 
-- `button`, for simple actions like deleting a row, navigating to another page, etc.
-- `edit`, to be used if you want to allow the data to be `editable`.
+- [button](../modules/ActionButton), for simple actions like deleting a row, navigating to another page, etc.
+- [edit](../modules/ActionEdit), to be used if you want to allow the data to be **editable**.
 
-In the case of `button`, the `onAction` event will be emitted whenever the button is clicked.
-In the case of `edit`, the `onAction` event will be emitted up to 3 times as it creates extra buttons:
-
-1. `edit.start` when entering in `edit` mode
-2. `edit.cancel` when exiting the `edit` mode via the `cancel` button
-3. `edit.save` when exiting the `edit` mode via the `save` button
-
-All this information is part of the `onAction` event signature, please make sure you review it as well.
+All this information is part of the **onAction** event signature, please make sure you review it as well.
 
 ### resolveRecordActions
 
@@ -130,7 +126,7 @@ This is the core of Table's configuration, here you can define:
 
 ### display
 
-Here you can describe each of the `visible columns` in your `table`. `display` items have a special shape too, good news is that you have plenty more options to choose from. Please choose the one that best fits your data type.
+Here you can describe each of the **visible columns** in your **table**. **display** items have a special shape too, good news is that you have plenty more options to choose from. Please choose the one that best fits your data type.
 
 #### supported data types (modules)
 
@@ -222,7 +218,7 @@ const onAction = (action, record) => {
 
 ## uniqueIdAttribute
 
-Specifies the attribute that uniquely identifies every object in the `data` array.
+Specifies the attribute that uniquely identifies every object in the **data** array.
 
 # Mixing everyting together
 

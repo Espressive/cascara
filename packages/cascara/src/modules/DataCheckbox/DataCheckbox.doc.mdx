@@ -1,10 +1,31 @@
 ---
-title: DataCheckbox
+title: Data Checkbox
 propTable: DataCheckbox.js
 type: 'module'
 public: false
 ---
 
-```
-<DataCheckbox />
+A data module to display **Boolean** values, it renders a checkbox.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    active: true,
+  }}
+>
+  <DataCheckbox
+    attribute='active'
+    isEditable={true}
+    isLabeled={true}
+    label='Active'
+    module='checkbox'
+    value={true}
+  />
+</ModuleSandbox>
 ```

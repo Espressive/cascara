@@ -13,7 +13,7 @@ theme.plain.backgroundColor = undefined;
 theme.plain.fontFamily = undefined;
 
 const propTypes = {
-  children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
+  children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   className: pt.string,
   live: pt.bool,
   title: pt.string,
