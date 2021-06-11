@@ -1,6 +1,8 @@
 // @use '~@espressive/design-tokens/scss' as *;
 // Bug in design tokens causing PX vals to get stripped and replaced with rem without conversion :/
 
+@use "sass:math";
+
 $size-screen-0: 320px;
 $size-screen-1: 768px;
 $size-screen-2: 992px;
@@ -9,12 +11,12 @@ $size-screen-4: 1900px;
 
 // These functions should not be needed once our library compiles correctly
 @function em($number) {
-  @return ($number/16)+0em;
+  @return math.div($number, 16) + 0em;
 }
 
 @function emFromPx($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return em($number / ($number * 0 + 1));
+    @return em(math.div($number, $number * 0 + 1));
   }
 
   @return em($number);
