@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import { NavLink } from './';
+import NavLink from './NavLink';
 
 const propTypes = {
   links: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),

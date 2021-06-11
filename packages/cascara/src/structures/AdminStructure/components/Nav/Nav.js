@@ -1,6 +1,8 @@
 import React from 'react';
 import pt from 'prop-types';
-import { NavLink, NavSection, styles } from './';
+import NavLink from './NavLink';
+import NavSection from './NavSection';
+import styles from './Nav.module.scss';
 
 const propTypes = {
   links: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),

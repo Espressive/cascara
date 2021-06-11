@@ -1,7 +1,8 @@
 import React from 'react';
 import pt from 'prop-types';
 import { useDisclosureState } from 'reakit';
-import { NavMenu, NavMenuButton } from './';
+import NavMenu from './NavMenu';
+import NavMenuButton from './NavMenuButton';
 
 const propTypes = {
   label: pt.string,

@@ -1,7 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 import { Disclosure } from 'reakit';
-import { styles } from './';
+import styles from './Nav.module.scss';
 
 const propTypes = {
   label: pt.string,

@@ -2,7 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 import { Button } from 'reakit';
 import { Icon } from '@iconify/react';
-import { styles } from './';
+import styles from './Nav.module.scss';
 
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types -- SVG shows up as an object

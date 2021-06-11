@@ -1,7 +1,8 @@
 import React from 'react';
 import pt from 'prop-types';
 import { DisclosureContent } from 'reakit';
-import { NavLinks, styles } from './';
+import NavLinks from './NavLinks';
+import styles from './Nav.module.scss';
 
 const propTypes = {
   label: pt.string,

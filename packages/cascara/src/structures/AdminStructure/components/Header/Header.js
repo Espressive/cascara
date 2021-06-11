@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
-import { HeaderMenuButton, styles } from './';
+import HeaderMenuButton from './HeaderMenuButton';
+import styles from './Header.module.scss';
 import { VisuallyHidden } from 'reakit';
 import { AdminContext } from '../../context';
 import {
