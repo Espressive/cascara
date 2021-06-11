@@ -1,9 +1,10 @@
 import React from 'react';
 import pt from 'prop-types';
+import { linkShape } from './Nav';
 import NavLink from './NavLink';
 
 const propTypes = {
-  links: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  links: pt.arrayOf(pt.shape(linkShape)),
 };
 
 const NavLinks = ({ links }) =>

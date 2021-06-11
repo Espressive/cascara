@@ -169,14 +169,6 @@ export default {
       </AdminStructure.Main>
     </AdminStructure>
   ),
-  loading: (
-    <AdminStructure
-      header={<AdminStructure.Header />}
-      nav={<AdminStructure.Nav />}
-    >
-      <AdminStructure.Main isLoading />
-    </AdminStructure>
-  ),
   'no-drawer': (
     <AdminStructure header={exampleHeader} nav={exampleNav}>
       <AdminStructure.Main header='Main'>

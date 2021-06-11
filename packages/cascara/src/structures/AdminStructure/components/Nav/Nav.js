@@ -4,8 +4,21 @@ import NavLink from './NavLink';
 import NavSection from './NavSection';
 import styles from './Nav.module.scss';
 
+const linkShape = {
+  icon: pt.object,
+  label: pt.string.isRequired,
+  linkComponentProps: pt.object,
+};
+
+const sectionShape = {
+  label: pt.string.isRequired,
+  links: pt.arrayOf(pt.shape(linkShape)),
+};
+
 const propTypes = {
-  links: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  links: pt.arrayOf(
+    pt.oneOfType([pt.shape(linkShape), pt.shape(sectionShape)])
+  ),
 };
 
 const Nav = ({ links }) => (
@@ -22,5 +35,7 @@ const Nav = ({ links }) => (
 
 Nav.propTypes = propTypes;
 Nav.displayName = 'AdminStructure.Nav';
+
+export { linkShape };
 
 export default Nav;
