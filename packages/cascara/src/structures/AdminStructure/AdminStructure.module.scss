@@ -40,7 +40,7 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
     grid-template-columns: var(--nav-max-width) minmax(0, 1fr) var(
         --drawer-max-width
       );
-    grid-template-rows: minmax(0, 4em) auto;
+    grid-template-rows: minmax(0, 4rem) auto;
     grid-template-areas:
       'header header header'
       'nav main drawer';
@@ -58,10 +58,12 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 ._main {
+  @include scroll-vertical;
   // background-color: hotpink;
   grid-row: main;
   grid-column-start: main;
   grid-column-end: drawer;
+  overflow: auto;
 
   &.with_drawer {
     grid-column-end: main;
@@ -69,6 +71,8 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 ._nav {
+  @include scroll-vertical;
   // background-color: purple;
   grid-area: nav;
+  overflow: auto;
 }

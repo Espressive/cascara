@@ -1,8 +1,5 @@
 .Main {
   padding: 2em;
-  height: 100%;
-  overflow: auto;
-  background-color: blue;
 
   &.loading {
     animation: loading-pulse ease-in-out 1s infinite;
