@@ -22,8 +22,8 @@ const propTypes = {
 
 const DataCheckbox = ({
   attribute,
-  isEditable = true,
-  isLabeled = true,
+  isEditable,
+  isLabeled,
   label,
   value,
   ...rest

@@ -21,8 +21,8 @@ const propTypes = {
 
 const DataText = ({
   attribute,
-  isEditable = true,
-  isLabeled = true,
+  isEditable,
+  isLabeled,
   label,
   value,
   ...rest
