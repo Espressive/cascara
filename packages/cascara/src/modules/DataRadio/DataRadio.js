@@ -27,8 +27,8 @@ const propTypes = {
 
 const DataRadio = ({
   attribute,
-  isEditable,
-  isLabeled,
+  isEditable = true,
+  isLabeled = true,
   label,
   options,
   value,

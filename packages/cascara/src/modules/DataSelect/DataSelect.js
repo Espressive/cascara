@@ -29,8 +29,8 @@ const propTypes = {
 
 const DataSelect = ({
   attribute,
-  isEditable,
-  isLabeled,
+  isEditable = true,
+  isLabeled = true,
   label,
   options,
   value,

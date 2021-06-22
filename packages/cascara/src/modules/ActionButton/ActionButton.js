@@ -20,7 +20,7 @@ const propTypes = {
 const ActionButton = ({
   actionName,
   content = 'ActionButton',
-  isLabeled,
+  isLabeled = false,
   ...rest
 }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);

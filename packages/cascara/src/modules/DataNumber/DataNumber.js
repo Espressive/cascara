@@ -21,8 +21,8 @@ const propTypes = {
 
 const DataNumber = ({
   attribute,
-  isEditable,
-  isLabeled,
+  isEditable = true,
+  isLabeled = true,
   label,
   value,
   ...rest
