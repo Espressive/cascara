@@ -210,11 +210,27 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-1"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -373,11 +389,27 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-2"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -537,11 +569,27 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-3"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -701,11 +749,27 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-4"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -865,11 +929,27 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-5"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -1028,666 +1108,27 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-6"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                  data-checked="true"
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
                 />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  7fb7f484-8116-4407-8adc-5661a4aeb357
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Arden_Farrell26@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  2489
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Arden Farrell
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  629.821.5799 x1453
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  461.512.4463 x9433
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Product Configuration Architect
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                  data-checked="true"
-                />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  d68d3609-6c66-48d7-a828-bc6bd906547f
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Schuyler.Anderson5@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  21880
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Schuyler Anderson
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  (229) 713-3104
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  639-953-6910
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  National Identity Engineer
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                  data-checked="true"
-                />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  7025203e-6232-4165-b25e-5fb0fbb92e2a
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Adell_Hickle55@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Brazil
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  70242
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Adell Hickle
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  1-566-686-4793 x88911
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  (609) 562-8999
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Dynamic Branding Engineer
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  a7bd7930-3bc4-4241-aaaf-d058ed390be4
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Olen_Gusikowski54@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Brazil
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  71457
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Olen Gusikowski
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  1-641-835-6148
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  262-606-0678 x056
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Human Tactics Specialist
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -1919,11 +1360,27 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-1"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -2082,11 +1539,27 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-2"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -2246,11 +1719,27 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-3"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -2410,11 +1899,27 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-4"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -2574,11 +2079,27 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-5"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
+                />
+              </svg>
             </button>
             <button
               class="ui basic button"
@@ -2737,666 +2258,27 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              class="ui basic button"
+              aria-describedby="id-6"
+              aria-label="Edit"
+              class="ui basic icon button"
               name="edit.start"
+              tabindex="0"
               type="button"
             >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                  data-checked="true"
+              <svg
+                focusable="false"
+                height="1em"
+                preserveAspectRatio="xMidYMid meet"
+                style="transform: rotate(360deg); vertical-align: -0.143em;"
+                viewBox="0 0 140 140"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M87.89 23.252a2.917 2.917 0 0 0-2.064-.864a2.917 2.917 0 0 0-2.065.858L20.049 86.975a2.917 2.917 0 0 0 0 4.124l28.863 28.863a2.917 2.917 0 0 0 4.125 0l63.682-63.682a2.917 2.917 0 0 0 0-4.118zM14.175 98a2.917 2.917 0 0 0-2.852-.74a2.917 2.917 0 0 0-2.048 2.123L.49 135.998a2.917 2.917 0 0 0 .776 2.742a2.958 2.958 0 0 0 2.742.77l36.586-8.75a2.917 2.917 0 0 0 1.383-4.9zm121.158-80.943L122.95 4.667a14.583 14.583 0 0 0-20.603 0l-8.272 8.265a2.917 2.917 0 0 0 0 4.125l28.875 28.869a2.917 2.917 0 0 0 4.124 0l8.26-8.278a14.583 14.583 0 0 0 0-20.591z"
+                  fill="currentColor"
                 />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  7fb7f484-8116-4407-8adc-5661a4aeb357
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Arden_Farrell26@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  2489
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Arden Farrell
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  629.821.5799 x1453
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  461.512.4463 x9433
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Product Configuration Architect
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                  data-checked="true"
-                />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  d68d3609-6c66-48d7-a828-bc6bd906547f
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Schuyler.Anderson5@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  21880
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Schuyler Anderson
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  (229) 713-3104
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  639-953-6910
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  National Identity Engineer
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                  data-checked="true"
-                />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  7025203e-6232-4165-b25e-5fb0fbb92e2a
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Adell_Hickle55@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Brazil
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  70242
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Adell Hickle
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  1-566-686-4793 x88911
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  (609) 562-8999
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Dynamic Branding Engineer
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
-            </button>
-            <button
-              class="ui basic button"
-              name="view"
-              type="button"
-            >
-              view
-            </button>
-            <button
-              class="ui basic button"
-              name="delete"
-              type="button"
-            >
-              delete
-            </button>
-          </td>
-        </tr>
-        <tr
-          class="Row"
-        >
-          <td
-            class="Cell"
-          >
-            <div
-              class="Checkbox"
-            >
-              <span>
-                <span
-                  class="Input"
-                />
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  a7bd7930-3bc4-4241-aaaf-d058ed390be4
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Email"
-            >
-              <span>
-                <span
-                  aria-label="Email"
-                  class="Input"
-                >
-                  Olen_Gusikowski54@espressive.com
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Select"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Brazil
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Number"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  71457
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Olen Gusikowski
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  1-641-835-6148
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  262-606-0678 x056
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
-                  Human Tactics Specialist
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="CellActions"
-          >
-            <button
-              class="ui basic button"
-              name="edit.start"
-              type="button"
-            >
-              Edit
+              </svg>
             </button>
             <button
               class="ui basic button"
