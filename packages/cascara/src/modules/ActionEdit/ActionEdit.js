@@ -3,6 +3,9 @@ import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
 import { Button } from 'reakit';
+import { InlineIcon } from '@iconify/react';
+import { checkIcon, closeIcon, pencilIcon } from '@espressive/icons';
+import Tooltip from '../../ui/Tooltip';
 
 const propTypes = {
   /** An optional text label for the cancel button */
@@ -13,12 +16,13 @@ const propTypes = {
   saveLabel: pt.node,
 };
 
-const DEFAULT_SAVE = <i aria-hidden='true' className='check icon' />;
-const DEFAULT_CANCEL = <i aria-hidden='true' className='delete icon' />;
+const DEFAULT_EDIT = <InlineIcon icon={pencilIcon} />;
+const DEFAULT_CANCEL = <InlineIcon icon={closeIcon} />;
+const DEFAULT_SAVE = <InlineIcon icon={checkIcon} />;
 
 const ActionEdit = ({
   cancelLabel = DEFAULT_CANCEL,
-  editLabel = 'Edit',
+  editLabel = DEFAULT_EDIT,
   saveLabel = DEFAULT_SAVE,
 }) => {
   const {
@@ -98,35 +102,41 @@ const ActionEdit = ({
 
   return isEditing ? (
     <>
-      <Button
-        className='ui negative icon button'
-        disabled={isSubmitting}
-        name={'edit.cancel'}
-        onClick={handleCancel}
-        type='button'
-      >
-        {cancelLabel}
-      </Button>
-      <Button
-        className='ui positive icon button'
-        disabled={!isDirty || isSubmitting}
-        name={'edit.save'}
-        onClick={handleSubmit(onSubmit)}
-        type='button'
-      >
-        {saveLabel}
-      </Button>
+      <Tooltip content='Cancel' delay={100}>
+        <Button
+          className='ui negative icon button'
+          disabled={isSubmitting}
+          name='edit.cancel'
+          onClick={handleCancel}
+          type='button'
+        >
+          {cancelLabel}
+        </Button>
+      </Tooltip>
+      <Tooltip content='Save' delay={100}>
+        <Button
+          className='ui positive icon button'
+          disabled={!isDirty || isSubmitting}
+          name={'edit.save'}
+          onClick={handleSubmit(onSubmit)}
+          type='button'
+        >
+          {saveLabel}
+        </Button>
+      </Tooltip>
     </>
   ) : (
-    <Button
-      className='ui basic button'
-      disabled={whenAnotherRowIsEditing}
-      name={'edit.start'}
-      onClick={handleEdit}
-      type='button'
-    >
-      {editLabel}
-    </Button>
+    <Tooltip content='Edit'>
+      <Button
+        className='ui basic icon button'
+        disabled={whenAnotherRowIsEditing}
+        name={'edit.start'}
+        onClick={handleEdit}
+        type='button'
+      >
+        {editLabel}
+      </Button>
+    </Tooltip>
   );
 };
 
