@@ -175,17 +175,12 @@ A function you can pass to handle every event your table emits. Every event carr
 - record, the object that represents the row upon which the action was applied.
 
 ```javascript
----
-title: an example onAction handler
----
-
 /**
  * onAction, event handler
  *
  * @param {Object} action the element that was clicked
  * @param {Object} record the data that represents the table row of the button */
 const onAction = (action, record) => {
-
   // action.name here is the `actinName` you specified for your action
   switch (action.name) {
     case 'new':
@@ -225,10 +220,6 @@ Specifies the attribute that uniquely identifies every object in the **data** ar
 With the four props described earlier, we can easily create a table: (open your dev tools!)
 
 ```jsx
----
-title: Everything together!
----
-
 <Table
   actions={{
     actionButtonMenuIndex: -1,
@@ -335,4 +326,13 @@ title: Everything together!
   }}
   uniqueIdAttribute={'id'}
 />
+```
+
+# Empty Table
+
+In this example, Table does not render anything, since there is no data. This can also happen if no columns are defined.
+If either Data nor Colums are defined, it is assumed that we do not want to display a Table at the moment:
+
+```jsx
+<Table />
 ```

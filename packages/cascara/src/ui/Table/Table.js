@@ -104,13 +104,14 @@ const Table = ({
     );
   }
 
-  let columnCount = display.length;
+  let columnCount = display?.length;
 
-  if (modules.length) {
+  if (modules?.length) {
     columnCount++;
   }
 
-  return (
+  // FDS-187: render nothing if no data nor columns
+  return !data?.length || !display?.length ? null : (
     <ErrorBoundary>
       <TableProvider
         value={{
