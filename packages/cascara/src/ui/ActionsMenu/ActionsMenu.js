@@ -2,6 +2,8 @@ import pt from 'prop-types';
 import React, { useRef } from 'react';
 import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
 import { Button } from 'reakit/Button';
+import { InlineIcon } from '@iconify/react';
+import { verticalmenuIcon } from '@espressive/icons';
 
 import ActionsMenuItem from './ActionsMenuItem';
 import styles from './ActionsMenu.module.scss';
@@ -10,7 +12,7 @@ import { popperOverTrigger } from '../../shared/popperModifiers';
 const MemoActionsMenuItem = React.memo(ActionsMenuItem);
 const DEFAULT_TRIGGER = (
   <Button className='ui basic icon button'>
-    <b>⋯</b>
+    <InlineIcon icon={verticalmenuIcon} />
   </Button>
 );
 
