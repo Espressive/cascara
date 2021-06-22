@@ -24,7 +24,7 @@ describe('Table', () => {
   // The test `row actions` corresponds to condition a, whilst the test
   // `editable records` addresses condition b.
   describe('component tree', () => {
-    const datasetSize = 10;
+    const datasetSize = 6;
     const data = generateFakeEmployees(datasetSize);
     const actions = {
       actionButtonMenuIndex: 2,

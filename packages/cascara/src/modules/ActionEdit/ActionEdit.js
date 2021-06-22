@@ -104,6 +104,7 @@ const ActionEdit = ({
     <>
       <Tooltip content='Cancel' delay={100}>
         <Button
+          aria-label='Cancel'
           className='ui negative icon button'
           disabled={isSubmitting}
           name='edit.cancel'
@@ -115,9 +116,10 @@ const ActionEdit = ({
       </Tooltip>
       <Tooltip content='Save' delay={100}>
         <Button
+          aria-label='Save'
           className='ui positive icon button'
           disabled={!isDirty || isSubmitting}
-          name={'edit.save'}
+          name='edit.save'
           onClick={handleSubmit(onSubmit)}
           type='button'
         >
@@ -128,9 +130,10 @@ const ActionEdit = ({
   ) : (
     <Tooltip content='Edit'>
       <Button
+        aria-label='Edit'
         className='ui basic icon button'
         disabled={whenAnotherRowIsEditing}
-        name={'edit.start'}
+        name='edit.start'
         onClick={handleEdit}
         type='button'
       >
