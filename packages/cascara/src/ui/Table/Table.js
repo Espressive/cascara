@@ -92,7 +92,7 @@ const Table = ({
     dataDisplay ||
     dataConfig?.display ||
     // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
-    data?.length
+    (data && data.length > 0)
       ? Object.entries(data[0]).map(([attribute, value]) => {
           const dataType = typeof value;
           const column = {
