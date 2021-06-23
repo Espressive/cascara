@@ -1,6 +1,5 @@
 import React from 'react';
 
-import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 import Table from '..';
 
 const Fixture = () => (
@@ -14,7 +13,6 @@ const Fixture = () => (
       to display a Table at the moment.
     </p>
 
-    <JsonPlaceholder data={null} title='props' />
     <Table />
   </>
 );
