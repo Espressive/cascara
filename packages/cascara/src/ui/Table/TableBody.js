@@ -6,9 +6,10 @@ import { ModuleContext } from '../../modules/context';
 import TableRow from './TableRow';
 
 const TableBody = () => {
-  const { data, dataConfig, uniqueIdAttribute } = useContext(ModuleContext);
-  const rows = data.map((data) => ({
-    columns: dataConfig.display.map((itemConfig) => ({
+  const { data, dataDisplay, uniqueIdAttribute } = useContext(ModuleContext);
+
+  const rows = data?.map((data) => ({
+    columns: dataDisplay?.map((itemConfig) => ({
       ...itemConfig,
     })),
     data,
@@ -18,7 +19,7 @@ const TableBody = () => {
   return (
     <ErrorBoundary>
       <tbody className={styles.BodyContainer}>
-        {rows.map((record) => {
+        {rows?.map((record) => {
           const { data, ...rest } = record;
 
           return <TableRow config={rest} key={record.id} record={data} />;

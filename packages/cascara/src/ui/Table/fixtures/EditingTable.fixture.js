@@ -151,6 +151,23 @@ class Fixture extends PureComponent {
 
   render() {
     const { columns, data, display } = this.state;
+
+    const actions = {
+      modules: [
+        {
+          content: 'view',
+          module: 'button',
+          name: 'view',
+          size: 'small',
+        },
+        {
+          content: 'edit',
+          module: 'edit',
+          name: 'edit',
+          size: 'small',
+        },
+      ],
+    };
     const dataConfig = {
       actions: [
         {
@@ -166,7 +183,6 @@ class Fixture extends PureComponent {
           size: 'small',
         },
       ],
-      display,
     };
 
     const availableColumns = columns.map((columnDef) => ({
@@ -201,8 +217,10 @@ class Fixture extends PureComponent {
         </h4>
 
         <Table
+          actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          // dataConfig={dataConfig}
+          dataDisplay={display}
           onAction={this.handleTableAction}
           uniqueIdAttribute={'eid'}
         />
