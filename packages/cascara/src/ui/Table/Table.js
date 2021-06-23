@@ -34,25 +34,33 @@ const propTypes = {
   // Every object in this array will potencially be rendered as a table row.
   data: pt.arrayOf(pt.shape({})),
 
-  // The main configuration for your table. Here you can specify the columns to display
+  // DEPRECATED: The main configuration for your table. Here you can specify the columns to display
   // as well as the available actions (if any) for each row.
   dataConfig: pt.shape({
+    /** DEPRECATED - use actions instead */
     actionButtonMenuIndex: pt.number,
 
-    /** Actions will be appended to each row, they'll appear as buttons. */
+    /** DEPRECATED - use actions instead */
     actions: pt.arrayOf(
       pt.shape({
         module: pt.oneOf(actionModuleOptions).isRequired,
       })
     ),
 
-    /** Here you can describe each of the visible columns in your table. */
+    /** DEPRECATED dataDisplay instead */
     display: pt.arrayOf(
       pt.shape({
         module: pt.oneOf(dataModuleOptions).isRequired,
       })
     ),
   }),
+
+  /** Here you can describe each of the visible columns in your table. */
+  dataDisplay: pt.arrayOf(
+    pt.shape({
+      module: pt.oneOf(dataModuleOptions).isRequired,
+    })
+  ),
 
   // Event handler.
   //
@@ -74,11 +82,37 @@ const Table = ({
   actions,
   data,
   dataConfig,
+  dataDisplay,
   onAction,
   uniqueIdAttribute,
   ...rest
 }) => {
-  const display = dataConfig?.display;
+  // TODO: When we officially deprecate dataDisplay, this logic can go away.
+  const display =
+    dataDisplay ||
+    dataConfig?.display ||
+    // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
+    data?.length
+      ? Object.entries(data[0]).map(([attribute, value]) => {
+          const dataType = typeof value;
+          const column = {
+            attribute,
+            label: attribute,
+            module: dataType,
+          };
+
+          switch (dataType) {
+            case 'boolean':
+              column.module = 'checkbox';
+              break;
+            default:
+              column.module = 'text';
+              break;
+          }
+
+          return column;
+        })
+      : [];
 
   // // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
@@ -104,6 +138,14 @@ const Table = ({
     );
   }
 
+  const unwantedDataConfig = dataConfig;
+  if (unwantedDataConfig) {
+    // eslint-disable-next-line no-console -- we need to let developers know about this error
+    console.warn(
+      'Parameters inside the dataConfig object have been moved to different locations. Please see the `actions` and `dataDisplay` props instead. This prop will no longer work in the next minor release.'
+    );
+  }
+
   let columnCount = display?.length;
 
   if (modules?.length) {
@@ -111,13 +153,13 @@ const Table = ({
   }
 
   // FDS-187: render nothing if no data nor columns
-  return !data?.length || !display?.length ? null : (
+  return (
     <ErrorBoundary>
       <TableProvider
         value={{
           actionButtonMenuIndex,
           data,
-          dataConfig,
+          dataDisplay: display,
           modules,
           onAction,
           resolveRecordActions,

@@ -34,6 +34,7 @@ const DataEmail = ({
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <Input
         {...rest}
+        aria-label={label}
         className={styles.Input}
         defaultValue={value}
         id={label}

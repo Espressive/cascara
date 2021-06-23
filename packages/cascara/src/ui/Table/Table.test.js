@@ -60,29 +60,24 @@ describe('Table', () => {
         {
           attribute: 'active',
           isEditable: true,
-          isLabeled: false,
           label: 'Active',
           module: 'checkbox',
         },
         {
           attribute: 'eid',
           isEditable: false,
-          isLabeled: false,
           label: 'ID',
           module: 'text',
         },
         {
-          'aria-label': 'Email',
           attribute: 'email',
           isEditable: true,
-          isLabeled: false,
           label: 'Email',
           module: 'email',
         },
         {
           attribute: 'country',
           isEditable: true,
-          isLabeled: false,
           label: 'Country',
           module: 'select',
           options: [
@@ -103,35 +98,30 @@ describe('Table', () => {
         {
           attribute: 'employeeNumber',
           isEditable: true,
-          isLabeled: false,
           label: 'Employee Number',
           module: 'number',
         },
         {
           attribute: 'fullName',
           isEditable: true,
-          isLabeled: false,
           label: 'Full Name',
           module: 'text',
         },
         {
           attribute: 'homePhone',
           isEditable: true,
-          isLabeled: false,
           label: 'Home Phone',
           module: 'text',
         },
         {
           attribute: 'officePhone',
           isEditable: true,
-          isLabeled: false,
           label: 'Office Phone',
           module: 'text',
         },
         {
           attribute: 'title',
           isEditable: true,
-          isLabeled: false,
           label: 'Title',
           module: 'text',
         },
@@ -368,35 +358,35 @@ describe('Table', () => {
           data={data}
           dataConfig={dataConfig}
           onAction={onAction}
-          uniqueIdAttribute={'eid'}
+          uniqueIdAttribute='eid'
         />
       );
 
-      const [fistRow] = screen.getAllByRole('row');
+      const [firstRow] = screen.getAllByRole('row');
 
       const [editButton] = screen.getAllByRole('button', {
-        container: fistRow,
+        container: firstRow,
         name: 'Edit',
       });
       userEvent.click(editButton);
 
       userEvent.clear(
         screen.getByRole('textbox', {
-          container: fistRow,
-          name: 'Email',
+          container: firstRow,
+          name: 'email',
         })
       );
       userEvent.type(
         screen.getByRole('textbox', {
-          container: fistRow,
-          name: 'Email',
+          container: firstRow,
+          name: 'email',
         }),
         testEmail
       );
 
       userEvent.click(
         screen.getByRole('button', {
-          container: fistRow,
+          container: firstRow,
           name: 'Save',
         })
       );

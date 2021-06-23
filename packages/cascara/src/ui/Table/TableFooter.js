@@ -5,8 +5,8 @@ import ErrorBoundary from '../../shared/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
 
 const TableFooter = () => {
-  const { dataConfig } = useContext(ModuleContext);
-  const headerCells = dataConfig?.display.map((column) => (
+  const { dataDisplay } = useContext(ModuleContext);
+  const headerCells = dataDisplay?.map((column) => (
     <th key={column.attribute}>{column.label}</th>
   ));
 
