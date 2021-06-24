@@ -30,7 +30,7 @@ const Empty = () => (
   </>
 );
 
-const DataOnly = () => (
+const DataOnly = (fixtureProps) => (
   <>
     <h3>Data Only</h3>
     <p>
@@ -40,11 +40,11 @@ const DataOnly = () => (
       types like object and array using a private module for JSON.
     </p>
 
-    <Table data={results} />
+    <Table {...fixtureProps} />
   </>
 );
 
-const DataWithDisplay = () => (
+const DataWithDisplay = (fixtureProps) => (
   <>
     <h3>
       Data With <code>dataDisplay</code>
@@ -73,7 +73,7 @@ const DataWithDisplay = () => (
       </ul>
     </div>
 
-    <Table data={results} dataDisplay={COLUMNS} />
+    <Table {...fixtureProps} />
   </>
 );
 
@@ -85,7 +85,9 @@ export { dataResults };
 /* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
   Empty: Empty,
-  'Data Only': DataOnly,
-  'Data w/ dataDisplay': DataWithDisplay,
+  'Data Only': <DataOnly data={results} />,
+  'Data w/ dataDisplay': (
+    <DataWithDisplay data={results} dataDisplay={COLUMNS} />
+  ),
 };
 /* eslint-enable sort-keys */
