@@ -3,7 +3,7 @@ import pt from 'prop-types';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
 
-import TableTable from './TableTable';
+import TableBase from './TableBase';
 import TableLoading from './TableLoading';
 import TableEmpty from './TableEmpty';
 
@@ -80,14 +80,21 @@ const propTypes = {
 const Table = (props) => {
   const { data } = props;
   return (
+    // NOTE: This is likely a common pattern for us in Cascara and we may want
+    // to evaluate how we present empty and loading component/state boilerplate.
     // 1. if data is undefined or null, render a loading state
     // 2. if data is an empty array, render an empty results message
     // 3. render the table data
     <ErrorBoundary>
       {data ? (
         data.length > 0 ? (
-          <TableTable {...props} />
+          // This is all of the logic that previously existed in this component.
+          // Not sure if this is the correct strategy for this yet, but it was
+          // a good way to make sure any logic for Table display did not blow up
+          // if we have empty data or undefined in helper functions.
+          <TableBase {...props} />
         ) : (
+          // This is a temporary empty style.
           <TableEmpty />
         )
       ) : (

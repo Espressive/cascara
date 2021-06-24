@@ -18,11 +18,40 @@ const inferUniqueID = (objectKeys) => {
   return undefined;
 };
 
+const inferDataDisplay = (data) =>
+  Array.isArray(data) && data.length > 0
+    ? Object.entries(data[0]).map(([attribute, value]) => {
+        const dataType = typeof value;
+        const column = {
+          attribute,
+          label: attribute,
+          module: dataType,
+        };
+
+        switch (dataType) {
+          case 'boolean':
+            column.module = 'checkbox';
+            break;
+          case 'array':
+            column.module = 'json';
+            break;
+          case 'object':
+            column.module = 'json';
+            break;
+          default:
+            column.module = 'text';
+            break;
+        }
+
+        return column;
+      })
+    : undefined;
+
 const propTypes = {
   ...tablePropTypes,
 };
 
-const TableTable = ({
+const TableBase = ({
   actions,
   data,
   dataConfig,
@@ -31,38 +60,12 @@ const TableTable = ({
   uniqueIdAttribute,
   ...rest
 }) => {
-  // TODO: When we officially deprecate dataDisplay, this logic can go away.
+  // TODO: When we officially deprecate dataDisplay, the second or case can go away
   const display =
     dataDisplay ||
     dataConfig?.display ||
     // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
-    (Array.isArray(data) && data.length > 0)
-      ? Object.entries(data[0]).map(([attribute, value]) => {
-          const dataType = typeof value;
-          const column = {
-            attribute,
-            label: attribute,
-            module: dataType,
-          };
-
-          switch (dataType) {
-            case 'boolean':
-              column.module = 'checkbox';
-              break;
-            case 'array':
-              column.module = 'json';
-              break;
-            case 'object':
-              column.module = 'json';
-              break;
-            default:
-              column.module = 'text';
-              break;
-          }
-
-          return column;
-        })
-      : [];
+    inferDataDisplay(data);
 
   const uniqueID =
     uniqueIdAttribute || data ? inferUniqueID(Object.keys(data[0])) : undefined;
@@ -131,7 +134,7 @@ const TableTable = ({
   );
 };
 
-TableTable.propTypes = propTypes;
+TableBase.propTypes = propTypes;
 
 export { propTypes };
-export default TableTable;
+export default TableBase;
