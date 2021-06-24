@@ -183,4 +183,5 @@ const Table = ({
 
 Table.propTypes = propTypes;
 
+export { propTypes };
 export default Table;
