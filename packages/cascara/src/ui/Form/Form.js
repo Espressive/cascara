@@ -12,4 +12,5 @@ const Form = ({ action }) => {
 Form.propTypes = propTypes;
 Form.displayName = 'Form';
 
+export { propTypes };
 export default Form;
