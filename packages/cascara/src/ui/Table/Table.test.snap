@@ -1,27 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table component tree snapshot test (empty) 1`] = `
-<div>
-  <form>
-    <table
-      class="Table"
-      style="grid-template-columns: repeat(0, auto);"
-    >
-      <thead
-        class="HeadContainer"
-      >
-        <tr
-          class="Row"
-        />
-      </thead>
-      <tbody
-        class="BodyContainer"
-      />
-    </table>
-  </form>
-</div>
-`;
-
 exports[`Table component tree snapshot test 1`] = `
 <div>
   <form>
@@ -38,47 +16,47 @@ exports[`Table component tree snapshot test 1`] = `
           <th
             class="HeadCell"
           >
-            active
+            Active
           </th>
           <th
             class="HeadCell"
           >
-            country
+            ID
           </th>
           <th
             class="HeadCell"
           >
-            eid
+            Email
           </th>
           <th
             class="HeadCell"
           >
-            email
+            Country
           </th>
           <th
             class="HeadCell"
           >
-            employeeNumber
+            Employee Number
           </th>
           <th
             class="HeadCell"
           >
-            fullName
+            Full Name
           </th>
           <th
             class="HeadCell"
           >
-            homePhone
+            Home Phone
           </th>
           <th
             class="HeadCell"
           >
-            officePhone
+            Office Phone
           </th>
           <th
             class="HeadCell"
           >
-            title
+            Title
           </th>
           <th
             class="HeadCell"
@@ -115,21 +93,6 @@ exports[`Table component tree snapshot test 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   024f2316-265a-46e8-965a-837e308ae678
                 </span>
               </span>
@@ -139,7 +102,7 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -154,7 +117,22 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -229,11 +207,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-1"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -293,21 +269,6 @@ exports[`Table component tree snapshot test 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   8f676552-3b91-4474-a9d8-a27892bc4d87
                 </span>
               </span>
@@ -317,7 +278,7 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -332,7 +293,22 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -407,11 +383,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-2"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -472,21 +446,6 @@ exports[`Table component tree snapshot test 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   4189e6e0-2033-4017-b027-7a345a79e0c8
                 </span>
               </span>
@@ -496,7 +455,7 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -511,7 +470,22 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -586,11 +560,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-3"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -651,21 +623,6 @@ exports[`Table component tree snapshot test 1`] = `
                 <span
                   class="Input"
                 >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   fdb9b932-f30b-44e6-ac03-9d5f9269c096
                 </span>
               </span>
@@ -675,7 +632,7 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -690,7 +647,22 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  USA
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -765,11 +737,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-4"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -830,21 +800,6 @@ exports[`Table component tree snapshot test 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   35ef7196-c587-44f3-81ab-d732ce143614
                 </span>
               </span>
@@ -854,7 +809,7 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -869,7 +824,22 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -944,11 +914,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-5"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1008,21 +976,6 @@ exports[`Table component tree snapshot test 1`] = `
                 <span
                   class="Input"
                 >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   d1051f91-8968-4579-97cb-68392abfed76
                 </span>
               </span>
@@ -1032,7 +985,7 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -1047,7 +1000,22 @@ exports[`Table component tree snapshot test 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  USA
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -1122,11 +1090,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-6"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1182,47 +1148,47 @@ exports[`Table component tree without row actions 1`] = `
           <th
             class="HeadCell"
           >
-            active
+            Active
           </th>
           <th
             class="HeadCell"
           >
-            country
+            ID
           </th>
           <th
             class="HeadCell"
           >
-            eid
+            Email
           </th>
           <th
             class="HeadCell"
           >
-            email
+            Country
           </th>
           <th
             class="HeadCell"
           >
-            employeeNumber
+            Employee Number
           </th>
           <th
             class="HeadCell"
           >
-            fullName
+            Full Name
           </th>
           <th
             class="HeadCell"
           >
-            homePhone
+            Home Phone
           </th>
           <th
             class="HeadCell"
           >
-            officePhone
+            Office Phone
           </th>
           <th
             class="HeadCell"
           >
-            title
+            Title
           </th>
           <th
             class="HeadCell"
@@ -1259,21 +1225,6 @@ exports[`Table component tree without row actions 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   024f2316-265a-46e8-965a-837e308ae678
                 </span>
               </span>
@@ -1283,7 +1234,7 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -1298,7 +1249,22 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -1373,11 +1339,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-1"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1437,21 +1401,6 @@ exports[`Table component tree without row actions 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   8f676552-3b91-4474-a9d8-a27892bc4d87
                 </span>
               </span>
@@ -1461,7 +1410,7 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -1476,7 +1425,22 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -1551,11 +1515,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-2"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1616,21 +1578,6 @@ exports[`Table component tree without row actions 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   4189e6e0-2033-4017-b027-7a345a79e0c8
                 </span>
               </span>
@@ -1640,7 +1587,7 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -1655,7 +1602,22 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -1730,11 +1692,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-3"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1795,21 +1755,6 @@ exports[`Table component tree without row actions 1`] = `
                 <span
                   class="Input"
                 >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   fdb9b932-f30b-44e6-ac03-9d5f9269c096
                 </span>
               </span>
@@ -1819,7 +1764,7 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -1834,7 +1779,22 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  USA
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -1909,11 +1869,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-4"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1974,21 +1932,6 @@ exports[`Table component tree without row actions 1`] = `
                 <span
                   class="Input"
                 >
-                  Argentina
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   35ef7196-c587-44f3-81ab-d732ce143614
                 </span>
               </span>
@@ -1998,7 +1941,7 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -2013,7 +1956,22 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  Argentina
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -2088,11 +2046,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-5"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -2152,21 +2108,6 @@ exports[`Table component tree without row actions 1`] = `
                 <span
                   class="Input"
                 >
-                  USA
-                </span>
-              </span>
-            </div>
-          </td>
-          <td
-            class="Cell"
-          >
-            <div
-              class="Text"
-            >
-              <span>
-                <span
-                  class="Input"
-                >
                   d1051f91-8968-4579-97cb-68392abfed76
                 </span>
               </span>
@@ -2176,7 +2117,7 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Email"
             >
               <span>
                 <span
@@ -2191,7 +2132,22 @@ exports[`Table component tree without row actions 1`] = `
             class="Cell"
           >
             <div
-              class="Text"
+              class="Select"
+            >
+              <span>
+                <span
+                  class="Input"
+                >
+                  USA
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="Cell"
+          >
+            <div
+              class="Number"
             >
               <span>
                 <span
@@ -2266,11 +2222,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-6"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
