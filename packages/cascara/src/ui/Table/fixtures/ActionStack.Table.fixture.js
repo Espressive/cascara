@@ -178,4 +178,4 @@ class Fixture extends PureComponent {
   }
 }
 
-export default Fixture;
+export default <Fixture />;

@@ -229,11 +229,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-1"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -407,11 +405,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-2"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -586,11 +582,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-3"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -765,11 +759,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-4"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -944,11 +936,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-5"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1122,11 +1112,9 @@ exports[`Table component tree snapshot test 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-6"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1373,11 +1361,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-1"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1551,11 +1537,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-2"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1730,11 +1714,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-3"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -1909,11 +1891,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-4"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -2088,11 +2068,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-5"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg
@@ -2266,11 +2244,9 @@ exports[`Table component tree without row actions 1`] = `
             class="CellActions"
           >
             <button
-              aria-describedby="id-6"
               aria-label="Edit"
               class="ui basic icon button"
               name="edit.start"
-              tabindex="0"
               type="button"
             >
               <svg

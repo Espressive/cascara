@@ -11,7 +11,7 @@ describe('Table DX', () => {
   describe(`should render all 'data' into columns if no other props are defined:`, () => {
     beforeEach(() => {
       // We need to call the fixture function in order to correctly render it.
-      render(dataOnly());
+      render(dataOnly);
     });
 
     test(`all table headers`, () => {

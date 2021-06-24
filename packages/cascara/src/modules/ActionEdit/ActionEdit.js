@@ -5,7 +5,7 @@ import { ModuleContext } from '../context';
 import { Button } from 'reakit';
 import { InlineIcon } from '@iconify/react';
 import { checkIcon, closeIcon, pencilIcon } from '@espressive/icons';
-import Tooltip from '../../ui/Tooltip';
+// import Tooltip from '../../ui/Tooltip';
 
 const propTypes = {
   /** An optional text label for the cancel button */
@@ -102,44 +102,38 @@ const ActionEdit = ({
 
   return isEditing ? (
     <>
-      <Tooltip content='Cancel' delay={100}>
-        <Button
-          aria-label='Cancel'
-          className='ui negative icon button'
-          disabled={isSubmitting}
-          name='edit.cancel'
-          onClick={handleCancel}
-          type='button'
-        >
-          {cancelLabel}
-        </Button>
-      </Tooltip>
-      <Tooltip content='Save' delay={100}>
-        <Button
-          aria-label='Save'
-          className='ui positive icon button'
-          disabled={!isDirty || isSubmitting}
-          name='edit.save'
-          onClick={handleSubmit(onSubmit)}
-          type='button'
-        >
-          {saveLabel}
-        </Button>
-      </Tooltip>
-    </>
-  ) : (
-    <Tooltip content='Edit'>
       <Button
-        aria-label='Edit'
-        className='ui basic icon button'
-        disabled={whenAnotherRowIsEditing}
-        name='edit.start'
-        onClick={handleEdit}
+        aria-label='Cancel'
+        className='ui negative icon button'
+        disabled={isSubmitting}
+        name='edit.cancel'
+        onClick={handleCancel}
         type='button'
       >
-        {editLabel}
+        {cancelLabel}
       </Button>
-    </Tooltip>
+      <Button
+        aria-label='Save'
+        className='ui positive icon button'
+        disabled={!isDirty || isSubmitting}
+        name='edit.save'
+        onClick={handleSubmit(onSubmit)}
+        type='button'
+      >
+        {saveLabel}
+      </Button>
+    </>
+  ) : (
+    <Button
+      aria-label='Edit'
+      className='ui basic icon button'
+      disabled={whenAnotherRowIsEditing}
+      name='edit.start'
+      onClick={handleEdit}
+      type='button'
+    >
+      {editLabel}
+    </Button>
   );
 };
 

@@ -219,7 +219,6 @@ class Fixture extends PureComponent {
         <Table
           actions={actions}
           data={data}
-          // dataConfig={dataConfig}
           dataDisplay={display}
           onAction={this.handleTableAction}
           uniqueIdAttribute={'eid'}
@@ -229,4 +228,5 @@ class Fixture extends PureComponent {
   }
 }
 
-export default Fixture;
+// Exporting as a JSX element exposes props to Cosmos UI
+export default <Fixture />;
