@@ -7,6 +7,8 @@ import 'mutationobserver-shim';
 import Table from './';
 import { generateFakeEmployees } from '../../lib/mock/fakeData';
 
+// NOTE: Tests for loading, empty, and early/simple configuration state are in TableDX
+
 describe('Table', () => {
   // Component tree
   // This test suite addresses the very basics of testing the Table UI.
@@ -137,16 +139,6 @@ describe('Table', () => {
             dataConfig={dataConfig}
             uniqueIdAttribute={'eid'}
           />
-        </Provider>
-      ).container;
-
-      expect(view).toMatchSnapshot();
-    });
-
-    test('snapshot test (empty)', () => {
-      const view = render(
-        <Provider>
-          <Table />
         </Provider>
       ).container;
 

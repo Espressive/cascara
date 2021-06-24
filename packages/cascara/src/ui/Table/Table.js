@@ -1,28 +1,16 @@
 import React from 'react';
 import pt from 'prop-types';
-import styles from './Table.module.scss';
 
 import ErrorBoundary from '../../shared/ErrorBoundary';
-import TableProvider from './context/TableProvider';
 
-import TableHeader from './TableHeader';
-import TableBody from './TableBody';
+import TableTable from './TableTable';
+import TableLoading from './TableLoading';
+import TableEmpty from './TableEmpty';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 
-const UUID_PRIORITY_KEYS = ['eid', 'uuid', 'id', 'sys_date_created'];
-
 const actionModuleOptions = Object.keys(actionModules);
 const dataModuleOptions = Object.keys(dataModules);
-
-const inferUniqueID = (objectKeys) => {
-  for (const key of UUID_PRIORITY_KEYS) {
-    if (objectKeys.includes(key)) {
-      return key;
-    }
-  }
-  return undefined;
-};
 
 const propTypes = {
   /** Actions will be appended to each row, they'll appear as buttons. */
@@ -89,118 +77,28 @@ const propTypes = {
 };
 
 /** This is a Table */
-const Table = ({
-  actions,
-  data,
-  dataConfig,
-  dataDisplay,
-  onAction,
-  uniqueIdAttribute,
-  ...rest
-}) => {
-  // TODO: When we officially deprecate dataDisplay, this logic can go away.
-  const display =
-    dataDisplay ||
-    dataConfig?.display ||
-    // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
-    (Array.isArray(data) && data.length > 0)
-      ? Object.entries(data[0]).map(([attribute, value]) => {
-          const dataType = typeof value;
-          const column = {
-            attribute,
-            label: attribute,
-            module: dataType,
-          };
-
-          switch (dataType) {
-            case 'boolean':
-              column.module = 'checkbox';
-              break;
-            case 'array':
-              column.module = 'json';
-              break;
-            case 'object':
-              column.module = 'json';
-              break;
-            default:
-              column.module = 'text';
-              break;
-          }
-
-          return column;
-        })
-      : [];
-
-  const uniqueID =
-    uniqueIdAttribute || data ? inferUniqueID(Object.keys(data[0])) : undefined;
-
-  // // FDS-142: new action props
-  let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
-  let modules = actions?.modules;
-  const resolveRecordActions = actions?.resolveRecordActions;
-
-  // old action props
-  const unwantedActions = dataConfig?.actions;
-  if (unwantedActions) {
-    modules = unwantedActions;
-    // eslint-disable-next-line no-console -- we need to let developers know about this error
-    console.warn(
-      'Prop "dataConfig.actions" has been deprecated. Actions have been moved to the root of the Table component as their own prop.'
-    );
-  }
-
-  const unwantedActionButtonIndex = dataConfig?.actionButtonMenuIndex;
-  if (unwantedActionButtonIndex) {
-    actionButtonMenuIndex = unwantedActionButtonIndex;
-    // eslint-disable-next-line no-console -- we need to let developers know about this error
-    console.warn(
-      'Prop "dataConfig.actionButtonIndex" has been deprecated. Actions have been moved to the root of the Table component as their own prop.'
-    );
-  }
-
-  const unwantedDataConfig = dataConfig;
-  if (unwantedDataConfig) {
-    // eslint-disable-next-line no-console -- we need to let developers know about this error
-    console.warn(
-      'Parameters inside the dataConfig object have been moved to different locations. Please see the `actions` and `dataDisplay` props instead. This prop will no longer work in the next minor release.'
-    );
-  }
-
-  let columnCount = display?.length;
-
-  if (modules?.length) {
-    columnCount++;
-  }
-
-  // FDS-187: render nothing if no data nor columns
+const Table = (props) => {
+  const { data } = props;
   return (
+    // 1. if data is undefined or null, render a loading state
+    // 2. if data is an empty array, render an empty results message
+    // 3. render the table data
     <ErrorBoundary>
-      <TableProvider
-        value={{
-          actionButtonMenuIndex,
-          data,
-          dataDisplay: display,
-          modules,
-          onAction,
-          resolveRecordActions,
-          uniqueIdAttribute: uniqueID,
-        }}
-        {...rest}
-      >
-        <table
-          className={styles.Table}
-          style={{
-            gridTemplateColumns: `repeat(${columnCount}, auto)`,
-          }}
-        >
-          <TableHeader />
-          <TableBody />
-        </table>
-      </TableProvider>
+      {data ? (
+        data.length > 0 ? (
+          <TableTable {...props} />
+        ) : (
+          <TableEmpty />
+        )
+      ) : (
+        // This is a temporary loading style. We will eventually define a loading style using the shape of modules.
+        <TableLoading />
+      )}
     </ErrorBoundary>
   );
 };
 
 Table.propTypes = propTypes;
 
+export { propTypes };
 export default Table;

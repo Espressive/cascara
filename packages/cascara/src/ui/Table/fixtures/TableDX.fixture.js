@@ -15,18 +15,29 @@ const COLUMNS = [
   },
 ];
 
-const Empty = () => (
+const Loading = () => (
   <>
-    <h3>Empty</h3>
+    <h3>Loading</h3>
     <p>
-      The table component should not blow up if no props at all are defined. It
-      is likely we should have an empty state here. If nothing is defined at
-      all, we could show a loading state. If we have an empty array of data, we
-      should show an empty state. This will be consistent with what we are
-      passing to a component.
+      The table component will not blow up if there are no values defined. It
+      will also explicitly show a loading state if the data attribute is
+      undefined (or null).
     </p>
 
     <Table />
+  </>
+);
+
+const Empty = (fixtureProps) => (
+  <>
+    <h3>Empty</h3>
+    <p>
+      If a table gets an empty array, that should be treated different from
+      undefined or null. An empty array should mean that there are no records
+      and we should indicate this to users in the table itself.
+    </p>
+
+    <Table {...fixtureProps} />
   </>
 );
 
@@ -84,7 +95,8 @@ export { dataResults };
 
 /* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
-  Empty: Empty,
+  Loading: <Loading />,
+  Empty: <Empty data={[]} />,
   'Data Only': <DataOnly data={results} />,
   'Data w/ dataDisplay': (
     <DataWithDisplay data={results} dataDisplay={COLUMNS} />

@@ -2,19 +2,28 @@ import { render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import cosmosFixtures, { dataResults } from './TableDX.fixture';
 
-const { 'Data Only': dataOnly } = cosmosFixtures;
+const {
+  Loading: loadingFixture,
+  Empty: emptyFixture,
+  'Data Only': dataOnlyFixture,
+} = cosmosFixtures;
 const RESULTS_KEYS = Object.keys(dataResults[0]);
 
 describe('Table DX', () => {
-  test.todo(`should show a loading state if the 'data' prop is 'undefined'`);
+  test(`should show a loading state if the 'data' prop is 'undefined' or 'null'`, () => {
+    const { baseElement } = render(loadingFixture);
+    // This technically captures the entire fixture in a snapshot. We should consider if we want to only select the element within for a snapshot or not.
+    expect(baseElement).toMatchSnapshot();
+  });
+
+  test(`should show an empty state if data is defined but has a length of 0`, () => {
+    const { baseElement } = render(emptyFixture);
+    expect(baseElement).toMatchSnapshot();
+  });
 
   describe(`should render all 'data' into columns if no other props are defined:`, () => {
-    beforeEach(() => {
-      // We need to call the fixture function in order to correctly render it.
-      render(dataOnly);
-    });
-
     test(`all table headers`, () => {
+      render(dataOnlyFixture);
       // Search for the text in the first header column and get the row, which is the table header
       const tableHeader = within(
         screen.getByText(RESULTS_KEYS[0]).closest('tr')
@@ -27,6 +36,7 @@ describe('Table DX', () => {
     });
 
     test(`all rows render`, () => {
+      render(dataOnlyFixture);
       // Test only within the table body, since there are also
       // rows and cells in the table header
       const tableBody = within(
