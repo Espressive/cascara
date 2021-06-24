@@ -10,8 +10,19 @@ import TableBody from './TableBody';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 
+const UUID_PRIORITY_KEYS = ['eid', 'uuid', 'id', 'sys_date_created'];
+
 const actionModuleOptions = Object.keys(actionModules);
 const dataModuleOptions = Object.keys(dataModules);
+
+const inferUniqueID = (objectKeys) => {
+  for (const key of UUID_PRIORITY_KEYS) {
+    if (objectKeys.includes(key)) {
+      return key;
+    }
+  }
+  return undefined;
+};
 
 const propTypes = {
   /** Actions will be appended to each row, they'll appear as buttons. */
@@ -105,6 +116,12 @@ const Table = ({
             case 'boolean':
               column.module = 'checkbox';
               break;
+            case 'array':
+              column.module = 'json';
+              break;
+            case 'object':
+              column.module = 'json';
+              break;
             default:
               column.module = 'text';
               break;
@@ -113,6 +130,9 @@ const Table = ({
           return column;
         })
       : [];
+
+  const uniqueID =
+    uniqueIdAttribute || data ? inferUniqueID(Object.keys(data[0])) : undefined;
 
   // // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
@@ -163,7 +183,7 @@ const Table = ({
           modules,
           onAction,
           resolveRecordActions,
-          uniqueIdAttribute,
+          uniqueIdAttribute: uniqueID,
         }}
         {...rest}
       >
