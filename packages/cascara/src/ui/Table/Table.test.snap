@@ -1,27 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table component tree snapshot test (empty) 1`] = `
-<div>
-  <form>
-    <table
-      class="Table"
-      style="grid-template-columns: repeat(0, auto);"
-    >
-      <thead
-        class="HeadContainer"
-      >
-        <tr
-          class="Row"
-        />
-      </thead>
-      <tbody
-        class="BodyContainer"
-      />
-    </table>
-  </form>
-</div>
-`;
-
 exports[`Table component tree snapshot test 1`] = `
 <div>
   <form>
