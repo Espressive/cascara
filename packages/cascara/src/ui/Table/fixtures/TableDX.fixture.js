@@ -79,7 +79,8 @@ const DataWithDisplay = () => (
 
 // We export the data results here for use in our tests.
 // This also allows us to generate test data from inside a fixture and then reuse it in tests.
-export { results };
+const dataResults = results;
+export { dataResults };
 
 /* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
