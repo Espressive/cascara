@@ -6,6 +6,7 @@ const {
   Loading: loadingFixture,
   Empty: emptyFixture,
   'Data Only': dataOnlyFixture,
+  'Data w/ dataDisplay': dataWithDisplayFixture,
 } = cosmosFixtures;
 const RESULTS_KEYS = Object.keys(dataResults[0]);
 
@@ -57,7 +58,13 @@ describe('Table DX', () => {
     });
   });
 
-  test.todo(
-    `should render 'data' from 'dataDisplay' configured settings with no other props defined`
-  );
+  test(`should render 'data' from 'dataDisplay' configured settings with no other props defined`, () => {
+    render(dataWithDisplayFixture);
+
+    // Check to make sure we only have the number of columns as defined in dataDisplay.
+    // This is only checking column headers, not every row.
+    expect(screen.getAllByRole('columnheader')).toHaveLength(
+      dataWithDisplayFixture.props.dataDisplay.length
+    );
+  });
 });

@@ -365,13 +365,13 @@ describe('Table', () => {
       userEvent.clear(
         screen.getByRole('textbox', {
           container: firstRow,
-          name: 'email',
+          name: 'Email',
         })
       );
       userEvent.type(
         screen.getByRole('textbox', {
           container: firstRow,
-          name: 'email',
+          name: 'Email',
         }),
         testEmail
       );
