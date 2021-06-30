@@ -1,6 +1,7 @@
 import { ModuleContext, ModuleProvider } from './context';
 
 import ActionButton from './ActionButton';
+import ActionEdit from './ActionEdit';
 import DataCheckbox from './DataCheckbox';
 import DataEmail from './DataEmail';
 import DataJson from './DataJson';
@@ -14,6 +15,7 @@ import ModuleSandbox from './ModuleSandbox';
 
 export {
   ActionButton,
+  ActionEdit,
   DataCheckbox,
   DataEmail,
   DataJson,

@@ -1,5 +1,6 @@
 // Action Modules
 import ActionButton from './ActionButton';
+import ActionEdit from './ActionEdit';
 
 // Data Modules
 import DataCheckbox from './DataCheckbox';
@@ -13,6 +14,7 @@ import DataTextArea from './DataTextArea';
 
 const actionModules = {
   button: ActionButton,
+  edit: ActionEdit,
 };
 
 const dataModules = {

@@ -159,7 +159,7 @@ exports[`Form snapshot test 1`] = `
         name="delete"
         type="button"
       >
-        Delete
+        ActionButton
       </button>
     </div>
   </form>
