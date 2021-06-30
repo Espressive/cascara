@@ -74,7 +74,7 @@ const fakeHeader = (
     <th className={tableStyles.HeadCell}>DataSelect</th>
     <th className={tableStyles.HeadCell}>DataText</th>
     <th className={tableStyles.HeadCell}>DataCheckbox</th>
-    <th className={tableStyles.HeadCell}>DataRadio</th>
+    {/* <th className={tableStyles.HeadCell}>DataRadio</th> */}
     <th className={tableStyles.HeadCell}>DataTextArea</th>
   </tr>
 );
@@ -107,7 +107,7 @@ const fakeRow = (
 
 const AllModules = ({ data, dataConfig }) => {
   return (
-    <div style={{ margin: '1em' }}>
+    <>
       <div>
         <h1>All Modules POC</h1>
         <p>
@@ -137,7 +137,7 @@ const AllModules = ({ data, dataConfig }) => {
       <h2>Table Presentation</h2>
       <table
         className={tableStyles.Table}
-        style={{ gridTemplateColumns: `repeat(7, auto)` }}
+        style={{ gridTemplateColumns: `repeat(6, auto)` }}
       >
         <thead className={tableStyles.HeadContainer}>{fakeHeader}</thead>
         <tbody className={tableStyles.BodyContainer}>
@@ -150,7 +150,7 @@ const AllModules = ({ data, dataConfig }) => {
           {fakeRow}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 
