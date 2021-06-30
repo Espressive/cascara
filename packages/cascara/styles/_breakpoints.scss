@@ -1,0 +1,85 @@
+// @use '~@espressive/design-tokens/scss' as *;
+// Bug in design tokens causing PX vals to get stripped and replaced with rem without conversion :/
+
+@use "sass:math";
+
+$size-screen-0: 320px;
+$size-screen-1: 768px;
+$size-screen-2: 992px;
+$size-screen-3: 1400px;
+$size-screen-4: 1900px;
+
+// These functions should not be needed once our library compiles correctly
+@function em($number) {
+  @return math.div($number, 16) + 0em;
+}
+
+@function emFromPx($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return em(math.div($number, $number * 0 + 1));
+  }
+
+  @return em($number);
+}
+
+// Mobile first queries (greater than)
+@mixin gt-xs {
+  @media screen and (min-width: #{emFromPx($size-screen-0 + 1px)}) {
+    @content;
+  }
+}
+
+@mixin gt-sm {
+  @media screen and (min-width: #{emFromPx($size-screen-1 + 1px)}) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @media screen and (min-width: #{emFromPx($size-screen-2 + 1px)}) {
+    @content;
+  }
+}
+
+@mixin gt-lg {
+  @media screen and (min-width: #{emFromPx($size-screen-3 + 1px)}) {
+    @content;
+  }
+}
+
+@mixin gt-xl {
+  @media screen and (min-width: #{emFromPx($size-screen-4 + 1px)}) {
+    @content;
+  }
+}
+
+// Queries for only one breakpoint
+@mixin xs {
+  @media screen and (max-width: #{emFromPx($size-screen-0)}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media screen and (min-width: #{emFromPx($size-screen-0 + 1px)}) and (max-width: #{emFromPx($size-screen-1)}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (min-width: #{emFromPx($size-screen-1 + 1px)}) and (max-width: #{emFromPx($size-screen-2)}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: #{emFromPx($size-screen-2 + 1px)} ) and (max-width: #{emFromPx($size-screen-3)}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{emFromPx($size-screen-3 + 1px)}) and (max-width: #{emFromPx($size-screen-4)}) {
+    @content;
+  }
+}

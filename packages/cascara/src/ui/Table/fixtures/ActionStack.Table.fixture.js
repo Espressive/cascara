@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Dropdown, Header } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
 
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
@@ -9,44 +9,44 @@ import Table from '..';
 const defaultColumns = [
   {
     attribute: 'created',
-    content: 'Created',
     isEditable: true,
     isLabeled: false,
+    label: 'Created',
     module: 'text',
   },
   {
     attribute: 'phrase',
-    content: 'Phrase',
     isEditable: false,
     isLabeled: false,
+    label: 'Phrase',
     module: 'text',
   },
   {
     attribute: 'user',
-    content: 'User',
     isEditable: true,
     isLabeled: false,
+    label: 'User',
     module: 'email',
   },
   {
     attribute: 'response',
-    content: 'Response',
     isEditable: true,
     isLabeled: false,
+    label: 'Response',
     module: 'checkbox',
   },
   {
     attribute: 'deflected',
-    content: 'Deflected',
     isEditable: true,
     isLabeled: false,
+    label: 'Deflected',
     module: 'checkbox',
   },
   {
     attribute: 'matchedIntent',
-    content: 'Matched Intent',
     isEditable: true,
     isLabeled: false,
+    label: 'Matched Intent',
     module: 'text',
   },
 ];
@@ -98,26 +98,7 @@ class Fixture extends PureComponent {
         break;
 
       default:
-        break;
     }
-  };
-
-  resolveRecordActions = (record, actions) => {
-    return actions.reduce((actions, action) => {
-      switch (action.name) {
-        case 'view.faq':
-          if (record.type === 'faq') {
-            actions.push(action);
-          }
-          break;
-
-        default:
-          actions.push(action);
-          break;
-      }
-
-      return actions;
-    }, []);
   };
 
   render() {
@@ -147,9 +128,10 @@ class Fixture extends PureComponent {
           name: 'edit',
         },
       ],
-      resolveRecordActions: this.resolveRecordActions,
     };
     const dataConfig = {
+      actionButtonMenuIndex: 0,
+
       display,
     };
 
@@ -163,29 +145,26 @@ class Fixture extends PureComponent {
 
     return (
       <>
-        <JsonPlaceholder data={actions} title='actions' />
         <JsonPlaceholder data={dataConfig} title='dataConfig' />
         <JsonPlaceholder
           data={{ availableColumns, selectedColumns }}
           title='available vs. selected columns'
         />
-        <Header as='h4'>
-          <Header.Content>
-            Displaying columns: <br />
-            <Dropdown
-              header='Select columns...'
-              key={'select'}
-              labeled
-              multiple
-              onChange={this.handleColumnSelection}
-              options={availableColumns}
-              placeholder='select columns...'
-              selectedLabel={'Display columns'}
-              selection
-              value={selectedColumns}
-            />
-          </Header.Content>
-        </Header>
+        <h4 className='ui header'>
+          Displaying columns: <br />
+          <Dropdown
+            header='Select columns...'
+            key={'select'}
+            labeled
+            multiple
+            onChange={this.handleColumnSelection}
+            options={availableColumns}
+            placeholder='select columns...'
+            selectedLabel={'Display columns'}
+            selection
+            value={selectedColumns}
+          />
+        </h4>
 
         <Table
           actions={actions}
@@ -199,4 +178,4 @@ class Fixture extends PureComponent {
   }
 }
 
-export default Fixture;
+export default <Fixture />;

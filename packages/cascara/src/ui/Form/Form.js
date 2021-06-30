@@ -171,4 +171,5 @@ const Form = ({
 Form.propTypes = propTypes;
 Form.displayName = 'Form';
 
+export { propTypes };
 export default Form;

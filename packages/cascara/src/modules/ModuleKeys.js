@@ -4,6 +4,7 @@ import ActionButton from './ActionButton';
 // Data Modules
 import DataCheckbox from './DataCheckbox';
 import DataEmail from './DataEmail';
+import DataJson from './DataJson';
 import DataNumber from './DataNumber';
 import DataRadio from './DataRadio';
 import DataSelect from './DataSelect';
@@ -15,12 +16,13 @@ const actionModules = {
 };
 
 const dataModules = {
+  // switch: DataCheckbox,
   checkbox: DataCheckbox,
   email: DataEmail,
+  json: DataJson,
   number: DataNumber,
   radio: DataRadio,
   select: DataSelect,
-  // switch: DataCheckbox,
   text: DataText,
   textarea: DataTextArea,
 };

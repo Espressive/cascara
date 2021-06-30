@@ -1,0 +1,57 @@
+@use '@espressive/cascara/styles' as *;
+
+.Fixture {
+  & > * {
+    margin: 1em;
+    padding: 0.5em;
+  }
+
+  :global {
+    code {
+      padding: 0 0.25em;
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 0.25em;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.Module {
+  @include scroll-vertical;
+  background-color: $color-base-green;
+}
+
+.ResponsiveModule {
+  background-color: grey;
+
+  @include media-gt-sm {
+    background-color: hotpink;
+  }
+
+  &:before {
+    @include media-xs {
+      content: 'xs';
+      color: red;
+    }
+
+    @include media-sm {
+      content: 'sm';
+      color: blue;
+    }
+
+    @include media-md {
+      content: 'md';
+      color: green;
+    }
+
+    @include media-lg {
+      content: 'lg';
+      color: purple;
+    }
+
+    @include media-xl {
+      content: 'xl';
+      color: orange;
+    }
+  }
+}

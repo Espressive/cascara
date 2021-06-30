@@ -1,6 +1,6 @@
 {
   "name": "@espressive/eslint-config",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Eslint config used by Espressive",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
     "directory": "utils/eslint-config"
   },
   "license": "MIT",
+  "author": "Brian Espinosa <brian@espressive.com>",
   "main": "src/index.js",
   "files": [
     "index.js",

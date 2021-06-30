@@ -33,7 +33,6 @@ const DataCheckbox = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {isLabeled && label && <span className={styles.LabelText}>{label}</span>}
       <Checkbox
         {...rest}
         {...checkbox}

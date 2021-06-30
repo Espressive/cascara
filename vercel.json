@@ -1,1 +1,6 @@
-{}
+{
+  "public": false,
+  "github": {
+    "enabled": true
+  }
+}

@@ -1,12 +1,10 @@
 import React from 'react';
 import DataText from '../DataText';
 import ActionButton from '../ActionButton';
-import { Divider } from 'semantic-ui-react';
 import AreaPlaceholder from '../../placeholders/AreaPlaceholder';
 import FormProvider from '../../ui/Form/context/FormProvider';
 import RowProvider from '../../ui/Table/context/RowProvider';
 import TableProvider from '../../ui/Table/context/TableProvider';
-
 import FormActionEdit from '../../ui/Form/modules/ActionEdit';
 import TableActionEdit from '../../ui/Table/modules/ActionEdit';
 
@@ -99,7 +97,7 @@ const ContextComposableActions = ({ data, dataConfig }) => {
           >
             <ActionButton />
             <FormActionEdit />
-            <Divider clearing fitted hidden />
+            <div className='ui clearing fitted hidden divider' />
           </div>
         </AreaPlaceholder>
       </FormProvider>

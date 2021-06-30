@@ -2,15 +2,22 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent",
+  "ignoreChanges": [
+    "**/*.fixture.js",
+    "**/*.md",
+    "**/*.mdx",
+    "**/*.test.js",
+    "**/*.test.snap"
+  ],
   "command": {
     "publish": {
-      "ignoreChanges": ["ignored-file", "*.md"],
       "message": "chore(release): publish",
-      "registry": "https://npm.pkg.github.com"
+      "registry": "https://npm.pkg.github.com",
+      "allowBranch": "main"
     },
-    "bootstrap": {
-      "ignore": "component-*",
-      "npmClientArgs": ["--no-package-lock"]
+    "version": {
+      "message": "chore(release): publish [ci skip]",
+      "allowBranch": ["develop", "main"]
     }
   }
 }

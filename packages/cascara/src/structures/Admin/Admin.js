@@ -10,9 +10,9 @@ import useSetLayoutAttribute from '../../shared/hooks/useSetLayoutAttribute';
 // and if they do not have the proper grid container, just add it automatically.
 const propTypes = {
   drawer: pt.oneOfType([pt.node, pt.array]),
-  header: pt.element,
-  main: pt.element,
-  nav: pt.element,
+  header: pt.node,
+  main: pt.node,
+  nav: pt.node,
 };
 
 const Admin = ({ drawer, header, main, nav }) => {

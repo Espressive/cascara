@@ -19,6 +19,7 @@ const propTypes = {
   options: pt.arrayOf(
     pt.shape({
       key: pt.string,
+      text: pt.oneOfType([pt.string, pt.number]),
       value: pt.oneOfType([pt.string, pt.number]),
     })
   ),
@@ -39,7 +40,7 @@ const DataSelect = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
+      {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <Input
         {...rest}
         as='select'
@@ -64,7 +65,7 @@ const DataSelect = ({
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
+      {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <span className={styles.Input} {...rest}>
         {value}
       </span>

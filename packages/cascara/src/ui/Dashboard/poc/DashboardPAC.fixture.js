@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
 import Dashboard from '../Dashboard';
 import pieData from '../data/Pie';
 import pieData2 from '../data/Pie2';
@@ -8,6 +7,7 @@ import geoMapData from '../data/GeoMap';
 import barData from '../data/Bar';
 import barData2 from '../data/Bar2';
 import barDataDevice from '../data/BarDevice';
+import heatMapData from '../data/HeatMap';
 
 const dataInteractions = [
   {
@@ -47,6 +47,20 @@ const dataDeflections = [
 ];
 
 const dashboardConfig = [
+  {
+    data: heatMapData,
+    keys: ['country', 'fries', 'curry'], // Without keys defined, all data from each object will show
+    // rowAction: (obj) => console.log(obj), // Without a rowAction defined, no row action will show. Note that the function gets the original object passed to it.
+    title: 'List',
+    widget: 'list',
+  },
+  {
+    data: geoMapData,
+    indexBy: 'id', // 'id' is the default and not needed if the data already matches
+    label: 'value', // 'value' is the default and is not needed if the data already matches
+    title: 'Bubble',
+    widget: 'bubble',
+  },
   {
     actions: [
       {
@@ -127,9 +141,9 @@ const dashboardConfig = [
 
 const DashboardPAC = () => {
   return (
-    <Container as='main' style={{ padding: '2em 0' }}>
+    <main className='ui container' style={{ padding: '2em 0' }}>
       <Dashboard config={dashboardConfig} />
-    </Container>
+    </main>
   );
 };
 

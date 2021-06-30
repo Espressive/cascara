@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Dropdown, Header } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
 
 import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
@@ -10,42 +10,36 @@ const defaultColumns = [
   {
     attribute: 'created',
     isEditable: true,
-    isLabeled: false,
     label: 'Created',
     module: 'text',
   },
   {
     attribute: 'phrase',
     isEditable: false,
-    isLabeled: false,
     label: 'Phrase',
     module: 'text',
   },
   {
     attribute: 'user',
     isEditable: true,
-    isLabeled: false,
     label: 'User',
     module: 'email',
   },
   {
     attribute: 'response',
     isEditable: true,
-    isLabeled: false,
     label: 'Response',
     module: 'checkbox',
   },
   {
     attribute: 'deflected',
     isEditable: true,
-    isLabeled: false,
     label: 'Deflected',
     module: 'checkbox',
   },
   {
     attribute: 'matchedIntent',
     isEditable: true,
-    isLabeled: false,
     label: 'Matched Intent',
     module: 'text',
   },
@@ -53,7 +47,6 @@ const defaultColumns = [
   {
     attribute: 'type',
     isEditable: true,
-    isLabeled: false,
     label: 'Type',
     module: 'text',
   },
@@ -188,23 +181,21 @@ class Fixture extends PureComponent {
           data={{ availableColumns, selectedColumns }}
           title='available vs. selected columns'
         />
-        <Header as='h4'>
-          <Header.Content>
-            Displaying columns: <br />
-            <Dropdown
-              header='Select columns...'
-              key={'select'}
-              labeled
-              multiple
-              onChange={this.handleColumnSelection}
-              options={availableColumns}
-              placeholder='select columns...'
-              selectedLabel={'Display columns'}
-              selection
-              value={selectedColumns}
-            />
-          </Header.Content>
-        </Header>
+        <h4 className='ui header'>
+          Displaying columns: <br />
+          <Dropdown
+            header='Select columns...'
+            key={'select'}
+            labeled
+            multiple
+            onChange={this.handleColumnSelection}
+            options={availableColumns}
+            placeholder='select columns...'
+            selectedLabel={'Display columns'}
+            selection
+            value={selectedColumns}
+          />
+        </h4>
 
         <Table
           data={data}
@@ -218,4 +209,4 @@ class Fixture extends PureComponent {
   }
 }
 
-export default Fixture;
+export default <Fixture />;

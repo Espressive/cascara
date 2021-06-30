@@ -2,25 +2,9 @@
   "name": "cra-button",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@espressive/cascara": "link:../../packages/cascara",
-    "@espressive/legacy-css": "link:../../utils/legacy-css",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "link:../node_modules/react",
-    "react-dom": "link:../node_modules/react-dom",
-    "react-scripts": "3.4.3",
-    "semantic-ui-react": "2.0.1"
-  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "build": "react-scripts build"
   },
   "browserslist": {
     "production": [
@@ -33,5 +17,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "prettier": "@bjeco/prettier-config",
+  "eslintConfig": {
+    "extends": "@espressive"
+  },
+  "dependencies": {
+    "@bjeco/prettier-config": "latest",
+    "@espressive/cascara": "latest",
+    "@espressive/eslint-config": "latest",
+    "@espressive/legacy-css": "latest",
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
+    "react-scripts": "4.0.3",
+    "semantic-ui-react": "2.0.3"
   }
 }

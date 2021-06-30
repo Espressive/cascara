@@ -2,8 +2,7 @@ const loadingMessages = [
   {
     id: '1',
     sys_date_created: '2020-06-29T21:17:06.670690Z',
-    text:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, dolore!',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, dolore!',
     timestamp: '',
     type: 'message',
     user_id: 'a',
@@ -18,8 +17,7 @@ const loadingMessages = [
   {
     id: '3',
     sys_date_created: '2020-06-29T21:17:06.670690Z',
-    text:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit facilis hic soluta porro? Sequi cumque quasi expedita omnis?',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit facilis hic soluta porro? Sequi cumque quasi expedita omnis?',
     timestamp: '',
     type: 'message',
   },
@@ -85,6 +83,7 @@ const loadingTheme = {
       backgroundColor: colorScheme.default.background3,
       backgroundColorMine: colorScheme.default.background3,
       contentColor: colorScheme.default.background3,
+      contentColorMine: colorScheme.default.background3,
       iconBackgroundColor: colorScheme.default.background3,
     }),
   },

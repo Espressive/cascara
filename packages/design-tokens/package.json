@@ -1,0 +1,39 @@
+{
+  "name": "@espressive/design-tokens",
+  "version": "0.1.3-alpha.3",
+  "description": "Cascara design tokens",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:Espressive/cascara.git",
+    "directory": "packages/design-tokens"
+  },
+  "license": "CC0-1.0",
+  "sideEffects": false,
+  "style": "./dist/_variables.scss",
+  "files": [
+    "config",
+    "css",
+    "dist",
+    "src",
+    "scss"
+  ],
+  "scripts": {
+    "dictionary": "style-dictionary build -c config",
+    "build": "yarn clean && yarn dictionary",
+    "clean": "rm -rf dist",
+    "version": "yarn build",
+    "prepare": "yarn build",
+    "postinstall": "yarn build",
+    "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
+  },
+  "dependencies": {
+    "style-dictionary": "3.0.0-rc.9"
+  },
+  "devDependencies": {
+    "chokidar-cli": "2.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

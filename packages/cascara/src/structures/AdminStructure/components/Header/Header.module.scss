@@ -1,0 +1,53 @@
+.Header {
+  background-color: var(--secondary-color, var(--brand-color));
+  color: var(--secondary-text-color, var(--brand-text-color));
+  height: 100%;
+  display: flex;
+
+  .Company {
+    max-width: 20rem;
+    display: inline-block;
+    height: 100%;
+    padding: 0.5em;
+    overflow: hidden;
+    transition: transform 100ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      transform: scale(1.02);
+    }
+
+    .Title {
+      padding: 0 1rem;
+      line-height: 4rem;
+
+      &.hidden {
+        text-indent: -999em;
+      }
+    }
+
+    .Logo {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+    }
+  }
+
+  .HeaderMenuButton {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    border-radius: 0.5rem;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    margin: 0.5rem;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out,
+      box-shadow 200ms ease-in-out;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.2);
+    }
+  }
+}

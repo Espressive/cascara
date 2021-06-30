@@ -6,6 +6,6 @@
   "watchDirs": ["packages/cascara/src/**/**"],
   "webpack": {
     "configPath": "react-scripts/config/webpack.config",
-    "overridePath": ".cosmos/webpack.override.js"
+    "overridePath": ".cosmos/v4.webpack.override.js"
   }
 }

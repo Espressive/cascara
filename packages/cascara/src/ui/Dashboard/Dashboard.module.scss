@@ -12,6 +12,10 @@ $widget-background: #f0f0f0;
   margin-bottom: $masonry-gutter;
   break-inside: avoid;
 
+  &.scrolling .Data {
+    overflow: auto;
+  }
+
   .Title {
     display: block;
     padding: 0.5em 0 0.25em;
@@ -21,6 +25,31 @@ $widget-background: #f0f0f0;
   .Data {
     background-color: $widget-background;
     border-radius: $widget-border-radius;
+
+    table {
+      font-size: 0.875em;
+      border-collapse: collapse;
+      min-width: 100%;
+
+      th {
+        text-align: left;
+        text-transform: capitalize;
+        font-size: 0.875em;
+      }
+
+      th,
+      td {
+        padding: 0.5rem 0.75rem;
+      }
+
+      // tr td {
+      //   border-top: 1px solid rgba(0, 0, 0, 0.03);
+      // }
+
+      tr:nth-child(odd) td {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
 
     canvas,
     svg {

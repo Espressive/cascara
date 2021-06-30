@@ -9,6 +9,7 @@ import {
   DataTextArea,
   ModuleContext,
   ModuleProvider,
+  ModuleSandbox,
 } from './modules';
 
 import { ChatProvider } from './ui/Chat';
@@ -27,4 +28,5 @@ export {
   DataTextArea,
   ModuleContext,
   ModuleProvider,
+  ModuleSandbox,
 };

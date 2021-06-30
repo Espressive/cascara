@@ -26,6 +26,7 @@ import {
   DataText,
   DataTextArea,
   ModuleProvider,
+  ModuleSandbox,
 } from '@espressive/cascara/private';
 
 import { Asciagram, Code, Placeholder } from '../components';
@@ -63,6 +64,7 @@ const privateComponents = {
   DataText: (props) => <DataText {...props} />,
   DataTextArea: (props) => <DataTextArea {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
+  ModuleSandbox: (props) => <ModuleSandbox {...props} />,
 };
 /* eslint-enable react/display-name, react/no-multi-comp */
 
