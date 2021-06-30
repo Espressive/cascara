@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import faker from 'faker';
-import JsonPlaceholder from '../../../placeholders/JsonPlaceholder';
 
 import Form from '../Form';
 
@@ -91,13 +90,7 @@ const dataConfig = {
   ],
 };
 
-const jsonStyle = {
-  display: 'inline-block',
-  verticalAlign: 'top',
-  width: '50%',
-};
-
-const FormPublicAPI = ({ data, dataConfig }) => {
+const BasicForm = (props) => {
   const handleFormAction = useCallback((action, data) => {
     // eslint-ignore-next-line no-console -- we need this to be a developer message
     console.log(`Action: '${action.name}' has been invoked:`);
@@ -106,24 +99,42 @@ const FormPublicAPI = ({ data, dataConfig }) => {
   }, []);
 
   return (
-    <div>
-      <div style={{ margin: '1em' }}>
-        <h1>FormPublicAPI Test</h1>
-      </div>
+    <>
+      <h1>FormPublicAPI Test</h1>
+      <p>
+        Looks like we also need to bring this closer to alignment with Table:
+      </p>
+      <ul>
+        <li>
+          <code>dataConfig</code> needs to be removed and separated into
+          different slices. Since we do not have Form in use anywhere, we do not
+          have to worry about alerting developers to these changes.
+          <ul>
+            <li>
+              <code>actions</code>
+            </li>
+            <li>
+              <code>dataDisplay</code>
+            </li>
+          </ul>
+        </li>
+      </ul>
 
-      <JsonPlaceholder data={data} style={jsonStyle} title='data' />
-      <JsonPlaceholder data={dataConfig} style={jsonStyle} title='dataConfig' />
-
-      <Form
-        data={data}
-        dataConfig={dataConfig}
-        isInitialEditing
-        onAction={handleFormAction}
-      />
-    </div>
+      <Form {...props} onAction={handleFormAction} />
+    </>
   );
 };
 
-const Fixture = <FormPublicAPI data={data} dataConfig={dataConfig} />;
+const InitialEditing = (props) => (
+  <>
+    <h1>Initial Editing Form</h1>{' '}
+    <p>A form can be in an editing state initially.</p> <Form {...props} />
+  </>
+);
 
-export default Fixture;
+export default {
+  basic: <BasicForm data={data} dataConfig={dataConfig} />,
+  initialEditing: (
+    <InitialEditing data={data} dataConfig={dataConfig} isInitialEditing />
+  ),
+};
