@@ -10,52 +10,83 @@ import { actionModules, dataModules } from '../../modules/ModuleKeys';
 import { formActionModules, formModules } from './modules';
 import ActionBar from './atoms/ActionBar';
 
-const bundledActionModules = {
+// there are two types of actions a form supports:
+//
+// a - actions modules compatible with form
+// b - form-specific modules like submit, reset, clear
+//
+// availableActionModules group them together
+const availableActionModules = {
   ...actionModules,
   ...formActionModules,
 };
 const formDataModules = { ...formModules, ...dataModules };
-const actionModuleOptions = Object.keys(bundledActionModules);
+const actionModuleOptions = Object.keys(availableActionModules);
 const dataModuleOptions = Object.keys(formDataModules);
 
 const propTypes = {
-  // An object of modules to display.
-  //
-  // Every parameter in this object can potentially be rendered in the form.
-  data: pt.shape({}),
-
-  /** The main configuration for your form. Here you can specify fields or rows of fields to display as well as the actions to take on the form itself. */
-  dataConfig: pt.shape({
-    /** Actions will be appended to each row, they'll appear as buttons. */
-    actions: pt.arrayOf(
+  // Actions will be appended to each row, they'll appear as buttons.
+  actions: pt.shape({
+    modules: pt.arrayOf(
       pt.shape({
         module: pt.oneOf(actionModuleOptions).isRequired,
       })
     ),
 
-    /** Here you can describe each of the visible columns in your table. */
-    display: pt.arrayOf(
-      pt.shape({
-        module: pt.oneOf(dataModuleOptions).isRequired,
-      })
-    ),
-  }).isRequired,
+    // Resolve allowed actions.
+    // A function that returns the actions available to the current state of the form
+    resolveAllowedActions: pt.func,
+  }),
 
-  /** a form can be editable */
+  // An object of modules to display.
+  //
+  // Every parameter in this object can potentially be rendered in the form.
+  data: pt.shape({}),
+
+  // Here you can describe each of the visible columns in your table.
+  // @brian, should we call this `fields` istead?
+  dataDisplay: pt.arrayOf(
+    pt.shape({
+      module: pt.oneOf(dataModuleOptions).isRequired,
+    })
+  ),
+
+  // a form can be editable
   isEditable: pt.bool,
 
-  /** A form can start in an editing state */
+  // A form can start in an editing state
   isInitialEditing: pt.bool,
 
-  // Event handler.
-  //
-  // An event handler you can pass to handle every event your table emits.
+  // A form can emit events on every action
   onAction: pt.func,
+};
 
-  // Unique ID Attribute.
-  //
-  // specifies the attribute that uniquely identifies every object in the 'data' array.
-  uniqueIdAttribute: pt.string,
+// separates the props into two groups:
+//
+// - myProps, all props defined in `propTypes`
+// - otherProps, the rest of the props
+//
+// @param {Object} props, the props object to filter
+// @param {Object} propTypes, a prop-types definition object
+// @returns {object}
+const filterProps = (props, propTypes) => {
+  const myPropKeys = Object.keys(propTypes);
+
+  return Object.entries(props).reduce(
+    (filteredProps, [propName, propValue]) => {
+      if (myPropKeys.includes(propName)) {
+        filteredProps.myProps[propName] = propValue;
+      } else {
+        filteredProps.otherProps[propName] = propValue;
+      }
+
+      return filteredProps;
+    },
+    {
+      myProps: {},
+      otherProps: {},
+    }
+  );
 };
 
 const formFields = (display, data) => {
@@ -65,11 +96,11 @@ const formFields = (display, data) => {
     const moduleValue = data[field.attribute];
     const key = `${module}.${field.attribute}.${moduleValue}`;
 
-    // TODO: create a function to filter out props that we don't want
-    // we might still want the ...rest but we'll pass it through the above function
-    // if there is an extraneous prop we would show a warning
+    // eslint-disable-next-line react/forbid-foreign-prop-types -- @brian we need to see if this approach is what we want
+    const { myProps: moduleProps } = filterProps(rest, Module.propTypes);
+
     return Module ? (
-      <Module {...rest} key={key} label={label} value={moduleValue} />
+      <Module {...moduleProps} key={key} label={label} value={moduleValue} />
     ) : (
       <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
     );
@@ -77,7 +108,7 @@ const formFields = (display, data) => {
 
   const renderFields = (fields) => fields.map((field) => renderField(field));
 
-  return display.map((field, i) => {
+  return display?.map((field, i) => {
     const { attribute, module, fields = [] } = field;
 
     // Check to see if we have a form module, which will probably only be a FormRow
@@ -91,7 +122,7 @@ const formFields = (display, data) => {
     return (
       <ErrorBoundary key={key}>
         {FormModule ? (
-          <FormModule {...field}>{renderFields(field.fields)}</FormModule>
+          <FormModule {...field}>{renderFields(fields)}</FormModule>
         ) : (
           renderField(field)
         )}
@@ -101,18 +132,20 @@ const formFields = (display, data) => {
 };
 
 const renderActions = (actions) =>
-  actions.map((action, id) => {
+  actions?.modules?.map((action, idx) => {
     const { module, ...rest } = action;
-    const Action = bundledActionModules[module];
+    const Action = availableActionModules[module];
 
-    //
     // In certain predefined-action modules in which a label is not required, e.g. `edit`,
-    // the following unique key generation fails, as it relies on the label (content).
-    const key = `${id}.${module}.${rest.label || module}`;
+    // the following unique key generation fails, as it relies on the label.
+    const key = `${idx}.${module}.${rest.label || module}`;
 
     // TODO: create a function to filter out props that we don't want
+    // eslint-disable-next-line react/forbid-foreign-prop-types -- @brian we need to see if this approach is what we want
+    const { myProps } = filterProps(rest, Action.propTypes);
+
     return Action ? (
-      <Action key={key} {...rest} />
+      <Action key={key} {...myProps} />
     ) : (
       <ModuleError
         key={key}
@@ -123,25 +156,25 @@ const renderActions = (actions) =>
   });
 
 const Form = ({
+  actions,
   data,
-  dataConfig,
+  dataDisplay,
   onAction = () => {},
-  uniqueIdAttribute,
   isEditable: incomingIsEditable,
   isInitialEditing = false,
   ...rest
 }) => {
-  const { actions = [], display } = dataConfig;
   const renderedActions = renderActions(actions);
   const isEditable =
     typeof incomingIsEditable === 'undefined'
-      ? Boolean(dataConfig?.actions?.find((action) => action.module === 'edit'))
+      ? Boolean(actions?.modules?.find((action) => action.module === 'edit'))
       : incomingIsEditable;
 
   const [isEditing, setIsEtiding] = useState(() =>
     !isEditable ? false : isInitialEditing
   );
 
+  const fields = formFields(dataDisplay, data);
   function enterEditMode(recordId) {
     setIsEtiding(true);
   }
@@ -155,17 +188,15 @@ const Form = ({
       <FormProvider
         value={{
           data,
-          dataConfig,
           enterEditMode,
           exitEditMode,
           isEditable,
           isEditing,
           onAction,
-          uniqueIdAttribute,
         }}
         {...rest}
       >
-        {formFields(display, data)}
+        {fields}
         <ActionBar actions={renderedActions} />
       </FormProvider>
     </ErrorBoundary>

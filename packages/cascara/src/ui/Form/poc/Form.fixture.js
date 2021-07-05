@@ -18,8 +18,8 @@ const data = {
   title: faker.name.jobTitle(),
 };
 
-const dataConfig = {
-  actions: [
+const actions = {
+  modules: [
     {
       module: 'edit',
     },
@@ -34,57 +34,58 @@ const dataConfig = {
       module: 'button',
     },
   ],
-  display: [
-    {
-      attribute: 'eid',
-      label: 'EID',
-      module: 'text',
-    },
-    {
-      fields: [
-        {
-          attribute: 'firstName',
-          label: 'First Name',
-          module: 'text',
-        },
-        {
-          attribute: 'lastName',
-          label: 'Last Name',
-          module: 'text',
-        },
-      ],
-      module: 'row',
-    },
-    {
-      attribute: 'homePhone',
-      label: 'Home Phone',
-      module: 'text',
-    },
-    {
-      fields: [
-        {
-          attribute: 'title',
-          isEditable: false,
-          label: 'Title',
-          module: 'text',
-        },
-        {
-          attribute: 'department',
-          isEditable: false,
-          label: 'Department',
-          module: 'text',
-        },
-        {
-          attribute: 'country',
-          isEditable: false,
-          label: 'Country',
-          module: 'text',
-        },
-      ],
-      module: 'row',
-    },
-  ],
 };
+
+const dataDisplay = [
+  {
+    attribute: 'eid',
+    label: 'EID',
+    module: 'text',
+  },
+  {
+    fields: [
+      {
+        attribute: 'firstName',
+        label: 'First Name',
+        module: 'text',
+      },
+      {
+        attribute: 'lastName',
+        label: 'Last Name',
+        module: 'text',
+      },
+    ],
+    module: 'row',
+  },
+  {
+    attribute: 'homePhone',
+    label: 'Home Phone',
+    module: 'text',
+  },
+  {
+    fields: [
+      {
+        attribute: 'title',
+        isEditable: false,
+        label: 'Title',
+        module: 'text',
+      },
+      {
+        attribute: 'department',
+        isEditable: false,
+        label: 'Department',
+        module: 'text',
+      },
+      {
+        attribute: 'country',
+        isEditable: false,
+        label: 'Country',
+        module: 'text',
+      },
+    ],
+    module: 'row',
+  },
+];
 
 const BasicForm = (props) => {
   const handleFormAction = useCallback((action, data) => {
@@ -129,8 +130,13 @@ const InitialEditing = (props) => (
 );
 
 export default {
-  basic: <BasicForm data={data} dataConfig={dataConfig} />,
+  basic: <BasicForm actions={actions} data={data} dataDisplay={dataDisplay} />,
   initialEditing: (
-    <InitialEditing data={data} dataConfig={dataConfig} isInitialEditing />
+    <InitialEditing
+      actions={actions}
+      data={data}
+      dataDisplay={dataDisplay}
+      isInitialEditing
+    />
   ),
 };

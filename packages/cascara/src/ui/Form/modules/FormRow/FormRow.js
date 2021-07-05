@@ -5,7 +5,7 @@ import styles from '../../Form.module.scss';
 import ErrorBoundary from '../../../../shared/ErrorBoundary';
 
 const propTypes = {
-  children: pt.oneOf([pt.element, pt.arrayOf(pt.element)]),
+  children: pt.oneOf([pt.node, pt.arrayOf(pt.node)]),
   ratio: pt.arrayOf(pt.oneOfType([pt.number, pt.string])),
 };
 
