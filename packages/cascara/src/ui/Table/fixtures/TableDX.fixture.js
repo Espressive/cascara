@@ -95,11 +95,9 @@ export { dataResults };
 
 /* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
-  Loading: <Loading />,
-  Empty: <Empty data={[]} />,
-  'Data Only': <DataOnly data={results} />,
-  'Data w/ dataDisplay': (
-    <DataWithDisplay data={results} dataDisplay={COLUMNS} />
-  ),
+  loading: <Loading />,
+  empty: <Empty data={[]} />,
+  dataOnly: <DataOnly data={results} />,
+  dataWithDisplay: <DataWithDisplay data={results} dataDisplay={COLUMNS} />,
 };
 /* eslint-enable sort-keys */

@@ -25,17 +25,13 @@ const dataConfig = {
     },
     {
       actionName: 'delete',
-      isLabeled: false,
       label: 'Delete',
       module: 'button',
-      size: 'small',
     },
     {
-      actionName: 'delete',
-      isLabeled: false,
-      label: 'Delete',
+      actionName: 'view',
+      label: 'View',
       module: 'button',
-      size: 'small',
     },
   ],
   display: [

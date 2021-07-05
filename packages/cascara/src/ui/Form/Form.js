@@ -65,6 +65,9 @@ const formFields = (display, data) => {
     const moduleValue = data[field.attribute];
     const key = `${module}.${field.attribute}.${moduleValue}`;
 
+    // TODO: create a function to filter out props that we don't want
+    // we might still want the ...rest but we'll pass it through the above function
+    // if there is an extraneous prop we would show a warning
     return Module ? (
       <Module {...rest} key={key} label={label} value={moduleValue} />
     ) : (
@@ -107,6 +110,7 @@ const renderActions = (actions) =>
     // the following unique key generation fails, as it relies on the label (content).
     const key = `${id}.${module}.${rest.label || module}`;
 
+    // TODO: create a function to filter out props that we don't want
     return Action ? (
       <Action key={key} {...rest} />
     ) : (
