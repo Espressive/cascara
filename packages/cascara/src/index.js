@@ -11,8 +11,8 @@ import JsonPlaceholder from './placeholders/JsonPlaceholder';
 import Button from './ui/Button';
 import Chat from './ui/Chat';
 import Dashboard from './ui/Dashboard';
-import Form from './ui/Form';
-import Table from './ui/Table';
+// import Form , { propTypes as formPropTypes } from './ui/Form';
+import Table, { propTypes as tablePropTypes } from './ui/Table';
 
 export {
   Admin,
@@ -22,7 +22,9 @@ export {
   BaristaStructure,
   Chat,
   Dashboard,
-  Form,
+  // Form,
+  // formPropTypes,
   JsonPlaceholder,
   Table,
+  tablePropTypes,
 };
