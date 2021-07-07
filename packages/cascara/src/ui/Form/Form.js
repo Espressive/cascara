@@ -159,7 +159,7 @@ const Form = ({
   actions,
   data,
   dataDisplay,
-  onAction = () => {},
+  onAction,
   isEditable: incomingIsEditable,
   isInitialEditing = false,
   ...rest
@@ -175,7 +175,7 @@ const Form = ({
   );
 
   const fields = formFields(dataDisplay, data);
-  function enterEditMode(recordId) {
+  function enterEditMode() {
     setIsEtiding(true);
   }
 

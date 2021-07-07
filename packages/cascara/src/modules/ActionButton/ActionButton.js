@@ -18,7 +18,7 @@ const propTypes = {
 };
 
 const ActionButton = ({ actionName, content, isLabeled = false, ...rest }) => {
-  const { isEditing, onAction, record } = useContext(ModuleContext);
+  const { isEditing, onAction, record, data } = useContext(ModuleContext);
 
   // @bje we need to decide if we go for content or label here, both makes no sense
   const { label, ...restWithoutLabel } = rest;
@@ -39,9 +39,9 @@ const ActionButton = ({ actionName, content, isLabeled = false, ...rest }) => {
 
   const handleClick = useCallback(
     ({ currentTarget }) => {
-      onAction && onAction(currentTarget, record);
+      onAction && onAction(currentTarget, record || data);
     },
-    [onAction, record]
+    [data, onAction, record]
   );
 
   return isEditing ? null : (
