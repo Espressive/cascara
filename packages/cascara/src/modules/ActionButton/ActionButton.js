@@ -17,12 +17,7 @@ const propTypes = {
   name: pt.string,
 };
 
-const ActionButton = ({
-  actionName,
-  content = 'ActionButton',
-  isLabeled = false,
-  ...rest
-}) => {
+const ActionButton = ({ actionName, content, isLabeled = false, ...rest }) => {
   const { isEditing, onAction, record } = useContext(ModuleContext);
 
   // @bje we need to decide if we go for content or label here, both makes no sense
@@ -52,6 +47,7 @@ const ActionButton = ({
   return isEditing ? null : (
     <Button
       {...restWithoutLabel}
+      aria-label={label}
       className='ui basic button'
       name={name}
       onClick={handleClick}

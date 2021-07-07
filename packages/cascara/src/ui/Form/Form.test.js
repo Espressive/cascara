@@ -15,7 +15,7 @@ describe('Form', () => {
     country: faker.address.countryCode(),
     date: safeDate,
     department: faker.name.jobArea(),
-    eid: faker.random.uuid(),
+    eid: faker.datatype.uuid(),
     firstName: faker.name.firstName(),
     homePhone: faker.phone.phoneNumber(),
     lastName: faker.name.lastName(),
@@ -23,98 +23,92 @@ describe('Form', () => {
     title: faker.name.jobTitle(),
   };
 
-  const dataConfig = {
-    actions: [
+  const actions = {
+    modules: [
       {
-        cancelLabel: 'Cancelar',
-        dataTestIDs: {
-          cancel: 'cancelButton',
-          edit: 'editButton',
-          save: 'saveButton',
-        },
-        editLabel: 'Editar',
         module: 'edit',
-        saveLabel: 'Guardar',
       },
       {
-        actionName: 'delete',
-        'data-testid': 'deleteButton',
         isLabeled: false,
         label: 'Delete',
         module: 'button',
+        name: 'delete',
         size: 'small',
       },
     ],
-    display: [
-      {
-        attribute: 'eid',
-        label: 'EID',
-        module: 'text',
-      },
-      {
-        fields: [
-          {
-            attribute: 'firstName',
-            label: 'First Name',
-            module: 'text',
-          },
-          {
-            attribute: 'lastName',
-            label: 'Last Name',
-            module: 'text',
-          },
-          {
-            attribute: 'officePhone',
-            label: 'Office Phone',
-            module: 'text',
-          },
-        ],
-        module: 'row',
-        ratio: [1, 1, 2],
-      },
-      {
-        attribute: 'homePhone',
-        label: 'Home Phone',
-        module: 'text',
-      },
-      {
-        fields: [
-          {
-            attribute: 'title',
-            isEditable: false,
-            label: 'Title',
-            module: 'text',
-          },
-          {
-            attribute: 'department',
-            isEditable: false,
-            label: 'Department',
-            module: 'text',
-          },
-          {
-            attribute: 'country',
-            isEditable: false,
-            label: 'Country',
-            module: 'text',
-          },
-        ],
-        module: 'row',
-      },
-    ],
   };
+
+  const dataDisplay = [
+    {
+      attribute: 'eid',
+      label: 'EID',
+      module: 'text',
+    },
+    {
+      fields: [
+        {
+          attribute: 'firstName',
+          label: 'First Name',
+          module: 'text',
+        },
+        {
+          attribute: 'lastName',
+          label: 'Last Name',
+          module: 'text',
+        },
+        {
+          attribute: 'officePhone',
+          label: 'Office Phone',
+          module: 'text',
+        },
+      ],
+      module: 'row',
+      ratio: [1, 1, 2],
+    },
+    {
+      attribute: 'homePhone',
+      label: 'Home Phone',
+      module: 'text',
+    },
+    {
+      fields: [
+        {
+          attribute: 'title',
+          isEditable: false,
+          label: 'Title',
+          module: 'text',
+        },
+        {
+          attribute: 'department',
+          isEditable: false,
+          label: 'Department',
+          module: 'text',
+        },
+        {
+          attribute: 'country',
+          isEditable: false,
+          label: 'Country',
+          module: 'text',
+        },
+      ],
+      module: 'row',
+    },
+  ];
 
   let view;
 
   beforeAll(() => {});
 
   test('snapshot test', () => {
-    view = render(<Form data={data} dataConfig={dataConfig} />).container;
+    view = render(
+      <Form actions={actions} data={data} dataDisplay={dataDisplay} />
+    ).container;
 
     expect(view).toMatchSnapshot();
   });
 
   test('component tree', async () => {
-    render(<Form data={data} dataConfig={dataConfig} />);
+    render(<Form actions={actions} data={data} dataDisplay={dataDisplay} />);
 
     const eid = await screen.findByText('EID');
     const firstName = await screen.findByText('First Name');
@@ -125,8 +119,8 @@ describe('Form', () => {
     const department = await screen.findByText('Department');
     const country = await screen.findByText('Country');
 
-    const editButton = await screen.findByTestId('editButton');
-    const deleteButton = await screen.findByTestId('deleteButton');
+    const editButton = await screen.findByRole('button', { name: 'Edit' });
+    const deleteButton = await screen.findByRole('button', { name: 'Delete' });
 
     expect(eid).toBeInTheDocument();
     expect(firstName).toBeInTheDocument();
@@ -142,39 +136,48 @@ describe('Form', () => {
   });
 
   test('it starts in edit mode when isInitialEditing is true', async () => {
-    render(<Form data={data} dataConfig={dataConfig} isInitialEditing />);
+    render(
+      <Form
+        actions={actions}
+        data={data}
+        dataDisplay={dataDisplay}
+        isInitialEditing
+      />
+    );
 
-    const cancelButton = await screen.findByTestId('cancelButton');
-    const saveButton = await screen.findByTestId('saveButton');
+    const cancelButton = await screen.findByRole('button', { name: 'Cancel' });
+    const saveButton = await screen.findByRole('button', { name: 'Save' });
 
     expect(cancelButton).toBeInTheDocument();
     expect(saveButton).toBeInTheDocument();
 
-    const editButton = screen.queryByTestId('editButton');
+    const editButton = screen.queryByRole('button', { name: 'Edit' });
     expect(editButton).not.toBeInTheDocument();
   });
 
   test('general flow: View Mode -> Edit Mode -> Save Action -> View Mode', async () => {
     const onAction = jest.fn();
 
-    render(<Form data={data} dataConfig={dataConfig} onAction={onAction} />);
+    render(
+      <Form
+        actions={actions}
+        data={data}
+        dataDisplay={dataDisplay}
+        onAction={onAction}
+      />
+    );
 
     // make sure we are in view mode
-    let cancelButton = screen.queryByTestId('cancelButton');
-    let saveButton = screen.queryByTestId('saveButton');
-    let editButton = screen.queryByTestId('editButton');
-
-    expect(cancelButton).not.toBeInTheDocument();
-    expect(saveButton).not.toBeInTheDocument();
+    let editButton = await screen.findByRole('button', { name: 'Edit' });
     expect(editButton).toBeInTheDocument();
 
     // enter edit mode
     userEvent.click(editButton);
 
     // make sure we are in edit mode
-    cancelButton = await screen.findByTestId('cancelButton');
-    saveButton = await screen.findByTestId('saveButton');
-    editButton = screen.queryByTestId('editButton');
+    let cancelButton = await screen.findByRole('button', { name: 'Cancel' });
+    let saveButton = await screen.findByRole('button', { name: 'Save' });
+    editButton = screen.queryByRole('button', { name: 'Edit' });
 
     expect(cancelButton).toBeInTheDocument();
     expect(saveButton).toBeInTheDocument();
@@ -189,16 +192,16 @@ describe('Form', () => {
 
     userEvent.type(firstName, 'nio');
 
-    saveButton = await screen.findByTestId('saveButton');
+    saveButton = screen.queryByRole('button', { name: 'Save' });
     expect(saveButton).not.toBeDisabled();
 
     // Save action
     userEvent.click(saveButton);
 
     // make sure we are back to view mode
-    editButton = await screen.findByTestId('editButton');
-    cancelButton = screen.queryByTestId('cancelButton');
-    saveButton = screen.queryByTestId('saveButton');
+    saveButton = await screen.findByRole('button', { name: 'Save' });
+    editButton = screen.queryByRole('button', { name: 'Edit' });
+    cancelButton = screen.queryByRole('button', { name: 'Cancel' });
 
     expect(cancelButton).not.toBeInTheDocument();
     expect(saveButton).not.toBeInTheDocument();
@@ -229,11 +232,18 @@ describe('Form', () => {
   test('onAction events', async () => {
     const onAction = jest.fn();
 
-    render(<Form data={data} dataConfig={dataConfig} onAction={onAction} />);
+    render(
+      <Form
+        actions={actions}
+        data={data}
+        dataDisplay={dataDisplay}
+        onAction={onAction}
+      />
+    );
 
     // verify buttons are there
-    const deleteButton = screen.queryByTestId('deleteButton');
-    const editButton = screen.queryByTestId('editButton');
+    const deleteButton = await screen.findByRole('button', { name: 'Delete' });
+    const editButton = await screen.findByRole('button', { name: 'Edit' });
 
     expect(deleteButton).toBeInTheDocument();
     expect(editButton).toBeInTheDocument();

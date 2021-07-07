@@ -147,19 +147,19 @@ exports[`Form snapshot test 1`] = `
       class="FormActionBar"
     >
       <button
+        aria-label="Edit"
         class="ui basic button"
-        data-testid="editButton"
         type="button"
       >
-        Editar
+        Edit
       </button>
       <button
+        aria-label="Delete"
         class="ui basic button"
-        data-testid="deleteButton"
         name="delete"
         type="button"
       >
-        ActionButton
+        Delete
       </button>
     </div>
   </form>

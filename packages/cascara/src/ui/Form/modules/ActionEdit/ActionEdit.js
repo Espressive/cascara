@@ -7,16 +7,15 @@ import { Icon } from 'semantic-ui-react';
 
 const propTypes = {
   cancelLabel: pt.string,
-  dataTestIDs: pt.shape({
-    cancel: pt.string,
-    edit: pt.string,
-    save: pt.string,
-  }),
   editLabel: pt.string,
   saveLabel: pt.string,
 };
 
-const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
+const ActionEdit = ({
+  cancelLabel = 'Cancel',
+  editLabel = 'Edit',
+  saveLabel = 'Save',
+}) => {
   const {
     isEditing,
     enterEditMode,
@@ -27,18 +26,6 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   } = useContext(ModuleContext);
   const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
-
-  // this seems like ugly, we need to find a better way
-  // to ease testing..
-  const cancelTestId = {};
-  const editTestId = {};
-  const saveTestId = {};
-
-  if (typeof dataTestIDs === 'object') {
-    cancelTestId['data-testid'] = dataTestIDs['cancel'];
-    editTestId['data-testid'] = dataTestIDs['edit'];
-    saveTestId['data-testid'] = dataTestIDs['save'];
-  }
 
   const handleReset = useCallback(() => {
     onAction(
@@ -99,7 +86,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   return isEditing ? (
     <>
       <Button
-        {...cancelTestId}
+        aria-label={cancelLabel}
         className='ui negative icon button'
         disabled={isSubmitting}
         onClick={handleCancel}
@@ -108,7 +95,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
         <Icon name='delete' />
       </Button>
       <Button
-        {...saveTestId}
+        aria-label={saveLabel}
         className='ui positive icon button'
         disabled={!isDirty || isSubmitting}
         onClick={handleSubmit(onSubmit)}
@@ -119,7 +106,7 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     </>
   ) : (
     <Button
-      {...editTestId}
+      aria-label={editLabel}
       className='ui basic button'
       onClick={handleEdit}
       type='button'
