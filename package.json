@@ -24,6 +24,7 @@
     "framer:publish": "dotenv npx framer-cli publish",
     "icons": "yarn workspace @espressive/icons",
     "lint": "eslint ./",
+    "postinstall": "yarn icons build",
     "test": "jest -c ./.jest/config.js",
     "test:watch": "yarn test --watch",
     "validate-ci": "circleci config validate"

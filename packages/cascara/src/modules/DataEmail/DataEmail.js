@@ -31,7 +31,7 @@ const DataEmail = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
         aria-label={label}
@@ -47,7 +47,7 @@ const DataEmail = ({
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <span className={styles.Input} {...rest}>
         {value}
       </span>

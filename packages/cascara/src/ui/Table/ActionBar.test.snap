@@ -13,20 +13,20 @@ exports[`ActionBar component tree snapshot 1`] = `
     Espressive
   </span>
   <button
+    aria-label="New"
     class="ui basic button"
-    data-testid="new"
     name="new"
     type="button"
   >
-    ActionButton
+    New
   </button>
   <button
+    aria-label="Edit"
     class="ui basic button"
-    data-testid="edit"
     name="edit"
     type="button"
   >
-    ActionButton
+    Edit
   </button>
 </div>
 `;

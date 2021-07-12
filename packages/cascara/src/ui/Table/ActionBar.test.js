@@ -14,17 +14,15 @@ describe('ActionBar', () => {
   describe('component tree', () => {
     const actions = [
       {
-        'data-testid': 'new',
         isLabeled: false,
-        label: 'new',
+        label: 'New',
         module: 'button',
         name: 'new',
         size: 'small',
       },
       {
-        'data-testid': 'edit',
         isLabeled: false,
-        label: 'edit',
+        label: 'Edit',
         module: 'button',
         name: 'edit',
         size: 'small',
@@ -43,8 +41,9 @@ describe('ActionBar', () => {
     let view;
 
     test('snapshot', () => {
-      view = render(<ActionBar actions={actions} title={'Espressive'} />)
-        .container;
+      view = render(
+        <ActionBar actions={actions} title={'Espressive'} />
+      ).container;
 
       expect(view).toMatchSnapshot();
     });

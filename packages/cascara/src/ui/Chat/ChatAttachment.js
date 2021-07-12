@@ -108,13 +108,8 @@ const objPropTypes = {
 
 // This returns the object that FUI is expecting, along with the component and props
 const getChatAttachmentObj = (obj) => {
-  const {
-    handleScrollToBottom,
-    isSessionUser,
-    message,
-    messageAuthor,
-    ref,
-  } = obj;
+  const { handleScrollToBottom, isSessionUser, message, messageAuthor, ref } =
+    obj;
 
   validateMessageObj(objPropTypes, obj, ChatAttachment.displayName);
 

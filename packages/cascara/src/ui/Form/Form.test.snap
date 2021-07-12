@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form snapshot test 1`] = `
+<div>
+  <form
+    class="Form"
+  >
+    <div
+      class="Text"
+    >
+      <span>
+        <span
+          class="LabelText"
+        >
+          EID
+        </span>
+        <span
+          class="Input"
+        >
+          e024f231-6265-4a6e-8d65-a837e308ae67
+        </span>
+      </span>
+    </div>
+    <div
+      class="FormRow"
+      style="grid-template-columns: 1fr 1fr 2fr;"
+    >
+      <div
+        class="Text"
+      >
+        <span>
+          <span
+            class="LabelText"
+          >
+            First Name
+          </span>
+          <span
+            class="Input"
+          >
+            Keaton
+          </span>
+        </span>
+      </div>
+      <div
+        class="Text"
+      >
+        <span>
+          <span
+            class="LabelText"
+          >
+            Last Name
+          </span>
+          <span
+            class="Input"
+          >
+            Streich
+          </span>
+        </span>
+      </div>
+      <div
+        class="Text"
+      >
+        <span>
+          <span
+            class="LabelText"
+          >
+            Office Phone
+          </span>
+          <span
+            class="Input"
+          >
+            (808) 221-0860 x54694
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="Text"
+    >
+      <span>
+        <span
+          class="LabelText"
+        >
+          Home Phone
+        </span>
+        <span
+          class="Input"
+        >
+          391-887-9830 x658
+        </span>
+      </span>
+    </div>
+    <div
+      class="FormRow"
+      style="grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));"
+    >
+      <div
+        class="Text"
+      >
+        <span>
+          <span
+            class="LabelText"
+          >
+            Title
+          </span>
+          <span
+            class="Input"
+          >
+            Global Implementation Developer
+          </span>
+        </span>
+      </div>
+      <div
+        class="Text"
+      >
+        <span>
+          <span
+            class="LabelText"
+          >
+            Department
+          </span>
+          <span
+            class="Input"
+          >
+            Assurance
+          </span>
+        </span>
+      </div>
+      <div
+        class="Text"
+      >
+        <span>
+          <span
+            class="LabelText"
+          >
+            Country
+          </span>
+          <span
+            class="Input"
+          >
+            ZW
+          </span>
+        </span>
+      </div>
+    </div>
+    <div
+      class="FormActionBar"
+    >
+      <button
+        aria-label="Edit"
+        class="ui basic button"
+        type="button"
+      >
+        Edit
+      </button>
+      <button
+        aria-label="Delete"
+        class="ui basic button"
+        name="delete"
+        type="button"
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>
+`;

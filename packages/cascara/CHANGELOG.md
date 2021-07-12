@@ -7,162 +7,83 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.27](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.26...@espressive/cascara@0.4.2-alpha.27) (2021-06-24)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.26](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.25...@espressive/cascara@0.4.2-alpha.26) (2021-06-24)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.25](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.24...@espressive/cascara@0.4.2-alpha.25) (2021-06-23)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.24](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.23...@espressive/cascara@0.4.2-alpha.24) (2021-06-23)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.23](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.22...@espressive/cascara@0.4.2-alpha.23) (2021-06-23)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.22](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.21...@espressive/cascara@0.4.2-alpha.22) (2021-06-22)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.21](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.20...@espressive/cascara@0.4.2-alpha.21) (2021-06-22)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.20](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.19...@espressive/cascara@0.4.2-alpha.20) (2021-06-16)
-
 
 ### Features
 
-* **FDS-187:** do not render a Table if no data nor columns are defined ([#221](https://github.com/Espressive/cascara/issues/221)) ([9e7c484](https://github.com/Espressive/cascara/commit/9e7c4844b3abddc1f7f3c65284723532775317ef))
-
-
-
-
+- **FDS-187:** do not render a Table if no data nor columns are defined ([#221](https://github.com/Espressive/cascara/issues/221)) ([9e7c484](https://github.com/Espressive/cascara/commit/9e7c4844b3abddc1f7f3c65284723532775317ef))
 
 ## [0.4.2-alpha.19](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.18...@espressive/cascara@0.4.2-alpha.19) (2021-06-11)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.18](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.17...@espressive/cascara@0.4.2-alpha.18) (2021-06-11)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.17](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.16...@espressive/cascara@0.4.2-alpha.17) (2021-06-10)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.16](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.15...@espressive/cascara@0.4.2-alpha.16) (2021-06-03)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.15](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.14...@espressive/cascara@0.4.2-alpha.15) (2021-06-02)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.14](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.13...@espressive/cascara@0.4.2-alpha.14) (2021-06-02)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.13](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.12...@espressive/cascara@0.4.2-alpha.13) (2021-05-20)
-
 
 ### Features
 
-* **FDS-221:** Barista & Slack themes for Cascara Chat ([#212](https://github.com/Espressive/cascara/issues/212)) ([2e2ae80](https://github.com/Espressive/cascara/commit/2e2ae80adc071501c00a871dd67546a43536f08b))
-
-
-
-
+- **FDS-221:** Barista & Slack themes for Cascara Chat ([#212](https://github.com/Espressive/cascara/issues/212)) ([2e2ae80](https://github.com/Espressive/cascara/commit/2e2ae80adc071501c00a871dd67546a43536f08b))
 
 ## [0.4.2-alpha.12](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.11...@espressive/cascara@0.4.2-alpha.12) (2021-05-13)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.11](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.10...@espressive/cascara@0.4.2-alpha.11) (2021-05-13)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.10](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.9...@espressive/cascara@0.4.2-alpha.10) (2021-05-10)
-
 
 ### Bug Fixes
 
-* **FDS-173:** remove unused RowContext file ([#208](https://github.com/Espressive/cascara/issues/208)) ([331bcc1](https://github.com/Espressive/cascara/commit/331bcc145ecbfdf381dddced589be20d85782aa8))
-
-
-
-
+- **FDS-173:** remove unused RowContext file ([#208](https://github.com/Espressive/cascara/issues/208)) ([331bcc1](https://github.com/Espressive/cascara/commit/331bcc145ecbfdf381dddced589be20d85782aa8))
 
 ## [0.4.2-alpha.9](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.8...@espressive/cascara@0.4.2-alpha.9) (2021-05-07)
 

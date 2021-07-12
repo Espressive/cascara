@@ -1,1 +1,3 @@
-export { default } from './FormProvider';
+import FormProvider from './FormProvider';
+
+export { FormProvider };

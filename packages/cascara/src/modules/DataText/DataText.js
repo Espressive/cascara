@@ -31,7 +31,7 @@ const DataText = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
         aria-label={label}
@@ -40,14 +40,14 @@ const DataText = ({
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='text'
+        type={'text'}
       />
     </label>
   );
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <span className={styles.Input} {...rest}>
         {value}
       </span>

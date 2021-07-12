@@ -33,7 +33,6 @@ $module-background: #f0f0f0;
     display: inline-block;
     border: 1px solid transparent;
     width: 100%;
-    max-width: 60em;
     border-radius: $input-border-radius;
     transition: box-shadow 300ms ease-in-out;
   }
@@ -197,7 +196,8 @@ $module-background: #f0f0f0;
   background-color: #fcc;
   color: #900;
   border-radius: $module-border-radius;
-  margin-bottom: $masonry-gutter;
+  font-size: 0.875em;
+  font-family: monospace;
 
   h4 {
     margin-bottom: 0.5em;

@@ -1,6 +1,5 @@
 // Action Modules
 import ActionButton from './ActionButton';
-// import DownloadButton from './DownloadButton'
 import ActionEdit from './ActionEdit';
 
 // Data Modules
@@ -15,7 +14,6 @@ import DataTextArea from './DataTextArea';
 
 const actionModules = {
   button: ActionButton,
-  // download: DownloadButton,
   edit: ActionEdit,
 };
 

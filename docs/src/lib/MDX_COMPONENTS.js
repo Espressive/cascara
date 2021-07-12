@@ -9,6 +9,7 @@ import {
   Button,
   Chat,
   Dashboard,
+  Form,
   JsonPlaceholder,
   Table,
 } from '@espressive/cascara';
@@ -47,6 +48,7 @@ const cascaraComponents = {
     </ChatProvider>
   ),
   Dashboard: (props) => <Dashboard {...props} />,
+  Form: (props) => <Form {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   Table: (props) => <Table {...props} />,
 };

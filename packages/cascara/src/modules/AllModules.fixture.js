@@ -3,7 +3,6 @@ import FormProvider from '../ui/Form/context/FormProvider';
 import tableStyles from '../ui/Table/Table.module.scss';
 import {
   ActionButton,
-  ActionEdit,
   DataCheckbox,
   DataEmail,
   DataNumber,
@@ -13,6 +12,9 @@ import {
   DataTextArea,
   ModuleSandbox,
 } from './';
+
+import FormActionEdit from '../ui/Form/modules/ActionEdit';
+// import TableActionEdit from '../ui/Table/modules/ActionEdit';
 
 const lorem =
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem hic mollitia, fuga ex architecto cumque accusamus tenetur qui odio quam tempora aliquam minima ipsum laborum?';
@@ -72,7 +74,7 @@ const fakeHeader = (
     <th className={tableStyles.HeadCell}>DataSelect</th>
     <th className={tableStyles.HeadCell}>DataText</th>
     <th className={tableStyles.HeadCell}>DataCheckbox</th>
-    <th className={tableStyles.HeadCell}>DataRadio</th>
+    {/* <th className={tableStyles.HeadCell}>DataRadio</th> */}
     <th className={tableStyles.HeadCell}>DataTextArea</th>
   </tr>
 );
@@ -105,7 +107,7 @@ const fakeRow = (
 
 const AllModules = ({ data, dataConfig }) => {
   return (
-    <div style={{ margin: '1em' }}>
+    <>
       <div>
         <h1>All Modules POC</h1>
         <p>
@@ -129,13 +131,13 @@ const AllModules = ({ data, dataConfig }) => {
       <FormProvider>
         <h2>Action Modules</h2>
         <ActionButton />
-        <ActionEdit />
+        <FormActionEdit />
       </FormProvider>
 
       <h2>Table Presentation</h2>
       <table
         className={tableStyles.Table}
-        style={{ gridTemplateColumns: `repeat(7, auto)` }}
+        style={{ gridTemplateColumns: `repeat(6, auto)` }}
       >
         <thead className={tableStyles.HeadContainer}>{fakeHeader}</thead>
         <tbody className={tableStyles.BodyContainer}>
@@ -148,7 +150,7 @@ const AllModules = ({ data, dataConfig }) => {
           {fakeRow}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 
