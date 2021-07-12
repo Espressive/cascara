@@ -64,12 +64,12 @@ const propTypes = {
 // separates the props into two groups:
 //
 // - myProps, all props defined in `propTypes`
-// - otherProps, the rest of the props
+// - unhandledProps, the rest of the props
 //
 // @param {Object} props, the props object to filter
 // @param {Object} propTypes, a prop-types definition object
 // @returns {object}
-const filterProps = (props, propTypes) => {
+const unhandledProps = (props, propTypes) => {
   const myPropKeys = Object.keys(propTypes);
 
   return Object.entries(props).reduce(
@@ -77,14 +77,14 @@ const filterProps = (props, propTypes) => {
       if (myPropKeys.includes(propName)) {
         filteredProps.myProps[propName] = propValue;
       } else {
-        filteredProps.otherProps[propName] = propValue;
+        filteredProps.unhandledProps[propName] = propValue;
       }
 
       return filteredProps;
     },
     {
       myProps: {},
-      otherProps: {},
+      unhandledProps: {},
     }
   );
 };
@@ -97,7 +97,7 @@ const formFields = (display, data) => {
     const key = `${module}.${field.attribute}.${moduleValue}`;
 
     // eslint-disable-next-line react/forbid-foreign-prop-types -- @brian we need to see if this approach is what we want
-    const { myProps: moduleProps } = filterProps(rest, Module.propTypes);
+    const { myProps: moduleProps } = unhandledProps(rest, Module.propTypes);
 
     return Module ? (
       <Module {...moduleProps} key={key} label={label} value={moduleValue} />
@@ -142,7 +142,7 @@ const renderActions = (actions) =>
 
     // TODO: create a function to filter out props that we don't want
     // eslint-disable-next-line react/forbid-foreign-prop-types -- @brian we need to see if this approach is what we want
-    const { myProps } = filterProps(rest, Action.propTypes);
+    const { myProps } = unhandledProps(rest, Action.propTypes);
 
     return Action ? (
       <Action key={key} {...myProps} />
