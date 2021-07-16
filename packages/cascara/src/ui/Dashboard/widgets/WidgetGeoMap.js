@@ -4,18 +4,21 @@ import { ResponsiveChoroplethCanvas } from '@nivo/geo';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS } from './widgetConfig';
 import GeoMapFeatures from './GeoMapFeatures';
+import { getDataState } from './dataState';
 
 const propTypes = {
   ...widgetPT,
   /** Data to display in a widget */
-  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  data: pt.oneOfType([pt.array, pt.object]),
 };
 
 /**
  * Widget for @nivo/geo (Chloropleth).
  */
 const WidgetGeoMap = ({ data, ...rest }) => {
-  const largestValue = Math.max(...data.map((object) => object.value));
+  const largestValue = data
+    ? Math.max(...data.map((object) => object.value))
+    : 0;
 
   const CHART_CONFIG = {
     ...CHART_DEFAULTS,
@@ -29,13 +32,21 @@ const WidgetGeoMap = ({ data, ...rest }) => {
     unknownColor: 'rgba(0,0,0,.05)',
   };
 
+  const { isLoading, isEmpty } = getDataState(data);
+
   return (
     <Widget {...rest} height={320}>
-      <ResponsiveChoroplethCanvas
-        {...CHART_CONFIG}
-        data={data}
-        features={GeoMapFeatures.features}
-      />
+      {isLoading ? (
+        <div className='ui active centered inline loader' />
+      ) : isEmpty ? (
+        <em>No data.</em>
+      ) : (
+        <ResponsiveChoroplethCanvas
+          {...CHART_CONFIG}
+          data={data}
+          features={GeoMapFeatures.features}
+        />
+      )}
     </Widget>
   );
 };

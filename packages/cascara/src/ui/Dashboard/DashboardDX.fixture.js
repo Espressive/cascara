@@ -1,61 +1,16 @@
 import React from 'react';
-import Dashboard from '../Dashboard';
-import pieData from '../data/Pie';
-import pieData2 from '../data/Pie2';
-import pieDataChannel from '../data/PieChannel';
-import geoMapData from '../data/GeoMap';
-import barData from '../data/Bar';
-import barData2 from '../data/Bar2';
-import barDataDevice from '../data/BarDevice';
-import heatMapData from '../data/HeatMap';
+import Dashboard from './Dashboard';
 
-const dataInteractions = [
+const WIDGETS = [
   {
-    label: 'Total Interactions',
-    onClick: () => alert('hi'),
-    value: '12,535',
-  },
-  {
-    label: 'Unique Users',
-    value: '1,205',
-  },
-  {
-    label: 'On Mobile',
-    sub: 'Interactions via Barista Channel',
-    value: '58%',
-  },
-];
-
-const dataDeflections = [
-  {
-    label: 'Total Deflections',
-    value: '7,235',
-  },
-  {
-    label: 'Deflection Rate',
-    value: '90%',
-  },
-  {
-    label: 'Transferred to Agent',
-    value: '67',
-  },
-  {
-    label: 'Dollars Saved',
-    sub: 'Est $20.00 per deflection',
-    value: '$30,347',
-  },
-];
-
-const dashboardConfig = [
-  {
-    data: heatMapData,
+    data: undefined,
     keys: ['country', 'fries', 'curry'], // Without keys defined, all data from each object will show
     // rowAction: (obj) => console.log(obj), // Without a rowAction defined, no row action will show. Note that the function gets the original object passed to it.
     title: 'List',
     widget: 'list',
   },
   {
-    data: geoMapData,
+    data: null,
     indexBy: 'id', // 'id' is the default and not needed if the data already matches
     label: 'value', // 'value' is the default and is not needed if the data already matches
     title: 'Bubble',
@@ -67,19 +22,18 @@ const dashboardConfig = [
         content: 'view',
       },
     ],
-    data: dataInteractions,
     title: 'Interactions',
     widget: 'stats',
   },
   {
-    data: dataDeflections,
+    data: undefined,
     title: 'Deflections',
     widget: 'stats',
   },
   {
     axisBottomLabel: 'Month',
     axisLeftLabel: 'Requests',
-    data: barData,
+    data: null,
     description:
       'Shows number of requests and how your users have rated their experience over time',
     indexBy: 'month',
@@ -88,13 +42,11 @@ const dashboardConfig = [
     widget: 'bar',
   },
   {
-    data: geoMapData,
     title: 'Interactions by Country',
     widget: 'geo-map',
   },
   {
     axisLeft: null,
-    data: pieData2,
     description:
       'Questions that your users are asking that correspond to non-configured FAQ articles.',
     indexBy: 'label',
@@ -103,7 +55,6 @@ const dashboardConfig = [
     widget: 'bar',
   },
   {
-    data: pieData,
     description:
       'Your most frequently matched intents in the time period selected.',
     enableRadialLabels: false,
@@ -113,14 +64,12 @@ const dashboardConfig = [
   {
     axisBottomLabel: 'Month',
     axisLeftLabel: 'Count',
-    data: barData2,
     indexBy: 'month',
     keys: ['Deflected', 'Not Deflected'],
     title: 'Deflected VS Not Deflected',
     widget: 'bar',
   },
   {
-    data: pieDataChannel,
     enableRadialLabels: false,
     title: 'Channels',
     widget: 'pie',
@@ -128,7 +77,6 @@ const dashboardConfig = [
   {
     axisBottomLabel: 'Requests',
     axisLeftLabel: 'Operating System',
-    data: barDataDevice,
     description:
       'Breakdown of interactions via Barista channel by operating system and client',
     indexBy: 'OS',
@@ -139,14 +87,53 @@ const dashboardConfig = [
   },
 ];
 
-const DashboardPAC = () => {
-  return (
-    <main className='ui container' style={{ padding: '2em 0' }}>
-      <Dashboard config={dashboardConfig} />
-    </main>
-  );
+const EMPTY_WIDGETS = WIDGETS.map((obj) => ({ ...obj, data: [] }));
+
+const NoProps = (fixtureProps) => (
+  <>
+    <h3>No Props</h3>
+    <p>
+      Even though it is required, we should not blow up when there is no{' '}
+      <code>data</code> prop defined.
+    </p>
+
+    <Dashboard {...fixtureProps} />
+  </>
+);
+
+const Loading = (fixtureProps) => (
+  <>
+    <h3>Loading</h3>
+    <p>
+      When a widget has an undefined or null value for <code>data</code> it
+      should show a loading state.
+    </p>
+
+    <Dashboard {...fixtureProps} />
+  </>
+);
+
+const Empty = (fixtureProps) => (
+  <>
+    <h3>Empty</h3>
+    <p>
+      When a widget has an empty array value for <code>data</code> (data.length
+      === 0) it should show an empty state.
+    </p>
+
+    <Dashboard {...fixtureProps} />
+  </>
+);
+
+// We export the data results here for use in our tests.
+// This also allows us to generate test data from inside a fixture and then reuse it in tests.
+// const dataResults = results;
+// export { dataResults };
+
+/* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
+export default {
+  noProps: <NoProps />,
+  loading: <Loading config={WIDGETS} />,
+  empty: <Empty config={EMPTY_WIDGETS} />,
 };
-
-const Fixture = <DashboardPAC />;
-
-export default Fixture;
+/* eslint-enable sort-keys */

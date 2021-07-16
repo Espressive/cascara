@@ -26,6 +26,13 @@ $widget-background: #f0f0f0;
     background-color: $widget-background;
     border-radius: $widget-border-radius;
 
+    &.no-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
     table {
       font-size: 0.875em;
       border-collapse: collapse;

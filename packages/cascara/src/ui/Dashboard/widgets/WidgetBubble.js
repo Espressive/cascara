@@ -3,11 +3,12 @@ import pt from 'prop-types';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS, MARGIN_CONFIG } from './widgetConfig';
 import { ResponsiveBubble } from '@nivo/circle-packing';
+import { getDataState } from './dataState';
 
 const propTypes = {
   ...widgetPT,
   /** Data to display in a widget */
-  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  data: pt.oneOfType([pt.array, pt.object]),
   /** The unique value to index by on `data` */
   indexBy: pt.string,
   /** The value to use for displaying bar labels */
@@ -27,14 +28,22 @@ const WidgetBubble = ({ data, indexBy = 'id', label = 'value', ...rest }) => {
     padding: 6,
   };
 
+  const { isLoading, isEmpty } = getDataState(data);
+
   return (
     <Widget {...rest}>
-      <ResponsiveBubble
-        {...CHART_CONFIG}
-        identity={indexBy}
-        root={{ children: data, id: '' }}
-        value={label}
-      />
+      {isLoading ? (
+        <div className='ui active centered inline loader' />
+      ) : isEmpty ? (
+        <em>No data.</em>
+      ) : (
+        <ResponsiveBubble
+          {...CHART_CONFIG}
+          identity={indexBy}
+          root={{ children: data, id: '' }}
+          value={label}
+        />
+      )}
     </Widget>
   );
 };

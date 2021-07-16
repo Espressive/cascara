@@ -3,11 +3,12 @@ import pt from 'prop-types';
 import { ResponsivePie } from '@nivo/pie';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { CHART_DEFAULTS, COLOR_MODIFIER, MARGIN_CONFIG } from './widgetConfig';
+import { getDataState } from './dataState';
 
 const propTypes = {
   ...widgetPT,
   /** Data to display in a widget */
-  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  data: pt.oneOfType([pt.array, pt.object]),
 };
 
 const CHART_CONFIG = {
@@ -28,9 +29,17 @@ const CHART_CONFIG = {
  * Widget for @nivo/pie.
  */
 const WidgetPie = ({ data, ...rest }) => {
+  const { isLoading, isEmpty } = getDataState(data);
+
   return (
     <Widget {...rest}>
-      <ResponsivePie {...CHART_CONFIG} data={data} />
+      {isLoading ? (
+        <div className='ui active centered inline loader' />
+      ) : isEmpty ? (
+        <em>No data.</em>
+      ) : (
+        <ResponsivePie {...CHART_CONFIG} data={data} />
+      )}
     </Widget>
   );
 };
