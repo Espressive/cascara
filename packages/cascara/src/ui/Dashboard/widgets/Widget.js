@@ -4,6 +4,7 @@ import pt from 'prop-types';
 import InfoPopover from '../../InfoPopover';
 import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
+import { getDataState } from './dataState';
 
 const cx = classnames.bind(styles);
 
@@ -40,6 +41,8 @@ const Widget = ({
   title,
   ...rest
 }) => {
+  const { isLoading, isEmpty } = getDataState(rest.data);
+
   return (
     <div
       className={cx(className, {
@@ -60,7 +63,13 @@ const Widget = ({
         <InfoPopover message={description} style={{ float: 'right' }} />
       )}
       <h3 className={styles.Title}>{title}</h3>
-      <div className={styles.Data} style={{ height: height }}>
+      <div
+        className={cx(className, {
+          Data: true,
+          'no-data': isLoading || isEmpty,
+        })}
+        style={{ height: height }}
+      >
         {Children.map(children, (child) => cloneElement(child, { ...rest }))}
       </div>
     </div>

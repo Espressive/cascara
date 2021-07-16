@@ -73,7 +73,11 @@ const Dashboard = ({ config }) => {
 
   return (
     <div className={styles.Dashboard}>
-      {config.map((widget) => renderWidget(widget))}
+      {config ? (
+        config.map((widget) => renderWidget(widget))
+      ) : (
+        <em>No config defined.</em>
+      )}
     </div>
   );
 };
