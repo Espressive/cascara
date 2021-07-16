@@ -1,7 +1,7 @@
 import React from 'react';
 import Popover from './Popover';
 import { Button } from '../../';
-import ActionsMenu from '../ActionsMenu';
+import ActionsMenu from '../../ui/ActionsMenu';
 
 const menuItems = [
   {
