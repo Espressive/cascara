@@ -15,17 +15,13 @@ const propTypes = {
  * Widget for displaying stats
  */
 const WidgetStats = ({ data, ...rest }) => {
-  const { isLoading, isEmpty } = getDataState(data);
+  const dataState = getDataState(data);
 
   return (
-    <Widget {...rest} className={styles.Stats} height='auto'>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
-        data?.map((stat) => <Stat {...stat} key={stat.label} />)
-      )}
+    <Widget {...rest} {...dataState} className={styles.Stats} height='auto'>
+      {data?.map((stat) => (
+        <Stat {...stat} key={stat.label} />
+      ))}
     </Widget>
   );
 };

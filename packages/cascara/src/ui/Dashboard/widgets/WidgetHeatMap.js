@@ -16,33 +16,27 @@ const propTypes = {
  * Widget for @nivo/heatmap.
  */
 const WidgetHeatMap = ({ data, indexBy = 'id', ...rest }) => {
-  const { isLoading, isEmpty } = getDataState(data);
+  const dataState = getDataState(data);
 
   return (
-    <Widget {...rest}>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
-        <ResponsiveHeatMapCanvas
-          data={data}
-          indexBy={indexBy}
-          keys={[
-            'hot dog',
-            'burger',
-            'sandwich',
-            'kebab',
-            'fries',
-            'donut',
-            'junk',
-            'sushi',
-            'ramen',
-            'curry',
-            'udon',
-          ]}
-        />
-      )}
+    <Widget {...rest} {...dataState}>
+      <ResponsiveHeatMapCanvas
+        data={data}
+        indexBy={indexBy}
+        keys={[
+          'hot dog',
+          'burger',
+          'sandwich',
+          'kebab',
+          'fries',
+          'donut',
+          'junk',
+          'sushi',
+          'ramen',
+          'curry',
+          'udon',
+        ]}
+      />
     </Widget>
   );
 };

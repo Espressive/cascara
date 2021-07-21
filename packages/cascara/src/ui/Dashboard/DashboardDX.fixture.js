@@ -1,93 +1,93 @@
 import React from 'react';
 import Dashboard from './Dashboard';
+import pieData from './data/Pie';
+import geoMapData from './data/GeoMap';
+import barData from './data/Bar';
 
+const statsData = [
+  {
+    label: 'Total Interactions',
+    onClick: () => alert('hi'),
+    value: '12,535',
+  },
+  {
+    label: 'Unique Users',
+    value: '1,205',
+  },
+  {
+    label: 'On Mobile',
+    sub: 'Interactions via Barista Channel',
+    value: '58%',
+  },
+];
+
+const WIDGET_DATA = {
+  bar: barData,
+  bubble: geoMapData,
+  'geo-map': geoMapData,
+  list: barData,
+  pie: pieData,
+  stats: statsData,
+};
+
+// Widgets here are defined in alphabetical order except for the duplicate Stats widget we are defining at top
 const WIDGETS = [
-  {
-    data: undefined,
-    keys: ['country', 'fries', 'curry'], // Without keys defined, all data from each object will show
-    // rowAction: (obj) => console.log(obj), // Without a rowAction defined, no row action will show. Note that the function gets the original object passed to it.
-    title: 'List',
-    widget: 'list',
-  },
-  {
-    data: null,
-    indexBy: 'id', // 'id' is the default and not needed if the data already matches
-    label: 'value', // 'value' is the default and is not needed if the data already matches
-    title: 'Bubble',
-    widget: 'bubble',
-  },
   {
     actions: [
       {
         content: 'view',
       },
     ],
-    title: 'Interactions',
-    widget: 'stats',
-  },
-  {
-    data: undefined,
-    title: 'Deflections',
+    description:
+      'Your most frequently matched intents in the time period selected.',
+    title: 'w/ Actions & Description',
     widget: 'stats',
   },
   {
     axisBottomLabel: 'Month',
     axisLeftLabel: 'Requests',
     data: null,
-    description:
-      'Shows number of requests and how your users have rated their experience over time',
     indexBy: 'month',
     keys: ['helpful', 'not helpful', 'no data'],
-    title: 'User Feedback',
+    title: 'Bar',
     widget: 'bar',
   },
   {
-    title: 'Interactions by Country',
+    data: null,
+    title: 'Bubble',
+    widget: 'bubble',
+  },
+  {
+    title: 'Geo Map',
     widget: 'geo-map',
   },
   {
-    axisLeft: null,
-    description:
-      'Questions that your users are asking that correspond to non-configured FAQ articles.',
-    indexBy: 'label',
-    layout: 'horizontal',
-    title: 'Top 10 Unanswered Questions',
-    widget: 'bar',
-  },
-  {
-    description:
-      'Your most frequently matched intents in the time period selected.',
-    enableRadialLabels: false,
-    title: 'Top Matched Intents',
-    widget: 'pie',
-  },
-  {
-    axisBottomLabel: 'Month',
-    axisLeftLabel: 'Count',
-    indexBy: 'month',
-    keys: ['Deflected', 'Not Deflected'],
-    title: 'Deflected VS Not Deflected',
-    widget: 'bar',
+    data: undefined,
+    // keys: ['country', 'fries', 'curry'],
+    // rowAction: (obj) => console.log(obj), // Without a rowAction defined, no row action will show. Note that the function gets the original object passed to it.
+    title: 'List',
+    widget: 'list',
   },
   {
     enableRadialLabels: false,
-    title: 'Channels',
+    title: 'Pie',
     widget: 'pie',
   },
   {
-    axisBottomLabel: 'Requests',
-    axisLeftLabel: 'Operating System',
-    description:
-      'Breakdown of interactions via Barista channel by operating system and client',
-    indexBy: 'OS',
-    keys: ['Safari', 'Chrome', 'Native App', 'Edge', 'Other'],
-    layout: 'horizontal',
-    title: 'Barista Channel Interactions by OS/Client',
-    widget: 'bar',
+    data: undefined,
+    title: 'Stats',
+    widget: 'stats',
   },
 ];
 
+// Adds an empty array to data for all widgets
 const EMPTY_WIDGETS = WIDGETS.map((obj) => ({ ...obj, data: [] }));
+
+// Adds data to the widgets to render
+const DATA_WIDGETS = WIDGETS.map((obj) => ({
+  ...obj,
+  data: WIDGET_DATA?.[obj.widget] || [],
+}));
 
 const NoProps = (fixtureProps) => (
   <>
@@ -125,15 +125,23 @@ const Empty = (fixtureProps) => (
   </>
 );
 
-// We export the data results here for use in our tests.
-// This also allows us to generate test data from inside a fixture and then reuse it in tests.
-// const dataResults = results;
-// export { dataResults };
+const WithData = (fixtureProps) => (
+  <>
+    <h3>With Data</h3>
+    <p>
+      When adding data to all widgets to display, we want to validate none of
+      the above fixtures broke anything.
+    </p>
+
+    <Dashboard {...fixtureProps} />
+  </>
+);
 
 /* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
   noProps: <NoProps />,
   loading: <Loading config={WIDGETS} />,
   empty: <Empty config={EMPTY_WIDGETS} />,
+  withData: <WithData config={DATA_WIDGETS} />,
 };
 /* eslint-enable sort-keys */

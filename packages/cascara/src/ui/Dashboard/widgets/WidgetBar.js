@@ -62,25 +62,19 @@ const WidgetBar = ({
     },
   };
 
-  const { isLoading, isEmpty } = getDataState(data);
+  const dataState = getDataState(data);
 
   return (
-    <Widget {...rest}>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
-        <ResponsiveBar
-          {...CHART_CONFIG}
-          axisLeft={axisLeft}
-          data={data}
-          indexBy={indexBy}
-          keys={keys}
-          label={label}
-          layout={layout}
-        />
-      )}
+    <Widget {...rest} {...dataState}>
+      <ResponsiveBar
+        {...CHART_CONFIG}
+        axisLeft={axisLeft}
+        data={data}
+        indexBy={indexBy}
+        keys={keys}
+        label={label}
+        layout={layout}
+      />
     </Widget>
   );
 };

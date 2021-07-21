@@ -4,7 +4,6 @@ import pt from 'prop-types';
 import InfoPopover from '../../InfoPopover';
 import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
-import { getDataState } from './dataState';
 
 const cx = classnames.bind(styles);
 
@@ -22,6 +21,10 @@ const propTypes = {
   description: pt.string,
   /** The height of a widget */
   height: pt.oneOfType([pt.number, pt.oneOf(['auto'])]),
+  // A widget can be in an empty state
+  isEmpty: pt.bool,
+  // A widget can be in a loading state
+  isLoading: pt.bool,
   /** A widget can contain scrolling content */
   isScrolling: pt.bool,
   /** A widget can display with a title */
@@ -37,12 +40,12 @@ const Widget = ({
   className,
   description,
   height = 400,
+  isEmpty = false,
+  isLoading = false,
   isScrolling = false,
   title,
   ...rest
 }) => {
-  const { isLoading, isEmpty } = getDataState(rest.data);
-
   return (
     <div
       className={cx(className, {
@@ -66,11 +69,17 @@ const Widget = ({
       <div
         className={cx(className, {
           Data: true,
-          'no-data': isLoading || isEmpty,
+          'no-data': isEmpty || isLoading,
         })}
         style={{ height: height }}
       >
-        {Children.map(children, (child) => cloneElement(child, { ...rest }))}
+        {isLoading ? (
+          <div className='ui active centered inline loader' />
+        ) : isEmpty ? (
+          <em>No data.</em>
+        ) : (
+          Children.map(children, (child) => cloneElement(child, { ...rest }))
+        )}
       </div>
     </div>
   );

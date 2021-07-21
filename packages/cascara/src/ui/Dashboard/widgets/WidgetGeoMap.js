@@ -32,21 +32,15 @@ const WidgetGeoMap = ({ data, ...rest }) => {
     unknownColor: 'rgba(0,0,0,.05)',
   };
 
-  const { isLoading, isEmpty } = getDataState(data);
+  const dataState = getDataState(data);
 
   return (
-    <Widget {...rest} height={320}>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
-        <ResponsiveChoroplethCanvas
-          {...CHART_CONFIG}
-          data={data}
-          features={GeoMapFeatures.features}
-        />
-      )}
+    <Widget {...rest} {...dataState} height={320}>
+      <ResponsiveChoroplethCanvas
+        {...CHART_CONFIG}
+        data={data}
+        features={GeoMapFeatures.features}
+      />
     </Widget>
   );
 };

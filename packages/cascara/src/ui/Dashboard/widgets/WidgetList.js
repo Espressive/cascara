@@ -14,13 +14,8 @@ const propTypes = {
   rowAction: pt.func,
 };
 
-/**
- * Widget for displaying list data.
- */
-const WidgetList = ({ data, keys, rowAction, ...rest }) => {
-  const { isLoading, isEmpty } = getDataState(data);
-
-  const preparedData = keys
+const getPreparedData = (keys, data) =>
+  keys
     ? data?.map((obj) =>
         Object.fromEntries(
           Object.entries(obj).filter(([key]) => keys.includes(key))
@@ -28,13 +23,18 @@ const WidgetList = ({ data, keys, rowAction, ...rest }) => {
       )
     : data;
 
+/**
+ * Widget for displaying list data.
+ */
+const WidgetList = ({ data, keys, rowAction, ...rest }) => {
+  const dataState = getDataState(data);
+  const { isEmpty, isLoading } = dataState;
+
+  const preparedData = getPreparedData(keys, data);
+
   return (
-    <Widget {...rest} isScrolling>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
+    <Widget {...rest} {...dataState} isScrolling>
+      {!isLoading && !isEmpty && (
         <table>
           <thead>
             <tr>

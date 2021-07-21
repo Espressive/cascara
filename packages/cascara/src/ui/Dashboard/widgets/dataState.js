@@ -2,7 +2,7 @@ import pt from 'prop-types';
 
 const getDataState = (data) => {
   // If data is not defined, we are in a loading state
-  const isLoading = data === undefined || data === null;
+  const isLoading = Boolean(data === undefined) || Boolean(data === null);
   // If data is defined but it is explicitly empty, we are in an empty state
   const isEmpty = !isLoading && data.length === 0;
 
