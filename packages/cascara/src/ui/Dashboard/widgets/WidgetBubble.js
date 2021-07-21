@@ -28,22 +28,16 @@ const WidgetBubble = ({ data, indexBy = 'id', label = 'value', ...rest }) => {
     padding: 6,
   };
 
-  const { isLoading, isEmpty } = getDataState(data);
+  const dataState = getDataState(data);
 
   return (
-    <Widget {...rest}>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
-        <ResponsiveBubble
-          {...CHART_CONFIG}
-          identity={indexBy}
-          root={{ children: data, id: '' }}
-          value={label}
-        />
-      )}
+    <Widget {...rest} {...dataState}>
+      <ResponsiveBubble
+        {...CHART_CONFIG}
+        identity={indexBy}
+        root={{ children: data, id: '' }}
+        value={label}
+      />
     </Widget>
   );
 };

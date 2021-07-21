@@ -29,17 +29,11 @@ const CHART_CONFIG = {
  * Widget for @nivo/pie.
  */
 const WidgetPie = ({ data, ...rest }) => {
-  const { isLoading, isEmpty } = getDataState(data);
+  const dataState = getDataState(data);
 
   return (
-    <Widget {...rest}>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
-        <ResponsivePie {...CHART_CONFIG} data={data} />
-      )}
+    <Widget {...rest} {...dataState}>
+      <ResponsivePie {...CHART_CONFIG} data={data} />
     </Widget>
   );
 };

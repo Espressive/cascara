@@ -47,17 +47,11 @@ const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
     },
   };
 
-  const { isLoading, isEmpty } = getDataState(data);
+  const dataState = getDataState(data);
 
   return (
-    <Widget {...rest}>
-      {isLoading ? (
-        <div className='ui active centered inline loader' />
-      ) : isEmpty ? (
-        <em>No data.</em>
-      ) : (
-        <ResponsiveLine {...CHART_CONFIG} data={data} />
-      )}
+    <Widget {...rest} {...dataState}>
+      <ResponsiveLine {...CHART_CONFIG} data={data} />
     </Widget>
   );
 };
