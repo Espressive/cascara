@@ -215,6 +215,16 @@ const onAction = (action, record) => {
 
 Specifies the attribute that uniquely identifies every object in the **data** array.
 
+> It is always recommended to speficy `uniqueIdAttribute`. Although it can be derived from the data itself, the inference function defines the following as possible values:
+>
+> - eid
+> - uuid
+> - id
+> - sys_date_created
+> - number
+>
+> If you see a warning like 'Each child in a list should have a unique "key" prop' from Table, please make sure you pass this prop to prevent Table's **auto-id-inference** from kicking-in and **possibly** infering **undefined** if the data you pass does not have any of the possible values.
+
 # Mixing everyting together
 
 With the four props described earlier, we can easily create a table: (open your dev tools!)
