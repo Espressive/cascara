@@ -36,6 +36,7 @@ const DataJson = ({
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <Input
         {...rest}
+        aria-label={label}
         as={TextareaAutosize}
         className={styles.Input}
         defaultValue={jsonValue}

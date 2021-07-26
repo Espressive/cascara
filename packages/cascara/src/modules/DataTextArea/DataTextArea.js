@@ -35,6 +35,7 @@ const DataTextArea = ({
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
+        aria-label={label}
         as={TextareaAutosize}
         className={styles.Input}
         defaultValue={value}

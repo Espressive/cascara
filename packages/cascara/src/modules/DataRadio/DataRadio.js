@@ -58,7 +58,7 @@ const DataRadio = ({
     <RadioGroup
       {...radio}
       {...rest}
-      aria-label='fruits'
+      aria-label={label}
       className={styles.Radio}
     >
       {options

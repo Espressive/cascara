@@ -43,6 +43,7 @@ const DataSelect = ({
       {label && isLabeled && <span className={styles.Label}>{label}</span>}
       <Input
         {...rest}
+        aria-label={label}
         as='select'
         className={styles.Input}
         defaultValue={value}

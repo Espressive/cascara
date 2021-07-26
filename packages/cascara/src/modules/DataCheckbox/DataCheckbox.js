@@ -36,6 +36,7 @@ const DataCheckbox = ({
       <Checkbox
         {...rest}
         {...checkbox}
+        aria-label={label}
         className={styles.Input}
         id={label}
         name={attribute || label}
