@@ -7,7 +7,9 @@ import TableProvider from './context/TableProvider';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 
-const UUID_PRIORITY_KEYS = ['eid', 'uuid', 'id', 'sys_date_created'];
+// [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
+// NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
+const UUID_PRIORITY_KEYS = ['eid', 'uuid', 'id', 'sys_date_created', 'number'];
 
 const inferUniqueID = (objectKeys) => {
   for (const key of UUID_PRIORITY_KEYS) {
@@ -67,8 +69,12 @@ const TableBase = ({
     // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
     inferDataDisplay(data);
 
-  const uniqueID =
-    uniqueIdAttribute || data ? inferUniqueID(Object.keys(data[0])) : undefined;
+  // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
+  const uniqueID = uniqueIdAttribute
+    ? uniqueIdAttribute
+    : data
+    ? inferUniqueID(Object.keys(data[0]))
+    : undefined;
 
   // // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
