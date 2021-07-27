@@ -32,6 +32,15 @@ module.exports = {
         'sort-keys': 0,
       },
     },
+    {
+      // Namespace imports are an important part for theme building
+      files: ['**/*.fixture.js'],
+      rules: {
+        'no-alert': 0,
+        'no-console': 0,
+        'sort-keys': 0,
+      },
+    },
   ],
   root: true,
 };
