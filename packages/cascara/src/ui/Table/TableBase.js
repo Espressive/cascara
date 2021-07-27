@@ -1,7 +1,7 @@
 import React from 'react';
 // import pt from 'prop-types';
 import styles from './Table.module.scss';
-import { propTypes as tablePropTypes } from './Table';
+import { TABLE_SHAPE } from './__propTypes';
 import TableProvider from './context/TableProvider';
 
 import TableHeader from './TableHeader';
@@ -48,10 +48,6 @@ const inferDataDisplay = (data) =>
         return column;
       })
     : undefined;
-
-const propTypes = {
-  ...tablePropTypes,
-};
 
 const TableBase = ({
   actions,
@@ -140,7 +136,6 @@ const TableBase = ({
   );
 };
 
-TableBase.propTypes = propTypes;
+TableBase.propTypes = TABLE_SHAPE;
 
-export { propTypes };
 export default TableBase;
