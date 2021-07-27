@@ -15,11 +15,6 @@ export const generateFakeEmployees = (qty) =>
       country: faker.random.arrayElement(['USA', 'Brazil', 'Argentina']),
       eid: faker.datatype.uuid(),
       email: faker.internet.email(firstName, lastName, 'espressive.com'),
-      employeeNumber: faker.datatype.number(),
-      fullName: `${firstName} ${lastName}`,
-      homePhone: faker.phone.phoneNumber(),
-      officePhone: faker.phone.phoneNumber(),
-      title: faker.name.jobTitle(),
     });
   });
 

@@ -9,6 +9,7 @@ describe('Table DX', () => {
   test(`should show a loading state if the 'data' prop is 'undefined' or 'null'`, () => {
     const { baseElement } = render(loading);
     // This technically captures the entire fixture in a snapshot. We should consider if we want to only select the element within for a snapshot or not.
+    // update: by default, snapshots are wrapped by a `<body>` tag, which doesn't cause snapshots to grow signigicantly
     expect(baseElement).toMatchSnapshot();
   });
 

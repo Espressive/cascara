@@ -26,7 +26,7 @@ describe('Table', () => {
   // The test `row actions` corresponds to condition a, whilst the test
   // `editable records` addresses condition b.
   describe('component tree', () => {
-    const datasetSize = 6;
+    const datasetSize = 5;
     const data = generateFakeEmployees(datasetSize);
     const actions = {
       actionButtonMenuIndex: 2,
@@ -57,78 +57,46 @@ describe('Table', () => {
       ],
     };
 
-    const dataConfig = {
-      display: [
-        {
-          attribute: 'active',
-          isEditable: true,
-          label: 'Active',
-          module: 'checkbox',
-        },
-        {
-          attribute: 'eid',
-          isEditable: false,
-          label: 'ID',
-          module: 'text',
-        },
-        {
-          attribute: 'email',
-          isEditable: true,
-          label: 'Email',
-          module: 'email',
-        },
-        {
-          attribute: 'country',
-          isEditable: true,
-          label: 'Country',
-          module: 'select',
-          options: [
-            {
-              label: 'Argentina',
-              value: 'Argentina',
-            },
-            {
-              label: 'Brazil',
-              value: 'Brazil',
-            },
-            {
-              label: 'USA',
-              value: 'USA',
-            },
-          ],
-        },
-        {
-          attribute: 'employeeNumber',
-          isEditable: true,
-          label: 'Employee Number',
-          module: 'number',
-        },
-        {
-          attribute: 'fullName',
-          isEditable: true,
-          label: 'Full Name',
-          module: 'text',
-        },
-        {
-          attribute: 'homePhone',
-          isEditable: true,
-          label: 'Home Phone',
-          module: 'text',
-        },
-        {
-          attribute: 'officePhone',
-          isEditable: true,
-          label: 'Office Phone',
-          module: 'text',
-        },
-        {
-          attribute: 'title',
-          isEditable: true,
-          label: 'Title',
-          module: 'text',
-        },
-      ],
-    };
+    const dataDisplay = [
+      {
+        attribute: 'active',
+        isEditable: true,
+        label: 'Active',
+        module: 'checkbox',
+      },
+      {
+        attribute: 'eid',
+        isEditable: false,
+        label: 'ID',
+        module: 'text',
+      },
+      {
+        attribute: 'email',
+        isEditable: true,
+        label: 'Email',
+        module: 'email',
+      },
+      {
+        attribute: 'country',
+        isEditable: true,
+        label: 'Country',
+        module: 'select',
+        options: [
+          {
+            label: 'Argentina',
+            value: 'Argentina',
+          },
+          {
+            label: 'Brazil',
+            value: 'Brazil',
+          },
+          {
+            label: 'USA',
+            value: 'USA',
+          },
+        ],
+      },
+    ];
 
     test('snapshot test', () => {
       const view = render(
@@ -136,7 +104,7 @@ describe('Table', () => {
           <Table
             actions={actions}
             data={data}
-            dataConfig={dataConfig}
+            dataDisplay={dataDisplay}
             uniqueIdAttribute={'eid'}
           />
         </Provider>
@@ -152,15 +120,14 @@ describe('Table', () => {
     //   Does the number of (found) testIDs match the result of multiplying `datasetSize`
     //   by the number of columns in `dataConfig.display`?
     test('table markup vs. dataset', () => {
-      const { display = [] } = dataConfig;
       const expectedRowCount = datasetSize;
-      const expectedCellCount = (display.length + 1) * expectedRowCount;
+      const expectedCellCount = (dataDisplay.length + 1) * expectedRowCount;
 
       render(
         <Table
           actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          dataDisplay={dataDisplay}
           uniqueIdAttribute={'eid'}
         />
       );
@@ -187,7 +154,7 @@ describe('Table', () => {
           <Table
             actions={actions}
             data={data}
-            dataConfig={dataConfig}
+            dataDisplay={dataDisplay}
             uniqueIdAttribute={'eid'}
           />
         </Provider>
@@ -210,7 +177,7 @@ describe('Table', () => {
         <Table
           actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          dataDisplay={dataDisplay}
           onAction={onAction}
           uniqueIdAttribute={'eid'}
         />
@@ -227,11 +194,6 @@ describe('Table', () => {
         country: 'Argentina',
         eid: '024f2316-265a-46e8-965a-837e308ae678',
         email: 'Hayden.Zieme@espressive.com',
-        employeeNumber: 93912,
-        fullName: 'Hayden Zieme',
-        homePhone: '887.983.0658',
-        officePhone: '(980) 802-1086 x05469',
-        title: 'District Operations Officer',
       });
 
       const [deleteButton] = screen.getAllByRole('button', {
@@ -245,11 +207,6 @@ describe('Table', () => {
         country: 'Argentina',
         eid: '024f2316-265a-46e8-965a-837e308ae678',
         email: 'Hayden.Zieme@espressive.com',
-        employeeNumber: 93912,
-        fullName: 'Hayden Zieme',
-        homePhone: '887.983.0658',
-        officePhone: '(980) 802-1086 x05469',
-        title: 'District Operations Officer',
       });
 
       const [editButton] = await screen.findAllByRole('button', {
@@ -263,11 +220,6 @@ describe('Table', () => {
         country: 'Argentina',
         eid: '024f2316-265a-46e8-965a-837e308ae678',
         email: 'Hayden.Zieme@espressive.com',
-        employeeNumber: 93912,
-        fullName: 'Hayden Zieme',
-        homePhone: '887.983.0658',
-        officePhone: '(980) 802-1086 x05469',
-        title: 'District Operations Officer',
       });
     });
 
@@ -277,12 +229,12 @@ describe('Table', () => {
 
       render(
         <Table
-          actions={actions}
-          data={data}
-          dataConfig={{
-            ...dataConfig,
+          actions={{
+            ...actions,
             actionButtonMenuIndex: 2,
           }}
+          data={data}
+          dataDisplay={dataDisplay}
           onAction={onAction}
           uniqueIdAttribute={'eid'}
         />
@@ -310,7 +262,7 @@ describe('Table', () => {
         <Table
           actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          dataDisplay={dataDisplay}
           onAction={onAction}
           uniqueIdAttribute={'eid'}
         />
@@ -348,7 +300,7 @@ describe('Table', () => {
         <Table
           actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          dataDisplay={dataDisplay}
           onAction={onAction}
           uniqueIdAttribute='eid'
         />
@@ -392,11 +344,6 @@ describe('Table', () => {
         country: 'Argentina',
         eid: '024f2316-265a-46e8-965a-837e308ae678',
         email: 'Hayden.Zieme@espressive.com',
-        employeeNumber: 93912,
-        fullName: 'Hayden Zieme',
-        homePhone: '887.983.0658',
-        officePhone: '(980) 802-1086 x05469',
-        title: 'District Operations Officer',
       });
 
       // Lastly, the table emits the edit.save event
@@ -406,11 +353,6 @@ describe('Table', () => {
         country: 'Argentina',
         eid: '024f2316-265a-46e8-965a-837e308ae678',
         email: testEmail,
-        employeeNumber: '93912', // todo @manu: make sure the data is not touched!!!
-        fullName: 'Hayden Zieme',
-        homePhone: '887.983.0658',
-        officePhone: '(980) 802-1086 x05469',
-        title: 'District Operations Officer',
       });
     });
 
@@ -430,7 +372,7 @@ describe('Table', () => {
         <Table
           actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          dataDisplay={dataDisplay}
           onAction={onAction}
           uniqueIdAttribute={'eid'}
         />
@@ -456,11 +398,6 @@ describe('Table', () => {
           country: 'Argentina',
           eid: '024f2316-265a-46e8-965a-837e308ae678',
           email: 'Hayden.Zieme@espressive.com',
-          employeeNumber: 93912,
-          fullName: 'Hayden Zieme',
-          homePhone: '887.983.0658',
-          officePhone: '(980) 802-1086 x05469',
-          title: 'District Operations Officer',
         })
       );
 
@@ -485,11 +422,6 @@ describe('Table', () => {
           country: 'Argentina',
           eid: '024f2316-265a-46e8-965a-837e308ae678',
           email: 'Hayden.Zieme@espressive.com',
-          employeeNumber: 93912,
-          fullName: 'Hayden Zieme',
-          homePhone: '887.983.0658',
-          officePhone: '(980) 802-1086 x05469',
-          title: 'District Operations Officer',
         })
       );
     });
@@ -499,7 +431,7 @@ describe('Table', () => {
         <Table
           actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          dataDisplay={dataDisplay}
           uniqueIdAttribute={'eid'}
         />
       );
@@ -514,8 +446,8 @@ describe('Table', () => {
     // FDS-164: table header not adding an extra column for actions
     test("deprecated dataConfig.actions prop doesn't break header number of columns", () => {
       const oldDataConfig = {
-        ...dataConfig,
         actions: actions.modules,
+        display: dataDisplay,
       };
 
       render(
@@ -527,7 +459,7 @@ describe('Table', () => {
       );
 
       const renderedCells = screen.getAllByRole('cell');
-      const expectedCells = (dataConfig.display.length + 1) * datasetSize;
+      const expectedCells = (dataDisplay.length + 1) * datasetSize;
 
       expect(renderedCells).toHaveLength(expectedCells);
     });
@@ -538,13 +470,13 @@ describe('Table', () => {
         <Table
           actions={actions}
           data={data}
-          dataConfig={dataConfig}
+          dataDisplay={dataDisplay}
           uniqueIdAttribute={'eid'}
         />
       );
 
       const renderedCells = screen.getAllByRole('cell');
-      const expectedCells = (dataConfig.display.length + 1) * datasetSize;
+      const expectedCells = (dataDisplay.length + 1) * datasetSize;
 
       expect(renderedCells).toHaveLength(expectedCells);
     });
