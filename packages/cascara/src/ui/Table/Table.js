@@ -1,7 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ErrorBoundary from '../../private/ErrorBoundary';
 
 import TableBase from './TableBase';
 import TableLoading from './TableLoading';

@@ -1,8 +1,8 @@
 import React from 'react';
 import Dashboard from './Dashboard';
-import pieData from './data/Pie';
-import geoMapData from './data/GeoMap';
-import barData from './data/Bar';
+import pieData from './tests/data/Pie';
+import geoMapData from './tests/data/GeoMap';
+import barData from './tests/data/Bar';
 
 const statsData = [
   {

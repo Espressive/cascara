@@ -8,7 +8,7 @@ import {
 } from 'reakit/Popover';
 
 import styles from './Popover.module.scss';
-import { popperOverTrigger } from '../../shared/popperModifiers';
+import { popperOverTrigger } from '../../lib/popperModifiers';
 
 const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),

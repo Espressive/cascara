@@ -8,7 +8,7 @@ import AreaPlaceholder from './placeholders/AreaPlaceholder';
 import JsonPlaceholder from './placeholders/JsonPlaceholder';
 
 // UI
-import Button from './ui/Button';
+import Button from './private/Button';
 import Chat from './ui/Chat';
 import Dashboard from './ui/Dashboard';
 import Form, { propTypes as formPropTypes } from './ui/Form';
