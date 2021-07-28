@@ -3,7 +3,7 @@ import pt from 'prop-types';
 import styles from './BaristaStructure.module.scss';
 import classNames from 'classnames/bind';
 
-import Loader from '../../ui/Loader';
+import Loader from '../../private/Loader';
 const cx = classNames.bind(styles);
 
 const propTypes = {

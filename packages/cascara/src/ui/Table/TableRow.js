@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import pt from 'prop-types';
 import styles from './Table.module.scss';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ErrorBoundary from '../../private/ErrorBoundary';
 import RowProvider from './context/RowProvider';
 import { ModuleContext } from '../../modules/context';
 
-import ActionsMenu from '../ActionsMenu';
+import ActionsMenu from '../../private/ActionsMenu';
 
 // todo @manu: let's document this one
 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md

@@ -2,7 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 
 import styles from '../../Form.module.scss';
-import ErrorBoundary from '../../../../shared/ErrorBoundary';
+import ErrorBoundary from '../../../../private/ErrorBoundary';
 
 const propTypes = {
   children: pt.oneOf([pt.node, pt.arrayOf(pt.node)]),
