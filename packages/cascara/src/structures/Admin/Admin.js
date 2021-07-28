@@ -4,7 +4,7 @@ import AdminDrawer from './AdminDrawer';
 import AdminHeader from './AdminHeader';
 import AdminMain from './AdminMain';
 import AdminNav from './AdminNav';
-import useSetLayoutAttribute from '../../shared/hooks/useSetLayoutAttribute';
+import useSetLayoutAttribute from './hooks/useSetLayoutAttribute';
 
 // TODO: Would be nice to be able to pass an element or array of React elements
 // and if they do not have the proper grid container, just add it automatically.

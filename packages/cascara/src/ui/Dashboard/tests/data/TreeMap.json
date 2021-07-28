@@ -1,0 +1,340 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "loc": 9011,
+              "name": "chart"
+            },
+            {
+              "loc": 115559,
+              "name": "xAxis"
+            },
+            {
+              "loc": 92592,
+              "name": "yAxis"
+            },
+            {
+              "loc": 65578,
+              "name": "layers"
+            }
+          ],
+          "name": "stack"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "loc": 72142,
+                      "name": "outline"
+                    },
+                    {
+                      "loc": 119626,
+                      "name": "slices"
+                    },
+                    {
+                      "loc": 94408,
+                      "name": "bbox"
+                    }
+                  ],
+                  "name": "pie"
+                },
+                {
+                  "loc": 94242,
+                  "name": "donut"
+                },
+                {
+                  "loc": 165895,
+                  "name": "gauge"
+                }
+              ],
+              "name": "chart"
+            },
+            {
+              "loc": 173079,
+              "name": "legends"
+            }
+          ],
+          "name": "pie"
+        }
+      ],
+      "name": "viz"
+    },
+    {
+      "children": [
+        {
+          "loc": 80123,
+          "name": "rgb"
+        },
+        {
+          "loc": 17640,
+          "name": "hsl"
+        }
+      ],
+      "name": "colors"
+    },
+    {
+      "children": [
+        {
+          "loc": 79624,
+          "name": "randomize"
+        },
+        {
+          "loc": 19208,
+          "name": "resetClock"
+        },
+        {
+          "loc": 123293,
+          "name": "noop"
+        },
+        {
+          "loc": 119063,
+          "name": "tick"
+        },
+        {
+          "loc": 4271,
+          "name": "forceGC"
+        },
+        {
+          "loc": 83542,
+          "name": "stackTrace"
+        },
+        {
+          "loc": 102194,
+          "name": "dbg"
+        }
+      ],
+      "name": "utils"
+    },
+    {
+      "children": [
+        {
+          "loc": 142406,
+          "name": "address"
+        },
+        {
+          "loc": 153469,
+          "name": "city"
+        },
+        {
+          "loc": 1280,
+          "name": "animal"
+        },
+        {
+          "loc": 66073,
+          "name": "movie"
+        },
+        {
+          "loc": 59588,
+          "name": "user"
+        }
+      ],
+      "name": "generators"
+    },
+    {
+      "children": [
+        {
+          "loc": 25570,
+          "name": "clone"
+        },
+        {
+          "loc": 133076,
+          "name": "intersect"
+        },
+        {
+          "loc": 178862,
+          "name": "merge"
+        },
+        {
+          "loc": 199032,
+          "name": "reverse"
+        },
+        {
+          "loc": 1276,
+          "name": "toArray"
+        },
+        {
+          "loc": 82528,
+          "name": "toObject"
+        },
+        {
+          "loc": 128181,
+          "name": "fromCSV"
+        },
+        {
+          "loc": 33037,
+          "name": "slice"
+        },
+        {
+          "loc": 176821,
+          "name": "append"
+        },
+        {
+          "loc": 112884,
+          "name": "prepend"
+        },
+        {
+          "loc": 122331,
+          "name": "shuffle"
+        },
+        {
+          "loc": 110176,
+          "name": "pick"
+        },
+        {
+          "loc": 48924,
+          "name": "plouc"
+        }
+      ],
+      "name": "set"
+    },
+    {
+      "children": [
+        {
+          "loc": 184027,
+          "name": "trim"
+        },
+        {
+          "loc": 166977,
+          "name": "slugify"
+        },
+        {
+          "loc": 109354,
+          "name": "snakeCase"
+        },
+        {
+          "loc": 163761,
+          "name": "camelCase"
+        },
+        {
+          "loc": 158492,
+          "name": "repeat"
+        },
+        {
+          "loc": 55362,
+          "name": "padLeft"
+        },
+        {
+          "loc": 120874,
+          "name": "padRight"
+        },
+        {
+          "loc": 41801,
+          "name": "sanitize"
+        },
+        {
+          "loc": 187138,
+          "name": "ploucify"
+        }
+      ],
+      "name": "text"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "loc": 27259,
+              "name": "hey"
+            },
+            {
+              "loc": 112908,
+              "name": "HOWDY"
+            },
+            {
+              "loc": 58819,
+              "name": "aloha"
+            },
+            {
+              "loc": 163298,
+              "name": "AHOY"
+            }
+          ],
+          "name": "greetings"
+        },
+        {
+          "loc": 79083,
+          "name": "other"
+        },
+        {
+          "children": [
+            {
+              "loc": 83062,
+              "name": "pathA"
+            },
+            {
+              "children": [
+                {
+                  "loc": 139089,
+                  "name": "pathB1"
+                },
+                {
+                  "loc": 64029,
+                  "name": "pathB2"
+                },
+                {
+                  "loc": 24645,
+                  "name": "pathB3"
+                },
+                {
+                  "loc": 83230,
+                  "name": "pathB4"
+                }
+              ],
+              "name": "pathB"
+            },
+            {
+              "children": [
+                {
+                  "loc": 171824,
+                  "name": "pathC1"
+                },
+                {
+                  "loc": 80417,
+                  "name": "pathC2"
+                },
+                {
+                  "loc": 148958,
+                  "name": "pathC3"
+                },
+                {
+                  "loc": 126005,
+                  "name": "pathC4"
+                },
+                {
+                  "loc": 23170,
+                  "name": "pathC5"
+                },
+                {
+                  "loc": 190885,
+                  "name": "pathC6"
+                },
+                {
+                  "loc": 10441,
+                  "name": "pathC7"
+                },
+                {
+                  "loc": 48265,
+                  "name": "pathC8"
+                },
+                {
+                  "loc": 159127,
+                  "name": "pathC9"
+                }
+              ],
+              "name": "pathC"
+            }
+          ],
+          "name": "path"
+        }
+      ],
+      "name": "misc"
+    }
+  ],
+  "name": "nivo"
+}
