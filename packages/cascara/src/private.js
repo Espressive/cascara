@@ -1,32 +1,9 @@
-import {
-  ActionButton,
-  DataCheckbox,
-  DataEmail,
-  DataNumber,
-  DataRadio,
-  DataSelect,
-  DataText,
-  DataTextArea,
-  ModuleContext,
-  ModuleProvider,
-  ModuleSandbox,
-} from './modules';
+export * from './modules';
+export * from './hooks';
+export * from './lib';
 
-import { ChatProvider } from './ui/Chat';
-import ActionEdit from './ui/Table/modules/ActionEdit';
+// ChatProvider will eventually move to Public or be attached to Chat like Chat.Provider
+export { default as ChatProvider } from './ui/Chat';
 
-export {
-  ActionEdit,
-  ActionButton,
-  ChatProvider,
-  DataCheckbox,
-  DataEmail,
-  DataNumber,
-  DataRadio,
-  DataSelect,
-  DataText,
-  DataTextArea,
-  ModuleContext,
-  ModuleProvider,
-  ModuleSandbox,
-};
+// We may need to figure out a better way of defining these
+export { default as ActionEditTable } from './ui/Table/modules/ActionEdit';

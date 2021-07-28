@@ -17,6 +17,7 @@ import {
 import {
   ActionButton,
   ActionEdit,
+  ActionEditTable,
   ChatProvider,
   DataCheckbox,
   DataEmail,
@@ -56,6 +57,7 @@ const cascaraComponents = {
 const privateComponents = {
   ActionButton: (props) => <ActionButton {...props} />,
   ActionEdit: (props) => <ActionEdit {...props} />,
+  ActionEditTable: (props) => <ActionEditTable {...props} />,
   DataCheckbox: (props) => <DataCheckbox {...props} />,
   DataEmail: (props) => <DataEmail {...props} />,
   DataNumber: (props) => <DataNumber {...props} />,
