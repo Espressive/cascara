@@ -221,6 +221,8 @@ const getStaticProps = async ({ params }) => {
 
   return {
     props: {
+      branch: process.env?.GIT_BRANCH,
+      cascaraVersion: process.env?.npm_package_version,
       mdxDirFiles,
       mdxDirSource,
       mdxTree: getMDXTree(),
