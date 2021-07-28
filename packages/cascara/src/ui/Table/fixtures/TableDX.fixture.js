@@ -93,11 +93,9 @@ const DataWithDisplay = (fixtureProps) => (
 const dataResults = results;
 export { dataResults };
 
-/* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
   loading: <Loading />,
   empty: <Empty data={[]} />,
   dataOnly: <DataOnly data={results} />,
   dataWithDisplay: <DataWithDisplay data={results} dataDisplay={COLUMNS} />,
 };
-/* eslint-enable sort-keys */

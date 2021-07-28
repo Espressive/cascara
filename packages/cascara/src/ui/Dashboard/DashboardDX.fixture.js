@@ -137,11 +137,9 @@ const WithData = (fixtureProps) => (
   </>
 );
 
-/* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
   noProps: <NoProps />,
   loading: <Loading config={WIDGETS} />,
   empty: <Empty config={EMPTY_WIDGETS} />,
   withData: <WithData config={DATA_WIDGETS} />,
 };
-/* eslint-enable sort-keys */
