@@ -33,14 +33,12 @@ describe('Table', () => {
       modules: [
         {
           content: 'view',
-          isLabeled: false,
           module: 'button',
           name: 'view',
           size: 'small',
         },
         {
           content: 'delete',
-          isLabeled: false,
           module: 'button',
           name: 'delete',
           size: 'small',
@@ -48,7 +46,6 @@ describe('Table', () => {
         {
           cancelLabel: 'Cancel',
           content: 'edit',
-          isLabeled: false,
           module: 'edit',
           name: 'edit',
           saveLabel: 'Save',
@@ -493,7 +490,6 @@ describe('Table', () => {
     //           {
     //             content: 'view',
     //             'data-testid': 'view',
-    //             isLabeled: false,
     //             module: wrongModuleName,
     //             name: 'view',
     //             size: 'small',
@@ -524,7 +520,6 @@ describe('Table', () => {
     //             attribute: 'active',
     //             'data-testid': 'active',
     //             isEditable: true,
-    //             isLabeled: false,
     //             label: 'Active',
     //             module: wrongModuleName,
     //           },
