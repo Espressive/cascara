@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import styles from './Table.module.scss';
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ErrorBoundary from '../../private/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
 
 const TableFooter = () => {

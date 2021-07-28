@@ -8,7 +8,7 @@ export { default as AdminStructure } from './structures/AdminStructure';
 export { default as BaristaStructure } from './structures/BaristaStructure';
 
 // UI
-export { default as Button } from './ui/Button';
+export { default as Button } from './private/Button';
 export {
   default as Pagination,
   propTypes as paginationPropTypes,

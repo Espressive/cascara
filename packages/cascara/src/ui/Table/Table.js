@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ErrorBoundary from '../../private/ErrorBoundary';
 
 import TableBase from './TableBase';
 import TableLoading from './TableLoading';

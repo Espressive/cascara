@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import pt from 'prop-types';
 // import styles from './Form.module.scss';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ErrorBoundary from '../../private/ErrorBoundary';
 import FormProvider from './context/FormProvider';
 import ModuleError from '../../modules/ModuleError';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 import { formActionModules, formModules } from './modules';
-import ActionBar from './atoms/ActionBar';
+import ActionBar from './components/ActionBar';
 
 // there are two types of actions a form supports:
 //
