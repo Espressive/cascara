@@ -42,3 +42,5 @@ export const generateFakeInteractions = (qty) =>
       user: `${firstName} ${lastName}`,
     });
   });
+
+export const fakeEmployees = generateFakeEmployees(5);

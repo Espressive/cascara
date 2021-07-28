@@ -5,7 +5,7 @@ import { Provider } from 'reakit';
 import 'mutationobserver-shim';
 
 import Table from './';
-import { generateFakeEmployees } from '../../lib/mock/fakeData';
+import { fakeEmployees } from '../../lib/mock/fakeData';
 
 // NOTE: Tests for loading, empty, and early/simple configuration state are in TableDX
 
@@ -27,7 +27,7 @@ describe('Table', () => {
   // `editable records` addresses condition b.
   describe('component tree', () => {
     const datasetSize = 5;
-    const data = generateFakeEmployees(datasetSize);
+    const data = fakeEmployees;
     const actions = {
       actionButtonMenuIndex: 2,
       modules: [
