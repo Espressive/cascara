@@ -14,14 +14,12 @@ describe('ActionBar', () => {
   describe('component tree', () => {
     const actions = [
       {
-        isLabeled: false,
         label: 'New',
         module: 'button',
         name: 'new',
         size: 'small',
       },
       {
-        isLabeled: false,
         label: 'Edit',
         module: 'button',
         name: 'edit',

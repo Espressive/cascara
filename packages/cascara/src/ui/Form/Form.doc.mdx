@@ -63,7 +63,6 @@ By defining an `action`, you are telling **Form** how you want to be notified wh
 title: The shape of an action
 ---
 const action = {
-  isLabeled: false,    // label can be hidden
   module: 'button',    // either button or edit
   actionName: 'view',  // the action name
   label: 'View',       // button text
@@ -98,7 +97,6 @@ const actions: [
 
   // simple button
   {
-    isLabeled: false,
     module: 'button',
     actionName: 'view',
     label: 'view',
@@ -109,7 +107,6 @@ const actions: [
 
   // edit button combo (for editable rows)
   {
-    isLabeled: false,
     module: 'edit',
     size: 'small',
     cancelLabel: 'Cancelar', // you can specify localized labels
@@ -142,14 +139,12 @@ const display = [
   {
     attribute: 'userEmail',
     isEditable: false,
-    isLabeled: false,
     label: 'eMail',
     module: 'text',
   },
   {
     attribute: 'userName',
     isEditable: false,
-    isLabeled: false,
     label: 'Name',
     module: 'text',
   },
@@ -223,14 +218,12 @@ title: Everything together!
   dataConfig={{
     actions: [
       {
-        isLabeled: false,
         module: 'button',
         actionName: 'delete',
         label: 'Delete',
         size: 'small',
       },
       {
-        isLabeled: false,
         module: 'edit',
         size: 'small',
         cancelLabel: 'Cancelar',
@@ -242,14 +235,12 @@ title: Everything together!
       {
         attribute: 'userEmail',
         isEditable: true,
-        isLabeled: false,
         label: 'eMail',
         module: 'text',
       },
       {
         attribute: 'userName',
         isEditable: true,
-        isLabeled: false,
         label: 'Name',
         module: 'text',
       },
