@@ -2,6 +2,7 @@
 *.framerfx
 build
 cjs
+coverage
 dist
 es
 node_modules

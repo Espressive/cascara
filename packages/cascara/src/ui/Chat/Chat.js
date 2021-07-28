@@ -5,6 +5,7 @@ import {
   Provider,
   teamsTheme,
 } from '@fluentui/react-northstar';
+import ChatProvider from './ChatProvider';
 import { getMessageAuthorDetails, getMessageGroup } from './utils';
 import messageTypes from './messageTypes';
 import { loadingMessages, loadingTheme } from './loadingState';
@@ -117,5 +118,6 @@ const Chat = ({ sessionUserID, messages, users }) => {
 };
 
 Chat.propTypes = propTypes;
+Chat.Provider = ChatProvider;
 
 export default Chat;

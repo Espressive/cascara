@@ -1,13 +1,13 @@
 import React from 'react';
 import pt from 'prop-types';
 import { DisclosureContent } from 'reakit';
-import { linkShape } from './Nav';
+import { LINK_SHAPE } from './__propTypes';
 import NavLinks from './NavLinks';
 import styles from './Nav.module.scss';
 
 const propTypes = {
   label: pt.string,
-  links: pt.arrayOf(pt.shape(linkShape)),
+  links: pt.arrayOf(pt.shape(LINK_SHAPE)),
 };
 
 const NavMenu = ({ label = 'Menu', links, ...rest }) => (
