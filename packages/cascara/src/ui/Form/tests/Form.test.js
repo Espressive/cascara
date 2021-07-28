@@ -29,7 +29,6 @@ describe('Form', () => {
         module: 'edit',
       },
       {
-        isLabeled: false,
         label: 'Delete',
         module: 'button',
         name: 'delete',

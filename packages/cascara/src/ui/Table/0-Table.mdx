@@ -164,19 +164,18 @@ const dataDisplay = [
   {
     attribute: 'id', // specifies the attribute in your data that represents this column
     isEditable: false, // if true, the edition mode will be activated
-    isLabeled: false, // modules display a label, if false they won't
     label: 'ID', // the label to display as column header
     module: 'text', // The data module to handle the display/edit UI
   },
   {
     attribute: 'userEmail',
-    isLabeled: false,
+    isEditable: false,
     label: 'eMail',
     module: 'text',
   },
   {
     attribute: 'userName',
-    isLabeled: false,
+    isEditable: false,
     label: 'Name',
     module: 'text',
   },
@@ -297,19 +296,19 @@ With the four props described earlier, we can easily create a table: (open your 
   dataDisplay={[
     {
       attribute: 'id',
-      isLabeled: false,
+      isEditable: false,
       label: 'ID',
       module: 'number',
     },
     {
       attribute: 'userEmail',
-      isLabeled: false,
+      isEditable: true,
       label: 'eMail',
       module: 'text',
     },
     {
       attribute: 'userName',
-      isLabeled: false,
+      isEditable: true,
       label: 'Name',
       module: 'text',
     },
