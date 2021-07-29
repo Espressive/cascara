@@ -97,23 +97,17 @@ const BasicForm = (props) => {
 
   return (
     <>
-      <h1>FormPublicAPI Test</h1>
+      <h1>Data Only</h1>
       <p>
-        Looks like we also need to bring this closer to alignment with Table:
+        A form with structure to display but with no default values will be
+        editable by default .
       </p>
       <ul>
         <li>
-          <code>dataConfig</code> needs to be removed and separated into
-          different slices. Since we do not have Form in use anywhere, we do not
-          have to worry about alerting developers to these changes.
-          <ul>
-            <li>
-              <code>actions</code>
-            </li>
-            <li>
-              <code>dataDisplay</code>
-            </li>
-          </ul>
+          <code>actions</code>
+        </li>
+        <li>
+          <code>dataDisplay</code>
         </li>
       </ul>
 
@@ -122,6 +116,13 @@ const BasicForm = (props) => {
   );
 };
 
+const DataWithDisplay = (props) => (
+  <>
+    <h1>Data with display</h1>{' '}
+    <p>A form can not be in an editing state initially.</p> <Form {...props} />
+  </>
+);
+
 const InitialEditing = (props) => (
   <>
     <h1>Initial Editing Form</h1>{' '}
@@ -129,14 +130,44 @@ const InitialEditing = (props) => (
   </>
 );
 
+const LoadingForm = (props) => (
+  <>
+    <h1>Loading state form</h1>{' '}
+    <p>A form can show a loader while the default values are rendered.</p>{' '}
+    <Form {...props} />
+  </>
+);
+
+const EmptyForm = (props) => (
+  <>
+    <h1>Empty</h1>
+    <p>
+      If a form does not receive dataDisplay prop as an array with values, the
+      Form component will notify there is not data to present.
+    </p>{' '}
+    <Form {...props} />
+  </>
+);
 export default {
-  basic: <BasicForm actions={actions} data={data} dataDisplay={dataDisplay} />,
+  dataOnly: <BasicForm actions={actions} data={{}} dataDisplay={dataDisplay} />,
+  dataWithDisplay: (
+    <DataWithDisplay actions={actions} data={data} dataDisplay={dataDisplay} />
+  ),
+  empty: <EmptyForm actions={actions} data={data} dataDisplay={[]} isLoading />,
   initialEditing: (
     <InitialEditing
       actions={actions}
       data={data}
       dataDisplay={dataDisplay}
       isInitialEditing
+    />
+  ),
+  loading: (
+    <LoadingForm
+      actions={actions}
+      data={data}
+      dataDisplay={dataDisplay}
+      isLoading
     />
   ),
 };

@@ -9,6 +9,9 @@ import ModuleError from '../../modules/ModuleError';
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 import { formActionModules, formModules } from './modules';
 import ActionBar from './components/ActionBar';
+import FormLoading from './FormLoading';
+import FormEmpty from './FormEmpty';
+import { isEmpty } from 'lodash';
 
 // there are two types of actions a form supports:
 //
@@ -56,6 +59,8 @@ const propTypes = {
 
   // A form can start in an editing state
   isInitialEditing: pt.bool,
+
+  isLoading: pt.bool,
 
   // A form can emit events on every action
   onAction: pt.func,
@@ -162,6 +167,7 @@ const Form = ({
   onAction,
   isEditable: incomingIsEditable,
   isInitialEditing = false,
+  isLoading = false,
   ...rest
 }) => {
   const renderedActions = renderActions(actions);
@@ -170,11 +176,18 @@ const Form = ({
       ? Boolean(actions?.modules?.find((action) => action.module === 'edit'))
       : incomingIsEditable;
 
-  const [isEditing, setIsEtiding] = useState(() =>
-    !isEditable ? false : isInitialEditing
-  );
+  const [isEditing, setIsEtiding] = useState(() => {
+    const isDataEmpty = isEmpty(data);
+    if (isDataEmpty) {
+      return true;
+    }
+    return !isEditable ? false : isInitialEditing;
+  });
 
   const fields = formFields(dataDisplay, data);
+  const isValidDataDisplay =
+    Array.isArray(dataDisplay) && dataDisplay.length > 0;
+
   function enterEditMode() {
     setIsEtiding(true);
   }
@@ -185,20 +198,29 @@ const Form = ({
 
   return (
     <ErrorBoundary>
-      <FormProvider
-        value={{
-          data,
-          enterEditMode,
-          exitEditMode,
-          isEditable,
-          isEditing,
-          onAction,
-        }}
-        {...rest}
-      >
-        {fields}
-        <ActionBar actions={renderedActions} />
-      </FormProvider>
+      {isValidDataDisplay ? (
+        <FormProvider
+          value={{
+            data,
+            enterEditMode,
+            exitEditMode,
+            isEditable,
+            isEditing,
+            onAction,
+          }}
+          {...rest}
+        >
+          {isLoading && <FormLoading />}
+          {!isLoading && (
+            <>
+              {fields}
+              <ActionBar actions={renderedActions} />
+            </>
+          )}
+        </FormProvider>
+      ) : (
+        <FormEmpty />
+      )}
     </ErrorBoundary>
   );
 };
