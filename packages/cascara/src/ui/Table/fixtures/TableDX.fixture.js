@@ -2,18 +2,7 @@ import React from 'react';
 import Table from '../Table';
 import { results } from '../data/entities';
 
-const COLUMNS = [
-  {
-    attribute: 'name',
-    label: 'Name',
-    module: 'text',
-  },
-  {
-    attribute: 'description',
-    label: 'Description',
-    module: 'text',
-  },
-];
+import { ACTIONS, COLUMNS } from './constants';
 
 const Loading = () => (
   <>
@@ -88,6 +77,17 @@ const DataWithDisplay = (fixtureProps) => (
   </>
 );
 
+const UnknownModules = (fixtureProps) => (
+  <>
+    <h3>
+      dataDisplay with <code>unknown modules</code>
+    </h3>
+    <p>A helpful error message is displayed if a module is not found.</p>
+
+    <Table {...fixtureProps} />
+  </>
+);
+
 // We export the data results here for use in our tests.
 // This also allows us to generate test data from inside a fixture and then reuse it in tests.
 const dataResults = results;
@@ -95,7 +95,36 @@ export { dataResults };
 
 export default {
   loading: <Loading />,
-  empty: <Empty data={[]} />,
-  dataOnly: <DataOnly data={results} />,
-  dataWithDisplay: <DataWithDisplay data={results} dataDisplay={COLUMNS} />,
+  empty: <Empty data={[]} uniqueIdAttribute='eid' />,
+  dataOnly: <DataOnly data={results} uniqueIdAttribute='eid' />,
+  dataWithDisplay: (
+    <DataWithDisplay
+      data={results}
+      dataDisplay={COLUMNS}
+      uniqueIdAttribute='eid'
+    />
+  ),
+  unknownActionModule: (
+    <UnknownModules
+      actions={{
+        ...ACTIONS,
+        modules: [
+          ...ACTIONS.modules,
+          {
+            module: 'tequila',
+          },
+        ],
+      }}
+      data={results}
+      dataDisplay={COLUMNS}
+    />
+  ),
+  unknownDataModule: (
+    <UnknownModules
+      actions={ACTIONS}
+      data={results}
+      dataDisplay={[...COLUMNS, { attribute: 'eid', module: 'unknownModule' }]}
+      uniqueIdAttribute='eid'
+    />
+  ),
 };
