@@ -110,11 +110,26 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
       tequila is not a valid value for module. Try using one of [button, edit]
     </div>
     <button
-      class="ui basic button"
-      name="viewInFAQ"
+      aria-controls="id-2"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="ui basic icon button"
       type="button"
     >
-      View
+      <svg
+        focusable="false"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style="transform: rotate(360deg); vertical-align: -0.143em;"
+        viewBox="0 0 140 140"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M52.5 122.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0zm0-52.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0zm0-52.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0z"
+          fill="currentColor"
+        />
+      </svg>
     </button>
   </td>
 </tr>
@@ -341,11 +356,26 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
       Edit
     </button>
     <button
-      class="ui basic button"
-      name="viewInFAQ"
+      aria-controls="id-2"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="ui basic icon button"
       type="button"
     >
-      View
+      <svg
+        focusable="false"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style="transform: rotate(360deg); vertical-align: -0.143em;"
+        viewBox="0 0 140 140"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M52.5 122.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0zm0-52.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0zm0-52.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0z"
+          fill="currentColor"
+        />
+      </svg>
     </button>
   </td>
 </tr>
@@ -503,11 +533,26 @@ exports[`Table snapshot tests with actions 1`] = `
       Edit
     </button>
     <button
-      class="ui basic button"
-      name="viewInFAQ"
+      aria-controls="id-2"
+      aria-expanded="false"
+      aria-haspopup="menu"
+      class="ui basic icon button"
       type="button"
     >
-      View
+      <svg
+        focusable="false"
+        height="1em"
+        preserveAspectRatio="xMidYMid meet"
+        style="transform: rotate(360deg); vertical-align: -0.143em;"
+        viewBox="0 0 140 140"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M52.5 122.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0zm0-52.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0zm0-52.5a17.5 17.5 0 1 0 35 0a17.5 17.5 0 1 0-35 0z"
+          fill="currentColor"
+        />
+      </svg>
     </button>
   </td>
 </tr>

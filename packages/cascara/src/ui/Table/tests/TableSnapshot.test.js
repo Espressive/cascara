@@ -1,18 +1,19 @@
 import { render, within } from '@testing-library/react';
 import 'mutationobserver-shim';
 
-import cosmosDXFixtures from '../fixtures/TableDX.fixture';
-import cosmosUXFixtures from '../fixtures/TableUX.fixture';
+import cosmosDXFixtures from '../fixtures/DeveloperExperience.fixture';
+import cosmosUXFixtures from '../fixtures/UserExperience.fixture';
 
 const {
+  loading,
+  empty,
   conditionalActions,
   withActions,
-  withDeprecatedProps,
   withoutActions,
   withoutActionBar,
 } = cosmosUXFixtures;
 
-const { loading, empty, unknownActionModule, unknownDataModule } =
+const { unknownActionModule, unknownDataModule, withDeprecatedProps } =
   cosmosDXFixtures;
 // NOTE: Tests for loading, empty, and early/simple configuration state are in TableDX
 
@@ -84,7 +85,7 @@ describe('Table', () => {
     });
 
     test('without <ActionBar />', () => {
-      const { baseElement } = render(withoutActionBar);
+      const { baseElement } = render(withoutActionBar());
 
       const [, tbody] = within(baseElement).getAllByRole('rowgroup');
       const [firstRow] = within(tbody).getAllByRole('row');

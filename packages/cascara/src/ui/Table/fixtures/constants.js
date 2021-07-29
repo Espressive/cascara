@@ -38,7 +38,7 @@ export const COLUMNS = [
 ];
 
 export const ACTIONS = {
-  actionButtonMenuIndex: 1,
+  actionButtonMenuIndex: 0,
   modules: [
     {
       cancelLavel: 'Cancel',

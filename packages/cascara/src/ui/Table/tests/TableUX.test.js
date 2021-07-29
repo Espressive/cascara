@@ -2,15 +2,17 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import 'mutationobserver-shim';
 
-import cosmosFixtures, { dataResults } from '../fixtures/TableUX.fixture';
+import cosmosFixtures, {
+  dataResults,
+} from '../fixtures/UserExperience.fixture';
 
-const { withActionsOnAction } = cosmosFixtures;
+const { withoutActionBar, withOnAction } = cosmosFixtures;
 
 describe('Table UX', () => {
   test('custom actions', () => {
     const onAction = jest.fn();
 
-    render(withActionsOnAction({ onAction }));
+    render(withoutActionBar({ onAction }));
 
     const table = within(screen.getByRole('table'));
     const [, tableBody] = table.getAllByRole('rowgroup');
@@ -30,7 +32,7 @@ describe('Table UX', () => {
     const testEmail = 'engineering@espressive.com';
     const onAction = jest.fn();
 
-    render(withActionsOnAction({ onAction }));
+    render(withOnAction({ onAction }));
 
     const table = within(screen.getByRole('table'));
     const [, tableBody] = table.getAllByRole('rowgroup');
@@ -83,7 +85,7 @@ describe('Table UX', () => {
     const testEmail = 'engineering@espressive.com';
     const onAction = jest.fn();
 
-    render(withActionsOnAction({ onAction }));
+    render(withOnAction({ onAction }));
 
     const table = within(screen.getByRole('table'));
     const [, tableBody] = table.getAllByRole('rowgroup');

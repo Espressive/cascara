@@ -1,11 +1,14 @@
 import { render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import cosmosDXFixtures, { dataResults } from '../fixtures/TableDX.fixture';
-import cosmosUXFixtures from '../fixtures/TableUX.fixture';
+
+import cosmosDXFixtures, {
+  dataResults,
+} from '../fixtures/DeveloperExperience.fixture';
+import cosmosUXFixtures from '../fixtures/UserExperience.fixture';
 import { COLUMNS } from '../fixtures/constants';
 
-const { dataOnly, dataWithDisplay } = cosmosDXFixtures;
-const { withDeprecatedProps } = cosmosUXFixtures;
+const { dataWithDisplay, withDeprecatedProps } = cosmosDXFixtures;
+const { dataOnly } = cosmosUXFixtures;
 
 const RESULTS_KEYS = Object.keys(dataResults[0]);
 

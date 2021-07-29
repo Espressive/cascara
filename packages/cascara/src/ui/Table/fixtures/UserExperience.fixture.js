@@ -7,11 +7,52 @@ import Table from '../Table';
 import { results } from '../data/entities';
 import { ACTIONS, COLUMNS } from './constants';
 
-const WithDeprecatedProps = ({
-  actions = [],
+const Loading = () => (
+  <>
+    <h3>Loading</h3>
+    <p>
+      The table component will not blow up if there are no values defined. It
+      will also explicitly show a loading state if the data attribute is
+      undefined (or null).
+    </p>
+
+    <Table />
+  </>
+);
+
+const Empty = (fixtureProps) => (
+  <>
+    <h3>Empty</h3>
+    <p>
+      If a table gets an empty array, that should be treated different from
+      undefined or null. An empty array should mean that there are no records
+      and we should indicate this to users in the table itself.
+    </p>
+
+    <Table {...fixtureProps} />
+  </>
+);
+
+const DataOnly = (fixtureProps) => (
+  <>
+    <h3>Data Only</h3>
+    <p>
+      When only passing an array of data results to a Table, we should render
+      all results, even if no other props are defined yet. We should also
+      attempt to infer the correct module type to display. This includes tricky
+      types like object and array using a private module for JSON.
+    </p>
+
+    <Table {...fixtureProps} />
+  </>
+);
+
+const WithActions = ({
+  actions,
   onAction: extOnAction,
+  isOnAction,
   ...props
-} = {}) => {
+}) => {
   const onAction = useCallback((action, record) => {
     console.log(`Action ${action.name} invoked`);
 
@@ -39,57 +80,14 @@ const WithDeprecatedProps = ({
 
   return (
     <>
-      <h3>With deprecated props</h3>
+      <h3>With {isOnAction ? 'onAction' : 'actions'}</h3>
       <p>
-        Some props have been deprecated, this is a safeguard for developerss
+        {isOnAction
+          ? 'The onAction event fires when a button is clicked'
+          : 'Actions can be added to each row, if any actions are passed, the onAction prop must also be passed.'}
       </p>
 
-      <Table
-        {...props}
-        dataConfig={{
-          actions: [...ACTIONS.modules, ...actions],
-          display: COLUMNS,
-        }}
-        onAction={extOnAction || onAction}
-      />
-    </>
-  );
-};
-
-const WithActions = ({ actions, onAction: extOnAction, ...props }) => {
-  const onAction = useCallback((action, record) => {
-    console.log(`Action ${action.name} invoked`);
-
-    switch (action.name) {
-      case 'viewInFAQ':
-        console.table(record);
-        break;
-
-      case 'edit.start':
-        // do something
-        break;
-
-      case 'edit.cancel':
-        // do something
-        break;
-
-      case 'edit.save':
-        // do something
-        break;
-
-      default:
-        break;
-    }
-  }, []);
-
-  return (
-    <>
-      <h3>With Actions</h3>
-      <p>
-        Actions can be added to each row, if any actions are passed, the{' '}
-        <code>onAction</code> prop must also be passed.
-      </p>
-
+      <p>open your console!</p>
       <Table {...props} actions={actions} onAction={extOnAction || onAction} />
     </>
   );
@@ -232,6 +230,9 @@ const dataResults = results;
 export { dataResults };
 
 export default {
+  loading: <Loading />,
+  empty: <Empty data={[]} uniqueIdAttribute='eid' />,
+  dataOnly: <DataOnly data={results} uniqueIdAttribute='eid' />,
   conditionalActions: (
     <Provider>
       <ConditionalActions
@@ -252,7 +253,7 @@ export default {
       />
     </Provider>
   ),
-  withoutActionBar: (
+  withoutActionBar: (props) => (
     <Provider>
       <WithoutActionBar
         actions={{
@@ -262,23 +263,20 @@ export default {
         data={results}
         dataDisplay={COLUMNS}
         uniqueIdAttribute='eid'
+        {...props}
       />
     </Provider>
   ),
-  withActionsOnAction: (props) => (
+  withOnAction: (props) => (
     <Provider>
       <WithActions
         actions={ACTIONS}
         data={results}
         dataDisplay={COLUMNS}
+        isOnAction
         uniqueIdAttribute='eid'
         {...props}
       />
-    </Provider>
-  ),
-  withDeprecatedProps: (
-    <Provider>
-      <WithDeprecatedProps data={results} uniqueIdAttribute='eid' />
     </Provider>
   ),
   withoutActions: (
