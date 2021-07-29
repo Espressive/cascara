@@ -1,22 +1,18 @@
 import { render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import cosmosFixtures, { dataResults } from './TableDX.fixture';
 
-const { loading, empty, dataOnly, dataWithDisplay } = cosmosFixtures;
+import cosmosDXFixtures, {
+  dataResults,
+} from '../fixtures/DeveloperExperience.fixture';
+import cosmosUXFixtures from '../fixtures/UserExperience.fixture';
+import { COLUMNS } from '../fixtures/constants';
+
+const { dataWithDisplay, withDeprecatedProps } = cosmosDXFixtures;
+const { dataOnly } = cosmosUXFixtures;
+
 const RESULTS_KEYS = Object.keys(dataResults[0]);
 
 describe('Table DX', () => {
-  test(`should show a loading state if the 'data' prop is 'undefined' or 'null'`, () => {
-    const { baseElement } = render(loading);
-    // This technically captures the entire fixture in a snapshot. We should consider if we want to only select the element within for a snapshot or not.
-    expect(baseElement).toMatchSnapshot();
-  });
-
-  test(`should show an empty state if data is defined but has a length of 0`, () => {
-    const { baseElement } = render(empty);
-    expect(baseElement).toMatchSnapshot();
-  });
-
   describe(`should render all 'data' into columns if no other props are defined:`, () => {
     test(`all table headers`, () => {
       render(dataOnly);
@@ -61,5 +57,15 @@ describe('Table DX', () => {
     expect(screen.getAllByRole('columnheader')).toHaveLength(
       dataWithDisplay.props.dataDisplay.length
     );
+  });
+
+  // FDS-164: table header not adding an extra column for actions
+  test("deprecated dataConfig.actions prop doesn't break header number of columns", () => {
+    render(withDeprecatedProps);
+
+    const renderedCells = screen.getAllByRole('cell');
+    const expectedCells = (COLUMNS.length + 1) * dataResults.length;
+
+    expect(renderedCells).toHaveLength(expectedCells);
   });
 });
