@@ -4,6 +4,7 @@ exports[`Form snapshot test 1`] = `
 <div>
   <form
     class="Form"
+    role="form"
   >
     <div
       class="Text"

@@ -39,6 +39,7 @@ const actions = {
 const dataDisplay = [
   {
     attribute: 'eid',
+    isEditable: false,
     label: 'EID',
     module: 'text',
   },
@@ -46,11 +47,13 @@ const dataDisplay = [
     fields: [
       {
         attribute: 'firstName',
+        isEditable: true,
         label: 'First Name',
         module: 'text',
       },
       {
         attribute: 'lastName',
+        isEditable: true,
         label: 'Last Name',
         module: 'text',
       },
@@ -59,6 +62,7 @@ const dataDisplay = [
   },
   {
     attribute: 'homePhone',
+    isEditable: true,
     label: 'Home Phone',
     module: 'text',
   },
@@ -129,6 +133,7 @@ const InitialEditing = (props) => (
   </>
 );
 
+export { dataDisplay };
 export default {
   basic: <BasicForm actions={actions} data={data} dataDisplay={dataDisplay} />,
   initialEditing: (
