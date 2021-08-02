@@ -1,8 +1,8 @@
 import React from 'react';
 import Dashboard from './Dashboard';
-import pieData from './data/Pie';
-import geoMapData from './data/GeoMap';
-import barData from './data/Bar';
+import pieData from './tests/data/Pie';
+import geoMapData from './tests/data/GeoMap';
+import barData from './tests/data/Bar';
 
 const statsData = [
   {
@@ -137,11 +137,9 @@ const WithData = (fixtureProps) => (
   </>
 );
 
-/* eslint-disable sort-keys -- We want these to show in a specific order in the UI */
 export default {
   noProps: <NoProps />,
   loading: <Loading config={WIDGETS} />,
   empty: <Empty config={EMPTY_WIDGETS} />,
   withData: <WithData config={DATA_WIDGETS} />,
 };
-/* eslint-enable sort-keys */

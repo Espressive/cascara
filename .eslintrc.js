@@ -4,6 +4,13 @@ module.exports = {
   extends: ['@espressive', 'prettier'], // prettier must be last so we override any rules that potentially conflict with Prettier
   overrides: [
     {
+      files: ['**/tests/**/*'],
+      rules: {
+        'no-alert': 0,
+        'no-console': 0,
+      },
+    },
+    {
       files: ['**/next-*/**/*', 'docs/**/*'],
       rules: {
         'jsx-a11y/anchor-is-valid': 0,
@@ -29,6 +36,15 @@ module.exports = {
       files: ['packages/cascara/src/ui/Chat/themes/**/*.js'],
       rules: {
         'import/no-namespace': 0,
+        'sort-keys': 0,
+      },
+    },
+    {
+      // Namespace imports are an important part for theme building
+      files: ['**/*.fixture.js'],
+      rules: {
+        'no-alert': 0,
+        'no-console': 0,
         'sort-keys': 0,
       },
     },

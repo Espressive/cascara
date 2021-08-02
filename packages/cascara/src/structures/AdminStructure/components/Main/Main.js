@@ -3,7 +3,7 @@ import pt from 'prop-types';
 import { TabList, TabPanel, useTabState } from 'reakit';
 import styles from './Main.module.scss';
 import classNames from 'classnames/bind';
-import Loader from '../../../../ui/Loader';
+import Loader from '../../../../private/Loader';
 import StructureMainTabs from './MainTabs';
 
 const cx = classNames.bind(styles);

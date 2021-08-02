@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from 'react';
 import pt from 'prop-types';
 
-import CheckBox from '../../Checkbox';
+import CheckBox from './Checkbox';
 import TableContext from '../context/TableContext';
 
 const propTypes = {

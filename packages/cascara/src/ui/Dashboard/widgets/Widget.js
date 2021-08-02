@@ -1,7 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import classnames from 'classnames/bind';
 import pt from 'prop-types';
-import InfoPopover from '../../InfoPopover';
+import InfoPopover from '../components/InfoPopover';
 import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
 

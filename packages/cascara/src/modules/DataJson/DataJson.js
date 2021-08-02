@@ -5,7 +5,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
