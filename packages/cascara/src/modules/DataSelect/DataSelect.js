@@ -38,16 +38,23 @@ const DataSelect = ({
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
 
+  // do not add aria label if tag is used
+  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+
   const renderEditing = (
-    <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+    <>
+      {label && isLabeled && (
+        <label htmlFor={attribute || label}>
+          <span className={styles.LabelText}>{label || attribute}</span>
+        </label>
+      )}
       <Input
+        {...ariaLabel}
         {...rest}
-        aria-label={label}
         as='select'
         className={styles.Input}
         defaultValue={value}
-        id={label}
+        id={attribute || label}
         name={attribute || label}
         ref={formMethods?.register}
       >
@@ -61,12 +68,14 @@ const DataSelect = ({
           <option value={value}>{value}</option>
         )}
       </Input>
-    </label>
+    </>
   );
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && (
+        <span className={styles.Label}>{label || attribute}</span>
+      )}
       <span className={styles.Input} {...rest}>
         {value}
       </span>

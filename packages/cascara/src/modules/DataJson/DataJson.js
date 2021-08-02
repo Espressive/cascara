@@ -31,25 +31,34 @@ const DataJson = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
   const jsonValue = JSON.stringify(value, null, 4);
 
+  // do not add aria label if tag is used
+  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+
   const renderEditing = (
-    <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+    <>
+      {label && isLabeled && (
+        <label htmlFor={attribute || label}>
+          <span className={styles.LabelText}>{label || attribute}</span>
+        </label>
+      )}
       <Input
         {...rest}
-        aria-label={label}
+        {...ariaLabel}
         as={TextareaAutosize}
         className={styles.Input}
         defaultValue={jsonValue}
-        id={label}
+        id={attribute || label}
         name={attribute || label}
         ref={formMethods?.register}
       />
-    </label>
+    </>
   );
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && (
+        <span className={styles.Label}>{label || attribute}</span>
+      )}
       <span className={styles.Input} style={{ whiteSpace: 'pre' }} {...rest}>
         {jsonValue}
       </span>

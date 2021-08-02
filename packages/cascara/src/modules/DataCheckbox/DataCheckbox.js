@@ -31,27 +31,39 @@ const DataCheckbox = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
   const checkbox = useCheckboxState({ state: Boolean(value) });
 
+  // do not add aria label if tag is used
+  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+
   const renderEditing = (
-    <label htmlFor={label}>
+    <>
+      {label && isLabeled && (
+        <label htmlFor={attribute || label}>
+          <span className={styles.LabelText}>{label || attribute}</span>
+        </label>
+      )}
       <Checkbox
+        {...ariaLabel}
         {...rest}
         {...checkbox}
-        aria-label={label}
         className={styles.Input}
-        id={label}
+        id={attribute || label}
         name={attribute || label}
         ref={formMethods?.register}
       />
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-    </label>
+    </>
   );
 
   const renderDisplay = (
     <span>
+      {label && isLabeled && (
+        <span className={styles.LabelText}>{label || attribute}</span>
+      )}
       <span
+        {...ariaLabel}
+        {...rest}
         className={styles.Input}
         data-checked={value ? true : undefined}
-        {...rest}
       >
         {value}
       </span>

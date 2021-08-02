@@ -37,9 +37,18 @@ const DataRadio = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
   const radio = useRadioState({ state: value });
 
+  // do not add aria label if tag is used
+  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+
   const renderRadio = (option) => (
-    <label htmlFor={option.label}>
+    <>
+      {label && isLabeled && (
+        <label htmlFor={option.label}>
+          <span className={styles.LabelText}>{label || attribute}</span>
+        </label>
+      )}
       <Radio
+        {...ariaLabel}
         {...radio}
         className={styles.Input}
         id={option.label}
@@ -51,16 +60,11 @@ const DataRadio = ({
       {option.label && isLabeled && (
         <span className={styles.LabelText}>{option.label}</span>
       )}
-    </label>
+    </>
   );
 
   const renderEditing = (
-    <RadioGroup
-      {...radio}
-      {...rest}
-      aria-label={label}
-      className={styles.Radio}
-    >
+    <RadioGroup {...radio} {...rest} className={styles.Radio}>
       {options
         ? options.map((option) => renderRadio(option))
         : renderRadio(value)}
@@ -75,7 +79,7 @@ const DataRadio = ({
             {value}
           </span>
           {label && isLabeled && (
-            <span className={styles.LabelText}>{label}</span>
+            <span className={styles.LabelText}>{label || attribute}</span>
           )}
         </span>
       </div>
