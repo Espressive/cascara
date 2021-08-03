@@ -1,6 +1,6 @@
 import React from 'react';
 import Pagination, { usePaginationState } from '.';
-import { JsonPlaceholder } from '@espressive/cascara';
+// import { JsonPlaceholder } from '@espressive/cascara';
 
 const Loading = (fixtureProps) => (
   <>
@@ -54,7 +54,7 @@ const WithStateHook = (fixtureProps) => {
       </p>
       <Pagination {...fixtureProps} state={paginationState} />
       <Pagination {...fixtureProps} state={paginationState} />
-      <JsonPlaceholder data={paginationState} isInitialOpen title='state' />
+      {/* <JsonPlaceholder data={paginationState} isInitialOpen title='state' /> */}
     </>
   );
 };

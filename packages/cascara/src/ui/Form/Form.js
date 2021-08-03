@@ -12,6 +12,8 @@ import ActionBar from './components/ActionBar';
 import FormEmpty from '../../private/TemporaryEmpty';
 import FormLoading from '../../private/TemporaryLoading';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
+import useDeveloperMessage from '../../hooks/useDeveloperMessage';
+import { WARNING_STRINGS } from './__globals';
 // there are two types of actions a form supports:
 //
 // a - actions modules compatible with form
@@ -177,6 +179,10 @@ const Form = ({
   const [isEditing, setIsEtiding] = useState(() =>
     !isEditable ? false : isInitialEditing
   );
+
+  const isInvalidFormState = !dataDisplay && !isInitialEditing;
+
+  useDeveloperMessage(isInvalidFormState, WARNING_STRINGS.MISSING_STATE_FORM);
 
   const { isEmpty } = getStatusFromDataLength(Object.keys(dataDisplay).length);
 

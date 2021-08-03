@@ -170,11 +170,6 @@ export default {
     />
   ),
   loading: (
-    <LoadingForm
-      actions={actions}
-      data={undefined}
-      dataDisplay={dataDisplay}
-      isInitialEditing
-    />
+    <LoadingForm actions={actions} data={undefined} dataDisplay={dataDisplay} />
   ),
 };
