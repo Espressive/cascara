@@ -46,7 +46,6 @@ const DataCheckbox = ({
         {...rest}
         {...checkbox}
         className={styles.Input}
-        id={attribute || label}
         name={attribute || label}
         ref={formMethods?.register}
       />
