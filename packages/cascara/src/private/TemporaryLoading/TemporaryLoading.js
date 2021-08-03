@@ -2,7 +2,7 @@ import React from 'react';
 
 const propTypes = {};
 
-const FormLoading = () => (
+const TemporaryLoading = () => (
   <div className='ui segment' style={{ height: '10em' }}>
     <div className='ui active inverted dimmer'>
       <div className='ui text loader'>Loading</div>
@@ -10,6 +10,6 @@ const FormLoading = () => (
   </div>
 );
 
-FormLoading.propTypes = propTypes;
+TemporaryLoading.propTypes = propTypes;
 
-export default FormLoading;
+export default TemporaryLoading;

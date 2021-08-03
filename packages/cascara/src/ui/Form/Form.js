@@ -9,10 +9,9 @@ import ModuleError from '../../modules/ModuleError';
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 import { formActionModules, formModules } from './modules';
 import ActionBar from './components/ActionBar';
-import FormLoading from './FormLoading';
-import FormEmpty from './FormEmpty';
-import { isEmpty } from 'lodash';
-
+import FormEmpty from '../../private/TemporaryEmpty';
+import FormLoading from '../../private/TemporaryLoading';
+import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 // there are two types of actions a form supports:
 //
 // a - actions modules compatible with form
@@ -98,7 +97,7 @@ const formFields = (display, data) => {
   const renderField = (field) => {
     const { module, label, ...rest } = field;
     const Module = dataModules[module];
-    const moduleValue = data[field.attribute];
+    const moduleValue = data && data[field.attribute];
     const key = `${module}.${field.attribute}.${moduleValue}`;
 
     // eslint-disable-next-line react/forbid-foreign-prop-types -- @brian we need to see if this approach is what we want
@@ -167,7 +166,6 @@ const Form = ({
   onAction,
   isEditable: incomingIsEditable,
   isInitialEditing = false,
-  isLoading = false,
   ...rest
 }) => {
   const renderedActions = renderActions(actions);
@@ -176,17 +174,15 @@ const Form = ({
       ? Boolean(actions?.modules?.find((action) => action.module === 'edit'))
       : incomingIsEditable;
 
-  const [isEditing, setIsEtiding] = useState(() => {
-    const isDataEmpty = isEmpty(data);
-    if (isDataEmpty) {
-      return true;
-    }
-    return !isEditable ? false : isInitialEditing;
-  });
+  const [isEditing, setIsEtiding] = useState(() =>
+    !isEditable ? false : isInitialEditing
+  );
+
+  const { isEmpty } = getStatusFromDataLength(Object.keys(dataDisplay).length);
+
+  const isLoading = !data;
 
   const fields = formFields(dataDisplay, data);
-  const isValidDataDisplay =
-    Array.isArray(dataDisplay) && dataDisplay.length > 0;
 
   function enterEditMode() {
     setIsEtiding(true);
@@ -198,7 +194,7 @@ const Form = ({
 
   return (
     <ErrorBoundary>
-      {isValidDataDisplay ? (
+      {!isEmpty ? (
         <FormProvider
           value={{
             data,
@@ -210,8 +206,9 @@ const Form = ({
           }}
           {...rest}
         >
-          {isLoading && <FormLoading />}
-          {!isLoading && (
+          {isLoading ? (
+            <FormLoading />
+          ) : (
             <>
               {fields}
               <ActionBar actions={renderedActions} />

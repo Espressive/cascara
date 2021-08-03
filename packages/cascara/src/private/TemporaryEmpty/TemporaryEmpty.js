@@ -9,12 +9,12 @@ const temporaryEmptyStyles = {
   justifyContent: 'center',
 };
 
-const FormEmpty = () => (
+const TemporaryEmpty = () => (
   <div className='ui placeholder segment' style={temporaryEmptyStyles}>
     <em>No data...</em>
   </div>
 );
 
-FormEmpty.propTypes = propTypes;
+TemporaryEmpty.propTypes = propTypes;
 
-export default FormEmpty;
+export default TemporaryEmpty;

@@ -149,11 +149,18 @@ const EmptyForm = (props) => (
   </>
 );
 export default {
-  dataOnly: <BasicForm actions={actions} data={{}} dataDisplay={dataDisplay} />,
+  dataOnly: (
+    <BasicForm
+      actions={actions}
+      data={{}}
+      dataDisplay={dataDisplay}
+      isInitialEditing
+    />
+  ),
   dataWithDisplay: (
     <DataWithDisplay actions={actions} data={data} dataDisplay={dataDisplay} />
   ),
-  empty: <EmptyForm actions={actions} data={data} dataDisplay={[]} isLoading />,
+  empty: <EmptyForm actions={actions} data={{}} dataDisplay={[]} />,
   initialEditing: (
     <InitialEditing
       actions={actions}
@@ -165,9 +172,9 @@ export default {
   loading: (
     <LoadingForm
       actions={actions}
-      data={data}
+      data={undefined}
       dataDisplay={dataDisplay}
-      isLoading
+      isInitialEditing
     />
   ),
 };
