@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import ActionBar from './ActionBar';
-import ActionButton from '../../modules/ActionButton';
+import ActionBar from '../ActionBar';
+import ActionButton from '../../../modules/ActionButton';
 
 const ACTION_MODULES = {
   button: ActionButton,
