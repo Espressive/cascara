@@ -10,12 +10,16 @@ export default function Home({ source, frontMatter }) {
 }
 
 export async function getStaticProps() {
+  const {
+    version: cascaraVersion,
+  } = require('../../../packages/cascara/package');
+
   const fs = require('fs');
   const path = require('path');
   const matter = require('gray-matter');
   const renderToString = require('next-mdx-remote/render-to-string');
 
-  const postFilePath = path.join(POSTS_PATH, 'index.mdx');
+  const postFilePath = path.join(POSTS_PATH, '../', 'CHANGELOG.md');
   const source = fs.readFileSync(postFilePath);
 
   const posts = postFilePaths.map((filePath) => {
@@ -40,7 +44,7 @@ export async function getStaticProps() {
   return {
     props: {
       branch: process.env?.GIT_BRANCH,
-      cascaraVersion: process.env?.npm_package_version,
+      cascaraVersion,
       frontMatter: data,
       mdxTree: getMDXTree(),
       posts,

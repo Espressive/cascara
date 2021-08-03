@@ -54,6 +54,9 @@ const getStaticPaths = async () => {
 };
 
 const getStaticProps = async ({ params }) => {
+  const {
+    version: cascaraVersion,
+  } = require('../../../packages/cascara/package');
   const fs = require('fs');
   const path = require('path');
   const matter = require('gray-matter');
@@ -84,7 +87,7 @@ const getStaticProps = async ({ params }) => {
   return {
     props: {
       branch: process.env?.GIT_BRANCH,
-      cascaraVersion: process.env?.npm_package_version,
+      cascaraVersion,
       frontMatter: data,
       mdxTree: getMDXTree(),
       posts,
