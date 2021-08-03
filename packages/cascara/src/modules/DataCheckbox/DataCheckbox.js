@@ -32,7 +32,7 @@ const DataCheckbox = ({
   const checkbox = useCheckboxState({ state: Boolean(value) });
 
   // do not add aria label if tag is used
-  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+  const ariaLabel = isLabeled ? { 'id': label } : { 'aria-label': label };
 
   const renderEditing = (
     <>
