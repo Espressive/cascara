@@ -5,7 +5,7 @@ import teamsOverrides from './themes/teamsOverrides';
 
 import { barista, slack } from './themes';
 
-const DEFAULT_THEME_INDEX = 1;
+const DEFAULT_THEME_INDEX = 0;
 
 const items = [
   {
