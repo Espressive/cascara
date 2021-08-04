@@ -74,6 +74,26 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // Shared Rollup plugins
   const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
+  // separate out our bundle into chunks based on section for now
+  const manualChunks = (id) => {
+    const CHUNK_SECTIONS = [
+      'hooks',
+      'layouts',
+      'lib',
+      'modules',
+      'placeholders',
+      'private',
+      'structures',
+      'ui',
+    ];
+    for (const segment of CHUNK_SECTIONS) {
+      if (id.startsWith(`${SOURCE_DIR}/src/${segment}`)) {
+        return segment;
+      }
+    }
+    return undefined;
+  };
+
   // Common JS configuration
   const cjsConfig = {
     external,
@@ -81,6 +101,8 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     output: {
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
       format: 'cjs',
+      manualChunks,
+      sourcemap: true,
     },
     plugins: [
       babel(
@@ -102,6 +124,8 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     output: {
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
+      manualChunks,
+      sourcemap: true,
     },
     plugins: [
       babel(

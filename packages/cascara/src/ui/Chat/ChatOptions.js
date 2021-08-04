@@ -9,6 +9,7 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
+import ErrorBoundary from '../../private/ErrorBoundary';
 import { getSharedMessageKeys, validateMessageObj } from './utils';
 
 const propTypes = {
@@ -36,31 +37,33 @@ const ChatOptions = ({
   }, []);
 
   return (
-    <Animation name='chatMessage'>
-      <FUIChat.Message
-        author={authorName}
-        content={
-          options.length > 3 ? (
-            <Dropdown
-              itemToString={itemToString}
-              items={options.map((option, i) => ({
-                ...option,
-              }))}
-              noResultsMessage="We couldn't find any matches."
-              placeholder='Select an option...'
-            />
-          ) : (
-            <Flex column gap='gap.small'>
-              {options.map((option) => (
-                <Button {...option} fluid key={option.key} />
-              ))}
-            </Flex>
-          )
-        }
-        mine={isSessionUser}
-        timestamp={timestamp}
-      />
-    </Animation>
+    <ErrorBoundary>
+      <Animation name='chatMessage'>
+        <FUIChat.Message
+          author={authorName}
+          content={
+            options.length > 3 ? (
+              <Dropdown
+                itemToString={itemToString}
+                items={options.map((option, i) => ({
+                  ...option,
+                }))}
+                noResultsMessage="We couldn't find any matches."
+                placeholder='Select an option...'
+              />
+            ) : (
+              <Flex column gap='gap.small'>
+                {options.map((option) => (
+                  <Button {...option} fluid key={option.key} />
+                ))}
+              </Flex>
+            )
+          }
+          mine={isSessionUser}
+          timestamp={timestamp}
+        />
+      </Animation>
+    </ErrorBoundary>
   );
 };
 
