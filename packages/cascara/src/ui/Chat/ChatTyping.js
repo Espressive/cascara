@@ -7,6 +7,7 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { MoreIcon } from '@fluentui/react-icons-northstar';
+import ErrorBoundary from '../../private/ErrorBoundary';
 
 import { getSharedMessageKeys, validateMessageObj } from './utils';
 import { wiggle } from '../../animations';
@@ -23,25 +24,27 @@ const handleMoreIconClick = ({ theme: { siteVariables } }) => {
 
 /** A Chat can display an indicator that typing is happening */
 const ChatTyping = ({ isSessionUser = false }) => (
-  <Animation name='chatMessage'>
-    <FUIChat.Message
-      content={
-        <Provider
-          theme={{
-            animations: {
-              wiggle,
-            },
-          }}
-        >
-          <Animation name='wiggle'>
-            <MoreIcon size='larger' styles={handleMoreIconClick} />
-          </Animation>
-        </Provider>
-      }
-      mine={isSessionUser}
-      style={{ minWidth: 'auto' }}
-    />
-  </Animation>
+  <ErrorBoundary>
+    <Animation name='chatMessage'>
+      <FUIChat.Message
+        content={
+          <Provider
+            theme={{
+              animations: {
+                wiggle,
+              },
+            }}
+          >
+            <Animation name='wiggle'>
+              <MoreIcon size='larger' styles={handleMoreIconClick} />
+            </Animation>
+          </Provider>
+        }
+        mine={isSessionUser}
+        style={{ minWidth: 'auto' }}
+      />
+    </Animation>
+  </ErrorBoundary>
 );
 
 ChatTyping.displayName = 'Chat.Typing';
