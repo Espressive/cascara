@@ -44,7 +44,6 @@ const propTypes = {
   data: pt.shape({}),
 
   // Here you can describe each of the visible columns in your table.
-  // @brian, should we call this `fields` istead?
   dataDisplay: pt.arrayOf(
     pt.shape({
       module: pt.oneOf(dataModuleOptions).isRequired,

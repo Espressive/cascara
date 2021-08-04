@@ -6,9 +6,132 @@ status: 'Alpha'
 
 # Public API
 
+## actions
+
+`actions` represent **verbs** you want to make available to the User, like
+**View Terms and Conditions** to display a popup with such information.
+Another example would be **Delete** to delete an entity instance represented by `data`. `actions` will be displayed as buttons at the bottom of the **Form**.
+
+> Form does not provide the logic to handle `actions`, the implementation for deleting a entity insntances, display popups, etc. it's up to you.
+
+By defining an **action**, you are telling **Form** how you want to be notified when your **action** button is pressed. Via the `onAction` event.
+
+### modules
+
+At the moment, we have only two types of modules.
+
+- [button](../../modules/ActionButton), for simple actions like resetting the form, or display terms and conditions, etc
+- [edit](./modules/ActionEdit), to be used if you want the form to become **editable** by the action of the User.
+
+For **button**, a single `onAction` event will be emitted whenever the button is clicked.<br />
+For **edit**, the `onAction` event will be emitted up to 3 times as it creates extra buttons:
+
+1. **form.start** when entering in **edit** mode
+2. **form.cancel** when exiting the **edit** mode via the **cancel** button
+3. **form.submit** when exiting the **edit** mode via the **submit** button
+
+As with **Table** all this information is part of the [onAction](#onaction-event-handler) event handler signature, please make sure you review it as well.
+
+An example `actions` prop:
+
+```javascript
+const actions = {
+  modules: [
+    // add as many of button as to fit your requirements
+    {
+      module: 'button',
+      name: 'reset',
+      content: 'Reset',
+    },
+    {
+      module: 'button',
+      name: 'view.terms',
+      content: 'Terms and Conditions',
+    },
+
+    // Add (only one) of **edit** to make your form **editable**
+    {
+      module: 'edit',
+      cancelLabel: 'Cancelar',
+      editLabel: 'Editar',
+      saveLabel: 'Enviar',
+    },
+  ],
+};
+```
+
+### resolveAllowedActions
+
+By default, all actions are displayed, this might not be what you want: Under certain scenarios, some actions might not be available or allowed depending on certain (business-logic) conditions. `resolveAllowedActions` is a function you can pass to derive which actions are allowed, given the current state of `data`.
+
+#### signature
+
+```js
+  /**
+   * Resolve allowed actions
+   *
+   * @param {Object} data An object that represents the current form data
+   * @param {Array[Object]} allActions The array of actions specified in `actions.modules`
+   * @return {Array[Object]} allowedActions The array of actions for this specific row
+   */
+  (Object: data, Array[Object]: allActions) => Array[Object]: allowedActions
+```
+
+#### example
+
+The following example defines three actions: **edit** and **reset** and **verify email**:
+
+- **edit** action will always be controlled by **Form**
+- **reset** action will be displayed, since there is no switch case for it
+- **verify email** will be displayed only when there is an email to verify
+
+This is a powerful way of conditionally rendering actions in **From**:
+
+```javasccript
+const actions = {
+  modules: [
+    // add as many of button as to fit your requirements
+    {
+      module: 'button',
+      name: 'reset',
+      content: 'Reset',
+    },
+    {
+      module: 'button',
+      name: 'verify.email',
+      content: 'Verify email',
+    },
+
+    // Add (only one) of **edit** to make your form **editable**
+    {
+      module: 'edit',
+      cancelLabel: 'Cancelar',
+      editLabel: 'Editar',
+      saveLabel: 'Enviar',
+    },
+  ],
+  resolveAllowedActions: (data, allActions) =>
+    allActions.reduce((allowedActions, action) => {
+      switch (action.name) {
+        case 'verify.email':
+          // do not show if email is empty
+          if (data.userEmail) {
+            allowedActions.push(action);
+          }
+          break;
+
+        default:
+          allowedActions.push(action);
+      }
+
+      return actionsForRecord;
+    }, [])
+};
+```
+
 ## data
 
-You can pass your own data, **Form** will then use it as the initial values for any fields it generates from the `modules` you describe in `dataConfig.display`.
+You can pass your own data, **Form** will then use it as the initial values for any fields it generates from the [modules](#supported-data-types-modules) you describe in `dataDisplay`.
 
 An example data shape:
 
@@ -23,103 +146,14 @@ const data = {
 }
 ```
 
-By passing the `data` prop, you are basically describing the initial state of the data you will get back when **Form** emits an `onAction` event, because you will get a merge of the `data` object you passed plus the changes made by User:
+By passing the `data` prop, you are basically describing the initial state of the data you will get back when **Form** emits an `onAction` event, because you will get a merge of the `data` object you passed plus the changes made by User.
 
-```javascript
----
-title: An example data shape
----
-/**
- * onAction, event handler
- *
- * @param {Object} action the element that was clicked
- * @param {Object} record the data that represents the Form fields */
-const onAction = (action, record) => {
-  // record is
-  {
-    ...data,       // the object passed as `data` prop
-    ...formFields, // the changes made to `data`
-  }
-}
-```
+> **Hidden fields** - Every property of `data` that is not used by any **module** in the form will still be part of the data you'll get when an `onAction` event is emitted. In that sense, those act as hidden fields.
 
-> **Hidden fields** - Every property of `data` that is not used by any `module` in the form will still be part of the data you'll get when a `onAction` event is emitted. In that sense, those act as hidden fields.
+## dataDisplay
 
-## dataConfig
-
-This is the core of **Form**'s configuration, here you can define:
-
-### actions
-
-`actions` represent `verbs` we want make available to the User, like `View Terms and Conditions` to diplay a popu with such information.
-Another example would be `Delete` to delete an entity instance represented by `data`. `actions` will be displayed at the bottom of the **Form**, they'll appear as buttons.
-
-> Form does not provide the logic to handle `actions`, the implementation for deleting a entity insntances, display popups, etc. it's up to you.
-
-By defining an `action`, you are telling **Form** how you want to be notified when your `action` button is pressed. Via the `onAction` event.
-
-```javascript
----
-title: The shape of an action
----
-const action = {
-  module: 'button',    // either button or edit
-  actionName: 'view',  // the action name
-  label: 'View',       // button text
-  size: 'small',       // button size
-},
-```
-
-#### Action modules
-
-At the moment, we have only two types of modules.
-
-- `button`, for simple actions like deleting a row, navigating to another page, etc.
-- `edit`, to be used if you want to allow the **Form** to be `editable`.
-
-In the case of `button`, the `onAction` event will be emitted whenever the button is clicked.
-In the case of `edit`, the `onAction` event will be emitted up to 3 times as it creates extra buttons:
-
-1. `edit.start` when entering in `edit` mode
-2. `edit.cancel` when exiting the `edit` mode via the `cancel` button
-3. `edit.save` when exiting the `edit` mode via the `save` button
-
-As with **Table**, all this information is part of the `onAction` event signature, please make sure you review it as well.
-
-An example set of actions:
-
-```javascript
----
-title: An example set of actions
----
-
-const actions: [
-
-  // simple button
-  {
-    module: 'button',
-    actionName: 'view',
-    label: 'view',
-    size: 'small',
-  },
-
-  // or
-
-  // edit button combo (for editable rows)
-  {
-    module: 'edit',
-    size: 'small',
-    cancelLabel: 'Cancelar', // you can specify localized labels
-    editLabel: 'Editar',
-    saveLabel: 'Guardar',
-  },
-];
-```
-
-### display
-
-An Array of `objects` to display. Every object in this array can potentially be rendered in the form.
-`display` items have a special shape too, good news is that you have plenty more options to choose from. Please choose the one that best fits your `data` type.
+An Array of **module** objects. Every object in this array can potentially be rendered in the form.
+**Modules** have a special shape too, the good news is that you have plenty more options to choose from. Please choose the one that best fits your data type.
 
 #### supported data types (modules)
 
@@ -131,11 +165,13 @@ An Array of `objects` to display. Every object in this array can potentially be 
 - [text](../modules/DataText)
 - [textarea](../modules/DataTextArea)
 
+### example
+
+In this example we are displaying all the properties in `data` except the **id**, because we want it to be hidden.
+But it's up to you how many and which properties to display:
+
 ```javasccript
-/**
- * In this example we are displaying all the properties in `data` except the `id`, because we want it to be hidden.
- * But it's up to you how many and which properties to display. */
-const display = [
+const dataDisplay = [
   {
     attribute: 'userEmail',
     isEditable: false,
@@ -153,52 +189,45 @@ const display = [
 
 ## isInitialEditing
 
-By default, **Form** starts in `View mode`, that means that it displays the `non-editable` version of your data. Pass this prop if you want **Form** to start in `Edit mode`.
+By default, **Form** starts in **View** mode, that means that it displays the **non-editable** version of your data. Pass this **boolean** prop if you want your **Form** to start in **Edit** mode.
 
 ## onAction (event handler)
 
 A function you can pass to handle every event your **Form** emits. Every event carries two pieces of information:
 
 - action, the object (button) that was actually clicked and
-- record, the object that represents the row upon which the action was applied.
+- data, the object that represents `data` you initially passed in, and the changes made by the User.
 
 ```javascript
----
-title: an example onAction handler
----
+const onAction = (action, data) => {
+  console.log(`Action [${action.name}] has been clicked`);
+  console.table(data);
 
-/**
- * onAction, event handler
- *
- * @param {Object} action the element that was clicked
- * @param {Object} record the data that represents the table row of the button */
-const onAction = (action, record) => {
-
-  // action.name here is the `actinName` you specified for your action
+  // action.name here is the name you specified for your action
   switch (action.name) {
-    case 'delete':
-      // do something with record
+    case 'reset':
+      // do something with data
+      break;
+
+    case 'verify.email':
+      // do somthing with data
       break;
 
     // in the case of `edit` module, you need these 3 cases
-    case 'edit.start':
-      // do something when the user starts editing the row via `edit` button
+    case 'form.edit':
+      // do something when the user starts editing the Form via edit button
       break;
-    case 'edit.cancel':
+    case 'form.cancel':
       // do something if the user exits edit mode via `cancel` button
       break;
-    case 'edit.save':
-      // do something when the user exits edit mode via `save` button
+    case 'form.submit':
+      // do something when the user exits edit mode via `submit` button
       break;
   }
 };
 ```
 
-> **tip:** do not bloat your form! keep the number of buttons low, specially if you are targetting mobile devices.
-
-## uniqueIdAttribute
-
-Specifies the attribute that uniquely identifies the entity instance described by the `data` prop. It is not required if you do not specify `data`.
+> **tip:** do not bloat your Form! keep the number of buttons low, specially if you are targetting mobile devices.
 
 # Mixing everyting together
 
@@ -210,28 +239,51 @@ title: Everything together!
 ---
 
 <Form
-  data={{
-      id: 1,
-      userEmail: 'john@doe.it',
-      userName: 'John Doe',
-    }}
-  dataConfig={{
-    actions: [
+  actions={{
+    modules: [
+      // add as many of button as to fit your requirements
       {
         module: 'button',
-        actionName: 'delete',
-        label: 'Delete',
-        size: 'small',
+        name: 'reset',
+        content: 'Reset',
       },
       {
+        module: 'button',
+        name: 'verify.email',
+        content: 'Verify email',
+      },
+
+      // Add (only one) of **edit** to make your form **editable**
+      {
         module: 'edit',
-        size: 'small',
         cancelLabel: 'Cancelar',
         editLabel: 'Editar',
-        saveLabel: 'Guardar',
+        saveLabel: 'Enviar',
       },
     ],
-    display: [
+    resolveAllowedActions: (data, allActions) =>
+      allActions.reduce((allowedActions, action) => {
+        switch (action.name) {
+          case 'verify.email':
+            // do not show if email is empty
+            if (data.userEmail) {
+              allowedActions.push(action);
+            }
+            break;
+
+          default:
+            allowedActions.push(action);
+        }
+
+        return actionsForRecord;
+      }, [])
+  }}
+  data={{
+    id: 1,
+    userEmail: 'john@doe.it',
+    userName: 'John Doe',
+  }}
+  dataDisplay={[
       {
         attribute: 'userEmail',
         isEditable: true,
@@ -244,31 +296,34 @@ title: Everything together!
         label: 'Name',
         module: 'text',
       },
-    ],
-  }}
-  onAction={(action, record) => {
-    console.clear();
-    console.log(`Action ${action.name} invoked`);
-    console.table(record);
+    ]
+  }
 
+  onAction={(action, data) => {
+    console.log(`Action [${action.name}] has been clicked`);
+    console.table(data);
+
+    // action.name here is the name you specified for your action
     switch (action.name) {
-      case 'delete':
-        // do something
+      case 'reset':
+        // do something with data
         break;
 
-      case 'edit.start':
-        // do something
+      case 'verify.email':
+        // do somthing with data
         break;
 
-      case 'edit.cancel':
-        // do something
+      // in the case of `edit` module, you need these 3 cases
+      case 'form.edit':
+        // do something when the user starts editing the Form via edit button
         break;
-
-      case 'edit.save':
-        // do something
+      case 'form.cancel':
+        // do something if the user exits edit mode via `cancel` button
+        break;
+      case 'form.submit':
+        // do something when the user exits edit mode via `submit` button
         break;
     }
   }}
-  uniqueIdAttribute={'id'}
 />
 ```

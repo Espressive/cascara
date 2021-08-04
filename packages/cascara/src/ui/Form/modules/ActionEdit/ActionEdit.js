@@ -14,7 +14,7 @@ const propTypes = {
 const ActionEdit = ({
   cancelLabel = 'Cancel',
   editLabel = 'Edit',
-  saveLabel = 'Save',
+  saveLabel = 'Submit',
 }) => {
   const {
     isEditing,
@@ -31,7 +31,7 @@ const ActionEdit = ({
     onAction(
       // fake target
       {
-        name: 'edit.cancel',
+        name: 'form.cancel',
       },
       {
         ...data,
@@ -55,7 +55,7 @@ const ActionEdit = ({
     onAction(
       // fake target
       {
-        name: 'edit.start',
+        name: 'form.edit',
       },
       {
         ...data,
@@ -70,7 +70,7 @@ const ActionEdit = ({
       onAction(
         // fake target
         {
-          name: 'edit.save',
+          name: 'form.submit',
         },
         {
           ...data,
