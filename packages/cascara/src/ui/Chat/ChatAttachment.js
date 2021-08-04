@@ -102,7 +102,7 @@ const objPropTypes = {
   handleScrollToBottom: pt.func.isRequired,
   isSessionUser: pt.bool,
   message: pt.object.isRequired,
-  messageAuthor: pt.object.isRequired,
+  messageAuthor: pt.object,
   ref: pt.object.isRequired,
 };
 
