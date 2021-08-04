@@ -14,7 +14,8 @@ const Header = ({ branch, cascaraVersion }) => {
     <Admin.Header>
       <div style={{ float: 'right', lineHeight: '4em', padding: '0 1em' }}>
         <Tag content={cascaraVersion} />
-        {/* {branch !== 'main' && <Tag content={branch} />} */}
+        &nbsp;
+        {branch !== 'main' && <Tag content={branch} />}
       </div>
       <Link href='/'>
         <a>
