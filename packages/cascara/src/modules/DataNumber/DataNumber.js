@@ -4,6 +4,7 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import { getConditionalLabelProps } from '../../lib/getConditionalLabelProps';
 import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
@@ -29,8 +30,7 @@ const DataNumber = ({
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
 
-  // do not add aria label if tag is used
-  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+  const conditionalLabelProps = getConditionalLabelProps(label, isLabeled);
 
   const renderEditing = (
     <>
@@ -40,7 +40,7 @@ const DataNumber = ({
         </label>
       )}
       <Input
-        {...ariaLabel}
+        {...conditionalLabelProps}
         {...rest}
         className={styles.Input}
         defaultValue={value}
@@ -57,7 +57,7 @@ const DataNumber = ({
       {label && isLabeled && (
         <span className={styles.LabelText}>{label || attribute}</span>
       )}
-      <span className={styles.Input} {...rest}>
+      <span {...conditionalLabelProps} {...rest} className={styles.Input}>
         {value}
       </span>
     </span>

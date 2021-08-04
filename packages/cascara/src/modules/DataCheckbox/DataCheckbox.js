@@ -5,6 +5,7 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import { getConditionalLabelProps } from '../../lib/getConditionalLabelProps';
 import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
@@ -31,8 +32,7 @@ const DataCheckbox = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
   const checkbox = useCheckboxState({ state: Boolean(value) });
 
-  // do not add aria label if tag is used
-  const ariaLabel = isLabeled ? { 'id': label } : { 'aria-label': label };
+  const conditionalLabelProps = getConditionalLabelProps(label, isLabeled);
 
   const renderEditing = (
     <>
@@ -42,7 +42,7 @@ const DataCheckbox = ({
         </label>
       )}
       <Checkbox
-        {...ariaLabel}
+        {...conditionalLabelProps}
         {...rest}
         {...checkbox}
         className={styles.Input}
@@ -59,7 +59,7 @@ const DataCheckbox = ({
         <span className={styles.LabelText}>{label || attribute}</span>
       )}
       <span
-        {...ariaLabel}
+        {...conditionalLabelProps}
         {...rest}
         className={styles.Input}
         data-checked={value ? true : undefined}

@@ -17,6 +17,7 @@ exports[`Form snapshot test 1`] = `
         </span>
         <span
           class="Input"
+          id="EID"
         >
           e024f231-6265-4a6e-8d65-a837e308ae67
         </span>
@@ -37,6 +38,7 @@ exports[`Form snapshot test 1`] = `
           </span>
           <span
             class="Input"
+            id="First Name"
           >
             Keaton
           </span>
@@ -53,6 +55,7 @@ exports[`Form snapshot test 1`] = `
           </span>
           <span
             class="Input"
+            id="Last Name"
           >
             Streich
           </span>
@@ -69,6 +72,7 @@ exports[`Form snapshot test 1`] = `
           </span>
           <span
             class="Input"
+            id="Office Phone"
           >
             (808) 221-0860 x54694
           </span>
@@ -86,6 +90,7 @@ exports[`Form snapshot test 1`] = `
         </span>
         <span
           class="Input"
+          id="Home Phone"
         >
           391-887-9830 x658
         </span>
@@ -106,6 +111,7 @@ exports[`Form snapshot test 1`] = `
           </span>
           <span
             class="Input"
+            id="Title"
           >
             Global Implementation Developer
           </span>
@@ -122,6 +128,7 @@ exports[`Form snapshot test 1`] = `
           </span>
           <span
             class="Input"
+            id="Department"
           >
             Assurance
           </span>
@@ -138,6 +145,7 @@ exports[`Form snapshot test 1`] = `
           </span>
           <span
             class="Input"
+            id="Country"
           >
             ZW
           </span>

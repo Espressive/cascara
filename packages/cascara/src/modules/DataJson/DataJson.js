@@ -5,6 +5,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import { getConditionalLabelProps } from '../../lib/getConditionalLabelProps';
 import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
@@ -31,8 +32,7 @@ const DataJson = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
   const jsonValue = JSON.stringify(value, null, 4);
 
-  // do not add aria label if tag is used
-  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+  const conditionalLabelProps = getConditionalLabelProps(label, isLabeled);
 
   const renderEditing = (
     <>
@@ -42,8 +42,8 @@ const DataJson = ({
         </label>
       )}
       <Input
+        {...conditionalLabelProps}
         {...rest}
-        {...ariaLabel}
         as={TextareaAutosize}
         className={styles.Input}
         defaultValue={jsonValue}
@@ -59,7 +59,12 @@ const DataJson = ({
       {label && isLabeled && (
         <span className={styles.Label}>{label || attribute}</span>
       )}
-      <span className={styles.Input} style={{ whiteSpace: 'pre' }} {...rest}>
+      <span
+        {...conditionalLabelProps}
+        {...rest}
+        className={styles.Input}
+        style={{ whiteSpace: 'pre' }}
+      >
         {jsonValue}
       </span>
     </span>

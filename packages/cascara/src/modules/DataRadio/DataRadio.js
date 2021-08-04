@@ -4,6 +4,7 @@ import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
+import { getConditionalLabelProps } from '../../lib/getConditionalLabelProps';
 import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
@@ -37,8 +38,7 @@ const DataRadio = ({
   const { isEditing, formMethods } = useContext(ModuleContext);
   const radio = useRadioState({ state: value });
 
-  // do not add aria label if tag is used
-  const ariaLabel = isLabeled ? {} : { 'aria-label': label };
+  const conditionalLabelProps = getConditionalLabelProps(label, isLabeled);
 
   const renderRadio = (option) => (
     <>
@@ -48,7 +48,7 @@ const DataRadio = ({
         </label>
       )}
       <Radio
-        {...ariaLabel}
+        {...conditionalLabelProps}
         {...radio}
         className={styles.Input}
         id={option.label}
@@ -75,7 +75,7 @@ const DataRadio = ({
     <ErrorBoundary>
       <div className={styles.Radio}>
         <span>
-          <span className={styles.Input} {...rest}>
+          <span {...conditionalLabelProps} {...rest} className={styles.Input}>
             {value}
           </span>
           {label && isLabeled && (
