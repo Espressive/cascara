@@ -32,7 +32,7 @@ const ChatOptions = ({
   timestamp,
 }) => {
   const itemToString = useCallback((value) => {
-    return value.content;
+    return value?.content;
   }, []);
 
   return (
