@@ -1,6 +1,6 @@
 {
   "name": "@espressive/cascara",
-  "version": "0.4.2-alpha.37",
+  "version": "0.4.2-alpha.38",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git",
@@ -54,7 +54,7 @@
   },
   "peerDependencies": {
     "@espressive/design-tokens": ">=0.1.2",
-    "@fluentui/react-northstar": ">=0.52.0",
+    "@fluentui/react-northstar": ">=0.57.0",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
     "react": "^16.8.0",
