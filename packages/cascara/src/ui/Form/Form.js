@@ -180,9 +180,13 @@ const Form = ({
     !isEditable ? false : isInitialEditing
   );
 
-  const isInvalidFormState = !dataDisplay && !isInitialEditing;
+  // A form cannot be in an initial editing state while also not having a dataDisplay defined.
+  const isEditingWithoutDataDisplay = !dataDisplay && !isInitialEditing;
 
-  useDeveloperMessage(isInvalidFormState, WARNING_STRINGS.MISSING_STATE_FORM);
+  useDeveloperMessage(
+    isEditingWithoutDataDisplay,
+    WARNING_STRINGS.INVALID_EDITING_AND_DISPLAY
+  );
 
   const { isEmpty } = getStatusFromDataLength(Object.keys(dataDisplay).length);
 
