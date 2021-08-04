@@ -22,16 +22,16 @@ const Nav = ({ mdxTree, posts }) => {
       <NavList>
         <NavItem
           as='/'
-          content='Home'
+          content='Change Log'
           href='/'
           isActive={router?.asPath === '/'}
         />
-        <NavItem
+        {/* <NavItem
           as='/getting-started'
           content='Getting Started'
           href={`/[slug]`}
           isActive={router?.asPath === '/getting-started'}
-        />
+        /> */}
       </NavList>
 
       <NavSection content='Concepts' />
