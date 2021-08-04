@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2-alpha.37](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.36...@espressive/cascara@0.4.2-alpha.37) (2021-08-04)
+
+**Note:** Version bump only for package @espressive/cascara
+
+
+
+
+
 ## [0.4.2-alpha.36](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.35...@espressive/cascara@0.4.2-alpha.36) (2021-07-29)
 
 **Note:** Version bump only for package @espressive/cascara
@@ -15,17 +23,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.34](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.33...@espressive/cascara@0.4.2-alpha.34) (2021-07-28)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.33](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.32...@espressive/cascara@0.4.2-alpha.33) (2021-07-28)
 
