@@ -8,6 +8,8 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
+import ErrorBoundary from '../../private/ErrorBoundary';
+
 import { bytesToSize, getSharedMessageKeys, validateMessageObj } from './utils';
 
 const IMAGE_ATTACHMENT_TYPES = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'tiff'];
@@ -84,14 +86,16 @@ const ChatAttachment = ({
   );
 
   return (
-    <Animation name='chatMessage'>
-      <FUIChat.Message
-        author={authorName}
-        content={attachment}
-        mine={isSessionUser}
-        timestamp={timestamp}
-      />
-    </Animation>
+    <ErrorBoundary>
+      <Animation name='chatMessage'>
+        <FUIChat.Message
+          author={authorName}
+          content={attachment}
+          mine={isSessionUser}
+          timestamp={timestamp}
+        />
+      </Animation>
+    </ErrorBoundary>
   );
 };
 
