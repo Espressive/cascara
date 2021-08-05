@@ -1707,7 +1707,7 @@
     strip-json-comments "^3.1.1"
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.4.2-alpha.37"
+  version "0.4.2-alpha.41"
   dependencies:
     "@babel/runtime" "7.14.0"
     "@espressive/icons" "^0.0.2-alpha.5"
