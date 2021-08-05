@@ -23,6 +23,7 @@ describe('Table', () => {
       const { baseElement } = render(loading);
       // This technically captures the entire fixture in a snapshot. We should consider if we want to only select the element within for a snapshot or not.
       // update: by default, snapshots are wrapped by a `<body>` tag, which doesn't cause snapshots to grow signigicantly
+      // update: Update message when there is not data to present.
       expect(baseElement).toMatchSnapshot();
     });
 
