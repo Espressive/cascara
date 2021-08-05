@@ -80,11 +80,11 @@ const loadingTheme = {
   // },
   componentVariables: {
     ChatMessage: ({ colorScheme }) => ({
-      backgroundColor: colorScheme.default.background3,
-      backgroundColorMine: colorScheme.default.background3,
-      contentColor: colorScheme.default.background3,
-      contentColorMine: colorScheme.default.background3,
-      iconBackgroundColor: colorScheme.default.background3,
+      backgroundColor: colorScheme?.default?.background3 || '#EDEBE9',
+      backgroundColorMine: colorScheme?.default?.background3 || '#EDEBE9',
+      contentColor: colorScheme?.default?.background3 || '#EDEBE9',
+      contentColorMine: colorScheme?.default?.background3 || '#EDEBE9',
+      iconBackgroundColor: colorScheme?.default?.background3 || '#EDEBE9',
     }),
   },
 };
