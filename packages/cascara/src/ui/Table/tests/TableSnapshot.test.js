@@ -29,6 +29,7 @@ describe('Table', () => {
 
     test(`should show an empty state if data is defined but has a length of 0`, () => {
       const { baseElement } = render(empty);
+      // update: Update message when there is not data to present.
       expect(baseElement).toMatchSnapshot();
     });
 

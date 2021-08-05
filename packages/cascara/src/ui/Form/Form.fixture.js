@@ -148,6 +148,8 @@ const EmptyForm = (props) => (
     <Form {...props} />
   </>
 );
+
+// Empty and loading states added
 export default {
   dataOnly: (
     <BasicForm
