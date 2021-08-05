@@ -2,10 +2,11 @@ import React, { useCallback, useState } from 'react';
 import pt from 'prop-types';
 import { Dropdown, Flex, Provider } from '@fluentui/react-northstar';
 import teamsOverrides from './themes/teamsOverrides';
+import ErrorBoundary from '../../private/ErrorBoundary';
 
 import { barista, slack } from './themes';
 
-const DEFAULT_THEME_INDEX = 1;
+const DEFAULT_THEME_INDEX = 0;
 
 const items = [
   {
@@ -62,27 +63,29 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
   // console.log(themes[theme].staticStyles);
 
   return (
-    <Provider overwrite theme={themes[theme]}>
-      <Flex column gap='gap.small' style={{ maxHeight: '100vh' }}>
-        {isThemeSelectable && (
-          <div>
-            <Dropdown
-              defaultValue={items[DEFAULT_THEME_INDEX]}
-              fluid
-              items={items.map((option) => ({
-                ...option,
-              }))}
-              onChange={handleDropdownChange}
-              placeholder='Select a theme'
-            />
-          </div>
-        )}
+    <ErrorBoundary>
+      <Provider overwrite theme={themes[theme]}>
+        <Flex column gap='gap.small' style={{ maxHeight: '100vh' }}>
+          {isThemeSelectable && (
+            <div>
+              <Dropdown
+                defaultValue={items[DEFAULT_THEME_INDEX]}
+                fluid
+                items={items.map((option) => ({
+                  ...option,
+                }))}
+                onChange={handleDropdownChange}
+                placeholder='Select a theme'
+              />
+            </div>
+          )}
 
-        <div style={{ overflowY: 'auto' }}>{children}</div>
+          <div style={{ overflowY: 'auto' }}>{children}</div>
 
-        {inputComponent}
-      </Flex>
-    </Provider>
+          {inputComponent}
+        </Flex>
+      </Provider>
+    </ErrorBoundary>
   );
 };
 
