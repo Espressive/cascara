@@ -59,7 +59,8 @@ const getPostCSSOptions = () => ({
   ],
 });
 
-const external = (id) => !id.startsWith('.') && !id.startsWith('/');
+const external = (id) =>
+  !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
 const getRollupConfig = ({ pwd, babelConfigFile }) => {
@@ -75,7 +76,6 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // separate out our bundle into chunks based on section for now
   const manualChunks = (id) => {
     const CHUNK_SECTIONS = [
-      'hooks',
       'layouts',
       'placeholders',
       'private',
@@ -86,6 +86,9 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
       if (id.startsWith(`${SOURCE_DIR}/src/${segment}`)) {
         return segment;
       }
+    }
+    if (id.includes('node_modules')) {
+      return 'vendor';
     }
     return undefined;
   };
