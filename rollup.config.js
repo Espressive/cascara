@@ -3,7 +3,6 @@ import babel from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
-import autoExternal from 'rollup-plugin-auto-external';
 import stringHash from 'string-hash';
 
 const isDevelopment = (p) => p.env.NODE_ENV === 'development';
@@ -60,10 +59,7 @@ const getPostCSSOptions = () => ({
   ],
 });
 
-// NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
-// app_web is updated to support es6 modules in Webpack builds.
-// const external = (id) =>
-//   !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
+const external = (id) => !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
 const getRollupConfig = ({ pwd, babelConfigFile }) => {
@@ -81,8 +77,6 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     const CHUNK_SECTIONS = [
       'hooks',
       'layouts',
-      'lib',
-      'modules',
       'placeholders',
       'private',
       'structures',
@@ -98,7 +92,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
 
   // Common JS configuration
   const cjsConfig = {
-    // external,
+    external,
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
@@ -107,7 +101,6 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
       sourcemap: true,
     },
     plugins: [
-      autoExternal(),
       babel(
         getBabelOptions({
           babelConfigFile,
@@ -122,7 +115,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
 
   // Modules configuration
   const esConfig = {
-    // external,
+    external,
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
@@ -131,7 +124,6 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
       sourcemap: true,
     },
     plugins: [
-      autoExternal(),
       babel(
         getBabelOptions({
           babelConfigFile,
