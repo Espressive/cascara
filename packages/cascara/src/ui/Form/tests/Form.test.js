@@ -102,7 +102,7 @@ describe('Form', () => {
     view = render(
       <Form actions={actions} data={data} dataDisplay={dataDisplay} />
     ).container;
-
+    // updated: Set loading and empty states
     expect(view).toMatchSnapshot();
   });
 

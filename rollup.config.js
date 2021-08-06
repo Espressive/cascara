@@ -59,9 +59,8 @@ const getPostCSSOptions = () => ({
   ],
 });
 
-// NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
-// app_web is updated to support es6 modules in Webpack builds.
-const external = (id) => !id.startsWith('.') && !id.startsWith('/');
+const external = (id) =>
+  !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
 const getRollupConfig = ({ pwd, babelConfigFile }) => {
@@ -75,24 +74,24 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
   // separate out our bundle into chunks based on section for now
-  const manualChunks = (id) => {
-    const CHUNK_SECTIONS = [
-      'hooks',
-      'layouts',
-      'lib',
-      'modules',
-      'placeholders',
-      'private',
-      'structures',
-      'ui',
-    ];
-    for (const segment of CHUNK_SECTIONS) {
-      if (id.startsWith(`${SOURCE_DIR}/src/${segment}`)) {
-        return segment;
-      }
-    }
-    return undefined;
-  };
+  // const manualChunks = (id) => {
+  //   const CHUNK_SECTIONS = [
+  //     'layouts',
+  //     'placeholders',
+  //     'private',
+  //     'structures',
+  //     'ui',
+  //   ];
+  //   for (const segment of CHUNK_SECTIONS) {
+  //     if (id.startsWith(`${SOURCE_DIR}/src/${segment}`)) {
+  //       return segment;
+  //     }
+  //   }
+  //   if (id.includes('node_modules')) {
+  //     return 'vendor';
+  //   }
+  //   return undefined;
+  // };
 
   // Common JS configuration
   const cjsConfig = {
@@ -101,7 +100,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     output: {
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
       format: 'cjs',
-      manualChunks,
+      // manualChunks,
       sourcemap: true,
     },
     plugins: [
@@ -124,7 +123,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     output: {
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
-      manualChunks,
+      // manualChunks,
       sourcemap: true,
     },
     plugins: [
