@@ -422,7 +422,7 @@ exports[`Table snapshot tests should show an empty state if data is defined but 
       style="align-items: center; display: flex; height: 10em; justify-content: center;"
     >
       <em>
-        No results...
+        No data...
       </em>
     </div>
   </div>

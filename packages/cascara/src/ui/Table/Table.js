@@ -3,8 +3,8 @@ import React from 'react';
 import ErrorBoundary from '../../private/ErrorBoundary';
 
 import TableBase from './TableBase';
-import TableLoading from './TableLoading';
-import TableEmpty from './TableEmpty';
+import TableLoading from '../../private/TemporaryLoading';
+import TableEmpty from '../../private/TemporaryEmpty';
 
 import { TABLE_SHAPE } from './__propTypes';
 

@@ -11,7 +11,7 @@
     "@espressive/cascara": "file:../packages/cascara",
     "@espressive/design-tokens": "file:../packages/design-tokens",
     "@espressive/legacy-css": "file:../utils/legacy-css",
-    "@fluentui/react-northstar": "0.57.0",
+    "@fluentui/react-northstar": "0.54.0",
     "framer-motion": "2.5.5",
     "next": "10.0.5",
     "next-mdx-remote": "1.0.0",
