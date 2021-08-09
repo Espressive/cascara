@@ -279,8 +279,8 @@ describe('Form', () => {
   // tags must be rendered. This test looks for label tags and expects
   // to find one for each Form field.
   test('makes sure there is only an aria-label if there is no label linked to the input', () => {
-    render(initialEditing);
-    const labelTags = screen.getByRole('form').querySelectorAll('label');
+    const { container } = render(initialEditing);
+    const labelTags = container.querySelector('form').querySelectorAll('label');
 
     expect(labelTags).toHaveLength(formFields.length);
   });

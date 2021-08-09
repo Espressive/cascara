@@ -58,7 +58,7 @@ const DataEmail = ({
       {label && isLabeled && (
         <span className={styles.LabelText}>{label || attribute}</span>
       )}
-      <span {...conditionalLabelProps} {...rest} className={styles.Input}>
+      <span {...rest} aria-label={label} className={styles.Input}>
         {value}
       </span>
     </span>

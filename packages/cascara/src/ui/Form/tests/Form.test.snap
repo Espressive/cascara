@@ -4,7 +4,6 @@ exports[`Form snapshot test 1`] = `
 <div>
   <form
     class="Form"
-    role="form"
   >
     <div
       class="Text"
@@ -16,8 +15,8 @@ exports[`Form snapshot test 1`] = `
           EID
         </span>
         <span
+          aria-label="EID"
           class="Input"
-          id="EID"
         >
           e024f231-6265-4a6e-8d65-a837e308ae67
         </span>
@@ -37,8 +36,8 @@ exports[`Form snapshot test 1`] = `
             First Name
           </span>
           <span
+            aria-label="First Name"
             class="Input"
-            id="First Name"
           >
             Keaton
           </span>
@@ -54,8 +53,8 @@ exports[`Form snapshot test 1`] = `
             Last Name
           </span>
           <span
+            aria-label="Last Name"
             class="Input"
-            id="Last Name"
           >
             Streich
           </span>
@@ -71,8 +70,8 @@ exports[`Form snapshot test 1`] = `
             Office Phone
           </span>
           <span
+            aria-label="Office Phone"
             class="Input"
-            id="Office Phone"
           >
             (808) 221-0860 x54694
           </span>
@@ -89,8 +88,8 @@ exports[`Form snapshot test 1`] = `
           Home Phone
         </span>
         <span
+          aria-label="Home Phone"
           class="Input"
-          id="Home Phone"
         >
           391-887-9830 x658
         </span>
@@ -110,8 +109,8 @@ exports[`Form snapshot test 1`] = `
             Title
           </span>
           <span
+            aria-label="Title"
             class="Input"
-            id="Title"
           >
             Global Implementation Developer
           </span>
@@ -127,8 +126,8 @@ exports[`Form snapshot test 1`] = `
             Department
           </span>
           <span
+            aria-label="Department"
             class="Input"
-            id="Department"
           >
             Assurance
           </span>
@@ -144,8 +143,8 @@ exports[`Form snapshot test 1`] = `
             Country
           </span>
           <span
+            aria-label="Country"
             class="Input"
-            id="Country"
           >
             ZW
           </span>

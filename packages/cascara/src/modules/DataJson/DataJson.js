@@ -60,8 +60,8 @@ const DataJson = ({
         <span className={styles.Label}>{label || attribute}</span>
       )}
       <span
-        {...conditionalLabelProps}
         {...rest}
+        aria-label={label}
         className={styles.Input}
         style={{ whiteSpace: 'pre' }}
       >

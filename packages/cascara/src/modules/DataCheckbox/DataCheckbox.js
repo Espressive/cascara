@@ -59,8 +59,8 @@ const DataCheckbox = ({
         <span className={styles.LabelText}>{label || attribute}</span>
       )}
       <span
-        {...conditionalLabelProps}
         {...rest}
+        aria-label={label}
         className={styles.Input}
         data-checked={value ? true : undefined}
       >

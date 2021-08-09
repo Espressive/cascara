@@ -1733,6 +1733,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@emotion/hash@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
+  integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
+
 "@emotion/is-prop-valid@^0.8.2":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
@@ -1744,6 +1749,27 @@
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb"
   integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
+
+"@emotion/serialize@^0.11.16":
+  version "0.11.16"
+  resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-0.11.16.tgz#dee05f9e96ad2fb25a5206b6d759b2d1ed3379ad"
+  integrity sha512-G3J4o8by0VRrO+PFeSc3js2myYNOXVJ3Ya+RGVxnshRYgsvErfAOglKAiy1Eo1vhzxqtUvjCyS5gtewzkmvSSg==
+  dependencies:
+    "@emotion/hash" "0.8.0"
+    "@emotion/memoize" "0.7.4"
+    "@emotion/unitless" "0.7.5"
+    "@emotion/utils" "0.11.3"
+    csstype "^2.5.7"
+
+"@emotion/unitless@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
+  integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
+
+"@emotion/utils@0.11.3":
+  version "0.11.3"
+  resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.11.3.tgz#a759863867befa7e583400d322652a3f44820924"
+  integrity sha512-0o4l6pZC+hI88+bzuaX/6BgOvQVhbt2PfmxauVaYOGgbsAw14wdKyvMCZXnsnsHys94iadcF+RG/wZyx6+ZZBw==
 
 "@eslint/eslintrc@^0.4.1", "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
@@ -1761,7 +1787,7 @@
     strip-json-comments "^3.1.1"
 
 "@espressive/cascara@file:packages/cascara":
-  version "0.4.2-alpha.42"
+  version "0.4.2-alpha.43"
   dependencies:
     "@babel/runtime" "7.14.0"
     "@espressive/icons" "^0.0.2-alpha.5"
@@ -1872,6 +1898,14 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
+"@fluentui/accessibility@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/accessibility/-/accessibility-0.54.0.tgz#84dc16caccee40446781598e6ad0abe831a86783"
+  integrity sha512-5NW+fi811M05QPd2RovK8+GkUb9RMEK5qDsoLULCgTlqWnXmJ5o98u7R3xLfSfOjAKzPHBekdohsEoIu9Vpj0A==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    lodash "^4.17.15"
+
 "@fluentui/accessibility@^0.57.0":
   version "0.57.0"
   resolved "https://registry.yarnpkg.com/@fluentui/accessibility/-/accessibility-0.57.0.tgz#a090086e8bc521c8c0bacc2ec666ec7d89c618ce"
@@ -1887,6 +1921,31 @@
   dependencies:
     "@uifabric/set-version" "^7.0.24"
     tslib "^1.10.0"
+
+"@fluentui/react-bindings@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-bindings/-/react-bindings-0.54.0.tgz#701a47734192544d2e1ad7c577857c292d521a07"
+  integrity sha512-Va1d6ifL5N59Ml0tW/IV/HPAXVwRy7s0G75KzvX11aZBhXnBu5jNLSQwLZ6F3AygZevN1UG7kL/gb5b5TskaNw==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    "@emotion/serialize" "^0.11.16"
+    "@fluentui/accessibility" "^0.54.0"
+    "@fluentui/react-component-event-listener" "^0.54.0"
+    "@fluentui/react-component-ref" "^0.54.0"
+    "@fluentui/react-compose" "^0.19.6"
+    "@fluentui/react-northstar-fela-renderer" "^0.54.0"
+    "@fluentui/react-northstar-styles-renderer" "^0.54.0"
+    "@fluentui/state" "^0.54.0"
+    "@fluentui/styles" "^0.54.0"
+    "@quid/stylis-plugin-focus-visible" "^4.0.0"
+    "@uifabric/utilities" "^7.32.3"
+    classnames "^2.2.6"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react-is "^16.6.3"
+    scheduler "^0.20.1"
+    stylis "^3.5.4"
+    stylis-plugin-rtl "^1.0.0"
 
 "@fluentui/react-bindings@^0.57.0":
   version "0.57.0"
@@ -1908,6 +1967,13 @@
     react-is "^16.6.3"
     scheduler "^0.20.1"
 
+"@fluentui/react-component-event-listener@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-component-event-listener/-/react-component-event-listener-0.54.0.tgz#c1c8c976713821e83db8691f2ba687273a5992a4"
+  integrity sha512-28lO6nNeGvH6NkCq/BTWVHA5nPjKveGE72/PochoWp4IhIhXzgeudgKU+8rqoa6KgaLmLYCKBNcFSEVsv6tbxA==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+
 "@fluentui/react-component-event-listener@^0.57.0":
   version "0.57.0"
   resolved "https://registry.yarnpkg.com/@fluentui/react-component-event-listener/-/react-component-event-listener-0.57.0.tgz#fb3003b90b205e31f5162233d9ac6e02220ec03e"
@@ -1922,6 +1988,14 @@
   dependencies:
     "@babel/runtime" "^7.10.4"
 
+"@fluentui/react-component-nesting-registry@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-component-nesting-registry/-/react-component-nesting-registry-0.54.0.tgz#dd1286e0ff3e20aadfe5d0e53a1efab687101adf"
+  integrity sha512-7i6WeBOSwuoaKdKTfYfP43JhRrAJ1Ok5jzwdebwt9duCEsJiiyTl7kXorehxKFFfkj/KgddKt0HelnCLgFoa1w==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    prop-types "^15.7.2"
+
 "@fluentui/react-component-nesting-registry@^0.57.0":
   version "0.57.0"
   resolved "https://registry.yarnpkg.com/@fluentui/react-component-nesting-registry/-/react-component-nesting-registry-0.57.0.tgz#1c889a804c5d57f3f62933494c17e7c58f547fa4"
@@ -1929,6 +2003,14 @@
   dependencies:
     "@babel/runtime" "^7.10.4"
     prop-types "^15.7.2"
+
+"@fluentui/react-component-ref@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-component-ref/-/react-component-ref-0.54.0.tgz#8b54fda01fee1049a192a0ebe5fe23666fb0c985"
+  integrity sha512-ARYXXY92yzu5Rn2Hk1pUF6ydXLB+Azqf5Vgov8kp11aL2cVp85qFI33P3wi9I9d5PdVOr/+NLVpW4IDw4udPxA==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    react-is "^16.6.3"
 
 "@fluentui/react-component-ref@^0.57.0":
   version "0.57.0"
@@ -1946,6 +2028,28 @@
     "@babel/runtime" "^7.10.4"
     react-is "^16.6.3"
 
+"@fluentui/react-compose@^0.19.6":
+  version "0.19.15"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-compose/-/react-compose-0.19.15.tgz#11594217c9b27484b74107c3070fdd90767b149a"
+  integrity sha512-54a28yt9EDf/ZzKKzLIUziwIK0eucoTqkWmZZh6T559rf85XcpH9Wvu7240C7nhUUZ0Fr+flt2QBl5RAyFKFdg==
+  dependencies:
+    "@types/classnames" "^2.2.9"
+    "@uifabric/set-version" "^7.0.24"
+    "@uifabric/utilities" "^7.33.5"
+    classnames "^2.2.6"
+    tslib "^1.10.0"
+
+"@fluentui/react-icons-northstar@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-icons-northstar/-/react-icons-northstar-0.54.0.tgz#2c324c184ef7b5517e2668b4391e066967093886"
+  integrity sha512-qe+iiHYPuTlMAiJOtIHypFRDTfQQW5vBq8gUXsFCl+Lcv6jwQIVYgrW46YFAgY0821o8qdsdBTsdien25J0D7g==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    "@fluentui/accessibility" "^0.54.0"
+    "@fluentui/react-bindings" "^0.54.0"
+    "@fluentui/styles" "^0.54.0"
+    classnames "^2.2.6"
+
 "@fluentui/react-icons-northstar@^0.57.0":
   version "0.57.0"
   resolved "https://registry.yarnpkg.com/@fluentui/react-icons-northstar/-/react-icons-northstar-0.57.0.tgz#ad5a64fbe22fe910601f005d581023eb55959a72"
@@ -1956,6 +2060,26 @@
     "@fluentui/react-bindings" "^0.57.0"
     "@fluentui/styles" "^0.57.0"
     classnames "^2.2.6"
+
+"@fluentui/react-northstar-fela-renderer@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-northstar-fela-renderer/-/react-northstar-fela-renderer-0.54.0.tgz#6577e44abcd37130451d4e46627c7c8ca62a8358"
+  integrity sha512-yl7JxfzxX6eNYqDDlrzp73J0wEDkXiCM0viZMyJhPUr/rDjtCPMIp2EOrJsVsPVtljsLpbpJKsw16bsa67YeGw==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    "@fluentui/react-northstar-styles-renderer" "^0.54.0"
+    "@fluentui/styles" "^0.54.0"
+    css-in-js-utils "^3.0.0"
+    fela "^10.6.1"
+    fela-plugin-embedded "^10.6.1"
+    fela-plugin-fallback-value "^10.6.1"
+    fela-plugin-placeholder-prefixer "^10.6.1"
+    fela-plugin-rtl "^10.6.1"
+    fela-utils "^10.6.1"
+    inline-style-expand-shorthand "^1.2.0"
+    lodash "^4.17.15"
+    react-fela "^10.6.1"
+    stylis "^3.5.4"
 
 "@fluentui/react-northstar-fela-renderer@^0.57.0":
   version "0.57.0"
@@ -1977,6 +2101,14 @@
     react-fela "^10.6.1"
     stylis "^3.5.4"
 
+"@fluentui/react-northstar-styles-renderer@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-northstar-styles-renderer/-/react-northstar-styles-renderer-0.54.0.tgz#148981762be13856a62b8b91d622a465b2256ef8"
+  integrity sha512-f8sPgoBGvAxqNQJT8/lvjrXCrOiEfZrVRWm/ZFYToK7yB6Y8ZY4QOcEysfNmXPio8FAZD/4K/+hGBTxrmUvzfA==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    "@fluentui/styles" "^0.54.0"
+
 "@fluentui/react-northstar-styles-renderer@^0.57.0":
   version "0.57.0"
   resolved "https://registry.yarnpkg.com/@fluentui/react-northstar-styles-renderer/-/react-northstar-styles-renderer-0.57.0.tgz#c974eb250320b087026e9ec1fec8241582052a5e"
@@ -1984,6 +2116,34 @@
   dependencies:
     "@babel/runtime" "^7.10.4"
     "@fluentui/styles" "^0.57.0"
+
+"@fluentui/react-northstar@0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-northstar/-/react-northstar-0.54.0.tgz#b2306c6a5977a65959acd354f655dc08a8f96f30"
+  integrity sha512-MYAk9z0BdsRrcJGLJJNR1bYtjP/k5n5RU1pmM5/+fQ+ozWq8lrKn2Y6FSgtuHXr5gjsIOqB4sC+HirwEytcKNQ==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    "@fluentui/accessibility" "^0.54.0"
+    "@fluentui/dom-utilities" "^1.1.1"
+    "@fluentui/react-bindings" "^0.54.0"
+    "@fluentui/react-component-event-listener" "^0.54.0"
+    "@fluentui/react-component-nesting-registry" "^0.54.0"
+    "@fluentui/react-component-ref" "^0.54.0"
+    "@fluentui/react-icons-northstar" "^0.54.0"
+    "@fluentui/react-northstar-styles-renderer" "^0.54.0"
+    "@fluentui/react-proptypes" "^0.54.0"
+    "@fluentui/state" "^0.54.0"
+    "@fluentui/styles" "^0.54.0"
+    "@popperjs/core" "~2.4.3"
+    "@uifabric/utilities" "^7.32.3"
+    body-scroll-lock "^3.1.5"
+    classnames "^2.2.6"
+    compute-scroll-into-view "1.0.11"
+    downshift "5.0.5"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react-is "^16.6.3"
+    react-transition-group "^4.3.0"
 
 "@fluentui/react-northstar@0.57.0":
   version "0.57.0"
@@ -2013,6 +2173,15 @@
     react-is "^16.6.3"
     react-transition-group "^4.3.0"
 
+"@fluentui/react-proptypes@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/react-proptypes/-/react-proptypes-0.54.0.tgz#ccfdbbcaba9abadfd56414e94f8f8647f3970cae"
+  integrity sha512-3cZJahlcCxzNwQ3ELqCjRMr8s57xX0lk2pfhdBTrFkE0XC0u/RPeYLB78V61C4UwG6nRx0T5YA71Ew5GaXpI2w==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+
 "@fluentui/react-proptypes@^0.57.0":
   version "0.57.0"
   resolved "https://registry.yarnpkg.com/@fluentui/react-proptypes/-/react-proptypes-0.57.0.tgz#46ed587fa251e8e9fcf6fe352da6f8b7f41c4884"
@@ -2022,12 +2191,28 @@
     lodash "^4.17.15"
     prop-types "^15.7.2"
 
+"@fluentui/state@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/state/-/state-0.54.0.tgz#63aab0718cff0feebfd44d662a404da607357fa9"
+  integrity sha512-4V7AK7IiMunqzEPf4Ixb1nGyXhl6mi7KJIhmfgux/Yqb69gRrNbdhb3i1XI3N6RGYk8qXCsrXfJKtAIcuDTpUw==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+
 "@fluentui/state@^0.57.0":
   version "0.57.0"
   resolved "https://registry.yarnpkg.com/@fluentui/state/-/state-0.57.0.tgz#df87533168c9c11ff40ec17403f8b7fd44504b77"
   integrity sha512-9WNGHMweJgx588HNO68sMdcH1lVFU3eXnc34OygDsHh/k3ctCMFaJk+KCTZRqBl60bUE3zcbFoP54BtQFuS5gg==
   dependencies:
     "@babel/runtime" "^7.10.4"
+
+"@fluentui/styles@^0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@fluentui/styles/-/styles-0.54.0.tgz#d97fbbecc5cd496a9776a76464e1215d96d11f59"
+  integrity sha512-SGnOw8SC2a4QuhMiS3HXLElJibN1aBWumzZTBDB4MdKptV5b3ivk2gQYAcZmKsvkukdF3xCNrU0GSmFBOZAZKA==
+  dependencies:
+    "@babel/runtime" "^7.10.4"
+    csstype "^2.6.7"
+    lodash "^4.17.15"
 
 "@fluentui/styles@^0.57.0":
   version "0.57.0"
@@ -3499,6 +3684,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.4.tgz#11d5db19bd178936ec89cd84519c4de439574398"
   integrity sha512-1oO6+dN5kdIA3sKPZhRGJTfGVP4SWV6KqlMOwry4J3HfyD68sl/3KmG7DeYUzvN+RbhXDnv/D8vNNB8168tAMg==
 
+"@quid/stylis-plugin-focus-visible@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@quid/stylis-plugin-focus-visible/-/stylis-plugin-focus-visible-4.0.0.tgz#2200cbc3e41e8a951028efcdc89e4b55c9b0f1ca"
+  integrity sha512-dS4Vl1D4NHN4gAiWxUQLPAN4k2NMmNpfujuAPU2JF5P/XX8OUD7svhM8f9TudWr8dVdWYjQEAMaRtSUcf4720w==
+
 "@react-spring/animated@~9.2.0":
   version "9.2.4"
   resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.2.4.tgz#062ecc0fdfef89f2541a42d8500428b70035f879"
@@ -3837,6 +4027,13 @@
   integrity sha512-K2waXdXBi2302XUdcHcR1jCeU0LL4TD9HRs/gk0N2Xvrht+G/BfJa4QObBQZfhMdxiCpV3COl5Nfq4uKTeTnJA==
   dependencies:
     "@babel/types" "^7.3.0"
+
+"@types/classnames@^2.2.9":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.3.1.tgz#3c2467aa0f1a93f1f021e3b9bcf938bd5dfdc0dd"
+  integrity sha512-zeOWb0JGBoVmlQoznvqXbE0tEC/HONsnoUNH19Hc96NFsTAwTXbTqb8FMYkru1F/iqp7a18Ws3nWJvtA1sHD1A==
+  dependencies:
+    classnames "*"
 
 "@types/eslint@^7.2.6":
   version "7.28.0"
@@ -4288,7 +4485,7 @@
   dependencies:
     tslib "^1.10.0"
 
-"@uifabric/utilities@^7.32.3":
+"@uifabric/utilities@^7.32.3", "@uifabric/utilities@^7.33.5":
   version "7.33.5"
   resolved "https://registry.yarnpkg.com/@uifabric/utilities/-/utilities-7.33.5.tgz#4e7ed4bab725c054005e9ac37b0f01d743089be4"
   integrity sha512-I+Oi0deD/xltSluFY8l2EVd/J4mvOaMljxKO2knSD9/KoGDlo/o5GN4gbnVo8nIt76HWHLAk3KtlJKJm6BhbIQ==
@@ -6141,15 +6338,15 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@*, classnames@2.3.1, classnames@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
+
 classnames@2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
-
-classnames@2.3.1, classnames@^2.2.6:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
-  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
 clean-css@^4.2.3:
   version "4.2.3"
@@ -7053,6 +7250,11 @@ cssesc@^3.0.0:
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
 
+cssjanus@^1.3.0:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/cssjanus/-/cssjanus-1.3.2.tgz#7c23d39be92f63e1557a75c015f61d95009bd6b3"
+  integrity sha512-5pM/C1MIfoqhXa7k9PqSnrjj1SSZDakfyB1DZhdYyJoDUH+evGbsUg6/bpQapTJeSnYaj0rdzPUMeM33CvB0vw==
+
 cssnano-preset-default@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-4.0.8.tgz#920622b1fc1e95a34e8838203f1397a504f2d3ff"
@@ -7161,7 +7363,7 @@ cssstyle@^2.3.0:
   dependencies:
     cssom "~0.3.6"
 
-csstype@^2.2.0, csstype@^2.5.5, csstype@^2.6.7:
+csstype@^2.2.0, csstype@^2.5.5, csstype@^2.5.7, csstype@^2.6.7:
   version "2.6.17"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.17.tgz#4cf30eb87e1d1a005d8b6510f95292413f6a1c0e"
   integrity sha512-u1wmTI1jJGzCJzWndZo8mk4wnPTZd1eOIYTYvuEyOQGfmDl3TrabCCfKnOC86FZwW/9djqTl933UF/cS425i9A==
@@ -17987,6 +18189,13 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
+
+stylis-plugin-rtl@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/stylis-plugin-rtl/-/stylis-plugin-rtl-1.1.0.tgz#028d72419ccc47eeaaec684f3e192534f2c57ece"
+  integrity sha512-FPoSxP+gbBLJRUXDRDFNBhqy/eToquDLn7ZrjIVBRfXaZ9bunwNnDtDm2qW1EoU0c93krm1Dy+8iVmJpjRGsKw==
+  dependencies:
+    cssjanus "^1.3.0"
 
 stylis-rule-sheet@0.0.10:
   version "0.0.10"

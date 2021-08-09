@@ -161,10 +161,16 @@ export default {
       data={{}}
       dataDisplay={dataDisplay}
       isInitialEditing
+      name='test-form'
     />
   ),
   dataWithDisplay: (
-    <DataWithDisplay actions={actions} data={data} dataDisplay={dataDisplay} />
+    <DataWithDisplay
+      actions={actions}
+      data={data}
+      dataDisplay={dataDisplay}
+      name='test-form'
+    />
   ),
   empty: <EmptyForm actions={actions} data={{}} dataDisplay={[]} />,
   initialEditing: (
@@ -173,10 +179,16 @@ export default {
       data={data}
       dataDisplay={dataDisplay}
       isInitialEditing
+      name='test-form'
     />
   ),
   loading: (
-    <LoadingForm actions={actions} data={undefined} dataDisplay={dataDisplay} />
+    <LoadingForm
+      actions={actions}
+      data={undefined}
+      dataDisplay={dataDisplay}
+      name='test-form'
+    />
   ),
 };
 export { dataDisplay };

@@ -76,7 +76,7 @@ const DataSelect = ({
       {label && isLabeled && (
         <span className={styles.Label}>{label || attribute}</span>
       )}
-      <span {...conditionalLabelProps} {...rest} className={styles.Input}>
+      <span {...rest} aria-label={label} className={styles.Input}>
         {value}
       </span>
     </span>

@@ -75,7 +75,7 @@ const DataRadio = ({
     <ErrorBoundary>
       <div className={styles.Radio}>
         <span>
-          <span {...conditionalLabelProps} {...rest} className={styles.Input}>
+          <span {...rest} aria-label={label} className={styles.Input}>
             {value}
           </span>
           {label && isLabeled && (
