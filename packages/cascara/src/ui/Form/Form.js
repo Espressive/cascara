@@ -9,7 +9,11 @@ import ModuleError from '../../modules/ModuleError';
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 import { formActionModules, formModules } from './modules';
 import ActionBar from './components/ActionBar';
-
+import FormEmpty from '../../private/TemporaryEmpty';
+import FormLoading from '../../private/TemporaryLoading';
+import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
+import useDeveloperMessage from '../../hooks/useDeveloperMessage';
+import { WARNING_STRINGS } from './__globals';
 // there are two types of actions a form supports:
 //
 // a - actions modules compatible with form
@@ -57,6 +61,8 @@ const propTypes = {
   // A form can start in an editing state
   isInitialEditing: pt.bool,
 
+  isLoading: pt.bool,
+
   // A form can emit events on every action
   onAction: pt.func,
 };
@@ -93,7 +99,7 @@ const formFields = (display, data) => {
   const renderField = (field) => {
     const { module, label, ...rest } = field;
     const Module = dataModules[module];
-    const moduleValue = data[field.attribute];
+    const moduleValue = data && data[field.attribute];
     const key = `${module}.${field.attribute}.${moduleValue}`;
 
     // eslint-disable-next-line react/forbid-foreign-prop-types -- @brian we need to see if this approach is what we want
@@ -174,7 +180,20 @@ const Form = ({
     !isEditable ? false : isInitialEditing
   );
 
+  // A form cannot be in an initial editing state while also not having a dataDisplay defined.
+  const isEditingWithoutDataDisplay = !dataDisplay && !isInitialEditing;
+
+  useDeveloperMessage(
+    isEditingWithoutDataDisplay,
+    WARNING_STRINGS.INVALID_EDITING_AND_DISPLAY
+  );
+
+  const { isEmpty } = getStatusFromDataLength(Object.keys(dataDisplay).length);
+
+  const isLoading = !data;
+
   const fields = formFields(dataDisplay, data);
+
   function enterEditMode() {
     setIsEtiding(true);
   }
@@ -185,20 +204,30 @@ const Form = ({
 
   return (
     <ErrorBoundary>
-      <FormProvider
-        value={{
-          data,
-          enterEditMode,
-          exitEditMode,
-          isEditable,
-          isEditing,
-          onAction,
-        }}
-        {...rest}
-      >
-        {fields}
-        <ActionBar actions={renderedActions} />
-      </FormProvider>
+      {!isEmpty ? (
+        <FormProvider
+          value={{
+            data,
+            enterEditMode,
+            exitEditMode,
+            isEditable,
+            isEditing,
+            onAction,
+          }}
+          {...rest}
+        >
+          {isLoading ? (
+            <FormLoading />
+          ) : (
+            <>
+              {fields}
+              <ActionBar actions={renderedActions} />
+            </>
+          )}
+        </FormProvider>
+      ) : (
+        <FormEmpty />
+      )}
     </ErrorBoundary>
   );
 };
