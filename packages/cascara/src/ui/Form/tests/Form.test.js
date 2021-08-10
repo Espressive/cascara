@@ -145,7 +145,7 @@ describe('Form', () => {
     );
 
     const cancelButton = await screen.findByRole('button', { name: 'Cancel' });
-    const saveButton = await screen.findByRole('button', { name: 'Submit' });
+    const saveButton = await screen.findByRole('button', { name: 'Save' });
 
     expect(cancelButton).toBeInTheDocument();
     expect(saveButton).toBeInTheDocument();
@@ -154,7 +154,7 @@ describe('Form', () => {
     expect(editButton).not.toBeInTheDocument();
   });
 
-  test('general flow: View Mode -> Edit Mode -> Submit Action -> View Mode', async () => {
+  test('general flow: View Mode -> Edit Mode -> Save Action -> View Mode', async () => {
     const onAction = jest.fn();
 
     render(
@@ -175,7 +175,7 @@ describe('Form', () => {
 
     // make sure we are in edit mode
     let cancelButton = await screen.findByRole('button', { name: 'Cancel' });
-    let saveButton = await screen.findByRole('button', { name: 'Submit' });
+    let saveButton = await screen.findByRole('button', { name: 'Save' });
     editButton = screen.queryByRole('button', { name: 'Edit' });
 
     expect(cancelButton).toBeInTheDocument();
@@ -191,14 +191,14 @@ describe('Form', () => {
 
     userEvent.type(firstName, 'nio');
 
-    saveButton = screen.queryByRole('button', { name: 'Submit' });
+    saveButton = screen.queryByRole('button', { name: 'Save' });
     expect(saveButton).not.toBeDisabled();
 
     // Save action
     userEvent.click(saveButton);
 
     // make sure we are back to view mode
-    saveButton = await screen.findByRole('button', { name: 'Submit' });
+    saveButton = await screen.findByRole('button', { name: 'Save' });
     editButton = screen.queryByRole('button', { name: 'Edit' });
     cancelButton = screen.queryByRole('button', { name: 'Cancel' });
 
@@ -211,7 +211,7 @@ describe('Form', () => {
 
     expect(onAction).toHaveBeenCalledWith(
       expect.objectContaining({
-        name: 'form.edit',
+        name: 'edit.start',
       }),
       expect.objectContaining(data)
     );
@@ -219,7 +219,7 @@ describe('Form', () => {
     // check that the data is actually updated in the event
     expect(onAction).toHaveBeenLastCalledWith(
       expect.objectContaining({
-        name: 'form.submit',
+        name: 'edit.save',
       }),
       expect.objectContaining({
         ...data,
