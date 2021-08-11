@@ -26,9 +26,9 @@ At the moment, we have only two types of modules.
 For **button**, a single `onAction` event will be emitted whenever the button is clicked.<br />
 For **edit**, the `onAction` event will be emitted up to 3 times as it creates extra buttons:
 
-1. **form.start** when entering in **edit** mode
-2. **form.cancel** when exiting the **edit** mode via the **cancel** button
-3. **form.submit** when exiting the **edit** mode via the **submit** button
+1. **edit.start** when entering in **edit** mode
+2. **edit.cancel** when exiting the **edit** mode via the **cancel** button
+3. **edit.save** when exiting the **edit** mode via the **save** button
 
 As with **Table** all this information is part of the [onAction](#onaction-event-handler) event handler signature, please make sure you review it as well.
 
@@ -214,14 +214,14 @@ const onAction = (action, data) => {
       break;
 
     // in the case of `edit` module, you need these 3 cases
-    case 'form.edit':
+    case 'edit.start':
       // do something when the user starts editing the Form via edit button
       break;
-    case 'form.cancel':
+    case 'edit.cancel':
       // do something if the user exits edit mode via `cancel` button
       break;
-    case 'form.submit':
-      // do something when the user exits edit mode via `submit` button
+    case 'edit.submit':
+      // do something when the user exits edit mode via `save` button
       break;
   }
 };
@@ -314,14 +314,14 @@ title: Everything together!
         break;
 
       // in the case of `edit` module, you need these 3 cases
-      case 'form.edit':
+      case 'edit.start':
         // do something when the user starts editing the Form via edit button
         break;
-      case 'form.cancel':
+      case 'edit.cancel':
         // do something if the user exits edit mode via `cancel` button
         break;
-      case 'form.submit':
-        // do something when the user exits edit mode via `submit` button
+      case 'edit.save':
+        // do something when the user exits edit mode via `save` button
         break;
     }
   }}
