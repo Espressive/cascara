@@ -55,17 +55,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.36](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.35...@espressive/cascara@0.4.2-alpha.36) (2021-07-29)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.35](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.34...@espressive/cascara@0.4.2-alpha.35) (2021-07-28)
 
