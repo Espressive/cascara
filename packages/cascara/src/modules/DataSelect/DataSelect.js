@@ -42,43 +42,31 @@ const DataSelect = ({
   const conditionalLabelProps = getConditionalLabelProps(label, isLabeled);
 
   const renderEditing = (
-    <>
-      {label && isLabeled && (
-        <label htmlFor={attribute || label}>
-          <span className={styles.LabelText}>{label || attribute}</span>
-        </label>
+    <Input
+      {...conditionalLabelProps}
+      {...rest}
+      as='select'
+      className={styles.Input}
+      defaultValue={value}
+      id={attribute || label}
+      name={attribute || label}
+      ref={formMethods?.register}
+    >
+      {options ? (
+        options.map((option) => (
+          <option key={option.value} {...option}>
+            {option.label || option.value}
+          </option>
+        ))
+      ) : (
+        <option value={value}>{value}</option>
       )}
-      <Input
-        {...conditionalLabelProps}
-        {...rest}
-        as='select'
-        className={styles.Input}
-        defaultValue={value}
-        id={attribute || label}
-        name={attribute || label}
-        ref={formMethods?.register}
-      >
-        {options ? (
-          options.map((option) => (
-            <option key={option.value} {...option}>
-              {option.label || option.value}
-            </option>
-          ))
-        ) : (
-          <option value={value}>{value}</option>
-        )}
-      </Input>
-    </>
+    </Input>
   );
 
   const renderDisplay = (
-    <span>
-      {label && isLabeled && (
-        <span className={styles.Label}>{label || attribute}</span>
-      )}
-      <span {...rest} aria-label={label} className={styles.Input}>
-        {value}
-      </span>
+    <span {...rest} aria-label={label} className={styles.Input}>
+      {value}
     </span>
   );
 

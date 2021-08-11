@@ -14,6 +14,7 @@ import ActionsMenu from '../../private/ActionsMenu';
 import ModuleError from '../../modules/ModuleError';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
+import LabeledModule from '../../modules/LabeledModule/LabeledModule';
 
 const actionModuleOptions = Object.keys(actionModules);
 const dataModuleOptions = Object.keys(dataModules);
@@ -84,13 +85,17 @@ const TableRow = ({ config = {}, record = {} }) => {
 
   const rowCells = columns.map((column) => {
     const { module, isLabeled, ...rest } = column;
+    const { attribute, label } = rest;
+
     const Module = dataModules[module];
     const moduleValue = record[column.attribute];
 
     return (
       <td className={styles.Cell} key={column.attribute}>
         {Module ? (
-          <Module {...rest} isLabeled={false} value={moduleValue} />
+          <LabeledModule attribute={attribute} isLabeled={false} label={label}>
+            <Module {...rest} isLabeled={false} value={moduleValue} />
+          </LabeledModule>
         ) : (
           <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
         )}

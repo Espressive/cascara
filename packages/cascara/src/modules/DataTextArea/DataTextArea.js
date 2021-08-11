@@ -34,33 +34,21 @@ const DataTextArea = ({
   const conditionalLabelProps = getConditionalLabelProps(label, isLabeled);
 
   const renderEditing = (
-    <>
-      {label && isLabeled && (
-        <label htmlFor={attribute || label}>
-          <span className={styles.LabelText}>{label || attribute}</span>
-        </label>
-      )}
-      <Input
-        {...conditionalLabelProps}
-        {...rest}
-        as={TextareaAutosize}
-        className={styles.Input}
-        defaultValue={value}
-        id={attribute || label}
-        name={attribute || label}
-        ref={formMethods?.register}
-      />
-    </>
+    <Input
+      {...conditionalLabelProps}
+      {...rest}
+      as={TextareaAutosize}
+      className={styles.Input}
+      defaultValue={value}
+      id={attribute || label}
+      name={attribute || label}
+      ref={formMethods?.register}
+    />
   );
 
   const renderDisplay = (
-    <span>
-      {label && isLabeled && (
-        <span className={styles.LabelText}>{label || attribute}</span>
-      )}
-      <span {...rest} aria-label={label} className={styles.Input}>
-        {value}
-      </span>
+    <span {...rest} aria-label={label} className={styles.Input}>
+      {value}
     </span>
   );
 

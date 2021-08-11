@@ -74,6 +74,8 @@ describe('Table UX', () => {
     expect(onAction.mock.calls[1][0]).toEqual({ name: 'edit.save' });
     expect(onAction.mock.calls[1][1]).toEqual({
       ...dataResults[0],
+      created_in_elc: 'true',
+      is_protected: 'true',
       sys_created_by: testEmail,
     });
   });

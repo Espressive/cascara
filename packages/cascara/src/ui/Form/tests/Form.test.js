@@ -12,14 +12,11 @@ import Form from '..';
 const { initialEditing } = cosmosFixtures;
 const formFields = fixtDataDisplay.reduce((formFields, item) => {
   if (item.module === 'row') {
-    const rowFields = item?.fields?.filter((field) => field.isEditable);
-    console.log('fieslds', item.fields);
+    const rowFields = item?.fields;
 
     formFields.push(...rowFields);
   } else {
-    if (item.isEditable) {
-      formFields.push(item);
-    }
+    formFields.push(item);
   }
 
   return formFields;

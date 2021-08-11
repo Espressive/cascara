@@ -35,29 +35,22 @@ const DataCheckbox = ({
   const conditionalLabelProps = getConditionalLabelProps(label, isLabeled);
 
   const renderEditing = (
-    <>
-      {label && isLabeled && (
-        <label htmlFor={attribute || label}>
-          <span className={styles.LabelText}>{label || attribute}</span>
-        </label>
-      )}
-      <Checkbox
-        {...conditionalLabelProps}
-        {...rest}
-        {...checkbox}
-        className={styles.Input}
-        name={attribute || label}
-        ref={formMethods?.register}
-      />
-      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-    </>
+    <Checkbox
+      {...conditionalLabelProps}
+      {...rest}
+      {...checkbox}
+      aria-label={label}
+      className={styles.Input}
+      defaultValue={value}
+      id={attribute || label}
+      name={attribute || label}
+      ref={formMethods?.register}
+      type={'text'}
+    />
   );
 
   const renderDisplay = (
-    <span>
-      {label && isLabeled && (
-        <span className={styles.LabelText}>{label || attribute}</span>
-      )}
+    <>
       <span
         {...rest}
         aria-label={label}
@@ -67,7 +60,7 @@ const DataCheckbox = ({
         {value}
       </span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-    </span>
+    </>
   );
 
   // Do not render an editable input if the module is not editable

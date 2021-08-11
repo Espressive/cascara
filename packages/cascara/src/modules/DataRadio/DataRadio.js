@@ -42,11 +42,6 @@ const DataRadio = ({
 
   const renderRadio = (option) => (
     <>
-      {label && isLabeled && (
-        <label htmlFor={option.label}>
-          <span className={styles.LabelText}>{label || attribute}</span>
-        </label>
-      )}
       <Radio
         {...conditionalLabelProps}
         {...radio}
