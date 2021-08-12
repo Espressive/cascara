@@ -63,7 +63,7 @@ const Nav = ({ mdxTree, posts }) => {
             <NavList>
               {item.children.map((item) => {
                 const activeComponent = router?.query?.mdx?.[1];
-                return item.size ? (
+                return item?.size ? (
                   <NavItem
                     as={docPath(item.path)}
                     content={item.name}

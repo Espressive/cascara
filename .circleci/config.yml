@@ -81,7 +81,7 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Prepare Packages
-          command: yarn workspaces run prepare
+          command: yarn workspaces foreach run prepare
       - store_artifacts:
           path: ./node_modules/@espressive/cascara # check to see why we do not have @espressive/cascara
       - save_cache:
