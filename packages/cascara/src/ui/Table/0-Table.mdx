@@ -41,8 +41,8 @@ const data = {[
 
 At the moment, we have only two types of action modules:
 
-- [button](../modules/ActionButton), for simple actions like deleting a row, navigating to another page, etc.
-- [edit](../modules/ActionEdit), to be used if you want to allow the data to be **editable**.
+- [button](../../modules/ActionButton), for simple actions like deleting a row, navigating to another page, etc.
+- [edit](./modules/ActionEdit), to be used if you want to allow the data to be **editable**.
 
 Think of actions as **verbs** one would want to apply to each of the Table rows, like a button **View** to navigate to another page with detailed information about the row.
 Another example would be a button **Delete** to delete a row. Actions will be appended to each row.
@@ -53,17 +53,17 @@ When you define an action, you are telling Table how you want to be notified whe
 
 The shape of `actions` is as follows:
 
-```javasccript
+```javascript
 const actions = {
   actionButtonMenuIndex: 0,
   modules: [
-   // add as many of **button** to fit your requirements
-   {
+    // add as many of **button** to fit your requirements
+    {
       module: 'button',
       name: 'delete',
       content: 'Delete',
     },
-   {
+    {
       module: 'button',
       name: 'view',
       content: 'View',
@@ -77,8 +77,8 @@ const actions = {
       saveLabel: 'Guardar',
     },
   ],
-  resolveRecordActions: (record, actions) => (actionsForRecord),
-}
+  resolveRecordActions: (record, actions) => actionsForRecord,
+};
 ```
 
 ### actionButtonMenuIndex
@@ -91,7 +91,7 @@ You can specify which actions are sent to the **ActionsMenu** using the `actionB
 
 ### resolveRecordActions
 
-By default, all actions are added to **All** rows, this might not be what you want: Under certain scenarios, some actions might not be available or allowed depending on certain (business-logic) conditions. `resolveRecordActions` is function you can pass to derive if a certain action can be displayed for each row.
+By default, all actions are added to **All** rows, this might not be what you want: Under certain scenarios, some actions might not be available or allowed depending on certain (business-logic) conditions. `resolveRecordActions` is a function you can pass to derive if a certain action can be displayed for each row.
 
 #### signature
 
@@ -100,7 +100,7 @@ By default, all actions are added to **All** rows, this might not be what you wa
    * Resolve record actions
    *
    * @param {Object} record An object that represents the current row
-   * @paramm {Array[Object]} allActions The array of actions specified in `action.modules`
+   * @param {Array[Object]} allActions The array of actions specified in `action.modules`
    * @return {Array[Object]} actionsForRecord The array of actions for this specific row
    */
   (Object: record, Array[Object]: allActions) => Array[Object]: actionsForRecord

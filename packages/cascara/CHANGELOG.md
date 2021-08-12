@@ -3,69 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.4.2-alpha.43](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.42...@espressive/cascara@0.4.2-alpha.43) (2021-08-06)
+## [0.4.2-alpha.44](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.43...@espressive/cascara@0.4.2-alpha.44) (2021-08-11)
 
 **Note:** Version bump only for package @espressive/cascara
 
+## [0.4.2-alpha.43](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.42...@espressive/cascara@0.4.2-alpha.43) (2021-08-06)
 
-
-
+**Note:** Version bump only for package @espressive/cascara
 
 ## [0.4.2-alpha.42](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.41...@espressive/cascara@0.4.2-alpha.42) (2021-08-05)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.41](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.40...@espressive/cascara@0.4.2-alpha.41) (2021-08-05)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.40](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.39...@espressive/cascara@0.4.2-alpha.40) (2021-08-04)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.39](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.38...@espressive/cascara@0.4.2-alpha.39) (2021-08-04)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.38](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.37...@espressive/cascara@0.4.2-alpha.38) (2021-08-04)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.37](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.36...@espressive/cascara@0.4.2-alpha.37) (2021-08-04)
 
 **Note:** Version bump only for package @espressive/cascara
 
-
-
-
-
 ## [0.4.2-alpha.36](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.35...@espressive/cascara@0.4.2-alpha.36) (2021-07-29)
 
 **Note:** Version bump only for package @espressive/cascara
-
-
-
-
 
 ## [0.4.2-alpha.35](https://github.com/Espressive/cascara/compare/@espressive/cascara@0.4.2-alpha.34...@espressive/cascara@0.4.2-alpha.35) (2021-07-28)
 

@@ -14,6 +14,7 @@ import FormLoading from '../../private/TemporaryLoading';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import { WARNING_STRINGS } from './__globals';
+
 // there are two types of actions a form supports:
 //
 // a - actions modules compatible with form
@@ -48,7 +49,6 @@ const propTypes = {
   data: pt.shape({}),
 
   // Here you can describe each of the visible columns in your table.
-  // @brian, should we call this `fields` istead?
   dataDisplay: pt.arrayOf(
     pt.shape({
       module: pt.oneOf(dataModuleOptions).isRequired,
