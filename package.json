@@ -65,7 +65,7 @@
     "@babel/preset-env": "7.14.4",
     "@babel/preset-react": "7.13.13",
     "@bjeco/prettier-config": "0.1.6",
-    "@espressive/eslint-config": "link:./utils/eslint-config",
+    "@espressive/eslint-config": "workspace:*",
     "@fluentui/react-northstar": "0.57.0",
     "@octokit/core": "3.4.0",
     "@rollup/plugin-babel": "5.3.0",

@@ -12,7 +12,8 @@ const propTypes = {
     description: pt.string,
     title: pt.string,
   }),
-  source: pt.string,
+  // eslint-disable-next-line react/forbid-prop-types -- AST can be any object
+  source: pt.object,
 };
 
 const PostPage = ({ source, frontMatter }) => {

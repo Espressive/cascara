@@ -1,17 +1,16 @@
 {
   "name": "docs",
   "version": "0.4.1-alpha.8",
-  "private": true,
   "scripts": {
     "start": "next-remote-watch ../packages/cascara",
     "build": "next build",
     "prepare": "echo 'No prepare scripts for this package'"
   },
   "dependencies": {
-    "@espressive/cascara": "file:../packages/cascara",
-    "@espressive/design-tokens": "file:../packages/design-tokens",
-    "@espressive/legacy-css": "file:../utils/legacy-css",
-    "@fluentui/react-northstar": "0.54.0",
+    "@espressive/cascara": "workspace:*",
+    "@espressive/design-tokens": "workspace:*",
+    "@espressive/legacy-css": "workspace:*",
+    "@fluentui/react-northstar": "0.57.0",
     "framer-motion": "2.5.5",
     "next": "10.0.5",
     "next-mdx-remote": "1.0.0",

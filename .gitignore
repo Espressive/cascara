@@ -12,6 +12,7 @@ undefined
 yarn-error.log
 .vercel
 .npmrc
+.yarn
 
 # Ignore all JS files in the root of icons
 packages/icons/*.js
