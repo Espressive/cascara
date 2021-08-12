@@ -145,7 +145,7 @@ const getStaticPaths = async () => {
       // We only want a static path for directories that have files in them.
       // Technically the file size returned is based on the files being filtered
       // in getMDXTree() which are only MDX files at this time.
-      if (child.type === 'directory' && child.size > 0) {
+      if (child?.type === 'directory' && child?.size > 0) {
         staticPaths.push({ params: { mdx: [name, child.name] } });
       }
     });

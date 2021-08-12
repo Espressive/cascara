@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.14.0",
-    "@espressive/icons": "^0.0.2-alpha.5",
+    "@espressive/icons": "workspace:*",
     "@iconify-icons/ic": "1.1.5",
     "@iconify/react": "1.1.4",
     "@nivo/bar": "0.67.0",
@@ -47,9 +47,14 @@
     "reakit": "next"
   },
   "devDependencies": {
-    "@espressive/legacy-css": "^2.0.5",
+    "@espressive/legacy-css": "*",
+    "@rollup/plugin-babel": "5.3.0",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-node-resolve": "11.2.1",
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2",
+    "rollup": "2.50.6",
+    "rollup-plugin-postcss": "4.0.0",
     "semantic-ui-react": "2.0.3"
   },
   "peerDependencies": {

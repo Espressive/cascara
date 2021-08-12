@@ -81,7 +81,7 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Prepare Packages
-          command: yarn workspaces run prepare
+          command: yarn workspaces foreach run prepare
       - store_artifacts:
           path: ./node_modules/@espressive/cascara # check to see why we do not have @espressive/cascara
       - save_cache:
@@ -216,20 +216,21 @@ workflows:
       - build-cosmos:
           <<: *post_steps
           <<: *requires_tests
-      - bump-packages:
-          <<: *filter_main_and_dev
-          <<: *post_steps
-          requires:
-            - build-cascara
-            - build-cosmos
+      # - bump-packages:
+      #     <<: *filter_main_and_dev
+      #     <<: *post_steps
+      #     requires:
+      #       - build-cascara
+      #       - build-cosmos
+# DISABLING AUTO VERSION BUMP AND PUBLISHING UNTIL LERNA GETS UPDATED TO DEAL WITH YARN WORKSPACES
 
-  publish-tagged-packages:
-    jobs:
-      - install:
-          <<: *filter_tags
-          <<: *install_pre_steps
-          <<: *post_steps
-      - publish-packages:
-          <<: *filter_tags
-          <<: *post_steps
-          <<: *requires_install
+# publish-tagged-packages:
+#   jobs:
+#     - install:
+#         <<: *filter_tags
+#         <<: *install_pre_steps
+#         <<: *post_steps
+#     - publish-packages:
+#         <<: *filter_tags
+#         <<: *post_steps
+#         <<: *requires_install
