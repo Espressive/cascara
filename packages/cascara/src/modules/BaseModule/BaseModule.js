@@ -10,7 +10,7 @@ const propTypes = {
   label: pt.node,
 };
 
-const BaseModule = ({ attribute, children, isLabeled, label }) => {
+const BaseModule = ({ attribute, children, isLabeled, label, ...rest }) => {
   const LabelTag = isLabeled ? 'label' : 'span';
 
   return (
