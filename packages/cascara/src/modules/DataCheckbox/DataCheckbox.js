@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { Checkbox, useCheckboxState } from 'reakit/Checkbox';
 import pt from 'prop-types';
 
+import ErrorBoundary from '../../private/ErrorBoundary';
+import BaseModule from '../BaseModule';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import { getConditionalLabelProps } from '../../lib/getConditionalLabelProps';
-import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -66,9 +67,11 @@ const DataCheckbox = ({
   // Do not render an editable input if the module is not editable
   return (
     <ErrorBoundary>
-      <div className={styles.Checkbox}>
-        {isEditing && isEditable ? renderEditing : renderDisplay}
-      </div>
+      <BaseModule attribute={attribute} isLabeled={isLabeled} label={label}>
+        <div className={styles.Checkbox}>
+          {isEditing && isEditable ? renderEditing : renderDisplay}
+        </div>
+      </BaseModule>
     </ErrorBoundary>
   );
 };

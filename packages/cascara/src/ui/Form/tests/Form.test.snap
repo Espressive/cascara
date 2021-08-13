@@ -23,7 +23,6 @@ exports[`Form snapshot test 1`] = `
           e024f231-6265-4a6e-8d65-a837e308ae67
         </span>
       </div>
-       
     </label>
     <div
       class="FormRow"
@@ -47,7 +46,6 @@ exports[`Form snapshot test 1`] = `
             Keaton
           </span>
         </div>
-         
       </label>
       <label
         for="lastName"
@@ -67,7 +65,6 @@ exports[`Form snapshot test 1`] = `
             Streich
           </span>
         </div>
-         
       </label>
       <label
         for="officePhone"
@@ -87,7 +84,6 @@ exports[`Form snapshot test 1`] = `
             (808) 221-0860 x54694
           </span>
         </div>
-         
       </label>
     </div>
     <label
@@ -108,7 +104,6 @@ exports[`Form snapshot test 1`] = `
           391-887-9830 x658
         </span>
       </div>
-       
     </label>
     <div
       class="FormRow"
@@ -132,7 +127,6 @@ exports[`Form snapshot test 1`] = `
             Global Implementation Developer
           </span>
         </div>
-         
       </label>
       <label
         for="department"
@@ -152,7 +146,6 @@ exports[`Form snapshot test 1`] = `
             Assurance
           </span>
         </div>
-         
       </label>
       <label
         for="country"
@@ -172,7 +165,6 @@ exports[`Form snapshot test 1`] = `
             ZW
           </span>
         </div>
-         
       </label>
     </div>
     <div

@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import TextareaAutosize from 'react-textarea-autosize';
+
+import ErrorBoundary from '../../private/ErrorBoundary';
+import BaseModule from '../BaseModule';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import { getConditionalLabelProps } from '../../lib/getConditionalLabelProps';
-import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -55,9 +57,11 @@ const DataTextArea = ({
   // Do not render an editable input if the module is not editable
   return (
     <ErrorBoundary>
-      <div className={styles.TextArea}>
-        {isEditing && isEditable ? renderEditing : renderDisplay}
-      </div>
+      <BaseModule attribute={attribute} isLabeled={isLabeled} label={label}>
+        <div className={styles.TextArea}>
+          {isEditing && isEditable ? renderEditing : renderDisplay}
+        </div>
+      </BaseModule>
     </ErrorBoundary>
   );
 };

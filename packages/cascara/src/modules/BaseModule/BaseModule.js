@@ -10,7 +10,7 @@ const propTypes = {
   label: pt.node,
 };
 
-const LabeledModule = ({ attribute, children, isLabeled, label }) => {
+const BaseModule = ({ attribute, children, isLabeled, label }) => {
   const LabelTag = isLabeled ? 'label' : 'span';
 
   return (
@@ -23,6 +23,6 @@ const LabeledModule = ({ attribute, children, isLabeled, label }) => {
   );
 };
 
-LabeledModule.propTypes = propTypes;
+BaseModule.propTypes = propTypes;
 
-export default LabeledModule;
+export default BaseModule;

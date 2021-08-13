@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
 import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
+
+import ErrorBoundary from '../../private/ErrorBoundary';
+import BaseModule from '../BaseModule';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import { getConditionalLabelProps } from '../../lib/getConditionalLabelProps';
-import ErrorBoundary from '../../private/ErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -82,7 +84,12 @@ const DataRadio = ({
   );
 
   // Do not render an editable input if the module is not editable
-  return isEditing && isEditable ? renderEditing : renderDisplay;
+
+  return (
+    <BaseModule attribute={attribute} isLabeled={isLabeled} label={label}>
+      {isEditing && isEditable ? renderEditing : renderDisplay}
+    </BaseModule>
+  );
 };
 
 DataRadio.propTypes = propTypes;

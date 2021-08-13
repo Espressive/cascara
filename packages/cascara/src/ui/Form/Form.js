@@ -14,7 +14,6 @@ import FormLoading from '../../private/TemporaryLoading';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import { WARNING_STRINGS } from './__globals';
-import LabeledModule from '../../modules/LabeledModule/LabeledModule';
 
 // there are two types of actions a form supports:
 //
@@ -99,7 +98,6 @@ const unhandledProps = (props, propTypes) => {
 const formFields = (display, data) => {
   const renderField = (field) => {
     const { module, label, ...rest } = field;
-    const { attribute } = rest;
 
     const Module = dataModules[module];
     const moduleValue = data && data[field.attribute];
@@ -109,9 +107,7 @@ const formFields = (display, data) => {
     const { myProps: moduleProps } = unhandledProps(rest, Module.propTypes);
 
     return Module ? (
-      <LabeledModule attribute={attribute} isLabeled label={label}>
-        <Module {...moduleProps} key={key} label={label} value={moduleValue} />{' '}
-      </LabeledModule>
+      <Module {...moduleProps} key={key} label={label} value={moduleValue} />
     ) : (
       <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
     );
