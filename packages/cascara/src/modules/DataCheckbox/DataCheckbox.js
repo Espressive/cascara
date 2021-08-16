@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Checkbox, useCheckboxState } from 'reakit/Checkbox';
 import pt from 'prop-types';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
 import BaseModule from '../BaseModule';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
@@ -46,7 +45,7 @@ const DataCheckbox = ({
       id={attribute || label}
       name={attribute || label}
       ref={formMethods?.register}
-      type={'text'}
+      type='checkbox'
     />
   );
 
@@ -66,13 +65,11 @@ const DataCheckbox = ({
 
   // Do not render an editable input if the module is not editable
   return (
-    <ErrorBoundary>
-      <BaseModule attribute={attribute} isLabeled={isLabeled} label={label}>
-        <div className={styles.Checkbox}>
-          {isEditing && isEditable ? renderEditing : renderDisplay}
-        </div>
-      </BaseModule>
-    </ErrorBoundary>
+    <BaseModule attribute={attribute} isLabeled={isLabeled} label={label}>
+      <div className={styles.Checkbox}>
+        {isEditing && isEditable ? renderEditing : renderDisplay}
+      </div>
+    </BaseModule>
   );
 };
 

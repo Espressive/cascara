@@ -3,7 +3,6 @@ import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
 import BaseModule from '../BaseModule';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
@@ -62,13 +61,11 @@ const DataJson = ({
 
   // Do not render an editable input if the module is not editable
   return (
-    <ErrorBoundary>
-      <BaseModule attribute={attribute} isLabeled={isLabeled} label={label}>
-        <div className={styles.TextArea}>
-          {isEditing && isEditable ? renderEditing : renderDisplay}
-        </div>
-      </BaseModule>
-    </ErrorBoundary>
+    <BaseModule attribute={attribute} isLabeled={isLabeled} label={label}>
+      <div className={styles.TextArea}>
+        {isEditing && isEditable ? renderEditing : renderDisplay}
+      </div>
+    </BaseModule>
   );
 };
 

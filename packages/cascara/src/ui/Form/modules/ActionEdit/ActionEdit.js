@@ -39,7 +39,7 @@ const ActionEdit = ({
         }
       );
 
-    exitEditMode();
+    exitEditMode && exitEditMode();
   }, [onAction, exitEditMode, data]);
 
   const handleCancel = useCallback(() => {
@@ -64,7 +64,7 @@ const ActionEdit = ({
         }
       );
 
-    enterEditMode();
+    enterEditMode && enterEditMode();
   }, [reset, data, onAction, enterEditMode]);
 
   const onSubmit = useCallback(
@@ -81,7 +81,7 @@ const ActionEdit = ({
           }
         );
 
-      exitEditMode();
+      exitEditMode && exitEditMode();
     },
     [onAction, exitEditMode, data]
   );

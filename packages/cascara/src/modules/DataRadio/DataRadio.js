@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import pt from 'prop-types';
 import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
 import BaseModule from '../BaseModule';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
@@ -69,18 +68,16 @@ const DataRadio = ({
   );
 
   const renderDisplay = (
-    <ErrorBoundary>
-      <div className={styles.Radio}>
-        <span>
-          <span {...rest} aria-label={label} className={styles.Input}>
-            {value}
-          </span>
-          {label && isLabeled && (
-            <span className={styles.LabelText}>{label || attribute}</span>
-          )}
+    <div className={styles.Radio}>
+      <span>
+        <span {...rest} aria-label={label} className={styles.Input}>
+          {value}
         </span>
-      </div>
-    </ErrorBoundary>
+        {label && isLabeled && (
+          <span className={styles.LabelText}>{label || attribute}</span>
+        )}
+      </span>
+    </div>
   );
 
   // Do not render an editable input if the module is not editable
