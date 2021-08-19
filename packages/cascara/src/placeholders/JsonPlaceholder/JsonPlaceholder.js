@@ -1,6 +1,9 @@
 import React from 'react';
 import pt from 'prop-types';
 import styles from './JsonPlaceholder.module.scss';
+import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
+import Empty from '../../private/TemporaryEmpty';
+import Loading from '../../private/TemporaryLoading';
 
 const propTypes = {
   /** Accepts a JSON object or array to render */
@@ -16,20 +19,36 @@ const JsonPlaceholder = ({
   isInitialOpen = false,
   title = 'JSON',
   ...rest
-}) => (
-  <details
-    {...rest}
-    className={
-      rest?.className ? `${styles.Details} ${rest.className}` : styles.Details
-    }
-    open={isInitialOpen}
-  >
-    <summary className={styles.Summary}>{title}</summary>
-    <pre className={styles.Pre}>
-      <code>{JSON.stringify(data, null, '  ')}</code>
-    </pre>
-  </details>
-);
+}) => {
+  const records = Array.isArray(data)
+    ? data.length
+    : typeof data === 'object' && data !== null
+    ? Object.keys(data).length
+    : null;
+
+  const { isEmpty, isLoading } = getStatusFromDataLength(records);
+
+  return !isEmpty ? (
+    <details
+      {...rest}
+      className={
+        rest?.className ? `${styles.Details} ${rest.className}` : styles.Details
+      }
+      open={isInitialOpen}
+    >
+      <summary className={styles.Summary}>{title}</summary>
+      {!isLoading ? (
+        <pre className={styles.Pre}>
+          <code>{JSON.stringify(data, null, '  ')}</code>
+        </pre>
+      ) : (
+        <Loading />
+      )}
+    </details>
+  ) : (
+    <Empty />
+  );
+};
 
 JsonPlaceholder.propTypes = propTypes;
 
