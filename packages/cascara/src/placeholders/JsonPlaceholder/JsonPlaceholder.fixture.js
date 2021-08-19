@@ -17,6 +17,9 @@ export default {
     />
   ),
   default: <JsonPlaceholder data={testJson} />,
+  loading: <JsonPlaceholder data={null} />,
+  emptyArray: <JsonPlaceholder data={[]} />,
+  emptyObject: <JsonPlaceholder data={{}} />,
   isInitialOpen: <JsonPlaceholder data={testJson} isInitialOpen />,
   style: (
     <JsonPlaceholder
