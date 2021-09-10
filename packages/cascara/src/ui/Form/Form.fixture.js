@@ -16,6 +16,9 @@ const data = {
   lastName: faker.name.lastName(),
   officePhone: faker.phone.phoneNumber(),
   title: faker.name.jobTitle(),
+  active: ['off'],
+  isolated: ['on'],
+  isValid: [],
 };
 
 const actions = {
@@ -81,6 +84,30 @@ const dataDisplay = [
         isEditable: false,
         label: 'Country',
         module: 'text',
+      },
+    ],
+    module: 'row',
+  },
+
+  {
+    fields: [
+      {
+        attribute: 'active',
+        label: 'active',
+        module: 'checkbox',
+        value: ['on'],
+      },
+      {
+        attribute: 'isolated',
+        label: 'isolated',
+        module: 'checkbox',
+        value: ['off'],
+      },
+      {
+        attribute: 'isValid',
+        label: 'isValid',
+        module: 'checkbox',
+        value: [],
       },
     ],
     module: 'row',
@@ -154,7 +181,7 @@ export default {
   dataOnly: (
     <BasicForm
       actions={actions}
-      data={{}}
+      data={data}
       dataDisplay={dataDisplay}
       isInitialEditing
     />

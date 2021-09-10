@@ -52,6 +52,7 @@
     "react-spring": "npm:@react-spring/web@^9.1.2"
   },
   "dependencies": {
+    "ramda": "0.27.1",
     "react-spring": "npm:@react-spring/web@^9.1.2"
   },
   "devDependencies": {

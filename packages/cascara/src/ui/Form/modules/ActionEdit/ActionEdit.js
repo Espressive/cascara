@@ -4,6 +4,7 @@ import pt from 'prop-types';
 import { ModuleContext } from '../../../../modules/context';
 import { Button } from 'reakit';
 import { Icon } from 'semantic-ui-react';
+import preserveBooleans from '../../preserveBooleans';
 
 const propTypes = {
   cancelLabel: pt.string,
@@ -17,11 +18,12 @@ const ActionEdit = ({
   saveLabel = 'Save',
 }) => {
   const {
-    isEditing,
+    data,
+    dataDisplay,
     enterEditMode,
     exitEditMode,
     formMethods,
-    data,
+    isEditing,
     onAction,
   } = useContext(ModuleContext);
   const { handleSubmit, formState, reset } = formMethods;
@@ -67,20 +69,27 @@ const ActionEdit = ({
 
   const onSubmit = useCallback(
     (incomingData) => {
+      const dataWithPreservedBooleans = preserveBooleans(
+        incomingData,
+        dataDisplay
+      );
+
+      const safeData = {
+        ...data,
+        ...dataWithPreservedBooleans,
+      };
+
       onAction(
         // fake target
         {
           name: 'edit.save',
         },
-        {
-          ...data,
-          ...incomingData,
-        }
+        safeData
       );
 
       exitEditMode();
     },
-    [onAction, exitEditMode, data]
+    [onAction, exitEditMode, data, dataDisplay]
   );
 
   return isEditing ? (

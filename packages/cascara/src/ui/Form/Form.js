@@ -208,6 +208,7 @@ const Form = ({
         <FormProvider
           value={{
             data,
+            dataDisplay,
             enterEditMode,
             exitEditMode,
             isEditable,
