@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import pt from 'prop-types';
 import { ErrorBoundary } from 'react-error-boundary';
-import ErrorFallback from './ErrorFallback';
+import { isValidElementType } from 'react-is';
+import { ErrorFallback, SuspenseFallback } from './fallbacks';
+
+// This will need to become a custom prop type we can use elsewhere
+const isReactComponent = (props, propName, componentName) => {
+  if (props[propName] && !isValidElementType(props[propName])) {
+    return new Error(
+      `Invalid prop '${propName}' supplied to '${componentName}': the prop is not a valid React component`
+    );
+  } else {
+    return null;
+  }
+};
 
 const propTypes = {
-  ErrorFallbackComponent: pt.element,
+  ErrorComponent: isReactComponent,
+  SuspenseComponent: isReactComponent,
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
 
-const Boundaries = ({ ErrorFallbackComponent = ErrorFallback, children }) => {
+const Boundaries = ({
+  ErrorComponent = ErrorFallback,
+  SuspenseComponent = SuspenseFallback,
+  children,
+}) => {
   return (
-    <ErrorBoundary FallbackComponent={ErrorFallbackComponent}>
-      {children}
-    </ErrorBoundary>
+    <Suspense fallback={<SuspenseComponent />}>
+      <ErrorBoundary FallbackComponent={ErrorComponent}>
+        {children}
+      </ErrorBoundary>
+    </Suspense>
   );
 };
 

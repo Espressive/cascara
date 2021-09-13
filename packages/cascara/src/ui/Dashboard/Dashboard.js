@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import Boundaries from '../../system-components/Boundaries';
 
 import styles from './Dashboard.module.scss';
 
@@ -72,13 +73,15 @@ const Dashboard = ({ config }) => {
   };
 
   return (
-    <div className={styles.Dashboard}>
-      {config ? (
-        config.map((widget) => renderWidget(widget))
-      ) : (
-        <em>No config defined.</em>
-      )}
-    </div>
+    <Boundaries>
+      <div className={styles.Dashboard}>
+        {config ? (
+          config.map((widget) => renderWidget(widget))
+        ) : (
+          <em>No config defined.</em>
+        )}
+      </div>
+    </Boundaries>
   );
 };
 

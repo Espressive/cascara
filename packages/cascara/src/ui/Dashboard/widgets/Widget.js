@@ -1,6 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import classnames from 'classnames/bind';
 import pt from 'prop-types';
+import Boundaries from '../../../system-components/Boundaries';
 import InfoPopover from '../components/InfoPopover';
 import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
@@ -66,21 +67,26 @@ const Widget = ({
         <InfoPopover message={description} style={{ float: 'right' }} />
       )}
       <h3 className={styles.Title}>{title}</h3>
-      <div
-        className={cx(className, {
-          Data: true,
-          'no-data': isEmpty || isLoading,
-        })}
-        style={{ height: height }}
-      >
-        {isLoading ? (
-          <div className='ui active centered inline loader' />
-        ) : isEmpty ? (
-          <em>No data.</em>
-        ) : (
-          Children.map(children, (child) => cloneElement(child, { ...rest }))
-        )}
-      </div>
+
+      {/* Place our error boundary here so that we can at least show the 
+      title of the widget above the error itself. */}
+      <Boundaries>
+        <div
+          className={cx(className, {
+            Data: true,
+            'no-data': isEmpty || isLoading,
+          })}
+          style={{ height: height }}
+        >
+          {isLoading ? (
+            <div className='ui active centered inline loader' />
+          ) : isEmpty ? (
+            <em>No data.</em>
+          ) : (
+            Children.map(children, (child) => cloneElement(child, { ...rest }))
+          )}
+        </div>
+      </Boundaries>
     </div>
   );
 };

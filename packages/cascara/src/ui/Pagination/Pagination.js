@@ -3,6 +3,7 @@ import pt from 'prop-types';
 import { LABELS, PAGINATION_OPTIONS, WARNING_STRINGS } from './__globals';
 import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import styles from './Pagination.module.scss';
+import Boundaries from '../../system-components/Boundaries';
 
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 
@@ -74,103 +75,107 @@ const Pagination = ({ totalRecordCount, state }) => {
   const buttonClassNames = isLoading ? 'ui loading button' : 'ui button';
 
   return (
-    <div className={styles._}>
-      <div className='ui form'>
-        <div className='inline fields'>
-          {!isLoading && (
-            <div className='field'>
-              <p
-                aria-label={LABELS.RECORD_COUNT}
-                className={styles.records}
-              >{`${totalRecordCount} record${
-                totalRecordCount === 1 ? '' : 's'
-              }`}</p>
-            </div>
-          )}
-          <div className='field'>
-            <select
-              className='ui dropdown'
-              disabled={isLoading || isEmpty || isMissingStateHooks}
-              id='pagination-per-page'
-              name='pagination-per-page'
-              onBlur={handlePaginationChange}
-              onChange={handlePaginationChange}
-              value={recordsPerPage}
-            >
-              {PAGINATION_OPTIONS.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
-            <label htmlFor='pagination-per-page'>per page</label>
-            {!isLoading && !isEmpty && (
-              <p
-                aria-label={LABELS.CURRENT_RECORDS}
-                className={styles.count}
-              >{`(${(currentPage - 1) * recordsPerPage + 1}-${
-                currentPage * recordsPerPage
-              })`}</p>
+    <Boundaries>
+      <div className={styles._}>
+        <div className='ui form'>
+          <div className='inline fields'>
+            {!isLoading && (
+              <div className='field'>
+                <p
+                  aria-label={LABELS.RECORD_COUNT}
+                  className={styles.records}
+                >{`${totalRecordCount} record${
+                  totalRecordCount === 1 ? '' : 's'
+                }`}</p>
+              </div>
             )}
+            <div className='field'>
+              <select
+                className='ui dropdown'
+                disabled={isLoading || isEmpty || isMissingStateHooks}
+                id='pagination-per-page'
+                name='pagination-per-page'
+                onBlur={handlePaginationChange}
+                onChange={handlePaginationChange}
+                value={recordsPerPage}
+              >
+                {PAGINATION_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+              <label htmlFor='pagination-per-page'>per page</label>
+              {!isLoading && !isEmpty && (
+                <p
+                  aria-label={LABELS.CURRENT_RECORDS}
+                  className={styles.count}
+                >{`(${(currentPage - 1) * recordsPerPage + 1}-${
+                  currentPage * recordsPerPage
+                })`}</p>
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className='ui form'>
-        <div className='inline fields'>
-          <div className='field'>
-            <label htmlFor='current-page'>Page</label>
-            <select
-              className='ui dropdown'
-              disabled={isLoading || isEmpty || isMissingStateHooks}
-              id='current-page'
-              name='current-page'
-              onBlur={handlePageChange}
-              onChange={handlePageChange}
-              value={currentPage}
-            >
-              {totalPagesArray.map((pageIndex) => (
-                // totalPagesArray is an array of numbers generated from the totalPage value
-                <option key={pageIndex} value={pageIndex + 1}>
-                  {pageIndex + 1}
-                </option>
-              ))}
-            </select>
-            {!isLoading && <p className={styles.count}>{`of ${totalPages}`}</p>}
-          </div>
-          <div className='field'>
-            <div className='ui small basic icon buttons'>
-              <button
-                className={buttonClassNames}
-                disabled={
-                  isLoading ||
-                  isEmpty ||
-                  isMissingStateHooks ||
-                  currentPage === 1
-                }
-                onClick={handlePagePrev}
-                type='button'
+        <div className='ui form'>
+          <div className='inline fields'>
+            <div className='field'>
+              <label htmlFor='current-page'>Page</label>
+              <select
+                className='ui dropdown'
+                disabled={isLoading || isEmpty || isMissingStateHooks}
+                id='current-page'
+                name='current-page'
+                onBlur={handlePageChange}
+                onChange={handlePageChange}
+                value={currentPage}
               >
-                <i className='left chevron icon' />
-              </button>
-              <button
-                className={buttonClassNames}
-                disabled={
-                  isLoading ||
-                  isEmpty ||
-                  isMissingStateHooks ||
-                  currentPage === totalPages
-                }
-                onClick={handlePageNext}
-                type='button'
-              >
-                <i className='right chevron icon' />
-              </button>
+                {totalPagesArray.map((pageIndex) => (
+                  // totalPagesArray is an array of numbers generated from the totalPage value
+                  <option key={pageIndex} value={pageIndex + 1}>
+                    {pageIndex + 1}
+                  </option>
+                ))}
+              </select>
+              {!isLoading && (
+                <p className={styles.count}>{`of ${totalPages}`}</p>
+              )}
+            </div>
+            <div className='field'>
+              <div className='ui small basic icon buttons'>
+                <button
+                  className={buttonClassNames}
+                  disabled={
+                    isLoading ||
+                    isEmpty ||
+                    isMissingStateHooks ||
+                    currentPage === 1
+                  }
+                  onClick={handlePagePrev}
+                  type='button'
+                >
+                  <i className='left chevron icon' />
+                </button>
+                <button
+                  className={buttonClassNames}
+                  disabled={
+                    isLoading ||
+                    isEmpty ||
+                    isMissingStateHooks ||
+                    currentPage === totalPages
+                  }
+                  onClick={handlePageNext}
+                  type='button'
+                >
+                  <i className='right chevron icon' />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Boundaries>
   );
 };
 

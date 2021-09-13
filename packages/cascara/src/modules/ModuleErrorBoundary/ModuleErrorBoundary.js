@@ -10,9 +10,7 @@ const propTypes = {
 
 const ModuleErrorBoundary = ({ children }) => {
   return (
-    <Boundaries ErrorFallbackComponent={ModuleErrorFallback}>
-      {children}
-    </Boundaries>
+    <Boundaries ErrorComponent={ModuleErrorFallback}>{children}</Boundaries>
   );
 };
 
