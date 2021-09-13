@@ -4,7 +4,7 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
+import ModuleErrorBoundary from '../ModuleErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -74,11 +74,11 @@ const DataSelect = ({
 
   // Do not render an editable input if the module is not editable
   return (
-    <ErrorBoundary>
+    <ModuleErrorBoundary>
       <div className={styles.Select}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
-    </ErrorBoundary>
+    </ModuleErrorBoundary>
   );
 };
 
