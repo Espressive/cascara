@@ -1,2 +1,2 @@
-export { TABLE_SHAPE as propTypes } from './__propTypes';
+export { TABLE_SHAPE as tablePropTypes } from './__propTypes';
 export { default } from './Table';
