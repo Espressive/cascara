@@ -4,6 +4,7 @@ import pt from 'prop-types';
 import { useStructureName, useThemeCustomProperties } from '../hooks';
 import styles from './AdminStructure.module.scss';
 import AdminStructureChildren from './AdminStructureChildren';
+import Boundaries from '../../system-components/Boundaries';
 
 const THEME_DEFAULTS = {
   color: {
@@ -30,9 +31,15 @@ const AdminStructure = ({ children, header, nav, theme = THEME_DEFAULTS }) => {
 
   return (
     <AdminProvider>
-      <header className={styles._header}>{header}</header>
-      <nav className={styles._nav}>{nav}</nav>
-      <AdminStructureChildren>{children}</AdminStructureChildren>
+      <header className={styles._header}>
+        <Boundaries>{header}</Boundaries>
+      </header>
+      <nav className={styles._nav}>
+        <Boundaries>{nav}</Boundaries>
+      </nav>
+      <AdminStructureChildren>
+        <Boundaries>{children}</Boundaries>
+      </AdminStructureChildren>
     </AdminProvider>
   );
 };
