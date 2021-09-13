@@ -13,5 +13,14 @@ yarn-error.log
 .vercel
 .npmrc
 
+# Zero install ignore config: https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 # Ignore all JS files in the root of icons
 packages/icons/*.js
