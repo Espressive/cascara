@@ -1,0 +1,54 @@
+._ {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+
+  .Item {
+    .Link {
+      display: flex;
+      align-items: center;
+      color: unset;
+      padding: 0.25em;
+      cursor: pointer;
+
+      // &:hover,
+      // &:active,
+      // &:focus {
+      //   border-radius: 0.25em;
+      // }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+
+      &:active,
+      &:focus {
+        background-color: rgba(0, 0, 0, 0.06);
+      }
+    }
+
+    * + .Content {
+      padding-left: 0.25em;
+    }
+
+    .Content {
+      .Label {
+        font-weight: 500;
+      }
+
+      .Descripton {
+        font-size: 0.875em;
+        opacity: 0.9;
+        line-height: 1;
+      }
+    }
+
+    &:before {
+      display: none;
+    }
+
+    :global(.content) {
+      width: auto;
+    }
+  }
+}
