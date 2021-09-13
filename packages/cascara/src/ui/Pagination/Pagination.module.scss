@@ -9,20 +9,12 @@
       margin: 0;
     }
 
-    .inline.fields .field {
-      margin: 0 1rem;
-      padding: 0;
+    .inline.fields {
+      margin-bottom: 0;
 
-      &:first-child {
-        margin-left: 0;
-      }
-      &:last-child {
-        margin-right: 0;
-      }
-
-      label,
-      select {
-        margin: 0 0.25em;
+      .field {
+        margin: 0 1rem;
+        padding: 0;
 
         &:first-child {
           margin-left: 0;
@@ -30,21 +22,33 @@
         &:last-child {
           margin-right: 0;
         }
-      }
 
-      :local {
-        .records {
-          text-transform: uppercase;
+        label,
+        select {
+          margin: 0 0.25em;
+
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
         }
 
-        .count {
-          font-weight: 400;
-          font-style: italic;
-        }
-      }
+        :local {
+          .records {
+            text-transform: uppercase;
+          }
 
-      &:last-of-type {
-        padding-right: 0;
+          .count {
+            font-weight: 400;
+            font-style: italic;
+          }
+        }
+
+        &:last-of-type {
+          padding-right: 0;
+        }
       }
     }
   }
