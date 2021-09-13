@@ -1,6 +1,6 @@
 import React from 'react';
-import Pagination, { usePaginationState } from '.';
-import JsonPlaceholder from '../../placeholders/JsonPlaceholder';
+import Pagination, { usePaginationState } from './';
+import { JsonPlaceholder } from '../../system-components';
 
 const Loading = (fixtureProps) => (
   <>
