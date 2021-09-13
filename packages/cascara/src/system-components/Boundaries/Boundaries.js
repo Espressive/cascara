@@ -26,13 +26,28 @@ const Boundaries = ({
   SuspenseComponent = SuspenseFallback,
   children,
 }) => {
-  return (
-    <Suspense fallback={<SuspenseComponent />}>
-      <ErrorBoundary FallbackComponent={ErrorComponent}>
-        {children}
-      </ErrorBoundary>
-    </Suspense>
+  // Currently ReactDOMServer does not support Suspense, but we are using it here.
+  // This is a temporary check to make sure that we check to see if we are in a browser,
+  // and if we are, then we are safe to render the boundaries. If we are not, we are on
+  // a server (like Vercel) we an render nothing because the app will render as normal.
+  // once it loads in the client browser and the app hydrates.
+  const isDOM = Boolean(
+    typeof window !== 'undefined' &&
+      window.document &&
+      window.document.createElement
   );
+
+  if (isDOM) {
+    return (
+      <Suspense fallback={<SuspenseComponent />}>
+        <ErrorBoundary FallbackComponent={ErrorComponent}>
+          {children}
+        </ErrorBoundary>
+      </Suspense>
+    );
+  } else {
+    return null;
+  }
 };
 
 Boundaries.propTypes = propTypes;
