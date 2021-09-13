@@ -23,7 +23,7 @@ module.exports = {
     eqeqeq: 'error',
     'multiline-comment-style': ['error', 'separate-lines'],
     'no-alert': 'error',
-    'no-console': 'error',
+    'no-console': process.env.NODE_ENV === 'development' ? 0 : 'error',
     'no-duplicate-imports': 'error',
     'no-implicit-coercion': 'error',
     'no-undef-init': 'error',
