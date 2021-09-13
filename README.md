@@ -4,6 +4,7 @@ Espressive's Functional Design System
 
 ![CircleCI](https://img.shields.io/circleci/build/gh/Espressive/cascara/main)
 ![David](https://img.shields.io/david/dev/Espressive/cascara)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## Getting Started: End Users
 
@@ -97,3 +98,7 @@ yarn -v
 4. If not... get some help from a teammate on how to update your version of `yarn`
 
 We need to update this soon...
+
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
