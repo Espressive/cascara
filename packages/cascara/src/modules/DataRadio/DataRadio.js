@@ -4,7 +4,7 @@ import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
+import ModuleErrorBoundary from '../ModuleErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -68,7 +68,7 @@ const DataRadio = ({
   );
 
   const renderDisplay = (
-    <ErrorBoundary>
+    <ModuleErrorBoundary>
       <div className={styles.Radio}>
         <span>
           <span className={styles.Input} {...rest}>
@@ -79,7 +79,7 @@ const DataRadio = ({
           )}
         </span>
       </div>
-    </ErrorBoundary>
+    </ModuleErrorBoundary>
   );
 
   // Do not render an editable input if the module is not editable
