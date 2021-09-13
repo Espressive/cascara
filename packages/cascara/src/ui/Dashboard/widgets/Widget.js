@@ -3,7 +3,9 @@ import classnames from 'classnames/bind';
 import pt from 'prop-types';
 import InfoPopover from '../components/InfoPopover';
 import { Button } from 'reakit';
+
 import styles from '../Dashboard.module.scss';
+import WidgetErrorBoundary from '../../../modules/ModuleErrorBoundary';
 
 const cx = classnames.bind(styles);
 
@@ -47,41 +49,43 @@ const Widget = ({
   ...rest
 }) => {
   return (
-    <div
-      className={cx(className, {
-        Widget: true,
-        scrolling: isScrolling,
-      })}
-    >
-      {actions?.map((action, i) => (
-        <Button
-          key={i}
-          {...action}
-          className='ui small basic right floated button'
-        >
-          {action?.content}
-        </Button>
-      ))}
-      {description && (
-        <InfoPopover message={description} style={{ float: 'right' }} />
-      )}
-      <h3 className={styles.Title}>{title}</h3>
+    <WidgetErrorBoundary>
       <div
         className={cx(className, {
-          Data: true,
-          'no-data': isEmpty || isLoading,
+          Widget: true,
+          scrolling: isScrolling,
         })}
-        style={{ height: height }}
       >
-        {isLoading ? (
-          <div className='ui active centered inline loader' />
-        ) : isEmpty ? (
-          <em>No data.</em>
-        ) : (
-          Children.map(children, (child) => cloneElement(child, { ...rest }))
+        {actions?.map((action, i) => (
+          <Button
+            key={i}
+            {...action}
+            className='ui small basic right floated button'
+          >
+            {action?.content}
+          </Button>
+        ))}
+        {description && (
+          <InfoPopover message={description} style={{ float: 'right' }} />
         )}
+        <h3 className={styles.Title}>{title}</h3>
+        <div
+          className={cx(className, {
+            Data: true,
+            'no-data': isEmpty || isLoading,
+          })}
+          style={{ height: height }}
+        >
+          {isLoading ? (
+            <div className='ui active centered inline loader' />
+          ) : isEmpty ? (
+            <em>No data.</em>
+          ) : (
+            Children.map(children, (child) => cloneElement(child, { ...rest }))
+          )}
+        </div>
       </div>
-    </div>
+    </WidgetErrorBoundary>
   );
 };
 
