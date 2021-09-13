@@ -20,7 +20,7 @@ const propTypes = {
 
 const Pagination = ({ totalRecordCount, state }) => {
   // Destructure our state hook values
-  const { currentPage = 1, perPage, setCurrentPage, setPerPage } = state || {};
+  const { currentPage, perPage, setCurrentPage, setPerPage } = state || {};
 
   // determine if it is loading or empty.
   const { isLoading, isEmpty } = getStatusFromDataLength(totalRecordCount);
@@ -42,6 +42,9 @@ const Pagination = ({ totalRecordCount, state }) => {
   // on loading or empty.
   const totalPages =
     isLoading || isEmpty ? 1 : Math.ceil(totalRecordCount / recordsPerPage);
+
+  // Create an array of number indexes that we can iterate over for page options
+  const totalPagesArray = Array(...Array(totalPages)).map((el, i) => i);
 
   const handlePaginationChange = useCallback(
     (e) => {
@@ -116,20 +119,20 @@ const Pagination = ({ totalRecordCount, state }) => {
       <div className='ui form'>
         <div className='inline fields'>
           <div className='field'>
-            <label htmlFor='pagination-totalRecordCount'>Page</label>
+            <label htmlFor='current-page'>Page</label>
             <select
               className='ui dropdown'
               disabled={isLoading || isEmpty || isMissingStateHooks}
-              id='pagination-totalRecordCount'
-              name='pagination-totalRecordCount'
+              id='current-page'
+              name='current-page'
               onBlur={handlePageChange}
               onChange={handlePageChange}
               value={currentPage}
             >
-              {[...Array(totalPages).keys()].map((i) => (
-                // Basically we just create an array of index keys with the length of our pages
-                <option key={i} value={i + 1}>
-                  {i + 1}
+              {totalPagesArray.map((pageIndex) => (
+                // totalPagesArray is an array of numbers generated from the totalPage value
+                <option key={pageIndex} value={pageIndex + 1}>
+                  {pageIndex + 1}
                 </option>
               ))}
             </select>

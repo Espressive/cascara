@@ -1,20 +1,10 @@
-// Placeholders
-export { default as AreaPlaceholder } from './placeholders/AreaPlaceholder';
-export { default as JsonPlaceholder } from './placeholders/JsonPlaceholder';
+// HEADS UP!
+// If we create any additional wildcard exports for a directory, make sure
+// we put a note at the top of the file to warn ourselves that everything
+// in that file is going to get exported.
+export * from './placeholders';
+export * from './structures';
+export * from './ui';
 
-// Structures
-export { default as Admin } from './structures/Admin';
-export { default as AdminStructure } from './structures/AdminStructure';
-export { default as BaristaStructure } from './structures/BaristaStructure';
-
-// UI
+// This is temporary while we figure out where this component should live.
 export { default as Button } from './private/Button';
-export {
-  default as Pagination,
-  propTypes as paginationPropTypes,
-  usePaginationState,
-} from './ui/Pagination';
-export { default as Chat } from './ui/Chat';
-export { default as Dashboard } from './ui/Dashboard';
-export { default as Form, propTypes as formPropTypes } from './ui/Form';
-export { default as Table, propTypes as tablePropTypes } from './ui/Table';
