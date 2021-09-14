@@ -1,1 +1,1 @@
-export { default, propTypes } from './DataDate';
+export { default } from './DataDate';

@@ -4,7 +4,6 @@ import tableStyles from '../ui/Table/Table.module.scss';
 import {
   ActionButton,
   DataCheckbox,
-  DataDate,
   DataEmail,
   DataNumber,
   // DataRadio,
@@ -59,12 +58,6 @@ const ALL_DATA_MODULES = (
     <DataCheckbox label='Checkbox A' value />
     {/* {<DataRadio label='Radio' options={boolOptions} />} */}
     <DataTextArea label='TextArea' value={lorem} />
-    <DataDate
-      label='Date'
-      max={'2021-07-25'}
-      min={'2021-07-23'}
-      value={'2021-07-22'}
-    />
   </>
 );
 

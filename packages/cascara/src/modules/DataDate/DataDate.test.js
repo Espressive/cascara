@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import DateDate from './DataDate';
-import ModuleSandbox from '../ModuleSandbox';
+import { DisplayDataDate } from './DataDate.fixture';
 
-const VALUE = '2021-07-22';
+const VALUE = '2021-07-24';
 
 describe('Input Date', () => {
   // without ModuleSandbox will render the property information into a span
@@ -34,15 +34,11 @@ describe('Input Date', () => {
   describe('editing', () => {
     // specifying ModuleSandbox will have the flag to render our input date field
     const testId = 'default';
-
     beforeEach(() =>
       render(
-        <ModuleSandbox isEditing>
-          <DateDate data-testid={testId} label='Date' value={VALUE} />
-        </ModuleSandbox>
+        <DisplayDataDate data-testid={testId} isEditing value={'2021-07-24'} />
       )
     );
-
     test('renders a <input date> by default', () => {
       const input = screen.getByTestId(testId);
       // Check that we also use the correct type for accessibility
