@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import pt from 'prop-types';
 import { TabList, useTabState } from 'reakit/Tab';
+import Boundaries from '../../system-components/Boundaries';
 
 import Tab from './Tab';
 import TabPanel from './TabPanel';
@@ -37,9 +38,11 @@ const Tabs = ({ tabs, title }) => {
             {title}
           </h4>
         )}
-        {tabs?.map(({ label }) => (
-          <Tab content={label} key={label} tabState={tabState} />
-        ))}
+        <Boundaries>
+          {tabs?.map(({ label }) => (
+            <Tab content={label} key={label} tabState={tabState} />
+          ))}
+        </Boundaries>
       </TabList>
       <Suspense fallback={TAB_FALLBACK}>
         {tabs?.map(({ content, label }) => (

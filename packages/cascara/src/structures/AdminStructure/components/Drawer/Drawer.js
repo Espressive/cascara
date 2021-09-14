@@ -4,6 +4,7 @@ import styles from './Drawer.module.scss';
 import classNames from 'classnames/bind';
 import { useDrawer } from '../../hooks';
 import Loader from '../../../../private/Loader';
+import Boundaries from '../../../../system-components/Boundaries';
 const cx = classNames.bind(styles);
 
 const propTypes = {
@@ -17,18 +18,20 @@ const Drawer = ({ children, header, isLoading = false, ...rest }) => {
   // Instead of using the normal return, we put all of our
   // drawer logic here to go into context
   useDrawer(
-    <div
-      {...props}
-      className={cx(className, {
-        Drawer: true,
-        loading: isLoading,
-      })}
-    >
-      {header && <h3 className={styles.Heading}>{header}</h3>}
-      {children}
+    <Boundaries>
+      <div
+        {...props}
+        className={cx(className, {
+          Drawer: true,
+          loading: isLoading,
+        })}
+      >
+        {header && <h3 className={styles.Heading}>{header}</h3>}
+        {children}
 
-      {isLoading && !children && <Loader />}
-    </div>
+        {isLoading && !children && <Loader />}
+      </div>
+    </Boundaries>
   );
 
   // We do not want the drawer to actually render anything

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import pt from 'prop-types';
 // import styles from './Form.module.scss';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
+import Boundaries from '../../system-components/Boundaries';
 import FormProvider from './context/FormProvider';
 import ModuleError from '../../modules/ModuleError';
 
@@ -126,13 +126,13 @@ const formFields = (display, data) => {
     );
 
     return (
-      <ErrorBoundary key={key}>
+      <Boundaries key={key}>
         {FormModule ? (
           <FormModule {...field}>{renderFields(fields)}</FormModule>
         ) : (
           renderField(field)
         )}
-      </ErrorBoundary>
+      </Boundaries>
     );
   });
 };
@@ -203,7 +203,7 @@ const Form = ({
   }
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       {!isEmpty ? (
         <FormProvider
           value={{
@@ -228,7 +228,7 @@ const Form = ({
       ) : (
         <FormEmpty />
       )}
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

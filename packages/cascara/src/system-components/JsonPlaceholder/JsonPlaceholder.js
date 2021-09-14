@@ -7,7 +7,7 @@ import Loading from '../../private/TemporaryLoading';
 
 const propTypes = {
   /** Accepts a JSON object or array to render */
-  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  data: pt.oneOfType([pt.array, pt.object]),
   /** Display Json details open on mount */
   isInitialOpen: pt.bool,
   /** Display a title for the Json */

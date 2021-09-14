@@ -11,7 +11,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => {
   return (
     <div className='ui tiny error message' role='alert'>
       <div className='header'>Something went wrong:</div>
-      <pre>{error.message}</pre>
+      <pre>{error?.message}</pre>
       <button
         className='ui negative button'
         onClick={resetErrorBoundary}
