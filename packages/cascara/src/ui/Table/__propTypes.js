@@ -62,6 +62,9 @@ export const TABLE_SHAPE = {
   // A function that returns the actions available to the current row
   resolveRecordActions: pt.func,
 
+  // Selection
+  selections: pt.oneOfType([pt.bool, pt.exact({ max: pt.number })]),
+
   // Unique ID Attribute.
   //
   // specifies the attribute that uniquely identifies every object in the 'data' array.

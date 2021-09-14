@@ -2,24 +2,18 @@ import React, { useCallback, useContext } from 'react';
 import pt from 'prop-types';
 
 import CheckBox from './Checkbox';
-import TableContext from '../context/TableContext';
+import { ModuleContext } from '../../../modules/context';
 
 const propTypes = {
   id: pt.string,
 };
 
 const SelectionToggle = ({ id }) => {
-  const {
-    addToSelection,
-    clearSelection,
-    idsInData,
-    removeFromSelection,
-    selectAll,
-    selection,
-  } = useContext(TableContext);
+  const { clearSelection, select, selectAll, selection, recordIDs, unselect } =
+    useContext(ModuleContext);
 
   const selectedItemsCount = selection.length;
-  const availableItemsCount = idsInData.length;
+  const availableItemsCount = recordIDs.length;
   const allItemsSelected = selectedItemsCount === availableItemsCount;
   const someItemsSelected = selection.length >= 1;
 
@@ -36,13 +30,13 @@ const SelectionToggle = ({ id }) => {
         }
       } else {
         if (selection.includes(name)) {
-          removeFromSelection(name);
+          unselect(name);
         } else {
-          addToSelection(name);
+          select(name);
         }
       }
     },
-    [selectAll, clearSelection, removeFromSelection, addToSelection, selection]
+    [selectAll, clearSelection, selection, unselect, select]
   );
 
   return (

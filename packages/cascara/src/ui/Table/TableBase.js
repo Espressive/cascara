@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useCallback, useMemo, useReducer } from 'react';
 // import pt from 'prop-types';
 import styles from './Table.module.scss';
 import { TABLE_SHAPE } from './__propTypes';
 import TableProvider from './context/TableProvider';
+
+import selectionReducer, {
+  CLEAR,
+  SELECT,
+  UNSELECT,
+} from './state/selectionReducer';
 
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
@@ -55,9 +61,75 @@ const TableBase = ({
   dataConfig,
   dataDisplay,
   onAction,
+  selections,
   uniqueIdAttribute,
   ...rest
 }) => {
+  // Row selection
+  const isRowSelectable = Boolean(selections);
+  const maxSelection = isRowSelectable ? selections?.max || 0 : 0;
+  const [selection, updateSelection] = useReducer(selectionReducer, []);
+
+  // get a list of record IDs
+  const recordIDs = useMemo(
+    () =>
+      data && uniqueIdAttribute
+        ? data.map((record) => record[uniqueIdAttribute])
+        : [],
+    [data, uniqueIdAttribute]
+  );
+
+  /**
+   * Select row(s)
+   *
+   * @param {String|Array[String]} rowID
+   */
+  const select = useCallback(
+    (rowID) => {
+      updateSelection({
+        payload: rowID,
+        type: SELECT,
+      });
+
+      onAction &&
+        onAction({ name: 'select', selection: [...selection, rowID] });
+    },
+    [onAction, selection]
+  );
+
+  /**
+   * Unselect row(s)
+   *
+   * @param {String|Array[String]} rowID
+   */
+  const unselect = useCallback(
+    (rowID) => {
+      updateSelection({
+        payload: rowID,
+        type: UNSELECT,
+      });
+
+      onAction &&
+        onAction({ name: 'unselect', selection: [...selection, rowID] });
+    },
+    [onAction, selection]
+  );
+
+  const clearSelection = useCallback(() => {
+    updateSelection({ type: CLEAR });
+
+    onAction && onAction({ name: 'selection.clear' });
+  }, [onAction]);
+
+  const selectAll = useCallback(() => {
+    updateSelection({
+      payload: recordIDs,
+      type: SELECT,
+    });
+
+    onAction && onAction({ name: 'selection.all', selection: recordIDs });
+  }, [onAction, recordIDs]);
+
   // TODO: When we officially deprecate dataDisplay, the second or case can go away
   const display =
     dataDisplay ||
@@ -110,16 +182,28 @@ const TableBase = ({
     columnCount++;
   }
 
+  if (isRowSelectable) {
+    columnCount++;
+  }
+
   return (
     <TableProvider
       value={{
         actionButtonMenuIndex,
+        clearSelection,
         data,
         dataDisplay: display,
+        isRowSelectable,
+        maxSelection,
         modules,
         onAction,
+        recordIDs,
         resolveRecordActions,
+        select,
+        selectAll,
+        selection,
         uniqueIdAttribute: uniqueID,
+        unselect,
       }}
       {...rest}
     >
