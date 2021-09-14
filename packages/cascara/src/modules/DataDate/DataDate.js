@@ -15,8 +15,6 @@ const propTypes = {
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
-  max: pt.string,
-  min: pt.string,
   /** A Module can have a value */
   value: pt.string,
 };
@@ -26,8 +24,6 @@ const DataDate = ({
   isEditable = true,
   isLabeled = true,
   label,
-  max,
-  min,
   value,
   ...rest
 }) => {

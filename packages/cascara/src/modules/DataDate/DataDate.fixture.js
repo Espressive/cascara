@@ -28,7 +28,7 @@ const DataDateModule = () => {
 
       <div>
         <h2>Display</h2>
-        <DisplayDataDate isEditing={false} value={'2021-07-24'} />
+        <DisplayDataDate value={'2021-07-24'} />
       </div>
 
       <div>
