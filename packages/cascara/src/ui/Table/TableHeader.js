@@ -8,7 +8,8 @@ import SelectionToggle from './atoms/SelectionToggle';
 const TableHeader = () => {
   // FDS-164: table header not adding an extra column for actions
   // when new prop actions is passed.
-  const { dataDisplay, isRowSelectable, modules } = useContext(ModuleContext);
+  const { dataDisplay, isSelectAll, isRowSelectable, maxSelection, modules } =
+    useContext(ModuleContext);
   const headerCells =
     dataDisplay?.map((column) => (
       <th className={styles.HeadCell} key={column.attribute}>
@@ -25,7 +26,7 @@ const TableHeader = () => {
   if (isRowSelectable) {
     newHeaderCells.unshift(
       <th className={styles.HeadCell} key={'selection-toggle-slot'}>
-        <SelectionToggle id={'__ALL__'} />
+        {!maxSelection && isSelectAll && <SelectionToggle id={'__ALL__'} />}
       </th>
     );
   }

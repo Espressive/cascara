@@ -63,7 +63,13 @@ export const TABLE_SHAPE = {
   resolveRecordActions: pt.func,
 
   // Selection
-  selections: pt.oneOfType([pt.bool, pt.exact({ max: pt.number })]),
+  selections: pt.oneOfType([
+    pt.bool,
+    pt.shape({
+      UNSAFE_isSelectAll: pt.bool,
+      max: pt.number,
+    }),
+  ]),
 
   // Unique ID Attribute.
   //

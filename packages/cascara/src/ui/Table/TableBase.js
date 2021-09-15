@@ -68,6 +68,10 @@ const TableBase = ({
   // Row selection
   const isRowSelectable = Boolean(selections);
   const maxSelection = isRowSelectable ? selections?.max || 0 : 0;
+
+  // Select all is not available when a max selection is greater than 0
+  const isSelectAll = !maxSelection && selections?.UNSAFE_isSelectAll;
+
   const [selection, updateSelection] = useReducer(selectionReducer, []);
 
   // get a list of record IDs
@@ -86,15 +90,17 @@ const TableBase = ({
    */
   const select = useCallback(
     (rowID) => {
-      updateSelection({
-        payload: rowID,
-        type: SELECT,
-      });
+      if (isRowSelectable && maxSelection && selection.length < maxSelection) {
+        updateSelection({
+          payload: rowID,
+          type: SELECT,
+        });
 
-      onAction &&
-        onAction({ name: 'select', selection: [...selection, rowID] });
+        onAction &&
+          onAction({ name: 'select', selection: [...selection, rowID] });
+      }
     },
-    [onAction, selection]
+    [isRowSelectable, maxSelection, onAction, selection]
   );
 
   /**
@@ -122,13 +128,15 @@ const TableBase = ({
   }, [onAction]);
 
   const selectAll = useCallback(() => {
-    updateSelection({
-      payload: recordIDs,
-      type: SELECT,
-    });
+    if (!maxSelection && isSelectAll) {
+      updateSelection({
+        payload: recordIDs,
+        type: SELECT,
+      });
 
-    onAction && onAction({ name: 'selection.all', selection: recordIDs });
-  }, [onAction, recordIDs]);
+      onAction && onAction({ name: 'selection.all', selection: recordIDs });
+    }
+  }, [isSelectAll, maxSelection, onAction, recordIDs]);
 
   // TODO: When we officially deprecate dataDisplay, the second or case can go away
   const display =
@@ -194,6 +202,7 @@ const TableBase = ({
         data,
         dataDisplay: display,
         isRowSelectable,
+        isSelectAll,
         maxSelection,
         modules,
         onAction,

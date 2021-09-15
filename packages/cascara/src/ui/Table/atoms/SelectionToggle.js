@@ -41,7 +41,7 @@ const SelectionToggle = ({ id }) => {
 
   return (
     <CheckBox
-      checked={checked ? 1 : 0}
+      checked={checked}
       indeterminate={indeterminate}
       name={id}
       onChange={handleSelectionToggle}
