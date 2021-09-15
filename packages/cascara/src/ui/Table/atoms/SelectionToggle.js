@@ -9,43 +9,22 @@ const propTypes = {
 };
 
 const SelectionToggle = ({ id }) => {
-  const { clearSelection, select, selectAll, selection, recordIDs, unselect } =
-    useContext(ModuleContext);
-
-  const selectedItemsCount = selection.length;
-  const availableItemsCount = recordIDs.length;
-  const allItemsSelected = selectedItemsCount === availableItemsCount;
-  const someItemsSelected = selection.length >= 1;
-
-  const checked = id !== '__ALL__' ? selection.includes(id) : someItemsSelected;
-  const indeterminate = id ? false : !allItemsSelected;
+  const { select, selection, unselect } = useContext(ModuleContext);
+  const checked = selection.includes(id);
 
   const handleSelectionToggle = useCallback(
-    ({ checked, name }) => {
-      if (name === '__ALL__') {
-        if (checked) {
-          selectAll();
-        } else {
-          clearSelection();
-        }
+    ({ name }) => {
+      if (selection.includes(name)) {
+        unselect(name);
       } else {
-        if (selection.includes(name)) {
-          unselect(name);
-        } else {
-          select(name);
-        }
+        select(name);
       }
     },
-    [selectAll, clearSelection, selection, unselect, select]
+    [selection, unselect, select]
   );
 
   return (
-    <CheckBox
-      checked={checked}
-      indeterminate={indeterminate}
-      name={id}
-      onChange={handleSelectionToggle}
-    />
+    <CheckBox checked={checked} name={id} onChange={handleSelectionToggle} />
   );
 };
 

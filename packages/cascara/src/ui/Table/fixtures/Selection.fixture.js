@@ -20,45 +20,6 @@ const DataWithDisplay = ({ title, description, ...fixtureProps }) => (
 );
 
 export default {
-  withLimitedSelection: (
-    <DataWithDisplay
-      actions={ACTIONS}
-      data={results}
-      dataDisplay={COLUMNS}
-      description='Selection can be limited to a given number of records'
-      onAction={console.log}
-      selections={{ max: 2 }}
-      title='Limited Selection'
-      uniqueIdAttribute='eid'
-    />
-  ),
-
-  withAllSelection: (
-    <DataWithDisplay
-      actions={ACTIONS}
-      data={results}
-      dataDisplay={COLUMNS}
-      description='Selection can be applied to ALL records'
-      onAction={console.log}
-      selections={{ UNSAFE_isSelectAll: true }}
-      title='ALL selection'
-      uniqueIdAttribute='eid'
-    />
-  ),
-
-  withAllAndMaxSelection: (
-    <DataWithDisplay
-      actions={ACTIONS}
-      data={results}
-      dataDisplay={COLUMNS}
-      description='When All and LIMITED selection are combined, LIMITED prevails'
-      onAction={console.log}
-      selections={{ UNSAFE_isSelectAll: true, max: 2 }}
-      title='All and LIMITED selection'
-      uniqueIdAttribute='eid'
-    />
-  ),
-
   withSelection: (
     <DataWithDisplay
       actions={ACTIONS}
@@ -68,6 +29,18 @@ export default {
       onAction={console.log}
       selections
       title='Regular selection'
+      uniqueIdAttribute='eid'
+    />
+  ),
+  withLimitedSelection: (
+    <DataWithDisplay
+      actions={ACTIONS}
+      data={results}
+      dataDisplay={COLUMNS}
+      description='Selection can be limited to a given number of records'
+      onAction={console.log}
+      selections={{ max: 2 }}
+      title='Limited Selection'
       uniqueIdAttribute='eid'
     />
   ),

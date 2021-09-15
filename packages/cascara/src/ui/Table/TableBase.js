@@ -4,11 +4,7 @@ import styles from './Table.module.scss';
 import { TABLE_SHAPE } from './__propTypes';
 import TableProvider from './context/TableProvider';
 
-import selectionReducer, {
-  CLEAR,
-  SELECT,
-  UNSELECT,
-} from './state/selectionReducer';
+import selectionReducer, { SELECT, UNSELECT } from './state/selectionReducer';
 
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
@@ -68,10 +64,6 @@ const TableBase = ({
   // Row selection
   const isRowSelectable = Boolean(selections);
   const maxSelection = isRowSelectable ? selections?.max || 0 : 0;
-
-  // Select all is not available when a max selection is greater than 0
-  const isSelectAll = !maxSelection && selections?.UNSAFE_isSelectAll;
-
   const [selection, updateSelection] = useReducer(selectionReducer, []);
 
   // get a list of record IDs
@@ -90,17 +82,19 @@ const TableBase = ({
    */
   const select = useCallback(
     (rowID) => {
-      if (isRowSelectable && maxSelection && selection.length < maxSelection) {
-        updateSelection({
-          payload: rowID,
-          type: SELECT,
-        });
-
-        onAction &&
-          onAction({ name: 'select', selection: [...selection, rowID] });
+      if (maxSelection && selection.length >= maxSelection) {
+        return;
       }
+
+      updateSelection({
+        payload: rowID,
+        type: SELECT,
+      });
+
+      onAction &&
+        onAction({ name: 'select', selection: [...selection, rowID] });
     },
-    [isRowSelectable, maxSelection, onAction, selection]
+    [maxSelection, onAction, selection]
   );
 
   /**
@@ -120,23 +114,6 @@ const TableBase = ({
     },
     [onAction, selection]
   );
-
-  const clearSelection = useCallback(() => {
-    updateSelection({ type: CLEAR });
-
-    onAction && onAction({ name: 'selection.clear' });
-  }, [onAction]);
-
-  const selectAll = useCallback(() => {
-    if (!maxSelection && isSelectAll) {
-      updateSelection({
-        payload: recordIDs,
-        type: SELECT,
-      });
-
-      onAction && onAction({ name: 'selection.all', selection: recordIDs });
-    }
-  }, [isSelectAll, maxSelection, onAction, recordIDs]);
 
   // TODO: When we officially deprecate dataDisplay, the second or case can go away
   const display =
@@ -198,18 +175,15 @@ const TableBase = ({
     <TableProvider
       value={{
         actionButtonMenuIndex,
-        clearSelection,
         data,
         dataDisplay: display,
         isRowSelectable,
-        isSelectAll,
         maxSelection,
         modules,
         onAction,
         recordIDs,
         resolveRecordActions,
         select,
-        selectAll,
         selection,
         uniqueIdAttribute: uniqueID,
         unselect,

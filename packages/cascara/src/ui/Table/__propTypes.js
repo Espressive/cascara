@@ -65,8 +65,7 @@ export const TABLE_SHAPE = {
   // Selection
   selections: pt.oneOfType([
     pt.bool,
-    pt.shape({
-      UNSAFE_isSelectAll: pt.bool,
+    pt.exact({
       max: pt.number,
     }),
   ]),
