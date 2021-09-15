@@ -1,0 +1,29 @@
+---
+title: Data Image
+propTable: ./DataImage.js
+type: 'module'
+public: false
+---
+
+A data module to display an input **image** field
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    firstName: 'John',
+    lastName: 'Doe',
+  }}
+>
+  <DataImage
+    attribute='firstName'
+    alt='My Text'
+    src='/media/examples/login-button.png'
+  />
+</ModuleSandbox>
+```

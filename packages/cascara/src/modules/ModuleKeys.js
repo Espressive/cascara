@@ -11,6 +11,7 @@ import DataRadio from './DataRadio';
 import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
+import DataImage from './DataImage';
 
 const actionModules = {
   button: ActionButton,
@@ -21,6 +22,7 @@ const dataModules = {
   // switch: DataCheckbox,
   checkbox: DataCheckbox,
   email: DataEmail,
+  image: DataImage,
   json: DataJson,
   number: DataNumber,
   radio: DataRadio,
