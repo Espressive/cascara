@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Date default renders without any props 1`] = `
+<div>
+  <div
+    class="Email"
+  >
+    <span>
+      <span
+        class="Input"
+        data-testid="default"
+      />
+    </span>
+  </div>
+</div>
+`;
