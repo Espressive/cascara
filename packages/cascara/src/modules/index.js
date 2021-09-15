@@ -12,3 +12,4 @@ export { default as DataText } from './DataText';
 export { default as DataTextArea } from './DataTextArea';
 export { default as ModuleError } from './ModuleError';
 export { default as ModuleSandbox } from './ModuleSandbox';
+export { default as DataDate } from './DataDate';
