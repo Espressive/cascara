@@ -2449,6 +2449,7 @@ __metadata:
     memoize-one: 5.2.1
     mutationobserver-shim: 0.3.7
     prop-types: 15.7.2
+    ramda: 0.27.1
     react-error-boundary: 3.1.3
     react-fast-compare: 3.2.0
     react-hook-form: 6.8.4
@@ -20703,6 +20704,13 @@ fsevents@~2.1.2:
   dependencies:
     performance-now: ^2.1.0
   checksum: 50ba284e481c8185dbcf45fc4618ba3aec580bb50c9121385d5698cb6012fe516d2015b1df6dd407a7b7c58d44be8086108236affbce1861edd6b44637c8cd52
+  languageName: node
+  linkType: hard
+
+"ramda@npm:0.27.1":
+  version: 0.27.1
+  resolution: "ramda@npm:0.27.1"
+  checksum: 31a0c0ef739b2525d7615f84cbb5d3cb89ee0c795469b711f729ea1d8df0dccc3cd75d3717a1e9742d42315ce86435680b7c87743eb7618111c60c144a5b8059
   languageName: node
   linkType: hard
 

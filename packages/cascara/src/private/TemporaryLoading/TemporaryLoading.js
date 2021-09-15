@@ -1,13 +1,21 @@
 import React from 'react';
+import pt from 'prop-types';
 
-const propTypes = {};
+const propTypes = {
+  isMinimal: pt.bool,
+};
 
-const TemporaryLoading = () => (
-  <div className='ui segment' style={{ height: '10em' }}>
-    <div className='ui active inverted dimmer'>
-      <div className='ui text loader'>Loading</div>
-    </div>
-  </div>
+const TemporaryLoading = ({ isMinimal }) => (
+  <div
+    className={isMinimal ? 'ui loading basic segment' : 'ui loading segment'}
+    style={
+      isMinimal
+        ? {
+            height: '4em',
+          }
+        : { height: '10em' }
+    }
+  />
 );
 
 TemporaryLoading.propTypes = propTypes;

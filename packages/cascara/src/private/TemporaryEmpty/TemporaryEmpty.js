@@ -1,16 +1,15 @@
 import React from 'react';
+import pt from 'prop-types';
 
-const propTypes = {};
-
-const temporaryEmptyStyles = {
-  alignItems: 'center',
-  display: 'flex',
-  height: '10em',
-  justifyContent: 'center',
+const propTypes = {
+  isMinimal: pt.bool,
 };
 
-const TemporaryEmpty = () => (
-  <div className='ui placeholder segment' style={temporaryEmptyStyles}>
+const TemporaryEmpty = ({ isMinimal }) => (
+  <div
+    className={isMinimal ? 'ui basic segment' : 'ui segment'}
+    style={isMinimal ? {} : { height: '10em' }}
+  >
     <em>No data...</em>
   </div>
 );
