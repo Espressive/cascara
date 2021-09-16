@@ -78,7 +78,6 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          cache-path: ./.yarn/cache
           override-ci-command: yarn install --immutable
           pkg-manager: yarn
       - run:
