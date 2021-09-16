@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import styles from './Table.module.scss';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
 import { ModuleContext } from '../../modules/context';
+import ErrorBoundary from '../../private/ErrorBoundary';
 
 const TableHeader = () => {
   // FDS-164: table header not adding an extra column for actions
   // when new prop actions is passed.
-  const { modules, dataDisplay } = useContext(ModuleContext);
+  const { dataDisplay, isRowSelectable, modules } = useContext(ModuleContext);
   const headerCells =
     dataDisplay?.map((column) => (
       <th className={styles.HeadCell} key={column.attribute}>
@@ -20,6 +20,12 @@ const TableHeader = () => {
     : [];
 
   const newHeaderCells = [...headerCells, ...actionBarSpacer];
+
+  if (isRowSelectable) {
+    newHeaderCells.unshift(
+      <th className={styles.HeadCell} key={'selection-toggle-slot'} />
+    );
+  }
 
   return (
     <ErrorBoundary>
