@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 
 import TableBase from './TableBase';
 import TableLoading from '../../private/TemporaryLoading';
@@ -17,7 +17,7 @@ const Table = (props) => {
     // 1. if data is undefined or null, render a loading state
     // 2. if data is an empty array, render an empty results message
     // 3. render the table data
-    <ErrorBoundary>
+    <Boundaries>
       {data ? (
         data.length > 0 ? (
           // This is all of the logic that previously existed in this component.
@@ -33,7 +33,7 @@ const Table = (props) => {
         // This is a temporary loading style. We will eventually define a loading style using the shape of modules.
         <TableLoading />
       )}
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 
