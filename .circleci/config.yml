@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.0.1
-  slack: circleci/slack@4.3.1
+  slack: circleci/slack@4.4.4
 
 parameters:
   installed-key:
@@ -159,6 +159,46 @@ jobs:
           steps:
             - lerna-version
 
+  publish:
+    <<: *job_executor
+    steps:
+      - restore_cache:
+          key: << pipeline.parameters.installed-key >>
+      - add_ssh_keys:
+          fingerprints:
+            - $GITHUB_PACKAGE_DEPLOY_FINGERPRINT
+      - run:
+          name: Set Up Git config
+          command: |
+            git config --global -l
+            git config --global user.email circleci@circleci
+            git config --global user.name CircleCI
+      - when:
+          condition: *is_main
+          steps:
+            - run:
+                name: Exit Prerelease
+                command: |
+                  yarn changeset pre exit
+      - when:
+          condition: *is_develop
+          steps:
+            - run:
+                name: Enter Prerelease
+                command: |
+                  yarn changeset pre enter alpha
+      - run:
+          name: Bump Package Versions
+          command: |
+            yarn changeset version
+            git add .
+            git commit -m "Publish New Package Versions"
+      - run:
+          name: Publish Packages
+          command: |
+            yarn changeset publish
+            git push --follow-tags
+
   publish-packages:
     <<: *job_executor
     steps:
@@ -216,6 +256,18 @@ workflows:
       - build-cosmos:
           <<: *post_steps
           <<: *requires_tests
+      - publish:
+          <<: *filter_main_and_dev
+          post-steps:
+            - slack/notify:
+                event: fail
+                template: basic_fail_1
+            - slack/notify:
+                event: pass
+                template: success_tagged_deploy_1
+          requires:
+            - build-cascara
+            - build-cosmos
       # - bump-packages:
       #     <<: *filter_main_and_dev
       #     <<: *post_steps
