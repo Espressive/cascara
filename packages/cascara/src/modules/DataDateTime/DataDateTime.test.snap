@@ -1,15 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input Date Time default renders without any props 1`] = `
+exports[`Input Date Time display renders without any props 1`] = `
 <div>
   <div
     class="Text"
   >
     <span>
       <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
         class="Input"
-        data-testid="default"
-      />
+      >
+        2018-06-12T19:30
+      </span>
     </span>
   </div>
 </div>

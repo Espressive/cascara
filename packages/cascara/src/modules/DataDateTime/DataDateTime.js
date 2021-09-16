@@ -34,7 +34,6 @@ const DataDateTime = ({
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
-        aria-label={label}
         className={styles.Input}
         defaultValue={value}
         id={label}
@@ -48,7 +47,7 @@ const DataDateTime = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.Input} {...rest}>
         {value}
       </span>
     </span>
