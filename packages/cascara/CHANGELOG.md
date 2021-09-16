@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.4.2-alpha.45
+
+### Patch Changes
+
+- Adding support for changesets
+- Updated dependencies [undefined]
+  - @espressive/design-tokens@0.1.3-alpha.4
+  - @espressive/icons@0.0.2-alpha.6
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

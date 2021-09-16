@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.4-alpha.0
+
+### Patch Changes
+
+- Adding support for changesets
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

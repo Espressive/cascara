@@ -16,6 +16,7 @@
   "scripts": {
     "babel-preset": "yarn workspace @espressive/babel-preset-espressive",
     "cascara": "yarn workspace @espressive/cascara",
+    "changeset": "changeset",
     "cosmos:build": "FAST_REFRESH=false cosmos-export --config .cosmos/config.json",
     "cosmos": "FAST_REFRESH=false cosmos --config .cosmos/config.json",
     "docs": "yarn workspace docs",
