@@ -2637,13 +2637,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/cascara@workspace:*, @espressive/cascara@workspace:packages/cascara":
+"@espressive/cascara@workspace:0.4.2-alpha.44, @espressive/cascara@workspace:packages/cascara":
   version: 0.0.0-use.local
   resolution: "@espressive/cascara@workspace:packages/cascara"
   dependencies:
     "@babel/runtime": 7.14.0
-    "@espressive/icons": "workspace:*"
-    "@espressive/legacy-css": "*"
+    "@espressive/icons": "workspace:0.0.2-alpha.5"
+    "@espressive/legacy-css": "workspace:2.0.5"
     "@iconify-icons/ic": 1.1.5
     "@iconify/react": 1.1.4
     "@nivo/bar": 0.67.0
@@ -2676,7 +2676,7 @@ __metadata:
     rollup-plugin-postcss: 4.0.0
     semantic-ui-react: 2.0.3
   peerDependencies:
-    "@espressive/design-tokens": ">=0.1.2"
+    "@espressive/design-tokens": "*"
     "@fluentui/react-northstar": ">=0.57.0"
     "@types/react": ^16.8.0
     "@types/react-dom": ^16.8.0
@@ -2685,7 +2685,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/design-tokens@workspace:*, @espressive/design-tokens@workspace:packages/design-tokens":
+"@espressive/design-tokens@workspace:0.1.3-alpha.3, @espressive/design-tokens@workspace:packages/design-tokens":
   version: 0.0.0-use.local
   resolution: "@espressive/design-tokens@workspace:packages/design-tokens"
   dependencies:
@@ -2717,7 +2717,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/icons@workspace:*, @espressive/icons@workspace:packages/icons":
+"@espressive/icons@workspace:0.0.2-alpha.5, @espressive/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@espressive/icons@workspace:packages/icons"
   dependencies:
@@ -2725,7 +2725,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/legacy-css@*, @espressive/legacy-css@workspace:*, @espressive/legacy-css@workspace:utils/legacy-css":
+"@espressive/legacy-css@workspace:*, @espressive/legacy-css@workspace:2.0.5, @espressive/legacy-css@workspace:utils/legacy-css":
   version: 0.0.0-use.local
   resolution: "@espressive/legacy-css@workspace:utils/legacy-css"
   languageName: unknown
@@ -10673,8 +10673,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:docs"
   dependencies:
-    "@espressive/cascara": "workspace:*"
-    "@espressive/design-tokens": "workspace:*"
+    "@espressive/cascara": "workspace:0.4.2-alpha.44"
+    "@espressive/design-tokens": "workspace:0.1.3-alpha.3"
     "@espressive/legacy-css": "workspace:*"
     "@fluentui/react-northstar": 0.57.0
     current-git-branch: 1.1.0
