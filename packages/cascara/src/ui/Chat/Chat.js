@@ -8,7 +8,7 @@ import {
 import ChatProvider from './ChatProvider';
 import { getMessageAuthorDetails, getMessageGroup } from './utils';
 import messageTypes from './messageTypes';
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 import { loadingMessages, loadingTheme } from './loadingState';
 
 const propTypes = {
@@ -110,13 +110,13 @@ const Chat = ({ sessionUserID, messages, users }) => {
   };
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <Provider
         theme={messages ? { animations } : { animations, ...loadingTheme }}
       >
         <FUIChat items={items} />
       </Provider>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 
