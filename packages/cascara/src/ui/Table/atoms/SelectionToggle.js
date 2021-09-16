@@ -9,18 +9,18 @@ const propTypes = {
 };
 
 const SelectionToggle = ({ id }) => {
-  const { select, selection, unselect } = useContext(ModuleContext);
+  const { rowSelect, selection, rowUnselect } = useContext(ModuleContext);
   const checked = selection.includes(id);
 
   const handleSelectionToggle = useCallback(
     ({ name }) => {
       if (selection.includes(name)) {
-        unselect(name);
+        rowUnselect(name);
       } else {
-        select(name);
+        rowSelect(name);
       }
     },
-    [selection, unselect, select]
+    [selection, rowUnselect, rowSelect]
   );
 
   return (

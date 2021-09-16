@@ -80,7 +80,7 @@ const TableBase = ({
    *
    * @param {String|Array[String]} rowID
    */
-  const select = useCallback(
+  const rowSelect = useCallback(
     (rowID) => {
       if (maxSelection && selection.length >= maxSelection) {
         return;
@@ -102,7 +102,7 @@ const TableBase = ({
    *
    * @param {String|Array[String]} rowID
    */
-  const unselect = useCallback(
+  const rowUnselect = useCallback(
     (rowID) => {
       updateSelection({
         payload: rowID,
@@ -183,10 +183,10 @@ const TableBase = ({
         onAction,
         recordIDs,
         resolveRecordActions,
-        select,
+        rowSelect,
+        rowUnselect,
         selection,
         uniqueIdAttribute: uniqueID,
-        unselect,
       }}
       {...rest}
     >
