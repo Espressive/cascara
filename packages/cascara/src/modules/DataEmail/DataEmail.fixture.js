@@ -8,7 +8,7 @@ const DisplayDataEmail = ({ isEditing, value, ...rest }) => (
   </ModuleSandbox>
 );
 
-const emailValue = 'me@email';
+const emailValue = 'me@email.com';
 const DataEmailModule = () => {
   return (
     <>
