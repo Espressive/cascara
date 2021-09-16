@@ -13,6 +13,7 @@ import DataText from './DataText';
 import DataTextArea from './DataTextArea';
 import DataImage from './DataImage';
 import DataDate from './DataDate';
+import DataMonth from './DataMonth';
 
 const actionModules = {
   button: ActionButton,
@@ -26,6 +27,7 @@ const dataModules = {
   email: DataEmail,
   image: DataImage,
   json: DataJson,
+  month: DataMonth,
   number: DataNumber,
   radio: DataRadio,
   select: DataSelect,
