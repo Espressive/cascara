@@ -12,6 +12,7 @@ import ActionsMenu from '../../private/ActionsMenu';
 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
 
 import ModuleError from '../../modules/ModuleError';
+import SelectionToggle from './atoms/SelectionToggle';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 
@@ -37,6 +38,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   const {
     resolveRecordActions,
     actionButtonMenuIndex = 0,
+    isRowSelectable,
     modules: userDefinedModules = [],
   } = useContext(ModuleContext);
 
@@ -100,6 +102,14 @@ const TableRow = ({ config = {}, record = {} }) => {
 
   if (userDefinedModules.length) {
     rowCells.push(rowActions);
+  }
+
+  if (isRowSelectable) {
+    rowCells.unshift(
+      <td className={styles.HeadCell} key={`selection-toggle-${id}`}>
+        <SelectionToggle id={id} />
+      </td>
+    );
   }
 
   return (
