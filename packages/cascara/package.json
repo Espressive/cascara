@@ -16,7 +16,7 @@
     "private"
   ],
   "scripts": {
-    "roll": "rollup -c",
+    "roll": "rollup -c --failAfterWarnings",
     "build": "yarn clean && yarn roll",
     "clean": "rm -rf dist && rm -rf undefined",
     "prepare": "yarn build",
