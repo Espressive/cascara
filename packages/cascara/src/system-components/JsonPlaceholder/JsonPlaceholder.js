@@ -28,7 +28,7 @@ const JsonPlaceholder = ({
 
   const { isEmpty, isLoading } = getStatusFromDataLength(records);
 
-  return !isEmpty ? (
+  return (
     <details
       {...rest}
       className={
@@ -37,16 +37,16 @@ const JsonPlaceholder = ({
       open={isInitialOpen}
     >
       <summary className={styles.Summary}>{title}</summary>
-      {!isLoading ? (
+      {isLoading ? (
+        <Loading isMinimal />
+      ) : isEmpty ? (
+        <Empty isMinimal />
+      ) : (
         <pre className={styles.Pre}>
           <code>{JSON.stringify(data, null, '  ')}</code>
         </pre>
-      ) : (
-        <Loading />
       )}
     </details>
-  ) : (
-    <Empty />
   );
 };
 

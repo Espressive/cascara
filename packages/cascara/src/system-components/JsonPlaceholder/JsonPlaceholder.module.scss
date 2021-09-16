@@ -4,6 +4,14 @@
 
   border-radius: 0.5em;
 
+  :global(.ui.segment) {
+    margin-top: 0;
+
+    &:global(.loading):before {
+      display: none;
+    }
+  }
+
   & > * {
     padding: 1em;
     margin: 0;
