@@ -2,56 +2,29 @@ import React, { useCallback, useContext } from 'react';
 import pt from 'prop-types';
 
 import CheckBox from './Checkbox';
-import TableContext from '../context/TableContext';
+import { ModuleContext } from '../../../modules/context';
 
 const propTypes = {
   id: pt.string,
 };
 
 const SelectionToggle = ({ id }) => {
-  const {
-    addToSelection,
-    clearSelection,
-    idsInData,
-    removeFromSelection,
-    selectAll,
-    selection,
-  } = useContext(TableContext);
-
-  const selectedItemsCount = selection.length;
-  const availableItemsCount = idsInData.length;
-  const allItemsSelected = selectedItemsCount === availableItemsCount;
-  const someItemsSelected = selection.length >= 1;
-
-  const checked = id !== '__ALL__' ? selection.includes(id) : someItemsSelected;
-  const indeterminate = id ? false : !allItemsSelected;
+  const { rowSelect, selection, rowUnselect } = useContext(ModuleContext);
+  const checked = selection.includes(id);
 
   const handleSelectionToggle = useCallback(
-    ({ checked, name }) => {
-      if (name === '__ALL__') {
-        if (checked) {
-          selectAll();
-        } else {
-          clearSelection();
-        }
+    ({ name }) => {
+      if (selection.includes(name)) {
+        rowUnselect(name);
       } else {
-        if (selection.includes(name)) {
-          removeFromSelection(name);
-        } else {
-          addToSelection(name);
-        }
+        rowSelect(name);
       }
     },
-    [selectAll, clearSelection, removeFromSelection, addToSelection, selection]
+    [selection, rowUnselect, rowSelect]
   );
 
   return (
-    <CheckBox
-      checked={checked ? 1 : 0}
-      indeterminate={indeterminate}
-      name={id}
-      onChange={handleSelectionToggle}
-    />
+    <CheckBox checked={checked} name={id} onChange={handleSelectionToggle} />
   );
 };
 
