@@ -1,10 +1,16 @@
 import React from 'react';
-import DataImage from './DataImage';
+import DataDate from './DataDate';
 import ModuleSandbox from '../ModuleSandbox';
 
-const DisplayDataImage = ({ isEditing, value, ...rest }) => (
+const DisplayDataDate = ({ isEditing, value, ...rest }) => (
   <ModuleSandbox isEditing={isEditing}>
-    <DataImage {...rest} label='My button' />
+    <DataDate
+      {...rest}
+      label='Date'
+      max={'2021-07-25'}
+      min={'2021-07-23'}
+      value={value}
+    />
   </ModuleSandbox>
 );
 
@@ -22,25 +28,16 @@ const DataDateModule = () => {
 
       <div>
         <h2>Display</h2>
-        <p>Button will not be displayed</p>
-        <DisplayDataImage />
+        <DisplayDataDate value={'2021-07-24'} />
       </div>
 
       <div>
         <h2>Editing</h2>
-        <p>
-          <code>src:</code> Path of the image
-          <code> alt:</code> Button text name
-        </p>
-        <DisplayDataImage
-          alt='example'
-          isEditing
-          src='/media/examples/my-button.png'
-        />
+        <DisplayDataDate isEditing value={'2021-07-24'} />
       </div>
     </>
   );
 };
 
-export { DisplayDataImage };
+export { DisplayDataDate };
 export default <DataDateModule />;
