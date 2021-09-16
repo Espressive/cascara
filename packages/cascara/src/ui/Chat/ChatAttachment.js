@@ -8,7 +8,7 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 
 import { bytesToSize, getSharedMessageKeys, validateMessageObj } from './utils';
 
@@ -86,7 +86,7 @@ const ChatAttachment = ({
   );
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <Animation name='chatMessage'>
         <FUIChat.Message
           author={authorName}
@@ -95,7 +95,7 @@ const ChatAttachment = ({
           timestamp={timestamp}
         />
       </Animation>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

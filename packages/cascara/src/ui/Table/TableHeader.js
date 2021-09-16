@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import styles from './Table.module.scss';
 
+import { Boundaries } from '../../system-components';
 import { ModuleContext } from '../../modules/context';
-import ErrorBoundary from '../../private/ErrorBoundary';
 
 const TableHeader = () => {
   // FDS-164: table header not adding an extra column for actions
@@ -28,11 +28,11 @@ const TableHeader = () => {
   }
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <thead className={styles.HeadContainer}>
         <tr className={styles.Row}>{newHeaderCells}</tr>
       </thead>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

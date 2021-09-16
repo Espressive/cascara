@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import pt from 'prop-types';
 import { Dropdown, Flex, Provider } from '@fluentui/react-northstar';
 import teamsOverrides from './themes/teamsOverrides';
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 
 import { barista, slack } from './themes';
 
@@ -63,7 +63,7 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
   // console.log(themes[theme].staticStyles);
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <Provider overwrite theme={themes[theme]}>
         <Flex column gap='gap.small' style={{ maxHeight: '100vh' }}>
           {isThemeSelectable && (
@@ -85,7 +85,7 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
           {inputComponent}
         </Flex>
       </Provider>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

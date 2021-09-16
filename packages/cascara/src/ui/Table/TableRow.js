@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import pt from 'prop-types';
 import styles from './Table.module.scss';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 import RowProvider from './context/RowProvider';
 import { ModuleContext } from '../../modules/context';
 
@@ -113,13 +113,13 @@ const TableRow = ({ config = {}, record = {} }) => {
   }
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <RowProvider value={{ record }}>
         <tr className={styles.Row} key={id}>
           {rowCells}
         </tr>
       </RowProvider>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

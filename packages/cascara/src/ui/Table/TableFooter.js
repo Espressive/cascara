@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import styles from './Table.module.scss';
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 import { ModuleContext } from '../../modules/context';
 
 const TableFooter = () => {
@@ -11,13 +11,13 @@ const TableFooter = () => {
   ));
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <tfoot className={styles.FootContainer}>
         <tr className={styles.Row} key={'foot-header'}>
           {headerCells}
         </tr>
       </tfoot>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

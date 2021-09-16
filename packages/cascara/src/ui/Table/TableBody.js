@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styles from './Table.module.scss';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 import { ModuleContext } from '../../modules/context';
 import TableRow from './TableRow';
 
@@ -17,7 +17,7 @@ const TableBody = () => {
   }));
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <tbody className={styles.BodyContainer}>
         {rows?.map((record) => {
           const { data, ...rest } = record;
@@ -25,7 +25,7 @@ const TableBody = () => {
           return <TableRow config={rest} key={record.id} record={data} />;
         })}
       </tbody>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 
