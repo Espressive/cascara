@@ -44,6 +44,9 @@ const useDelayedTooltipState = ({ delay, ...initialState }) => {
 };
 
 const Tooltip = ({ children, content, delay = 500, ...props }) => {
+  // TODO: We need a way to define this hook so that it gets cleaned up even
+  // if there is a long delay defined so the callback after timeout does not
+  // try to call a nonexistent function
   const tooltip = useDelayedTooltipState({
     animated: 100,
     delay,
