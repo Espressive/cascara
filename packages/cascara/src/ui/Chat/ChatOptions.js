@@ -9,7 +9,7 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 import { getSharedMessageKeys, validateMessageObj } from './utils';
 
 const propTypes = {
@@ -37,7 +37,7 @@ const ChatOptions = ({
   }, []);
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <Animation name='chatMessage'>
         <FUIChat.Message
           author={authorName}
@@ -63,7 +63,7 @@ const ChatOptions = ({
           timestamp={timestamp}
         />
       </Animation>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 
