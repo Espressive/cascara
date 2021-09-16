@@ -10,15 +10,26 @@ const DataDateTimeSandbox = ({ isEditing, ...rest }) => (
 
 const dataTimeValue = '2018-06-12T19:30';
 
+const displayProps = {
+  label: 'Display',
+  value: dataTimeValue,
+};
+
+const editingProps = {
+  isEditing: true,
+  label: 'Editing',
+  max: '2018-06-14T00:00',
+  min: '2018-06-07T00:00',
+  value: dataTimeValue,
+};
+
+// These can be used in tests
+export { displayProps, editingProps };
+
+// These are our fixtures
 export default {
-  display: <DataDateTimeSandbox label='Display' value={dataTimeValue} />,
-  editing: (
-    <DataDateTimeSandbox
-      isEditing
-      label='Editing'
-      max='2018-06-14T00:00'
-      min='2018-06-07T00:00'
-      value={dataTimeValue}
-    />
-  ),
+  display: <DataDateTimeSandbox {...displayProps} />,
+  displayNoLabel: <DataDateTimeSandbox {...displayProps} isLabeled={false} />,
+  editing: <DataDateTimeSandbox {...editingProps} />,
+  editingNoLabel: <DataDateTimeSandbox {...editingProps} isLabeled={false} />,
 };
