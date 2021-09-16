@@ -6,7 +6,7 @@ import {
   getTranslatedDetails,
   validateMessageObj,
 } from './utils';
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 
 const propTypes = {
   authorName: pt.string,
@@ -25,7 +25,7 @@ const ChatMessage = ({
   timestamp,
 }) => {
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <Animation name='chatMessage'>
         <FUIChat.Message
           author={authorName}
@@ -35,7 +35,7 @@ const ChatMessage = ({
           timestamp={timestamp}
         />
       </Animation>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 ChatMessage.displayName = 'Chat.Message';
