@@ -12,6 +12,7 @@ import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
 import DataFile from './DataFile';
+import DataDate from './DataDate';
 
 const actionModules = {
   button: ActionButton,
@@ -21,6 +22,7 @@ const actionModules = {
 const dataModules = {
   // switch: DataCheckbox,
   checkbox: DataCheckbox,
+  date: DataDate,
   email: DataEmail,
   file: DataFile,
   json: DataJson,

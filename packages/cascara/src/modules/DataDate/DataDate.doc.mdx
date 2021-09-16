@@ -1,0 +1,31 @@
+---
+title: Data Date
+propTable: ./DataDate.js
+type: 'module'
+public: false
+---
+
+A data module to display **date** values, it renders a input of type **date**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    firstName: 'John',
+    lastName: 'Doe',
+    date: '2021-07-22',
+  }}
+>
+  <DataDate
+    attribute='state'
+    isEditable={true}
+    label='State'
+    value='2021-07-22'
+  />
+</ModuleSandbox>
+```
