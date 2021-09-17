@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { releases } = require('../versions');
 
 const nextReleases = releases
@@ -8,4 +10,4 @@ const nextReleases = releases
     type: 'mrkdwn',
   }));
 
-console.log(JSON.stringify(nextReleases));
+process.stdout.write(JSON.stringify(nextReleases));
