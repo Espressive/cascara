@@ -50,6 +50,9 @@ jobs:
       - run:
           name: Prepare Packages
           command: yarn workspaces foreach run prepare
+      - run: |
+          yarn changeset status --output=./versions.json
+          $(echo node ./tooling/getNextVersions.js)
       - store_artifacts:
           path: ./node_modules/@espressive/cascara # check to see why we do not have @espressive/cascara
       - save_cache:
@@ -125,7 +128,7 @@ jobs:
           command: yarn changeset status --output=./versions.json
       - mem/remember:
           env_var: SLACK_MESSAGE
-          value: $(echo node ../tooling/getNextVersions.js)
+          value: $(echo node ./tooling/getNextVersions.js)
       - when:
           condition: *is_develop
           steps:
