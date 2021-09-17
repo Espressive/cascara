@@ -70,6 +70,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -205,6 +206,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -312,6 +314,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -499,6 +502,7 @@ exports[`Table snapshot tests with actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -628,6 +632,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -757,6 +762,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -871,6 +877,7 @@ exports[`Table snapshot tests without actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com

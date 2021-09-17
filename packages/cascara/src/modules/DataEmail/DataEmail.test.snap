@@ -3,7 +3,7 @@
 exports[`DataEmail display snapshot 1`] = `
 <div>
   <div
-    class="Text"
+    class="Email"
   >
     <span>
       <span
@@ -25,7 +25,7 @@ exports[`DataEmail display snapshot 1`] = `
 exports[`DataEmail editing snapshot 1`] = `
 <div>
   <div
-    class="Text"
+    class="Email"
   >
     <label
       for="Editing"
