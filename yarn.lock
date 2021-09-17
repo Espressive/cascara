@@ -2637,12 +2637,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/cascara@workspace:0.4.2-alpha.45, @espressive/cascara@workspace:packages/cascara":
+"@espressive/cascara@workspace:0.4.3, @espressive/cascara@workspace:packages/cascara":
   version: 0.0.0-use.local
   resolution: "@espressive/cascara@workspace:packages/cascara"
   dependencies:
     "@babel/runtime": 7.14.0
-    "@espressive/icons": "workspace:0.0.2-alpha.6"
+    "@espressive/icons": "workspace:0.0.3"
     "@espressive/legacy-css": "workspace:2.0.5"
     "@iconify-icons/ic": 1.1.5
     "@iconify/react": 1.1.4
@@ -2685,7 +2685,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/design-tokens@workspace:0.1.3-alpha.4, @espressive/design-tokens@workspace:packages/design-tokens":
+"@espressive/design-tokens@workspace:0.1.4, @espressive/design-tokens@workspace:packages/design-tokens":
   version: 0.0.0-use.local
   resolution: "@espressive/design-tokens@workspace:packages/design-tokens"
   dependencies:
@@ -2694,7 +2694,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/eslint-config@workspace:1.0.4-alpha.0, @espressive/eslint-config@workspace:utils/eslint-config":
+"@espressive/eslint-config@workspace:*, @espressive/eslint-config@workspace:utils/eslint-config":
   version: 0.0.0-use.local
   resolution: "@espressive/eslint-config@workspace:utils/eslint-config"
   dependencies:
@@ -2717,7 +2717,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/icons@workspace:0.0.2-alpha.6, @espressive/icons@workspace:packages/icons":
+"@espressive/icons@workspace:0.0.3, @espressive/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@espressive/icons@workspace:packages/icons"
   dependencies:
@@ -8135,7 +8135,7 @@ __metadata:
     "@babel/preset-react": 7.13.13
     "@bjeco/prettier-config": 0.1.6
     "@changesets/cli": 2.17.0
-    "@espressive/eslint-config": "workspace:1.0.4-alpha.0"
+    "@espressive/eslint-config": "workspace:*"
     "@fluentui/react-northstar": 0.57.0
     "@octokit/core": 3.4.0
     "@rollup/plugin-babel": 5.3.0
@@ -10673,8 +10673,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:docs"
   dependencies:
-    "@espressive/cascara": "workspace:0.4.2-alpha.45"
-    "@espressive/design-tokens": "workspace:0.1.3-alpha.4"
+    "@espressive/cascara": "workspace:0.4.3"
+    "@espressive/design-tokens": "workspace:0.1.4"
     "@espressive/legacy-css": "workspace:2.0.5"
     "@fluentui/react-northstar": 0.57.0
     current-git-branch: 1.1.0
