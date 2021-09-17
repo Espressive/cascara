@@ -151,10 +151,6 @@ jobs:
                       {
                         "type": "section",
                         "fields": "New Cascara `next` versions published."
-                      },
-                      {
-                        "type": "section",
-                        "fields": "${STORED_ARTIFACTS}"
                       }
                     ]
                   }
@@ -177,10 +173,6 @@ jobs:
                       {
                         "type": "section",
                         "fields": "New graduated releases for the Cascara monorepo!"
-                      },
-                      {
-                        "type": "section",
-                        "fields": "${STORED_ARTIFACTS}"
                       }
                     ]
                   }
