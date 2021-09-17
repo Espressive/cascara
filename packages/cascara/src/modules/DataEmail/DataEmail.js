@@ -5,6 +5,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
+import getHTMLLabels from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -28,14 +29,7 @@ const DataEmail = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
-
-  // NOTE: THESE TWO SET DEFINITIONS COULD PROBABLY BECOME A HELPER FUNCTION FOR USE IN ALL MODULES
-  // We do not want to add a redundant aria-label property if there
-  // is an html label present with a linking `for` attribute.
-  const setAriaLabel = isLabeled ? undefined : label;
-  // We do not want to set a for attribute if there is no label content
-  // because we are defining aria label instead
-  const setHtmlFor = isLabeled ? label : undefined;
+  const { setAriaLabel, setHtmlFor } = getHTMLLabels(isLabeled, label);
 
   const renderEditing = (
     <label htmlFor={setHtmlFor}>
@@ -65,7 +59,7 @@ const DataEmail = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Text}>
+      <div className={styles.Email}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
