@@ -70,6 +70,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -205,6 +206,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -312,6 +314,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -341,7 +344,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
       class="Error"
       data-testid="module-error"
     >
-      unknownModule is not a valid value for module. Try using one of [checkbox, date, email, image, json, number, radio, select, text, textarea]
+      unknownModule is not a valid value for module. Try using one of [checkbox, date, datetime, email, file, image, json, number, radio, select, text, textarea]
     </div>
   </td>
   <td
@@ -489,6 +492,7 @@ exports[`Table snapshot tests with actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -618,6 +622,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -747,6 +752,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -861,6 +867,7 @@ exports[`Table snapshot tests without actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com

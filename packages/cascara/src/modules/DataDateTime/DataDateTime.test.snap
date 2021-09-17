@@ -3,7 +3,7 @@
 exports[`DataDateTime display snapshot 1`] = `
 <div>
   <div
-    class="Image"
+    class="Text"
   >
     <span>
       <span
@@ -13,9 +13,9 @@ exports[`DataDateTime display snapshot 1`] = `
       </span>
       <span
         aria-label="Display"
-        class="Image"
+        class="Input"
       >
-        /media/examples/my-button.png
+        2018-06-12T19:30
       </span>
     </span>
   </div>
@@ -25,7 +25,7 @@ exports[`DataDateTime display snapshot 1`] = `
 exports[`DataDateTime editing snapshot 1`] = `
 <div>
   <div
-    class="Image"
+    class="Text"
   >
     <label
       for="Editing"
@@ -36,12 +36,13 @@ exports[`DataDateTime editing snapshot 1`] = `
         Editing
       </span>
       <input
-        alt="Start"
         class="Input"
         id="Editing"
+        max="2018-06-14T00:00"
+        min="2018-06-07T00:00"
         name="Editing"
-        src="/media/examples/my-button.png"
-        type="image"
+        type="datetime-local"
+        value="2018-06-12T19:30"
       />
     </label>
   </div>

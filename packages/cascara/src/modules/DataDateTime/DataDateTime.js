@@ -5,7 +5,6 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
-import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -20,7 +19,7 @@ const propTypes = {
   value: pt.string,
 };
 
-const DataEmail = ({
+const DataDateTime = ({
   attribute,
   isEditable = true,
   isLabeled = true,
@@ -29,10 +28,14 @@ const DataEmail = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
-  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
-    isLabeled,
-    label
-  );
+
+  // NOTE: THESE TWO SET DEFINITIONS COULD PROBABLY BECOME A HELPER FUNCTION FOR USE IN ALL MODULES
+  // We do not want to add a redundant aria-label property if there
+  // is an html label present with a linking `for` attribute.
+  const setAriaLabel = isLabeled ? undefined : label;
+  // We do not want to set a for attribute if there is no label content
+  // because we are defining aria label instead
+  const setHtmlFor = isLabeled ? label : undefined;
 
   const renderEditing = (
     <label htmlFor={setHtmlFor}>
@@ -45,7 +48,7 @@ const DataEmail = ({
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='email'
+        type='datetime-local'
       />
     </label>
   );
@@ -62,14 +65,14 @@ const DataEmail = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Email}>
+      <div className={styles.Text}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
   );
 };
 
-DataEmail.propTypes = propTypes;
+DataDateTime.propTypes = propTypes;
 
 export { propTypes };
-export default DataEmail;
+export default DataDateTime;

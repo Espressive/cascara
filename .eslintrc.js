@@ -11,6 +11,12 @@ module.exports = {
       },
     },
     {
+      files: ['tooling/**/*'],
+      rules: {
+        'no-console': 0,
+      },
+    },
+    {
       files: ['**/next-*/**/*', 'docs/**/*'],
       rules: {
         'jsx-a11y/anchor-is-valid': 0,

@@ -2,45 +2,33 @@ import React from 'react';
 import DataImage from './DataImage';
 import ModuleSandbox from '../ModuleSandbox';
 
-const DisplayDataImage = ({ isEditing, value, ...rest }) => (
+const DataImageSandbox = ({ isEditing, ...rest }) => (
   <ModuleSandbox isEditing={isEditing}>
-    <DataImage {...rest} label='My button' />
+    <DataImage {...rest} />
   </ModuleSandbox>
 );
 
-const DataDateModule = () => {
-  return (
-    <>
-      <div>
-        <h1>Date input field</h1>
-        <p>
-          This fixture is for testing the presentation of an input date field
-        </p>
-      </div>
+const srcPath = '/media/examples/my-button.png';
 
-      <hr />
-
-      <div>
-        <h2>Display</h2>
-        <p>Button will not be displayed</p>
-        <DisplayDataImage />
-      </div>
-
-      <div>
-        <h2>Editing</h2>
-        <p>
-          <code>src:</code> Path of the image
-          <code> alt:</code> Button text name
-        </p>
-        <DisplayDataImage
-          alt='example'
-          isEditing
-          src='/media/examples/my-button.png'
-        />
-      </div>
-    </>
-  );
+const displayProps = {
+  label: 'Display',
+  src: srcPath,
 };
 
-export { DisplayDataImage };
-export default <DataDateModule />;
+const editingProps = {
+  isEditing: true,
+  label: 'Editing',
+  src: srcPath,
+  alt: 'Start',
+};
+
+// These can be used in tests
+export { displayProps, editingProps };
+
+// These are our fixtures
+export default {
+  display: <DataImageSandbox {...displayProps} />,
+  displayNoLabel: <DataImageSandbox {...displayProps} isLabeled={false} />,
+  editing: <DataImageSandbox {...editingProps} />,
+  editingNoLabel: <DataImageSandbox {...editingProps} isLabeled={false} />,
+};

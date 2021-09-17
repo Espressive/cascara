@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DataDateTime display snapshot 1`] = `
+exports[`DataEmail display snapshot 1`] = `
 <div>
   <div
-    class="Image"
+    class="Email"
   >
     <span>
       <span
@@ -13,19 +13,19 @@ exports[`DataDateTime display snapshot 1`] = `
       </span>
       <span
         aria-label="Display"
-        class="Image"
+        class="Input"
       >
-        /media/examples/my-button.png
+        me@email.com
       </span>
     </span>
   </div>
 </div>
 `;
 
-exports[`DataDateTime editing snapshot 1`] = `
+exports[`DataEmail editing snapshot 1`] = `
 <div>
   <div
-    class="Image"
+    class="Email"
   >
     <label
       for="Editing"
@@ -36,12 +36,11 @@ exports[`DataDateTime editing snapshot 1`] = `
         Editing
       </span>
       <input
-        alt="Start"
         class="Input"
         id="Editing"
         name="Editing"
-        src="/media/examples/my-button.png"
-        type="image"
+        type="email"
+        value="me@email.com"
       />
     </label>
   </div>

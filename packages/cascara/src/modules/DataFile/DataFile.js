@@ -20,7 +20,7 @@ const propTypes = {
   value: pt.string,
 };
 
-const DataEmail = ({
+const DataFile = ({
   attribute,
   isEditable = true,
   isLabeled = true,
@@ -45,7 +45,7 @@ const DataEmail = ({
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='email'
+        type='file'
       />
     </label>
   );
@@ -53,7 +53,7 @@ const DataEmail = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span aria-label={label} className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.File} {...rest}>
         {value}
       </span>
     </span>
@@ -62,14 +62,14 @@ const DataEmail = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Email}>
+      <div className={styles.File}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
   );
 };
 
-DataEmail.propTypes = propTypes;
+DataFile.propTypes = propTypes;
 
 export { propTypes };
-export default DataEmail;
+export default DataFile;

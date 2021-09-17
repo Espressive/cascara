@@ -1,16 +1,14 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
-import cosmosFixtures, {
-  displayProps,
-  editingProps,
-} from './DataImage.fixture';
+import cosmosFixtures, { displayProps, editingProps } from './DataFile.fixture';
 
 // We cannot destructure during import because the default export in Cosmos
 // multi-fixture files is an object so we need to import the fixtures first,
 // then destructure them separately.
 const { display, editing, displayNoLabel, editingNoLabel } = cosmosFixtures;
 
-describe('DataDateTime', () => {
+describe('DataFile', () => {
   // without ModuleSandbox will render the property information into a span
   describe('display', () => {
     // We need a place to store the view for snapshot testing. This is not required when we are using `screen` directly from RTL.
@@ -29,7 +27,7 @@ describe('DataDateTime', () => {
       const input = screen.getByLabelText(displayProps.label);
       // Make sure the actual DOM element is not render an input
       expect(input.tagName).toMatch('SPAN');
-      // Make sure the dom element that has not our aria-label is the not an input
+      // Input file does not display an INPUT
       expect(input.classList.contains('Input')).toBe(false);
     });
   });
@@ -50,13 +48,16 @@ describe('DataDateTime', () => {
     test('renders a <input date> by default', () => {
       const input = screen.getByLabelText(editingProps.label);
       // Check that we also use the correct type
-      expect(input).toHaveAttribute('type', 'image');
+      expect(input).toHaveAttribute('type', 'file');
     });
 
-    test('renders the src', () => {
+    test('selec a file', () => {
+      const file = new File(['hello'], 'hello.png', { type: 'image/png' });
       const input = screen.getByLabelText(editingProps.label);
-      expect(input).toHaveAttribute('alt', 'Start');
-      expect(input).toHaveAttribute('src', '/media/examples/my-button.png');
+      userEvent.upload(input, file);
+      expect(input.files[0]).toStrictEqual(file);
+      expect(input.files.item(0)).toStrictEqual(file);
+      expect(input.files).toHaveLength(1);
     });
   });
 

@@ -119,7 +119,22 @@ jobs:
             git config --global -l
             git config --global user.email circleci@circleci
             git config --global user.name CircleCI
-
+      - run:
+          name: Get Changeset Status
+          command: yarn changeset status --output=./versions.json
+      - store_artifacts:
+          path: ./versions.json
+      - run:
+          name: Get artifacts url > $STORED_ARTIFACTS
+          command: |
+            artifacts=$(curl -X GET "https://circleci.com/api/v2/project/github/Espressive/cascara/$CIRCLE_BUILD_NUM/artifacts" \
+            -H "Accept: application/json" \
+            -u "$CIRCLE_API_TOKEN:")
+            # generate a heredoc in BASH_ENV
+            # the '\<<' is a CircleCI escape
+            echo "read -r -d '' STORED_ARTIFACTS \<< 'EOF_ARTIFACTS'" >> $BASH_ENV
+            echo "$artifacts" >> $BASH_ENV
+            echo "EOF_ARTIFACTS" >> $BASH_ENV
       - when:
           condition: *is_develop
           steps:
@@ -137,9 +152,8 @@ jobs:
                         "type": "section",
                         "fields": [
                           {
-                            "type": "plain_text",
-                            "text": "New full versions are published",
-                            "emoji": true
+                            "type": "mrkdwn",
+                            "text": ":thumbsup_all: New Cascara `next` versions published."
                           }
                         ]
                       }
@@ -152,7 +166,6 @@ jobs:
             - run:
                 name: Publish Full Release
                 command: |
-                  yarn changeset status --output=./versions.json
                   yarn changeset version
                   git add .
                   git commit -m "Publish Full Release"
@@ -167,9 +180,8 @@ jobs:
                         "type": "section",
                         "fields": [
                           {
-                            "type": "plain_text",
-                            "text": "New next versions are published",
-                            "emoji": true
+                            "type": "mrkdwn",
+                            "text": ":catjam: New `latest` releases for the Cascara monorepo!"
                           }
                         ]
                       }

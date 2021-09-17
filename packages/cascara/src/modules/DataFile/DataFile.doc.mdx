@@ -1,11 +1,11 @@
 ---
-title: DataImage
-propTable: ./DataImage.js
+title: DataFile
+propTable: ./DataFile.js
 type: 'module'
 public: false
 ---
 
-A data module to display an input **image** field
+A data module to upload a **file**, it renders a input of type **file**.
 
 ### Sandbox
 
@@ -20,10 +20,11 @@ Feel free to play around with the following code:
     lastName: 'Doe',
   }}
 >
-  <DataImage
+  <DataField
     attribute='firstName'
-    alt='My Text'
-    src='/media/examples/login-button.png'
+    isEditable={true}
+    label='My file'
+    accept='image/png, image/jpeg'
   />
 </ModuleSandbox>
 ```
