@@ -33,6 +33,7 @@
     "remark-slug": "6.0.0",
     "unist-util-visit": "2.0.3"
   },
+  "private": true,
   "engines": {
     "node": "12.x",
     "yarn": "3.x"
