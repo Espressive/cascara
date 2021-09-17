@@ -182,7 +182,7 @@ jobs:
                 command: |
                   yarn changeset version --snapshot next
                   git add .
-                  git commit -m "Publish New Package Versions"
+                  git commit -m "Publish Next Snapshot"
                   yarn changeset publish --tag next
                   git push --follow-tags
             - slack/notify:
@@ -211,7 +211,7 @@ jobs:
                 command: |
                   yarn changeset version
                   git add .
-                  git commit -m "Publish New Package Versions"
+                  git commit -m "Publish Full Release"
                   yarn changeset publish
                   git push --follow-tags
             - slack/notify:
