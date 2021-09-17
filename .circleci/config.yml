@@ -150,10 +150,16 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": "New Cascara `next` versions published."
+                        "fields": [
+                          {
+                            "type": "mrkdwn",
+                            "text": ":thumbsup_all: New Cascara `next` versions published."
+                          }
+                        ]
                       }
                     ]
                   }
+
       - when:
           condition: *is_main
           steps:
@@ -172,7 +178,12 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": "New graduated releases for the Cascara monorepo!"
+                        "fields": [
+                          {
+                            "type": "mrkdwn",
+                            "text": ":catjam: New `latest` releases for the Cascara monorepo!"
+                          }
+                        ]
                       }
                     ]
                   }
