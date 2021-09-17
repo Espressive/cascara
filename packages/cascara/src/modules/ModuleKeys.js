@@ -13,7 +13,9 @@ import DataText from './DataText';
 import DataTextArea from './DataTextArea';
 import DataImage from './DataImage';
 import DataDate from './DataDate';
+import DataDateTime from './DataDateTime';
 import DataMonth from './DataMonth';
+import DataPassword from './DataPassword';
 
 const actionModules = {
   button: ActionButton,
@@ -24,11 +26,13 @@ const dataModules = {
   // switch: DataCheckbox,
   checkbox: DataCheckbox,
   date: DataDate,
+  datetime: DataDateTime,
   email: DataEmail,
   image: DataImage,
   json: DataJson,
   month: DataMonth,
   number: DataNumber,
+  passord: DataPassword,
   radio: DataRadio,
   select: DataSelect,
   text: DataText,

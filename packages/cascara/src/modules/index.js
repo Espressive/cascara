@@ -14,4 +14,6 @@ export { default as ModuleError } from './ModuleError';
 export { default as ModuleSandbox } from './ModuleSandbox';
 export { default as DataImage } from './DataImage';
 export { default as DataDate } from './DataDate';
+export { default as DataDateTime } from './DataDateTime';
 export { default as DataMonth } from './DataMonth';
+export { default as DataPassword } from './DataPassword';
