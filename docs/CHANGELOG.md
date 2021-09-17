@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.4.2
+
+### Patch Changes
+
+- Graduate release
+- Updated dependencies [undefined]
+  - @espressive/cascara@0.4.3
+  - @espressive/design-tokens@0.1.4
+
+## 0.4.1
+
+### Patch Changes
+
+- b05f7ad: alpha test
+- Updated dependencies [b05f7ad]
+  - @espressive/cascara@0.4.2
+  - @espressive/design-tokens@0.1.3
+
 ## 0.4.1-alpha.10
 
 ### Patch Changes

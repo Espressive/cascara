@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.4.3
+
+### Patch Changes
+
+- Graduate release
+- Updated dependencies [undefined]
+  - @espressive/design-tokens@0.1.4
+  - @espressive/icons@0.0.3
+
+## 0.4.2
+
+### Patch Changes
+
+- b05f7ad: alpha test
+- Updated dependencies [b05f7ad]
+  - @espressive/design-tokens@0.1.3
+  - @espressive/icons@0.0.2
+
 ## 0.4.2-alpha.46
 
 ### Patch Changes

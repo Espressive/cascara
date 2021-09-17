@@ -174,12 +174,13 @@ jobs:
             git config --global -l
             git config --global user.email circleci@circleci
             git config --global user.name CircleCI
+
       - when:
           condition: *is_develop
           steps:
             - run:
                 name: Publish Next Snapshot
-                command: |
+                command: | # DO NOT COMMIT CHANGES FOR SNAPSHOT RELEASES!!!
                   yarn changeset version --snapshot next
                   yarn changeset publish --tag next
             - slack/notify:
@@ -206,6 +207,7 @@ jobs:
             - run:
                 name: Publish Full Release
                 command: |
+                  yarn changeset status --output=./versions.json
                   yarn changeset version
                   git add .
                   git commit -m "Publish Full Release"

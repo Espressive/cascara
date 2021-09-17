@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.0.3
+
+### Patch Changes
+
+- Graduate release
+
+## 0.0.2
+
+### Patch Changes
+
+- b05f7ad: alpha test
+
 ## 0.0.2-alpha.7
 
 ### Patch Changes

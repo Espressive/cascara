@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.0.5
+
+### Patch Changes
+
+- Graduate release
+
+## 1.0.4
+
+### Patch Changes
+
+- b05f7ad: alpha test
+
 ## 1.0.4-alpha.1
 
 ### Patch Changes
