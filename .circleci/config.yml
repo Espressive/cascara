@@ -181,10 +181,7 @@ jobs:
                 name: Publish Next Snapshot
                 command: |
                   yarn changeset version --snapshot next
-                  git add .
-                  git commit -m "Publish Next Snapshot"
                   yarn changeset publish --tag next
-                  git push --follow-tags
             - slack/notify:
                 event: pass
                 custom: |
