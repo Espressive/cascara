@@ -5,6 +5,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
+import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -28,19 +29,23 @@ const DataFile = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
+  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
+    isLabeled,
+    label
+  );
 
   const renderEditing = (
-    <label htmlFor={label}>
+    <label htmlFor={setHtmlFor}>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
-        aria-label={label}
+        aria-label={setAriaLabel}
         className={styles.Input}
         defaultValue={value}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type={'file'}
+        type='file'
       />
     </label>
   );
@@ -48,7 +53,7 @@ const DataFile = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.File} {...rest}>
         {value}
       </span>
     </span>
@@ -57,7 +62,7 @@ const DataFile = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Text}>
+      <div className={styles.File}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>

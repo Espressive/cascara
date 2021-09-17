@@ -70,6 +70,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -205,6 +206,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -312,6 +314,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -341,7 +344,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
       class="Error"
       data-testid="module-error"
     >
-      unknownModule is not a valid value for module. Try using one of [checkbox, date, email, file, json, number, radio, select, text, textarea]
+      unknownModule is not a valid value for module. Try using one of [checkbox, date, datetime, email, file, json, number, radio, select, text, textarea]
     </div>
   </td>
   <td
@@ -391,19 +394,9 @@ exports[`Table snapshot tests should show a loading state if the 'data' prop is 
       The table component will not blow up if there are no values defined. It will also explicitly show a loading state if the data attribute is undefined (or null).
     </p>
     <div
-      class="ui segment"
+      class="ui loading segment"
       style="height: 10em;"
-    >
-      <div
-        class="ui active inverted dimmer"
-      >
-        <div
-          class="ui text loader"
-        >
-          Loading
-        </div>
-      </div>
-    </div>
+    />
   </div>
 </body>
 `;
@@ -418,8 +411,8 @@ exports[`Table snapshot tests should show an empty state if data is defined but 
       If a table gets an empty array, that should be treated different from undefined or null. An empty array should mean that there are no records and we should indicate this to users in the table itself.
     </p>
     <div
-      class="ui placeholder segment"
-      style="align-items: center; display: flex; height: 10em; justify-content: center;"
+      class="ui segment"
+      style="height: 10em;"
     >
       <em>
         No data...
@@ -499,6 +492,7 @@ exports[`Table snapshot tests with actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -628,6 +622,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -757,6 +752,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -871,6 +867,7 @@ exports[`Table snapshot tests without actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com

@@ -56,14 +56,8 @@
     "sideBarSectionHeader.background": "#90023A",
     "sideBarSectionHeader.foreground": "#e7e7e7"
   },
+  "peacock.color": "#850c37",
   "files.associations": {
     "*.yaml": "home-assistant"
-  },
-  "jest.coverageColors": {
-    "covered": "rgba(9, 156, 65, 1)",
-    "uncovered": "rgba(0, 0, 0, 1)",
-    "partially-covered": "rgba(235, 198, 52, 1)"
-  },
-  "jest.jestCommandLine": "yarn test",
-  "jest.showCoverageOnLoad": true
+  }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 
 import styles from '../../Form.module.scss';
-import ErrorBoundary from '../../../../private/ErrorBoundary';
+import { Boundaries } from '../../../../system-components';
 
 const propTypes = {
   children: pt.oneOf([pt.node, pt.arrayOf(pt.node)]),
@@ -21,14 +21,14 @@ const FormRow = ({ children, ratio }) => {
     'repeat(auto-fill, minmax(10em, 1fr))';
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <div
         className={styles.FormRow}
         style={{ gridTemplateColumns: columnRatio }}
       >
         {children}
       </div>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

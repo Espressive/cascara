@@ -1,0 +1,92 @@
+._ {
+  z-index: 11;
+  font-size: 0.875em;
+
+  .Title,
+  .Info {
+    padding: 0.625em 1.125em;
+  }
+
+  .Title {
+    background-color: rgba(0, 0, 0, 0.08);
+    font-size: 1em;
+    margin: 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .Info {
+    font-size: 0.875em;
+  }
+
+  .Label {
+    display: inline-block;
+    line-height: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 16em;
+  }
+
+  &:global(.ui.dropdown) :global(.menu) {
+    :global(.ui.input) {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+
+      input {
+        border-radius: 100px;
+      }
+    }
+
+    .ViewConfigItem,
+    & > .ViewConfigItem:global(.item) {
+      padding: 0.625rem 1.125rem !important;
+      cursor: url('./img/plus.svg'), pointer;
+      font-size: 1em;
+
+      &:global(.active) {
+        // Indicates removing
+        cursor: url('./img/minus.svg'), pointer;
+      }
+    }
+
+    .ActiveItems {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
+      .ViewConfigItem,
+      & > .ViewConfigItem:global(.item) {
+        font-weight: 400;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .MoveButtons {
+          float: right;
+
+          & > button {
+            margin: -1em 0;
+
+            &:first-of-type {
+              margin-left: 1em;
+            }
+
+            &:last-of-type {
+              margin-right: -1em;
+            }
+          }
+        }
+
+        // Buttons are disabled with CSS
+        &:first-of-type button[aria-label='Move up'] {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        &:last-of-type button[aria-label='Move down'] {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

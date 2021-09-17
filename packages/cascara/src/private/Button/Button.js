@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import pt from 'prop-types';
 import React, { forwardRef } from 'react';
 import { Button as ReakitButton } from 'reakit';
+import { InlineIcon } from '@iconify/react';
 import { getSafeLinkRel } from '../../lib/linkUtils';
 // import styles from './Button.module.scss';
 
@@ -14,6 +15,8 @@ const propTypes = {
   content: pt.string,
   /** Makes the button take the width of the parent container */
   fluid: pt.bool,
+  // An SVG Object, which will override the content
+  icon: pt.shape({}),
   /** Sets the color type of the button to follow the theme brand color */
   isBrandColor: pt.bool,
   /** Indicates the outcome of clicking the button ('positive', 'negative') */
@@ -32,6 +35,7 @@ const Button = forwardRef(
       as = 'button',
       content = 'Default Content',
       fluid = false,
+      icon,
       isBrandColor = false,
       outcome,
       size = 'regular',
@@ -53,6 +57,7 @@ const Button = forwardRef(
     const legacyClassname = cx(rest.className, {
       basic: !outcome,
       fluid: fluid,
+      icon: icon,
       large: size === 'large',
       negative: outcome === 'negative',
       positive: outcome === 'positive',
@@ -71,7 +76,7 @@ const Button = forwardRef(
         ref={ref}
         rel={getSafeLinkRel(rest)}
       >
-        {buttonText}
+        {icon ? <InlineIcon icon={icon} /> : buttonText}
       </ReakitButton>
     );
   }

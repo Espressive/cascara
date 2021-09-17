@@ -6,7 +6,7 @@ import { propTypes as actionButtonPT } from '../../../../modules/ActionButton';
 import { propTypes as actionEditPT } from '../../modules/ActionEdit';
 
 import styles from '../../Form.module.scss';
-import ErrorBoundary from '../../../../private/ErrorBoundary';
+import { Boundaries } from '../../../../system-components';
 
 const propTypes = {
   actions: pt.arrayOf(
@@ -16,9 +16,9 @@ const propTypes = {
 
 const ActionBar = ({ actions }) => {
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <div className={styles.FormActionBar}>{actions}</div>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

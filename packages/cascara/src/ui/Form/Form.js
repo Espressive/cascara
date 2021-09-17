@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import pt from 'prop-types';
 // import styles from './Form.module.scss';
 
-import Boundaries from '../../system-components/Boundaries';
+import { Boundaries } from '../../system-components';
 import FormProvider from './context/FormProvider';
 import ModuleError from '../../modules/ModuleError';
 
