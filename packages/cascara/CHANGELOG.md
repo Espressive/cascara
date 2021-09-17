@@ -1,5 +1,50 @@
 # Change Log
 
+## 0.4.3
+
+### Patch Changes
+
+- Graduate release
+- Updated dependencies [undefined]
+  - @espressive/design-tokens@0.1.4
+  - @espressive/icons@0.0.3
+
+## 0.4.2
+
+### Patch Changes
+
+- b05f7ad: alpha test
+- Updated dependencies [b05f7ad]
+  - @espressive/design-tokens@0.1.3
+  - @espressive/icons@0.0.2
+
+## 0.4.2-alpha.46
+
+### Patch Changes
+
+- alpha test
+- Updated dependencies [undefined]
+  - @espressive/design-tokens@0.1.3-alpha.5
+  - @espressive/icons@0.0.2-alpha.7
+
+## 0.0.0-next-202181701135
+
+### Patch Changes
+
+- 1f5b237: Adding support for changesets
+- Updated dependencies [1f5b237]
+  - @espressive/design-tokens@0.0.0-next-202181701135
+  - @espressive/icons@0.0.0-next-202181701135
+
+## 0.4.2-alpha.45
+
+### Patch Changes
+
+- Adding support for changesets
+- Updated dependencies [undefined]
+  - @espressive/design-tokens@0.1.3-alpha.4
+  - @espressive/icons@0.0.2-alpha.6
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
