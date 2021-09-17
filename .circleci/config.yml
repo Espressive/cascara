@@ -175,30 +175,62 @@ jobs:
             git config --global user.email circleci@circleci
             git config --global user.name CircleCI
       - when:
-          condition: *is_main
-          steps:
-            - run:
-                name: Exit Prerelease
-                command: |
-                  yarn changeset pre exit
-      - when:
           condition: *is_develop
           steps:
             - run:
-                name: Enter Prerelease
+                name: Publish Next Snapshot
                 command: |
-                  yarn changeset pre enter alpha
-      - run:
-          name: Bump Package Versions
-          command: |
-            yarn changeset version
-            git add .
-            git commit -m "Publish New Package Versions"
-      - run:
-          name: Publish Packages
-          command: |
-            yarn changeset publish
-            git push --follow-tags
+                  yarn changeset version --snapshot next
+                  git add .
+                  git commit -m "Publish New Package Versions"
+                  yarn changeset publish --tag next
+                  git push --follow-tags
+            - slack/notify:
+                event: pass
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "New full versions are published",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+
+      - when:
+          condition: *is_main
+          steps:
+            - run:
+                name: Publish Full Release
+                command: |
+                  yarn changeset version
+                  git add .
+                  git commit -m "Publish New Package Versions"
+                  yarn changeset publish
+                  git push --follow-tags
+            - slack/notify:
+                event: pass
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "New next versions are published",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
 
   publish-packages:
     <<: *job_executor
@@ -259,13 +291,7 @@ workflows:
           <<: *requires_tests
       - publish:
           <<: *filter_main_and_dev
-          post-steps:
-            - slack/notify:
-                event: fail
-                template: basic_fail_1
-            - slack/notify:
-                event: pass
-                template: success_tagged_deploy_1
+          <<: *post_steps
           requires:
             - build-cascara
             - build-cosmos
