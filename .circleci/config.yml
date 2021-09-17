@@ -44,6 +44,9 @@ jobs:
     <<: *job_executor
     steps:
       - checkout
+      - node/install-packages:
+          override-ci-command: yarn install --immutable
+          pkg-manager: yarn
       - run: |
           yarn changeset status --output=./versions.json
           $(echo node ./tooling/getNextVersions.js)
@@ -51,9 +54,6 @@ jobs:
           env_var: SLACK_MESSAGE
           value: $(echo node ./tooling/getNextVersions.js)
       - run: echo "${SLACK_MESSAGE}"
-      - node/install-packages:
-          override-ci-command: yarn install --immutable
-          pkg-manager: yarn
       - run:
           name: Prepare Packages
           command: yarn workspaces foreach run prepare
