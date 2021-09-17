@@ -1,16 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input Date default renders without any props 1`] = `
+exports[`DataEmail display snapshot 1`] = `
 <div>
   <div
-    class="Email"
+    class="Text"
   >
     <span>
       <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
         class="Input"
-        data-testid="default"
-      />
+      >
+        me@email.com
+      </span>
     </span>
+  </div>
+</div>
+`;
+
+exports[`DataEmail editing snapshot 1`] = `
+<div>
+  <div
+    class="Text"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Input"
+        id="Editing"
+        name="Editing"
+        type="email"
+        value="me@email.com"
+      />
+    </label>
   </div>
 </div>
 `;
