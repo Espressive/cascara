@@ -49,10 +49,10 @@ jobs:
           pkg-manager: yarn
       - run: |
           yarn changeset status --output=./versions.json
-          "$(echo node ../tooling/getNextVersions.js)"
+          $((echo node ./tooling/getNextVersions.js))
       - mem/remember:
           env_var: SLACK_MESSAGE
-          value: '$(echo node ../tooling/getNextVersions.js)'
+          value: $((echo node ./tooling/getNextVersions.js))
       - run: echo "${SLACK_MESSAGE}"
       - run:
           name: Prepare Packages
