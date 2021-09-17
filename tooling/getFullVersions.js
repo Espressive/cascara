@@ -7,4 +7,4 @@ const nextReleases = releases
     type: 'mrkdwn',
   }));
 
-console.log(nextReleases);
+console.log(JSON.stringify(nextReleases));
