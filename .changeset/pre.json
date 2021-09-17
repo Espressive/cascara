@@ -10,5 +10,5 @@
     "@espressive/eslint-config": "0.0.0-next-202181701135",
     "@espressive/legacy-css": "2.0.5"
   },
-  "changesets": []
+  "changesets": ["smooth-jobs-do"]
 }

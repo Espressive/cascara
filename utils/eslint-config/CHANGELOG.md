@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.4-alpha.1
+
+### Patch Changes
+
+- alpha test
+
 ## 0.0.0-next-202181701135
 
 ### Patch Changes
