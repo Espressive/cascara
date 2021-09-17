@@ -10,4 +10,4 @@ const nextReleases = releases
     type: 'mrkdwn',
   }));
 
-process.stdout.write(JSON.stringify(nextReleases));
+console.log(JSON.stringify(nextReleases));
