@@ -135,13 +135,7 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": [
-                          {
-                            "type": "plain_text",
-                            "text": "New full versions are published",
-                            "emoji": true
-                          }
-                        ]
+                        "fields": $(echo node ../tooling/getNextVersions.js)
                       }
                     ]
                   }
@@ -165,13 +159,7 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": [
-                          {
-                            "type": "plain_text",
-                            "text": "New next versions are published",
-                            "emoji": true
-                          }
-                        ]
+                        "fields": $(echo node ../tooling/getFullVersions.js)
                       }
                     ]
                   }
