@@ -5,7 +5,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
-import getHTMLLabels from '../helpers';
+import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -29,7 +29,10 @@ const DataEmail = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
-  const { setAriaLabel, setHtmlFor } = getHTMLLabels(isLabeled, label);
+  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
+    isLabeled,
+    label
+  );
 
   const renderEditing = (
     <label htmlFor={setHtmlFor}>

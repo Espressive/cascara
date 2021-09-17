@@ -1,4 +1,4 @@
-const getHTMLLabels = (isLabeled, label) => {
+const getAccessibleLabelSetters = (isLabeled, label) => {
   const setAriaLabel = isLabeled ? undefined : label;
   const setHtmlFor = isLabeled ? label : undefined;
   return {
@@ -7,4 +7,4 @@ const getHTMLLabels = (isLabeled, label) => {
   };
 };
 
-export default getHTMLLabels;
+export default getAccessibleLabelSetters;
