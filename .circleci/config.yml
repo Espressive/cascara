@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
   slack: circleci/slack@4.4.4
+  mem: circleci/rememborb@0.0.2
 
 parameters:
   installed-key:
@@ -119,14 +120,18 @@ jobs:
             git config --global -l
             git config --global user.email circleci@circleci
             git config --global user.name CircleCI
-
+      - run:
+          name: Get Changeset Status
+          command: yarn changeset status --output=./versions.json
+      - mem/remember:
+          env_var: SLACK_MESSAGE
+          value: $(echo node ../tooling/getNextVersions.js)
       - when:
           condition: *is_develop
           steps:
             - run:
                 name: Publish Next Snapshot
                 command: | # DO NOT COMMIT CHANGES FOR SNAPSHOT RELEASES!!!
-                  yarn changeset status --output=./versions.json
                   yarn changeset version --snapshot next
                   yarn changeset publish --tag next
             - slack/notify:
@@ -136,18 +141,16 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": $(echo node ../tooling/getNextVersions.js)
+                        "fields": ${SLACK_MESSAGE}
                       }
                     ]
                   }
-
       - when:
           condition: *is_main
           steps:
             - run:
                 name: Publish Full Release
                 command: |
-                  yarn changeset status --output=./versions.json
                   yarn changeset version
                   git add .
                   git commit -m "Publish Full Release"
