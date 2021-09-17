@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import pt from 'prop-types';
 import styles from './Table.module.scss';
 
-import ErrorBoundary from '../../private/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 import RowProvider from './context/RowProvider';
 import { ModuleContext } from '../../modules/context';
 
@@ -12,6 +12,7 @@ import ActionsMenu from '../../private/ActionsMenu';
 // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
 
 import ModuleError from '../../modules/ModuleError';
+import SelectionToggle from './atoms/SelectionToggle';
 
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
 
@@ -37,6 +38,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   const {
     resolveRecordActions,
     actionButtonMenuIndex = 0,
+    isRowSelectable,
     modules: userDefinedModules = [],
   } = useContext(ModuleContext);
 
@@ -102,14 +104,22 @@ const TableRow = ({ config = {}, record = {} }) => {
     rowCells.push(rowActions);
   }
 
+  if (isRowSelectable) {
+    rowCells.unshift(
+      <td className={styles.HeadCell} key={`selection-toggle-${id}`}>
+        <SelectionToggle id={id} />
+      </td>
+    );
+  }
+
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <RowProvider value={{ record }}>
         <tr className={styles.Row} key={id}>
           {rowCells}
         </tr>
       </RowProvider>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 
