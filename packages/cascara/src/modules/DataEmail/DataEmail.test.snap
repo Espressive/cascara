@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataEmail display snapshot 1`] = `
+<div>
+  <div
+    class="Email"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Input"
+      >
+        me@email.com
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataEmail editing snapshot 1`] = `
+<div>
+  <div
+    class="Email"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Input"
+        id="Editing"
+        name="Editing"
+        type="email"
+        value="me@email.com"
+      />
+    </label>
+  </div>
+</div>
+`;

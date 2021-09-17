@@ -5,6 +5,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
+import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -28,13 +29,17 @@ const DataEmail = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
+  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
+    isLabeled,
+    label
+  );
 
   const renderEditing = (
-    <label htmlFor={label}>
+    <label htmlFor={setHtmlFor}>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
-        aria-label={label}
+        aria-label={setAriaLabel}
         className={styles.Input}
         defaultValue={value}
         id={label}
@@ -48,7 +53,7 @@ const DataEmail = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.Input} {...rest}>
         {value}
       </span>
     </span>
@@ -67,5 +72,4 @@ const DataEmail = ({
 DataEmail.propTypes = propTypes;
 
 export { propTypes };
-
 export default DataEmail;
