@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
   slack: circleci/slack@4.4.4
-  # mem: circleci/rememborb@0.0.2
+  mem: circleci/rememborb@0.0.2
 
 parameters:
   installed-key:
