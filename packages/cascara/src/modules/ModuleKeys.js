@@ -11,6 +11,7 @@ import DataRadio from './DataRadio';
 import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
+import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
 
@@ -25,6 +26,7 @@ const dataModules = {
   date: DataDate,
   datetime: DataDateTime,
   email: DataEmail,
+  file: DataFile,
   json: DataJson,
   number: DataNumber,
   radio: DataRadio,
