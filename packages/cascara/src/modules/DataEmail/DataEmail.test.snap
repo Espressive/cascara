@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DataPassword display snapshot 1`] = `
+exports[`DataEmail display snapshot 1`] = `
 <div>
   <div
-    class="Text"
+    class="Email"
   >
     <span>
       <span
@@ -13,19 +13,19 @@ exports[`DataPassword display snapshot 1`] = `
       </span>
       <span
         aria-label="Display"
-        class="Password"
+        class="Input"
       >
-        ******
+        me@email.com
       </span>
     </span>
   </div>
 </div>
 `;
 
-exports[`DataPassword editing snapshot 1`] = `
+exports[`DataEmail editing snapshot 1`] = `
 <div>
   <div
-    class="Text"
+    class="Email"
   >
     <label
       for="Editing"
@@ -36,11 +36,11 @@ exports[`DataPassword editing snapshot 1`] = `
         Editing
       </span>
       <input
-        class="Password"
+        class="Input"
         id="Editing"
         name="Editing"
-        type="password"
-        value="mypassword"
+        type="email"
+        value="me@email.com"
       />
     </label>
   </div>

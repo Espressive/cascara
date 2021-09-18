@@ -3,7 +3,6 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
   slack: circleci/slack@4.4.4
-  mem: circleci/rememborb@0.0.2
 
 parameters:
   installed-key:
@@ -47,13 +46,6 @@ jobs:
       - node/install-packages:
           override-ci-command: yarn install --immutable
           pkg-manager: yarn
-      - run: |
-          yarn changeset status --output=./versions.json
-          $(echo node tooling/getNextVersions.js)
-      - mem/remember:
-          env_var: SLACK_MESSAGE
-          value: $((echo node tooling/getNextVersions.js))
-      - run: echo "${SLACK_MESSAGE}"
       - run:
           name: Prepare Packages
           command: yarn workspaces foreach run prepare
@@ -130,9 +122,19 @@ jobs:
       - run:
           name: Get Changeset Status
           command: yarn changeset status --output=./versions.json
-      # - mem/remember:
-      #     env_var: SLACK_MESSAGE
-      #     value: $(echo node ./tooling/getNextVersions.js)
+      - store_artifacts:
+          path: ./versions.json
+      - run:
+          name: Get artifacts url > $STORED_ARTIFACTS
+          command: |
+            artifacts=$(curl -X GET "https://circleci.com/api/v2/project/github/Espressive/cascara/$CIRCLE_BUILD_NUM/artifacts" \
+            -H "Accept: application/json" \
+            -u "$CIRCLE_API_TOKEN:")
+            # generate a heredoc in BASH_ENV
+            # the '\<<' is a CircleCI escape
+            echo "read -r -d '' STORED_ARTIFACTS \<< 'EOF_ARTIFACTS'" >> $BASH_ENV
+            echo "$artifacts" >> $BASH_ENV
+            echo "EOF_ARTIFACTS" >> $BASH_ENV
       - when:
           condition: *is_develop
           steps:
@@ -140,6 +142,7 @@ jobs:
                 name: Publish Next Snapshot
                 command: | # DO NOT COMMIT CHANGES FOR SNAPSHOT RELEASES!!!
                   yarn changeset version --snapshot next
+                  node tooling/setReleaseVersions.js
                   yarn changeset publish --tag next
             - slack/notify:
                 event: pass
@@ -148,10 +151,16 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": $(echo node ./tooling/getNextVersions.js)
+                        "fields": [
+                          {
+                            "type": "mrkdwn",
+                            "text": ":thumbsup_all: New Cascara `next` versions published."
+                          }
+                        ]
                       }
                     ]
                   }
+
       - when:
           condition: *is_main
           steps:
@@ -161,7 +170,9 @@ jobs:
                   yarn changeset version
                   git add .
                   git commit -m "Publish Full Release"
+                  node tooling/setReleaseVersions.js
                   yarn changeset publish
+                  git checkout -- "*.json"
                   git push --follow-tags
             - slack/notify:
                 event: pass
@@ -170,7 +181,12 @@ jobs:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": $(echo node ./tooling/getFullVersions.js)
+                        "fields": [
+                          {
+                            "type": "mrkdwn",
+                            "text": ":catjam: New `latest` releases for the Cascara monorepo!"
+                          }
+                        ]
                       }
                     ]
                   }
