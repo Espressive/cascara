@@ -142,6 +142,7 @@ jobs:
                 name: Publish Next Snapshot
                 command: | # DO NOT COMMIT CHANGES FOR SNAPSHOT RELEASES!!!
                   yarn changeset version --snapshot next
+                  node tooling/setReleaseVersions.js
                   yarn changeset publish --tag next
             - slack/notify:
                 event: pass
@@ -169,7 +170,9 @@ jobs:
                   yarn changeset version
                   git add .
                   git commit -m "Publish Full Release"
+                  node tooling/setReleaseVersions.js
                   yarn changeset publish
+                  git checkout -- "*.json"
                   git push --follow-tags
             - slack/notify:
                 event: pass
