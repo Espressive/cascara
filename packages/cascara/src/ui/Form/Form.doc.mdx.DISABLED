@@ -60,75 +60,6 @@ const actions = {
 };
 ```
 
-### resolveAllowedActions
-
-By default, all actions are displayed, this might not be what you want: Under certain scenarios, some actions might not be available or allowed depending on certain (business-logic) conditions. `resolveAllowedActions` is a function you can pass to derive which actions are allowed, given the current state of `data`.
-
-#### signature
-
-```js
-  /**
-   * Resolve allowed actions
-   *
-   * @param {Object} data An object that represents the current form data
-   * @param {Array[Object]} allActions The array of actions specified in `actions.modules`
-   * @return {Array[Object]} allowedActions The array of actions for this specific row
-   */
-  (Object: data, Array[Object]: allActions) => Array[Object]: allowedActions
-```
-
-#### example
-
-The following example defines three actions: **edit** and **reset** and **verify email**:
-
-- **edit** action will always be controlled by **Form**
-- **reset** action will be displayed, since there is no switch case for it
-- **verify email** will be displayed only when there is an email to verify
-
-This is a powerful way of conditionally rendering actions in **From**:
-
-```javasccript
-const actions = {
-  modules: [
-    // add as many of button as to fit your requirements
-    {
-      module: 'button',
-      name: 'reset',
-      content: 'Reset',
-    },
-    {
-      module: 'button',
-      name: 'verify.email',
-      content: 'Verify email',
-    },
-
-    // Add (only one) of **edit** to make your form **editable**
-    {
-      module: 'edit',
-      cancelLabel: 'Cancelar',
-      editLabel: 'Editar',
-      saveLabel: 'Enviar',
-    },
-  ],
-  resolveAllowedActions: (data, allActions) =>
-    allActions.reduce((allowedActions, action) => {
-      switch (action.name) {
-        case 'verify.email':
-          // do not show if email is empty
-          if (data.userEmail) {
-            allowedActions.push(action);
-          }
-          break;
-
-        default:
-          allowedActions.push(action);
-      }
-
-      return actionsForRecord;
-    }, [])
-};
-```
-
 ## data
 
 You can pass your own data, **Form** will then use it as the initial values for any fields it generates from the [modules](#supported-data-types-modules) you describe in `dataDisplay`.
@@ -261,22 +192,6 @@ title: Everything together!
         saveLabel: 'Enviar',
       },
     ],
-    resolveAllowedActions: (data, allActions) =>
-      allActions.reduce((allowedActions, action) => {
-        switch (action.name) {
-          case 'verify.email':
-            // do not show if email is empty
-            if (data.userEmail) {
-              allowedActions.push(action);
-            }
-            break;
-
-          default:
-            allowedActions.push(action);
-        }
-
-        return actionsForRecord;
-      }, [])
   }}
   data={{
     id: 1,
