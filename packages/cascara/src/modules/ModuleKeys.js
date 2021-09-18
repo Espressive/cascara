@@ -15,6 +15,7 @@ import DataImage from './DataImage';
 import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
+import DataMonth from './DataMonth';
 
 const actionModules = {
   button: ActionButton,
@@ -30,6 +31,7 @@ const dataModules = {
   file: DataFile,
   image: DataImage,
   json: DataJson,
+  month: DataMonth,
   number: DataNumber,
   radio: DataRadio,
   select: DataSelect,

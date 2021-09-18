@@ -16,3 +16,4 @@ export { default as DataImage } from './DataImage';
 export { default as DataFile } from './DataFile';
 export { default as DataDate } from './DataDate';
 export { default as DataDateTime } from './DataDateTime';
+export { default as DataMonth } from './DataMonth';
