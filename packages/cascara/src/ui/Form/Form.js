@@ -37,10 +37,6 @@ const propTypes = {
         module: pt.oneOf(actionModuleOptions).isRequired,
       })
     ),
-
-    // Resolve allowed actions.
-    // A function that returns the actions available to the current state of the form
-    resolveAllowedActions: pt.func,
   }),
 
   // An object of modules to display.

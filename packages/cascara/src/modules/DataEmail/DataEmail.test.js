@@ -1,14 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import cosmosFixtures, { displayProps, editingProps } from './DataTel.fixture';
+import cosmosFixtures, {
+  displayProps,
+  editingProps,
+} from './DataEmail.fixture';
 
-// We cannot destructure during import because the default export in Cosmos
-// multi-fixture files is an object so we need to import the fixtures first,
-// then destructure them separately.
 const { display, editing, displayNoLabel, editingNoLabel } = cosmosFixtures;
 
-describe('DataPassword', () => {
+describe('DataEmail', () => {
   // without ModuleSandbox will render the property information into a span
+
   describe('display', () => {
     // We need a place to store the view for snapshot testing. This is not required when we are using `screen` directly from RTL.
     let view;
@@ -27,7 +28,7 @@ describe('DataPassword', () => {
       // Make sure the actual DOM element is not render an input
       expect(input.tagName).toMatch('SPAN');
       // Make sure the dom element that has our aria-label is the input
-      expect(input.classList.contains('Tel')).toBe(true);
+      expect(input.classList.contains('Input')).toBe(true);
     });
   });
 
@@ -44,18 +45,17 @@ describe('DataPassword', () => {
       expect(view).toMatchSnapshot();
     });
 
-    test('renders a <input date> by default', () => {
+    test('renders a <input email> by default', () => {
       const input = screen.getByLabelText(editingProps.label);
       // Check that we also use the correct type
-      expect(input).toHaveAttribute('type', 'tel');
-      expect(input).toHaveValue('123-456-7890');
+      expect(input).toHaveAttribute('type', 'email');
     });
 
     test('change value', () => {
-      const newPassword = 'newPassword';
+      const newEmail = 'newme@mail.com';
       const input = screen.getByLabelText(editingProps.label);
-      fireEvent.change(input, { target: { value: newPassword } });
-      expect(input).toHaveValue(newPassword);
+      fireEvent.change(input, { target: { value: newEmail } });
+      expect(input).toHaveValue(newEmail);
     });
   });
 

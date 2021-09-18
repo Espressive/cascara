@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataFile display snapshot 1`] = `
+<div>
+  <div
+    class="File"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="File"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataFile editing snapshot 1`] = `
+<div>
+  <div
+    class="File"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Input"
+        id="Editing"
+        name="Editing"
+        type="file"
+      />
+    </label>
+  </div>
+</div>
+`;

@@ -70,6 +70,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -205,6 +206,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -312,6 +314,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -342,10 +345,14 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
       data-testid="module-error"
     >
 <<<<<<< HEAD
+<<<<<<< HEAD
       unknownModule is not a valid value for module. Try using one of [checkbox, date, email, image, json, month, number, radio, select, text, textarea]
 =======
       unknownModule is not a valid value for module. Try using one of [checkbox, date, datetime, email, json, number, radio, select, text, textarea]
 >>>>>>> 2700bda51a9adba1cbef20af34b564cb7a8f101d
+=======
+      unknownModule is not a valid value for module. Try using one of [checkbox, date, datetime, email, file, json, number, radio, select, text, textarea]
+>>>>>>> b148f02326e2bc9f2ab6ea6672f1d0bacaaec42d
     </div>
   </td>
   <td
@@ -493,6 +500,7 @@ exports[`Table snapshot tests with actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -622,6 +630,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -751,6 +760,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com
@@ -865,6 +875,7 @@ exports[`Table snapshot tests without actions 1`] = `
     >
       <span>
         <span
+          aria-label="Created by"
           class="Input"
         >
           test@espressive.com

@@ -12,6 +12,7 @@ import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
 import DataImage from './DataImage';
+import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
 import DataMonth from './DataMonth';
@@ -29,6 +30,7 @@ const dataModules = {
   date: DataDate,
   datetime: DataDateTime,
   email: DataEmail,
+  file: DataFile,
   image: DataImage,
   json: DataJson,
   month: DataMonth,
