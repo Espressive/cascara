@@ -1,0 +1,24 @@
+---
+title: DataTime
+propTable: DataTime.js
+type: 'module'
+public: false
+---
+
+A data module to display **email** values, it renders a input of type **email**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    time: '13:30',
+  }}
+>
+  <DataTime attribute='time' isEditable={true} label='Schedule' value='13:30' />
+</ModuleSandbox>
+```
