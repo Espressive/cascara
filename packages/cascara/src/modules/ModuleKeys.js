@@ -14,6 +14,7 @@ import DataTextArea from './DataTextArea';
 import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
+import DataWeek from './DataWeek';
 
 const actionModules = {
   button: ActionButton,
@@ -33,6 +34,7 @@ const dataModules = {
   select: DataSelect,
   text: DataText,
   textarea: DataTextArea,
+  week: DataWeek,
 };
 
 export { actionModules, dataModules };

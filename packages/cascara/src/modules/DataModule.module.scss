@@ -56,7 +56,8 @@ $module-background: #f0f0f0;
 .Number,
 .Text,
 .TextArea,
-.Select {
+.Select,
+.Week {
   @extend %ModuleContainer;
 }
 

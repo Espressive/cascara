@@ -15,3 +15,4 @@ export { default as ModuleSandbox } from './ModuleSandbox';
 export { default as DataFile } from './DataFile';
 export { default as DataDate } from './DataDate';
 export { default as DataDateTime } from './DataDateTime';
+export { default as DataWeek } from './DataWeek';
