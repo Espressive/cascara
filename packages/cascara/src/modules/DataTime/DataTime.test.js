@@ -49,10 +49,10 @@ describe('DataTime', () => {
     });
 
     test('change value', () => {
-      const newEmail = '14:50';
+      const newTime = '14:50';
       const input = screen.getByLabelText(editingProps.label);
-      fireEvent.change(input, { target: { value: newEmail } });
-      expect(input).toHaveValue(newEmail);
+      fireEvent.change(input, { target: { value: newTime } });
+      expect(input).toHaveValue(newTime);
     });
   });
 

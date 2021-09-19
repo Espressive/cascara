@@ -71,5 +71,4 @@ const DataTime = ({
 
 DataTime.propTypes = propTypes;
 
-export { propTypes };
 export default DataTime;
