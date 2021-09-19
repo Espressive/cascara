@@ -71,5 +71,4 @@ const DataUrl = ({
 
 DataUrl.propTypes = propTypes;
 
-export { propTypes };
 export default DataUrl;
