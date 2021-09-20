@@ -14,6 +14,7 @@ import DataTextArea from './DataTextArea';
 import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
+import DataRange from './DataRange';
 
 const actionModules = {
   button: ActionButton,
@@ -30,6 +31,7 @@ const dataModules = {
   json: DataJson,
   number: DataNumber,
   radio: DataRadio,
+  range: DataRange,
   select: DataSelect,
   text: DataText,
   textarea: DataTextArea,
