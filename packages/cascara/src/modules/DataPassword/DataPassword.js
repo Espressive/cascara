@@ -20,7 +20,7 @@ const propTypes = {
   value: pt.string,
 };
 
-const DataMonth = ({
+const DataPassword = ({
   attribute,
   isEditable = true,
   isLabeled = true,
@@ -40,12 +40,12 @@ const DataMonth = ({
       <Input
         {...rest}
         aria-label={setAriaLabel}
-        className={styles.Input}
+        className={styles.Password}
         defaultValue={value}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='month'
+        type='password'
       />
     </label>
   );
@@ -53,8 +53,8 @@ const DataMonth = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span aria-label={label} className={styles.Month} {...rest}>
-        {value}
+      <span aria-label={label} className={styles.Password} {...rest}>
+        ******
       </span>
     </span>
   );
@@ -62,14 +62,14 @@ const DataMonth = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Month}>
+      <div className={styles.Text}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
   );
 };
 
-DataMonth.propTypes = propTypes;
+DataPassword.propTypes = propTypes;
 
 export { propTypes };
-export default DataMonth;
+export default DataPassword;
