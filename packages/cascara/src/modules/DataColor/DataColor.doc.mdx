@@ -1,0 +1,29 @@
+---
+title: DataColor
+propTable: DataColor.js
+type: 'module'
+public: false
+---
+
+A data module to display **hexadecimal** values, it renders a input of type **color**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    color: '#e66465',
+  }}
+>
+  <DataColor
+    attribute='color'
+    isEditable={true}
+    label='My favorite color'
+    value='#e66465'
+  />
+</ModuleSandbox>
+```

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataColor display snapshot 1`] = `
+<div>
+  <div
+    class="Color"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Color"
+      >
+        #f6b73c
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataColor editing snapshot 1`] = `
+<div>
+  <div
+    class="Color"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Color"
+        id="Editing"
+        name="Editing"
+        type="color"
+        value="#f6b73c"
+      />
+    </label>
+  </div>
+</div>
+`;
