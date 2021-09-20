@@ -5,6 +5,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
+import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -28,14 +29,10 @@ const DataPassword = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
-
-  // NOTE: THESE TWO SET DEFINITIONS COULD PROBABLY BECOME A HELPER FUNCTION FOR USE IN ALL MODULES
-  // We do not want to add a redundant aria-label property if there
-  // is an html label present with a linking `for` attribute.
-  const setAriaLabel = isLabeled ? undefined : label;
-  // We do not want to set a for attribute if there is no label content
-  // because we are defining aria label instead
-  const setHtmlFor = isLabeled ? label : undefined;
+  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
+    isLabeled,
+    label
+  );
 
   const renderEditing = (
     <label htmlFor={setHtmlFor}>
@@ -43,7 +40,7 @@ const DataPassword = ({
       <Input
         {...rest}
         aria-label={setAriaLabel}
-        className={styles.Input}
+        className={styles.Password}
         defaultValue={value}
         id={label}
         name={attribute || label}
@@ -56,7 +53,7 @@ const DataPassword = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span aria-label={label} className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.Password} {...rest}>
         ******
       </span>
     </span>

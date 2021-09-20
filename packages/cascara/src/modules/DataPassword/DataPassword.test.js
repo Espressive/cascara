@@ -30,7 +30,7 @@ describe('DataPassword', () => {
       // Make sure the actual DOM element is not render an input
       expect(input.tagName).toMatch('SPAN');
       // Make sure the dom element that has our aria-label is the input
-      expect(input.classList.contains('Input')).toBe(true);
+      expect(input.classList.contains('Password')).toBe(true);
     });
   });
 
