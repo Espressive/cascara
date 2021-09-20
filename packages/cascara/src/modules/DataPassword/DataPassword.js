@@ -16,19 +16,16 @@ const propTypes = {
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
-  /** Image path */
-  src: pt.string,
   /** A Module can have a value */
   value: pt.string,
 };
 
-const DataImage = ({
+const DataPassword = ({
   attribute,
   isEditable = true,
   isLabeled = true,
   label,
   value,
-  src,
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
@@ -43,13 +40,12 @@ const DataImage = ({
       <Input
         {...rest}
         aria-label={setAriaLabel}
-        className={styles.Image}
+        className={styles.Password}
         defaultValue={value}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        src={src}
-        type={'image'}
+        type='password'
       />
     </label>
   );
@@ -57,8 +53,8 @@ const DataImage = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span aria-label={label} className={styles.Image} {...rest}>
-        {src}
+      <span aria-label={label} className={styles.Password} {...rest}>
+        ******
       </span>
     </span>
   );
@@ -66,14 +62,14 @@ const DataImage = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Image}>
+      <div className={styles.Text}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
   );
 };
 
-DataImage.propTypes = propTypes;
+DataPassword.propTypes = propTypes;
 
 export { propTypes };
-export default DataImage;
+export default DataPassword;

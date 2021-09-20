@@ -20,7 +20,7 @@ const propTypes = {
   value: pt.string,
 };
 
-const DataDateTime = ({
+const DataMonth = ({
   attribute,
   isEditable = true,
   isLabeled = true,
@@ -69,7 +69,7 @@ const DataDateTime = ({
   );
 };
 
-DataDateTime.propTypes = propTypes;
+DataMonth.propTypes = propTypes;
 
 export { propTypes };
-export default DataDateTime;
+export default DataMonth;

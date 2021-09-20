@@ -17,3 +17,4 @@ export { default as DataFile } from './DataFile';
 export { default as DataDate } from './DataDate';
 export { default as DataDateTime } from './DataDateTime';
 export { default as DataMonth } from './DataMonth';
+export { default as DataPassword } from './DataPassword';

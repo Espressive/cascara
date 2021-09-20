@@ -16,6 +16,7 @@ import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
 import DataMonth from './DataMonth';
+import DataPassword from './DataPassword';
 
 const actionModules = {
   button: ActionButton,
@@ -33,6 +34,7 @@ const dataModules = {
   json: DataJson,
   month: DataMonth,
   number: DataNumber,
+  passord: DataPassword,
   radio: DataRadio,
   select: DataSelect,
   text: DataText,
