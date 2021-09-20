@@ -55,14 +55,21 @@ jobs:
           key: << pipeline.parameters.installed-key >>
           paths:
             - ~/
-
+  danger:
+    <<: *job_executor
+    steps:
+      - restore_cache:
+          key: << pipeline.parameters.installed-key >>
+      - run:
+          name: Danger Checks
+          command: yarn danger ci
   lint:
     <<: *job_executor
     steps:
       - restore_cache:
           key: << pipeline.parameters.installed-key >>
       - run:
-          name: Run Eslint
+          name: Danger Checks
           command: yarn lint --format junit --output-file ./coverage/eslint.xml
       - store_test_results:
           path: ./coverage
@@ -226,22 +233,34 @@ workflows:
       - install:
           <<: *install_pre_steps
           <<: *post_steps
+      - danger:
+          <<: *post_steps
+          <<: *requires_install
       - lint:
           <<: *post_steps
           <<: *requires_install
+          requires:
+            - danger
       - test:
           <<: *post_steps
           <<: *requires_install
+          requires:
+            - danger
       - build-cascara:
           <<: *post_steps
           <<: *requires_tests
+          requires:
+            - danger
       - build-cosmos:
           <<: *post_steps
           <<: *requires_tests
+          requires:
+            - danger
       - publish:
           <<: *filter_main_and_dev
           <<: *post_steps
           requires:
+            - danger
             - build-cascara
             - build-cosmos
 # publish-tagged-packages:
