@@ -17,6 +17,7 @@ import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
 import DataMonth from './DataMonth';
 import DataPassword from './DataPassword';
+import DataTel from './DataTel';
 
 const actionModules = {
   button: ActionButton,
@@ -37,6 +38,7 @@ const dataModules = {
   passord: DataPassword,
   radio: DataRadio,
   select: DataSelect,
+  tel: DataTel,
   text: DataText,
   textarea: DataTextArea,
 };

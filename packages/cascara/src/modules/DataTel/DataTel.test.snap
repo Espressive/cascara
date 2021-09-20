@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataPassword display snapshot 1`] = `
+<div>
+  <div
+    class="Tel"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Tel"
+      >
+        123467890
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataPassword editing snapshot 1`] = `
+<div>
+  <div
+    class="Tel"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Input"
+        id="Editing"
+        name="Editing"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        placeholder="123-456-7890"
+        type="tel"
+        value="123-456-7890"
+      />
+    </label>
+  </div>
+</div>
+`;
