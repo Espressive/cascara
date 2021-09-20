@@ -59,6 +59,7 @@ $module-background: #f0f0f0;
 .Password,
 .Text,
 .TextArea,
+.Time,
 .Select {
   @extend %ModuleContainer;
 }
