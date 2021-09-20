@@ -2,37 +2,34 @@ import React from 'react';
 import DataMonth from './DataMonth';
 import ModuleSandbox from '../ModuleSandbox';
 
-const DisplayDataMonth = ({ isEditing, ...rest }) => (
+const DataMonthSandbox = ({ isEditing, ...rest }) => (
   <ModuleSandbox isEditing={isEditing}>
-    <DataMonth {...rest} label='Month' />
+    <DataMonth {...rest} />
   </ModuleSandbox>
 );
 
-const DataMonthModule = () => {
-  return (
-    <>
-      <div>
-        <h1>Date input field</h1>
-        <p>
-          This fixture is for testing the presentation of an input date field
-        </p>
-      </div>
+const monthValue = '2018-06';
 
-      <hr />
-
-      <div>
-        <h2>Display</h2>
-        <DisplayDataMonth value='2021-06' />
-      </div>
-
-      <div>
-        <h2>Editing</h2>
-
-        <DisplayDataMonth isEditing name='month' value='2021-06' />
-      </div>
-    </>
-  );
+const displayProps = {
+  label: 'Display',
+  value: monthValue,
 };
 
-export { DisplayDataMonth };
-export default <DataMonthModule />;
+const editingProps = {
+  isEditing: true,
+  label: 'Editing',
+  max: '2018-08',
+  min: '2018-06',
+  value: monthValue,
+};
+
+// These can be used in tests
+export { displayProps, editingProps };
+
+// These are our fixtures
+export default {
+  display: <DataMonthSandbox {...displayProps} />,
+  displayNoLabel: <DataMonthSandbox {...displayProps} isLabeled={false} />,
+  editing: <DataMonthSandbox {...editingProps} />,
+  editingNoLabel: <DataMonthSandbox {...editingProps} isLabeled={false} />,
+};

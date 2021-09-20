@@ -1,16 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input Image default renders without any props 1`] = `
+exports[`DataDateTime display snapshot 1`] = `
 <div>
   <div
-    class="Text"
+    class="Image"
   >
     <span>
       <span
-        class="Input"
-        data-testid="default"
-      />
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Image"
+      >
+        /media/examples/my-button.png
+      </span>
     </span>
+  </div>
+</div>
+`;
+
+exports[`DataDateTime editing snapshot 1`] = `
+<div>
+  <div
+    class="Image"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        alt="Start"
+        class="Input"
+        id="Editing"
+        name="Editing"
+        src="/media/examples/my-button.png"
+        type="image"
+      />
+    </label>
   </div>
 </div>
 `;

@@ -15,8 +15,8 @@ import DataImage from './DataImage';
 import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
-import DataTime from './DataTime';
 import DataMonth from './DataMonth';
+import DataTime from './DataTime';
 import DataPassword from './DataPassword';
 import DataTel from './DataTel';
 
