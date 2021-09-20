@@ -29,8 +29,8 @@ describe('DataDateTime', () => {
       const input = screen.getByLabelText(displayProps.label);
       // Make sure the actual DOM element is not render an input
       expect(input.tagName).toMatch('SPAN');
-      // Make sure the dom element that has our aria-label is the not an input
-      expect(input.classList.contains('Image')).toBe(true);
+      // Make sure the dom element that has not our aria-label is the not an input
+      expect(input.classList.contains('Input')).toBe(false);
     });
   });
 
