@@ -11,9 +11,14 @@ import DataRadio from './DataRadio';
 import DataSelect from './DataSelect';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
+import DataImage from './DataImage';
 import DataFile from './DataFile';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
+import DataMonth from './DataMonth';
+import DataTime from './DataTime';
+import DataPassword from './DataPassword';
+import DataTel from './DataTel';
 import DataUrl from './DataUrl';
 
 const actionModules = {
@@ -28,12 +33,17 @@ const dataModules = {
   datetime: DataDateTime,
   email: DataEmail,
   file: DataFile,
+  image: DataImage,
   json: DataJson,
+  month: DataMonth,
   number: DataNumber,
+  passord: DataPassword,
   radio: DataRadio,
   select: DataSelect,
+  tel: DataTel,
   text: DataText,
   textarea: DataTextArea,
+  time: DataTime,
   url: DataUrl,
 };
 

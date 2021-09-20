@@ -1,0 +1,26 @@
+---
+title: DataMonth
+propTable: ./DataMonth.js
+type: 'module'
+public: false
+---
+
+A data module to display **string** values, it renders a input of type **month**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    firstName: 'John',
+    lastName: 'Doe',
+    month: '2018-05',
+  }}
+>
+  <DataText attribute='month' isEditable label='Month' value='2018-05' />
+</ModuleSandbox>
+```

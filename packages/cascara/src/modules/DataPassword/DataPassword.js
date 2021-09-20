@@ -20,7 +20,7 @@ const propTypes = {
   value: pt.string,
 };
 
-const DataDateTime = ({
+const DataPassword = ({
   attribute,
   isEditable = true,
   isLabeled = true,
@@ -40,12 +40,12 @@ const DataDateTime = ({
       <Input
         {...rest}
         aria-label={setAriaLabel}
-        className={styles.Input}
+        className={styles.Password}
         defaultValue={value}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='datetime-local'
+        type='password'
       />
     </label>
   );
@@ -53,8 +53,8 @@ const DataDateTime = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span aria-label={label} className={styles.Input} {...rest}>
-        {value}
+      <span aria-label={label} className={styles.Password} {...rest}>
+        ******
       </span>
     </span>
   );
@@ -69,7 +69,7 @@ const DataDateTime = ({
   );
 };
 
-DataDateTime.propTypes = propTypes;
+DataPassword.propTypes = propTypes;
 
 export { propTypes };
-export default DataDateTime;
+export default DataPassword;

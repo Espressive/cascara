@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataDateTime display snapshot 1`] = `
+<div>
+  <div
+    class="Month"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Month"
+      >
+        2018-06
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataDateTime editing snapshot 1`] = `
+<div>
+  <div
+    class="Month"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Input"
+        id="Editing"
+        max="2018-08"
+        min="2018-06"
+        name="Editing"
+        type="month"
+        value="2018-06"
+      />
+    </label>
+  </div>
+</div>
+`;
