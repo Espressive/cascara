@@ -52,10 +52,10 @@ describe('DataPassword', () => {
     });
 
     test('change value', () => {
-      const newPassword = 'newPassword';
+      const newTel = '456-124-7890';
       const input = screen.getByLabelText(editingProps.label);
-      fireEvent.change(input, { target: { value: newPassword } });
-      expect(input).toHaveValue(newPassword);
+      fireEvent.change(input, { target: { value: newTel } });
+      expect(input).toHaveValue(newTel);
     });
   });
 
