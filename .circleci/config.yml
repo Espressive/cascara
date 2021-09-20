@@ -63,13 +63,13 @@ jobs:
       - run:
           name: Danger Checks
           command: |
-            if [ -n "$GITHUB_TOKEN" ]; then
+            if [ -n "$DANGER_GITHUB_API_TOKEN" ]; then
               yarn danger ci --fail-on-errors=true
             else
-              echo "Not running danger because $GITHUB_TOKEN is not found"
+              echo "Not running danger because $DANGER_GITHUB_API_TOKEN is not found"
             fi
           environment:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            DANGER_GITHUB_API_TOKEN: $DANGER_GITHUB_API_TOKEN }}
   lint:
     <<: *job_executor
     steps:
@@ -246,28 +246,19 @@ workflows:
       - lint:
           <<: *post_steps
           <<: *requires_install
-          requires:
-            - danger
       - test:
           <<: *post_steps
           <<: *requires_install
-          requires:
-            - danger
       - build-cascara:
           <<: *post_steps
           <<: *requires_tests
-          requires:
-            - danger
       - build-cosmos:
           <<: *post_steps
           <<: *requires_tests
-          requires:
-            - danger
       - publish:
           <<: *filter_main_and_dev
           <<: *post_steps
           requires:
-            - danger
             - build-cascara
             - build-cosmos
 # publish-tagged-packages:
