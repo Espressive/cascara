@@ -344,7 +344,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
       class="Error"
       data-testid="module-error"
     >
-      unknownModule is not a valid value for module. Try using one of [checkbox, date, datetime, email, file, json, number, radio, select, text, textarea]
+      unknownModule is not a valid value for module. Try using one of [checkbox, date, datetime, email, file, image, json, month, number, passord, radio, select, text, textarea]
     </div>
   </td>
   <td
