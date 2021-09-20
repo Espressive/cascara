@@ -51,12 +51,18 @@ $module-background: #f0f0f0;
   }
 }
 
+.Color,
 .Email,
 .File,
+.Image,
+.Month,
 .Number,
+.Password,
+.Select,
+.Tel,
 .Text,
 .TextArea,
-.Select,
+.Time,
 .Week {
   @extend %ModuleContainer;
 }

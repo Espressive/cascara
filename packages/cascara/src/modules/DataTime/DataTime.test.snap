@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTime display snapshot 1`] = `
+<div>
+  <div
+    class="Time"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Time"
+      >
+        13:30
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataTime editing snapshot 1`] = `
+<div>
+  <div
+    class="Time"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Time"
+        id="Editing"
+        name="Editing"
+        type="time"
+        value="13:30"
+      />
+    </label>
+  </div>
+</div>
+`;

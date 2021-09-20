@@ -20,7 +20,7 @@ const propTypes = {
   value: pt.string,
 };
 
-const DataDateTime = ({
+const DataColor = ({
   attribute,
   isEditable = true,
   isLabeled = true,
@@ -40,12 +40,12 @@ const DataDateTime = ({
       <Input
         {...rest}
         aria-label={setAriaLabel}
-        className={styles.Input}
+        className={styles.Color}
         defaultValue={value}
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='datetime-local'
+        type='color'
       />
     </label>
   );
@@ -53,7 +53,7 @@ const DataDateTime = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span aria-label={label} className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.Color} {...rest}>
         {value}
       </span>
     </span>
@@ -62,14 +62,13 @@ const DataDateTime = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Text}>
+      <div className={styles.Color}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
   );
 };
 
-DataDateTime.propTypes = propTypes;
+DataColor.propTypes = propTypes;
 
-export { propTypes };
-export default DataDateTime;
+export default DataColor;
