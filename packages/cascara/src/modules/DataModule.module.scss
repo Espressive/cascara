@@ -51,13 +51,19 @@ $module-background: #f0f0f0;
   }
 }
 
+.Color,
 .Email,
 .File,
+.Image,
+.Month,
 .Number,
+.Password,
 .Range,
+.Select,
+.Tel,
 .Text,
 .TextArea,
-.Select {
+.Time {
   @extend %ModuleContainer;
 }
 

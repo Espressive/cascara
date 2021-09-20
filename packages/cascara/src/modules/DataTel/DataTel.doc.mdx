@@ -1,0 +1,31 @@
+---
+title: DataTel
+propTable: ./DataTel.js
+type: 'module'
+public: false
+---
+
+A data module to display **string** values, it renders a input of type **tel**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    firstName: 'John',
+    lastName: 'Doe',
+    tel: '1234567890',
+  }}
+>
+  <DataDateTime
+    attribute='state'
+    isEditable={true}
+    label='State'
+    value='1234567890'
+  />
+</ModuleSandbox>
+```

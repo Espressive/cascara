@@ -16,16 +16,19 @@ const propTypes = {
   isLabeled: pt.bool,
   /** A Module needs to have a unique label relative to its context */
   label: pt.string,
+  /** Image path */
+  src: pt.string,
   /** A Module can have a value */
   value: pt.string,
 };
 
-const DataDateTime = ({
+const DataImage = ({
   attribute,
   isEditable = true,
   isLabeled = true,
   label,
   value,
+  src,
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
@@ -45,7 +48,8 @@ const DataDateTime = ({
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        type='datetime-local'
+        src={src}
+        type={'image'}
       />
     </label>
   );
@@ -53,8 +57,8 @@ const DataDateTime = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span aria-label={label} className={styles.Input} {...rest}>
-        {value}
+      <span aria-label={label} className={styles.Image} {...rest}>
+        {src}
       </span>
     </span>
   );
@@ -62,14 +66,14 @@ const DataDateTime = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Text}>
+      <div className={styles.Image}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
   );
 };
 
-DataDateTime.propTypes = propTypes;
+DataImage.propTypes = propTypes;
 
 export { propTypes };
-export default DataDateTime;
+export default DataImage;
