@@ -19,3 +19,4 @@ export { default as DataTime } from './DataTime';
 export { default as DataDateTime } from './DataDateTime';
 export { default as DataMonth } from './DataMonth';
 export { default as DataPassword } from './DataPassword';
+export { default as DataTel } from './DataTel';
