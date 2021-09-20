@@ -37,7 +37,7 @@ exports[`DataDateTime editing snapshot 1`] = `
       </span>
       <input
         alt="Start"
-        class="Input"
+        class="Image"
         id="Editing"
         name="Editing"
         src="/media/examples/my-button.png"
