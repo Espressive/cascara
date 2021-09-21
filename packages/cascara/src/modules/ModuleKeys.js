@@ -19,6 +19,7 @@ import DataTel from './DataTel';
 import DataText from './DataText';
 import DataTextArea from './DataTextArea';
 import DataTime from './DataTime';
+import DataWeek from './DataWeek';
 import DataUrl from './DataUrl';
 
 const actionModules = {
@@ -45,6 +46,7 @@ const dataModules = {
   textarea: DataTextArea,
   time: DataTime,
   url: DataUrl,
+  week: DataWeek,
 };
 
 export { actionModules, dataModules };

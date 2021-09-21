@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataWeek display snapshot 1`] = `
+<div>
+  <div
+    class="Week"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Week"
+      >
+        2021-W01
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataWeek editing snapshot 1`] = `
+<div>
+  <div
+    class="Week"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Week"
+        id="Editing"
+        name="Editing"
+        type="week"
+        value="2021-W01"
+      />
+    </label>
+  </div>
+</div>
+`;

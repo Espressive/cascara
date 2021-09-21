@@ -18,6 +18,7 @@ export { default as DataTel } from './DataTel';
 export { default as DataText } from './DataText';
 export { default as DataTextArea } from './DataTextArea';
 export { default as DataTime } from './DataTime';
+export { default as DataWeek } from './DataWeek';
 export { default as DataUrl } from './DataUrl';
 export { default as ModuleError } from './ModuleError';
 export { default as ModuleSandbox } from './ModuleSandbox';
