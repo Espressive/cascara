@@ -64,7 +64,7 @@ $module-background: #f0f0f0;
 .Text,
 .TextArea,
 .Time,
-.Url {
+.Url .Week {
   @extend %ModuleContainer;
 }
 
