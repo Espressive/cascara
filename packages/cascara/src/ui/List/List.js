@@ -5,6 +5,7 @@ import { Composite, useCompositeState } from 'reakit/Composite';
 import styles from './List.module.scss';
 
 const propTypes = {
+  /** This is an array of objects used to tell List what to display */
   data: pt.arrayOf(pt.shape(listItemPropTypes)),
 };
 

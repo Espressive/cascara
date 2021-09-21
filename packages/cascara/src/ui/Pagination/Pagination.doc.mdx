@@ -1,0 +1,51 @@
+---
+title: Pagination
+propTable: Pagination.js
+status: 'ALPHA'
+---
+
+# Public API
+
+WARNING! This is an alpha release so we can try to get this code in and working to kick the tires.
+
+## Loading
+
+When defining no props, the component does not blow up. This is also a
+potential state the component might be in during loading. Any interactive
+elements should be disabled.
+
+```jsx
+---
+title: Pagination in a loading state
+---
+<Pagination />
+```
+
+## totalRecordCount
+
+A number that specifies the length of the data.
+
+### Empty
+
+After loading data and passing props to our component, it is possible that data has a length of 0. In such cases, the component still have disabled input
+but the user will see additional indication that there are no records to display.
+
+```jsx
+---
+title: Pagination with dropdownIndex
+---
+<Pagination totalRecordCount={0} />
+```
+
+### With data but no state
+
+When we have a `totalRecordCount` greater than 1, Pagination values are displayed. Nothing is broken and it presents correctly.
+
+```jsx
+---
+title: With data but no state
+---
+<Pagination totalRecordCount={65} />
+```
+
+> Use the `usePaginationState` hook to provide this component with state.

@@ -6,7 +6,9 @@ import DropdownStack from './DropdownStack';
 import { JsonPlaceholder } from '@espressive/cascara';
 
 const propTypes = {
+  /** An array of objects describing the actions */
   actions: pt.arrayOf(ACTION_SHAPE),
+  /** A number specifying the index at which `actions` start to appear as dropdown items */
   dropdownIndex: pt.number,
 };
 
