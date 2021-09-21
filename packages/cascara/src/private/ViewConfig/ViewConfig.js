@@ -1,5 +1,5 @@
 import pt from 'prop-types';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { memo, useCallback, useRef, useState } from 'react';
 import { compose, filter, without } from 'ramda';
 import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
 import { DEFAULT_TRIGGER, STATE_SHAPE } from './__globals';
@@ -7,7 +7,7 @@ import ViewConfigItem from './ViewConfigItem';
 import styles from './ViewConfig.module.scss';
 import { popperOverTrigger } from '../../lib/popperModifiers';
 
-// const MemoViewConfigItem = memo(ViewConfigItem);
+const MemoViewConfigItem = memo(ViewConfigItem);
 
 const propTypes = {
   isInitialOpen: pt.bool,
@@ -59,7 +59,7 @@ const ViewConfig = ({
     options.map((option) => {
       const { currentSelection, ...setterFunctions } = state;
       return (
-        <ViewConfigItem
+        <MemoViewConfigItem
           {...option}
           {...setterFunctions}
           isActive={isSelected}
