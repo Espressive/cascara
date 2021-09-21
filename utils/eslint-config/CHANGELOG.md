@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+- d3bc06a: Using Changesets
+
 ## 1.0.5
 
 ### Patch Changes
