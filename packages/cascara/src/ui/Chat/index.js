@@ -1,5 +1,2 @@
-import ChatProvider from './ChatProvider';
-
-export { ChatProvider };
-
+export { default as ChatProvider } from './ChatProvider';
 export { default } from './Chat';

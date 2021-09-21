@@ -5,8 +5,10 @@ import {
   Provider,
   teamsTheme,
 } from '@fluentui/react-northstar';
+import ChatProvider from './ChatProvider';
 import { getMessageAuthorDetails, getMessageGroup } from './utils';
 import messageTypes from './messageTypes';
+import { Boundaries } from '../../system-components';
 import { loadingMessages, loadingTheme } from './loadingState';
 
 const propTypes = {
@@ -108,14 +110,17 @@ const Chat = ({ sessionUserID, messages, users }) => {
   };
 
   return (
-    <Provider
-      theme={messages ? { animations } : { animations, ...loadingTheme }}
-    >
-      <FUIChat items={items} />
-    </Provider>
+    <Boundaries>
+      <Provider
+        theme={messages ? { animations } : { animations, ...loadingTheme }}
+      >
+        <FUIChat items={items} />
+      </Provider>
+    </Boundaries>
   );
 };
 
 Chat.propTypes = propTypes;
+Chat.Provider = ChatProvider;
 
 export default Chat;

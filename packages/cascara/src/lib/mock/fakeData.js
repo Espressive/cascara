@@ -11,15 +11,10 @@ export const generateFakeEmployees = (qty) =>
     const lastName = faker.name.lastName();
 
     return (e = {
-      active: faker.random.boolean(),
+      active: faker.datatype.boolean(),
       country: faker.random.arrayElement(['USA', 'Brazil', 'Argentina']),
-      eid: faker.random.uuid(),
+      eid: faker.datatype.uuid(),
       email: faker.internet.email(firstName, lastName, 'espressive.com'),
-      employeeNumber: faker.random.number(),
-      fullName: `${firstName} ${lastName}`,
-      homePhone: faker.phone.phoneNumber(),
-      officePhone: faker.phone.phoneNumber(),
-      title: faker.name.jobTitle(),
     });
   });
 
@@ -38,12 +33,14 @@ export const generateFakeInteractions = (qty) =>
 
     return (e = {
       created: safeDate,
-      deflected: faker.random.boolean(),
-      eid: faker.random.uuid(),
+      deflected: faker.datatype.boolean(),
+      eid: faker.datatype.uuid(),
       matchedIntent,
       phrase: faker.lorem.sentence(5),
-      response: faker.random.boolean(),
+      response: faker.datatype.boolean(),
       type: faker.random.arrayElement(['faq', 'other', 'interaction']),
       user: `${firstName} ${lastName}`,
     });
   });
+
+export const fakeEmployees = generateFakeEmployees(5);

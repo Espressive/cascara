@@ -6,6 +6,7 @@ import {
   getTranslatedDetails,
   validateMessageObj,
 } from './utils';
+import { Boundaries } from '../../system-components';
 
 const propTypes = {
   authorName: pt.string,
@@ -24,15 +25,17 @@ const ChatMessage = ({
   timestamp,
 }) => {
   return (
-    <Animation name='chatMessage'>
-      <FUIChat.Message
-        author={authorName}
-        content={text}
-        details={getTranslatedDetails(isTranslated)}
-        mine={isSessionUser}
-        timestamp={timestamp}
-      />
-    </Animation>
+    <Boundaries>
+      <Animation name='chatMessage'>
+        <FUIChat.Message
+          author={authorName}
+          content={text}
+          details={getTranslatedDetails(isTranslated)}
+          mine={isSessionUser}
+          timestamp={timestamp}
+        />
+      </Animation>
+    </Boundaries>
   );
 };
 ChatMessage.displayName = 'Chat.Message';

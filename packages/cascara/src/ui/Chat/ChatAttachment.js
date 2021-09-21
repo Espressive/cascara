@@ -8,6 +8,8 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
+import { Boundaries } from '../../system-components';
+
 import { bytesToSize, getSharedMessageKeys, validateMessageObj } from './utils';
 
 const IMAGE_ATTACHMENT_TYPES = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'tiff'];
@@ -19,7 +21,7 @@ const propTypes = {
   isSessionUser: pt.bool,
   metadata: pt.shape({
     height: pt.number,
-    size: pt.oneOf([pt.number, pt.string]),
+    size: pt.oneOfType([pt.number, pt.string]),
     type: pt.string,
     url: pt.string,
     width: pt.number,
@@ -84,14 +86,16 @@ const ChatAttachment = ({
   );
 
   return (
-    <Animation name='chatMessage'>
-      <FUIChat.Message
-        author={authorName}
-        content={attachment}
-        mine={isSessionUser}
-        timestamp={timestamp}
-      />
-    </Animation>
+    <Boundaries>
+      <Animation name='chatMessage'>
+        <FUIChat.Message
+          author={authorName}
+          content={attachment}
+          mine={isSessionUser}
+          timestamp={timestamp}
+        />
+      </Animation>
+    </Boundaries>
   );
 };
 
@@ -102,19 +106,14 @@ const objPropTypes = {
   handleScrollToBottom: pt.func.isRequired,
   isSessionUser: pt.bool,
   message: pt.object.isRequired,
-  messageAuthor: pt.object.isRequired,
+  messageAuthor: pt.object,
   ref: pt.object.isRequired,
 };
 
 // This returns the object that FUI is expecting, along with the component and props
 const getChatAttachmentObj = (obj) => {
-  const {
-    handleScrollToBottom,
-    isSessionUser,
-    message,
-    messageAuthor,
-    ref,
-  } = obj;
+  const { handleScrollToBottom, isSessionUser, message, messageAuthor, ref } =
+    obj;
 
   validateMessageObj(objPropTypes, obj, ChatAttachment.displayName);
 

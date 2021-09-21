@@ -5,6 +5,20 @@ type: 'module'
 public: false
 ---
 
-```
-<DataNumber />
+A data module to display **number** values, it renders a input of type **number**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    ki: 45,
+  }}
+>
+  <DataNumber attribute='ki' isEditable={true} label='Ki' value={45} />
+</ModuleSandbox>
 ```

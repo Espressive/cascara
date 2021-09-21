@@ -3,6 +3,7 @@ import pt from 'prop-types';
 import { ResponsiveBar } from '@nivo/bar';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { AXIS_CONFIG, CHART_DEFAULTS } from './widgetConfig';
+import { getDataState } from './dataState';
 
 const propTypes = {
   ...widgetPT,
@@ -11,11 +12,11 @@ const propTypes = {
   /** Can have a left axis label */
   axisLeftLabel: pt.string,
   /** Data to display in a widget */
-  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  data: pt.oneOfType([pt.array, pt.object]),
   /** The unique value to index by on `data` */
   indexBy: pt.string,
   /** Values to show from `data` */
-  keys: pt.arrayOf(pt.shape({})),
+  keys: pt.arrayOf(pt.string),
   /** The value to use for displaying bar labels */
   label: pt.string,
   /** Direction to orient the bar */
@@ -61,8 +62,10 @@ const WidgetBar = ({
     },
   };
 
+  const dataState = getDataState(data);
+
   return (
-    <Widget {...rest}>
+    <Widget {...rest} {...dataState}>
       <ResponsiveBar
         {...CHART_CONFIG}
         axisLeft={axisLeft}

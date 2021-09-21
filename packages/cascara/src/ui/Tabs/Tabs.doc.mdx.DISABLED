@@ -1,0 +1,49 @@
+---
+title: Tabs
+propTable: Tabs.js
+status: 'ALPHA'
+---
+
+# Public API
+
+WARNING! This is an alpha release so we can try to get this code in and working to kick the tires.
+
+## `tabs`
+
+An array of objects used to tell Tabs what to display.
+
+```jsx
+---
+title: Tabs with 3 panels
+---
+<Tabs
+  tabs={[
+    {
+      label: 'Panel A',
+      content: (
+        <>
+          <h3>I am a panel</h3>
+          <p>Hey there friend!</p>
+        </>
+      ),
+    },
+    {
+      label: 'Panel B',
+      content: <p>I am a new panel.</p>,
+    },
+    {
+      label: 'Panel C',
+      content: (
+        <>
+          <h3>A Third Panel</h3>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
+            voluptatum illum voluptatibus autem esse eaque totam hic placeat
+            dignissimos nisi.
+          </p>
+        </>
+      ),
+    }
+  ]}
+/>
+```

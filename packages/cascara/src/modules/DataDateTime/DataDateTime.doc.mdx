@@ -1,0 +1,31 @@
+---
+title: DataDateTime
+propTable: ./DataDateTime.js
+type: 'module'
+public: false
+---
+
+A data module to display **datetime** values, it renders a input of type **datetime-local**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    firstName: 'John',
+    lastName: 'Doe',
+    dateTime: '2018-06-12T19:30',
+  }}
+>
+  <DataDateTime
+    attribute='state'
+    isEditable={true}
+    label='State'
+    value='2018-06-12T19:30'
+  />
+</ModuleSandbox>
+```

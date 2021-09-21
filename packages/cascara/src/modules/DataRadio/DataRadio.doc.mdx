@@ -1,10 +1,40 @@
 ---
-title: DataRadio
+title: Data Radio
 propTable: DataRadio.js
 type: 'module'
 public: false
 ---
 
-```
-<DataRadio />
+A data module to display **Boolean** values, it renders a set of radio elements.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    ki: 45,
+  }}
+>
+  <DataRadio
+    attribute='color'
+    isEditable={true}
+    label='Color'
+    options={[
+      {
+        label: 'blue',
+      },
+      {
+        label: 'red',
+      },
+      {
+        label: 'yellow',
+      },
+    ]}
+    value='blue'
+  />
+</ModuleSandbox>
 ```

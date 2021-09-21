@@ -5,6 +5,25 @@ type: 'module'
 public: false
 ---
 
-```
-<DataEmail />
+A data module to display **email** values, it renders a input of type **email**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    email: 'test@example.com',
+  }}
+>
+  <DataEmail
+    attribute='email'
+    isEditable={true}
+    label='email'
+    value='test@example.com'
+  />
+</ModuleSandbox>
 ```

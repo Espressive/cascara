@@ -1,26 +1,10 @@
-// Structures
-import Admin from './structures/Admin';
-import BaristaStructure from './structures/BaristaStructure';
+// HEADS UP!
+// If we create any additional wildcard exports for a directory, make sure
+// we put a note at the top of the file to warn ourselves that everything
+// in that file is going to get exported.
+export * from './structures';
+export * from './system-components';
+export * from './ui';
 
-// Placeholders
-import AreaPlaceholder from './placeholders/AreaPlaceholder';
-import JsonPlaceholder from './placeholders/JsonPlaceholder';
-
-// UI
-import Button from './ui/Button';
-import Chat from './ui/Chat';
-import Dashboard from './ui/Dashboard';
-// import Form from './ui/Form';
-import Table from './ui/Table';
-
-export {
-  Admin,
-  AreaPlaceholder,
-  Button,
-  BaristaStructure,
-  Chat,
-  Dashboard,
-  // Form,
-  JsonPlaceholder,
-  Table,
-};
+// This is temporary while we figure out where this component should live.
+export { default as Button } from './private/Button';

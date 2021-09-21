@@ -1,0 +1,29 @@
+---
+title: DataUrl
+propTable: ./DataUrl.js
+type: 'module'
+public: false
+---
+
+A data module to display **string** values, it renders a input of type **url**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    url: 'https://example.com'
+  }}
+>
+  <DataUrl
+    attribute='firstName'
+    isEditable={true}
+    label='My file'
+    value: 'https://example.com'
+  />
+</ModuleSandbox>
+```

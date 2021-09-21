@@ -5,17 +5,24 @@
 // until there is a better way to import static data dynamically in Nextjs
 
 import {
+  ActionStack,
   Admin,
   Button,
   Chat,
   Dashboard,
+  Form,
   JsonPlaceholder,
+  List,
+  Pagination,
   Table,
+  Tabs,
+  usePaginationState,
 } from '@espressive/cascara';
 
 import {
   ActionButton,
   ActionEdit,
+  ActionEditTable,
   ChatProvider,
   DataCheckbox,
   DataEmail,
@@ -25,6 +32,7 @@ import {
   DataText,
   DataTextArea,
   ModuleProvider,
+  ModuleSandbox,
 } from '@espressive/cascara/private';
 
 import { Asciagram, Code, Placeholder } from '../components';
@@ -38,6 +46,7 @@ const docsComponents = {
 };
 
 const cascaraComponents = {
+  ActionStack: (props) => <ActionStack {...props} />,
   Admin: (props) => <Admin {...props} />,
   Button: (props) => <Button {...props} />,
   Chat: (props) => (
@@ -46,13 +55,18 @@ const cascaraComponents = {
     </ChatProvider>
   ),
   Dashboard: (props) => <Dashboard {...props} />,
+  Form: (props) => <Form {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
+  List: (props) => <List {...props} />,
+  Pagination: (props) => <Pagination {...props} />,
   Table: (props) => <Table {...props} />,
+  Tabs: (props) => <Tabs {...props} />,
 };
 
 const privateComponents = {
   ActionButton: (props) => <ActionButton {...props} />,
   ActionEdit: (props) => <ActionEdit {...props} />,
+  ActionEditTable: (props) => <ActionEditTable {...props} />,
   DataCheckbox: (props) => <DataCheckbox {...props} />,
   DataEmail: (props) => <DataEmail {...props} />,
   DataNumber: (props) => <DataNumber {...props} />,
@@ -61,6 +75,7 @@ const privateComponents = {
   DataText: (props) => <DataText {...props} />,
   DataTextArea: (props) => <DataTextArea {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
+  ModuleSandbox: (props) => <ModuleSandbox {...props} />,
 };
 /* eslint-enable react/display-name, react/no-multi-comp */
 
@@ -68,6 +83,7 @@ const MDX_COMPONENTS = {
   ...cascaraComponents,
   ...docsComponents,
   ...privateComponents,
+  usePaginationState,
 };
 
 export default MDX_COMPONENTS;

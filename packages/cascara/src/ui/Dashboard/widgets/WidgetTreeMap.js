@@ -7,7 +7,7 @@ import { CHART_DEFAULTS } from './widgetConfig';
 const propTypes = {
   ...widgetPT,
   /** Data to display in a widget */
-  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  data: pt.oneOfType([pt.array, pt.object]),
   /** The unique value to index by on `data` */
   indexBy: pt.string,
 };

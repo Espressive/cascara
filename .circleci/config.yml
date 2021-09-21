@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.0.1
-  slack: circleci/slack@4.3.1
+  node: circleci/node@4.7.0
+  slack: circleci/slack@4.4.4
 
 parameters:
   installed-key:
@@ -26,40 +26,6 @@ commands:
       - run:
           name: Deploy Vercel
           command: curl -X POST << parameters.vercel-deploy-hook >>
-  lerna-version:
-    description: Bumps our monorepo package versions
-    parameters:
-      prerelease:
-        type: boolean
-        default: true
-      lerna-args:
-        type: string
-        default: ''
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - $GITHUB_PACKAGE_DEPLOY_FINGERPRINT
-      - run:
-          name: Set Up Git config
-          command: |
-            git config --global -l
-            git config --global user.email circleci@circleci
-            git config --global user.name CircleCI
-      - run:
-          name: Bump Package Versions
-          command: |
-            yarn lerna version <<# parameters.prerelease >>prerelease<</ parameters.prerelease >> --no-private --conventional-commits --create-release github --yes << parameters.lerna-args >>
-  lerna-publish:
-    description: Publishes our monorepo packages with Lerna
-    steps:
-      - run:
-          name: Publish Packages
-          command: |
-            yarn lerna publish from-git --yes
-      # - run:
-      #     name: Git Push Changes
-      #     command: |
-      #       git push --follow-tags --no-verify --atomic
 
 job_executor: &job_executor
   executor:
@@ -69,46 +35,8 @@ job_executor: &job_executor
 post_steps: &post_steps
   post-steps:
     - slack/notify:
-        custom: |
-          {
-            "blocks": [
-              {
-                "type": "header",
-                "text": {
-                  "type": "plain_text",
-                  "text": "[JOB FAILED] ${CIRCLE_BRANCH}",
-                  "emoji": true
-                }
-              },
-              {
-                "type": "section",
-                "fields": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Job*:\n${CIRCLE_JOB}"
-                  },
-                  {
-                    "type": "mrkdwn",
-                    "text": "*Author*:\n${CIRCLE_USERNAME}"
-                  }
-                ]
-              },
-              {
-                "type": "actions",
-                "elements": [
-                  {
-                    "type": "button",
-                    "text": {
-                      "type": "plain_text",
-                      "text": "View Job"
-                    },
-                    "url": "${CIRCLE_BUILD_URL}"
-                  }
-                ]
-              }
-            ]
-          }
         event: fail
+        template: basic_fail_1
 
 jobs:
   install:
@@ -116,10 +44,11 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
+          override-ci-command: yarn install --immutable
           pkg-manager: yarn
       - run:
           name: Prepare Packages
-          command: yarn workspaces run prepare
+          command: yarn workspaces foreach run prepare
       - store_artifacts:
           path: ./node_modules/@espressive/cascara # check to see why we do not have @espressive/cascara
       - save_cache:
@@ -176,33 +105,91 @@ jobs:
           path: ./build/cosmos
           destination: cosmos
 
-  bump-packages:
+  publish:
     <<: *job_executor
-    parameters:
-      options:
-        description: 'Option flags passed to the Lerna release command'
-        default: ''
-        type: string
     steps:
       - restore_cache:
           key: << pipeline.parameters.installed-key >>
-      - when:
-          condition: *is_main
-          steps:
-            - lerna-version:
-                prerelease: false
-                lerna-args: --conventional-graduate
+      - add_ssh_keys:
+          fingerprints:
+            - $GITHUB_PACKAGE_DEPLOY_FINGERPRINT
+      - run:
+          name: Set Up Git config
+          command: |
+            git config --global -l
+            git config --global user.email circleci@circleci
+            git config --global user.name CircleCI
+      - run:
+          name: Get Changeset Status
+          command: yarn changeset status --output=./versions.json
+      - store_artifacts:
+          path: ./versions.json
+      - run:
+          name: Get artifacts url > $STORED_ARTIFACTS
+          command: |
+            artifacts=$(curl -X GET "https://circleci.com/api/v2/project/github/Espressive/cascara/$CIRCLE_BUILD_NUM/artifacts" \
+            -H "Accept: application/json" \
+            -u "$CIRCLE_API_TOKEN:")
+            # generate a heredoc in BASH_ENV
+            # the '\<<' is a CircleCI escape
+            echo "read -r -d '' STORED_ARTIFACTS \<< 'EOF_ARTIFACTS'" >> $BASH_ENV
+            echo "$artifacts" >> $BASH_ENV
+            echo "EOF_ARTIFACTS" >> $BASH_ENV
       - when:
           condition: *is_develop
           steps:
-            - lerna-version
+            - run:
+                name: Publish Next Snapshot
+                command: | # DO NOT COMMIT CHANGES FOR SNAPSHOT RELEASES!!!
+                  yarn changeset version --snapshot next
+                  node tooling/setReleaseVersions.js
+                  yarn changeset publish --tag next
+            - slack/notify:
+                event: pass
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "mrkdwn",
+                            "text": ":thumbsup_all: New Cascara `next` versions published."
+                          }
+                        ]
+                      }
+                    ]
+                  }
 
-  publish-packages:
-    <<: *job_executor
-    steps:
-      - restore_cache:
-          key: << pipeline.parameters.installed-key >>
-      - lerna-publish
+      - when:
+          condition: *is_main
+          steps:
+            - run:
+                name: Publish Full Release
+                command: |
+                  yarn changeset version
+                  git add .
+                  git commit -m "Publish Full Release"
+                  node tooling/setReleaseVersions.js
+                  yarn changeset publish
+                  git checkout -- "*.json"
+                  git push --follow-tags
+            - slack/notify:
+                event: pass
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "mrkdwn",
+                            "text": ":catjam: New `latest` releases for the Cascara monorepo!"
+                          }
+                        ]
+                      }
+                    ]
+                  }
 
 install_pre_steps: &install_pre_steps
   pre-steps:
@@ -251,20 +238,19 @@ workflows:
       - build-cosmos:
           <<: *post_steps
           <<: *requires_tests
-      - bump-packages:
+      - publish:
           <<: *filter_main_and_dev
           <<: *post_steps
           requires:
             - build-cascara
             - build-cosmos
-
-  publish-tagged-packages:
-    jobs:
-      - install:
-          <<: *filter_tags
-          <<: *install_pre_steps
-          <<: *post_steps
-      - publish-packages:
-          <<: *filter_tags
-          <<: *post_steps
-          <<: *requires_install
+# publish-tagged-packages:
+#   jobs:
+#     - install:
+#         <<: *filter_tags
+#         <<: *install_pre_steps
+#         <<: *post_steps
+#     - publish-packages:
+#         <<: *filter_tags
+#         <<: *post_steps
+#         <<: *requires_install

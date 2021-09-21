@@ -24,9 +24,21 @@ const getMDXTree = () => {
   // Remove any empty directories by looking at size
   const cleanTree = tree.filter(isEmpty);
 
-  const treeWithMeta = cleanTree.map((section) => {
-    const sectionData = section.children.filter(isEmpty).map((comp) => {
-      const compDataPath = comp.children[0].path;
+  const treeWithMeta = cleanTree.flatMap((section) => {
+    const sectionData = section.children.filter(isEmpty).flatMap((comp) => {
+      let compDataPath;
+
+      // This is bad, but as of today we do not allow nesting directories too deeply for MDX files
+      if (comp.children) {
+        if (comp?.children?.[0].type === 'directory') {
+          return null;
+        } else {
+          compDataPath = comp?.children?.[0].path;
+        }
+      } else {
+        compDataPath = comp.path;
+      }
+
       const source = fs.readFileSync(compDataPath);
       const { data } = matter(source);
       return {

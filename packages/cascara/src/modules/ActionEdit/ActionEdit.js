@@ -3,20 +3,28 @@ import pt from 'prop-types';
 
 import { ModuleContext } from '../context';
 import { Button } from 'reakit';
-import { Icon } from 'semantic-ui-react';
+import { InlineIcon } from '@iconify/react';
+import { checkIcon, closeIcon, pencilIcon } from '@espressive/icons';
+// import Tooltip from '../../ui/Tooltip';
 
 const propTypes = {
-  cancelLabel: pt.string,
-  dataTestIDs: pt.shape({
-    cancel: pt.string,
-    edit: pt.string,
-    save: pt.string,
-  }),
-  editLabel: pt.string,
-  saveLabel: pt.string,
+  /** An optional text label for the cancel button */
+  cancelLabel: pt.node,
+  /** An optional text label for the edit button */
+  editLabel: pt.node,
+  /** An optional text label for the save button */
+  saveLabel: pt.node,
 };
 
-const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
+const DEFAULT_EDIT = <InlineIcon icon={pencilIcon} />;
+const DEFAULT_CANCEL = <InlineIcon icon={closeIcon} />;
+const DEFAULT_SAVE = <InlineIcon icon={checkIcon} />;
+
+const ActionEdit = ({
+  cancelLabel = DEFAULT_CANCEL,
+  editLabel = DEFAULT_EDIT,
+  saveLabel = DEFAULT_SAVE,
+}) => {
   const {
     idOfRecordInEditMode,
     isEditing,
@@ -29,32 +37,21 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   } = useContext(ModuleContext);
   const { handleSubmit, formState, reset } = formMethods;
   const { isDirty, isSubmitting } = formState;
-  const recordId = record[uniqueIdAttribute];
+  const recordId = uniqueIdAttribute && record && record[uniqueIdAttribute];
   const whenAnotherRowIsEditing = Boolean(idOfRecordInEditMode);
 
-  // this seems like ugly, we need to find a better way
-  // to ease testing..
-  const cancelTestId = {};
-  const editTestId = {};
-  const saveTestId = {};
-
-  if (typeof dataTestIDs === 'object') {
-    cancelTestId['data-testid'] = dataTestIDs['cancel'];
-    editTestId['data-testid'] = dataTestIDs['edit'];
-    saveTestId['data-testid'] = dataTestIDs['save'];
-  }
-
   const handleReset = useCallback(() => {
-    onAction(
-      // fake target
-      {
-        name: 'edit.cancel',
-      },
-      {
-        ...record,
-      }
-    );
-
+    if (typeof onAction === 'function') {
+      onAction(
+        // fake target
+        {
+          name: 'edit.cancel',
+        },
+        {
+          ...record,
+        }
+      );
+    }
     exitEditMode();
   }, [exitEditMode, onAction, record]);
 
@@ -69,33 +66,36 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
     // FDS-91: We are resetting the form with whatever is in record.
     // We don't know if this is the best way to do it in React.
     reset({ ...record });
-    onAction(
-      // fake target
-      {
-        name: 'edit.start',
-      },
-      {
-        ...record,
-      }
-    );
 
-    enterEditMode(recordId);
+    if (typeof onAction === 'function') {
+      onAction(
+        // fake target
+        {
+          name: 'edit.start',
+        },
+        {
+          ...record,
+        }
+      );
+    }
+    enterEditMode && enterEditMode(recordId);
   }, [enterEditMode, onAction, record, recordId, reset]);
 
   const onSubmit = useCallback(
     (data) => {
-      onAction(
-        // fake target
-        {
-          name: 'edit.save',
-        },
-        {
-          ...record,
-          ...data,
-        }
-      );
-
-      exitEditMode();
+      if (typeof onAction === 'function') {
+        onAction(
+          // fake target
+          {
+            name: 'edit.save',
+          },
+          {
+            ...record,
+            ...data,
+          }
+        );
+      }
+      exitEditMode && exitEditMode();
     },
     [exitEditMode, onAction, record]
   );
@@ -103,29 +103,32 @@ const ActionEdit = ({ dataTestIDs, editLabel = 'Edit' }) => {
   return isEditing ? (
     <>
       <Button
-        {...cancelTestId}
+        aria-label='Cancel'
         className='ui negative icon button'
         disabled={isSubmitting}
+        name='edit.cancel'
         onClick={handleCancel}
         type='button'
       >
-        <Icon name='delete' />
+        {cancelLabel}
       </Button>
       <Button
-        {...saveTestId}
+        aria-label='Save'
         className='ui positive icon button'
         disabled={!isDirty || isSubmitting}
+        name='edit.save'
         onClick={handleSubmit(onSubmit)}
         type='button'
       >
-        <Icon name='check' />
+        {saveLabel}
       </Button>
     </>
   ) : (
     <Button
-      {...editTestId}
-      className='ui basic button'
+      aria-label='Edit'
+      className='ui basic icon button'
       disabled={whenAnotherRowIsEditing}
+      name='edit.start'
       onClick={handleEdit}
       type='button'
     >

@@ -3,6 +3,7 @@ import pt from 'prop-types';
 import { ResponsiveLine } from '@nivo/line';
 import Widget, { propTypes as widgetPT } from './Widget';
 import { AXIS_CONFIG } from './widgetConfig';
+import { getDataState } from './dataState';
 
 const propTypes = {
   ...widgetPT,
@@ -11,7 +12,7 @@ const propTypes = {
   /** Can have a left axis label */
   axisLeftLabel: pt.string,
   /** Data to display in a widget */
-  data: pt.oneOfType([pt.array, pt.object]).isRequired,
+  data: pt.oneOfType([pt.array, pt.object]),
 };
 
 /**
@@ -46,8 +47,10 @@ const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
     },
   };
 
+  const dataState = getDataState(data);
+
   return (
-    <Widget {...rest}>
+    <Widget {...rest} {...dataState}>
       <ResponsiveLine {...CHART_CONFIG} data={data} />
     </Widget>
   );

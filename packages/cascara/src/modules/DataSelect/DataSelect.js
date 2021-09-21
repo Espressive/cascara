@@ -4,7 +4,7 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ModuleErrorBoundary from '../ModuleErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -19,6 +19,7 @@ const propTypes = {
   options: pt.arrayOf(
     pt.shape({
       key: pt.string,
+      text: pt.oneOfType([pt.string, pt.number]),
       value: pt.oneOfType([pt.string, pt.number]),
     })
   ),
@@ -73,11 +74,11 @@ const DataSelect = ({
 
   // Do not render an editable input if the module is not editable
   return (
-    <ErrorBoundary>
+    <ModuleErrorBoundary>
       <div className={styles.Select}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
-    </ErrorBoundary>
+    </ModuleErrorBoundary>
   );
 };
 

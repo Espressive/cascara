@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.4.1-alpha.8",
+  "version": "0.4.2",
   "private": true,
   "scripts": {
     "start": "next-remote-watch ../packages/cascara",
@@ -8,13 +8,15 @@
     "prepare": "echo 'No prepare scripts for this package'"
   },
   "dependencies": {
-    "@espressive/cascara": "^0.4.1-alpha.6",
-    "@espressive/legacy-css": "^2.0.4",
+    "@espressive/cascara": "workspace:0.4.3",
+    "@espressive/design-tokens": "workspace:0.1.4",
+    "@espressive/legacy-css": "workspace:2.0.5",
+    "@fluentui/react-northstar": "0.57.0",
     "framer-motion": "2.5.5",
     "next": "10.0.5",
     "next-mdx-remote": "1.0.0",
     "react": "16.13.1",
-    "react-docgen": "5.3.1",
+    "react-docgen": "6.0.0-alpha.0",
     "react-dom": "16.13.1",
     "react-live": "2.2.2",
     "semantic-ui-react": "1.2.1"
@@ -24,6 +26,7 @@
     "directory-tree": "2.2.4",
     "gray-matter": "4.0.2",
     "next-remote-watch": "0.2.0",
+    "next-transpile-modules": "7.3.0",
     "prop-types": "15.7.2",
     "remark-autolink-headings": "6.0.1",
     "remark-code-frontmatter": "1.0.0",
@@ -32,6 +35,7 @@
     "unist-util-visit": "2.0.3"
   },
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "yarn": "3.x"
   }
 }

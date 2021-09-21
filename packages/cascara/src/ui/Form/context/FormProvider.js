@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import styles from '../Form.module.scss';
 import { useForm } from 'react-hook-form';
 
 import { ModuleContext, ModuleProvider } from '../../../modules/context';
@@ -26,7 +27,9 @@ const FormProvider = ({ children, value, ...props }) => {
 
   return (
     <ModuleProvider value={mergedValues} {...props}>
-      <form onSubmit={handleSubmit(onSubmit)}>{children}</form>
+      <form className={styles.Form} onSubmit={handleSubmit(onSubmit)}>
+        {children}
+      </form>
     </ModuleProvider>
   );
 };

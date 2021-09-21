@@ -1,0 +1,42 @@
+{
+  "name": "structure-barista",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "analyze": "npx source-map-explorer@2.5.2 'build/**/*.js'",
+    "cosmos": "npx react-cosmos@5.5.3 --config .cosmos/config.json",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": "@bjeco/prettier-config",
+  "eslintConfig": {
+    "extends": "@espressive"
+  },
+  "dependencies": {
+    "@bjeco/prettier-config": "latest",
+    "@espressive/cascara": "link:../../node_modules/@espressive/cascara",
+    "@espressive/eslint-config": "link:../../node_modules/@espressive/eslint-config",
+    "@espressive/legacy-css": "link:../../node_modules/@espressive/legacy-css",
+    "@iconify/icons-ic": "1.1.3",
+    "@iconify/react": "1.1.4",
+    "classnames": "2.3.1",
+    "history": "5.0.0",
+    "react": "link:../../node_modules/react",
+    "react-dom": "link:../../node_modules/react-dom",
+    "react-router-dom": "6.0.0-beta.0",
+    "react-scripts": "4.0.3",
+    "semantic-ui-react": "2.0.3"
+  }
+}

@@ -13,11 +13,8 @@ const propTypes = {
 const RowProvider = ({ children, value, ...props }) => {
   const grandparentValues = useContext(ModuleContext);
 
-  const {
-    idOfRecordInEditMode,
-    uniqueIdAttribute,
-    ...rest
-  } = grandparentValues;
+  const { idOfRecordInEditMode, uniqueIdAttribute, ...rest } =
+    grandparentValues;
   const { record } = value;
   const recordId = record[uniqueIdAttribute];
 

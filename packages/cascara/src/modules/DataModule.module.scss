@@ -33,7 +33,6 @@ $module-background: #f0f0f0;
     display: inline-block;
     border: 1px solid transparent;
     width: 100%;
-    max-width: 60em;
     border-radius: $input-border-radius;
     transition: box-shadow 300ms ease-in-out;
   }
@@ -52,25 +51,30 @@ $module-background: #f0f0f0;
   }
 }
 
-.Email {
-  @extend %ModuleContainer;
-}
-
-.Number {
+.Color,
+.Email,
+.File,
+.Image,
+.Month,
+.Number,
+.Password,
+.Range,
+.Select,
+.Tel,
+.Text,
+.TextArea,
+.Time,
+.Url .Week {
   @extend %ModuleContainer;
 }
 
 .Text {
-  @extend %ModuleContainer;
-
   .Input:not(input) {
     white-space: nowrap;
   }
 }
 
 .TextArea {
-  @extend %ModuleContainer;
-
   .Input {
     resize: none;
   }
@@ -180,8 +184,6 @@ $module-background: #f0f0f0;
 }
 
 .Select {
-  @extend %ModuleContainer;
-
   select.Input {
     background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjEuNDEgNC42NyAyLjQ4IDMuMTggMy41NCA0LjY3IDEuNDEgNC42NyIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIzLjU0IDUuMzMgMi40OCA2LjgyIDEuNDEgNS4zMyAzLjU0IDUuMzMiLz48L3N2Zz4=)
       no-repeat 98% 50%;
@@ -197,7 +199,8 @@ $module-background: #f0f0f0;
   background-color: #fcc;
   color: #900;
   border-radius: $module-border-radius;
-  margin-bottom: $masonry-gutter;
+  font-size: 0.875em;
+  font-family: monospace;
 
   h4 {
     margin-bottom: 0.5em;

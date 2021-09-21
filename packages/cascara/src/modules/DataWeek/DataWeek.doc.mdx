@@ -1,0 +1,29 @@
+---
+title: DataWeek
+propTable: DataWeek.js
+type: 'module'
+public: false
+---
+
+A data module to display **string** values, it renders a input of type **week**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    email: '2017-W26',
+  }}
+>
+  <DataWeek
+    attribute='week'
+    isEditable={true}
+    label='Free week'
+    value='2017-W26'
+  />
+</ModuleSandbox>
+```

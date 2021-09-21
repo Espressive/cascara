@@ -1,0 +1,38 @@
+[
+  {
+    "id": "Baristas",
+    "label": "Baristas",
+    "value": 371
+  },
+  {
+    "id": "Slacks",
+    "value": 152,
+    "label": "Slacks"
+  },
+  {
+    "id": "Emails",
+    "value": 20,
+    "label": "Email"
+  },
+  {
+    "id": "Knowledge Widgets",
+    "label": "Knowledge Widget",
+    "value": 5
+  },
+  {
+    "id": "Barista",
+    "value": 371
+  },
+  {
+    "id": "Slack",
+    "value": 152
+  },
+  {
+    "id": "Email",
+    "value": 20
+  },
+  {
+    "id": "Knowledge Widget",
+    "value": 5
+  }
+]

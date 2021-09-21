@@ -22,16 +22,16 @@ const Nav = ({ mdxTree, posts }) => {
       <NavList>
         <NavItem
           as='/'
-          content='Home'
+          content='Change Log'
           href='/'
           isActive={router?.asPath === '/'}
         />
-        <NavItem
+        {/* <NavItem
           as='/getting-started'
           content='Getting Started'
           href={`/[slug]`}
           isActive={router?.asPath === '/getting-started'}
-        />
+        /> */}
       </NavList>
 
       <NavSection content='Concepts' />
@@ -63,7 +63,7 @@ const Nav = ({ mdxTree, posts }) => {
             <NavList>
               {item.children.map((item) => {
                 const activeComponent = router?.query?.mdx?.[1];
-                return item.size ? (
+                return item?.size ? (
                   <NavItem
                     as={docPath(item.path)}
                     content={item.name}

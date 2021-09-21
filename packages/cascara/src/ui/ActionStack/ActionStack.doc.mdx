@@ -1,0 +1,70 @@
+---
+title: ActionStack
+propTable: ActionStack.js
+status: 'ALPHA'
+---
+
+# Public API
+
+WARNING! This is an alpha release so we can try to get this code in and working to kick the tires.
+
+## `actions`
+
+This is an array of objects used to tell ActionStack what to display. The `label` prop is the text for clickable element. The `onClick` prop is the click handler.
+
+```jsx
+---
+title: ActionStack with Actions
+---
+<ActionStack
+  actions={[
+    {
+      "label": "Action 1",
+      onClick: console.log
+    },
+    {
+      "label": "Action 2",
+      onClick: console.log
+    },
+    {
+      "label": "Action 3",
+      onClick: console.log
+    },
+    {
+      "label": "Action 4",
+      onClick: console.log
+    },
+  ]}
+/>
+```
+
+## `dropdownIndex`
+
+A number specifying the index at which `actions` start to appear as dropdown items. The following example would render actions 1 and 2 as buttons and actions 4 and 4 as a dropdown items.
+
+```jsx
+---
+title: ActionStack with dropdownIndex
+---
+<ActionStack
+  actions={[
+    {
+      "label": "Action 1",
+      onClick: console.log
+    },
+    {
+      "label": "Action 2",
+      onClick: console.log
+    },
+    {
+      "label": "Action 3",
+      onClick: console.log
+    },
+    {
+      "label": "Action 4",
+      onClick: console.log
+    },
+  ]}
+  dropdownIndex={2}
+/>
+```

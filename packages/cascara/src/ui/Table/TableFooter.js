@@ -1,23 +1,23 @@
 import React, { useContext } from 'react';
 
 import styles from './Table.module.scss';
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import { Boundaries } from '../../system-components';
 import { ModuleContext } from '../../modules/context';
 
 const TableFooter = () => {
-  const { dataConfig } = useContext(ModuleContext);
-  const headerCells = dataConfig?.display.map((column) => (
+  const { dataDisplay } = useContext(ModuleContext);
+  const headerCells = dataDisplay?.map((column) => (
     <th key={column.attribute}>{column.label}</th>
   ));
 
   return (
-    <ErrorBoundary>
+    <Boundaries>
       <tfoot className={styles.FootContainer}>
         <tr className={styles.Row} key={'foot-header'}>
           {headerCells}
         </tr>
       </tfoot>
-    </ErrorBoundary>
+    </Boundaries>
   );
 };
 

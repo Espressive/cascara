@@ -4,7 +4,7 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ModuleErrorBoundary from '../ModuleErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -31,7 +31,7 @@ const DataNumber = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
         className={styles.Input}
@@ -46,7 +46,7 @@ const DataNumber = ({
 
   const renderDisplay = (
     <span>
-      {label && isLabeled && <span className={styles.Label}>{label}</span>}
+      {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <span className={styles.Input} {...rest}>
         {value}
       </span>
@@ -55,11 +55,11 @@ const DataNumber = ({
 
   // Do not render an editable input if the module is not editable
   return (
-    <ErrorBoundary>
+    <ModuleErrorBoundary>
       <div className={styles.Number}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
-    </ErrorBoundary>
+    </ModuleErrorBoundary>
   );
 };
 

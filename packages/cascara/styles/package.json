@@ -1,0 +1,7 @@
+{
+  "name": "@espressive/cascara/styles",
+  "private": true,
+  "sideEffects": false,
+  "main": "cascara.scss",
+  "css": "cascara.scss"
+}

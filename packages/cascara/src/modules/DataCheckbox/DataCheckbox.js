@@ -5,7 +5,7 @@ import pt from 'prop-types';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
-import ErrorBoundary from '../../shared/ErrorBoundary';
+import ModuleErrorBoundary from '../ModuleErrorBoundary';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -33,7 +33,6 @@ const DataCheckbox = ({
 
   const renderEditing = (
     <label htmlFor={label}>
-      {isLabeled && label && <span className={styles.Label}>{label}</span>}
       <Checkbox
         {...rest}
         {...checkbox}
@@ -61,11 +60,11 @@ const DataCheckbox = ({
 
   // Do not render an editable input if the module is not editable
   return (
-    <ErrorBoundary>
+    <ModuleErrorBoundary>
       <div className={styles.Checkbox}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
-    </ErrorBoundary>
+    </ModuleErrorBoundary>
   );
 };
 

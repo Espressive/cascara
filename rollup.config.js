@@ -1,5 +1,5 @@
 import path from 'path';
-import babel from '@rollup/plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
@@ -35,12 +35,32 @@ const getPostCSSOptions = () => ({
     },
   },
   sourceMap: true,
-  use: ['sass'],
+  use: [
+    'sass',
+    // [
+    //   'sass',
+    //   {
+    //     // includePaths: [path.resolve('../../node_modules/@espressive/')],
+    //     importer: [
+    //       (url, prev, done) => {
+    //         // Convert `@use "foo/bar"` to "node_modules/foo/sass/bar".
+    //         const components = url.split('/');
+    //         const file = path.resolve('../../node_modules/', ...components);
+
+    //         // console.log(file);
+    //         done({
+    //           // file: `node_modules/${components.first}/sass/${innerPath}`,
+    //           file,
+    //         });
+    //       },
+    //     ],
+    //   },
+    // ],
+  ],
 });
 
-// NOTE: This last statement is bad. We should not include all of Nivo. That should be removed once
-// app_web is updated to support es6 modules in Webpack builds.
-const external = (id) => !id.startsWith('.') && !id.startsWith('/');
+const external = (id) =>
+  !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
 const getRollupConfig = ({ pwd, babelConfigFile }) => {
@@ -51,15 +71,27 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const input = [`${SOURCE_DIR}/src/index.js`, `${SOURCE_DIR}/src/private.js`];
 
   // Shared Rollup plugins
-  const rollupPlugins = [
-    nodeResolve({
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
-    }),
-    postcss(getPostCSSOptions()),
-    json(),
-  ];
+  const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
+
+  // separate out our bundle into chunks based on section for now
+  // const manualChunks = (id) => {
+  //   const CHUNK_SECTIONS = [
+  //     'layouts',
+  //     'placeholders',
+  //     'private',
+  //     'structures',
+  //     'ui',
+  //   ];
+  //   for (const segment of CHUNK_SECTIONS) {
+  //     if (id.startsWith(`${SOURCE_DIR}/src/${segment}`)) {
+  //       return segment;
+  //     }
+  //   }
+  //   if (id.includes('node_modules')) {
+  //     return 'vendor';
+  //   }
+  //   return undefined;
+  // };
 
   // Common JS configuration
   const cjsConfig = {
@@ -68,6 +100,8 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     output: {
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
       format: 'cjs',
+      // manualChunks,
+      sourcemap: true,
     },
     plugins: [
       babel(
@@ -89,6 +123,8 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     output: {
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
+      // manualChunks,
+      sourcemap: true,
     },
     plugins: [
       babel(
