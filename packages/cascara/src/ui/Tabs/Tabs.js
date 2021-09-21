@@ -9,12 +9,16 @@ import TabPanel from './TabPanel';
 const TAB_FALLBACK = <div className='ui bottom attached loading tab segment' />;
 
 const propTypes = {
+  /** An array of objects used to tell Tabs what to display. */
   tabs: pt.arrayOf(
     pt.shape({
+      /** The content to display */
       content: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+      /** The text to display in the Tab button */
       label: pt.string.isRequired,
     })
   ),
+  /** A title for the whole section */
   title: pt.string,
 };
 

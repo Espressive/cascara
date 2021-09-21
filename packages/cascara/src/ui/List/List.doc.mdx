@@ -1,0 +1,56 @@
+---
+title: List
+propTable: List.js
+status: 'ALPHA'
+---
+
+# Public API
+
+WARNING! This is an alpha release so we can try to get this code in and working to kick the tires.
+
+## `data`
+
+This is an array of objects used to tell List what to display.
+
+```jsx
+---
+title: List that displays an avatar, name and description
+---
+<List
+  data={[
+  {
+    pre: (
+      <img
+        alt='avatar'
+        className='ui avatar image'
+        src='https://i.pravatar.cc/150?img=1'
+      />
+    ),
+    label: 'Jack Wilshere',
+    description: 'Central Attacking Midfielder',
+  },
+  {
+    pre: (
+      <img
+        alt='avatar'
+        className='ui avatar image'
+        src='https://i.pravatar.cc/150?img=2'
+      />
+    ),
+    label: 'Carlos Vela',
+    // description: 'Central Forward',
+  },
+  {
+    pre: (
+      <img
+        alt='avatar'
+        className='ui avatar image'
+        src='https://i.pravatar.cc/150?img=3'
+      />
+    ),
+    label: 'Hector Bellerin',
+    description: 'Right Back',
+  },
+]}
+/>
+```

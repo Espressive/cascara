@@ -8,14 +8,14 @@ import Boundaries from '../../system-components/Boundaries';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 
 const propTypes = {
-  // The state of the Pagination component from the usePaginationState hook
+  /** The state of the Pagination component from the usePaginationState hook */
   state: pt.exact({
     currentPage: pt.number,
     perPage: pt.number,
     setCurrentPage: pt.func,
     setPerPage: pt.func,
   }),
-  // The total number of records. undefined (default) sets the component to loading state. 0 sets the component to an empty state.
+  /** The total number of records. undefined (default) sets the component to loading state. 0 sets the component to an empty state. */
   totalRecordCount: pt.number,
 };
 

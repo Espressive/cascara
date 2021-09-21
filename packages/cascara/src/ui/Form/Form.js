@@ -30,36 +30,41 @@ const actionModuleOptions = Object.keys(availableActionModules);
 const dataModuleOptions = Object.keys(formDataModules);
 
 const propTypes = {
-  // Actions will be appended to each row, they'll appear as buttons.
+  /** Actions will be appended to each row, they'll appear as buttons. */
   actions: pt.shape({
+    /** An array of action objects */
     modules: pt.arrayOf(
       pt.shape({
+        /** A string that specifies the type of module to use */
         module: pt.oneOf(actionModuleOptions).isRequired,
       })
     ),
   }),
 
-  // An object of modules to display.
-  //
-  // Every parameter in this object can potentially be rendered in the form.
+  /**
+   * An object of modules to display.
+   *
+   * Every parameter in this object can potentially be rendered in the form.
+   */
   data: pt.shape({}),
 
-  // Here you can describe each of the visible columns in your table.
+  /** Here you can describe each of the visible columns in your table. */
   dataDisplay: pt.arrayOf(
     pt.shape({
       module: pt.oneOf(dataModuleOptions).isRequired,
     })
   ),
 
-  // a form can be editable
+  /** a form can be editable */
   isEditable: pt.bool,
 
-  // A form can start in an editing state
+  /** A form can start in an editing state */
   isInitialEditing: pt.bool,
 
+  /** Specifies if a loading state is show */
   isLoading: pt.bool,
 
-  // A form can emit events on every action
+  /** A form can emit events on every action*/
   onAction: pt.func,
 };
 

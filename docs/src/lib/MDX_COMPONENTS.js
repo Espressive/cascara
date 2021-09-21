@@ -5,13 +5,18 @@
 // until there is a better way to import static data dynamically in Nextjs
 
 import {
+  ActionStack,
   Admin,
   Button,
   Chat,
   Dashboard,
   Form,
   JsonPlaceholder,
+  List,
+  Pagination,
   Table,
+  Tabs,
+  usePaginationState,
 } from '@espressive/cascara';
 
 import {
@@ -41,6 +46,7 @@ const docsComponents = {
 };
 
 const cascaraComponents = {
+  ActionStack: (props) => <ActionStack {...props} />,
   Admin: (props) => <Admin {...props} />,
   Button: (props) => <Button {...props} />,
   Chat: (props) => (
@@ -51,7 +57,10 @@ const cascaraComponents = {
   Dashboard: (props) => <Dashboard {...props} />,
   Form: (props) => <Form {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
+  List: (props) => <List {...props} />,
+  Pagination: (props) => <Pagination {...props} />,
   Table: (props) => <Table {...props} />,
+  Tabs: (props) => <Tabs {...props} />,
 };
 
 const privateComponents = {
@@ -74,6 +83,7 @@ const MDX_COMPONENTS = {
   ...cascaraComponents,
   ...docsComponents,
   ...privateComponents,
+  usePaginationState,
 };
 
 export default MDX_COMPONENTS;
