@@ -57,12 +57,13 @@ $module-background: #f0f0f0;
 .Image,
 .Month,
 .Number,
-.Tel,
 .Password,
+.Select,
+.Tel,
 .Text,
 .TextArea,
 .Time,
-.Select {
+.Url {
   @extend %ModuleContainer;
 }
 

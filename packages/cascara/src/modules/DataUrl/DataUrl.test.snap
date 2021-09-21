@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataUrl display snapshot 1`] = `
+<div>
+  <div
+    class="Url"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Url"
+      >
+        http://www.example.com
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataUrl editing snapshot 1`] = `
+<div>
+  <div
+    class="Url"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Url"
+        id="Editing"
+        name="Editing"
+        type="url"
+        value="http://www.example.com"
+      />
+    </label>
+  </div>
+</div>
+`;
