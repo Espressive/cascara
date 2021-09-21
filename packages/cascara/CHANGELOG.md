@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- d3bc06a: Using Changesets
+- d3bc06a: chore(FDS-342): Add Module DataEmail
+
+### Patch Changes
+
+- d3bc06a: chore(FDS-342): Add DataDateTime Module - input date-time field
+- d3bc06a: chore(FDS-346): [Cascara Form] - remove resolveAllowedActions prop from form
+- Updated dependencies [d3bc06a]
+  - @espressive/icons@0.1.0
+  - @espressive/design-tokens@0.1.5
+
 ## 0.4.3
 
 ### Patch Changes
