@@ -20,6 +20,7 @@ import DataText from './DataText';
 import DataTextArea from './DataTextArea';
 import DataTime from './DataTime';
 import DataWeek from './DataWeek';
+import DataUrl from './DataUrl';
 
 const actionModules = {
   button: ActionButton,
@@ -44,6 +45,7 @@ const dataModules = {
   text: DataText,
   textarea: DataTextArea,
   time: DataTime,
+  url: DataUrl,
   week: DataWeek,
 };
 
