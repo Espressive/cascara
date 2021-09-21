@@ -43,7 +43,7 @@ const DataImage = ({
       <Input
         {...rest}
         aria-label={setAriaLabel}
-        className={styles.Input}
+        className={styles.Image}
         defaultValue={value}
         id={label}
         name={attribute || label}
