@@ -1,0 +1,24 @@
+---
+title: DataRange
+propTable: DataRange.js
+type: 'module'
+public: false
+---
+
+A data module to display **string** values, it renders a input of type **range**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox
+  isEditing={true}
+  record={{
+    id: 1,
+    range: 7,
+  }}
+>
+  <DataRange attribute='range' isEditable={true} label='My Range' value='7' />
+</ModuleSandbox>
+```

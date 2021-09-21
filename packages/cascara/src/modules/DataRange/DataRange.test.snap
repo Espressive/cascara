@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataRange display snapshot 1`] = `
+<div>
+  <div
+    class="Range"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Range"
+      >
+        7
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataRange editing snapshot 1`] = `
+<div>
+  <div
+    class="Range"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Range"
+        id="Editing"
+        max="11"
+        min="0"
+        name="Editing"
+        step="1"
+        type="range"
+        value="7"
+      />
+    </label>
+  </div>
+</div>
+`;

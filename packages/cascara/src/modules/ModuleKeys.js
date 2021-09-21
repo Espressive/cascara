@@ -14,6 +14,7 @@ import DataMonth from './DataMonth';
 import DataNumber from './DataNumber';
 import DataPassword from './DataPassword';
 import DataRadio from './DataRadio';
+import DataRange from './DataRange';
 import DataSelect from './DataSelect';
 import DataTel from './DataTel';
 import DataText from './DataText';
@@ -40,6 +41,7 @@ const dataModules = {
   number: DataNumber,
   passord: DataPassword,
   radio: DataRadio,
+  range: DataRange,
   select: DataSelect,
   tel: DataTel,
   text: DataText,

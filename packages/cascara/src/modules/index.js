@@ -13,6 +13,7 @@ export { default as DataMonth } from './DataMonth';
 export { default as DataNumber } from './DataNumber';
 export { default as DataPassword } from './DataPassword';
 export { default as DataRadio } from './DataRadio';
+export { default as DataRange } from './DataRange';
 export { default as DataSelect } from './DataSelect';
 export { default as DataTel } from './DataTel';
 export { default as DataText } from './DataText';
