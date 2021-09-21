@@ -63,7 +63,7 @@ $module-background: #f0f0f0;
 .Tel,
 .Text,
 .TextArea,
-.Time {
+.Time,
 .Url {
   @extend %ModuleContainer;
 }
