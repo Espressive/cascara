@@ -189,9 +189,10 @@ const Form = ({
     WARNING_STRINGS.INVALID_EDITING_AND_DISPLAY
   );
 
-  const { isEmpty } = getStatusFromDataLength(Object.keys(dataDisplay)?.length);
-
-  const isLoading = !data;
+  const { isEmpty, isLoading } = getStatusFromDataLength(
+    // We convert data to an array to check its length
+    data && Object.keys(data).length
+  );
 
   const fields = formFields(dataDisplay, data);
 

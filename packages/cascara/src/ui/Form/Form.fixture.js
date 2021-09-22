@@ -144,7 +144,7 @@ const EmptyForm = (props) => (
     <p>
       If a form does not receive dataDisplay prop as an array with values, the
       Form component will notify there is not data to present.
-    </p>{' '}
+    </p>
     <Form {...props} />
   </>
 );
@@ -162,7 +162,7 @@ export default {
   dataWithDisplay: (
     <DataWithDisplay actions={actions} data={data} dataDisplay={dataDisplay} />
   ),
-  empty: <EmptyForm actions={actions} data={{}} dataDisplay={[]} />,
+  empty: <EmptyForm actions={actions} data={{}} />,
   initialEditing: (
     <InitialEditing
       actions={actions}
@@ -171,7 +171,5 @@ export default {
       isInitialEditing
     />
   ),
-  loading: (
-    <LoadingForm actions={actions} data={undefined} dataDisplay={dataDisplay} />
-  ),
+  loading: <LoadingForm />,
 };
