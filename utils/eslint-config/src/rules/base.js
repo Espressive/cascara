@@ -1,3 +1,4 @@
+const devOnly = require('../utils/devOnly');
 const { fixtures } = require('../utils/filePaths');
 
 // For brevity, we start with the recomended defaults and extend with our own rules.
@@ -23,7 +24,7 @@ module.exports = {
     eqeqeq: 'error',
     'multiline-comment-style': ['error', 'separate-lines'],
     'no-alert': 'error',
-    'no-console': process.env.NODE_ENV === 'development' ? 0 : 'error',
+    'no-console': devOnly,
     'no-duplicate-imports': 'error',
     'no-implicit-coercion': 'error',
     'no-undef-init': 'error',

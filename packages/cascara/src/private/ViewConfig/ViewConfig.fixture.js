@@ -84,6 +84,28 @@ const WithStateAndOptions = (fixtureProps) => {
   );
 };
 
+const NoState = () => (
+  <>
+    <h2>No State</h2>
+    <p>Throw and catch an error if no state hook is defined.</p>
+    <ViewConfig options={[]} />
+  </>
+);
+
+const NoOptions = () => {
+  const viewConfigState = useViewConfigState();
+  return (
+    <>
+      <h2>No Options/Loading</h2>
+      <p>
+        Has state but no options are defined. This would essentially be a
+        loading state.
+      </p>
+      <ViewConfig state={viewConfigState} />
+    </>
+  );
+};
+
 export default {
   all: <All options={OPTIONS} placement='bottom-start' title='Columns' />,
   initialValue: <InitialValue options={OPTIONS} />,
@@ -95,4 +117,6 @@ export default {
       trigger={<button type='button'>Custom trigger</button>}
     />
   ),
+  noState: <NoState />,
+  noOptions: <NoOptions />,
 };
