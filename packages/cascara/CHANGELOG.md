@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.5.1
+
+### Patch Changes
+
+- 47fe269: **ViewConfig:** Change default trigger icon, memoized options list, loading state
+- Updated dependencies [47fe269]
+  - @espressive/icons@0.2.0
+
 ## 0.5.0
 
 ### Minor Changes

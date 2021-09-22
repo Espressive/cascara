@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.0
+
+### Minor Changes
+
+- 47fe269: chore(FDS-350): eslint-config update to make eslint-comments/no-unused-disable devOnly like no-console
+
 ## 1.1.0
 
 ### Minor Changes
