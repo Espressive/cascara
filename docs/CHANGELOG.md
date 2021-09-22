@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [ff75947]
+  - @espressive/cascara@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes
