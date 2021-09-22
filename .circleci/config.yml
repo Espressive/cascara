@@ -139,7 +139,7 @@ jobs:
           condition: *is_develop
           steps:
             - run:
-                name: Publish Next Snapshot
+                name: Publish Next Snapshot Release
                 command: | # DO NOT COMMIT CHANGES FOR SNAPSHOT RELEASES!!!
                   yarn changeset version --snapshot next
                   node tooling/setReleaseVersions.js
@@ -165,11 +165,11 @@ jobs:
           condition: *is_main
           steps:
             - run:
-                name: Publish Full Release
+                name: Update Changesets & Release
                 command: |
                   yarn changeset version
                   git add .
-                  git commit -m "Publish Full Release"
+                  git commit -m "Update Changesets [ci skip]"
                   node tooling/setReleaseVersions.js
                   yarn changeset publish
                   git checkout -- "*.json"
