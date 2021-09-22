@@ -1,3 +1,5 @@
+const devOnly = require('../utils/devOnly');
+
 // For brevity, we start with the recomended defaults and extend with our own rules.
 // Please make sure we are looking at any rules in the recommended set before adding
 // them below. If we are overriding a recommended rule, we should make a comment for
@@ -8,7 +10,7 @@
 module.exports = {
   extends: ['plugin:eslint-comments/recommended'],
   rules: {
-    'eslint-comments/no-unused-disable': 'error',
+    'eslint-comments/no-unused-disable': devOnly,
     'eslint-comments/require-description': [
       'error',
       { ignore: ['eslint-enable'] },
