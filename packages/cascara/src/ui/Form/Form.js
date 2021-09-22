@@ -189,7 +189,7 @@ const Form = ({
     WARNING_STRINGS.INVALID_EDITING_AND_DISPLAY
   );
 
-  const { isEmpty } = getStatusFromDataLength(Object.keys(dataDisplay).length);
+  const { isEmpty } = getStatusFromDataLength(Object.keys(dataDisplay)?.length);
 
   const isLoading = !data;
 
