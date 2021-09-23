@@ -1,38 +1,50 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import pt from 'prop-types';
-import { ACTION_SHAPE } from './__globals';
+import React, { memo } from 'react';
+import { ACTION_STACK_PROP_TYPES, DEFAULT_TRIGGER } from './__globals';
+import { popperOverTrigger } from '../../lib/popperModifiers';
+import DropdownStackItem from './DropdownStackItem';
+import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
+import styles from './Dropdown.module.scss';
 
-const propTypes = {
-  actions: pt.arrayOf(ACTION_SHAPE),
-};
+const MemoizedDropdownItem = memo(DropdownStackItem);
 
-const DropdownStack = ({ actions }) => {
-  useEffect(() => {
-    selectRef.current.value = null;
+const propTypes = ACTION_STACK_PROP_TYPES;
+
+const DropdownStack = ({
+  actions,
+  dropdownLabel = 'Actions',
+  isInitialOpen = false,
+  placement = 'bottom-end',
+  trigger = DEFAULT_TRIGGER,
+}) => {
+  const menuState = useMenuState({
+    // This MUST be modal: true in order to render in a portal or else we
+    // will have problems with any menus rendered inside of positioned
+    // elements other than "relative"
+    modal: true,
+    placement,
+    preventBodyScroll: true,
+    unstable_popperModifiers: [popperOverTrigger],
+    visible: isInitialOpen,
   });
 
-  const selectRef = useRef();
-
-  const handleChange = useCallback(
-    (e) => {
-      actions[e.target.value].onClick();
-
-      selectRef.current.value = null;
-    },
-    [actions]
-  );
-
   return (
-    <div className='ui form' style={{ display: 'inline-block' }}>
-      <div className='field'>
-        {/* eslint-disable-next-line jsx-a11y/no-onchange -- dev */}
-        <select onChange={handleChange} ref={selectRef}>
-          {actions?.map((action, i) => (
-            <option {...action} key={action.label + i} value={i} />
-          ))}
-        </select>
-      </div>
-    </div>
+    <>
+      <MenuButton {...menuState} {...trigger.props}>
+        {(disclosureProps) => React.cloneElement(trigger, disclosureProps)}
+      </MenuButton>
+      <Menu {...menuState} aria-label={dropdownLabel} className={styles.Menu}>
+        {actions?.map((action, i) => (
+          <MemoizedDropdownItem
+            {...menuState}
+            {...action}
+            className={styles.Item}
+            key={action.label + i}
+          >
+            {action.label}
+          </MemoizedDropdownItem>
+        ))}
+      </Menu>
+    </>
   );
 };
 

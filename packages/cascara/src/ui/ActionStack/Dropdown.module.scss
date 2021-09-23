@@ -1,0 +1,42 @@
+.Menu {
+  cursor: auto;
+  outline: 0;
+  top: 100%;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  margin: 0;
+  padding: 0 0;
+  background: #fff;
+  font-size: 0.875rem;
+  text-align: left;
+  box-shadow: 0 2px 3px 0 rgb(34 36 38 / 15%);
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 0.125rem;
+
+  .Item {
+    width: 100%;
+    background: none;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    border: none;
+    height: auto;
+    text-align: left;
+    border-top: none;
+    line-height: 1em;
+    color: #4a4a4a;
+    padding: 0.75em 1.125em;
+    font-size: 1em;
+    text-transform: none;
+    font-weight: 400;
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      background: rgba(0, 0, 0, 0.05);
+      color: rgba(0, 0, 0, 0.95);
+      z-index: 13;
+    }
+  }
+}
