@@ -16,17 +16,9 @@ const ACTIONS = [
   },
 ];
 
-const Basic = (fixtureProps) => (
-  <div className='ui container'>
-    <h2>Basic</h2>
-    <p>
-      The dropdown item will be replacced by an ellipsis button. This
-      presentation is only temporary to validate the API needed.
-    </p>
-    <ActionStack {...fixtureProps} />
-  </div>
-);
-
 export default {
-  basic: <Basic actions={ACTIONS} />,
+  noActions: <ActionStack />,
+  default: <ActionStack actions={ACTIONS} />,
+  allButtons: <ActionStack actions={ACTIONS} dropdownIndex={1000} />,
+  allDropdown: <ActionStack actions={ACTIONS} dropdownIndex={0} />,
 };

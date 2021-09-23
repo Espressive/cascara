@@ -27,7 +27,7 @@ const DropdownStack = ({
     visible: isInitialOpen,
   });
 
-  return (
+  return actions && actions.length > 0 ? (
     <>
       <MenuButton {...menuState} {...trigger.props}>
         {(disclosureProps) => React.cloneElement(trigger, disclosureProps)}
@@ -45,7 +45,7 @@ const DropdownStack = ({
         ))}
       </Menu>
     </>
-  );
+  ) : null;
 };
 
 DropdownStack.propTypes = propTypes;
