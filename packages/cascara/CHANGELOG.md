@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.5.3
+
+### Patch Changes
+
+- aec5cee: hotfix(FDS-352): Add optional chaining for getting length on dataDisplay object keys in Form
+- aec5cee: hotfix(FDS-352): Update logic for empty/loading in Form
+
+## 0.5.2
+
+### Patch Changes
+
+- ff75947: hotfix(FDS-352): Add optional chaining for getting length on dataDisplay object keys in Form
+
 ## 0.5.1
 
 ### Patch Changes
