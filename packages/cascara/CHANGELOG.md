@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.5.4
+
+### Patch Changes
+
+- a16d940: feat(FDS-351): ActionStack correct system styles
+- Updated dependencies [a16d940]
+  - @espressive/icons@0.2.1
+
 ## 0.5.3
 
 ### Patch Changes

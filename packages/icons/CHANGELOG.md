@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- a16d940: Update to the viewbox on vertical menu icon
+
 ## 0.2.0
 
 ### Minor Changes
