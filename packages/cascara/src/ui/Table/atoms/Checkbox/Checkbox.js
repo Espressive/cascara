@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import pt from 'prop-types';
 
 const propTypes = {
@@ -16,12 +16,6 @@ const Checkbox = ({
 }) => {
   const el = useRef();
 
-  function handleOnChange(e) {
-    const { checked, name } = e.currentTarget;
-
-    onChange({ checked, name });
-  }
-
   useEffect(() => {
     if (indeterminate) {
       // el.indeterminate = true;
@@ -29,6 +23,15 @@ const Checkbox = ({
       // el.indeterminate = false;
     }
   }, [indeterminate]);
+
+  const handleOnChange = useCallback(
+    (e) => {
+      const { checked, name } = e.currentTarget;
+
+      onChange({ checked, name });
+    },
+    [onChange]
+  );
 
   return (
     <input

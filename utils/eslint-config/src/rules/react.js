@@ -1,4 +1,4 @@
-const { fixtures } = require('../utils/filePaths');
+const { cosmos, tests } = require('../utils/filePaths');
 
 // For brevity, we start with the recomended defaults and extend with our own rules.
 // Please make sure we are looking at any rules in the recommended set before adding
@@ -11,7 +11,24 @@ module.exports = {
   extends: ['plugin:react/recommended'],
   overrides: [
     {
-      files: fixtures,
+      files: cosmos,
+      rules: {
+        // Fixtures are not about optimizing and we should allow binding in a
+        // fixture for a quick POC
+        'react/jsx-no-bind': 'off',
+        // For a fixture we may need to define multiple components in a file frequently.
+        'react/no-multi-comp': 'off',
+        // Fixtures are supposed to be for development work. We should
+        // not enforce definitions of prop types on fixtures.
+        'react/prop-types': 'off',
+        // Export keys on multi export fixtures show up in the Cosmos UI.
+        // We do not necessarily always want these to show up in
+        // alphabetical order.
+        'sort-keys': 0,
+      },
+    },
+    {
+      files: tests,
       rules: {
         'react/no-multi-comp': 'off',
         'react/prop-types': 'off',

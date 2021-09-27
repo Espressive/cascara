@@ -37,7 +37,7 @@ import {
 
 import { Asciagram, Code, Placeholder } from '../components';
 
-/* eslint-disable react/display-name, react/no-multi-comp  -- We need to do this in order to get all of our components into MDX */
+/* eslint-disable react/no-multi-comp  -- We need to do this in order to get all of our components into MDX */
 const docsComponents = {
   Asciagram: (props) => <Asciagram {...props} />,
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
@@ -77,7 +77,7 @@ const privateComponents = {
   ModuleProvider: (props) => <ModuleProvider {...props} />,
   ModuleSandbox: (props) => <ModuleSandbox {...props} />,
 };
-/* eslint-enable react/display-name, react/no-multi-comp */
+/* eslint-enable react/no-multi-comp */
 
 const MDX_COMPONENTS = {
   ...cascaraComponents,

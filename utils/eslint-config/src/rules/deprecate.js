@@ -9,7 +9,7 @@ module.exports = {
   plugins: ['deprecate'],
   rules: {
     'deprecate/import': [
-      'warn',
+      'error',
       {
         name: 'memobind',
         use: 'the eslint doc suggestions to correctly resolve',
