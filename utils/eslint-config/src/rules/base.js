@@ -1,5 +1,5 @@
 const devOnly = require('../utils/devOnly');
-const { fixtures } = require('../utils/filePaths');
+const { cosmos, tests, tooling } = require('../utils/filePaths');
 
 // For brevity, we start with the recomended defaults and extend with our own rules.
 // Please make sure we are looking at any rules in the recommended set before adding
@@ -12,10 +12,23 @@ module.exports = {
   extends: ['eslint:recommended'],
   overrides: [
     {
-      files: fixtures,
+      files: cosmos,
       rules: {
-        'no-alert': 0,
-        'no-console': 0,
+        'no-alert': 'off',
+        'no-console': 'off',
+      },
+    },
+    {
+      files: tests,
+      rules: {
+        'no-alert': 'off',
+        'no-console': 'off',
+      },
+    },
+    {
+      files: tooling,
+      rules: {
+        'no-console': 'off',
       },
     },
   ],

@@ -1,5 +1,7 @@
 // Definitions for unifying ecosystem paths when defining overrides
 
 module.exports = {
-  fixtures: ['**/fixtures/**/*.js', '**/*.fixture.js'],
+  cosmos: ['**/fixtures/**/*.js', '**/*.fixture.js', '**/cosmos.decorator.js'],
+  tests: ['**/tests/**/*.js', '**/*.test.js'],
+  tooling: ['tooling/**/*.js'],
 };

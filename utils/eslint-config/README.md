@@ -52,14 +52,6 @@ module.exports = {
 };
 ```
 
-### Using With Prettier
-
-As of now, all rules here should not conflict with Prettier. That being said, it is good to also add `eslint-config-prettier` as another preset right after this one so we can potentially disable anything that gets updated.
-
-```
-extends: ['@espressive', 'prettier']
-```
-
 ## Other Plugins
 
 There are a number of [other great eslint plugins](https://github.com/dustinspecker/awesome-eslint#plugins) which we may decide to include here at at later date.

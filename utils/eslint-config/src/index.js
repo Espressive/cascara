@@ -14,15 +14,14 @@ module.exports = {
     './rules/json-format',
     './rules/jsx-a11y',
     './rules/react',
+    'prettier', // This has to be last so it can override any conflicting rules in previous rulesets
   ],
-  overrides: [
-    {
-      files: ['**/*.fixture.js', '**/*.decorator.js'],
-      rules: {
-        'import/no-anonymous-default-export': 0,
-        'no-alert': 0,
-        'no-console': 0,
-      },
-    },
+  ignorePatterns: [
+    '/build', // do not lint any code in a package root build directory
+    '/dist', // do not lint any code in a package root dist directory
+  ],
+  overrides: [], // Do not define overrides here. Instead define them in their respective plugin ruleset
+  plugins: [
+    'only-error', // This plugin will change all warnings into errors
   ],
 };

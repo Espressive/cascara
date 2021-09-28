@@ -1,3 +1,5 @@
+const { cosmos } = require('../utils/filePaths');
+
 // For brevity, we start with the recomended defaults and extend with our own rules.
 // Please make sure we are looking at any rules in the recommended set before adding
 // them below. If we are overriding a recommended rule, we should make a comment for
@@ -11,12 +13,18 @@ module.exports = {
     'plugin:import/electron',
     'plugin:import/react',
   ],
+  overrides: [
+    {
+      files: cosmos,
+      rules: {
+        // We need to be able to do this for multi-fixture files
+        'import/no-anonymous-default-export': 'off',
+      },
+    },
+  ],
   rules: {
     'import/exports-last': 'error',
     'import/extensions': 'error',
-    'import/no-duplicates': 'error', // recommended is warn
-    'import/no-named-as-default': 'error', // recommended is warn
-    'import/no-named-as-default-member': 'error', // recommended is warn
     'import/no-namespace': 'error',
   },
 };

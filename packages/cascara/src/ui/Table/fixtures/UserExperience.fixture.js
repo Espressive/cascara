@@ -1,5 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair -- we need this for the one below
-/* eslint-disable react/display-name  -- for testing, we need to allow props down the stream */
 import React, { useCallback } from 'react';
 import { Provider } from 'reakit';
 
