@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.0
+
+### Minor Changes
+
+- 2562d0d: chore(FDS-354) Port other global lint rules and overrides back to @espressive eslint config
+
 ## 1.2.0
 
 ### Minor Changes
