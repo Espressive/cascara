@@ -4,18 +4,17 @@
   list-style-type: none;
 
   .Item {
-    .Link {
-      display: flex;
-      align-items: center;
-      color: unset;
-      padding: 0.25em;
-      cursor: pointer;
+    border-bottom: 1px solid #eee;
 
-      // &:hover,
-      // &:active,
-      // &:focus {
-      //   border-radius: 0.25em;
-      // }
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .Link {
+      color: unset;
+      cursor: pointer;
+      display: block;
+      padding: 0.5em 0.75em;
 
       &:hover {
         background-color: rgba(0, 0, 0, 0.04);
@@ -27,9 +26,9 @@
       }
     }
 
-    * + .Content {
-      padding-left: 0.25em;
-    }
+    // * + .Content {
+    //   padding-left: 0.25em;
+    // }
 
     .Content {
       .Label {

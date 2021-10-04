@@ -34,6 +34,7 @@ const users = [
     ),
     label: 'Hector Bellerin',
     description: 'Right Back',
+    post: 'Hey',
   },
 ];
 
