@@ -2,6 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 import styles from './List.module.scss';
 import { CompositeItem } from 'reakit/Composite';
+import Flex from '../../atoms/Flex';
 
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types -- Could be anything
@@ -18,15 +19,17 @@ const propTypes = {
   ]),
   // eslint-disable-next-line react/forbid-prop-types -- Could be anything
   linkComponentProps: pt.object,
+  post: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   pre: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
 
 const ListItem = ({
+  compositeState,
   description,
   label,
   linkComponent = 'a',
   linkComponentProps,
-  compositeState,
+  post,
   pre,
 }) => {
   return (
@@ -38,13 +41,16 @@ const ListItem = ({
         as={linkComponent}
         className={styles.Link}
       >
-        {pre}
-        <div className={styles.Content}>
-          {label && <div className={styles.Label}>{label}</div>}
-          {description && (
-            <div className={styles.Descripton}>{description}</div>
-          )}
-        </div>
+        <Flex space='start' vAlign='center'>
+          {pre}
+          <div className={styles.Content}>
+            {label && <div className={styles.Label}>{label}</div>}
+            {description && (
+              <div className={styles.Descripton}>{description}</div>
+            )}
+          </div>
+          {post && <Flex.Item push>{post}</Flex.Item>}
+        </Flex>
       </CompositeItem>
     </li>
   );

@@ -3,7 +3,7 @@ import { ACTION_STACK_PROP_TYPES, DEFAULT_TRIGGER } from './__globals';
 import { popperOverTrigger } from '../../lib/popperModifiers';
 import DropdownStackItem from './DropdownStackItem';
 import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
-import styles from './Dropdown.module.scss';
+import styles from './ActionStack.module.scss';
 
 const MemoizedDropdownItem = memo(DropdownStackItem);
 
