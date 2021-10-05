@@ -4,6 +4,7 @@ import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import stringHash from 'string-hash';
+import cssUrl from 'postcss-url';
 
 const isDevelopment = (p) => p.env.NODE_ENV === 'development';
 
@@ -34,6 +35,7 @@ const getPostCSSOptions = () => ({
       return `☕️_${file}_${name}__${hash}`;
     },
   },
+  plugins: [cssUrl({ url: 'inline' })],
   sourceMap: true,
   use: [
     'sass',

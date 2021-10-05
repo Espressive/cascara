@@ -11,15 +11,15 @@ const propTypes = {
   dropdownIndex: pt.number,
 };
 
-const ActionStack = ({ actions, dropdownIndex = 1 }) => {
+const ActionStack = ({ actions, dropdownIndex = 1, ...rest }) => {
   const buttonActions = actions?.slice(0, dropdownIndex);
   const dropdownActions = actions?.slice(dropdownIndex);
 
   return (
-    <>
+    <div {...rest}>
       {buttonActions && <ButtonStack actions={buttonActions} />}
       {dropdownActions && <DropdownStack actions={dropdownActions} />}
-    </>
+    </div>
   );
 };
 

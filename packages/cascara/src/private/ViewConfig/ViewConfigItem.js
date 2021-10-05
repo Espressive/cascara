@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import pt from 'prop-types';
 import classnames from 'classnames/bind';
 import { MenuItem } from 'reakit/Menu';
-import Button from '../Button';
+import Button from '../../atoms/Button';
 import { arrowDownIcon, arrowUpIcon } from '@espressive/icons';
 
 import styles from './ViewConfig.module.scss';
