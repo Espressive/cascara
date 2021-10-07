@@ -5,11 +5,11 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import Form from '../../ui/Form';
 
-import fixtures, {
-  handleFormAction,
-} from '../helpers/ModuleTestHelper.fixture';
+// import fixtures, {
+//   handleFormAction,
+// } from '../helpers/ModuleTestHelper.fixture';
 
-const { checkboxTest } = fixtures;
+// const { checkboxTest } = fixtures;
 
 describe('datacheckbox', () => {
   test('it returns the correct data type', async () => {
@@ -25,8 +25,8 @@ describe('datacheckbox', () => {
           ],
         }}
         data={{
-          id: '01',
           checkbox: false,
+          id: '01',
         }}
         dataDisplay={[
           {

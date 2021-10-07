@@ -30,9 +30,9 @@ const actionModules = {
 };
 
 const dataModules = {
+  checkbox: DataCheckbox,
   // switch: DataCheckbox,
   color: DataColor,
-  checkbox: DataCheckbox,
   date: DataDate,
   datetime: DataDateTime,
   email: DataEmail,

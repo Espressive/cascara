@@ -115,8 +115,8 @@ describe('DataColor', () => {
             ],
           }}
           data={{
-            id: '01',
             color: '#AAAA',
+            id: '01',
           }}
           dataDisplay={[
             {
@@ -138,10 +138,10 @@ describe('DataColor', () => {
       await waitFor(() => screen.findByRole('color', { name: 'Cdolor' }));
 
       const testSubject = screen.getByRole('color', { name: 'Color' });
-      userEvent.type(testSubject, '#e1e1e1');
+      fireEvent.type(testSubject, '#e1e1e1');
 
       const saveButton = screen.getByRole('button', { name: 'Save' });
-      userEvent.click(saveButton);
+      fireEvent.click(saveButton);
 
       expect(onAction).toBeCalledWith({ name: 'edit.save' });
       // expect(log.mock.calls[0][1]).toEqual({ checkbox: true });
