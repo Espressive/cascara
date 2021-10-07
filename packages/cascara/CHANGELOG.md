@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- c4cdddf: Add Flex component and /atoms section
+
 ## 0.5.4
 
 ### Patch Changes
