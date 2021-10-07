@@ -3,6 +3,7 @@ import ActionButton from './ActionButton';
 import ActionEdit from './ActionEdit';
 
 // Data Modules
+import DataColor from './DataColor';
 import DataCheckbox from './DataCheckbox';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
@@ -30,6 +31,7 @@ const actionModules = {
 
 const dataModules = {
   // switch: DataCheckbox,
+  color: DataColor,
   checkbox: DataCheckbox,
   date: DataDate,
   datetime: DataDateTime,

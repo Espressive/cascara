@@ -87,7 +87,7 @@ const DATA = [
   },
 ];
 
-const handleFormAction = console;
+const handleFormAction = console.log;
 
 const ModuleTestWrapper = ({
   actions = ACTIONS,
