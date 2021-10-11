@@ -56,14 +56,13 @@ const ViewConfig = ({
   const renderOptions = (options, isSelected) =>
     options.map((option) => {
       const { currentSelection, ...setterFunctions } = state;
-      // isEditable should not propapate to MemoViewConfigItem component
-      delete option.isEditable;
       return (
         <MemoViewConfigItem
           {...option}
           {...setterFunctions}
           isActive={isSelected}
           key={option.label}
+          option={option}
           state={menuState}
         />
       );

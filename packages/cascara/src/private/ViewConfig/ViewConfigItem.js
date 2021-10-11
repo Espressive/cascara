@@ -16,6 +16,11 @@ const propTypes = {
   label: pt.string.isRequired,
   moveItemDown: pt.func.isRequired,
   moveItemUp: pt.func.isRequired,
+  option: pt.shape({
+    attribute: pt.string,
+    module: pt.string,
+    required: false,
+  }),
   state: pt.shape({
     hide: pt.func,
     modal: pt.bool,
@@ -39,15 +44,21 @@ const ViewConfigItem = ({
   label,
   moveItemDown,
   moveItemUp,
+  option,
   state,
   ...rest
 }) => {
+  const { attribute, module, required } = option;
+
   const originalObject = useMemo(
     () => ({
+      attribute,
       label,
+      module,
+      required,
       ...rest,
     }),
-    [label, rest]
+    [attribute, label, module, required, rest]
   );
 
   const handleItemAdd = useCallback(() => {
@@ -77,10 +88,12 @@ const ViewConfigItem = ({
   return (
     <MenuItem
       {...state}
-      {...rest}
       as='div'
+      attribute={attribute}
       className={cx('item', ['ViewConfigItem'], { active: isActive })}
+      module={module}
       onClick={isActive ? handleItemRemove : handleItemAdd}
+      required={required}
     >
       <span className={styles.Label}>{label}</span>
       {isActive && (
