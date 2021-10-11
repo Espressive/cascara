@@ -13,7 +13,7 @@ export default {
   ),
   default: (
     <AreaPlaceholder label='Label'>
-      <p>Default message</p>
+      <p>Yo</p>
     </AreaPlaceholder>
   ),
 };
