@@ -3,9 +3,9 @@
   "version": "0.6.0",
   "private": true,
   "scripts": {
-    "start": "next-remote-watch ../packages/cascara",
     "build": "next build",
-    "prepare": "echo 'No prepare scripts for this package'"
+    "prepare": "echo 'No prepare scripts for this package'",
+    "start": "next-remote-watch ../packages/cascara"
   },
   "dependencies": {
     "@espressive/cascara": "workspace:0.6.0",
