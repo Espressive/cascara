@@ -40,7 +40,6 @@ const All = (fixtureProps) => {
         original object in the selection. Only <code>label</code> is used in the
         menu display of the component.
       </p>
-
       <ViewConfig state={viewConfigState} {...fixtureProps} />
       <JsonPlaceholder
         data={viewConfigState?.currentSelection || {}}

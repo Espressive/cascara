@@ -28,10 +28,6 @@ const descSection = {
 const isSnyk =
   github.title.includes('fix(Snyk)') || github.title.includes('[Snyk]');
 
-// Evaluates the description to see if it contains a particular section
-const hasDescriptionSection = (section: keyof typeof descSection) =>
-  github.description.includes(descSection[section]);
-
 // No PR is too small to include a description of why you made a change
 if (github.description.length < 10) {
   warn('Please include a description of your PR changes.');
@@ -52,7 +48,7 @@ if (changed.fixtures) {
 }
 
 // Check if we are updating or adding any package dependencies
-if (changed.packages && !hasDescriptionSection('dependencies') && !isSnyk) {
+if (changed.packages && !isSnyk) {
   for (let file of changed.packages) {
     fail(
       `Please add a '${descSection.dependencies}' section to explain the reason we are changing dependencies.`
@@ -61,7 +57,7 @@ if (changed.packages && !hasDescriptionSection('dependencies') && !isSnyk) {
 }
 
 // Check if we are modifying any Jest snapshots
-if (changed.snapshots && !hasDescriptionSection('snapshots')) {
+if (changed.snapshots) {
   for (let file of changed.snapshots) {
     fail(
       `Please add a '${descSection.snapshots}' section to explain the reason we are changing snapshots.`
