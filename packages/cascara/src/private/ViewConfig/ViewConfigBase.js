@@ -62,7 +62,6 @@ const ViewConfig = ({
           {...setterFunctions}
           isActive={isSelected}
           key={option.label}
-          option={option}
           state={menuState}
         />
       );
