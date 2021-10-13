@@ -19,7 +19,6 @@ const changed = {
   snapshots: modifiedFiles.filter((file) => file.includes('test.snap')),
 };
 
-console.log(danger.git);
 // PR description sections
 const descSection = {
   dependencies: '### Dependencies',
@@ -32,6 +31,9 @@ const isSnyk =
 // Evaluates the description to see if it contains a particular section
 const hasDescriptionSection = (section: keyof typeof descSection) =>
   github.description.includes(descSection[section]);
+
+const { git } = danger;
+console.log({ git, github });
 
 // No PR is too small to include a description of why you made a change
 if (github.description.length < 10) {
