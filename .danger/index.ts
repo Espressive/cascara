@@ -19,7 +19,7 @@ const changed = {
   snapshots: modifiedFiles.filter((file) => file.includes('test.snap')),
 };
 
-console.log(danger);
+console.log(danger.git);
 // PR description sections
 const descSection = {
   dependencies: '### Dependencies',
