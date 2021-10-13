@@ -51,11 +51,17 @@ const DataSelect = ({
         ref={formMethods?.register}
       >
         {options ? (
-          options.map((option) => (
-            <option key={option.value} {...option}>
-              {option.label || option.value}
-            </option>
-          ))
+          options.map((option) =>
+            option.value === value ? (
+              <option aria-selected key={option.value} {...option} selected>
+                {option.label || option.value}
+              </option>
+            ) : (
+              <option key={option.value} {...option}>
+                {option.label || option.value}
+              </option>
+            )
+          )
         ) : (
           <option value={value}>{value}</option>
         )}

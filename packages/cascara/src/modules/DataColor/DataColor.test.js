@@ -1,7 +1,4 @@
-import React from 'react';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import Form from '../../ui/Form';
-
+import { fireEvent, render, screen } from '@testing-library/react';
 import cosmosFixtures, {
   displayProps,
   editingProps,
@@ -98,53 +95,6 @@ describe('DataColor', () => {
       render(editingNoLabel);
       const input = screen.getByLabelText(editingProps.label);
       expect(input).toBeDefined();
-    });
-  });
-
-  describe('datacheckbox', () => {
-    test('it returns the correct data type', async () => {
-      const onAction = jest.fn();
-
-      render(
-        <Form
-          actions={{
-            modules: [
-              {
-                module: 'edit',
-              },
-            ],
-          }}
-          data={{
-            color: '#AAAA',
-            id: '01',
-          }}
-          dataDisplay={[
-            {
-              attribute: 'id',
-              label: 'ID',
-              module: 'text',
-            },
-            {
-              attribute: 'color',
-              label: 'Color',
-              module: 'color',
-            },
-          ]}
-          isInitialEditing
-          onAction={onAction}
-        />
-      );
-
-      await waitFor(() => screen.findByRole('color', { name: 'Cdolor' }));
-
-      const testSubject = screen.getByRole('color', { name: 'Color' });
-      fireEvent.type(testSubject, '#e1e1e1');
-
-      const saveButton = screen.getByRole('button', { name: 'Save' });
-      fireEvent.click(saveButton);
-
-      expect(onAction).toBeCalledWith({ name: 'edit.save' });
-      // expect(log.mock.calls[0][1]).toEqual({ checkbox: true });
     });
   });
 });

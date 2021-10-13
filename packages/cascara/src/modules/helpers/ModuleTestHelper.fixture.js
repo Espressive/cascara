@@ -21,11 +21,6 @@ const DATA_DISPLAY = [
     label: 'Date',
     module: 'date',
   },
-  // {
-  //   attribute: 'dateMonth',
-  //   label: 'Date Month',
-  //   module: 'dateMonth',
-  // },
   {
     attribute: 'dateTime',
     label: 'Date Time',
@@ -50,12 +45,24 @@ const DATA_DISPLAY = [
     attribute: 'radio',
     label: 'Radio',
     module: 'radio',
+    options: [{ label: 'One' }, { label: 'Two' }],
   },
   {
     attribute: 'select',
     label: 'Select',
     module: 'select',
-    options: [],
+    options: [
+      {
+        key: 'red pill',
+        text: 'red pill',
+        value: 'red pill',
+      },
+      {
+        key: 'blue pill',
+        text: 'blue pill',
+        value: 'blue pill',
+      },
+    ],
   },
   {
     attribute: 'text',
@@ -87,13 +94,11 @@ const DATA = [
   },
 ];
 
-const handleFormAction = console.log;
-
 const ModuleTestWrapper = ({
   actions = ACTIONS,
   dataDisplay = DATA_DISPLAY,
   data = DATA,
-  onAction = handleFormAction,
+  onAction = console.log,
 }) => (
   <Form
     actions={actions}
@@ -104,12 +109,68 @@ const ModuleTestWrapper = ({
   />
 );
 
-export { handleFormAction };
 export default {
   checkboxTest: (
     <ModuleTestWrapper
-      data={{ checkbox: false }}
-      dataDisplay={[DATA_DISPLAY[0]]}
+      data={{ checkbox: false, text: '' }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[8]]}
+    />
+  ),
+  jsonTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        json: {
+          type: 'test',
+          number: 1,
+        },
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[4]]}
+    />
+  ),
+  numberTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        number: 5,
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[5]]}
+    />
+  ),
+  radioTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        radio: true,
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[6]]}
+    />
+  ),
+  selectTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        select: 'blue pill',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[7]]}
+    />
+  ),
+  textTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        text: 'Espressive',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[8]]}
+    />
+  ),
+  textareaTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        textarea: '',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[9]]}
     />
   ),
 };
