@@ -77,7 +77,6 @@ const ViewConfigItem = ({
   return (
     <MenuItem
       {...state}
-      {...rest}
       as='div'
       className={cx('item', ['ViewConfigItem'], { active: isActive })}
       onClick={isActive ? handleItemRemove : handleItemAdd}
