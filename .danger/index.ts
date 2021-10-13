@@ -19,15 +19,8 @@ const changed = {
   snapshots: modifiedFiles.filter((file) => file.includes('test.snap')),
 };
 
-console.log('this PR');
-console.log(danger.github.thisPR);
-
-console.log('issue');
-console.log(danger.github.issue);
-
 console.log('PR');
-console.log(danger.github.pr);
-
+console.log(danger.github.pr.base);
 
 console.log('test with only changes again final');
 // PR description sections
