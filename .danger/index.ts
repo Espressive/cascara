@@ -19,10 +19,9 @@ const changed = {
   snapshots: modifiedFiles.filter((file) => file.includes('test.snap')),
 };
 
-console.log('PR');
-console.log(danger.github.pr.base);
+console.log('base ref', danger.github.pr.base.ref);
+console.log('hease ref', danger.github.pr.head.ref);
 
-console.log('test with only changes again final');
 // PR description sections
 const descSection = {
   dependencies: '### Dependencies',
