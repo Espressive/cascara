@@ -12,6 +12,8 @@ const github = {
   title: danger.github.pr.title,
 };
 
+console.log(danger);
+
 // Changed file evaluations
 const changed = {
   fixtures: modifiedFiles.filter((file) => file.includes('fixture.js')),
