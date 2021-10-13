@@ -21,7 +21,7 @@ const changed = {
 
 console.log(danger);
 
-console.log('test with only changes again');
+console.log('test with only changes again final');
 // PR description sections
 const descSection = {
   dependencies: '### Dependencies',
