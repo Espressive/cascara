@@ -18,12 +18,12 @@
     "scss"
   ],
   "scripts": {
-    "dictionary": "style-dictionary build -c config",
     "build": "yarn clean && yarn dictionary",
     "clean": "rm -rf dist",
-    "version": "yarn build",
-    "prepare": "yarn build",
+    "dictionary": "style-dictionary build -c config",
     "postinstall": "yarn build",
+    "prepare": "yarn build",
+    "version": "yarn build",
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
   "dependencies": {
