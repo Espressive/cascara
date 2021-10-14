@@ -51,8 +51,6 @@ module.exports = {
       rules: {
         'jest/no-jest-import': 0,
         'no-alert': 0,
-        'no-console': 0,
-        'sort-keys': 0,
       },
     },
   ],

@@ -41,7 +41,7 @@ const dataModules = {
   json: DataJson,
   month: DataMonth,
   number: DataNumber,
-  passord: DataPassword,
+  password: DataPassword,
   radio: DataRadio,
   range: DataRange,
   select: DataSelect,

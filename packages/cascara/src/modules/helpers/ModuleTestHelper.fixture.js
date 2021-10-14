@@ -74,6 +74,56 @@ const DATA_DISPLAY = [
     label: 'Textarea',
     module: 'textarea',
   },
+  {
+    attribute: 'color',
+    label: 'Color',
+    module: 'color',
+  },
+  {
+    attribute: 'date',
+    label: 'Date',
+    module: 'date',
+  },
+  {
+    attribute: 'datetime',
+    label: 'Datetime',
+    module: 'datetime',
+  },
+  {
+    attribute: 'month',
+    label: 'Month',
+    module: 'month',
+  },
+  {
+    attribute: 'password',
+    label: 'Password',
+    module: 'password',
+  },
+  {
+    attribute: 'range',
+    label: 'Range',
+    module: 'range',
+  },
+  {
+    attribute: 'tel',
+    label: 'Tel',
+    module: 'tel',
+  },
+  {
+    attribute: 'time',
+    label: 'Time',
+    module: 'time',
+  },
+  {
+    attribute: 'url',
+    label: 'URL',
+    module: 'url',
+  },
+  {
+    attribute: 'week',
+    label: 'Week',
+    module: 'week',
+  },
 ];
 
 const DATA = [
@@ -171,6 +221,105 @@ export default {
         textarea: '',
       }}
       dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[9]]}
+    />
+  ),
+  colorTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        color: '#a1a1a1',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[10]]}
+    />
+  ),
+  dateTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        date: '2021-07-24',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[11]]}
+    />
+  ),
+  datetimeTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        datetime: '2018-06-12T19:30',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[12]]}
+    />
+  ),
+  emailTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        email: 'engineers@espressive.com',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[3]]}
+    />
+  ),
+  monthTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        month: '2018-06',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[13]]}
+    />
+  ),
+  passwordTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        password: 'a very secret password',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[14]]}
+    />
+  ),
+  rangeTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        range: 10,
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[15]]}
+    />
+  ),
+  telTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        tel: '911',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[16]]}
+    />
+  ),
+  timeTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        time: '16:20',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[17]]}
+    />
+  ),
+  urlTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        url: 'https://www.espressive.com',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[18]]}
+    />
+  ),
+  weekTest: (
+    <ModuleTestWrapper
+      data={{
+        checkbox: false,
+        week: '2021-W15',
+      }}
+      dataDisplay={[DATA_DISPLAY[0], DATA_DISPLAY[19]]}
     />
   ),
 };
