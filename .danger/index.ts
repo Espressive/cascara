@@ -28,6 +28,16 @@ const descSection = {
 const isSnyk =
   github.title.includes('fix(Snyk)') || github.title.includes('[Snyk]');
 
+const ignoredBaseBranches = ['main', 'develop'];
+const currentBranch = danger.github.pr.head.ref;
+
+const isCurrentBranchFromIgnored = ignoredBaseBranches.includes(currentBranch);
+
+if (isCurrentBranchFromIgnored) {
+  message(
+    `Dangerfile.js does not run when the current branch is ${currentBranch}`
+  );
+}
 // Evaluates the description to see if it contains a particular section
 const hasDescriptionSection = (section: keyof typeof descSection) =>
   github.description.includes(descSection[section]);
