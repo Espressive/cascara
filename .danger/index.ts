@@ -48,21 +48,26 @@ if (github.description.length < 10) {
 }
 
 // Check that someone has been assigned to this PR
-if (github.assignee === null && !isSnyk) {
+if (github.assignee === null && !isSnyk && !isCurrentBranchFromIgnored) {
   warn(
     'Please assign someone to merge this PR, and optionally include people who should review.'
   );
 }
 
 // Check if we are modifying any Cosmos fixtures
-if (changed.fixtures) {
+if (changed.fixtures && !isCurrentBranchFromIgnored) {
   for (let file of changed.fixtures) {
     message(`**${file}**: This fixture has been changed.`, file);
   }
 }
 
 // Check if we are updating or adding any package dependencies
-if (changed.packages && !hasDescriptionSection('dependencies') && !isSnyk) {
+if (
+  changed.packages &&
+  !hasDescriptionSection('dependencies') &&
+  !isSnyk &&
+  !isCurrentBranchFromIgnored
+) {
   for (let file of changed.packages) {
     fail(
       `Please add a '${descSection.dependencies}' section to explain the reason we are changing dependencies.`
@@ -71,7 +76,11 @@ if (changed.packages && !hasDescriptionSection('dependencies') && !isSnyk) {
 }
 
 // Check if we are modifying any Jest snapshots
-if (changed.snapshots && !hasDescriptionSection('snapshots')) {
+if (
+  changed.snapshots &&
+  !hasDescriptionSection('snapshots') &&
+  !isCurrentBranchFromIgnored
+) {
   for (let file of changed.snapshots) {
     fail(
       `Please add a '${descSection.snapshots}' section to explain the reason we are changing snapshots.`
