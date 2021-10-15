@@ -30,12 +30,19 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 
   body,
   #root,
-  #next {
+  #next,
+  #app {
+    // #app is needed in our legacy application and can be removed someday
     height: 100%;
   }
 
+  #app .app-root {
+    display: contents;
+  }
+
   #root,
-  #next {
+  #next,
+  #app {
     display: grid;
     grid-template-columns: var(--nav-max-width) minmax(0, 1fr) var(
         --drawer-max-width
