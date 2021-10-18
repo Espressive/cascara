@@ -28,12 +28,16 @@ const descSection = {
 const isSnyk =
   github.title.includes('fix(Snyk)') || github.title.includes('[Snyk]');
 
-const ignoredBaseBranches = ['main', 'develop'];
 const currentBranch = danger.github.pr.head.ref;
+const targetBranch = danger.github.pr.base.ref;
 
-const isCurrentBranchFromIgnored = ignoredBaseBranches.includes(currentBranch);
+const isCurrentDevelopOrMain = ['main', 'develop'].includes(currentBranch);
+const isTargetBranchDevelopOrMain = ['main', 'develop'].includes(targetBranch);
 
-if (isCurrentBranchFromIgnored) {
+const shouldDangerCheckPR =
+  isCurrentDevelopOrMain !== isTargetBranchDevelopOrMain;
+
+if (!shouldDangerCheckPR) {
   message(
     `Dangerfile.js does not run when the current branch is ${currentBranch}`
   );
@@ -48,14 +52,14 @@ if (github.description.length < 10) {
 }
 
 // Check that someone has been assigned to this PR
-if (github.assignee === null && !isSnyk && !isCurrentBranchFromIgnored) {
+if (github.assignee === null && !isSnyk && shouldDangerCheckPR) {
   warn(
     'Please assign someone to merge this PR, and optionally include people who should review.'
   );
 }
 
 // Check if we are modifying any Cosmos fixtures
-if (changed.fixtures && !isCurrentBranchFromIgnored) {
+if (changed.fixtures && shouldDangerCheckPR) {
   for (let file of changed.fixtures) {
     message(`**${file}**: This fixture has been changed.`, file);
   }
@@ -66,7 +70,7 @@ if (
   changed.packages &&
   !hasDescriptionSection('dependencies') &&
   !isSnyk &&
-  !isCurrentBranchFromIgnored
+  shouldDangerCheckPR
 ) {
   for (let file of changed.packages) {
     fail(
@@ -79,7 +83,7 @@ if (
 if (
   changed.snapshots &&
   !hasDescriptionSection('snapshots') &&
-  !isCurrentBranchFromIgnored
+  shouldDangerCheckPR
 ) {
   for (let file of changed.snapshots) {
     fail(
