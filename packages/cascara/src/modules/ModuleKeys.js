@@ -3,6 +3,7 @@ import ActionButton from './ActionButton';
 import ActionEdit from './ActionEdit';
 
 // Data Modules
+import DataColor from './DataColor';
 import DataCheckbox from './DataCheckbox';
 import DataDate from './DataDate';
 import DataDateTime from './DataDateTime';
@@ -29,8 +30,9 @@ const actionModules = {
 };
 
 const dataModules = {
-  // switch: DataCheckbox,
   checkbox: DataCheckbox,
+  // switch: DataCheckbox,
+  color: DataColor,
   date: DataDate,
   datetime: DataDateTime,
   email: DataEmail,
@@ -39,7 +41,7 @@ const dataModules = {
   json: DataJson,
   month: DataMonth,
   number: DataNumber,
-  passord: DataPassword,
+  password: DataPassword,
   radio: DataRadio,
   range: DataRange,
   select: DataSelect,

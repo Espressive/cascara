@@ -2,6 +2,7 @@ export * from './context';
 
 export { default as ActionButton } from './ActionButton';
 export { default as ActionEdit } from './ActionEdit';
+export { default as DataColor } from './DataColor';
 export { default as DataCheckbox } from './DataCheckbox';
 export { default as DataDate } from './DataDate';
 export { default as DataDateTime } from './DataDateTime';
