@@ -1,9 +1,6 @@
 import React from 'react';
 import AdminStructure from '.';
-import { NavLink } from 'react-router-dom';
-import house from '@iconify-icons/ic/twotone-house';
-import clock from '@iconify-icons/ic/twotone-lock-clock';
-import settings from '@iconify-icons/ic/twotone-settings';
+import { links } from './components/Nav/Nav.fixture';
 
 const longContent = (
   <ul>
@@ -109,49 +106,12 @@ const longContent = (
     <li>item100</li>
   </ul>
 );
-
-const sectionLinks = [
-  {
-    icon: house,
-    label: 'Home',
-    linkComponentProps: {
-      href: '#',
-    },
-  },
-  {
-    icon: clock,
-    label: 'Alarms Long Name To Test Our Styles With Ellipsis',
-    linkComponentProps: {
-      href: '#',
-    },
-  },
-  {
-    icon: settings,
-    label: 'Settings',
-    linkComponentProps: {
-      href: '#',
-    },
-  },
-];
-
-const links = [
-  {
-    label: 'Section A',
-    links: sectionLinks,
-  },
-  {
-    label: 'Section B',
-    links: sectionLinks,
-  },
-  ...sectionLinks,
-  {
-    label: 'Section C',
-    links: sectionLinks,
-  },
-];
-
-const exampleHeader = <AdminStructure.Header title='Cool Company' />;
-const exampleNav = <AdminStructure.Nav linkComponent={NavLink} links={links} />;
+const testLogo =
+  'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png';
+const exampleHeader = (
+  <AdminStructure.Header logo={testLogo} post={'Hey'} title='Cool Company' />
+);
+const exampleNav = <AdminStructure.Nav links={links} />;
 const exampleTheme = {
   color: {
     primary: '#a00',
