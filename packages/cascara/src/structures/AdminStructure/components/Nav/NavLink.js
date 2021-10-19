@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import Flex from '../../../../atoms/Flex';
 import { Button } from 'reakit';
 import { Icon } from '@iconify/react';
 import styles from './Nav.module.scss';
@@ -15,6 +16,7 @@ const propTypes = {
   }),
   // eslint-disable-next-line react/forbid-prop-types -- Could be anything
   linkComponentProps: pt.object,
+  post: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
 
 const NavLink = ({
@@ -22,6 +24,7 @@ const NavLink = ({
   label = 'NavLink',
   linkComponent = 'a',
   linkComponentProps,
+  post,
   ...rest
 }) => (
   <Button
@@ -30,8 +33,15 @@ const NavLink = ({
     as={linkComponent}
     className={styles.NavLink}
   >
-    {icon && <Icon className='icon' icon={icon} inline width={18} />}
-    <span className='label'>{label}</span>
+    <Flex space='start' vAlign='center'>
+      {icon && (
+        <div>
+          <Icon className='icon' icon={icon} inline width={18} />
+        </div>
+      )}
+      <span className='label'>{label}</span>
+      {post && <Flex.Item push>{post}</Flex.Item>}
+    </Flex>
   </Button>
 );
 

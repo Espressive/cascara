@@ -1,14 +1,17 @@
 .Header {
-  background-color: var(--secondary-color, var(--brand-color));
-  color: var(--secondary-text-color, var(--brand-text-color));
+  --background-color: var(--secondary-color, var(--brand-color, #ddd));
+  --text-color: var(--secondary-text-color, var(--brand-text-color, #000));
+
+  background-color: var(--background-color);
+  color: var(--text-color);
   height: 100%;
-  display: flex;
+  padding: 0 1.25rem;
 
   .Company {
     max-width: 20rem;
     display: inline-block;
     height: 100%;
-    padding: 0.5em;
+    padding: 0.5em 0;
     overflow: hidden;
     transition: transform 100ms ease-in-out;
 
@@ -19,8 +22,17 @@
     }
 
     .Title {
-      padding: 0 1rem;
-      line-height: 4rem;
+      height: 100%;
+      font-size: 1.5rem;
+      color: var(--text-color);
+
+      // Vertically center title
+      &::before {
+        content: ' ';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
 
       &.hidden {
         text-indent: -999em;

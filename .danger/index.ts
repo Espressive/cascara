@@ -28,6 +28,20 @@ const descSection = {
 const isSnyk =
   github.title.includes('fix(Snyk)') || github.title.includes('[Snyk]');
 
+const currentBranch = danger.github.pr.head.ref;
+const targetBranch = danger.github.pr.base.ref;
+
+const isCurrentDevelopOrMain = ['main', 'develop'].includes(currentBranch);
+const isTargetBranchDevelopOrMain = ['main', 'develop'].includes(targetBranch);
+
+const shouldDangerCheckPR =
+  isCurrentDevelopOrMain !== isTargetBranchDevelopOrMain;
+
+if (!shouldDangerCheckPR) {
+  message(
+    `Dangerfile.js does not run when the current branch is ${currentBranch}`
+  );
+}
 // Evaluates the description to see if it contains a particular section
 const hasDescriptionSection = (section: keyof typeof descSection) =>
   github.description.includes(descSection[section]);
@@ -38,21 +52,26 @@ if (github.description.length < 10) {
 }
 
 // Check that someone has been assigned to this PR
-if (github.assignee === null && !isSnyk) {
+if (github.assignee === null && !isSnyk && shouldDangerCheckPR) {
   warn(
     'Please assign someone to merge this PR, and optionally include people who should review.'
   );
 }
 
 // Check if we are modifying any Cosmos fixtures
-if (changed.fixtures) {
+if (changed.fixtures && shouldDangerCheckPR) {
   for (let file of changed.fixtures) {
     message(`**${file}**: This fixture has been changed.`, file);
   }
 }
 
 // Check if we are updating or adding any package dependencies
-if (changed.packages && !hasDescriptionSection('dependencies') && !isSnyk) {
+if (
+  changed.packages &&
+  !hasDescriptionSection('dependencies') &&
+  !isSnyk &&
+  shouldDangerCheckPR
+) {
   for (let file of changed.packages) {
     fail(
       `Please add a '${descSection.dependencies}' section to explain the reason we are changing dependencies.`
@@ -61,7 +80,11 @@ if (changed.packages && !hasDescriptionSection('dependencies') && !isSnyk) {
 }
 
 // Check if we are modifying any Jest snapshots
-if (changed.snapshots && !hasDescriptionSection('snapshots')) {
+if (
+  changed.snapshots &&
+  !hasDescriptionSection('snapshots') &&
+  shouldDangerCheckPR
+) {
   for (let file of changed.snapshots) {
     fail(
       `Please add a '${descSection.snapshots}' section to explain the reason we are changing snapshots.`

@@ -16,10 +16,10 @@
     "private"
   ],
   "scripts": {
-    "roll": "rollup -c --failAfterWarnings",
     "build": "yarn clean && yarn roll",
     "clean": "rm -rf dist && rm -rf undefined",
     "prepare": "yarn build",
+    "roll": "rollup -c --failAfterWarnings",
     "watch": "yarn roll -w"
   },
   "dependencies": {

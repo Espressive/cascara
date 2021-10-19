@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "analyze": "npx source-map-explorer@2.5.2 'build/**/*.js'",
+    "build": "react-scripts build",
     "cosmos": "npx react-cosmos@5.5.3 --config .cosmos/config.json",
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "react-scripts start"
   },
   "browserslist": {
     "production": [
