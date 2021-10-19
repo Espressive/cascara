@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
 import HeaderMenuButton from './HeaderMenuButton';
+import Flex from '../../../../atoms/Flex';
 import styles from './Header.module.scss';
 import { VisuallyHidden } from 'reakit';
 import { AdminContext } from '../../context';
@@ -12,21 +13,19 @@ import {
   menuOpenIcon,
 } from '@espressive/icons';
 
-const TestLogo =
-  'https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png';
-
 const propTypes = {
   logo: pt.string,
-  title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]).isRequired,
+  post: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  title: pt.string.isRequired,
 };
 
 const disabled = false;
 
-const Header = ({ logo = TestLogo, title }) => {
+const Header = ({ logo, title, post, ...rest }) => {
   const { menuDrawer, menuNav, isSizeMedium } = useContext(AdminContext);
   return (
-    <div className={styles.Header}>
-      {disabled && isSizeMedium && (
+    <Flex {...rest} className={styles.Header} vAlign='center'>
+      {disabled && isSizeMedium && menuNav && (
         <HeaderMenuButton
           {...menuNav}
           iconClosed={menuOpenIcon}
@@ -45,7 +44,8 @@ const Header = ({ logo = TestLogo, title }) => {
           <h1 className={styles.Title}>{title}</h1>
         )}
       </a>
-      {disabled && (
+      {post && <Flex.Item push>{post}</Flex.Item>}
+      {disabled && menuDrawer && (
         <HeaderMenuButton
           {...menuDrawer}
           iconClosed={drawerIcon}
@@ -53,7 +53,7 @@ const Header = ({ logo = TestLogo, title }) => {
           style={{ marginLeft: 'auto' }}
         />
       )}
-    </div>
+    </Flex>
   );
 };
 
