@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.0
+
+### Major Changes
+
+- 051c263: Chore(FDS-359) Move eslint-plugin-json-format to peerDependencies in the eslint config
+
 ## 1.3.0
 
 ### Minor Changes

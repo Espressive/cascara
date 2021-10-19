@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 4579d9a: chore(fds 362) admin structure improvements
+
 ## 0.6.1
 
 ### Patch Changes
