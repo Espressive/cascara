@@ -2,6 +2,8 @@ export * from './hooks';
 export * from './lib';
 export * from './modules';
 // export * from './private';
+export { default as Loader } from './private/Loader';
+export { default as Popover } from './private/Popover';
 export {
   default as ViewConfig,
   useViewConfigState,
