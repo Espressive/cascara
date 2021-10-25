@@ -172,7 +172,6 @@ jobs:
                   git commit -m "Update Changesets [ci skip]"
                   node tooling/setReleaseVersions.js
                   yarn changeset publish
-                  yarn install
                   git checkout -- "*.json"
                   git push --follow-tags
             - slack/notify:
