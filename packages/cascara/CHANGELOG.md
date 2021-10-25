@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.1
+
+### Patch Changes
+
+- 215595f: Private export Popover and Loader
+
 ## 0.7.0
 
 ### Minor Changes
