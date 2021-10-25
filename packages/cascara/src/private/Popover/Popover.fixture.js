@@ -18,7 +18,9 @@ const PopoverFixture = (
   <main className='ui container'>
     <h1>Popover</h1>
 
-    <Popover trigger={<Button content='Greeting' />}>Hello!</Popover>
+    <Popover className='CAT' trigger={<Button content='Greeting' />}>
+      Hello!
+    </Popover>
   </main>
 );
 
