@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSealedState } from 'reakit-utils/useSealedState';
+import { useInitialValue } from 'reakit-utils';
 import { equals, findIndex, insert, without } from 'ramda';
 import { LOCAL_STORAGE_KEY } from './__globals';
 
@@ -23,11 +23,11 @@ const useViewConfigState = (
   const lastFilter = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
   // Make sure changes to our initial state after first render to not cause a render loop
-  const sealed = useSealedState(lastFilter || initialSelection);
+  const initial = useInitialValue(lastFilter || initialSelection);
 
   // We have a single state that is managed with helper functions
   // and we never expose the internal set function outside of this hook
-  const [currentSelection, setCurrentSelection] = useState(sealed);
+  const [currentSelection, setCurrentSelection] = useState(initial);
 
   // We will set the current selection into both state and localstorage
   const setCurrentSelectionAndStorage = (val) => {

@@ -2682,7 +2682,7 @@ __metadata:
     react-is: 17.0.2
     react-textarea-autosize: 8.3.3
     reakit: next
-    reakit-utils: 0.15.2
+    reakit-utils: next
     rollup: 2.50.6
     rollup-plugin-postcss: 4.0.0
     semantic-ui-react: 2.0.3
@@ -19922,17 +19922,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"reakit-utils@npm:0.15.2":
-  version: 0.15.2
-  resolution: "reakit-utils@npm:0.15.2"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  checksum: da978e7d0ce9e4db2cc3e5ee158f4a2b7d02320533a42712977bc195c042170a349745206d9d69c2048909b62c4d4a8a7a3514ca6d719a34ad258e390413b9c6
-  languageName: node
-  linkType: hard
-
-"reakit-utils@npm:^0.16.0-alpha.1":
+"reakit-utils@npm:^0.16.0-alpha.1, reakit-utils@npm:next":
   version: 0.16.0-alpha.1
   resolution: "reakit-utils@npm:0.16.0-alpha.1"
   peerDependencies:

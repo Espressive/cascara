@@ -49,7 +49,7 @@
     "react-is": "17.0.2",
     "react-textarea-autosize": "8.3.3",
     "reakit": "next",
-    "reakit-utils": "0.15.2"
+    "reakit-utils": "next"
   },
   "devDependencies": {
     "@espressive/legacy-css": "workspace:2.0.5",
