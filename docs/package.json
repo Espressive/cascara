@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -8,7 +8,7 @@
     "start": "next-remote-watch ../packages/cascara"
   },
   "dependencies": {
-    "@espressive/cascara": "workspace:0.7.2",
+    "@espressive/cascara": "workspace:0.8.0",
     "@espressive/design-tokens": "workspace:0.1.5",
     "@espressive/legacy-css": "workspace:2.0.5",
     "@fluentui/react-northstar": "0.57.0",

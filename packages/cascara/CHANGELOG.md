@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- 77a8868: feat(FDS-367) ViewConfig filter preserve per path
+
+### Patch Changes
+
+- 77a8868: fix(DEV-FDS-365) ViewConfig scrolling
+
 ## 0.7.2
 
 ### Patch Changes
