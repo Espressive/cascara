@@ -48,7 +48,8 @@
     "react-hook-form": "6.8.4",
     "react-is": "17.0.2",
     "react-textarea-autosize": "8.3.3",
-    "reakit": "next"
+    "reakit": "next",
+    "reakit-utils": "0.15.2"
   },
   "devDependencies": {
     "@espressive/legacy-css": "workspace:2.0.5",
