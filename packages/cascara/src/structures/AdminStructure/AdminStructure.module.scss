@@ -55,6 +55,7 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 ._drawer {
+  @include scroll-vertical;
   // background-color: mediumaquamarine;
   grid-area: drawer;
 }

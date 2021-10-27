@@ -4,7 +4,7 @@ import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
 import { DEFAULT_TRIGGER, VIEW_CONFIG_PROP_TYPES } from './__globals';
 import ViewConfigItem from './ViewConfigItem';
 import styles from './ViewConfig.module.scss';
-import { popperOverTrigger } from '../../lib/popperModifiers';
+import { DEFAULT_CASCARA_MODIFIERS } from '../../lib/popperModifiers';
 
 const MemoViewConfigItem = memo(ViewConfigItem);
 
@@ -36,7 +36,7 @@ const ViewConfig = ({
     modal: true,
     placement,
     preventBodyScroll: true,
-    unstable_popperModifiers: [popperOverTrigger],
+    unstable_popperModifiers: DEFAULT_CASCARA_MODIFIERS,
     visible: isInitialOpen,
   });
 
@@ -83,7 +83,7 @@ const ViewConfig = ({
       </MenuButton>
       <Menu
         {...menuState}
-        aria-label='options Menu'
+        aria-label='options menu'
         className={`ui dropdown active visible ${styles._}`}
         tabIndex={0}
       >

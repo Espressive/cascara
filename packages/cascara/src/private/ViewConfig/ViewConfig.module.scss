@@ -1,4 +1,7 @@
+@use '~@espressive/cascara/styles' as *;
+
 ._ {
+  @include scroll-vertical;
   z-index: 11;
   font-size: 0.875em;
 
