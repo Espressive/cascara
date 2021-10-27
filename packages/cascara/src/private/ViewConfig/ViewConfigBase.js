@@ -15,7 +15,7 @@ const ViewConfig = ({
   options,
   placement = 'bottom-end',
   state, // This is our component's state, not the state of the Reakit component
-  title,
+  title = 'Columns',
   trigger = DEFAULT_TRIGGER,
 }) => {
   // Check if the state hook is being used. We do this check inside the
