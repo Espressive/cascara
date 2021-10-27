@@ -34,4 +34,4 @@ export const VIEW_CONFIG_PROP_TYPES = {
   trigger: pt.node,
 };
 
-export const LOCAL_STORAGE_KEY = `Cascara.ViewConfig.${window.location.pathname}`;
+export const LOCAL_STORAGE_KEY = `Cascara.ViewConfig.${window?.location?.pathname}`;
