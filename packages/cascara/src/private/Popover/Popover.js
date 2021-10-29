@@ -18,7 +18,7 @@ const propTypes = {
   trigger: pt.node,
 };
 
-const Popover = ({ children, className, trigger }) => {
+const Popover = ({ children, className, trigger, ...rest }) => {
   // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
   const triggerRef = useRef();
 
@@ -34,7 +34,12 @@ const Popover = ({ children, className, trigger }) => {
       <PopoverDisclosure {...popover} ref={triggerRef} {...trigger.props}>
         {(disclosureProps) => React.cloneElement(trigger, disclosureProps)}
       </PopoverDisclosure>
-      <ReakitPopover className={cx('_', className)} {...popover}>
+      <ReakitPopover
+        aria-label={rest['aria-label'] ? rest['aria-label'] : 'Menu'}
+        className={cx('_', className)}
+        {...popover}
+        {...rest}
+      >
         {children}
       </ReakitPopover>
       <PopoverBackdrop className={styles.Backdrop} {...popover} />
