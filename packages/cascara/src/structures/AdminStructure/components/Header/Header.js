@@ -19,7 +19,7 @@ const cx = classNames.bind(styles);
 const propTypes = {
   logo: pt.string,
   post: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  title: pt.string.isRequired,
+  title: pt.string,
 };
 
 const disabled = false;
