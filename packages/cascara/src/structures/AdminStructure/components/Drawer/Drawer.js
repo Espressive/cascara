@@ -11,9 +11,16 @@ const propTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   header: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   isLoading: pt.bool,
+  isPadded: pt.bool,
 };
 
-const Drawer = ({ children, header, isLoading = false, ...rest }) => {
+const Drawer = ({
+  children,
+  header,
+  isPadded = true,
+  isLoading = false,
+  ...rest
+}) => {
   const { className, ...props } = rest;
   // Instead of using the normal return, we put all of our
   // drawer logic here to go into context
@@ -21,12 +28,12 @@ const Drawer = ({ children, header, isLoading = false, ...rest }) => {
     <Boundaries>
       <div
         {...props}
-        className={cx(className, {
-          Drawer: true,
+        className={cx('Drawer', className, {
           loading: isLoading,
+          padded: isPadded,
         })}
       >
-        {header && <h3 className={styles.Heading}>{header}</h3>}
+        {header && <h3 className={cx('Heading')}>{header}</h3>}
         {children}
 
         {isLoading && !children && <Loader />}

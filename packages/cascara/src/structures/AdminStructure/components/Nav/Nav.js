@@ -3,7 +3,10 @@ import pt from 'prop-types';
 import NavLink from './NavLink';
 import NavSection from './NavSection';
 import styles from './Nav.module.scss';
+import classNames from 'classnames/bind';
 import { LINK_SHAPE } from './__propTypes';
+
+const cx = classNames.bind(styles);
 
 const sectionShape = {
   label: pt.string.isRequired,
@@ -16,8 +19,8 @@ const propTypes = {
   ),
 };
 
-const Nav = ({ links }) => (
-  <div className={styles.Nav}>
+const Nav = ({ links, ...rest }) => (
+  <div {...rest} className={cx('Nav', rest.className)}>
     {links?.map((link, i) => {
       const props = {
         key: link.label || i,
