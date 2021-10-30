@@ -8,8 +8,8 @@ const propTypes = {
 };
 
 const ButtonStack = ({ actions }) => {
-  return actions?.map(({ label, ...rest }, i) => (
-    <Button {...rest} content={label} key={label + i} />
+  return actions?.map(({ label, onClick, handler }, i) => (
+    <Button content={label} key={label + i} onClick={handler || onClick} />
   ));
 };
 

@@ -1,4 +1,7 @@
+@use '~@espressive/cascara/styles' as *;
+
 ._ {
+  @include scroll-vertical;
   z-index: 11;
   font-size: 0.875em;
 
@@ -71,7 +74,7 @@
             }
 
             &:last-of-type {
-              margin-right: -1em;
+              margin-right: -0.4em;
             }
           }
         }

@@ -33,10 +33,10 @@ const ActionsMenuFixture = (
       inside Table Actions to stack any of our `actions.length &gt; 1` inside of
       this menu.
     </p>
-    <ActionsMenu actions={menuItems} />
-    <ActionsMenu actions={menuItems} />
-    <ActionsMenu actions={menuItems} />
-    <ActionsMenu actions={menuItems} />
+    <ActionsMenu actions={menuItems} aria-label='Menu' />
+    <ActionsMenu actions={menuItems} aria-label='Menu' />
+    <ActionsMenu actions={menuItems} aria-label='Menu' />
+    <ActionsMenu actions={menuItems} aria-label='Menu' />
   </main>
 );
 

@@ -2646,7 +2646,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/cascara@workspace:0.7.2, @espressive/cascara@workspace:packages/cascara":
+"@espressive/cascara@workspace:0.8.1, @espressive/cascara@workspace:packages/cascara":
   version: 0.0.0-use.local
   resolution: "@espressive/cascara@workspace:packages/cascara"
   dependencies:
@@ -2673,6 +2673,7 @@ __metadata:
     color-string: 1.5.5
     memoize-one: 5.2.1
     mutationobserver-shim: 0.3.7
+    popper-max-size-modifier: 0.2.0
     prop-types: 15.7.2
     ramda: 0.27.1
     react-error-boundary: 3.1.3
@@ -2681,6 +2682,7 @@ __metadata:
     react-is: 17.0.2
     react-textarea-autosize: 8.3.3
     reakit: next
+    reakit-utils: next
     rollup: 2.50.6
     rollup-plugin-postcss: 4.0.0
     semantic-ui-react: 2.0.3
@@ -9517,7 +9519,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:docs"
   dependencies:
-    "@espressive/cascara": "workspace:0.7.2"
+    "@espressive/cascara": "workspace:0.8.1"
     "@espressive/design-tokens": "workspace:0.1.5"
     "@espressive/legacy-css": "workspace:2.0.5"
     "@fluentui/react-northstar": 0.57.0
@@ -17776,6 +17778,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"popper-max-size-modifier@npm:0.2.0":
+  version: 0.2.0
+  resolution: "popper-max-size-modifier@npm:0.2.0"
+  peerDependencies:
+    "@popperjs/core": ^2.2.0
+  checksum: dfff7f91bd584393ef4416399377f5e2e9f7ffd458e176e85dfffa0951dd01eb923c8afb178061833a6c9598c7f0c6fc4693b43daa61423e7eb33247bb94ceb1
+  languageName: node
+  linkType: hard
+
 "popper.js@npm:^1.14.4":
   version: 1.16.1
   resolution: "popper.js@npm:1.16.1"
@@ -19911,7 +19922,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"reakit-utils@npm:^0.16.0-alpha.1":
+"reakit-utils@npm:^0.16.0-alpha.1, reakit-utils@npm:next":
   version: 0.16.0-alpha.1
   resolution: "reakit-utils@npm:0.16.0-alpha.1"
   peerDependencies:
