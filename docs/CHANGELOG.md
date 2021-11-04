@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [eb5e0c9]
+  - @espressive/cascara@0.8.2
+
 ## 0.8.1
 
 ### Patch Changes

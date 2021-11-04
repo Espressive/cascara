@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.2
+
+### Patch Changes
+
+- eb5e0c9: fix(FDS-379) Fix cross browser issues with Structure Nav/Header
+
 ## 0.8.1
 
 ### Patch Changes
