@@ -141,6 +141,7 @@ $active-background-color: var(--brand-color, #ddd);
       box-shadow 200ms ease-in-out;
     white-space: nowrap;
     text-overflow: ellipsis;
+    -webkit-appearance: none; // Safari if type=button
 
     // @include media-gt-sm {
     //   text-overflow: ellipsis;
