@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from './AreaPlaceholder.module.scss';
 
 const propTypes = {
@@ -20,7 +21,7 @@ const AreaPlaceholder = ({
   color = '#333',
   ...rest
 }) => (
-  <div
+  <Role
     {...rest}
     className={styles.Container}
     style={{ ...style, borderColor: color }}
@@ -29,7 +30,7 @@ const AreaPlaceholder = ({
       {label}
     </h4>
     {children}
-  </div>
+  </Role>
 );
 
 AreaPlaceholder.propTypes = propTypes;

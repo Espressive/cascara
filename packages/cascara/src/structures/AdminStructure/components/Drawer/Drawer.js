@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from './Drawer.module.scss';
 import classNames from 'classnames/bind';
 import { useDrawer } from '../../hooks';
@@ -26,7 +27,7 @@ const Drawer = ({
   // drawer logic here to go into context
   useDrawer(
     <Boundaries>
-      <div
+      <Role
         {...props}
         className={cx('Drawer', className, {
           loading: isLoading,
@@ -37,7 +38,7 @@ const Drawer = ({
         {children}
 
         {isLoading && !children && <Loader />}
-      </div>
+      </Role>
     </Boundaries>
   );
 

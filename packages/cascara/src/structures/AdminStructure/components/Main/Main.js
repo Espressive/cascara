@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import { TabList, TabPanel, useTabState } from 'reakit';
 import styles from './Main.module.scss';
 import classNames from 'classnames/bind';
@@ -43,7 +44,7 @@ const Main = ({
   const { className, ...props } = rest;
   const tabs = useTabState();
   return (
-    <div className={styles.Main}>
+    <Role className={styles.Main}>
       {header && <h2 className='ui header'>{header}</h2>}
       {links && (
         <TabList
@@ -82,9 +83,9 @@ const Main = ({
       {children}
 
       {footer && (
-        <div className='ui bottom attached secondary segment'>{footer}</div>
+        <Role className='ui bottom attached secondary segment'>{footer}</Role>
       )}
-    </div>
+    </Role>
   );
 };
 

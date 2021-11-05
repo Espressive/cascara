@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Role } from 'reakit/Role';
 import { Checkbox, useCheckboxState } from 'reakit/Checkbox';
 import pt from 'prop-types';
 
@@ -61,9 +62,9 @@ const DataCheckbox = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Checkbox}>
+      <Role className={styles.Checkbox}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
-      </div>
+      </Role>
     </ModuleErrorBoundary>
   );
 };

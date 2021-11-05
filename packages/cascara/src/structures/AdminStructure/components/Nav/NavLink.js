@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import Flex from '../../../../atoms/Flex';
 import { Button } from 'reakit';
 import { Icon } from '@iconify/react';
@@ -43,9 +44,9 @@ const NavLink = ({
   >
     <Flex space='start' vAlign='center'>
       {icon && (
-        <div>
+        <Role>
           <Icon className='icon' icon={icon} inline width={18} />
-        </div>
+        </Role>
       )}
       <span className='label'>{label}</span>
       {post && <Flex.Item push>{post}</Flex.Item>}

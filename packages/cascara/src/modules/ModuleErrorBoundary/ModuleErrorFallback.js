@@ -1,12 +1,13 @@
 import React from 'react';
+import { Role } from 'reakit/Role';
 
 import styles from '../DataModule.module.scss';
 
 const ModuleErrorFallback = () => {
   return (
-    <div className={styles.Error} role='alert'>
+    <Role className={styles.Error} role='alert'>
       Error
-    </div>
+    </Role>
   );
 };
 

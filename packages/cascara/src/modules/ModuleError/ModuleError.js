@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from '../DataModule.module.scss';
 
 const propTypes = {
@@ -16,9 +17,9 @@ const ModuleError = ({ moduleName, moduleOptions }) => {
   console.error(message);
 
   return (
-    <div className={styles.Error} data-testid={'module-error'}>
+    <Role className={styles.Error} data-testid={'module-error'}>
       {message}
-    </div>
+    </Role>
   );
 };
 

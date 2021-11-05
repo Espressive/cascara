@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 
 const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types -- error objects
@@ -9,7 +10,7 @@ const propTypes = {
 
 const ErrorFallback = ({ error, resetErrorBoundary }) => {
   return (
-    <div className='ui tiny error message' role='alert'>
+    <Role className='ui tiny error message' role='alert'>
       <div className='header'>Something went wrong:</div>
       <pre>{error?.message}</pre>
       <button
@@ -19,7 +20,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => {
       >
         Try again
       </button>
-    </div>
+    </Role>
   );
 };
 

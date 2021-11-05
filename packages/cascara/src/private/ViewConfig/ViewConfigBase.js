@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useRef, useState } from 'react';
 import { compose, filter, without } from 'ramda';
+import { Role } from 'reakit/Role';
 import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
 import { DEFAULT_TRIGGER, VIEW_CONFIG_PROP_TYPES } from './__globals';
 import ViewConfigItem from './ViewConfigItem';
@@ -87,19 +88,19 @@ const ViewConfig = ({
         className={`ui dropdown active visible ${styles._}`}
         tabIndex={0}
       >
-        <div
+        <Role
           className={'menu transition visible'}
           style={{ position: 'initial' }}
         >
           {title && <h4 className={styles.Title}>{title}</h4>}
 
           {activeOptions.length > 0 && (
-            <div className={styles.ActiveItems}>
+            <Role className={styles.ActiveItems}>
               {renderOptions(activeOptions, true)}
-            </div>
+            </Role>
           )}
 
-          <div className='ui icon input'>
+          <Role className='ui icon input'>
             {searchValue && (
               <i
                 className='close icon'
@@ -116,16 +117,16 @@ const ViewConfig = ({
               type='search'
               value={searchValue}
             />
-          </div>
+          </Role>
 
           {filteredInactiveOptions.length > 0 ? (
             renderOptions(filteredInactiveOptions)
           ) : (
-            <div className={styles.Info}>
+            <Role className={styles.Info}>
               {searchValue ? <em>No results</em> : <em>All selected</em>}
-            </div>
+            </Role>
           )}
-        </div>
+        </Role>
       </Menu>
     </>
   ) : null;

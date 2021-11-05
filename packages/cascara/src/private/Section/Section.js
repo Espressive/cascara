@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 
 import styles from './Section.module.scss';
 
@@ -13,7 +14,7 @@ const Section = ({ children, footer, header }) => {
   return (
     <section className={styles._}>
       {header && <header className={styles.Header}>{header}</header>}
-      <div className={styles.Content}>{children}</div>
+      <Role className={styles.Content}>{children}</Role>
       {footer && <footer className={styles.Footer}>{footer}</footer>}
     </section>
   );

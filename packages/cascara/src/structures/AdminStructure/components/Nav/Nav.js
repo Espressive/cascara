@@ -1,4 +1,5 @@
 import React from 'react';
+import { Role } from 'reakit/Role';
 import pt from 'prop-types';
 import NavLink from './NavLink';
 import NavSection from './NavSection';
@@ -20,7 +21,7 @@ const propTypes = {
 };
 
 const Nav = ({ links, ...rest }) => (
-  <div {...rest} className={cx('Nav', rest.className)}>
+  <Role {...rest} className={cx('Nav', rest.className)}>
     {links?.map((link, i) => {
       const props = {
         key: link.label || i,
@@ -28,7 +29,7 @@ const Nav = ({ links, ...rest }) => (
       };
       return link.links ? <NavSection {...props} /> : <NavLink {...props} />;
     })}
-  </div>
+  </Role>
 );
 
 Nav.propTypes = propTypes;

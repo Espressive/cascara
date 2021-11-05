@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from './Admin.module.scss';
 
 const propTypes = {
@@ -8,9 +9,9 @@ const propTypes = {
 
 const AdminDrawer = ({ children, ...rest }) => {
   return (
-    <div {...rest} className={styles.Drawer}>
+    <Role {...rest} className={styles.Drawer}>
       {children}
-    </div>
+    </Role>
   );
 };
 

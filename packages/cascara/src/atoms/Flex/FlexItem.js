@@ -1,4 +1,5 @@
 import React, { cloneElement } from 'react';
+import { Role } from 'reakit/Role';
 import pt from 'prop-types';
 import classnames from 'classnames/bind';
 import styles from './Flex.module.scss';
@@ -35,7 +36,7 @@ const FlexItem = ({
   // Might need to expand this for other than strings later
   const isValidElement = typeof children !== 'string';
 
-  const element = isValidElement ? children : <div>{children}</div>;
+  const element = isValidElement ? children : <Role>{children}</Role>;
 
   return cloneElement(element, {
     ...rest,

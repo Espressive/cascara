@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import {
   Animation,
   Attachment,
@@ -61,7 +62,7 @@ const ChatAttachment = ({
       header={fileName}
       icon={
         // TODO: Extract these to CSS modules
-        <div
+        <Role
           style={{
             position: 'relative',
           }}
@@ -79,7 +80,7 @@ const ChatAttachment = ({
             {type}
           </div>
           <FilesEmptyIcon outline />
-        </div>
+        </Role>
       }
       onClick={handleDownloadAttachment}
     />
