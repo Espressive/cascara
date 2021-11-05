@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Role } from 'reakit/Role';
 import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -58,9 +59,9 @@ const DataJson = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.TextArea}>
+      <Role className={styles.TextArea}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
-      </div>
+      </Role>
     </ModuleErrorBoundary>
   );
 };

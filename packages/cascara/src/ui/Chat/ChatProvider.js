@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import { Dropdown, Flex, Provider } from '@fluentui/react-northstar';
 import teamsOverrides from './themes/teamsOverrides';
 import { Boundaries } from '../../system-components';
@@ -67,7 +68,7 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
       <Provider overwrite theme={themes[theme]}>
         <Flex column gap='gap.small' style={{ maxHeight: '100vh' }}>
           {isThemeSelectable && (
-            <div>
+            <Role>
               <Dropdown
                 defaultValue={items[DEFAULT_THEME_INDEX]}
                 fluid
@@ -77,10 +78,10 @@ const ChatProvider = ({ children, inputComponent, isThemeSelectable }) => {
                 onChange={handleDropdownChange}
                 placeholder='Select a theme'
               />
-            </div>
+            </Role>
           )}
 
-          <div style={{ overflowY: 'auto' }}>{children}</div>
+          <Role style={{ overflowY: 'auto' }}>{children}</Role>
 
           {inputComponent}
         </Flex>

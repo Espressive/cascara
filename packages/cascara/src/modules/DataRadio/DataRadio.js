@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import { Radio, RadioGroup, useRadioState } from 'reakit/Radio';
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
@@ -69,7 +70,7 @@ const DataRadio = ({
 
   const renderDisplay = (
     <ModuleErrorBoundary>
-      <div className={styles.Radio}>
+      <Role className={styles.Radio}>
         <span>
           <span className={styles.Input} {...rest}>
             {value}
@@ -78,7 +79,7 @@ const DataRadio = ({
             <span className={styles.LabelText}>{label}</span>
           )}
         </span>
-      </div>
+      </Role>
     </ModuleErrorBoundary>
   );
 

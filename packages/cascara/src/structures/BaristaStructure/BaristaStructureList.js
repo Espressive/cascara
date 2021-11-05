@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from './BaristaStructure.module.scss';
 import classNames from 'classnames/bind';
 
@@ -20,7 +21,7 @@ const BaristaStructureList = ({
 }) => {
   const { className, ...props } = rest;
   return (
-    <div
+    <Role
       {...props}
       className={cx(className, {
         List: true,
@@ -31,7 +32,7 @@ const BaristaStructureList = ({
       {children}
 
       {isLoading && !children && <Loader />}
-    </div>
+    </Role>
   );
 };
 

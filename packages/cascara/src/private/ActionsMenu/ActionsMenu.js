@@ -1,5 +1,6 @@
 import pt from 'prop-types';
 import React, { useRef } from 'react';
+import { Role } from 'reakit/Role';
 import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
 import { Button } from 'reakit/Button';
 import { InlineIcon } from '@iconify/react';
@@ -46,7 +47,7 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
         className={`ui dropdown active visible ${styles.ActionsMenu}`}
         tabIndex={0}
       >
-        <div
+        <Role
           className='menu transition visible'
           style={{ position: 'initial' }}
         >
@@ -58,7 +59,7 @@ const ActionsMenu = ({ trigger = DEFAULT_TRIGGER, actions }) => {
               menu={menu}
             />
           ))}
-        </div>
+        </Role>
       </Menu>
     </>
   );

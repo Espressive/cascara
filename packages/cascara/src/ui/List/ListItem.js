@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from './List.module.scss';
 import { CompositeItem } from 'reakit/Composite';
 import Flex from '../../atoms/Flex';
@@ -43,12 +44,12 @@ const ListItem = ({
       >
         <Flex space='start' vAlign='center'>
           {pre}
-          <div className={styles.Content}>
+          <Role className={styles.Content}>
             {label && <div className={styles.Label}>{label}</div>}
             {description && (
               <div className={styles.Descripton}>{description}</div>
             )}
-          </div>
+          </Role>
           {post && <Flex.Item push>{post}</Flex.Item>}
         </Flex>
       </CompositeItem>

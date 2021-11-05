@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 
 import styles from '../Dashboard.module.scss';
 
@@ -9,10 +10,10 @@ const propTypes = {
 
 const WidgetError = ({ message }) => {
   return (
-    <div className={styles.Error}>
+    <Role className={styles.Error}>
       <h4>Error</h4>
       {message}
-    </div>
+    </Role>
   );
 };
 

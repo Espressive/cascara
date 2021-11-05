@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 
 import styles from '../../Form.module.scss';
 import { Boundaries } from '../../../../system-components';
@@ -22,12 +23,12 @@ const FormRow = ({ children, ratio }) => {
 
   return (
     <Boundaries>
-      <div
+      <Role
         className={styles.FormRow}
         style={{ gridTemplateColumns: columnRatio }}
       >
         {children}
-      </div>
+      </Role>
     </Boundaries>
   );
 };

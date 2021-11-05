@@ -1,6 +1,8 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import Boundaries from '../../system-components/Boundaries';
+import classnames from 'classnames/bind';
 
 import styles from './Dashboard.module.scss';
 
@@ -31,6 +33,8 @@ const WIDGETS = {
 const widgetKeys = Object.keys(WIDGETS);
 
 const propTypes = {
+  as: pt.string,
+  className: pt.string,
   /** Configuration of all widgets for a dashboard */
   config: pt.arrayOf(
     pt.shape({
@@ -39,7 +43,10 @@ const propTypes = {
   ).isRequired,
 };
 
-const Dashboard = ({ config }) => {
+const cx = classnames.bind(styles);
+
+// add proptype
+const Dashboard = ({ as = 'div', config, className, ...props }) => {
   const renderWidget = ({ widget, ...rest }, index) => {
     const key = rest?.title + widget || index;
     const Component = WIDGETS[widget];
@@ -74,13 +81,13 @@ const Dashboard = ({ config }) => {
 
   return (
     <Boundaries>
-      <div className={styles.Dashboard}>
+      <Role {...props} as={as} className={cx(className, 'Dashboard')}>
         {config ? (
           config.map((widget) => renderWidget(widget))
         ) : (
           <em>No config defined.</em>
         )}
-      </div>
+      </Role>
     </Boundaries>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Role } from 'reakit/Role';
 import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import { ModuleContext } from '../context';
@@ -57,9 +58,9 @@ const DataText = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Text}>
+      <Role className={styles.Text}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
-      </div>
+      </Role>
     </ModuleErrorBoundary>
   );
 };

@@ -4,6 +4,8 @@ import { LABELS, PAGINATION_OPTIONS, WARNING_STRINGS } from './__globals';
 import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import styles from './Pagination.module.scss';
 import Boundaries from '../../system-components/Boundaries';
+import { Role } from 'reakit/Role';
+import { Button } from 'reakit/Button';
 
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 
@@ -76,20 +78,20 @@ const Pagination = ({ totalRecordCount, state }) => {
 
   return (
     <Boundaries>
-      <div className={styles._}>
-        <div className='ui form'>
-          <div className='inline fields'>
+      <Role className={styles._}>
+        <Role className='ui form'>
+          <Role className='inline fields'>
             {!isLoading && (
-              <div className='field'>
+              <Role className='field'>
                 <p
                   aria-label={LABELS.RECORD_COUNT}
                   className={styles.records}
                 >{`${totalRecordCount} record${
                   totalRecordCount === 1 ? '' : 's'
                 }`}</p>
-              </div>
+              </Role>
             )}
-            <div className='field'>
+            <Role className='field'>
               <select
                 className='ui dropdown'
                 disabled={isLoading || isEmpty || isMissingStateHooks}
@@ -114,13 +116,13 @@ const Pagination = ({ totalRecordCount, state }) => {
                   currentPage * recordsPerPage
                 })`}</p>
               )}
-            </div>
-          </div>
-        </div>
+            </Role>
+          </Role>
+        </Role>
 
-        <div className='ui form'>
-          <div className='inline fields'>
-            <div className='field'>
+        <Role className='ui form'>
+          <Role className='inline fields'>
+            <Role className='field'>
               <label htmlFor='current-page'>Page</label>
               <select
                 className='ui dropdown'
@@ -141,10 +143,10 @@ const Pagination = ({ totalRecordCount, state }) => {
               {!isLoading && (
                 <p className={styles.count}>{`of ${totalPages}`}</p>
               )}
-            </div>
-            <div className='field'>
-              <div className='ui small basic icon buttons'>
-                <button
+            </Role>
+            <Role className='field'>
+              <Role className='ui small basic icon buttons'>
+                <Button
                   className={buttonClassNames}
                   disabled={
                     isLoading ||
@@ -156,8 +158,8 @@ const Pagination = ({ totalRecordCount, state }) => {
                   type='button'
                 >
                   <i className='left chevron icon' />
-                </button>
-                <button
+                </Button>
+                <Button
                   className={buttonClassNames}
                   disabled={
                     isLoading ||
@@ -169,12 +171,12 @@ const Pagination = ({ totalRecordCount, state }) => {
                   type='button'
                 >
                   <i className='right chevron icon' />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                </Button>
+              </Role>
+            </Role>
+          </Role>
+        </Role>
+      </Role>
     </Boundaries>
   );
 };

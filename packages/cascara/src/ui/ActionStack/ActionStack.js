@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import { ACTION_SHAPE } from './__globals';
 import ButtonStack from './ButtonStack';
 import DropdownStack from './DropdownStack';
@@ -16,10 +17,10 @@ const ActionStack = ({ actions, dropdownIndex = 1, ...rest }) => {
   const dropdownActions = actions?.slice(dropdownIndex);
 
   return (
-    <div {...rest}>
+    <Role {...rest}>
       {buttonActions && <ButtonStack actions={buttonActions} />}
       {dropdownActions && <DropdownStack actions={dropdownActions} />}
-    </div>
+    </Role>
   );
 };
 

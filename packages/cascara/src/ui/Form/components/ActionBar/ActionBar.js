@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 
 // external prop types
 import { propTypes as actionButtonPT } from '../../../../modules/ActionButton';
@@ -17,7 +18,7 @@ const propTypes = {
 const ActionBar = ({ actions }) => {
   return (
     <Boundaries>
-      <div className={styles.FormActionBar}>{actions}</div>
+      <Role className={styles.FormActionBar}>{actions}</Role>
     </Boundaries>
   );
 };

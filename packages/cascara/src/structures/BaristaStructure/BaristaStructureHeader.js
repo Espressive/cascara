@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from './BaristaStructure.module.scss';
 
 const propTypes = {
@@ -8,9 +9,9 @@ const propTypes = {
 
 const BaristaStructureHeader = ({ title }) => {
   return (
-    <div className={styles.Header}>
+    <Role className={styles.Header}>
       <h1 className={styles.Title}>{title}</h1>
-    </div>
+    </Role>
   );
 };
 

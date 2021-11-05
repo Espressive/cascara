@@ -2,6 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import pt from 'prop-types';
 import classnames from 'classnames/bind';
 import { MenuItem } from 'reakit/Menu';
+import { Role } from 'reakit/Role';
 import Button from '../../atoms/Button';
 import { arrowDownIcon, arrowUpIcon } from '@espressive/icons';
 
@@ -83,7 +84,7 @@ const ViewConfigItem = ({
     >
       <span className={styles.Label}>{label}</span>
       {isActive && (
-        <div className={styles.MoveButtons}>
+        <Role className={styles.MoveButtons}>
           <Button
             aria-label='Move up'
             icon={arrowUpIcon}
@@ -96,7 +97,7 @@ const ViewConfigItem = ({
             onClick={handlemoveItemDown}
             size='small'
           />
-        </div>
+        </Role>
       )}
     </MenuItem>
   );

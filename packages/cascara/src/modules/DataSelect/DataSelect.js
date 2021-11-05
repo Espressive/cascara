@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Role } from 'reakit/Role';
 import { Input } from 'reakit/Input';
 import pt from 'prop-types';
 import { ModuleContext } from '../context';
@@ -75,9 +76,9 @@ const DataSelect = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Select}>
+      <Role className={styles.Select}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
-      </div>
+      </Role>
     </ModuleErrorBoundary>
   );
 };

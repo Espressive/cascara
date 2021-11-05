@@ -1,5 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import StructureNavLink from '../components/StructureNavLink';
 
 import styles from './BaristaStructure.module.scss';
@@ -17,11 +18,11 @@ const propTypes = {
 };
 
 const BaristaStructureNav = ({ links }) => (
-  <div className={styles.Nav}>
+  <Role className={styles.Nav}>
     {links?.map((link) => (
       <StructureNavLink className={styles.Link} key={link.label} {...link} />
     ))}
-  </div>
+  </Role>
 );
 
 BaristaStructureNav.propTypes = propTypes;

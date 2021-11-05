@@ -1,6 +1,10 @@
 import React from 'react';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import styles from './AreaPlaceholder.module.scss';
+import classnames from 'classnames/bind';
+
+const cx = classnames.bind(styles);
 
 const propTypes = {
   children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
@@ -20,16 +24,16 @@ const AreaPlaceholder = ({
   color = '#333',
   ...rest
 }) => (
-  <div
+  <Role
     {...rest}
-    className={styles.Container}
+    className={cx(rest.className, 'Container')}
     style={{ ...style, borderColor: color }}
   >
     <h4 className={styles.Label} style={{ borderColor: color }}>
       {label}
     </h4>
     {children}
-  </div>
+  </Role>
 );
 
 AreaPlaceholder.propTypes = propTypes;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Role } from 'reakit/Role';
 import classnames from 'classnames/bind';
 import pt from 'prop-types';
 import styles from './Flex.module.scss';
@@ -54,7 +55,7 @@ const Flex = ({
     ...getClassOptions(vAlignOptions, vAlign, 'vAlign'),
   });
 
-  return <div className={classList}>{children}</div>;
+  return <Role className={classList}>{children}</Role>;
 };
 
 Flex.propTypes = propTypes;

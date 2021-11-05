@@ -1,6 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import classnames from 'classnames/bind';
 import pt from 'prop-types';
+import { Role } from 'reakit/Role';
 import Boundaries from '../../../system-components/Boundaries';
 import InfoPopover from '../components/InfoPopover';
 import { Button } from 'reakit';
@@ -48,7 +49,7 @@ const Widget = ({
   ...rest
 }) => {
   return (
-    <div
+    <Role
       className={cx(className, {
         Widget: true,
         scrolling: isScrolling,
@@ -71,7 +72,7 @@ const Widget = ({
       {/* Place our error boundary here so that we can at least show the 
       title of the widget above the error itself. */}
       <Boundaries>
-        <div
+        <Role
           className={cx(className, {
             Data: true,
             'no-data': isEmpty || isLoading,
@@ -85,9 +86,9 @@ const Widget = ({
           ) : (
             Children.map(children, (child) => cloneElement(child, { ...rest }))
           )}
-        </div>
+        </Role>
       </Boundaries>
-    </div>
+    </Role>
   );
 };
 
