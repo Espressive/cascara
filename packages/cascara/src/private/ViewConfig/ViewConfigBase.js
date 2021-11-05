@@ -68,7 +68,7 @@ const ViewConfig = ({
     });
 
   const handleSearchValue = useCallback((e) => {
-    setSearchValue(e.target.value.trim());
+    setSearchValue(e.target.value);
   }, []);
 
   const handleClearSearch = useCallback(() => {
