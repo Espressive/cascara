@@ -14,6 +14,7 @@ import {
   JsonPlaceholder,
   List,
   Pagination,
+  Section,
   Table,
   Tabs,
   usePaginationState,
@@ -58,6 +59,7 @@ const cascaraComponents = {
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   List: (props) => <List {...props} />,
   Pagination: (props) => <Pagination {...props} />,
+  Section: (props) => <Section {...props} />,
   Table: (props) => <Table {...props} />,
   Tabs: (props) => <Tabs {...props} />,
 };

@@ -1,0 +1,21 @@
+._ {
+  margin: 1rem 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .Title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.Title {
+  .Sub {
+    color: #999;
+    line-height: 1;
+    font-size: 0.625em;
+    font-weight: 400;
+  }
+}

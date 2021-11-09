@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`section snapshot tests 1`] = `
+<div>
+  <section
+    class="Section"
+  >
+    <title
+      itemprop="name"
+      lang="en"
+    >
+      With Pre, Post and Sub - Some Sub Content
+    </title>
+    <div
+      class="_ _ fluid space-start vAlign-start"
+    >
+      <button
+        type="button"
+      >
+        Pre
+      </button>
+      <h3
+        class="Title"
+      >
+        With Pre, Post and Sub
+         
+        <div
+          class="Sub"
+        >
+          Some Sub Content
+        </div>
+      </h3>
+      <div
+        class="Item push"
+      >
+        <button
+          type="button"
+        >
+          Post
+        </button>
+      </div>
+    </div>
+    <div>
+      Content
+    </div>
+  </section>
+</div>
+`;
+
+exports[`section snapshot tests 2`] = `
+<div>
+  <section
+    class="Section withPaddingAndBorder"
+  >
+    <title
+      itemprop="name"
+      lang="en"
+    >
+      With Pre, Post and Sub - Some Sub Content
+    </title>
+    <div
+      class="_ _ fluid space-start vAlign-start"
+    >
+      <button
+        type="button"
+      >
+        Pre
+      </button>
+      <h3
+        class="Title"
+      >
+        With Pre, Post and Sub
+         
+        <div
+          class="Sub"
+        >
+          Some Sub Content
+        </div>
+      </h3>
+      <div
+        class="Item push"
+      >
+        <button
+          type="button"
+        >
+          Post
+        </button>
+      </div>
+    </div>
+    <div>
+      Content
+    </div>
+  </section>
+</div>
+`;
+
+exports[`section snapshot tests 3`] = `
+<div>
+  <section
+    class="Section withPaddingAndBorder"
+  />
+</div>
+`;
+
+exports[`section snapshot tests 4`] = `
+<div>
+  <section
+    class="Section withPaddingAndBorder"
+  >
+    <title
+      itemprop="name"
+      lang="en"
+    >
+      Only Section Markup
+    </title>
+    <h3
+      class="Title"
+    >
+      Only Section Markup
+       
+    </h3>
+    <div>
+      Content
+    </div>
+  </section>
+</div>
+`;
+
+exports[`section snapshot tests 5`] = `
+<div>
+  <section
+    class="Section withPaddingAndBorder"
+  >
+    <title
+      itemprop="name"
+      lang="en"
+    >
+      With Pre
+    </title>
+    <div
+      class="_ _ fluid space-start vAlign-start"
+    >
+      <button
+        type="button"
+      >
+        Pre
+      </button>
+      <h3
+        class="Title"
+      >
+        With Pre
+         
+      </h3>
+    </div>
+    <div>
+      Content
+    </div>
+  </section>
+</div>
+`;
+
+exports[`section snapshot tests 6`] = `
+<div>
+  <section
+    class="Section withPaddingAndBorder"
+  >
+    <title
+      itemprop="name"
+      lang="en"
+    >
+      With Post
+    </title>
+    <div
+      class="_ _ fluid space-start vAlign-start"
+    >
+      <h3
+        class="Title"
+      >
+        With Post
+         
+      </h3>
+      <div
+        class="Item push"
+      >
+        <button
+          type="button"
+        >
+          Post
+        </button>
+      </div>
+    </div>
+    <div>
+      Content
+    </div>
+  </section>
+</div>
+`;
+
+exports[`section snapshot tests 7`] = `
+<div>
+  <section
+    class="Section withPaddingAndBorder"
+  >
+    <title
+      itemprop="name"
+      lang="en"
+    >
+      With Pre and Post
+    </title>
+    <div
+      class="_ _ fluid space-start vAlign-start"
+    >
+      <button
+        type="button"
+      >
+        Pre
+      </button>
+      <h3
+        class="Title"
+      >
+        With Pre and Post
+         
+      </h3>
+      <div
+        class="Item push"
+      >
+        <button
+          type="button"
+        >
+          Post
+        </button>
+      </div>
+    </div>
+    <div>
+      Content
+    </div>
+  </section>
+</div>
+`;
+
+exports[`section snapshot tests 8`] = `
+<div>
+  <section
+    class="Section withPaddingAndBorder"
+  >
+    <title
+      itemprop="name"
+      lang="en"
+    >
+      With Sub Section - Some Sub Content
+    </title>
+    <h3
+      class="Title"
+    >
+      With Sub Section
+       
+      <div
+        class="Sub"
+      >
+        Some Sub Content
+      </div>
+    </h3>
+    <div>
+      Content
+    </div>
+  </section>
+</div>
+`;

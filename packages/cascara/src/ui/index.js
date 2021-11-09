@@ -14,3 +14,4 @@ export {
 } from './Pagination';
 export { default as Table, tablePropTypes } from './Table';
 export { default as Tabs } from './Tabs';
+export { default as Section } from './Section';
