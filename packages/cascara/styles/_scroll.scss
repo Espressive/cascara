@@ -24,18 +24,21 @@
 }
 
 @mixin vertical {
+  overflow-y: auto;
   overflow-y: overlay;
 
   @extend %scrollbars;
 }
 
 @mixin horizontal {
+  overflow-x: auto;
   overflow-x: overlay;
 
   @extend %scrollbars;
 }
 
 @mixin all {
+  overflow: auto;
   overflow: overlay;
 
   @extend %scrollbars;
