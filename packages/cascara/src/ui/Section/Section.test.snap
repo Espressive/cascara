@@ -5,12 +5,6 @@ exports[`section snapshot tests 1`] = `
   <section
     class="Section isBasic"
   >
-    <title
-      itemprop="name"
-      lang="en"
-    >
-      With Pre, Post and Sub - Some Sub Content
-    </title>
     <div
       class="_ _ fluid space-start vAlign-start"
     >
@@ -52,12 +46,6 @@ exports[`section snapshot tests 2`] = `
   <section
     class="Section"
   >
-    <title
-      itemprop="name"
-      lang="en"
-    >
-      With Pre, Post and Sub - Some Sub Content
-    </title>
     <div
       class="_ _ fluid space-start vAlign-start"
     >
@@ -107,12 +95,6 @@ exports[`section snapshot tests 4`] = `
   <section
     class="Section"
   >
-    <title
-      itemprop="name"
-      lang="en"
-    >
-      Only Section Markup
-    </title>
     <h3
       class="Title"
     >
@@ -131,12 +113,6 @@ exports[`section snapshot tests 5`] = `
   <section
     class="Section"
   >
-    <title
-      itemprop="name"
-      lang="en"
-    >
-      With Pre
-    </title>
     <div
       class="_ _ fluid space-start vAlign-start"
     >
@@ -164,12 +140,6 @@ exports[`section snapshot tests 6`] = `
   <section
     class="Section"
   >
-    <title
-      itemprop="name"
-      lang="en"
-    >
-      With Post
-    </title>
     <div
       class="_ _ fluid space-start vAlign-start"
     >
@@ -201,12 +171,6 @@ exports[`section snapshot tests 7`] = `
   <section
     class="Section"
   >
-    <title
-      itemprop="name"
-      lang="en"
-    >
-      With Pre and Post
-    </title>
     <div
       class="_ _ fluid space-start vAlign-start"
     >
@@ -243,12 +207,6 @@ exports[`section snapshot tests 8`] = `
   <section
     class="Section"
   >
-    <title
-      itemprop="name"
-      lang="en"
-    >
-      With Sub Section - Some Sub Content
-    </title>
     <h3
       class="Title"
     >

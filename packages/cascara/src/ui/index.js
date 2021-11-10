@@ -12,7 +12,7 @@ export {
   paginationPropTypes,
   usePaginationState,
 } from './Pagination';
+export { default as Section } from './Section';
 export { default as Table, tablePropTypes } from './Table';
 export { default as Tabs } from './Tabs';
-export { default as Section } from './Section';
 export { default as Title } from './Title';

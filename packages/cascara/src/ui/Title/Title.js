@@ -22,7 +22,6 @@ const Title = ({
   );
 
   const isOnlyTitle = (titlePre || titlePost) === undefined;
-  const documentTitle = titleSub ? `${title} - ${titleSub}` : title;
 
   return (
     <Boundaries>
