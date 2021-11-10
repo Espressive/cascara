@@ -11,9 +11,4 @@ export const PROP_TYPES = {
   ...TitlePT,
 };
 
-export const ALLOWED_TAGS = [
-  'section',
-  // add any other allowed tags
-];
-
-export const [DEFAULT_AS_TAG] = ALLOWED_TAGS;
+export const DEFAULT_AS_TAG = 'section';

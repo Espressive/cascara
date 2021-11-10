@@ -1,15 +1,24 @@
 import React from 'react';
+import { Role } from 'reakit';
+
 import { Boundaries } from '../../system-components';
 import { Flex } from '../../atoms';
 
+import { DEFAULT_AS_TAG, PROP_TYPES } from './__globals';
 import styles from './Title.module.scss';
-import { PROP_TYPES } from './__globals';
 
-const PageTitle = ({ titlePost, titlePre, titleSub, title }) => {
+const Title = ({
+  title,
+  titleAs = DEFAULT_AS_TAG,
+  titlePost,
+  titlePre,
+  titleSub,
+  ...rest
+}) => {
   const titleTag = title && (
-    <h3 className={styles.Title}>
+    <Role as={titleAs} className={styles.Title} {...rest}>
       {title} {titleSub && <div className={styles.Sub}>{titleSub}</div>}
-    </h3>
+    </Role>
   );
 
   const isOnlyTitle = (titlePre || titlePost) === undefined;
@@ -39,6 +48,6 @@ const PageTitle = ({ titlePost, titlePre, titleSub, title }) => {
   );
 };
 
-PageTitle.propTypes = PROP_TYPES;
+Title.propTypes = PROP_TYPES;
 
-export default PageTitle;
+export default Title;

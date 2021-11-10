@@ -3,10 +3,11 @@ import pt from 'prop-types';
 import { Role } from 'reakit';
 import classNames from 'classnames/bind';
 
+import Boundaries from '../../system-components/Boundaries';
 import Title from '../Title';
 import { PROP_TYPES as TitlePT } from '../Title/__globals';
 
-import { ALLOWED_TAGS, DEFAULT_AS_TAG } from './__globals';
+import { DEFAULT_AS_TAG } from './__globals';
 import styles from './Section.module.scss';
 
 const cx = classNames.bind(styles);
@@ -18,6 +19,8 @@ const propTypes = {
   as: pt.string,
   /** The section content */
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  /** Section can have css class name */
+  className: pt.string,
   /** optionally render with no padding and no border */
   isBasic: pt.bool,
   ...TitlePT,
@@ -27,28 +30,26 @@ const Section = ({
   as = DEFAULT_AS_TAG,
   isBasic,
   children,
+  className,
   title,
+  titleAs,
   titlePost,
   titlePre,
   titleSub,
-}) => {
-  if (!ALLOWED_TAGS.includes(as)) {
-    // eslint-disable-next-line no-console -- we need this as a developer message
-    console.warn(
-      `${as} is not a valid tag, use one of: [${ALLOWED_TAGS.join(',')}]`
-    );
-  }
-
-  return (
+  ...rest
+}) => (
+  <Boundaries>
     <Role
       as={as}
-      className={cx('Section', {
-        withPaddingAndBorder: !isBasic,
+      className={cx('Section', className, {
+        isBasic,
       })}
+      {...rest}
     >
       {title && (
         <Title
           title={title}
+          titleAs={titleAs}
           titlePost={titlePost}
           titlePre={titlePre}
           titleSub={titleSub}
@@ -56,8 +57,8 @@ const Section = ({
       )}
       {children}
     </Role>
-  );
-};
+  </Boundaries>
+);
 
 Section.propTypes = propTypes;
 
