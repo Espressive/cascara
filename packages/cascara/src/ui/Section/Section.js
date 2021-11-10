@@ -1,0 +1,66 @@
+import React from 'react';
+import pt from 'prop-types';
+import { Role } from 'reakit';
+import classNames from 'classnames/bind';
+
+import Boundaries from '../../system-components/Boundaries';
+import Title from '../Title';
+import { PROP_TYPES as TitlePT } from '../Title/__globals';
+
+import { DEFAULT_AS_TAG } from './__globals';
+import styles from './Section.module.scss';
+
+const cx = classNames.bind(styles);
+
+// NOTE: propTypes are defined here instead of in ./__globals.js
+//       this is because otherwise the props table in Cascara Docs won't show up
+const propTypes = {
+  /** HTML tag to allow polymorphism */
+  as: pt.string,
+  /** The section content */
+  children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  /** Section can have css class name */
+  className: pt.string,
+  /** optionally render with no padding and no border */
+  isBasic: pt.bool,
+  ...TitlePT,
+};
+
+const Section = ({
+  as = DEFAULT_AS_TAG,
+  isBasic,
+  children,
+  className,
+  title,
+  titleAs,
+  titlePost,
+  titlePre,
+  titleSub,
+  ...rest
+}) => (
+  <Boundaries>
+    <Role
+      as={as}
+      className={cx('Section', className, {
+        isBasic,
+      })}
+      {...rest}
+    >
+      {title && (
+        <Title
+          title={title}
+          titleAs={titleAs}
+          titlePost={titlePost}
+          titlePre={titlePre}
+          titleSub={titleSub}
+        />
+      )}
+      {children}
+    </Role>
+  </Boundaries>
+);
+
+Section.propTypes = propTypes;
+
+export { propTypes };
+export default Section;
