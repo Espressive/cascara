@@ -26,11 +26,6 @@ const Title = ({
 
   return (
     <Boundaries>
-      {title && (
-        <title itemProp='name' lang='en'>
-          {documentTitle}
-        </title>
-      )}
       {isOnlyTitle ? ( // Do not render any extra markup if we do not need to.
         titleTag
       ) : (
