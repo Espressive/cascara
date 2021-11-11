@@ -56,8 +56,9 @@ const ChatAttachment = ({
     />
   ) : (
     // Otherwise, display as a file instead
-    <Attachment
+    <Role
       actionable
+      as={Attachment}
       description={bytesToSize(size)}
       header={fileName}
       icon={
