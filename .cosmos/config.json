@@ -3,6 +3,7 @@
   "rootDir": "../",
   "staticPath": ".cosmos/public",
   "exportPath": "build/cosmos",
+  "port": 4000,
   "watchDirs": ["packages/cascara/src/**/**"],
   "webpack": {
     "configPath": "react-scripts/config/webpack.config",
