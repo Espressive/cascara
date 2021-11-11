@@ -25,6 +25,6 @@ export default {
     </Boundaries>
   ),
   invalidFallbacks: <InvalidFallbacks />,
-  ErrorFallback: <ErrorFallback />,
+  ErrorFallback: <ErrorFallback error={{ message: 'This is a dummy error' }} />,
   SuspenseFallback: <SuspenseFallback />,
 };
