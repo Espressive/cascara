@@ -1,4 +1,12 @@
+$masonry-gutter: 2em;
+$widget-border-radius: 0.5em;
+$widget-background: #f0f0f0;
+
 .Columns {
+  display: block;
+  columns: 30rem;
+  gap: $masonry-gutter;
+
   & > * {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
