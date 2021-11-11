@@ -4,7 +4,7 @@ import { Tab as RKTab } from 'reakit/Tab';
 import classnames from 'classnames';
 
 const propTypes = {
-  content: pt.string.isRequired,
+  content: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   // eslint-disable-next-line react/forbid-prop-types -- This is a Reakit state object
   tabState: pt.object.isRequired,
 };
