@@ -16,14 +16,14 @@ const propTypes = {
   /** Columns can have css class name */
   className: pt.string,
   /** The number of columns to allocate */
-  count: pt.number,
+  count: pt.oneOfType([pt.number, pt.oneOf(['auto'])]),
   /** Columns can have inline styles */
   style: pt.shape(pt.object),
 };
 
 const Columns = ({
   as = 'div',
-  count = 2,
+  count = 'auto',
   children,
   className,
   style,
@@ -33,7 +33,7 @@ const Columns = ({
     columnCount: count,
   };
 
-  if (style) {
+  if (typeof count === 'number' && style) {
     mergedStyle = {
       ...style,
       ...mergedStyle,

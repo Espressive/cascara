@@ -7,7 +7,7 @@ exports[`<Columns /> snapshot tests 1`] = `
   </p>
   <div
     class="Columns"
-    style="column-count: 2;"
+    style="column-count: auto;"
   >
     <div>
       Column 1
