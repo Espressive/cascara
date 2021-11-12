@@ -1,5 +1,5 @@
 ---
-"@espressive/cascara": patch
+'@espressive/cascara': patch
 ---
 
-feat(FDS-371): [Cascara] - improve fallback component
+feat(FDS-371): [Boundaries] - improve error fallback component
