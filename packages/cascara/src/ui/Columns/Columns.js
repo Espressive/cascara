@@ -9,26 +9,45 @@ import styles from './Columns.module.scss';
 const cx = classNames.bind(styles);
 
 const propTypes = {
+  /** HTML tag to allow polymorphism */
+  as: pt.string,
   /** The section content */
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   /** Columns can have css class name */
   className: pt.string,
   /** The number of columns to allocate */
   count: pt.number,
+  /** Columns can have inline styles */
+  style: pt.shape(pt.object),
 };
 
-const Columns = ({ count = 2, children, className, ...rest }) => (
-  <Boundaries>
-    <Role
-      className={cx('Columns', className)}
-      style={{ columnCount: count }}
-      {...rest}
-    >
-      {children}
-    </Role>
-  </Boundaries>
-);
+const Columns = ({
+  as = 'div',
+  count = 2,
+  children,
+  className,
+  style,
+  ...rest
+}) => {
+  let mergedStyle = {
+    columnCount: count,
+  };
 
+  if (style) {
+    mergedStyle = {
+      ...style,
+      ...mergedStyle,
+    };
+  }
+
+  return (
+    <Boundaries>
+      <Role className={cx('Columns', className)} style={mergedStyle} {...rest}>
+        {children}
+      </Role>
+    </Boundaries>
+  );
+};
 Columns.propTypes = propTypes;
 
 export { propTypes };
