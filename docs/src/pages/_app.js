@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import '@espressive/legacy-css';
 import '../styles/_app.scss';
 
-import { Admin } from '@espressive/cascara';
+import { AdminStructure } from '@espressive/cascara';
 import { Header, Main, Nav, PropTable } from '../components';
 
 // NOTE: Anything in the <Head> here is esentially a fallback. These tags can
@@ -35,52 +35,93 @@ const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const propTable = pageProps?.mdxDirSource?.[router?.query?.doc]?.docData;
 
+  const theme = {
+    color: {
+      primary: '#b4104b',
+      secondary: '#7f7f7f40',
+    },
+  };
+
   return (
-    <>
-      <Head>
-        <title>Cascara</title>
-        <meta
-          content="Espressive's Functional Design System"
-          key='description'
-          name='description'
+    <AdminStructure
+      header={
+        <AdminStructure.Header
+          logo={['images?.logo']}
+          title={"Espressive's Functional Design System"}
         />
-        <meta
-          content='https://cascara.design/cascara_meta.png'
-          key='image'
-          property='og:image'
-        />
-        <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-      </Head>
-      <Admin
-        drawer={
-          propTable?.length > 0 && (
-            <Admin.Drawer>
-              {propTable.map((componentProps) => (
-                <AnimatePresence
-                  exitBeforeEnter
-                  key={router.query.mdx + componentProps}
+      }
+      nav={<Nav {...pageProps} />}
+      theme={theme}
+    >
+      <AdminStructure.Main>
+        <Component {...pageProps} />
+      </AdminStructure.Main>
+      <AdminStructure.Drawer>
+        <div style={{ padding: '2rem' }}>
+          {propTable?.length > 0 &&
+            propTable.map((componentProps) => (
+              <AnimatePresence
+                exitBeforeEnter
+                key={router.query.mdx + componentProps}
+              >
+                <motion.div
+                  animate={{ opacity: 1, translateX: 0 }}
+                  exit={{ opacity: 0, translateX: 100 }}
+                  initial={{ opacity: 0, translateX: 100 }}
                 >
-                  <motion.div
-                    animate={{ opacity: 1, translateX: 0 }}
-                    exit={{ opacity: 0, translateX: 100 }}
-                    initial={{ opacity: 0, translateX: 100 }}
-                  >
-                    <PropTable docData={componentProps} />
-                  </motion.div>
-                </AnimatePresence>
-              ))}
-            </Admin.Drawer>
-          )
-        }
-        header={<Header {...pageProps} />}
-        main={
-          <Main>
-            <Component {...pageProps} />
-          </Main>
-        }
-        nav={<Nav {...pageProps} />}
-      />
-    </>
+                  <PropTable docData={componentProps} />
+                </motion.div>
+              </AnimatePresence>
+            ))}
+        </div>
+      </AdminStructure.Drawer>
+    </AdminStructure>
+
+    // <>
+    //   <Head>
+    //     <title>Cascara</title>
+    //     <meta
+    //       content="Espressive's Functional Design System"
+    //       key='description'
+    //       name='description'
+    //     />
+    //     <meta
+    //       content='https://cascara.design/cascara_meta.png'
+    //       key='image'
+    //       property='og:image'
+    //     />
+    //     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    //   </Head>
+    //   <Admin
+    //     drawer={
+    //       propTable?.length > 0 && (
+    //         <Admin.Drawer>
+    //           {propTable.map((componentProps) => (
+    //             <AnimatePresence
+    //               exitBeforeEnter
+    //               key={router.query.mdx + componentProps}
+    //             >
+    //               <motion.div
+    //                 animate={{ opacity: 1, translateX: 0 }}
+    //                 exit={{ opacity: 0, translateX: 100 }}
+    //                 initial={{ opacity: 0, translateX: 100 }}
+    //               >
+    //                 <PropTable docData={componentProps} />
+    //               </motion.div>
+    //             </AnimatePresence>
+    //           ))}
+    //         </Admin.Drawer>
+    //       )
+    //     }
+    //     header={<Header {...pageProps} />}
+    //     main={
+    //       <Main>
+    //         <Component {...pageProps} />
+    //       </Main>
+    //     }
+    //     nav={<Nav {...pageProps} />}
+    //   />
+    // </>
   );
 };
 
