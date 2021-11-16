@@ -1,10 +1,14 @@
 import React from 'react';
 import pt from 'prop-types';
 import styles from './AreaPlaceholder.module.scss';
+import { Role } from 'reakit/Role';
+import classnames from 'classnames/bind';
 
 const propTypes = {
+  as: pt.string,
   children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   /** Color of the border */
+  className: pt.string,
   color: pt.string,
   /** Label for the container */
   label: pt.string,
@@ -13,23 +17,27 @@ const propTypes = {
   style: pt.object,
 };
 
+const cx = classnames.bind(styles);
+
 const AreaPlaceholder = ({
+  as = 'div',
   children,
+  className,
   label,
   style,
   color = '#333',
   ...rest
 }) => (
-  <div
+  <Role
     {...rest}
-    className={styles.Container}
+    className={cx(className, 'Container')}
     style={{ ...style, borderColor: color }}
   >
     <h4 className={styles.Label} style={{ borderColor: color }}>
       {label}
     </h4>
     {children}
-  </div>
+  </Role>
 );
 
 AreaPlaceholder.propTypes = propTypes;

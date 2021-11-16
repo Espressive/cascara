@@ -4,6 +4,7 @@ import { LABELS, PAGINATION_OPTIONS, WARNING_STRINGS } from './__globals';
 import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import styles from './Pagination.module.scss';
 import Boundaries from '../../system-components/Boundaries';
+import { Role } from 'reakit/Role';
 
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 
@@ -76,7 +77,7 @@ const Pagination = ({ totalRecordCount, state }) => {
 
   return (
     <Boundaries>
-      <div className={styles._}>
+      <Role className={styles._}>
         <div className='ui form'>
           <div className='inline fields'>
             {!isLoading && (
@@ -174,7 +175,7 @@ const Pagination = ({ totalRecordCount, state }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Role>
     </Boundaries>
   );
 };

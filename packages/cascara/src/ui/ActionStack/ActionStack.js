@@ -3,6 +3,7 @@ import pt from 'prop-types';
 import { ACTION_SHAPE } from './__globals';
 import ButtonStack from './ButtonStack';
 import DropdownStack from './DropdownStack';
+import { Role } from 'reakit/Role';
 
 const propTypes = {
   /** An array of objects describing the actions */
@@ -16,10 +17,10 @@ const ActionStack = ({ actions, dropdownIndex = 1, ...rest }) => {
   const dropdownActions = actions?.slice(dropdownIndex);
 
   return (
-    <div {...rest}>
+    <Role {...rest}>
       {buttonActions && <ButtonStack actions={buttonActions} />}
       {dropdownActions && <DropdownStack actions={dropdownActions} />}
-    </div>
+    </Role>
   );
 };
 

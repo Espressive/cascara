@@ -5,6 +5,7 @@ import NavSection from './NavSection';
 import styles from './Nav.module.scss';
 import classNames from 'classnames/bind';
 import { LINK_SHAPE } from './__propTypes';
+import { Role } from 'reakit/Role';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +21,7 @@ const propTypes = {
 };
 
 const Nav = ({ links, ...rest }) => (
-  <div {...rest} className={cx('Nav', rest.className)}>
+  <Role {...rest} className={cx('Nav', rest.className)}>
     {links?.map((link, i) => {
       const props = {
         key: link.label || i,
@@ -28,7 +29,7 @@ const Nav = ({ links, ...rest }) => (
       };
       return link.links ? <NavSection {...props} /> : <NavLink {...props} />;
     })}
-  </div>
+  </Role>
 );
 
 Nav.propTypes = propTypes;

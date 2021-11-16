@@ -1,10 +1,14 @@
 import React from 'react';
 import pt from 'prop-types';
 import StructureNavLink from '../components/StructureNavLink';
+import { Role } from 'reakit/Role';
+import classnames from 'classnames/bind';
 
 import styles from './BaristaStructure.module.scss';
 
 const propTypes = {
+  as: pt.string,
+  className: pt.string,
   links: pt.arrayOf(
     pt.shape({
       // eslint-disable-next-line react/forbid-prop-types -- SVG shows up as an object
@@ -16,12 +20,14 @@ const propTypes = {
   ),
 };
 
-const BaristaStructureNav = ({ links }) => (
-  <div className={styles.Nav}>
+const cx = classnames.bind(styles);
+
+const BaristaStructureNav = ({ as = 'div', className, links, ...rest }) => (
+  <Role {...rest} as={as} className={cx(className, 'Nav')}>
     {links?.map((link) => (
       <StructureNavLink className={styles.Link} key={link.label} {...link} />
     ))}
-  </div>
+  </Role>
 );
 
 BaristaStructureNav.propTypes = propTypes;

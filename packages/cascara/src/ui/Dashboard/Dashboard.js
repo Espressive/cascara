@@ -16,6 +16,9 @@ import WidgetStats from './widgets/WidgetStats';
 
 import WidgetError from './widgets/WidgetError';
 
+import { Role } from 'reakit/Role';
+import classnames from 'classnames/bind';
+
 const WIDGETS = {
   bar: WidgetBar,
   bubble: WidgetBubble,
@@ -31,6 +34,8 @@ const WIDGETS = {
 const widgetKeys = Object.keys(WIDGETS);
 
 const propTypes = {
+  as: pt.string,
+  className: pt.string,
   /** Configuration of all widgets for a dashboard */
   config: pt.arrayOf(
     pt.shape({
@@ -39,7 +44,9 @@ const propTypes = {
   ).isRequired,
 };
 
-const Dashboard = ({ config }) => {
+const cx = classnames.bind(styles);
+
+const Dashboard = ({ as = 'div', className, config, ...props }) => {
   const renderWidget = ({ widget, ...rest }, index) => {
     const key = rest?.title + widget || index;
     const Component = WIDGETS[widget];
@@ -74,13 +81,13 @@ const Dashboard = ({ config }) => {
 
   return (
     <Boundaries>
-      <div className={styles.Dashboard}>
+      <Role {...props} as={as} className={cx(className, 'Dashboard')}>
         {config ? (
           config.map((widget) => renderWidget(widget))
         ) : (
           <em>No config defined.</em>
         )}
-      </div>
+      </Role>
     </Boundaries>
   );
 };
