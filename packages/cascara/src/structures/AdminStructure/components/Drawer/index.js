@@ -1,1 +1,1 @@
-export { default } from './Drawer';
+export { default, propTypes as drawerPropTypes } from './Drawer';

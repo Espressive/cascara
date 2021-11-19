@@ -46,4 +46,5 @@ const AdminStructure = ({ children, header, nav, theme = THEME_DEFAULTS }) => {
 
 AdminStructure.propTypes = propTypes;
 
+export { propTypes };
 export default AdminStructure;

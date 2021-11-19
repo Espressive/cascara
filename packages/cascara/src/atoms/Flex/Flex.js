@@ -60,4 +60,5 @@ const Flex = ({
 Flex.propTypes = propTypes;
 Flex.Item = FlexItem;
 
+export { propTypes };
 export default Flex;

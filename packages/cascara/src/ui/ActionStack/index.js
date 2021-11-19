@@ -1,1 +1,1 @@
-export { default } from './ActionStack';
+export { default, propTypes as actionStackPropTypes } from './ActionStack';

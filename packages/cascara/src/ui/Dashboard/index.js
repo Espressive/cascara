@@ -1,1 +1,1 @@
-export { default } from './Dashboard';
+export { default, propTypes as dashboardPropTypes } from './Dashboard';

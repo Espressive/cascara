@@ -63,4 +63,5 @@ const Header = ({ logo, title, post, ...rest }) => {
 Header.propTypes = propTypes;
 Header.displayName = 'AdminStructure.Header';
 
+export { propTypes };
 export default Header;

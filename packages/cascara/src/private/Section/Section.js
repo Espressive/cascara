@@ -21,4 +21,5 @@ const Section = ({ children, footer, header }) => {
 
 Section.propTypes = propTypes;
 
+export { propTypes };
 export default Section;

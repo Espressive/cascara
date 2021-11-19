@@ -87,4 +87,5 @@ const Dashboard = ({ config }) => {
 
 Dashboard.propTypes = propTypes;
 
+export { propTypes };
 export default Dashboard;

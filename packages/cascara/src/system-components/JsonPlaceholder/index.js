@@ -1,1 +1,4 @@
-export { default } from './JsonPlaceholder';
+export {
+  default,
+  propTypes as jsonPlaceholderPropTypes,
+} from './JsonPlaceholder';

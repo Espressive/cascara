@@ -49,4 +49,5 @@ const Popover = ({ children, className, trigger, ...rest }) => {
 
 Popover.propTypes = propTypes;
 
+export { propTypes };
 export default Popover;

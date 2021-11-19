@@ -37,5 +37,5 @@ Admin.Drawer = AdminDrawer;
 Admin.Header = AdminHeader;
 Admin.Main = AdminMain;
 Admin.Nav = AdminNav;
-
+export { propTypes };
 export default Admin;

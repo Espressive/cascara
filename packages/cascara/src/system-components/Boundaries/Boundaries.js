@@ -52,4 +52,5 @@ const Boundaries = ({
 
 Boundaries.propTypes = propTypes;
 
+export { propTypes };
 export default Boundaries;

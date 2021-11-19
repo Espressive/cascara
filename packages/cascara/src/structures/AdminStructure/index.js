@@ -6,4 +6,5 @@ AdminStructure.Header = Header;
 AdminStructure.Main = Main;
 AdminStructure.Nav = Nav;
 
+export { propTypes as adminStructurePropTypes } from './AdminStructure';
 export default AdminStructure;

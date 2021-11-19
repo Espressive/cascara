@@ -1,1 +1,1 @@
-export { default } from './Boundaries';
+export { default, propTypes as boundariesPropTypes } from './Boundaries';

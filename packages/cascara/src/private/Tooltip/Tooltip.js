@@ -66,4 +66,5 @@ const Tooltip = ({ children, content, delay = 500, ...props }) => {
 
 Tooltip.propTypes = propTypes;
 
+export { propTypes };
 export default Tooltip;

@@ -91,4 +91,5 @@ const Main = ({
 Main.propTypes = propTypes;
 Main.displayName = 'AdminStructure.Main';
 
+export { propTypes };
 export default Main;

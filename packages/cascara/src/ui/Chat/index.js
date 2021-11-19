@@ -1,2 +1,2 @@
 export { default as ChatProvider } from './ChatProvider';
-export { default } from './Chat';
+export { default, propTypes as chatPropTypes } from './Chat';

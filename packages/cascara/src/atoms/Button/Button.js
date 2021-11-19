@@ -83,4 +83,5 @@ const Button = forwardRef(
 );
 Button.propTypes = propTypes;
 
+export { propTypes };
 export default Button;

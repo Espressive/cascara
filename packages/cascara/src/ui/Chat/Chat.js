@@ -123,4 +123,5 @@ const Chat = ({ sessionUserID, messages, users }) => {
 Chat.propTypes = propTypes;
 Chat.Provider = ChatProvider;
 
+export { propTypes };
 export default Chat;

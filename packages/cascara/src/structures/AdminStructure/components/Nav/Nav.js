@@ -34,4 +34,5 @@ const Nav = ({ links, ...rest }) => (
 Nav.propTypes = propTypes;
 Nav.displayName = 'AdminStructure.Nav';
 
+export { propTypes };
 export default Nav;

@@ -52,4 +52,5 @@ const JsonPlaceholder = ({
 
 JsonPlaceholder.propTypes = propTypes;
 
+export { propTypes };
 export default JsonPlaceholder;

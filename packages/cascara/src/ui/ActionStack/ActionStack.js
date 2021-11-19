@@ -25,4 +25,5 @@ const ActionStack = ({ actions, dropdownIndex = 1, ...rest }) => {
 
 ActionStack.propTypes = propTypes;
 
+export { propTypes };
 export default ActionStack;

@@ -49,4 +49,5 @@ const Drawer = ({
 Drawer.propTypes = propTypes;
 Drawer.displayName = 'AdminStructure.Drawer';
 
+export { propTypes };
 export default Drawer;
