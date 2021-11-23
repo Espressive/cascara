@@ -4,6 +4,7 @@
 
 export { default as ActionStack } from './ActionStack';
 export { default as Chat } from './Chat';
+export { default as Columns } from './Columns';
 export { default as Dashboard } from './Dashboard';
 export { default as Form, formPropTypes } from './Form';
 export { default as List } from './List';
