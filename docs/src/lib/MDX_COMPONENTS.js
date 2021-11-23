@@ -9,6 +9,7 @@ import {
   Admin,
   Button,
   Chat,
+  Columns,
   Dashboard,
   Form,
   JsonPlaceholder,
@@ -17,6 +18,7 @@ import {
   Section,
   Table,
   Tabs,
+  Title,
   usePaginationState,
 } from '@espressive/cascara';
 
@@ -54,6 +56,7 @@ const cascaraComponents = {
       <Chat {...props} />
     </ChatProvider>
   ),
+  Columns: (props) => <Columns {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,
   Form: (props) => <Form {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
@@ -62,6 +65,7 @@ const cascaraComponents = {
   Section: (props) => <Section {...props} />,
   Table: (props) => <Table {...props} />,
   Tabs: (props) => <Tabs {...props} />,
+  Title: (props) => <Title {...props} />,
 };
 
 const privateComponents = {
