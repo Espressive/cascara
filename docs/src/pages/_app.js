@@ -1,6 +1,5 @@
 import React from 'react';
 import pt from 'prop-types';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 import '@espressive/legacy-css';
@@ -45,8 +44,8 @@ const MyApp = ({ Component, pageProps }) => {
     <AdminStructure
       header={
         <AdminStructure.Header
-          logo={['images?.logo']}
-          title={"Espressive's Functional Design System"}
+          logo='https://cascara.design/cascara_meta.png'
+          title="Espressive's Functional Design System"
         />
       }
       nav={<Nav {...pageProps} />}
@@ -56,71 +55,14 @@ const MyApp = ({ Component, pageProps }) => {
         <Component {...pageProps} />
       </AdminStructure.Main>
       <AdminStructure.Drawer>
-        <div style={{ padding: '2rem' }}>
+        <div>
           {propTable?.length > 0 &&
-            propTable.map((componentProps) => (
-              <AnimatePresence
-                exitBeforeEnter
-                key={router.query.mdx + componentProps}
-              >
-                <motion.div
-                  animate={{ opacity: 1, translateX: 0 }}
-                  exit={{ opacity: 0, translateX: 100 }}
-                  initial={{ opacity: 0, translateX: 100 }}
-                >
-                  <PropTable docData={componentProps} />
-                </motion.div>
-              </AnimatePresence>
+            propTable.map((componentProps, idx) => (
+              <PropTable docData={componentProps} key={`${idx}`} />
             ))}
         </div>
       </AdminStructure.Drawer>
     </AdminStructure>
-
-    // <>
-    //   <Head>
-    //     <title>Cascara</title>
-    //     <meta
-    //       content="Espressive's Functional Design System"
-    //       key='description'
-    //       name='description'
-    //     />
-    //     <meta
-    //       content='https://cascara.design/cascara_meta.png'
-    //       key='image'
-    //       property='og:image'
-    //     />
-    //     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-    //   </Head>
-    //   <Admin
-    //     drawer={
-    //       propTable?.length > 0 && (
-    //         <Admin.Drawer>
-    //           {propTable.map((componentProps) => (
-    //             <AnimatePresence
-    //               exitBeforeEnter
-    //               key={router.query.mdx + componentProps}
-    //             >
-    //               <motion.div
-    //                 animate={{ opacity: 1, translateX: 0 }}
-    //                 exit={{ opacity: 0, translateX: 100 }}
-    //                 initial={{ opacity: 0, translateX: 100 }}
-    //               >
-    //                 <PropTable docData={componentProps} />
-    //               </motion.div>
-    //             </AnimatePresence>
-    //           ))}
-    //         </Admin.Drawer>
-    //       )
-    //     }
-    //     header={<Header {...pageProps} />}
-    //     main={
-    //       <Main>
-    //         <Component {...pageProps} />
-    //       </Main>
-    //     }
-    //     nav={<Nav {...pageProps} />}
-    //   />
-    // </>
   );
 };
 
