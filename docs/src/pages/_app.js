@@ -6,7 +6,7 @@ import '@espressive/legacy-css';
 import '../styles/_app.scss';
 
 import { AdminStructure } from '@espressive/cascara';
-import { Nav, PropTable } from '../components';
+import { PropTable } from '../components';
 
 // NOTE: Anything in the <Head> here is esentially a fallback. These tags can
 // be overridden at the page level. <meta> type tags will need a key added
