@@ -6,6 +6,8 @@ import { Clickable, Role } from 'reakit';
 import styles from './Stat.module.scss';
 
 const propTypes = {
+  /** HTML tag to allow polymorphism */
+  as: pt.string,
   /** Stats can have their own css class name */
   className: pt.string,
   /** Stats can be fuild */
@@ -22,7 +24,9 @@ const propTypes = {
 
 const cx = classNames.bind(styles);
 
-const WidgetStatsStat = ({ className, fluid, onClick, label, value, sub }) => {
+const Stat = ({ as, className, fluid, onClick, label, value, sub }) => {
+  const StatComponent = onClick ? Clickable : Role;
+
   // Instead of maintaining separate, competing styles for focus, we are setting focus on this clickable item on hover. This may be something we consider doing on other Clickable components with Reakit.
   const handleFocus = useCallback(({ currentTarget, dispatchConfig }) => {
     const { registrationName } = dispatchConfig;
@@ -35,8 +39,8 @@ const WidgetStatsStat = ({ className, fluid, onClick, label, value, sub }) => {
   }, []);
 
   return (
-    <Role
-      as={onClick ? Clickable : 'div'}
+    <StatComponent
+      as={as}
       className={cx('Stat', className, {
         Clickable: Boolean(onClick),
         Fluid: fluid,
@@ -51,11 +55,11 @@ const WidgetStatsStat = ({ className, fluid, onClick, label, value, sub }) => {
       <span className={styles.Value}>{value}</span>
       <h4 className={styles.Label}>{label}</h4>
       {sub && <span className={styles.Sub}>{sub}</span>}
-    </Role>
+    </StatComponent>
   );
 };
 
-WidgetStatsStat.propTypes = propTypes;
+Stat.propTypes = propTypes;
 
 export { propTypes };
 export default Stat;
