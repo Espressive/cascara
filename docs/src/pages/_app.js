@@ -40,15 +40,18 @@ const MyApp = ({ Component, pageProps }) => {
     },
   };
 
+  // eslint-disable-next-line no-console -- ..
+  console.log('page props', pageProps);
+
   return (
     <AdminStructure
       header={
         <AdminStructure.Header
           logo='https://cascara.design/cascara_meta.png'
-          title="Espressive's Functional Design System"
+          title='Cascara'
         />
       }
-      nav={<Nav {...pageProps} />}
+      nav={<AdminStructure.Nav {...pageProps} />}
       theme={theme}
     >
       <AdminStructure.Main>
