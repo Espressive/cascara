@@ -55,7 +55,6 @@ const WidgetStatsStat = ({ className, fluid, onClick, label, value, sub }) => {
   );
 };
 
-WidgetStatsStat.displayName = 'stat';
 WidgetStatsStat.propTypes = propTypes;
 
 export { propTypes };
