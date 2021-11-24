@@ -58,4 +58,4 @@ const WidgetStatsStat = ({ className, fluid, onClick, label, value, sub }) => {
 WidgetStatsStat.propTypes = propTypes;
 
 export { propTypes };
-export default WidgetStatsStat;
+export default Stat;
