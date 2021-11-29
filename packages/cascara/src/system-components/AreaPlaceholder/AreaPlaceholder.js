@@ -4,7 +4,6 @@ import styles from './AreaPlaceholder.module.scss';
 import classnames from 'classnames/bind';
 
 const propTypes = {
-  as: pt.string,
   children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   /** Color of the border */
   className: pt.string,
