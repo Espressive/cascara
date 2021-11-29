@@ -9,7 +9,6 @@ import {
 } from '@fluentui/react-northstar';
 import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
 import { Boundaries } from '../../system-components';
-import { Role } from 'reakit/Role';
 
 import { bytesToSize, getSharedMessageKeys, validateMessageObj } from './utils';
 
@@ -56,9 +55,8 @@ const ChatAttachment = ({
     />
   ) : (
     // Otherwise, display as a file instead
-    <Role
+    <Attachment
       actionable
-      as={Attachment}
       description={bytesToSize(size)}
       header={fileName}
       icon={

@@ -15,13 +15,14 @@ const sectionShape = {
 };
 
 const propTypes = {
+  as: pt.string,
   links: pt.arrayOf(
     pt.oneOfType([pt.shape(LINK_SHAPE), pt.shape(sectionShape)])
   ),
 };
 
-const Nav = ({ links, ...rest }) => (
-  <Role {...rest} className={cx('Nav', rest.className)}>
+const Nav = ({ as, links, ...rest }) => (
+  <Role {...rest} as={as} className={cx('Nav', rest.className)}>
     {links?.map((link, i) => {
       const props = {
         key: link.label || i,

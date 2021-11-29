@@ -9,6 +9,7 @@ import { Role } from 'reakit/Role';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 
 const propTypes = {
+  as: pt.string,
   /** The state of the Pagination component from the usePaginationState hook */
   state: pt.exact({
     currentPage: pt.number,
@@ -20,7 +21,7 @@ const propTypes = {
   totalRecordCount: pt.number,
 };
 
-const Pagination = ({ totalRecordCount, state }) => {
+const Pagination = ({ as, totalRecordCount, state }) => {
   // Destructure our state hook values
   const { currentPage, perPage, setCurrentPage, setPerPage } = state || {};
 
@@ -77,7 +78,7 @@ const Pagination = ({ totalRecordCount, state }) => {
 
   return (
     <Boundaries>
-      <Role className={styles._}>
+      <Role as={as} className={styles._}>
         <div className='ui form'>
           <div className='inline fields'>
             {!isLoading && (

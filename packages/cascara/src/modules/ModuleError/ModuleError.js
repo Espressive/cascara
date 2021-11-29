@@ -1,11 +1,9 @@
 import React from 'react';
 import pt from 'prop-types';
 import styles from '../DataModule.module.scss';
-import { Role } from 'reakit/Role';
 import classnames from 'classnames/bind';
 
 const propTypes = {
-  as: pt.string,
   className: pt.string,
   moduleName: pt.string.isRequired,
   moduleOptions: pt.arrayOf(pt.object).isRequired,
@@ -13,13 +11,7 @@ const propTypes = {
 
 const cx = classnames.bind(styles);
 
-const ModuleError = ({
-  as = 'div',
-  className,
-  moduleName,
-  moduleOptions,
-  ...rest
-}) => {
+const ModuleError = ({ className, moduleName, moduleOptions }) => {
   const message = `${moduleName} is not a valid value for module. Try using one of [${moduleOptions.join(
     ', '
   )}]`;
@@ -28,14 +20,9 @@ const ModuleError = ({
   console.error(message);
 
   return (
-    <Role
-      {...rest}
-      as={as}
-      className={cx(className, 'Error')}
-      data-testid={'module-error'}
-    >
+    <div className={cx(className, 'Error')} data-testid={'module-error'}>
       {message}
-    </Role>
+    </div>
   );
 };
 

@@ -8,12 +8,14 @@ import Loader from '../../private/Loader';
 const cx = classNames.bind(styles);
 
 const propTypes = {
+  as: pt.string,
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   header: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   isLoading: pt.bool,
 };
 
 const BaristaStructureDetail = ({
+  as,
   children,
   header,
   isLoading = false,
@@ -23,6 +25,7 @@ const BaristaStructureDetail = ({
   return (
     <Role
       {...props}
+      as={as}
       className={cx(className, {
         Detail: true,
         loading: isLoading,

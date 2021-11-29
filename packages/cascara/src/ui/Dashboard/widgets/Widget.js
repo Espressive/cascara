@@ -5,7 +5,6 @@ import Boundaries from '../../../system-components/Boundaries';
 import InfoPopover from '../components/InfoPopover';
 import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
-import { Role } from 'reakit/Role';
 
 const cx = classnames.bind(styles);
 
@@ -16,7 +15,6 @@ const propTypes = {
       content: pt.string,
     })
   ),
-  as: pt.string,
   children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   /** aWidget can have a css class name */
   className: pt.string,
@@ -38,7 +36,6 @@ const propTypes = {
  * Shared props and logic for all Widgets
  */
 const Widget = ({
-  as = 'div',
   actions,
   children,
   className,
@@ -51,9 +48,7 @@ const Widget = ({
   ...rest
 }) => {
   return (
-    <Role
-      {...rest}
-      as={as}
+    <div
       className={cx(className, {
         Widget: true,
         scrolling: isScrolling,
@@ -92,7 +87,7 @@ const Widget = ({
           )}
         </div>
       </Boundaries>
-    </Role>
+    </div>
   );
 };
 
