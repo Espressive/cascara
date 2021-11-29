@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import pt from 'prop-types';
-import { Role } from 'reakit/Role';
 import Button from '../../../atoms/Button/Button';
 
 const propTypes = {
@@ -18,7 +17,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => {
   }, [resetErrorBoundary]);
 
   return (
-    <Role className='ui tiny error message' role='alert'>
+    <div className='ui tiny error message' role='alert'>
       <div className='header'>Something went wrong:</div>
       {showError && (
         <p>
@@ -28,7 +27,7 @@ const ErrorFallback = ({ error, resetErrorBoundary }) => {
       <Button onClick={handleTryAgain} outcome='negative' type='button'>
         Try again
       </Button>
-    </Role>
+    </div>
   );
 };
 

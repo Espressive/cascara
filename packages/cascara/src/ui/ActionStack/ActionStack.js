@@ -8,16 +8,17 @@ import { Role } from 'reakit/Role';
 const propTypes = {
   /** An array of objects describing the actions */
   actions: pt.arrayOf(ACTION_SHAPE),
+  as: pt.string,
   /** A number specifying the index at which `actions` start to appear as dropdown items */
   dropdownIndex: pt.number,
 };
 
-const ActionStack = ({ actions, dropdownIndex = 1, ...rest }) => {
+const ActionStack = ({ as = 'div', actions, dropdownIndex = 1, ...rest }) => {
   const buttonActions = actions?.slice(0, dropdownIndex);
   const dropdownActions = actions?.slice(dropdownIndex);
 
   return (
-    <Role {...rest}>
+    <Role {...rest} as={as}>
       {buttonActions && <ButtonStack actions={buttonActions} />}
       {dropdownActions && <DropdownStack actions={dropdownActions} />}
     </Role>

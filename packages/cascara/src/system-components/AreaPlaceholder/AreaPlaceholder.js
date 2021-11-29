@@ -1,7 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
 import styles from './AreaPlaceholder.module.scss';
-import { Role } from 'reakit/Role';
 import classnames from 'classnames/bind';
 
 const propTypes = {
@@ -20,16 +19,13 @@ const propTypes = {
 const cx = classnames.bind(styles);
 
 const AreaPlaceholder = ({
-  as = 'div',
   children,
   className,
   label,
   style,
   color = '#333',
-  ...rest
 }) => (
-  <Role
-    {...rest}
+  <div
     className={cx(className, 'Container')}
     style={{ ...style, borderColor: color }}
   >
@@ -37,7 +33,7 @@ const AreaPlaceholder = ({
       {label}
     </h4>
     {children}
-  </Role>
+  </div>
 );
 
 AreaPlaceholder.propTypes = propTypes;
