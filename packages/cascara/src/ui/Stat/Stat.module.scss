@@ -1,0 +1,49 @@
+$masonry-gutter: 2em;
+$widget-border-radius: 0.5em;
+$widget-background: #f0f0f0;
+
+.Stat {
+  margin-bottom: $masonry-gutter;
+  break-inside: avoid;
+  display: inline-block;
+  position: relative;
+  padding: 1em;
+  background-color: $widget-background;
+  border-radius: $widget-border-radius;
+  display: flex;
+  flex-direction: column;
+
+  .Label {
+    margin: 0.25em 0;
+  }
+
+  .Value {
+    line-height: 1em;
+    font-size: 2em;
+  }
+
+  .Sub {
+    font-style: italic;
+    font-size: 0.875em;
+  }
+
+  .Clickable {
+    position: relative;
+
+    &:after {
+      content: '⬁';
+      font-size: 1.2em;
+      position: absolute;
+      right: 1em;
+      opacity: 0.25;
+    }
+
+    &:focus:after {
+      opacity: 0.5;
+    }
+  }
+
+  .Fluid {
+    display: block;
+  }
+}
