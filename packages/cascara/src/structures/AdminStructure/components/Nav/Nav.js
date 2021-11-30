@@ -21,7 +21,7 @@ const propTypes = {
   ),
 };
 
-const Nav = ({ as, links, ...rest }) => (
+const Nav = ({ as = 'div', links, ...rest }) => (
   <Role {...rest} as={as} className={cx('Nav', rest.className)}>
     {links?.map((link, i) => {
       const props = {
