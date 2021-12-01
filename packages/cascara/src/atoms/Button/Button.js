@@ -6,6 +6,9 @@ import { InlineIcon } from '@iconify/react';
 import { getSafeLinkRel } from '../../lib/linkUtils';
 // import styles from './Button.module.scss';
 
+// this is just for visual testing purpose in the first round of this package
+import cpt from '@espressive/prop-types';
+
 const cx = classNames;
 
 const propTypes = {
@@ -14,7 +17,7 @@ const propTypes = {
   /** Main content of the button */
   content: pt.string,
   /** Makes the button take the width of the parent container */
-  fluid: pt.bool,
+  fluid: cpt.bool,
   // An SVG Object, which will override the content
   icon: pt.shape({}),
   /** Sets the color type of the button to follow the theme brand color */

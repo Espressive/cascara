@@ -1,0 +1,21 @@
+{
+  "name": "@espressive/prop-types",
+  "version": "1.0.0",
+  "description": "Extended react custom props",
+  "homepage": "https://github.com/Espressive/cascara#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Espressive/cascara.git",
+    "directory": "utils/prop-types"
+  },
+  "license": "MIT",
+  "author": "Rocio Baena rbaena@espressive.com",
+  "main": "src/index.js",
+  "files": [
+    "index.js",
+    "src"
+  ],
+  "scripts": {
+    "prepare": "echo 'No prepare scripts for this package'"
+  }
+}
