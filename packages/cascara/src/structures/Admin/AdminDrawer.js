@@ -7,14 +7,13 @@ import classnames from 'classnames/bind';
 const propTypes = {
   as: pt.string,
   children: pt.oneOfType([pt.node, pt.array]),
-  className: pt.string,
 };
 
 const cx = classnames.bind(styles);
 
-const AdminDrawer = ({ as = 'div', className, children, ...rest }) => {
+const AdminDrawer = ({ as = 'div', children, ...rest }) => {
   return (
-    <Role {...rest} as={as} className={cx(className, 'Drawer')}>
+    <Role {...rest} as={as} className={cx('Drawer', rest.className)}>
       {children}
     </Role>
   );

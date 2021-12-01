@@ -46,7 +46,7 @@ const Main = ({
   const { className, ...props } = rest;
   const tabs = useTabState();
   return (
-    <Role as={as} className={cx(className, 'Main')}>
+    <Role as={as} className={cx('Main', className)}>
       {header && <h2 className='ui header'>{header}</h2>}
       {links && (
         <TabList

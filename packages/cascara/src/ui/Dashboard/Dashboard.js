@@ -81,7 +81,7 @@ const Dashboard = ({ as = 'div', className, config, ...props }) => {
 
   return (
     <Boundaries>
-      <Role {...props} as={as} className={cx(className, 'Dashboard')}>
+      <Role {...props} as={as} className={cx('Dashboard', className)}>
         {config ? (
           config.map((widget) => renderWidget(widget))
         ) : (

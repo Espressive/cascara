@@ -6,7 +6,6 @@ import classnames from 'classnames/bind';
 const propTypes = {
   children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   /** Color of the border */
-  className: pt.string,
   color: pt.string,
   /** Label for the container */
   label: pt.string,
@@ -19,13 +18,13 @@ const cx = classnames.bind(styles);
 
 const AreaPlaceholder = ({
   children,
-  className,
   label,
   style,
   color = '#333',
+  ...rest
 }) => (
   <div
-    className={cx(className, 'Container')}
+    className={cx('Container', rest.className)}
     style={{ ...style, borderColor: color }}
   >
     <h4 className={styles.Label} style={{ borderColor: color }}>

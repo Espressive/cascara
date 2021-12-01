@@ -21,7 +21,7 @@ const propTypes = {
   totalRecordCount: pt.number,
 };
 
-const Pagination = ({ as, totalRecordCount, state }) => {
+const Pagination = ({ as = 'div', totalRecordCount, state, ...rest }) => {
   // Destructure our state hook values
   const { currentPage, perPage, setCurrentPage, setPerPage } = state || {};
 
@@ -78,7 +78,7 @@ const Pagination = ({ as, totalRecordCount, state }) => {
 
   return (
     <Boundaries>
-      <Role as={as} className={styles._}>
+      <Role {...rest} as={as} className={styles._}>
         <div className='ui form'>
           <div className='inline fields'>
             {!isLoading && (

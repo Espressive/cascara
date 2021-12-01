@@ -24,8 +24,8 @@ const getClassOptions = (options, prop, prefix) =>
 
 const propTypes = {
   as: pt.string,
+
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  className: pt.string,
 
   // Sets vertical flow direction.
   column: pt.bool,
@@ -43,14 +43,13 @@ const propTypes = {
 const Flex = ({
   as = 'div',
   children,
-  className,
   column = false,
   fluid = true,
   space = 'between',
   vAlign = 'start',
   ...rest
 }) => {
-  const classList = cx(className, {
+  const classList = cx(rest.className, {
     _: true,
     column: column,
     fluid: fluid,
