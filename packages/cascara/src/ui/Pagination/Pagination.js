@@ -5,7 +5,7 @@ import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import styles from './Pagination.module.scss';
 import Boundaries from '../../system-components/Boundaries';
 import { Role } from 'reakit/Role';
-
+import classnames from 'classnames/bind';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 
 const propTypes = {
@@ -20,6 +20,8 @@ const propTypes = {
   /** The total number of records. undefined (default) sets the component to loading state. 0 sets the component to an empty state. */
   totalRecordCount: pt.number,
 };
+
+const cx = classnames.bind(styles);
 
 const Pagination = ({ as = 'div', totalRecordCount, state, ...rest }) => {
   // Destructure our state hook values
@@ -78,7 +80,7 @@ const Pagination = ({ as = 'div', totalRecordCount, state, ...rest }) => {
 
   return (
     <Boundaries>
-      <Role {...rest} as={as} className={styles._}>
+      <Role {...rest} as={as} className={cx('_', rest.className)}>
         <div className='ui form'>
           <div className='inline fields'>
             {!isLoading && (

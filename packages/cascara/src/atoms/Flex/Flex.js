@@ -49,8 +49,7 @@ const Flex = ({
   vAlign = 'start',
   ...rest
 }) => {
-  const classList = cx(rest.className, {
-    _: true,
+  const classList = cx('_', rest.className, {
     column: column,
     fluid: fluid,
     ...getClassOptions(spaceOptions, space, 'space'),

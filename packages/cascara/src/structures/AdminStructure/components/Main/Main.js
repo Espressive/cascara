@@ -43,10 +43,9 @@ const Main = ({
   links,
   ...rest
 }) => {
-  const { className, ...props } = rest;
   const tabs = useTabState();
   return (
-    <Role as={as} className={cx('Main', className)}>
+    <Role {...rest} as={as} className={cx('Main', rest.className)}>
       {header && <h2 className='ui header'>{header}</h2>}
       {links && (
         <TabList
@@ -67,7 +66,7 @@ const Main = ({
       )}
       {body && (
         <TabPanel
-          {...props}
+          {...rest}
           className={cx('ui segment', {
             attached: links && footer,
             'bottom attached': links && !footer,

@@ -24,6 +24,7 @@ const AreaPlaceholder = ({
   ...rest
 }) => (
   <div
+    {...rest}
     className={cx('Container', rest.className)}
     style={{ ...style, borderColor: color }}
   >

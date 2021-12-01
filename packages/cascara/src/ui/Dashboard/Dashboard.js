@@ -35,7 +35,6 @@ const widgetKeys = Object.keys(WIDGETS);
 
 const propTypes = {
   as: pt.string,
-  className: pt.string,
   /** Configuration of all widgets for a dashboard */
   config: pt.arrayOf(
     pt.shape({
@@ -46,7 +45,7 @@ const propTypes = {
 
 const cx = classnames.bind(styles);
 
-const Dashboard = ({ as = 'div', className, config, ...props }) => {
+const Dashboard = ({ as = 'div', config, ...rest }) => {
   const renderWidget = ({ widget, ...rest }, index) => {
     const key = rest?.title + widget || index;
     const Component = WIDGETS[widget];
@@ -81,7 +80,7 @@ const Dashboard = ({ as = 'div', className, config, ...props }) => {
 
   return (
     <Boundaries>
-      <Role {...props} as={as} className={cx('Dashboard', className)}>
+      <Role {...rest} as={as} className={cx('Dashboard', rest.className)}>
         {config ? (
           config.map((widget) => renderWidget(widget))
         ) : (
