@@ -17,5 +17,11 @@
   ],
   "scripts": {
     "prepare": "echo 'No prepare scripts for this package'"
+  },
+  "devDependencies": {
+    "prop-types": "15.7.2"
+  },
+  "peerDependencies": {
+    "prop-types": "15.7.2"
   }
 }

@@ -11,5 +11,5 @@ const customPropTypes = {
   post: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
-const extendedPropTypes = { ...pt, ...customPropTypes };
-export default extendedPropTypes;
+const propTypes = { ...pt, ...customPropTypes };
+export default propTypes;
