@@ -3,29 +3,33 @@
 import { useEffect, useState } from 'react';
 
 const useMediaQuery = (query, ifTrueFunc, ifFalseFunc) => {
-  const [mediaQuery, setMediaQuery] = useState();
+  const isDOM = Boolean(
+    typeof window !== 'undefined' &&
+      window.document &&
+      window.document.createElement
+  );
+
+  const mediaQuery = isDOM ? window?.matchMedia(query) : null;
 
   // We need to set state here so that the hook will return the new value
-  const [match, setMatch] = useState();
+  const [match, setMatch] = useState(Boolean(mediaQuery?.matches));
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(query);
+    if (isDOM) {
+      const handler = () => {
+        setMatch(Boolean(mediaQuery?.matches));
+        mediaQuery.matches ? ifTrueFunc?.() : ifFalseFunc?.();
+      };
 
-    setMediaQuery(mediaQuery);
-  }, [query]);
+      // Setup
+      mediaQuery?.addEventListener('change', handler);
 
-  useEffect(() => {
-    const handler = () => {
-      setMatch(Boolean(mediaQuery?.matches));
-      mediaQuery?.matches ? ifTrueFunc?.() : ifFalseFunc?.();
-    };
-
-    // Setup
-    mediaQuery?.addEventListener('change', handler);
-
-    // Teardown
-    return () => mediaQuery?.removeEventListener('change', handler);
-  }, [mediaQuery, ifTrueFunc, ifFalseFunc]);
+      // Teardown
+      return () => mediaQuery.removeEventListener('change', handler);
+    } else {
+      return null;
+    }
+  }, [mediaQuery, ifTrueFunc, ifFalseFunc, isDOM]);
 
   return match;
 };

@@ -13,6 +13,7 @@ const propTypes = {
 const NavItem = ({ content, isActive, status, ...rest }) => {
   // We do not want the data prop on the component at all if it is not true
   const active = isActive ? true : undefined;
+
   return (
     <Link {...rest}>
       <a className={styles.NavItem} data-active={active}>

@@ -1,12 +1,13 @@
 import React from 'react';
 import pt from 'prop-types';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import '@espressive/legacy-css';
 import '../styles/_app.scss';
 
 import { AdminStructure } from '@espressive/cascara';
-import { PropTable } from '../components';
+import { Header, Nav, PropTable } from '../components';
 
 // NOTE: Anything in the <Head> here is esentially a fallback. These tags can
 // be overridden at the page level. <meta> type tags will need a key added
@@ -36,36 +37,45 @@ const MyApp = ({ Component, pageProps }) => {
   const theme = {
     color: {
       primary: '#b4104b',
-      secondary: '#7f7f7f40',
+      secondary: '#dddee0',
     },
   };
 
-  // eslint-disable-next-line no-console -- ..
-  console.log('page props', pageProps);
-
   return (
-    <AdminStructure
-      header={
-        <AdminStructure.Header
-          logo='https://cascara.design/cascara_meta.png'
-          title='Cascara'
+    <>
+      <Head>
+        <title>Cascara</title>
+        <meta
+          content="Espressive's Functional Design System"
+          key='description'
+          name='description'
         />
-      }
-      nav={<AdminStructure.Nav {...pageProps} />}
-      theme={theme}
-    >
-      <AdminStructure.Main>
-        <Component {...pageProps} />
-      </AdminStructure.Main>
-      <AdminStructure.Drawer>
-        <div>
-          {propTable?.length > 0 &&
-            propTable.map((componentProps, idx) => (
-              <PropTable docData={componentProps} key={`${idx}`} />
-            ))}
-        </div>
-      </AdminStructure.Drawer>
-    </AdminStructure>
+        <meta
+          content='https://cascara.design/cascara_meta.png'
+          key='image'
+          property='og:image'
+        />
+        <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+      </Head>
+      <AdminStructure
+        drawer={
+          propTable?.length > 0 && (
+            <AdminStructure.Drawer>
+              {propTable.map((componentProps, idx) => (
+                <PropTable docData={componentProps} key={idx} />
+              ))}
+            </AdminStructure.Drawer>
+          )
+        }
+        header={<Header {...pageProps} />}
+        nav={<Nav {...pageProps} />}
+        theme={theme}
+      >
+        <AdminStructure.Main>
+          <Component {...pageProps} />
+        </AdminStructure.Main>
+      </AdminStructure>
+    </>
   );
 };
 
