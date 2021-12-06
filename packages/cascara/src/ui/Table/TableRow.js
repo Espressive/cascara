@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import pt from 'prop-types';
 import styles from './Table.module.scss';
 
@@ -84,28 +84,21 @@ const TableRow = ({ config = {}, record = {} }) => {
     </td>
   );
 
-  const rowCells = useMemo(
-    () =>
-      columns.map((column) => {
-        const { module, isLabeled, ...rest } = column;
-        const Module = dataModules[module];
-        const moduleValue = record[column.attribute];
+  const rowCells = columns.map((column) => {
+    const { module, isLabeled, ...rest } = column;
+    const Module = dataModules[module];
+    const moduleValue = record[column.attribute];
 
-        return (
-          <td className={styles.Cell} key={column.attribute}>
-            {Module ? (
-              <Module {...rest} isLabeled={false} value={moduleValue} />
-            ) : (
-              <ModuleError
-                moduleName={module}
-                moduleOptions={dataModuleOptions}
-              />
-            )}
-          </td>
-        );
-      }),
-    [columns, record]
-  );
+    return (
+      <td className={styles.Cell} key={column.attribute}>
+        {Module ? (
+          <Module {...rest} isLabeled={false} value={moduleValue} />
+        ) : (
+          <ModuleError moduleName={module} moduleOptions={dataModuleOptions} />
+        )}
+      </td>
+    );
+  });
 
   if (userDefinedModules.length) {
     rowCells.push(rowActions);

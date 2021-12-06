@@ -10,15 +10,14 @@ const TableHeader = () => {
   const { dataDisplay, isRowSelectable, modules } = useContext(ModuleContext);
   const headerCells = useMemo(
     () =>
-      (dataDisplay &&
-        dataDisplay.map((column) => (
-          <th className={styles.HeadCell} key={column.attribute}>
-            {column.label}
-          </th>
-        ))) ||
-      [],
+      dataDisplay?.map((column) => (
+        <th className={styles.HeadCell} key={column.attribute}>
+          {column.label}
+        </th>
+      )) || [],
     [dataDisplay]
   );
+
   const actionBarSpacer = modules
     ? [<th className={styles.HeadCell} key={'action-bar-slot'} />]
     : [];

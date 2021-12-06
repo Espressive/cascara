@@ -10,8 +10,7 @@ const TableBody = () => {
 
   const rows = useMemo(
     () =>
-      data &&
-      data.map((data) => ({
+      data?.map((data) => ({
         columns: dataDisplay?.map((itemConfig) => ({
           ...itemConfig,
         })),
