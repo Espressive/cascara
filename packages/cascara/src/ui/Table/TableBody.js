@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import styles from './Table.module.scss';
 
 import { Boundaries } from '../../system-components';
@@ -8,13 +8,18 @@ import TableRow from './TableRow';
 const TableBody = () => {
   const { data, dataDisplay, uniqueIdAttribute } = useContext(ModuleContext);
 
-  const rows = data?.map((data) => ({
-    columns: dataDisplay?.map((itemConfig) => ({
-      ...itemConfig,
-    })),
-    data,
-    id: data[uniqueIdAttribute],
-  }));
+  const rows = useMemo(
+    () =>
+      data &&
+      data.map((data) => ({
+        columns: dataDisplay?.map((itemConfig) => ({
+          ...itemConfig,
+        })),
+        data,
+        id: data[uniqueIdAttribute],
+      })),
+    [data, dataDisplay, uniqueIdAttribute]
+  );
 
   return (
     <Boundaries>

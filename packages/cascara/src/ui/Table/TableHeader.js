@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import styles from './Table.module.scss';
 
 import { Boundaries } from '../../system-components';
@@ -8,13 +8,17 @@ const TableHeader = () => {
   // FDS-164: table header not adding an extra column for actions
   // when new prop actions is passed.
   const { dataDisplay, isRowSelectable, modules } = useContext(ModuleContext);
-  const headerCells =
-    dataDisplay?.map((column) => (
-      <th className={styles.HeadCell} key={column.attribute}>
-        {column.label}
-      </th>
-    )) || [];
-
+  const headerCells = useMemo(
+    () =>
+      (dataDisplay &&
+        dataDisplay.map((column) => (
+          <th className={styles.HeadCell} key={column.attribute}>
+            {column.label}
+          </th>
+        ))) ||
+      [],
+    [dataDisplay]
+  );
   const actionBarSpacer = modules
     ? [<th className={styles.HeadCell} key={'action-bar-slot'} />]
     : [];
