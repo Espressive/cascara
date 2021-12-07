@@ -2,7 +2,7 @@ import pt from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
-import { Admin } from '@espressive/cascara';
+import { AdminStructure } from '@espressive/cascara';
 
 const propTypes = {
   children: pt.oneOfType([pt.element, pt.arrayOf(pt.element)]),
@@ -13,7 +13,7 @@ const Main = ({ children, ...rest }) => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <Admin.Main {...rest}>
+      <AdminStructure.Main {...rest}>
         <motion.div
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -22,7 +22,7 @@ const Main = ({ children, ...rest }) => {
         >
           {children}
         </motion.div>
-      </Admin.Main>
+      </AdminStructure.Main>
     </AnimatePresence>
   );
 };

@@ -1,16 +1,16 @@
 import React from 'react';
-import { Admin } from '@espressive/cascara';
+import { AdminStructure } from '@espressive/cascara';
 
 const App = () => {
   return (
-    <Admin
+    <AdminStructure
       header={
-        <Admin.Header>
+        <AdminStructure.Header>
           <h1>{process.env.REACT_APP_NAME}</h1>
-        </Admin.Header>
+        </AdminStructure.Header>
       }
-      main={<Admin.Main>{'Admin.Main'}</Admin.Main>}
-      nav={<Admin.Nav>{'Admin.Nav'}</Admin.Nav>}
+      main={<AdminStructure.Main>{'Admin.Main'}</AdminStructure.Main>}
+      nav={<AdminStructure.Nav>{'Admin.Nav'}</AdminStructure.Nav>}
     />
   );
 };
