@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form_OLD snapshot test 1`] = `
+exports[`FormOld snapshot test 1`] = `
 <div>
   <form
     class="Form_OLD"

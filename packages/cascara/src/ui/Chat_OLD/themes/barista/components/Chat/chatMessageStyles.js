@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { isNil } from 'lodash';
 import { chatMessageSlotClassNames } from '@fluentui/react-northstar';
 import {
   getBorderFocusStyles,
@@ -66,7 +66,7 @@ export const chatMessageStyles = {
     // actions menu's appearance can be controlled by the value of showActionMenu variable - in this
     // case this variable will serve the single source of truth on whether actions menu should be shown.
     // Otherwise, if the variable is not provided, the default appearance logic will be used for actions menu.
-    ...(_.isNil(v.showActionMenu) && {
+    ...(isNil(v.showActionMenu) && {
       ':hover': {
         [`> .${chatMessageSlotClassNames.actionMenu}`]: {
           opacity: 1,
@@ -86,15 +86,15 @@ export const chatMessageStyles = {
     borderRadius: v.borderRadius,
     boxShadow: v.actionMenuBoxShadow,
     // we need higher zIndex for the action menu in order to be displayed above the focus border of the chat message
-    zIndex: p.focused || !_.isNil(v.showActionMenu) ? v.overlayZIndex : -1,
-    ...(_.isNil(v.showActionMenu) && {
+    zIndex: p.focused || !isNil(v.showActionMenu) ? v.overlayZIndex : -1,
+    ...(isNil(v.showActionMenu) && {
       overflow: p.focused ? 'visible' : 'hidden',
       // hide and squash actions menu to prevent accidental hovers over its invisible area
       opacity: p.focused ? 1 : 0,
       width: 'auto',
     }),
 
-    ...(!_.isNil(v.showActionMenu) && {
+    ...(!isNil(v.showActionMenu) && {
       overflow: v.showActionMenu ? 'visible' : 'hidden',
       // opacity should always be preferred over visibility in order to avoid accessibility bugs in
       // JAWS behavior on Windows

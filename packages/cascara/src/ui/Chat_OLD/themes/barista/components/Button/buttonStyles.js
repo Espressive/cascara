@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { isNil } from 'lodash';
 import {
   getBorderFocusStyles,
   getIconFillOrOutlineStyles,
@@ -21,7 +21,7 @@ export const buttonStyles = {
 
     return {
       height: v.height,
-      minWidth: _.isNil(p.loading) ? v.minWidth : v.loadingMinWidth,
+      minWidth: isNil(p.loading) ? v.minWidth : v.loadingMinWidth,
       maxWidth: v.maxWidth,
       color: v.color,
       backgroundColor: v.backgroundColor,

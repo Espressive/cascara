@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { get } from 'lodash';
 
 import { pxToRem } from '../../../utils';
 
@@ -8,7 +8,7 @@ const beforeAndAfter = (size, variables, colors, props) => ({
   ...(props.vertical
     ? { width: `${size + 1}px`, height: '100%' }
     : { height: `${size + 1}px` }),
-  background: _.get(colors, 'foreground', variables.dividerColor),
+  background: get(colors, 'foreground', variables.dividerColor),
 });
 
 export const dividerStyles = {
@@ -16,7 +16,7 @@ export const dividerStyles = {
     const { color, fitted, size, important, hasContent, vertical } = props;
     const colors = variables.colorScheme[color];
     return {
-      color: _.get(colors, 'foreground', variables.textColor),
+      color: get(colors, 'foreground', variables.textColor),
       display: 'flex',
       alignItems: 'center',
       ...(!fitted && {
