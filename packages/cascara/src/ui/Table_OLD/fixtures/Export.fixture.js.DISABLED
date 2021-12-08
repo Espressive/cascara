@@ -1,0 +1,207 @@
+import React, { PureComponent } from 'react';
+import { Dropdown } from 'semantic-ui-react';
+
+import { generateFakeEmployees } from '../../../lib/mock/fakeData';
+import TableOld from '..';
+
+class Fixture extends PureComponent {
+  state = {
+    columns: [
+      {
+        attribute: 'fullName',
+        isEditable: false,
+        label: 'Full Name',
+        module: 'string',
+      },
+      {
+        attribute: 'homePhone',
+        isEditable: true,
+        label: 'Home Phone',
+        module: 'phone',
+      },
+      {
+        attribute: 'eid',
+        isEditable: false,
+        label: 'ID',
+        module: 'string',
+      },
+      {
+        attribute: 'avatar',
+        isEditable: false,
+        label: 'Avatar',
+        module: 'string',
+      },
+      {
+        attribute: 'country',
+        isEditable: false,
+        label: 'Country',
+        module: 'string',
+      },
+      {
+        attribute: 'date',
+        isEditable: false,
+        label: 'Hired',
+        module: 'date',
+      },
+      {
+        attribute: 'department',
+        isEditable: false,
+        label: 'Department',
+        module: 'string',
+      },
+      {
+        attribute: 'nickname',
+        isEditable: false,
+        label: 'Nickname',
+        module: 'string',
+      },
+      {
+        attribute: 'officePhone',
+        isEditable: false,
+        label: 'Office phone',
+        module: 'string',
+      },
+      {
+        attribute: 'title',
+        isEditable: false,
+        label: 'Title',
+        module: 'string',
+      },
+    ],
+    data: generateFakeEmployees(50).map((employee) => ({
+      ...employee,
+    })),
+    display: [
+      {
+        attribute: 'fullName',
+        isEditable: false,
+        label: 'Full Name',
+        type: 'string',
+      },
+      {
+        attribute: 'homePhone',
+        isEditable: true,
+        label: 'Home Phone',
+        type: 'phone',
+      },
+    ],
+  };
+
+  handleColumnSelection = (_, { value: selectedColumns }) => {
+    const { columns } = this.state;
+    const newDisplay = columns
+      .filter((column) => selectedColumns.includes(column.attribute))
+      .reverse();
+
+    this.setState({ display: newDisplay });
+  };
+
+  handleTableAction = (caller, data) => {
+    const { display } = this.state;
+    let csvHeader;
+    let csvData;
+
+    switch (caller.label) {
+      case 'Export as CSV':
+        csvHeader = display.reduce(
+          (csvHeader, column, index, list) =>
+            `${csvHeader}${column.label}${index < list.length - 1 ? ',' : ''}`,
+          ''
+        );
+
+        csvData = data.reduce((csvData, row) => {
+          const csvRow = Object.keys(row).reduce(
+            (csvRow, column, index) =>
+              `${csvRow}${row[column]}${
+                index < Object.keys(row).length - 1 ? ',' : ''
+              }`,
+            ''
+          );
+
+          return `${csvData}
+          ${csvRow}`;
+        }, csvHeader);
+
+        this.setState({ csvData });
+        break;
+
+      case 'Download':
+        this.setState({ csvData: '' });
+        break;
+
+      default:
+    }
+  };
+
+  render() {
+    const { columns, data, display, csvData } = this.state;
+    const bulkActions = csvData
+      ? [
+          {
+            content: 'Download',
+            data: csvData,
+            fileName: 'Espressive Table - Employee.csv',
+            fileType: 'text/csv',
+            module: 'download',
+          },
+        ]
+      : [
+          {
+            content: 'Export as CSV',
+            module: 'button',
+          },
+        ];
+    const dataConfig = {
+      actions: [
+        {
+          content: 'View',
+          module: 'button',
+          size: 'small',
+        },
+        {
+          module: 'edit',
+          size: 'small',
+        },
+      ],
+      bulkActions,
+      display,
+      uniqueIdAttribute: 'eid',
+    };
+
+    const availableColumns = columns.map((columnDef) => ({
+      key: columnDef.attribute,
+      text: columnDef.label,
+      value: columnDef.attribute,
+    }));
+
+    const selectedColumns = display.map((columnDef) => columnDef.attribute);
+
+    return (
+      <>
+        <h4 className='ui header'>
+          Displaying columns: <br />
+          <Dropdown
+            header='Select columns...'
+            key={'select'}
+            labeled
+            multiple
+            onChange={this.handleColumnSelection}
+            options={availableColumns}
+            placeholder='select columns... oh, great manu!'
+            selectedLabel={'Display columns'}
+            selection
+            value={selectedColumns}
+          />
+        </h4>
+
+        <TableOld
+          data={data}
+          dataConfig={dataConfig}
+          onAction={this.handleTableAction}
+        />
+      </>
+    );
+  }
+}
+
+export default Fixture;

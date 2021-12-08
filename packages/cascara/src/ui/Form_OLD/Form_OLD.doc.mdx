@@ -1,0 +1,244 @@
+---
+title: Form_OLD
+propTable: Form_OLD.js
+status: 'Alpha'
+---
+
+# Public API
+
+## actions
+
+`actions` represent **verbs** you want to make available to the User, like
+**View Terms and Conditions** to display a popup with such information.
+Another example would be **Delete** to delete an entity instance represented by `data`. `actions` will be displayed as buttons at the bottom of the **Form_OLD**.
+
+> Form_OLD does not provide the logic to handle `actions`, the implementation for deleting a entity insntances, display popups, etc. it's up to you.
+
+By defining an **action**, you are telling **Form_OLD** how you want to be notified when your **action** button is pressed. Via the `onAction` event.
+
+### modules
+
+At the moment, we have only two types of modules.
+
+- [button](../../modules/ActionButton), for simple actions like resetting the form, or display terms and conditions, etc
+- [edit](./modules/ActionEdit), to be used if you want the form to become **editable** by the action of the User.
+
+For **button**, a single `onAction` event will be emitted whenever the button is clicked.<br />
+For **edit**, the `onAction` event will be emitted up to 3 times as it creates extra buttons:
+
+1. **edit.start** when entering in **edit** mode
+2. **edit.cancel** when exiting the **edit** mode via the **cancel** button
+3. **edit.save** when exiting the **edit** mode via the **save** button
+
+As with **Table** all this information is part of the [onAction](#onaction-event-handler) event handler signature, please make sure you review it as well.
+
+An example `actions` prop:
+
+```javascript
+const actions = {
+  modules: [
+    // add as many of button as to fit your requirements
+    {
+      module: 'button',
+      name: 'reset',
+      content: 'Reset',
+    },
+    {
+      module: 'button',
+      name: 'view.terms',
+      content: 'Terms and Conditions',
+    },
+
+    // Add (only one) of **edit** to make your form **editable**
+    {
+      module: 'edit',
+      cancelLabel: 'Cancelar',
+      editLabel: 'Editar',
+      saveLabel: 'Enviar',
+    },
+  ],
+};
+```
+
+## data
+
+You can pass your own data, **Form_OLD** will then use it as the initial values for any fields it generates from the [modules](#supported-data-types-modules) you describe in `dataDisplay`.
+
+An example data shape:
+
+```javascript
+---
+title: An example data shape
+---
+const data = {
+  id: '1',
+  userEmail: 'john@doe.it',
+  userName: 'John Doe',
+}
+```
+
+By passing the `data` prop, you are basically describing the initial state of the data you will get back when **Form_OLD** emits an `onAction` event, because you will get a merge of the `data` object you passed plus the changes made by User.
+
+> **Hidden fields** - Every property of `data` that is not used by any **module** in the form will still be part of the data you'll get when an `onAction` event is emitted. In that sense, those act as hidden fields.
+
+## dataDisplay
+
+An Array of **module** objects. Every object in this array can potentially be rendered in the form.
+**Modules** have a special shape too, the good news is that you have plenty more options to choose from. Please choose the one that best fits your data type.
+
+#### supported data types (modules)
+
+- [checkbox](../modules/DataCheckbox)
+- [email](../modules/DataEmail)
+- [number](../modules/DataNumber)
+- [radio](../modules/DataRadio)
+- [select](../modules/DataSelect)
+- [text](../modules/DataText)
+- [textarea](../modules/DataTextArea)
+
+### example
+
+In this example we are displaying all the properties in `data` except the **id**, because we want it to be hidden.
+But it's up to you how many and which properties to display:
+
+```javasccript
+const dataDisplay = [
+  {
+    attribute: 'userEmail',
+    isEditable: false,
+    label: 'eMail',
+    module: 'text',
+  },
+  {
+    attribute: 'userName',
+    isEditable: false,
+    label: 'Name',
+    module: 'text',
+  },
+];
+```
+
+## isInitialEditing
+
+By default, **Form_OLD** starts in **View** mode, that means that it displays the **non-editable** version of your data. Pass this **boolean** prop if you want your **Form_OLD** to start in **Edit** mode.
+
+## onAction (event handler)
+
+A function you can pass to handle every event your **Form_OLD** emits. Every event carries two pieces of information:
+
+- action, the object (button) that was actually clicked and
+- data, the object that represents `data` you initially passed in, and the changes made by the User.
+
+```javascript
+const onAction = (action, data) => {
+  console.log(`Action [${action.name}] has been clicked`);
+  console.table(data);
+
+  // action.name here is the name you specified for your action
+  switch (action.name) {
+    case 'reset':
+      // do something with data
+      break;
+
+    case 'verify.email':
+      // do somthing with data
+      break;
+
+    // in the case of `edit` module, you need these 3 cases
+    case 'edit.start':
+      // do something when the user starts editing the Form_OLD via edit button
+      break;
+    case 'edit.cancel':
+      // do something if the user exits edit mode via `cancel` button
+      break;
+    case 'edit.submit':
+      // do something when the user exits edit mode via `save` button
+      break;
+  }
+};
+```
+
+> **tip:** do not bloat your Form_OLD! keep the number of buttons low, specially if you are targetting mobile devices.
+
+# Mixing everyting together
+
+With the props described above, we can easily create a **Form_OLD**: (open your dev tools!)
+
+```jsx
+---
+title: Everything together!
+---
+
+<FormOld
+  actions={{
+    modules: [
+      // add as many of button as to fit your requirements
+      {
+        module: 'button',
+        name: 'reset',
+        content: 'Reset',
+      },
+      {
+        module: 'button',
+        name: 'verify.email',
+        content: 'Verify email',
+      },
+
+      // Add (only one) of **edit** to make your form **editable**
+      {
+        module: 'edit',
+        cancelLabel: 'Cancelar',
+        editLabel: 'Editar',
+        saveLabel: 'Enviar',
+      },
+    ],
+  }}
+  data={{
+    id: 1,
+    userEmail: 'john@doe.it',
+    userName: 'John Doe',
+  }}
+  dataDisplay={[
+      {
+        attribute: 'userEmail',
+        isEditable: true,
+        label: 'eMail',
+        module: 'text',
+      },
+      {
+        attribute: 'userName',
+        isEditable: true,
+        label: 'Name',
+        module: 'text',
+      },
+    ]
+  }
+
+  onAction={(action, data) => {
+    console.log(`Action [${action.name}] has been clicked`);
+    console.table(data);
+
+    // action.name here is the name you specified for your action
+    switch (action.name) {
+      case 'reset':
+        // do something with data
+        break;
+
+      case 'verify.email':
+        // do somthing with data
+        break;
+
+      // in the case of `edit` module, you need these 3 cases
+      case 'edit.start':
+        // do something when the user starts editing the Form_OLD via edit button
+        break;
+      case 'edit.cancel':
+        // do something if the user exits edit mode via `cancel` button
+        break;
+      case 'edit.save':
+        // do something when the user exits edit mode via `save` button
+        break;
+    }
+  }}
+/>
+```
