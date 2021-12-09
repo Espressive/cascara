@@ -13,7 +13,6 @@ const propTypes = {
 
 const CHART_CONFIG = {
   ...CHART_DEFAULTS,
-  colors: { scheme: CHART_DEFAULTS.colors },
   innerRadius: 0.3,
   margin: MARGIN_CONFIG,
   padAngle: 2,
