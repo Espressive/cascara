@@ -33,6 +33,7 @@ const propTypes = {
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const propTable = pageProps?.mdxDirSource?.[router?.query?.doc]?.docData;
+  const tempDocData = propTable?.[0];
 
   const theme = {
     color: {
@@ -58,21 +59,19 @@ const MyApp = ({ Component, pageProps }) => {
         <meta content='width=device-width, initial-scale=1.0' name='viewport' />
       </Head>
       <AdminStructure
-        drawer={
-          propTable?.length > 0 && (
-            <AdminStructure.Drawer>
-              {propTable.map((componentProps, idx) => (
-                <PropTable docData={componentProps} key={idx} />
-              ))}
-            </AdminStructure.Drawer>
-          )
-        }
         header={<Header {...pageProps} />}
         nav={<Nav {...pageProps} />}
         theme={theme}
       >
         <AdminStructure.Main>
-          <Component {...pageProps} />
+          <Component {...pageProps} docData={tempDocData} />
+          {propTable?.length > 0 && (
+            <AdminStructure.Drawer style={{ padding: 0 }}>
+              {propTable.map((componentProps, idx) => (
+                <PropTable docData={componentProps} key={idx} />
+              ))}
+            </AdminStructure.Drawer>
+          )}
         </AdminStructure.Main>
       </AdminStructure>
     </>

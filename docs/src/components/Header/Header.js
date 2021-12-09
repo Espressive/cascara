@@ -16,7 +16,7 @@ const propTypes = {
 const Header = ({ branch, cascaraVersion }) => {
   return (
     <AdminStructure.Header
-      // logo={<Logo />}
+      logo='https://cascara.design/cascara_meta.svg'
       post={
         <div>
           <Flex>
