@@ -26,7 +26,7 @@ import {
   ActionButton,
   ActionEdit,
   ActionEditTable,
-  ChatOldProvider,
+  ChatProvider,
   DataCheckbox,
   DataEmail,
   DataNumber,
@@ -52,9 +52,9 @@ const cascaraComponents = {
   Admin: (props) => <Admin {...props} />,
   Button: (props) => <Button {...props} />,
   ChatOld: (props) => (
-    <ChatOldProvider>
+    <ChatProvider>
       <ChatOld {...props} />
-    </ChatOldProvider>
+    </ChatProvider>
   ),
   Columns: (props) => <Columns {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,

@@ -1,0 +1,97 @@
+---
+title: Chat
+propTable: ChatMessages.js ChatAttachment.js ChatMessage.js ChatOptions.js ChatSystem.js ChatTyping.js
+status: 'ALPHA'
+---
+
+# Public API
+
+WARNING! This is an alpha release so we can try to get this code in and working to kick the tires.
+
+## `messages`
+
+This is an array of objects used to tell Chat what to display. The `type` prop must match one of the Chat component types. Messages will display in the order which they are passed so make sure you reverse the order if your initial array of messages shows the latest message first in your array.
+
+```jsx
+---
+title: Chat Messages
+---
+<ChatOld
+  messages={[
+    {
+      "id": "0s9d8f7a0sd9f80as9df",
+      "metadata": null,
+      "sys_date_created": "2020-06-29T21:16:45.670690Z",
+      "user_id": 0,
+      "text": "How can I help you today?",
+      "timestamp": "6/29/2020, 2:16:45 PM",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    },
+    {
+      "id": "09we88s7d5f8s756d213j",
+      "metadata": null,
+      "sys_date_created": "2020-06-29T21:17:06.670690Z",
+      "user_id": 3,
+      "text": "I don't know yet!",
+      "timestamp": "6/29/2020, 2:17:06 PM",
+      "type": "message",
+      "channel": "252b5154-8f7d-11e7-accd-0a5864600924"
+    }
+  ]}
+  sessionUserID={3}
+  users={{
+    0: {
+      firstName: 'Barista',
+      imageUrl: 'https://www.espressive.com/wp-content/uploads/2018/07/barista-notalk-bubble.png',
+    },
+    3: {
+      firstName: 'Kieran',
+      imageUrl: 'https://www.arsenal.com/sites/default/files/styles/player_listing_image_400x252/public/images/Tierney_1045x658.jpg',
+      lastName: 'Tierney',
+    }
+  }}
+/>
+```
+
+## `sessionUserID`
+
+This needs to match one of the keys in the `users` object
+
+## `users`
+
+The `users` object keys should be user IDs. These will be used to match the user information with the ID of each user message.
+
+```javascript
+---
+title: An example users object
+---
+const users = {
+  0: {
+    firstName: 'Barista',
+    imageUrl:
+      'https://www.espressive.com/wp-content/uploads/2018/07/barista-notalk-bubble.png',
+    status: {
+      color: 'green',
+    },
+  },
+  3: {
+    firstName: 'Kieran',
+    imageUrl:
+      'https://www.arsenal.com/sites/default/files/styles/player_listing_image_400x252/public/images/Tierney_1045x658.jpg',
+    lastName: 'Tierney',
+  },
+  7: {
+    firstName: 'Danielle',
+    imageUrl:
+      'https://www.arsenal.com/sites/default/files/styles/player_listing_image_400x252/public/images/VandeDonk2_1045x658.jpg',
+    lastName: 'Van de Donk',
+  },
+  9: {
+    firstName: 'Alexandre',
+    imageUrl:
+      'https://www.arsenal.com/sites/default/files/styles/player_listing_image_400x252/public/images/Lacazette_1045x658_1.jpg',
+    lastName: 'Lacazette',
+  },
+};
+```
