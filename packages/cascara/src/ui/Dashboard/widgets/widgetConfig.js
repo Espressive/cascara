@@ -1,3 +1,11 @@
+const PALLET_COLORS = [
+  '#377eb8',
+  '#984ea3',
+  '#a65628',
+  '#f781bf',
+  '#999999',
+  '#e5c494',
+];
 const AXIS_CONFIG = {
   legendPosition: 'middle',
   tickPadding: 5,
@@ -19,7 +27,7 @@ const CHART_DEFAULTS = {
   animate: true,
   borderColor: BORDER_COLOR_MODIFIER,
   borderWidth: 1,
-  colors: 'nivo',
+  colors: PALLET_COLORS,
   labelTextColor: COLOR_MODIFIER,
   motionDamping: 15,
   motionStiffness: 90,
