@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- f14f888: feat(FDS-374): [Cascara] - Section and Title component MVP
+
+### Patch Changes
+
+- f14f888: fix(FDS-372): [ViewConfig] - allow spaces in attr search box
+
 ## 0.8.3
 
 ### Patch Changes
