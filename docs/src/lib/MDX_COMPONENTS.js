@@ -8,15 +8,15 @@ import {
   ActionStack,
   AdminStructure,
   Button,
-  Chat,
+  ChatMessages,
   Columns,
   Dashboard,
-  Form,
+  FormOld,
   JsonPlaceholder,
   List,
   Pagination,
   Section,
-  Table,
+  TableOld,
   Tabs,
   Title,
   usePaginationState,
@@ -63,19 +63,19 @@ const cascaraComponents = {
   ActionStack: (props) => <ActionStack {...props} />,
   AdminStructure: (props) => <AdminStructure {...props} />,
   Button: (props) => <Button {...props} />,
-  Chat: (props) => (
+  ChatMessages: (props) => (
     <ChatProvider>
-      <Chat {...props} />
+      <ChatMessages {...props} />
     </ChatProvider>
   ),
   Columns: (props) => <Columns {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,
-  Form: (props) => <Form {...props} />,
+  FormOld: (props) => <FormOld {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   List: (props) => <List {...props} />,
   Pagination: (props) => <Pagination {...props} />,
   Section: (props) => <Section {...props} />,
-  Table: (props) => <Table {...props} />,
+  TableOld: (props) => <TableOld {...props} />,
   Tabs: (props) => <Tabs {...props} />,
   Title: (props) => <Title {...props} />,
 };

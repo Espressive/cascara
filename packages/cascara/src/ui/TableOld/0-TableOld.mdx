@@ -1,0 +1,358 @@
+---
+title: Table
+propTable: TableOld.js
+---
+
+# Public API
+
+## data
+
+Every object in this array will potentially be rendered as a table row.
+The shape of the data is up to you, the only requirement is that every object (AKA row) must have an attribute that uniquely identifies the object in the array.
+
+> We call this attribute `uniqueIdAttribute`, which you will be able to specify later on.
+
+An example data shape:
+
+```javascript
+---
+title: An example data shape
+---
+const data = {[
+  {
+    id: '1',
+    userEmail: 'john@doe.it',
+    userName: 'John Doe',
+  },
+  {
+    id: '2',
+    userEmail: 'jane@doe.it',
+    userName: 'Jane Doe',
+  },
+  {
+    id: '3',
+    userEmail: 'jim@doe.it',
+    userName: 'Jim Doe',
+  },
+]}
+```
+
+## actions
+
+At the moment, we have only two types of action modules:
+
+- [button](../../modules/ActionButton), for simple actions like deleting a row, navigating to another page, etc.
+- [edit](./modules/ActionEdit), to be used if you want to allow the data to be **editable**.
+
+Think of actions as **verbs** one would want to apply to each of the Table rows, like a button **View** to navigate to another page with detailed information about the row.
+Another example would be a button **Delete** to delete a row. Actions will be appended to each row.
+
+When you define an action, you are telling Table how you want to be notified when your the button is clicked. Table will let you know via the `onAction` event every time a button is clicked.
+
+> Table does not provide the logic to handle actions, the implementation for deleting a row, navigating to another page, etc. it's up to you.
+
+The shape of `actions` is as follows:
+
+```javascript
+const actions = {
+  actionButtonMenuIndex: 0,
+  modules: [
+    // add as many of **button** to fit your requirements
+    {
+      module: 'button',
+      name: 'delete',
+      content: 'Delete',
+    },
+    {
+      module: 'button',
+      name: 'view',
+      content: 'View',
+    },
+
+    // Add __only one__ of **edit** to make your table **editable**
+    {
+      module: 'edit',
+      cancelLabel: 'Cancelar',
+      editLabel: 'Editar',
+      saveLabel: 'Guardar',
+    },
+  ],
+  resolveRecordActions: (record, actions) => actionsForRecord,
+};
+```
+
+### actionButtonMenuIndex
+
+Tables can become bloated if you use lots of actions, in order to prevent this, **overflowing** actions are wrapped by an **ActionsMenu**, a contextual menu accessible via the **meat ball** button of each row.
+
+You can specify which actions are sent to the **ActionsMenu** using the `actionButtonMenuIndex` prop, a number that acts like a partition index that will take your actions array and slice it. The actions whose index is greater or equal to `actionButtonMenuIndex` will be part of **ActionsMenu**, the rest will be displayed as usual.
+
+> This only applies to **button** actions, **edit** action will always be displayed as usual.
+
+### resolveRecordActions
+
+By default, all actions are added to **All** rows, this might not be what you want: Under certain scenarios, some actions might not be available or allowed depending on certain (business-logic) conditions. `resolveRecordActions` is a function you can pass to derive if a certain action can be displayed for each row.
+
+#### signature
+
+```js
+  /**
+   * Resolve record actions
+   *
+   * @param {Object} record An object that represents the current row
+   * @param {Array[Object]} allActions The array of actions specified in `action.modules`
+   * @return {Array[Object]} actionsForRecord The array of actions for this specific row
+   */
+  (Object: record, Array[Object]: allActions) => Array[Object]: actionsForRecord
+```
+
+#### example
+
+The following example assumes two actions have been defined: **edit** and **view**:
+
+- **edit** action will only be added if the row (record) has its **deflected** property set to **false**
+- **view** action will only be added if the row (record) is a **FAQ**
+
+This is a powerful way of conditionally rendering actions for each row.
+
+```javasccript
+resolveRecordActions(record, allActions) {
+  return allActions.reduce((actionsForRecord, action) => {
+    switch (action.name) {
+      case 'edit':
+        // do not show if Row is deflected
+        if (!record.deflected) {
+          actionsForRecord.push(action);
+        }
+        break;
+
+      case 'view.faq':
+        // do not show view button for FAQs
+        if (record.type !== 'faq') {
+          actionsForRecord.push(action);
+        }
+        break;
+
+      default:
+        actionsForRecord.push(action);
+    }
+
+    return actionsForRecord;
+  }, []);
+};
+```
+
+## dataDisplay
+
+Here you can describe each of the visible columns in your table. **dataDisplay** items have a special shape too, good news is that you have plenty more options to choose from. Please choose the one that best fits your data type.
+
+#### supported data types (modules)
+
+- [checkbox](../modules/DataCheckbox)
+- [email](../modules/DataEmail)
+- [number](../modules/DataNumber)
+- [radio](../modules/DataRadio)
+- [select](../modules/DataSelect)
+- [text](../modules/DataText)
+- [textarea](../modules/DataTextArea)
+
+```javasccript
+/**
+ * In this example we are displaying all the properties in our data objects,
+ * but it's up to you how many and which properties to display. */
+const dataDisplay = [
+  {
+    attribute: 'id', // specifies the attribute in your data that represents this column
+    isEditable: false, // if true, the edition mode will be activated
+    label: 'ID', // the label to display as column header
+    module: 'text', // The data module to handle the display/edit UI
+  },
+  {
+    attribute: 'userEmail',
+    isEditable: false,
+    label: 'eMail',
+    module: 'text',
+  },
+  {
+    attribute: 'userName',
+    isEditable: false,
+    label: 'Name',
+    module: 'text',
+  },
+];
+```
+
+## onAction (event handler)
+
+A function you can pass to handle every event your table emits. Every event carries two pieces of information:
+
+- action, the object (button) that was actually clicked and
+- record, the object that represents the row upon which the action was applied.
+
+```javascript
+/**
+ * onAction, event handler
+ *
+ * @param {Object} action the element that was clicked
+ * @param {Object} record the data that represents the table row of the button */
+const onAction = (action, record) => {
+  // action.name here is the `actinName` you specified for your action
+  switch (action.name) {
+    case 'new':
+      // do something with record
+      break;
+
+    case 'delete':
+      // do something with record
+      break;
+
+    case 'view':
+      // do something with record
+      break;
+
+    // in the case of `edit` module, you need these 3 cases
+    case 'edit.start':
+      // do something when the user starts editing the row via `edit` button
+      break;
+    case 'edit.cancel':
+      // do something if the user exits edit mode via `cancel` button
+      break;
+    case 'edit.save':
+      // do something when the user exits edit mode via `save` button
+      break;
+  }
+};
+```
+
+> **tip:** do not bloat your table! keep the number of buttons low, specially if you are targetting mobile devices.
+
+## uniqueIdAttribute
+
+Specifies the attribute that uniquely identifies every object in the **data** array.
+
+> It is always recommended to speficy `uniqueIdAttribute`. Although it can be derived from the data itself, the inference function defines the following as possible values:
+>
+> - eid
+> - uuid
+> - id
+> - sys_date_created
+> - number
+>
+> If you see a warning like 'Each child in a list should have a unique "key" prop' from Table, please make sure you pass this prop to prevent Table's **auto-id-inference** from kicking-in and **possibly** infering **undefined** if the data you pass does not have any of the possible values.
+
+# Mixing everyting together
+
+With the four props described earlier, we can easily create a table: (open your dev tools!)
+
+```jsx
+<TableOld
+  actions={{
+    actionButtonMenuIndex: -1,
+    modules: [
+      {
+        module: 'button',
+        name: 'new',
+        content: 'New',
+        size: 'small',
+      },
+      {
+        module: 'button',
+        name: 'delete',
+        content: 'Delete',
+        size: 'small',
+      },
+      {
+        module: 'button',
+        name: 'view',
+        content: 'View',
+        size: 'small',
+      },
+      {
+        module: 'edit',
+        size: 'small',
+        cancelLabel: 'Cancelar',
+        editLabel: 'Editar',
+        saveLabel: 'Guardar',
+      },
+    ],
+  }}
+  data={[
+    {
+      id: 1,
+      userEmail: 'john@doe.it',
+      userName: 'John Doe',
+    },
+    {
+      id: 2,
+      userEmail: 'jane@doe.it',
+      userName: 'Jane Doe',
+    },
+    {
+      id: 3,
+      userEmail: 'jim@doe.it',
+      userName: 'Jim Doe',
+    },
+  ]}
+  dataDisplay={[
+    {
+      attribute: 'id',
+      isEditable: false,
+      label: 'ID',
+      module: 'number',
+    },
+    {
+      attribute: 'userEmail',
+      isEditable: true,
+      label: 'eMail',
+      module: 'text',
+    },
+    {
+      attribute: 'userName',
+      isEditable: true,
+      label: 'Name',
+      module: 'text',
+    },
+  ]}
+  onAction={(action, record) => {
+    console.clear();
+    console.log(`Action ${action.name} invoked`);
+    console.table(record);
+
+    switch (action.name) {
+      case 'new':
+        // do something
+        break;
+
+      case 'delete':
+        // do something
+        break;
+
+      case 'view':
+        // do something
+        break;
+
+      case 'edit.start':
+        // do something
+        break;
+
+      case 'edit.cancel':
+        // do something
+        break;
+
+      case 'edit.save':
+        // do something
+        break;
+    }
+  }}
+  uniqueIdAttribute={'id'}
+/>
+```
+
+# Empty Table
+
+In this example, Table does not render anything, since there is no data. This can also happen if no columns are defined.
+If either Data nor Colums are defined, it is assumed that we do not want to display a Table at the moment:
+
+```jsx
+<TableOld />
+```
