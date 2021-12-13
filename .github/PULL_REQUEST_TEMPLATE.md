@@ -1,6 +1,5 @@
-## New Component Checklist
+## PR Author Checklist
 
-- [ ] Includes unit tests for _ALL_ required FDS use cases
-- [ ] Does not mute any top level API props in React
-- [ ] Includes an explanation for any changes to Jest snapshots (should be a PR tag automatically added if this happens)
-- [ ] Component uses `React.forwardRef()` when a single DOM node is returned, _AND_ it makes React-sense to access that DOM node
+- [ ] I have finished reviewing the contents of this PR for accuracy
+- [ ] If needed, I have included a [Changeset](https://github.com/changesets/changesets) and it follows [Semantic Versioning principles](https://semver.org/)
+- [ ] I have completed all of the above and have enabled `auto-merge` for this PR
