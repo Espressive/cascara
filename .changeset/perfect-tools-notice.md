@@ -1,5 +1,4 @@
 ---
-'docs': patch
 '@espressive/cascara': major
 ---
 
