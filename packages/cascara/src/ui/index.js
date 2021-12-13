@@ -3,7 +3,7 @@
 // Let's keep these sorted alphabetically based on their source directory.
 
 export { default as ActionStack } from './ActionStack';
-export { default as ChatOld } from './ChatMessages';
+export { default as ChatMessages } from './ChatMessages';
 export { default as Columns } from './Columns';
 export { default as Dashboard } from './Dashboard';
 export { default as FormOld, formPropTypes } from './FormOld';

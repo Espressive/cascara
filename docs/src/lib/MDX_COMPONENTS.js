@@ -8,7 +8,7 @@ import {
   ActionStack,
   Admin,
   Button,
-  ChatOld,
+  ChatMessages,
   Columns,
   Dashboard,
   FormOld,
@@ -51,9 +51,9 @@ const cascaraComponents = {
   ActionStack: (props) => <ActionStack {...props} />,
   Admin: (props) => <Admin {...props} />,
   Button: (props) => <Button {...props} />,
-  ChatOld: (props) => (
+  ChatMessages: (props) => (
     <ChatProvider>
-      <ChatOld {...props} />
+      <ChatMessages {...props} />
     </ChatProvider>
   ),
   Columns: (props) => <Columns {...props} />,

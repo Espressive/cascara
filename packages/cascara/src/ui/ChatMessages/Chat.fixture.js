@@ -1,5 +1,5 @@
 import React from 'react';
-import ChatOld, { ChatProvider } from '.';
+import ChatMessages, { ChatProvider } from '.';
 import {
   Button,
   Flex,
@@ -68,7 +68,7 @@ const teamsChatInput = (
 
 const ChatPublicAPI = (
   <ChatProvider inputComponent={teamsChatInput} isThemeSelectable>
-    <ChatOld
+    <ChatMessages
       messages={getNormalizedMessages(convo2)}
       sessionUserID={3}
       users={users}
@@ -78,13 +78,13 @@ const ChatPublicAPI = (
 
 const ChatNoUsers = (
   <ChatProvider>
-    <ChatOld messages={getNormalizedMessages(convo1)} sessionUserID={3} />
+    <ChatMessages messages={getNormalizedMessages(convo1)} sessionUserID={3} />
   </ChatProvider>
 );
 
 const ChatNoMessages = (
   <ChatProvider isThemeSelectable>
-    <ChatOld />
+    <ChatMessages />
   </ChatProvider>
 );
 
@@ -97,7 +97,7 @@ const TeamsChatExample = (
             overflowY: 'auto',
           }}
         >
-          <ChatOld messages={getNormalizedMessages(convo0)} users={users} />
+          <ChatMessages messages={getNormalizedMessages(convo0)} users={users} />
         </div>
         {teamsChatInput}
       </Flex>

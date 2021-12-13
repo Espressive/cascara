@@ -38,7 +38,7 @@ const propTypes = {
 };
 
 // TODO: Set a loading state if no messages are passed yet
-const ChatOld = ({ sessionUserID, messages, users }) => {
+const ChatMessages = ({ sessionUserID, messages, users }) => {
   // The latestMessageRef is always assigned to the
   // latest message that has appeared in the Chat
   const latestMessageRef = useRef(null);
@@ -120,7 +120,7 @@ const ChatOld = ({ sessionUserID, messages, users }) => {
   );
 };
 
-ChatOld.propTypes = propTypes;
-ChatOld.Provider = ChatProvider;
+ChatMessages.propTypes = propTypes;
+ChatMessages.Provider = ChatProvider;
 
-export default ChatOld;
+export default ChatMessages;
