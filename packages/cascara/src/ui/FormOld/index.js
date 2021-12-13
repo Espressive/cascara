@@ -1,1 +1,1 @@
-export { default, propTypes as formPropTypes } from './FormOld';
+export { default, propTypes as formOldPropTypes } from './FormOld';
