@@ -115,7 +115,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   return (
     <Boundaries>
       <RowProvider value={{ record }}>
-        <tr className={styles.RowOld} key={id}>
+        <tr className={styles.Row} key={id}>
           {rowCells}
         </tr>
       </RowProvider>
