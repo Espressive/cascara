@@ -13,7 +13,7 @@ const TableFooter = () => {
   return (
     <Boundaries>
       <tfoot className={styles.FootContainer}>
-        <tr className={styles.RowOld} key={'foot-header'}>
+        <tr className={styles.Row} key={'foot-header'}>
           {headerCells}
         </tr>
       </tfoot>
