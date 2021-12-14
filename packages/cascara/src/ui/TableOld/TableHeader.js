@@ -30,7 +30,7 @@ const TableHeader = () => {
   return (
     <Boundaries>
       <thead className={styles.HeadContainer}>
-        <tr className={styles.RowOld}>{newHeaderCells}</tr>
+        <tr className={styles.Row}>{newHeaderCells}</tr>
       </thead>
     </Boundaries>
   );
