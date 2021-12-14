@@ -2,13 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-const useMediaQuery = (query, ifTrueFunc, ifFalseFunc) => {
-  const isDOM = Boolean(
-    typeof window !== 'undefined' &&
-      window.document &&
-      window.document.createElement
-  );
+import isDOM from '../lib/isDOM';
 
+const useMediaQuery = (query, ifTrueFunc, ifFalseFunc) => {
   const mediaQuery = isDOM ? window?.matchMedia(query) : null;
 
   // We need to set state here so that the hook will return the new value
@@ -29,7 +25,7 @@ const useMediaQuery = (query, ifTrueFunc, ifFalseFunc) => {
     } else {
       return null;
     }
-  }, [mediaQuery, ifTrueFunc, ifFalseFunc, isDOM]);
+  }, [mediaQuery, ifTrueFunc, ifFalseFunc]);
 
   return match;
 };
