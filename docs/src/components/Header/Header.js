@@ -1,12 +1,7 @@
 import pt from 'prop-types';
 
 import { AdminStructure, Flex } from '@espressive/cascara';
-// import Logo from './Logo';
 import Tag from '../Tag';
-
-/**
- * TODO: Convert logo into an SVG file
- */
 
 const propTypes = {
   branch: pt.string,
@@ -16,7 +11,7 @@ const propTypes = {
 const Header = ({ branch, cascaraVersion }) => {
   return (
     <AdminStructure.Header
-      logo='https://cascara.design/cascara_meta.svg'
+      logo='/cascara_logo.svg'
       post={
         <div>
           <Flex>

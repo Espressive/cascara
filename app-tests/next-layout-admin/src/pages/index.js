@@ -7,11 +7,7 @@ import { AdminStructure } from '@espressive/cascara';
 const Home = () => {
   return (
     <AdminStructure
-      header={
-        <AdminStructure.Header>
-          <h1>{pkg.name}</h1>
-        </AdminStructure.Header>
-      }
+      header={<AdminStructure.Header title={pkg.name} />}
       main={<AdminStructure.Main>{'AdminStructure.Main'}</AdminStructure.Main>}
       nav={<AdminStructure.Nav>{'AdminStructure.Nav'}</AdminStructure.Nav>}
     >

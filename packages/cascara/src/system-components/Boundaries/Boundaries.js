@@ -2,7 +2,9 @@ import React, { Suspense } from 'react';
 import pt from 'prop-types';
 import { ErrorBoundary } from 'react-error-boundary';
 import { isValidElementType } from 'react-is';
+
 import { ErrorFallback, SuspenseFallback } from './fallbacks';
+import isDOM from '../../lib/isDOM';
 
 // This will need to become a custom prop type we can use elsewhere
 const isReactComponent = (props, propName, componentName) => {
@@ -31,11 +33,6 @@ const Boundaries = ({
   // and if we are, then we are safe to render the boundaries. If we are not, we are on
   // a server (like Vercel) we an render nothing because the app will render as normal.
   // once it loads in the client browser and the app hydrates.
-  const isDOM = Boolean(
-    typeof window !== 'undefined' &&
-      window.document &&
-      window.document.createElement
-  );
 
   if (isDOM) {
     return (

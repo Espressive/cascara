@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100" viewBox="0 0 300 100">
+  <defs>
+    <linearGradient id="cascara_meta-a" x1="14.645%" x2="85.355%" y1="85.355%" y2="14.645%">
+      <stop offset="0%" stop-color="#90023A"/>
+      <stop offset="100%" stop-color="#B4104B"/>
+    </linearGradient>
+    <linearGradient id="cascara_meta-b" x1="9.039%" x2="90.961%" y1="78.681%" y2="21.319%">
+      <stop offset="0%" stop-color="#A20943"/>
+      <stop offset="100%" stop-color="#C51653"/>
+    </linearGradient>
+    <linearGradient id="cascara_meta-c" x1="83.742%" x2="17.104%" y1="108.444%" y2="-6.98%">
+      <stop offset="0%" stop-color="#00873E"/>
+      <stop offset="100%" stop-color="#006129"/>
+    </linearGradient>
+    <linearGradient id="cascara_meta-d" x1="50%" x2="50%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#B4104B"/>
+      <stop offset="100%" stop-color="#D91C5C"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="300" height="100" fill="#FFF"/>
+    <g transform="translate(60 30)">
+      <path fill="url(#cascara_meta-a)" d="M15,12.5 C15,16.642 18.358,20 22.5,20 L22.5,20 C26.642,20 30,16.642 30,12.5 L30,12.5 C30,8.358 26.642,5 22.5,5 L22.5,5 C18.358,5 15,8.358 15,12.5"/>
+      <path fill="url(#cascara_meta-b)" d="M20,25 C20,30.523 24.477,35 30,35 L30,35 C35.523,35 40,30.523 40,25 L40,25 C40,19.477 35.523,15 30,15 L30,15 C24.477,15 20,19.477 20,25"/>
+      <path fill="url(#cascara_meta-c)" d="M2.495,0 C1.718,0.006 0.942,0.062 0.171,0.171 L0.171,0.171 C-0.562,5.396 1.063,10.892 5.085,14.914 L5.085,14.914 C9.108,18.937 14.604,20.563 19.829,19.829 L19.829,19.829 C20.562,14.604 18.937,9.107 14.915,5.085 L14.915,5.085 C11.547,1.718 7.147,0.031 2.737,0 L2.737,0 L2.495,0 Z"/>
+      <path fill="url(#cascara_meta-d)" d="M0,27.5 C0,34.403 5.597,40 12.5,40 L12.5,40 C19.403,40 25,34.403 25,27.5 L25,27.5 C25,20.597 19.403,15 12.5,15 L12.5,15 C5.597,15 0,20.597 0,27.5"/>
+      <text fill="#333" font-family="AgletSlab-Semibold, Aglet Slab" font-size="42" font-weight="500" letter-spacing="-1.768">
+        <tspan x="44.1" y="34.5">C</tspan> <tspan x="68.918" y="34.5" font-size="38" letter-spacing="-1.6">a</tspan> <tspan x="88.522" y="34.5" font-size="38" letter-spacing="-1.2">scara</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
