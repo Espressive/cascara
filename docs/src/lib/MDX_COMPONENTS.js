@@ -6,7 +6,7 @@
 
 import {
   ActionStack,
-  Admin,
+  AdminStructure,
   Button,
   ChatMessages,
   Columns,
@@ -49,7 +49,7 @@ const docsComponents = {
 
 const cascaraComponents = {
   ActionStack: (props) => <ActionStack {...props} />,
-  Admin: (props) => <Admin {...props} />,
+  AdminStructure: (props) => <AdminStructure {...props} />,
   Button: (props) => <Button {...props} />,
   ChatMessages: (props) => (
     <ChatProvider>

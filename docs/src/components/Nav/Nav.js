@@ -1,13 +1,11 @@
-import { Fragment } from 'react';
 import pt from 'prop-types';
 import { useRouter } from 'next/router';
 
-import { Admin } from '@espressive/cascara';
-import NavSection from './NavSection';
-import NavList from './NavList';
-import NavItem from './NavItem';
+import { AdminStructure } from '@espressive/cascara';
 
-const docPath = (path) => path.replace('../packages/cascara/src', '/docs');
+import NavLinkNext from './NavLinkNext';
+import Tag from '../Tag';
+import formatLabel from '../../lib/formatLabel';
 
 const propTypes = {
   mdxTree: pt.arrayOf(pt.shape()),
@@ -17,69 +15,79 @@ const propTypes = {
 const Nav = ({ mdxTree, posts }) => {
   const router = useRouter();
 
-  return (
-    <Admin.Nav>
-      <NavList>
-        <NavItem
-          as='/'
-          content='Change Log'
-          href='/'
-          isActive={router?.asPath === '/'}
-        />
-        {/* <NavItem
-          as='/getting-started'
-          content='Getting Started'
-          href={`/[slug]`}
-          isActive={router?.asPath === '/getting-started'}
-        /> */}
-      </NavList>
+  const rootPath = '/';
+  const gettingStartedPath = '/getting-started';
+  const gettingStartedLabel = 'Getting Started';
 
-      <NavSection content='Concepts' />
+  const changeLogLink = {
+    label: 'Change Log',
+    linkComponent: NavLinkNext,
+    linkComponentProps: {
+      href: rootPath,
+      isActive: router?.asPath === rootPath,
+    },
+  };
 
-      <NavList>
-        {posts?.map((post) => {
-          const fileAsPath = `/${post.filePath.replace(/\.mdx?$/, '')}`;
-          const doNotRender = ['index.mdx', 'getting-started.mdx'];
-          return (
-            // Do not render the index.mdx or getting-started.mdx files here
-            !doNotRender.find((file) => file === post.filePath) && (
-              <NavItem
-                as={fileAsPath}
-                content={post?.data?.title || post.filePath}
-                href={`/[slug]`}
-                isActive={router?.asPath === fileAsPath}
-                key={post.filePath}
-              />
-            )
-          );
-        })}
-      </NavList>
+  const gettingStartedLink = {
+    label: gettingStartedLabel,
+    linkComponent: NavLinkNext,
+    linkComponentProps: {
+      href: gettingStartedPath,
+      isActive: router?.asPath === gettingStartedPath,
+    },
+  };
 
-      {/* <hr style={dividerStyle} /> */}
-      {mdxTree?.map((item) =>
-        item.size ? (
-          <Fragment key={item.name}>
-            <NavSection content={item.name} />
-            <NavList>
-              {item.children.map((item) => {
-                const activeComponent = router?.query?.mdx?.[1];
-                return item?.size ? (
-                  <NavItem
-                    as={docPath(item.path)}
-                    content={item.name}
-                    href='/docs/[[...mdx]]'
-                    isActive={item.name === activeComponent}
-                    key={item.name}
-                    status={item?.meta?.status}
-                  />
-                ) : null;
-              })}
-            </NavList>
-          </Fragment>
-        ) : null
-      )}
-    </Admin.Nav>
-  );
+  const conceptsSection = {
+    label: 'Concepts',
+    links: posts
+      ?.filter(
+        (post) => !['index.mdx', 'getting-started.mdx'].includes(post.filePath)
+      )
+      .map((post) => {
+        const linkPath = `/${post.filePath.replace(/\.mdx?$/, '')}`;
+
+        return {
+          label: formatLabel(post?.data?.title || post?.filePath),
+          linkComponent: NavLinkNext,
+          linkComponentProps: {
+            href: linkPath,
+            isActive: router.asPath === linkPath,
+          },
+          post: post?.meta?.status && <Tag content={post?.meta?.status} />,
+        };
+      }),
+  };
+
+  // add tags!
+  const mdxTreeSection = mdxTree
+    ? mdxTree
+        ?.filter((branch) => branch.size)
+        .map((item) => ({
+          label: formatLabel(item.name),
+          links: item?.children.map((child) => {
+            return {
+              label: child?.meta?.title || child.name,
+              linkComponent: NavLinkNext,
+              linkComponentProps: {
+                href: child.path.replace('../packages/cascara/src', '/docs'),
+                isActive: child.name === router?.query?.mdx?.[1],
+              },
+              post: child?.meta?.status && (
+                <Tag content={child?.meta?.status} />
+              ),
+            };
+          }),
+        }))
+    : [];
+
+  const navLinks = [
+    changeLogLink,
+    gettingStartedLink,
+    conceptsSection,
+    ...mdxTreeSection,
+  ];
+
+  return <AdminStructure.Nav links={navLinks} />;
 };
 
 Nav.propTypes = propTypes;
