@@ -54,7 +54,6 @@ const DataUrl = ({
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <span aria-label={label} className={styles.Url} {...rest}>
-        {' '}
         {value}
       </span>
     </span>
