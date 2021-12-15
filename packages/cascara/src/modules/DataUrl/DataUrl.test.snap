@@ -15,7 +15,6 @@ exports[`DataUrl display snapshot 1`] = `
         aria-label="Display"
         class="Url"
       >
-         
         http://www.example.com
       </span>
     </span>
