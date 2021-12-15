@@ -1,7 +1,6 @@
 import Asciagram from './Asciagram';
 import Code from './Code';
 import Header from './Header';
-import Main from './Main';
 import Nav from './Nav';
 import Placeholder from './Placeholder';
 import Playground from './Playground';
@@ -14,7 +13,6 @@ export {
   Asciagram,
   Code,
   Header,
-  Main,
   Nav,
   Placeholder,
   Playground,
