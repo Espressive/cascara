@@ -1,14 +1,13 @@
 import React from 'react';
 import pt from 'prop-types';
 import Head from 'next/head';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 import '@espressive/legacy-css';
 import '../styles/_app.scss';
 
-import { Admin } from '@espressive/cascara';
-import { Header, Main, Nav, PropTable } from '../components';
+import { AdminStructure } from '@espressive/cascara';
+import { Header, Nav, PropTable } from '../components';
 
 // NOTE: Anything in the <Head> here is esentially a fallback. These tags can
 // be overridden at the page level. <meta> type tags will need a key added
@@ -34,6 +33,14 @@ const propTypes = {
 const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
   const propTable = pageProps?.mdxDirSource?.[router?.query?.doc]?.docData;
+  const tempDocData = propTable?.[0];
+
+  const theme = {
+    color: {
+      primary: '#b4104b',
+      secondary: '#dddee0',
+    },
+  };
 
   return (
     <>
@@ -51,35 +58,22 @@ const MyApp = ({ Component, pageProps }) => {
         />
         <meta content='width=device-width, initial-scale=1.0' name='viewport' />
       </Head>
-      <Admin
-        drawer={
-          propTable?.length > 0 && (
-            <Admin.Drawer>
-              {propTable.map((componentProps) => (
-                <AnimatePresence
-                  exitBeforeEnter
-                  key={router.query.mdx + componentProps}
-                >
-                  <motion.div
-                    animate={{ opacity: 1, translateX: 0 }}
-                    exit={{ opacity: 0, translateX: 100 }}
-                    initial={{ opacity: 0, translateX: 100 }}
-                  >
-                    <PropTable docData={componentProps} />
-                  </motion.div>
-                </AnimatePresence>
-              ))}
-            </Admin.Drawer>
-          )
-        }
+      <AdminStructure
         header={<Header {...pageProps} />}
-        main={
-          <Main>
-            <Component {...pageProps} />
-          </Main>
-        }
         nav={<Nav {...pageProps} />}
-      />
+        theme={theme}
+      >
+        <AdminStructure.Main>
+          <Component {...pageProps} docData={tempDocData} />
+          {propTable?.length > 0 && (
+            <AdminStructure.Drawer style={{ padding: 0 }}>
+              {propTable.map((componentProps, idx) => (
+                <PropTable docData={componentProps} key={idx} />
+              ))}
+            </AdminStructure.Drawer>
+          )}
+        </AdminStructure.Main>
+      </AdminStructure>
     </>
   );
 };

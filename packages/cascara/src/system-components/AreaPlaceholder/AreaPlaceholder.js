@@ -1,6 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 import styles from './AreaPlaceholder.module.scss';
+import classnames from 'classnames/bind';
 
 const propTypes = {
   children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
@@ -13,6 +14,8 @@ const propTypes = {
   style: pt.object,
 };
 
+const cx = classnames.bind(styles);
+
 const AreaPlaceholder = ({
   children,
   label,
@@ -22,7 +25,7 @@ const AreaPlaceholder = ({
 }) => (
   <div
     {...rest}
-    className={styles.Container}
+    className={cx('Container', rest.className)}
     style={{ ...style, borderColor: color }}
   >
     <h4 className={styles.Label} style={{ borderColor: color }}>

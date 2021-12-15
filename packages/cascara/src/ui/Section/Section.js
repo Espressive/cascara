@@ -19,8 +19,6 @@ const propTypes = {
   as: pt.string,
   /** The section content */
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  /** Section can have css class name */
-  className: pt.string,
   /** optionally render with no padding and no border */
   isBasic: pt.bool,
   ...TitlePT,
@@ -30,7 +28,6 @@ const Section = ({
   as = DEFAULT_AS_TAG,
   isBasic,
   children,
-  className,
   title,
   titleAs,
   titlePost,
@@ -40,11 +37,11 @@ const Section = ({
 }) => (
   <Boundaries>
     <Role
+      {...rest}
       as={as}
-      className={cx('Section', className, {
+      className={cx('Section', rest.className, {
         isBasic,
       })}
-      {...rest}
     >
       {title && (
         <Title

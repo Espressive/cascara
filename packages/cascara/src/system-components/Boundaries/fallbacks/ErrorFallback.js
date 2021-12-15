@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import pt from 'prop-types';
-
 import Button from '../../../atoms/Button/Button';
 
 const propTypes = {

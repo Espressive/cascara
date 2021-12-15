@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- f14f888: feat(FDS-374): [Cascara] - Section and Title component MVP
+
+### Patch Changes
+
+- Updated dependencies [f14f888]
+- Updated dependencies [f14f888]
+  - @espressive/cascara@0.9.0
+
 ## 0.8.3
 
 ### Patch Changes
