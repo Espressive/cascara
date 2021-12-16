@@ -3,6 +3,7 @@ title: DataImage
 propTable: ./DataImage.js
 type: 'module'
 public: false
+status: alpha
 ---
 
 A data module to display an input **image** field
@@ -15,15 +16,13 @@ Feel free to play around with the following code:
 <ModuleSandbox
   isEditing={true}
   record={{
-    id: 1,
-    firstName: 'John',
-    lastName: 'Doe',
+    logo: 'https://cascara.design/cascara_meta.svg',
   }}
 >
   <DataImage
-    attribute='firstName'
-    alt='My Text'
-    src='/media/examples/login-button.png'
+    attribute='logo'
+    alt='Cascara'
+    value='https://cascara.design/cascara_meta.svg'
   />
 </ModuleSandbox>
 ```
