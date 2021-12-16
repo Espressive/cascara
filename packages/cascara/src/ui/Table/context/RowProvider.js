@@ -6,7 +6,7 @@ import { ModuleContext, ModuleProvider } from '../../../modules/context';
 const propTypes = {
   children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
   value: pt.shape({
-    record: pt.shape({}),
+    rowData: pt.shape({}),
   }),
 };
 
@@ -15,8 +15,8 @@ const RowProvider = ({ children, value, ...props }) => {
 
   const { idOfRecordInEditMode, uniqueIdAttribute, ...rest } =
     grandparentValues;
-  const { record } = value;
-  const recordId = record[uniqueIdAttribute];
+  const { rowData } = value;
+  const recordId = rowData[uniqueIdAttribute];
 
   // isEditing is based on wether the record ids are the same
   const isEditing = recordId === idOfRecordInEditMode;

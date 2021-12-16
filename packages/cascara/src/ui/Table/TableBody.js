@@ -3,27 +3,25 @@ import { ModuleContext } from '../../modules/context';
 import styles from './Table.module.scss';
 
 import { Boundaries } from '../../system-components';
-import { JsonPlaceholder } from '../..';
+import TableRow from './TableRow';
 
 const TableBody = () => {
   const { data, dataDisplay, uniqueIdAttribute } = useContext(ModuleContext);
 
-  const rows = data?.map((data) => ({
+  const rows = data?.map((rowData) => ({
     columns: dataDisplay?.map((itemConfig) => ({
       ...itemConfig,
     })),
-    data,
     id: data[uniqueIdAttribute],
+    rowData,
   }));
 
   return (
     <Boundaries>
       <tbody className={styles.BodyContainer}>
-        {rows?.map((record, i) => {
-          const { data } = record;
-
-          return <JsonPlaceholder data={data} key={i} />;
-        })}
+        {rows?.map(({ rowData }, i) => (
+          <TableRow key={i} rowData={rowData} />
+        ))}
       </tbody>
     </Boundaries>
   );
