@@ -3,6 +3,7 @@ title: DataUrl
 propTable: ./DataUrl.js
 type: 'module'
 public: false
+status: alpha
 ---
 
 A data module to display **string** values, it renders a input of type **url**.
@@ -16,14 +17,14 @@ Feel free to play around with the following code:
   isEditing={true}
   record={{
     id: 1,
-    url: 'https://example.com'
+    url: 'https://example.com',
   }}
 >
   <DataUrl
     attribute='firstName'
     isEditable={true}
     label='My file'
-    value: 'https://example.com'
+    value='https://example.com'
   />
 </ModuleSandbox>
 ```
