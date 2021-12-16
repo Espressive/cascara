@@ -6,7 +6,7 @@ import postcss from 'rollup-plugin-postcss';
 import stringHash from 'string-hash';
 import cssUrl from 'postcss-url';
 
-const isDevelopment = (p) => p.env.NODE_ENV === 'development';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 // Move our babel config into the root but use it to compile all of our packages
 const getBabelOptions = ({
@@ -28,7 +28,7 @@ const getPostCSSOptions = () => ({
     generateScopedName: function (name, filename, css) {
       const path = require('path');
       const [file] = path.basename(filename).split('.');
-      const hash = isDevelopment(process)
+      const hash = isDevelopment
         ? 'DEV_MODE'
         : stringHash(css).toString(36).substr(0, 5);
 
