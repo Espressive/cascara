@@ -48,7 +48,7 @@ const DataImage = ({
         id={label}
         name={attribute || label}
         ref={formMethods?.register}
-        src={src}
+        src={value || src}
         type={'image'}
       />
     </label>
