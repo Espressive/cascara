@@ -62,7 +62,7 @@ $header-background: #eee;
 
   // Even though this is display: contents, we can still use it
   // for css specificity
-  .RowOld {
+  .Row {
     &:nth-of-type(odd) {
       .Cell,
       .CellActions {

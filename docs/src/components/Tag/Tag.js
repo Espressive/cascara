@@ -7,8 +7,10 @@ const propTypes = {
 };
 
 const Tag = ({ content, ...rest }) => {
+  const classList = [styles.Tag, rest.className];
+
   return (
-    <span {...rest} className={styles.Tag}>
+    <span {...rest} className={classList.join(' ')}>
       {content}
     </span>
   );

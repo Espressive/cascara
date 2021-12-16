@@ -2,7 +2,7 @@
 
 exports[`Table snapshot tests actions with non-existent module 1`] = `
 <tr
-  class="RowOld"
+  class="Row"
 >
   <td
     class="Cell"
@@ -138,7 +138,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
 
 exports[`Table snapshot tests conditional actions 1`] = `
 <tr
-  class="RowOld"
+  class="Row"
 >
   <td
     class="Cell"
@@ -246,7 +246,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
 
 exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
 <tr
-  class="RowOld"
+  class="Row"
 >
   <td
     class="Cell"
@@ -424,7 +424,7 @@ exports[`Table snapshot tests should show an empty state if data is defined but 
 
 exports[`Table snapshot tests with actions 1`] = `
 <tr
-  class="RowOld"
+  class="Row"
 >
   <td
     class="Cell"
@@ -554,7 +554,7 @@ exports[`Table snapshot tests with actions 1`] = `
 
 exports[`Table snapshot tests with deprecated props 1`] = `
 <tr
-  class="RowOld"
+  class="Row"
 >
   <td
     class="Cell"
@@ -684,7 +684,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
 
 exports[`Table snapshot tests without <ActionBar /> 1`] = `
 <tr
-  class="RowOld"
+  class="Row"
 >
   <td
     class="Cell"
@@ -799,7 +799,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
 
 exports[`Table snapshot tests without actions 1`] = `
 <tr
-  class="RowOld"
+  class="Row"
 >
   <td
     class="Cell"
