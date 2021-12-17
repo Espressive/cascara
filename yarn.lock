@@ -2750,6 +2750,7 @@ __metadata:
   resolution: "@espressive/prop-types@workspace:utils/prop-types"
   dependencies:
     prop-types: 15.7.2
+    rollup: 2.50.6
   peerDependencies:
     prop-types: 15.7.2
   languageName: unknown

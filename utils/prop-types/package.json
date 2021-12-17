@@ -16,11 +16,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
-    "prepare": "NODE_ENV=production yarn build"
+    "build": "yarn clean && yarn roll",
+    "clean": "rm -rf dist && rm -rf undefined",
+    "prepare": "NODE_ENV=production yarn build",
+    "roll": "rollup -c --failAfterWarnings"
   },
   "devDependencies": {
-    "prop-types": "15.7.2"
+    "prop-types": "15.7.2",
+    "rollup": "2.50.6"
   },
   "peerDependencies": {
     "prop-types": "15.7.2"

@@ -1,1 +1,1 @@
-export { default } from './prop-types';
+export { default as PropTypes } from './prop-types';
