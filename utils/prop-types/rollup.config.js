@@ -3,6 +3,7 @@
  * Since we are not exporting any JSX nor SCSS, we don't need extra plugins.
  */
 const rollupConfig = {
+  external: ['prop-types'],
   input: 'src/index.js',
   output: [
     {
