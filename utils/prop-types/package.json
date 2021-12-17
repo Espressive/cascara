@@ -10,12 +10,13 @@
   },
   "license": "MIT",
   "author": "Rocio Baena rbaena@espressive.com",
-  "main": "src/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
   "files": [
-    "index.js",
-    "src"
+    "dist"
   ],
   "scripts": {
+    "build": "rollup -c",
     "prepare": "echo 'No prepare scripts for this package'"
   },
   "devDependencies": {
