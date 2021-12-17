@@ -7,20 +7,20 @@ import TableBody from './TableBody';
 import { INFER_UNIQUE_ID, PROP_TYPES } from './__globals';
 
 const TableBase = ({
-  children,
+  actions,
   data,
   dataDisplay,
   uniqueIdAttribute,
   ...rest
 }) => {
   const classList = [styles.Table, rest.className];
-  const columnCount = dataDisplay?.length || 0;
+  // Calculate our columns by taking the number of dataDisplay modules and adding
+  // the boolean value of actions (1 true, 0 false)
+  const columnCount = dataDisplay?.length + Boolean(actions);
 
   return (
     <TableProvider
       value={{
-        data,
-        dataDisplay,
         uniqueIdAttribute:
           uniqueIdAttribute || INFER_UNIQUE_ID(Object.keys(data[0])),
       }}
@@ -32,9 +32,11 @@ const TableBase = ({
           gridTemplateColumns: `repeat(${columnCount}, auto)`,
         }}
       >
-        <TableHeader />
-        <TableBody />
-        {children}
+        <TableHeader
+          dataDisplay={dataDisplay}
+          isRowActionable={Boolean(actions)}
+        />
+        <TableBody data={data} dataDisplay={dataDisplay} actions={actions} />
       </table>
     </TableProvider>
   );

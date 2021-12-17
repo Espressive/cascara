@@ -9,7 +9,7 @@ const propTypes = {
   value: pt.shape({}),
 };
 
-const TableProvider = ({ children, value, ...props }) => {
+const TableProvider = ({ children, value }) => {
   const [idOfRecordInEditMode, setIdOfRecordInEditMode] = useState(null);
   const formMethods = useForm();
 
@@ -31,17 +31,7 @@ const TableProvider = ({ children, value, ...props }) => {
   };
 
   return (
-    <ModuleProvider value={mergedValues} {...props}>
-      {/**
-
-            it would be great if the form was moved to RowProvider
-            so we can get access to the record data.
-            
-            We need to discuss what is the benefit of having the form wrap all
-            rows if only one row is editable at a time.
-            //onSubmit={handleSubmit(onSubmit)}
-         */}
-
+    <ModuleProvider value={mergedValues}>
       <form>{children}</form>
     </ModuleProvider>
   );

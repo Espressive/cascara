@@ -10,13 +10,15 @@ const propTypes = {
   }),
 };
 
-const RowProvider = ({ children, value, ...props }) => {
+const RowProvider = ({ children, value }) => {
   const grandparentValues = useContext(ModuleContext);
 
   const { idOfRecordInEditMode, uniqueIdAttribute, ...rest } =
     grandparentValues;
   const { rowData } = value;
   const recordId = rowData[uniqueIdAttribute];
+
+  console.log(recordId);
 
   // isEditing is based on wether the record ids are the same
   const isEditing = recordId === idOfRecordInEditMode;
@@ -30,11 +32,7 @@ const RowProvider = ({ children, value, ...props }) => {
     uniqueIdAttribute,
   };
 
-  return (
-    <ModuleProvider value={mergedValues} {...props}>
-      {children}
-    </ModuleProvider>
-  );
+  return <ModuleProvider value={mergedValues}>{children}</ModuleProvider>;
 };
 
 RowProvider.propTypes = propTypes;

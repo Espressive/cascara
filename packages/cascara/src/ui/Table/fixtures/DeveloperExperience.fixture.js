@@ -2,13 +2,13 @@ import React from 'react';
 
 import Table from '../Table';
 import { Flex, Title } from '../../../';
-import { results as fixtureData } from '../data/entities';
+import { results as FIXTURE_DATA } from '../data/entities';
 
 import { ACTIONS, COLUMNS } from './__config';
 
 const DataWithDisplay = (fixtureProps) => (
   <>
-    <Title title='Data With dataDisplay' />
+    <Title title='Data With Display' />
     <p>
       Developers should be able to pass a minimal dataDisplay config to narrow
       the fields that they want to show in the Table. There should be no need
@@ -40,11 +40,11 @@ const DataWithDisplay = (fixtureProps) => (
   </>
 );
 
-const UnknownActionModules = (fixtureProps) => (
+const DataWithActions = (fixtureProps) => (
   <>
-    <Title title='actions.modules with unknown modules' />
+    <Title title='Data With Actions' />
     <p>
-      A helpful error message is displayed if an action module is not found.
+      Data can be presetned with action objects which will show up on each row.
     </p>
 
     <Table {...fixtureProps} />
@@ -60,65 +60,21 @@ const UnknownDataModules = (fixtureProps) => (
   </>
 );
 
-// const WithDeprecatedProps = ({ onAction: extOnAction, ...props } = {}) => {
-//   const onAction = useCallback((action, record) => {
-//     console.log(`Action ${action.name} invoked`);
-
-//     switch (action.name) {
-//       case 'viewInFAQ':
-//         console.table(record);
-//         break;
-
-//       case 'edit.start':
-//         // do something
-//         break;
-
-//       case 'edit.cancel':
-//         // do something
-//         break;
-
-//       case 'edit.save':
-//         // do something
-//         break;
-
-//       default:
-//         break;
-//     }
-//   }, []);
-
-//   return (
-//     <>
-//       <h3>With deprecated props</h3>
-//       <p>
-//         Some props have been deprecated, this is a safeguard for developerss
-//       </p>
-
-//       <Table {...props} onAction={extOnAction || onAction} />
-//     </>
-//   );
-// };
-
 export default {
-  dataWithDisplay: <DataWithDisplay data={fixtureData} dataDisplay={COLUMNS} />,
-  unknownActionModule: (
-    <UnknownActionModules
-      actions={{
-        ...ACTIONS,
-        modules: [
-          ...ACTIONS.modules,
-          {
-            module: 'tequila',
-          },
-        ],
-      }}
-      data={fixtureData}
+  dataWithDisplay: (
+    <DataWithDisplay data={FIXTURE_DATA} dataDisplay={COLUMNS} />
+  ),
+  dataWithActions: (
+    <DataWithActions
+      actions={ACTIONS}
+      data={FIXTURE_DATA}
       dataDisplay={COLUMNS}
     />
   ),
   unknownDataModule: (
     <UnknownDataModules
       actions={ACTIONS}
-      data={fixtureData}
+      data={FIXTURE_DATA}
       dataDisplay={[...COLUMNS, { attribute: 'eid', module: 'unknownModule' }]}
     />
   ),

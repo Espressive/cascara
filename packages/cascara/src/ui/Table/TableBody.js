@@ -1,26 +1,20 @@
-import React, { useContext } from 'react';
-import { ModuleContext } from '../../modules/context';
+import React from 'react';
 import styles from './Table.module.scss';
 
 import { Boundaries } from '../../system-components';
 import TableRow from './TableRow';
 
-const TableBody = () => {
-  const { data, dataDisplay, uniqueIdAttribute } = useContext(ModuleContext);
-
-  const rows = data?.map((rowData) => ({
-    columns: dataDisplay?.map((itemConfig) => ({
-      ...itemConfig,
-    })),
-    id: data[uniqueIdAttribute],
-    rowData,
-  }));
-
+const TableBody = ({ data, dataDisplay, actions }) => {
   return (
     <Boundaries>
       <tbody className={styles.BodyContainer}>
-        {rows?.map(({ rowData }, i) => (
-          <TableRow key={i} rowData={rowData} />
+        {data?.map((rowData, i) => (
+          <TableRow
+            actions={actions}
+            dataDisplay={dataDisplay}
+            key={i}
+            rowData={rowData}
+          />
         ))}
       </tbody>
     </Boundaries>

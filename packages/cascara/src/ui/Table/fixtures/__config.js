@@ -37,19 +37,13 @@ export const COLUMNS = [
   },
 ];
 
-export const ACTIONS = {
-  actionButtonMenuIndex: 0,
-  modules: [
-    {
-      cancelLavel: 'Cancel',
-      editLabel: 'Edit',
-      module: 'edit',
-      saveLabel: 'Save',
-    },
-    {
-      content: 'View',
-      module: 'button',
-      name: 'viewInFAQ',
-    },
-  ],
-};
+export const ACTIONS = [
+  {
+    label: 'View',
+    onAction: () => console.log('View Stuff'),
+  },
+  {
+    label: 'Edit',
+    onAction: () => console.log('Do Stuff'),
+  },
+];

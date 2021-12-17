@@ -1,24 +1,38 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './Table.module.scss';
 
 import { Boundaries } from '../../system-components';
-import { ModuleContext } from '../../modules/context';
+import data from '@espressive/icons/arrow-down';
 
-const TableHeader = () => {
-  const { dataDisplay, modules } = useContext(ModuleContext);
+// Note that this component is memoized with a deep equal using Ramda. See export.
+const TableHeader = ({ dataDisplay, isRowActionable = false }) => {
+  const displayColumns = dataDisplay?.map((column) => {
+    // Check the configuration for each dataDisplay object in the array
+    if (
+      // Only warn during development
+      process.env.NODE_ENV === 'development' &&
+      // Make sure that the attribute is undefined
+      column.isLabeled !== undefined
+    ) {
+      console.warn(
+        'The dataDisplay configuration for "' +
+          column.attribute +
+          '" contains "isLabeled" which is not supported in Table.'
+      );
+    }
 
-  const displayColumns =
-    dataDisplay?.map((column) => (
+    return (
       <th className={styles.HeadCell} key={column.attribute}>
         {column.label}
       </th>
-    )) || [];
+    );
+  });
 
-  const actionSpacer = modules
-    ? [<th className={styles.HeadCell} key={'action-bar-slot'} />]
-    : [];
+  const actionColumn = isRowActionable && (
+    <th className={styles.HeadCell} key={'action-bar-slot'} />
+  );
 
-  const headerCells = [...displayColumns, ...actionSpacer];
+  const headerCells = [...displayColumns, actionColumn];
 
   return (
     <Boundaries>
