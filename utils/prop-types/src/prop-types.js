@@ -1,4 +1,5 @@
 import pt from 'prop-types';
+
 const customPropTypes = {
   /** Can render as a different type of component */
   as: pt.oneOfType([pt.string, pt.elementType]),
@@ -11,5 +12,7 @@ const customPropTypes = {
   post: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   title: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
+
 const propTypes = { ...pt, ...customPropTypes };
+
 export default propTypes;

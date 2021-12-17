@@ -9,7 +9,7 @@
     "directory": "utils/prop-types"
   },
   "license": "MIT",
-  "author": "Rocio Baena rbaena@espressive.com",
+  "author": "Rocio Baena <rocio.baena@espressive.com>",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "files": [
@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "prepare": "echo 'No prepare scripts for this package'"
+    "prepare": "NODE_ENV=production yarn build"
   },
   "devDependencies": {
     "prop-types": "15.7.2"
