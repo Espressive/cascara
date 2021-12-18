@@ -1,8 +1,7 @@
 {
   "name": "@espressive/prop-types",
-  "version": "1.0.0",
-  "description": "Extended react custom props",
-  "homepage": "https://github.com/Espressive/cascara#readme",
+  "version": "0.1.0",
+  "description": "Espressive custom prop-types",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Espressive/cascara.git",
@@ -10,20 +9,16 @@
   },
   "license": "MIT",
   "author": "Rocio Baena <rocio.baena@espressive.com>",
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
+  "main": "src/index.js",
   "files": [
-    "dist"
+    "index.js",
+    "src"
   ],
   "scripts": {
-    "build": "yarn clean && yarn roll",
-    "clean": "rm -rf dist && rm -rf undefined",
-    "prepare": "NODE_ENV=production yarn build",
-    "roll": "rollup -c --failAfterWarnings"
+    "prepare": "echo 'No prepare scripts for this package'"
   },
   "devDependencies": {
-    "prop-types": "15.7.2",
-    "rollup": "2.50.6"
+    "prop-types": "15.7.2"
   },
   "peerDependencies": {
     "prop-types": "15.7.2"

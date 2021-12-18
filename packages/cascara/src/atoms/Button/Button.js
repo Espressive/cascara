@@ -1,13 +1,10 @@
 import classNames from 'classnames';
-import pt from 'prop-types';
+import pt from '@espressive/prop-types';
 import React, { forwardRef } from 'react';
 import { Button as ReakitButton } from 'reakit';
 import { InlineIcon } from '@iconify/react';
 import { getSafeLinkRel } from '../../lib/linkUtils';
 // import styles from './Button.module.scss';
-
-// this is just for visual testing purpose in the first round of this package
-// import { PropTypes as cpt } from '@espressive/prop-types';
 
 const cx = classNames;
 

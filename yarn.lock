@@ -2653,7 +2653,7 @@ __metadata:
     "@babel/runtime": 7.14.0
     "@espressive/icons": "workspace:0.2.1"
     "@espressive/legacy-css": "workspace:2.0.5"
-    "@espressive/prop-types": "*"
+    "@espressive/prop-types": "workspace:0.1.0"
     "@iconify-icons/ic": 1.1.5
     "@iconify/react": 1.1.4
     "@nivo/bar": 0.67.0
@@ -2745,12 +2745,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/prop-types@*, @espressive/prop-types@workspace:utils/prop-types":
+"@espressive/prop-types@workspace:0.1.0, @espressive/prop-types@workspace:utils/prop-types":
   version: 0.0.0-use.local
   resolution: "@espressive/prop-types@workspace:utils/prop-types"
   dependencies:
     prop-types: 15.7.2
-    rollup: 2.50.6
   peerDependencies:
     prop-types: 15.7.2
   languageName: unknown

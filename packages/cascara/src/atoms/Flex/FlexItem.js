@@ -1,12 +1,12 @@
 import React, { cloneElement } from 'react';
-import pt from 'prop-types';
+import pt from '@espressive/prop-types';
 import classnames from 'classnames/bind';
 import styles from './Flex.module.scss';
 
 const cx = classnames.bind(styles);
 
 const propTypes = {
-  children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  children: pt.children,
 
   // Item can fill remaining space of the container.
   grow: pt.bool,

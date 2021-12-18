@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames/bind';
-import pt from 'prop-types';
+import pt from '@espressive/prop-types';
 import styles from './Flex.module.scss';
 import FlexItem from './FlexItem';
 import { Role } from 'reakit/Role';
@@ -25,7 +25,7 @@ const getClassOptions = (options, prop, prefix) =>
 const propTypes = {
   as: pt.string,
 
-  children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
+  children: pt.children,
 
   // Sets vertical flow direction.
   column: pt.bool,
