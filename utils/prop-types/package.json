@@ -11,6 +11,7 @@
   "author": "Rocio Baena <rocio.baena@espressive.com>",
   "main": "src/index.js",
   "files": [
+    "index.js",
     "src"
   ],
   "scripts": {
@@ -21,5 +22,8 @@
   },
   "peerDependencies": {
     "prop-types": "15.7.2"
+  },
+  "engines": {
+    "node": "^10.12.0 || >=12.0.0"
   }
 }
