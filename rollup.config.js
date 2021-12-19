@@ -70,11 +70,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
   // Relative input location for Rollup to bundle from
-  const input = [
-    `${SOURCE_DIR}/src/index.js`,
-    `${SOURCE_DIR}/src/private.js`,
-    `${SOURCE_DIR}/../../utils/prop-types/src/index.js`,
-  ];
+  const input = [`${SOURCE_DIR}/src/index.js`, `${SOURCE_DIR}/src/private.js`];
 
   // Shared Rollup plugins
   const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
