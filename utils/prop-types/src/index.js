@@ -9,6 +9,4 @@ const customPropTypes = {
 };
 
 // This extend all the propTypes from react prop-types plus the new ones that Espressive suports
-const propTypes = { ...pt, ...customPropTypes };
-
-export default propTypes;
+export const propTypes = { ...pt, ...customPropTypes };

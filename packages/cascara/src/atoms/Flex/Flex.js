@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames/bind';
-import pt from '@espressive/prop-types';
+import { propTypes as pt } from '@espressive/prop-types';
 import styles from './Flex.module.scss';
 import FlexItem from './FlexItem';
 import { Role } from 'reakit/Role';

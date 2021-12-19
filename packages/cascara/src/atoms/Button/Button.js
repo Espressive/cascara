@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import pt from '@espressive/prop-types';
+import { propTypes as pt } from '@espressive/prop-types';
 import React, { forwardRef } from 'react';
 import { Button as ReakitButton } from 'reakit';
 import { InlineIcon } from '@iconify/react';

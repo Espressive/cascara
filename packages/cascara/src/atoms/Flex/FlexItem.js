@@ -1,5 +1,5 @@
 import React, { cloneElement } from 'react';
-import pt from '@espressive/prop-types';
+import { propTypes as pt } from '@espressive/prop-types';
 import classnames from 'classnames/bind';
 import styles from './Flex.module.scss';
 
