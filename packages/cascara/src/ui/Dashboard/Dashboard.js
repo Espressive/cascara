@@ -50,32 +50,35 @@ const Dashboard = ({ as = 'div', config, ...rest }) => {
     const key = rest?.title + widget || index;
     const Component = WIDGETS[widget];
 
-    return Component ? (
-      <Component {...rest} key={key} />
-    ) : (
-      // TODO: This should eventually become a message component for displaying helpful developer messages
-      <WidgetError
-        key={key}
-        message={
-          <>
-            <p>
-              <code>{widget}</code>
-              {' is not a valid value for '}
-              <code>widget</code>.
-            </p>
-            <p>
-              Try:{' '}
-              {widgetKeys.map((key, i) => (
-                <>
-                  <code key={key}>{key}</code>
-                  {widgetKeys.length > i + 1 && ', '}
-                </>
-              ))}
-            </p>
-          </>
-        }
-      />
-    );
+    // render null if no data
+    return rest.data && rest.data.length > 0 ? (
+      Component ? (
+        <Component {...rest} key={key} />
+      ) : (
+        // TODO: This should eventually become a message component for displaying helpful developer messages
+        <WidgetError
+          key={key}
+          message={
+            <>
+              <p>
+                <code>{widget}</code>
+                {' is not a valid value for '}
+                <code>widget</code>.
+              </p>
+              <p>
+                Try:{' '}
+                {widgetKeys.map((key, i) => (
+                  <>
+                    <code key={key}>{key}</code>
+                    {widgetKeys.length > i + 1 && ', '}
+                  </>
+                ))}
+              </p>
+            </>
+          }
+        />
+      )
+    ) : null;
   };
 
   return (
