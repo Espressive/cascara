@@ -62,9 +62,7 @@ module.exports = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
+  moduleDirectories: ['node_modules'],
 
   // An array of file extensions your modules use
   // moduleFileExtensions: [
@@ -78,6 +76,7 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
+    '^@espressive/prop-types$': '<rootDir>/utils/prop-types/src/index.js',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css|scss)$': 'identity-obj-proxy',
@@ -114,10 +113,10 @@ module.exports = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: undefined,
+  rootDir: '../',
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: ['../packages', '../utils'],
+  roots: ['<rootDir>/packages', '<rootDir>/utils'],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -128,13 +127,13 @@ module.exports = {
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',
-    '<rootDir>/setup.js',
+    '<rootDir>/.jest/setup.js',
   ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
 
-  snapshotResolver: '<rootDir>/snapshotResolver.js',
+  snapshotResolver: '<rootDir>/.jest/snapshotResolver.js',
 
   // The test environment that will be used for testing
   testEnvironment: 'jest-environment-jsdom-sixteen',
