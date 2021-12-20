@@ -8,5 +8,7 @@ const customPropTypes = {
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
 
+const propTypes = { ...pt, ...customPropTypes };
+
 // This extend all the propTypes from react prop-types plus the new ones that Espressive suports
-export const propTypes = { ...pt, ...customPropTypes };
+export default propTypes;

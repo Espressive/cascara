@@ -2745,9 +2745,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/prop-types@workspace:0.1.0, @espressive/prop-types@workspace:packages/prop-types":
+"@espressive/prop-types@workspace:0.1.0, @espressive/prop-types@workspace:utils/prop-types":
   version: 0.0.0-use.local
-  resolution: "@espressive/prop-types@workspace:packages/prop-types"
+  resolution: "@espressive/prop-types@workspace:utils/prop-types"
   dependencies:
     prop-types: 15.7.2
   peerDependencies:
