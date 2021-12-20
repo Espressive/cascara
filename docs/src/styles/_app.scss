@@ -2,14 +2,6 @@ html[data-layout='admin'] div#__next {
   --brand-primary-color: #b4104b;
 }
 
-a {
-  color: var(--brand-primary-color);
-  &:hover {
-    color: var(--brand-primary-color);
-    text-decoration: underline;
-  }
-}
-
 :not(pre) > code {
   padding: 0.125em 0.25em;
   border-radius: 0.25em;
@@ -50,10 +42,14 @@ dl {
   }
 }
 
+header,
 main {
-  & > div {
-    // max-width: 60em;
-    padding: 2em;
+  a {
+    color: var(--brand-primary-color);
+    &:hover {
+      color: var(--brand-primary-color);
+      text-decoration: underline;
+    }
   }
 
   img.right {

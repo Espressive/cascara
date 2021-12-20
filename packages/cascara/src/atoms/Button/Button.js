@@ -14,7 +14,7 @@ const propTypes = {
   /** Main content of the button */
   content: pt.string,
   /** Makes the button take the width of the parent container */
-  fluid: pt.string,
+  fluid: pt.bool,
   // An SVG Object, which will override the content
   icon: pt.shape({}),
   /** Sets the color type of the button to follow the theme brand color */

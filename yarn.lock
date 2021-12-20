@@ -2602,22 +2602,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^0.8.2":
-  version: 0.8.8
-  resolution: "@emotion/is-prop-valid@npm:0.8.8"
-  dependencies:
-    "@emotion/memoize": 0.7.4
-  checksum: bb7ec6d48c572c540e24e47cc94fc2f8dec2d6a342ae97bc9c8b6388d9b8d283862672172a1bb62d335c02662afe6291e10c71e9b8642664a8b43416cdceffac
-  languageName: node
-  linkType: hard
-
-"@emotion/memoize@npm:0.7.4":
-  version: 0.7.4
-  resolution: "@emotion/memoize@npm:0.7.4"
-  checksum: 4e3920d4ec95995657a37beb43d3f4b7d89fed6caa2b173a4c04d10482d089d5c3ea50bbc96618d918b020f26ed6e9c4026bbd45433566576c1f7b056c3271dc
-  languageName: node
-  linkType: hard
-
 "@eslint/eslintrc@npm:^0.4.3":
   version: 0.4.3
   resolution: "@eslint/eslintrc@npm:0.4.3"
@@ -9550,7 +9534,6 @@ __metadata:
     "@fluentui/react-northstar": 0.57.0
     current-git-branch: 1.1.0
     directory-tree: 2.2.4
-    framer-motion: 2.5.5
     gray-matter: 4.0.2
     next: 10.0.5
     next-mdx-remote: 1.0.0
@@ -11606,35 +11589,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:2.5.5":
-  version: 2.5.5
-  resolution: "framer-motion@npm:2.5.5"
-  dependencies:
-    "@emotion/is-prop-valid": ^0.8.2
-    framesync: ^4.0.4
-    hey-listen: ^1.0.8
-    popmotion: 9.0.0-rc.7
-    style-value-types: ^3.1.9
-    tslib: ^1.10.0
-  peerDependencies:
-    react: ^16.8
-    react-dom: ^16.8
-  dependenciesMeta:
-    "@emotion/is-prop-valid":
-      optional: true
-  checksum: 011157bb124d339c71fc79efffcdc4c0cc68a0a3d16db93e31405dd869fe5259ee33af81669f6286f2d9f890ac95d8f35ad4324633e2aafcfcae7918987e1e0b
-  languageName: node
-  linkType: hard
-
-"framesync@npm:^4.0.4":
-  version: 4.1.0
-  resolution: "framesync@npm:4.1.0"
-  dependencies:
-    hey-listen: ^1.0.5
-  checksum: 3caaddc32d3c8c4a5b0eacfb82d74aa63fc690765274ebbb8622555879aa713b36e8a557a917de4ae24d5f49e38f9c79459327493b071cec15a1fdea96601cea
-  languageName: node
-  linkType: hard
-
 "fresh@npm:0.5.2":
   version: 0.5.2
   resolution: "fresh@npm:0.5.2"
@@ -12540,13 +12494,6 @@ fsevents@~2.1.2:
   version: 1.1.0
   resolution: "hex-color-regex@npm:1.1.0"
   checksum: 44fa1b7a26d745012f3bfeeab8015f60514f72d2fcf10dce33068352456b8d71a2e6bc5a17f933ab470da2c5ab1e3e04b05caf3fefe3c1cabd7e02e516fc8784
-  languageName: node
-  linkType: hard
-
-"hey-listen@npm:^1.0.5, hey-listen@npm:^1.0.8":
-  version: 1.0.8
-  resolution: "hey-listen@npm:1.0.8"
-  checksum: 6bad60b367688f5348e25e7ca3276a74b59ac5a09b0455e6ff8ab7d4a9e38cd2116c708a7dcd8a954d27253ce1d8717ec891d175723ea739885b828cf44e4072
   languageName: node
   linkType: hard
 
@@ -17827,18 +17774,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"popmotion@npm:9.0.0-rc.7":
-  version: 9.0.0-rc.7
-  resolution: "popmotion@npm:9.0.0-rc.7"
-  dependencies:
-    framesync: ^4.0.4
-    hey-listen: ^1.0.8
-    style-value-types: ^3.1.9
-    tslib: ^1.10.0
-  checksum: d1765db9805227fc018ff5926b533a03851a3df29d55b183d89875db5a69e0b21478de67d8a56d0dc10b608d5a53bb68d767c7dfac75761ce3e5951f7b215bc7
-  languageName: node
-  linkType: hard
-
 "popper-max-size-modifier@npm:0.2.0":
   version: 0.2.0
   resolution: "popper-max-size-modifier@npm:0.2.0"
@@ -22284,16 +22219,6 @@ resolve@^2.0.0-next.3:
   dependencies:
     inline-style-parser: 0.1.1
   checksum: 4d7084015207f2a606dfc10c29cb5ba569f2fe8005551df7396110dd694d6ff650f2debafa95bd5d147dfb4ca50f57868e2a7f91bf5d11ef734fe7ccbd7abf59
-  languageName: node
-  linkType: hard
-
-"style-value-types@npm:^3.1.9":
-  version: 3.2.0
-  resolution: "style-value-types@npm:3.2.0"
-  dependencies:
-    hey-listen: ^1.0.8
-    tslib: ^1.10.0
-  checksum: 26cee764836641e4423572a9f559ef22ac0f7759c3defc5514bb0c6376047839d70dcb9395819af461d15f50b0f9a1a518be1ffcc81b3cce7ca37d0c63a2c6c8
   languageName: node
   linkType: hard
 
