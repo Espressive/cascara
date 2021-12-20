@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import { Button } from '@espressive/cascara';
+import Button from '../../atoms/Button';
 import { ACTION_SHAPE } from './__globals';
 
 const propTypes = {

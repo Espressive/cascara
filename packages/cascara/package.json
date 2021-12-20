@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@espressive/legacy-css": "workspace:2.0.5",
+    "@espressive/prop-types": "workspace:0.1.0",
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "11.2.1",

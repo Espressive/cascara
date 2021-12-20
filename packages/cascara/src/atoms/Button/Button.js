@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import pt from 'prop-types';
+import pt from '@espressive/prop-types';
 import React, { forwardRef } from 'react';
 import { Button as ReakitButton } from 'reakit';
 import { InlineIcon } from '@iconify/react';
@@ -14,7 +14,7 @@ const propTypes = {
   /** Main content of the button */
   content: pt.string,
   /** Makes the button take the width of the parent container */
-  fluid: pt.bool,
+  fluid: pt.string,
   // An SVG Object, which will override the content
   icon: pt.shape({}),
   /** Sets the color type of the button to follow the theme brand color */
