@@ -26,6 +26,7 @@
     "icons": "yarn workspace @espressive/icons",
     "postinstall": "yarn icons build",
     "lint": "eslint ./",
+    "prop-types": "yarn workspace @espressive/prop-types",
     "test": "jest -c ./.jest/config.js",
     "test:watch": "yarn test --watch",
     "validate-ci": "circleci config validate"
