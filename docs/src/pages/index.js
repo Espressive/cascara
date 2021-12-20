@@ -10,10 +10,6 @@ export default function Home({ source, frontMatter }) {
 }
 
 export async function getStaticProps() {
-  const {
-    version: cascaraVersion,
-  } = require('../../../packages/cascara/package');
-
   const fs = require('fs');
   const path = require('path');
   const matter = require('gray-matter');
@@ -44,7 +40,7 @@ export async function getStaticProps() {
   return {
     props: {
       branch: process.env?.GIT_BRANCH,
-      cascaraVersion,
+      cascaraVersion: process.env?.npm_package_version,
       frontMatter: data,
       mdxTree: getMDXTree(),
       posts,
