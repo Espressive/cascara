@@ -10,8 +10,6 @@ export default function Home({ source, frontMatter }) {
 }
 
 export async function getStaticProps() {
-  console.log(process.env.GIT_BRANCH);
-
   const fs = require('fs');
   const path = require('path');
   const matter = require('gray-matter');
