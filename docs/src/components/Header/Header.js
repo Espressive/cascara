@@ -22,7 +22,7 @@ const Header = ({ branch, cascaraVersion }) => {
                 <Tag content={cascaraVersion} />
               </a>
             )}
-            {branch && branch !== 'main' && (
+            {branch && branch !== 'main' && branch !== 'master' && (
               <a href={`https://github.com/Espressive/cascara/tree/${branch}`}>
                 <Tag content={branch} />
               </a>
