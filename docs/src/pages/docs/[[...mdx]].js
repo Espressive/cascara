@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import pt from 'prop-types';
 import hydrate from 'next-mdx-remote/hydrate';
 import Head from 'next/head';
-import { AnimatePresence, motion } from 'framer-motion';
 
 import { Tabs } from '../../components';
 import { postFilePaths, POSTS_PATH } from '../../lib/mdxUtils';
@@ -84,52 +83,32 @@ const Doc = ({ mdxDirSource }) => {
         )}
       </Head>
 
-      <AnimatePresence exitBeforeEnter>
-        <motion.div
-          animate={{ opacity: 1, scaleY: 1 }}
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0, scaleY: 0.75 }}
-          key={router.query.mdx}
-          style={{ transformOrigin: 'bottom' }}
-        >
-          {mdxDirSource.length > 1 && (
-            <Tabs>
-              {mdxDirSource.map((doc, i) => (
-                <Tabs.Tab
-                  as={{
-                    pathname: router.asPath.split('?')[0],
-                    query: { doc: i },
-                  }}
-                  content={doc?.frontmatter?.title || doc.fileName}
-                  href={{
-                    pathname: router.pathname,
-                    query: { doc: i },
-                  }}
-                  isActive={Number(router?.query?.doc) === i}
-                  key={i}
-                />
-              ))}
-            </Tabs>
-          )}
-        </motion.div>
-      </AnimatePresence>
+      {mdxDirSource.length > 1 && (
+        <Tabs>
+          {mdxDirSource.map((doc, i) => (
+            <Tabs.Tab
+              as={{
+                pathname: router.asPath.split('?')[0],
+                query: { doc: i },
+              }}
+              content={doc?.frontmatter?.title || doc.fileName}
+              href={{
+                pathname: router.pathname,
+                query: { doc: i },
+              }}
+              isActive={Number(router?.query?.doc) === i}
+              key={i}
+            />
+          ))}
+        </Tabs>
+      )}
 
-      <AnimatePresence exitBeforeEnter>
-        <motion.div
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          initial={{ opacity: 0 }}
-          key={JSON.stringify(router)}
-          style={{ maxWidth: '60em' }}
-        >
-          {activeSource?.frontmatter?.title && (
-            <h1>{activeSource.frontmatter.title}</h1>
-          )}
-          {activeSource?.frontmatter?.type === 'module' && MODULE_MESSAGE}
+      {activeSource?.frontmatter?.title && (
+        <h1>{activeSource.frontmatter.title}</h1>
+      )}
+      {activeSource?.frontmatter?.type === 'module' && MODULE_MESSAGE}
 
-          {mdxActive}
-        </motion.div>
-      </AnimatePresence>
+      {mdxActive}
     </>
   );
 };

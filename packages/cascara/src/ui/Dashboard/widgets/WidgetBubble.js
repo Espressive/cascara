@@ -22,7 +22,6 @@ const WidgetBubble = ({ data, indexBy = 'id', label = 'value', ...rest }) => {
   const CHART_CONFIG = {
     ...CHART_DEFAULTS,
     colorBy: indexBy,
-    colors: { scheme: CHART_DEFAULTS.colors },
     leavesOnly: true,
     margin: MARGIN_CONFIG,
     padding: 6,

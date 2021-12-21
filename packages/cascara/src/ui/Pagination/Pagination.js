@@ -4,10 +4,12 @@ import { LABELS, PAGINATION_OPTIONS, WARNING_STRINGS } from './__globals';
 import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import styles from './Pagination.module.scss';
 import Boundaries from '../../system-components/Boundaries';
-
+import { Role } from 'reakit/Role';
+import classnames from 'classnames/bind';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';
 
 const propTypes = {
+  as: pt.string,
   /** The state of the Pagination component from the usePaginationState hook */
   state: pt.exact({
     currentPage: pt.number,
@@ -19,7 +21,9 @@ const propTypes = {
   totalRecordCount: pt.number,
 };
 
-const Pagination = ({ totalRecordCount, state }) => {
+const cx = classnames.bind(styles);
+
+const Pagination = ({ as = 'div', totalRecordCount, state, ...rest }) => {
   // Destructure our state hook values
   const { currentPage, perPage, setCurrentPage, setPerPage } = state || {};
 
@@ -76,7 +80,7 @@ const Pagination = ({ totalRecordCount, state }) => {
 
   return (
     <Boundaries>
-      <div className={styles._}>
+      <Role {...rest} as={as} className={cx('_', rest.className)}>
         <div className='ui form'>
           <div className='inline fields'>
             {!isLoading && (
@@ -174,7 +178,7 @@ const Pagination = ({ totalRecordCount, state }) => {
             </div>
           </div>
         </div>
-      </div>
+      </Role>
     </Boundaries>
   );
 };

@@ -5,10 +5,12 @@ import styles from './Main.module.scss';
 import classNames from 'classnames/bind';
 import Loader from '../../../../private/Loader';
 import StructureMainTabs from './MainTabs';
+import { Role } from 'reakit/Role';
 
 const cx = classNames.bind(styles);
 
 const propTypes = {
+  as: pt.string,
   body: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
   drawer: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
@@ -32,6 +34,7 @@ const propTypes = {
 };
 
 const Main = ({
+  as = 'div',
   children,
   header,
   body,
@@ -40,10 +43,9 @@ const Main = ({
   links,
   ...rest
 }) => {
-  const { className, ...props } = rest;
   const tabs = useTabState();
   return (
-    <div className={styles.Main}>
+    <Role {...rest} as={as} className={cx('Main', rest.className)}>
       {header && <h2 className='ui header'>{header}</h2>}
       {links && (
         <TabList
@@ -64,7 +66,7 @@ const Main = ({
       )}
       {body && (
         <TabPanel
-          {...props}
+          {...rest}
           className={cx('ui segment', {
             attached: links && footer,
             'bottom attached': links && !footer,
@@ -84,7 +86,7 @@ const Main = ({
       {footer && (
         <div className='ui bottom attached secondary segment'>{footer}</div>
       )}
-    </div>
+    </Role>
   );
 };
 

@@ -6,17 +6,19 @@
 
 import {
   ActionStack,
-  Admin,
+  AdminStructure,
   Button,
-  Chat,
+  ChatMessages,
+  Columns,
   Dashboard,
-  Form,
+  FormOld,
   JsonPlaceholder,
   List,
   Pagination,
   Section,
-  Table,
+  TableOld,
   Tabs,
+  Title,
   usePaginationState,
 } from '@espressive/cascara';
 
@@ -26,12 +28,24 @@ import {
   ActionEditTable,
   ChatProvider,
   DataCheckbox,
+  DataColor,
+  DataDate,
+  DataDateTime,
   DataEmail,
+  DataFile,
+  DataImage,
+  DataMonth,
   DataNumber,
+  DataPassword,
   DataRadio,
+  DataRange,
   DataSelect,
+  DataTel,
   DataText,
   DataTextArea,
+  DataTime,
+  DataUrl,
+  DataWeek,
   ModuleProvider,
   ModuleSandbox,
 } from '@espressive/cascara/private';
@@ -47,21 +61,23 @@ const docsComponents = {
 
 const cascaraComponents = {
   ActionStack: (props) => <ActionStack {...props} />,
-  Admin: (props) => <Admin {...props} />,
+  AdminStructure: (props) => <AdminStructure {...props} />,
   Button: (props) => <Button {...props} />,
-  Chat: (props) => (
+  ChatMessages: (props) => (
     <ChatProvider>
-      <Chat {...props} />
+      <ChatMessages {...props} />
     </ChatProvider>
   ),
+  Columns: (props) => <Columns {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,
-  Form: (props) => <Form {...props} />,
+  FormOld: (props) => <FormOld {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   List: (props) => <List {...props} />,
   Pagination: (props) => <Pagination {...props} />,
   Section: (props) => <Section {...props} />,
-  Table: (props) => <Table {...props} />,
+  TableOld: (props) => <TableOld {...props} />,
   Tabs: (props) => <Tabs {...props} />,
+  Title: (props) => <Title {...props} />,
 };
 
 const privateComponents = {
@@ -69,12 +85,24 @@ const privateComponents = {
   ActionEdit: (props) => <ActionEdit {...props} />,
   ActionEditTable: (props) => <ActionEditTable {...props} />,
   DataCheckbox: (props) => <DataCheckbox {...props} />,
+  DataColor: (props) => <DataColor {...props} />,
+  DataDate: (props) => <DataDate {...props} />,
+  DataDateTime: (props) => <DataDateTime {...props} />,
   DataEmail: (props) => <DataEmail {...props} />,
+  DataFile: (props) => <DataFile {...props} />,
+  DataImage: (props) => <DataImage {...props} />,
+  DataMonth: (props) => <DataMonth {...props} />,
   DataNumber: (props) => <DataNumber {...props} />,
+  DataPassword: (props) => <DataPassword {...props} />,
   DataRadio: (props) => <DataRadio {...props} />,
+  DataRange: (props) => <DataRange {...props} />,
   DataSelect: (props) => <DataSelect {...props} />,
+  DataTel: (props) => <DataTel {...props} />,
   DataText: (props) => <DataText {...props} />,
   DataTextArea: (props) => <DataTextArea {...props} />,
+  DataTime: (props) => <DataTime {...props} />,
+  DataUrl: (props) => <DataUrl {...props} />,
+  DataWeek: (props) => <DataWeek {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
   ModuleSandbox: (props) => <ModuleSandbox {...props} />,
 };

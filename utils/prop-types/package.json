@@ -1,0 +1,26 @@
+{
+  "name": "@espressive/prop-types",
+  "version": "0.1.0",
+  "description": "Espressive custom prop-types",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Espressive/cascara.git",
+    "directory": "utils/prop-types"
+  },
+  "license": "MIT",
+  "author": "Rocio Baena <rocio.baena@espressive.com>",
+  "module": "src/index.js",
+  "files": [
+    "index.js",
+    "src"
+  ],
+  "scripts": {
+    "prepare": "echo 'No prepare scripts for this package'"
+  },
+  "devDependencies": {
+    "prop-types": "15.7.2"
+  },
+  "peerDependencies": {
+    "prop-types": "15.7.2"
+  }
+}

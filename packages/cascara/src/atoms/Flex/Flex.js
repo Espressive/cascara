@@ -1,8 +1,9 @@
 import React from 'react';
 import classnames from 'classnames/bind';
-import pt from 'prop-types';
+import pt from '@espressive/prop-types';
 import styles from './Flex.module.scss';
 import FlexItem from './FlexItem';
+import { Role } from 'reakit/Role';
 
 const cx = classnames.bind(styles);
 
@@ -22,8 +23,9 @@ const getClassOptions = (options, prop, prefix) =>
   );
 
 const propTypes = {
-  children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
-  className: pt.string,
+  as: pt.string,
+
+  children: pt.children,
 
   // Sets vertical flow direction.
   column: pt.bool,
@@ -39,22 +41,26 @@ const propTypes = {
 };
 
 const Flex = ({
+  as = 'div',
   children,
-  className,
   column = false,
   fluid = true,
   space = 'between',
   vAlign = 'start',
+  ...rest
 }) => {
-  const classList = cx(className, {
-    _: true,
+  const classList = cx('_', rest.className, {
     column: column,
     fluid: fluid,
     ...getClassOptions(spaceOptions, space, 'space'),
     ...getClassOptions(vAlignOptions, vAlign, 'vAlign'),
   });
 
-  return <div className={classList}>{children}</div>;
+  return (
+    <Role {...rest} as={as} className={classList}>
+      {children}
+    </Role>
+  );
 };
 
 Flex.propTypes = propTypes;

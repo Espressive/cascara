@@ -5,6 +5,7 @@ import { DEFAULT_TRIGGER, VIEW_CONFIG_PROP_TYPES } from './__globals';
 import ViewConfigItem from './ViewConfigItem';
 import styles from './ViewConfig.module.scss';
 import { DEFAULT_CASCARA_MODIFIERS } from '../../lib/popperModifiers';
+import { Clickable } from 'reakit/Clickable';
 
 const MemoViewConfigItem = memo(ViewConfigItem);
 
@@ -101,7 +102,8 @@ const ViewConfig = ({
 
           <div className='ui icon input'>
             {searchValue && (
-              <i
+              <Clickable
+                as='i'
                 className='close icon'
                 onClick={handleClearSearch}
                 onKeyDown={handleClearSearch}
