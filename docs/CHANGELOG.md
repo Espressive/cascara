@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.0.0
+
+### Minor Changes
+
+- 74dc6dc: feat(FDS-374): [Cascara] - Section and Title component MVP
+
+### Patch Changes
+
+- 74dc6dc: feat(FDS-373): [Columns] - Component mvp
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+- Updated dependencies [74dc6dc]
+  - @espressive/cascara@1.0.0
+
 ## 0.9.0
 
 ### Minor Changes
