@@ -34,12 +34,26 @@ const targetBranch = danger.github.pr.base.ref;
 const isCurrentDevelopOrMain = ['main', 'develop'].includes(currentBranch);
 const isTargetBranchDevelopOrMain = ['main', 'develop'].includes(targetBranch);
 
+// validate if the current and target branch are specifically main or develop
+const isTargetBranchMain = targetBranch === 'main';
+const isCurrentDevelop = targetBranch === 'develop';
+
 const shouldDangerCheckPR =
   isCurrentDevelopOrMain !== isTargetBranchDevelopOrMain;
 
+const isDevelopComparedToMain = isCurrentDevelop && isTargetBranchMain;
+
+// skip danger if current and target branch is main or develop
 if (!shouldDangerCheckPR) {
   message(
     `Dangerfile.js does not run when the current branch is ${currentBranch}`
+  );
+}
+
+// fail danger if the current branch is develop intented to be merged to main
+if (!isDevelopComparedToMain) {
+  fail(
+    'Do not target main directly from develop. A separate release branch is needed'
   );
 }
 // Evaluates the description to see if it contains a particular section
