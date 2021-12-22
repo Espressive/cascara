@@ -51,7 +51,7 @@ if (!shouldDangerCheckPR) {
 }
 
 // fail danger if the current branch is develop intented to be merged to main
-if (!isDevelopComparedToMain) {
+if (isDevelopComparedToMain) {
   fail(
     'Do not target main directly from develop. A separate release branch is needed'
   );
