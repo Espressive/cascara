@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataPassword display snapshot 1`] = `
+<div>
+  <div
+    class="TextArea"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="TextArea"
+      >
+        my long text
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataPassword editing snapshot 1`] = `
+<div>
+  <div
+    class="TextArea"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <textarea
+        class="Input"
+        id="Editing"
+        name="Editing"
+      >
+        my long text
+      </textarea>
+    </label>
+  </div>
+</div>
+`;
