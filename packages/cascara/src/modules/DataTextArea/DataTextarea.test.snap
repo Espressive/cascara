@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DataPassword display snapshot 1`] = `
+exports[`DataTextarea display snapshot 1`] = `
 <div>
   <div
     class="TextArea"
@@ -22,7 +22,7 @@ exports[`DataPassword display snapshot 1`] = `
 </div>
 `;
 
-exports[`DataPassword editing snapshot 1`] = `
+exports[`DataTextarea editing snapshot 1`] = `
 <div>
   <div
     class="TextArea"
