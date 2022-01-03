@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-
-import { act, renderHook } from '@testing-library/react-hooks';
 
 import { ModuleProvider } from '../context';
 
