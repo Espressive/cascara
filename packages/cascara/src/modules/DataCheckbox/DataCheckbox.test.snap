@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataCheckbox display snapshot 1`] = `
+<div>
+  <div
+    class="Checkbox"
+  >
+    <span>
+      <span
+        class="Input"
+        data-checked="true"
+      />
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataCheckbox editing snapshot 1`] = `
+<div>
+  <div
+    class="Checkbox"
+  >
+    <label
+      for="Editing"
+    >
+      <input
+        aria-checked="false"
+        class="Input"
+        id="Editing"
+        name="Editing"
+        type="checkbox"
+      />
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+    </label>
+  </div>
+</div>
+`;
