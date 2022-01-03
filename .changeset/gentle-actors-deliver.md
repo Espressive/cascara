@@ -2,4 +2,4 @@
 "@espressive/cascara": patch
 ---
 
-chore(FDS-38):[Tests]: Improve unit test for input text
+chore(FDS-38):[DataText]: Improve unit tests
