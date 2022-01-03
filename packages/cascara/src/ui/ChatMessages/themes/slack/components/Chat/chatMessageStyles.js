@@ -1,4 +1,4 @@
-import { isNil } from 'lodash';
+import { isNil } from 'ramda';
 import { chatMessageSlotClassNames } from '@fluentui/react-northstar';
 import {
   getBorderFocusStyles,
