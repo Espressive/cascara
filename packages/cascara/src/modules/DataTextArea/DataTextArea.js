@@ -6,6 +6,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
+import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -29,12 +30,17 @@ const DataTextArea = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
+  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
+    isLabeled,
+    label
+  );
 
   const renderEditing = (
-    <label htmlFor={label}>
+    <label htmlFor={setHtmlFor}>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
+        aria-label={setAriaLabel}
         as={TextareaAutosize}
         className={styles.Input}
         defaultValue={value}
@@ -48,7 +54,7 @@ const DataTextArea = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.TextArea} {...rest}>
         {value}
       </span>
     </span>
