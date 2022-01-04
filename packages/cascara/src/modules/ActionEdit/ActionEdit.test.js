@@ -69,7 +69,7 @@ describe('ActionEdit', () => {
     });
     test('should submit when click on save button', () => {
       fireEvent.click(screen.getByLabelText('Save'));
-      expect(handleSubmit).toHaveBeenCalledWith();
+      expect(handleSubmit).toHaveBeenCalled();
     });
     test('should call exit method if Cancel button is triggered', () => {
       const jsdomConfirm = window.confirm;
