@@ -1,26 +1,27 @@
 import React from 'react';
+import { filter, has } from 'ramda';
+import pt from 'prop-types';
 import styles from './Table.module.scss';
 
 import { Boundaries } from '../../system-components';
-import data from '@espressive/icons/arrow-down';
+import { useDeveloperMessage } from '../../hooks';
+
+const propTypes = {
+  dataDisplay: pt.arrayOf(pt.object),
+  isRowActionable: pt.bool,
+};
 
 // Note that this component is memoized with a deep equal using Ramda. See export.
 const TableHeader = ({ dataDisplay, isRowActionable = false }) => {
-  const displayColumns = dataDisplay?.map((column) => {
-    // Check the configuration for each dataDisplay object in the array
-    if (
-      // Only warn during development
-      process.env.NODE_ENV === 'development' &&
-      // Make sure that the attribute is undefined
-      column.isLabeled !== undefined
-    ) {
-      console.warn(
-        'The dataDisplay configuration for "' +
-          column.attribute +
-          '" contains "isLabeled" which is not supported in Table.'
-      );
-    }
+  // Make sure that none of our dataDisplay objects are using isLabeled
+  const isUsingInvalidLabel = filter(has('isLabeled'), dataDisplay).length;
 
+  useDeveloperMessage(
+    isUsingInvalidLabel,
+    `A dataDisplay configuration contains "isLabeled" which is not supported in Table.`
+  );
+
+  const displayColumns = dataDisplay?.map((column) => {
     return (
       <th className={styles.HeadCell} key={column.attribute}>
         {column.label}
@@ -42,5 +43,7 @@ const TableHeader = ({ dataDisplay, isRowActionable = false }) => {
     </Boundaries>
   );
 };
+
+TableHeader.propTypes = propTypes;
 
 export default TableHeader;

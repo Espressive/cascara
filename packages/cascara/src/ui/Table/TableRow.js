@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import pt from 'prop-types';
-import { equals } from 'ramda';
 import { Boundaries } from '../../system-components';
 import ModuleError from '../../modules/ModuleError';
 import RowProvider from './context/RowProvider';
@@ -11,6 +10,8 @@ import { dataModules } from '../../modules/ModuleKeys';
 const dataModuleOptions = Object.keys(dataModules);
 
 const propTypes = {
+  actions: pt.arrayOf(pt.object),
+  dataDisplay: pt.arrayOf(pt.object),
   // The data object which will be passed to modules for the row
   // eslint-disable-next-line react/forbid-prop-types -- Data can be any object
   rowData: pt.object.isRequired,
@@ -55,11 +56,11 @@ const TableRow = ({ rowData, dataDisplay, actions }) => {
           </td>
         );
       }),
-    [dataDisplay]
+    [dataDisplay, rowData]
   );
 
   const actionCell = actions && (
-    <td className={styles.CellActions}>
+    <td className={styles.CellActions} key='CellActionRow'>
       <ActionStack actions={actions} />
     </td>
   );

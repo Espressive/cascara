@@ -1,8 +1,15 @@
 import React from 'react';
+import pt from 'prop-types';
 import styles from './Table.module.scss';
 
 import { Boundaries } from '../../system-components';
 import TableRow from './TableRow';
+
+const propTypes = {
+  actions: pt.arrayOf(pt.object),
+  data: pt.arrayOf(pt.object),
+  dataDisplay: pt.arrayOf(pt.object),
+};
 
 const TableBody = ({ data, dataDisplay, actions }) => {
   return (
@@ -20,5 +27,7 @@ const TableBody = ({ data, dataDisplay, actions }) => {
     </Boundaries>
   );
 };
+
+TableBody.propTypes = propTypes;
 
 export default TableBody;

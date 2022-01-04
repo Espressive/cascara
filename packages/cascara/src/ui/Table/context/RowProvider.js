@@ -18,7 +18,7 @@ const RowProvider = ({ children, value }) => {
   const { rowData } = value;
   const recordId = rowData[uniqueIdAttribute];
 
-  console.log(recordId);
+  // console.log(recordId);
 
   // isEditing is based on wether the record ids are the same
   const isEditing = recordId === idOfRecordInEditMode;

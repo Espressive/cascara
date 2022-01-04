@@ -36,7 +36,7 @@ const TableBase = ({
           dataDisplay={dataDisplay}
           isRowActionable={Boolean(actions)}
         />
-        <TableBody data={data} dataDisplay={dataDisplay} actions={actions} />
+        <TableBody actions={actions} data={data} dataDisplay={dataDisplay} />
       </table>
     </TableProvider>
   );
