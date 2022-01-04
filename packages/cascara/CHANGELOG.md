@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- 74dc6dc: feat(FDS-331): [Table, Form, Message] - add 'Old' suffix to Table & Form to prepare for a hook-based API, and rename Chat to ChatMessages
+
+### Minor Changes
+
+- 74dc6dc: feat(FDS-374): [Cascara] - Section and Title component MVP
+
+### Patch Changes
+
+- 74dc6dc: feat(FDS-375): [Cascara] - Switch DOM node to Role instead
+- 74dc6dc: feat(FDS-313): [Cascara] - Update the existing color theme for Dashboard
+- 74dc6dc: fix(FDS-372): [ViewConfig] - allow spaces in attr search box
+- 74dc6dc: feat(FDS-373): [Columns] - Component mvp
+- 74dc6dc: feat(FDS-371): [Boundaries] - improve error fallback component
+- 74dc6dc: chore(FDS-93): [Build] - Remove DEV_MODE suffix for prod environment
+- 74dc6dc: feat(FDS-382): Stat component mvp
+- 74dc6dc: fix(FDS-397): [Table] - fix broken styles
+- 74dc6dc: chore(FDS-376): [@espressive/prop-types] - New custom prop-types package with additional, reusable prop typings. Updates select Cascara components to also use this new package.
+
 ## 0.9.0
 
 ### Minor Changes

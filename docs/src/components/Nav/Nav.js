@@ -47,7 +47,9 @@ const Nav = ({ mdxTree, posts }) => {
         const linkPath = `/${post.filePath.replace(/\.mdx?$/, '')}`;
 
         return {
-          label: formatLabel(post?.data?.title || post?.filePath),
+          label:
+            post?.data?.title ||
+            (post?.filePath && formatLabel(post?.filePath)),
           linkComponent: NavLinkNext,
           linkComponentProps: {
             href: linkPath,
@@ -58,27 +60,22 @@ const Nav = ({ mdxTree, posts }) => {
       }),
   };
 
-  // add tags!
   const mdxTreeSection = mdxTree
-    ? mdxTree
-        ?.filter((branch) => branch.size)
-        .map((item) => ({
-          label: formatLabel(item.name),
-          links: item?.children.map((child) => {
-            return {
-              label: child?.meta?.title || child.name,
-              linkComponent: NavLinkNext,
-              linkComponentProps: {
-                href: child.path.replace('../packages/cascara/src', '/docs'),
-                isActive: child.name === router?.query?.mdx?.[1],
-              },
-              post: child?.meta?.status && (
-                <Tag content={child?.meta?.status} />
-              ),
-            };
-          }),
-        }))
-    : [];
+    ?.filter((branch) => branch.size)
+    .map((item) => ({
+      label: formatLabel(item.name),
+      links: item?.children.map((child) => {
+        return {
+          label: child?.meta?.title || child.name,
+          linkComponent: NavLinkNext,
+          linkComponentProps: {
+            href: child.path.replace('../packages/cascara/src', '/docs'),
+            isActive: child.name === router?.query?.mdx?.[1],
+          },
+          post: child?.meta?.status && <Tag content={child?.meta?.status} />,
+        };
+      }),
+    }));
 
   const navLinks = [
     changeLogLink,
