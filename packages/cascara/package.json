@@ -1,7 +1,7 @@
 {
   "name": "@espressive/cascara",
   "version": "1.0.0",
-  "description": "Espressive's Cascara FDS",
+  "description": "Espressive's Functional Design System",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:Espressive/cascara.git",

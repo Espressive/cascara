@@ -1,13 +1,13 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.7.0
-  slack: circleci/slack@4.4.4
+  node: circleci/node@5.0.0
+  slack: circleci/slack@4.5.1
 
 parameters:
   installed-key:
     type: string
-    default: cascara-MONOREPO_INSTALLED-{{ .Revision }}-14
+    default: cascara-MONOREPO_INSTALLED-{{ .Revision }}
 
 aliases:
   - &is_main
@@ -43,7 +43,9 @@ jobs:
     <<: *job_executor
     steps:
       - checkout
-      - node/install-packages:
+      - node/install-packages: # https://circleci.com/developer/orbs/orb/circleci/node#commands-install-packages
+          cache-only-lockfile: true
+          check-cache: always # yarn berry zero installs
           override-ci-command: yarn install --immutable
           pkg-manager: yarn
       - run:
