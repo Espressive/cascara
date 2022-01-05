@@ -47,7 +47,7 @@ jobs:
           cache-only-lockfile: true
           check-cache: always # yarn berry zero installs
           cache-path: ./.yarn/cache
-          cache-version: v2
+          cache-version: v3
           pkg-manager: yarn-berry
       - run:
           name: Prepare Packages
