@@ -64,18 +64,25 @@ export default {
   dataWithDisplay: (
     <DataWithDisplay data={FIXTURE_DATA} dataDisplay={COLUMNS} />
   ),
-  dataWithActions: (
+  dataWithGenericActions: (
     <DataWithActions
       actions={ACTIONS}
       data={FIXTURE_DATA}
       dataDisplay={COLUMNS}
     />
   ),
-  unknownDataModule: (
+  dataWithModuleActions: (
+    <DataWithActions
+      actions={ACTIONS}
+      data={FIXTURE_DATA}
+      dataDisplay={COLUMNS}
+    />
+  ),
+  invalidDataModule: (
     <UnknownDataModules
       actions={ACTIONS}
       data={FIXTURE_DATA}
-      dataDisplay={[...COLUMNS, { attribute: 'eid', module: 'unknownModule' }]}
+      dataDisplay={[{ label: 'Invalid Module', module: 'cat' }, ...COLUMNS]}
     />
   ),
 };

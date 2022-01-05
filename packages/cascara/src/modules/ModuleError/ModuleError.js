@@ -5,22 +5,14 @@ import classnames from 'classnames/bind';
 
 const propTypes = {
   moduleName: pt.string.isRequired,
-  moduleOptions: pt.arrayOf(pt.object).isRequired,
 };
 
 const cx = classnames.bind(styles);
 
-const ModuleError = ({ moduleName, moduleOptions, ...rest }) => {
-  const message = `${moduleName} is not a valid value for module. Try using one of [${moduleOptions.join(
-    ', '
-  )}]`;
-
-  // eslint-disable-next-line no-console -- we need to display this error to develop
-  console.error(message);
-
+const ModuleError = ({ moduleName, ...rest }) => {
   return (
     <div className={cx('Error', rest.className)} data-testid={'module-error'}>
-      {message}
+      Invalid module. See prop-type error.
     </div>
   );
 };

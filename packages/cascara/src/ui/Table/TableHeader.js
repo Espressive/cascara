@@ -21,9 +21,9 @@ const TableHeader = ({ dataDisplay, isRowActionable = false }) => {
     `A dataDisplay configuration contains "isLabeled" which is not supported in Table.`
   );
 
-  const displayColumns = dataDisplay?.map((column) => {
+  const displayColumns = dataDisplay?.map((column, i) => {
     return (
-      <th className={styles.HeadCell} key={column.attribute}>
+      <th className={styles.HeadCell} key={column.attribute || i}>
         {column.label}
       </th>
     );

@@ -4,6 +4,8 @@ import { ACTION_SHAPE } from './__globals';
 import ButtonStack from './ButtonStack';
 import DropdownStack from './DropdownStack';
 import { Role } from 'reakit/Role';
+import { filter, has } from 'ramda';
+import { useDeveloperMessage } from '../../hooks';
 
 const propTypes = {
   /** An array of objects describing the actions */
@@ -16,6 +18,13 @@ const propTypes = {
 const ActionStack = ({ as = 'div', actions, dropdownIndex = 1, ...rest }) => {
   const buttonActions = actions?.slice(0, dropdownIndex);
   const dropdownActions = actions?.slice(dropdownIndex);
+
+  const isUsingDeprecatedOnClick = filter(has('onClick'), actions).length;
+
+  useDeveloperMessage(
+    isUsingDeprecatedOnClick,
+    'onClick has been deprecated for action objects and will be removed in a future release. Please use "handler" for any action objects.'
+  );
 
   return (
     <Role {...rest} as={as}>

@@ -23,14 +23,14 @@ const TableRow = ({ rowData, dataDisplay, actions }) => {
   // a ...rest spread of props
   const moduleCells = useMemo(
     () =>
-      dataDisplay.map(({ attribute, module, isEditable }) => {
+      dataDisplay.map(({ attribute, module, isEditable }, i) => {
         // use the 'module' property to define which of our modules to render in JSX
         const ModuleComponent = dataModules[module];
         // Use the `attribute` property to pick the value to display from our row data
         const moduleValue = rowData[attribute];
 
         return (
-          <td className={styles.Cell} key={attribute}>
+          <td className={styles.Cell} key={attribute || i}>
             {ModuleComponent ? (
               // Make sure we have a ModuleComponent actually defined to render
               <ModuleComponent

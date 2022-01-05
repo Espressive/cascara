@@ -12,8 +12,9 @@ export const DEFAULT_TRIGGER = (
 );
 
 export const ACTION_SHAPE = pt.shape({
+  handler: pt.func,
   label: pt.string,
-  onClick: pt.func,
+  onClick: pt.func, // deprecated
 });
 
 export const ACTION_STACK_PROP_TYPES = {

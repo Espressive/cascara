@@ -10,7 +10,7 @@ const data = {
   country: faker.address.countryCode(),
   date: faker.date.future(),
   department: faker.name.jobArea(),
-  eid: faker.random.uuid(),
+  eid: faker.datatype.uuid(),
   firstName: faker.name.firstName(),
   homePhone: faker.phone.phoneNumber(),
   lastName: faker.name.lastName(),
