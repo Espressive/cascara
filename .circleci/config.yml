@@ -46,7 +46,6 @@ jobs:
       - node/install-packages: # https://circleci.com/developer/orbs/orb/circleci/node#commands-install-packages
           cache-only-lockfile: true
           check-cache: always # yarn berry zero installs
-          cache-path: ~/.yarn/cache
           cache-version: v2
           pkg-manager: yarn-berry
       - run:
