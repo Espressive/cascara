@@ -46,9 +46,9 @@ jobs:
       - node/install-packages: # https://circleci.com/developer/orbs/orb/circleci/node#commands-install-packages
           cache-only-lockfile: true
           check-cache: always # yarn berry zero installs
+          cache-path: ~/.yarn/cache
           cache-version: v2
-          override-ci-command: yarn install --immutable
-          pkg-manager: yarn
+          pkg-manager: yarn-berry
       - run:
           name: Prepare Packages
           command: yarn workspaces foreach run prepare
