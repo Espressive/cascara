@@ -61,8 +61,7 @@
     "mutationobserver-shim": "0.3.7",
     "prop-types": "15.7.2",
     "rollup": "2.50.6",
-    "rollup-plugin-postcss": "4.0.0",
-    "semantic-ui-react": "2.0.3"
+    "rollup-plugin-postcss": "4.0.0"
   },
   "peerDependencies": {
     "@espressive/design-tokens": "*",
