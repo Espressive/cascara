@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Checkbox, useCheckboxState } from 'reakit/Checkbox';
 import pt from 'prop-types';
-
 import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
+import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -29,13 +29,18 @@ const DataCheckbox = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
+  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
+    isLabeled,
+    label
+  );
   const checkbox = useCheckboxState({ state: Boolean(value) });
 
   const renderEditing = (
-    <label htmlFor={label}>
+    <label htmlFor={setHtmlFor}>
       <Checkbox
         {...rest}
         {...checkbox}
+        aria-label={setAriaLabel}
         className={styles.Input}
         id={label}
         name={attribute || label}

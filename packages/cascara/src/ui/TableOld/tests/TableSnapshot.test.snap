@@ -12,7 +12,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           1a180380-fc30-4117-ae79-dac13fc0ef38
         </span>
@@ -27,7 +27,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           001Ruben01_Sync
         </span>
@@ -86,7 +86,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           2021-03-31T17:29:28.162758Z
         </span>
@@ -148,7 +148,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           1a180380-fc30-4117-ae79-dac13fc0ef38
         </span>
@@ -163,7 +163,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           001Ruben01_Sync
         </span>
@@ -222,7 +222,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           2021-03-31T17:29:28.162758Z
         </span>
@@ -256,7 +256,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           1a180380-fc30-4117-ae79-dac13fc0ef38
         </span>
@@ -271,7 +271,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           001Ruben01_Sync
         </span>
@@ -330,7 +330,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           2021-03-31T17:29:28.162758Z
         </span>
@@ -434,7 +434,7 @@ exports[`Table snapshot tests with actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           1a180380-fc30-4117-ae79-dac13fc0ef38
         </span>
@@ -449,7 +449,7 @@ exports[`Table snapshot tests with actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           001Ruben01_Sync
         </span>
@@ -508,7 +508,7 @@ exports[`Table snapshot tests with actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           2021-03-31T17:29:28.162758Z
         </span>
@@ -564,7 +564,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           1a180380-fc30-4117-ae79-dac13fc0ef38
         </span>
@@ -579,7 +579,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           001Ruben01_Sync
         </span>
@@ -638,7 +638,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           2021-03-31T17:29:28.162758Z
         </span>
@@ -694,7 +694,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           1a180380-fc30-4117-ae79-dac13fc0ef38
         </span>
@@ -709,7 +709,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           001Ruben01_Sync
         </span>
@@ -768,7 +768,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           2021-03-31T17:29:28.162758Z
         </span>
@@ -809,7 +809,7 @@ exports[`Table snapshot tests without actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           1a180380-fc30-4117-ae79-dac13fc0ef38
         </span>
@@ -824,7 +824,7 @@ exports[`Table snapshot tests without actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           001Ruben01_Sync
         </span>
@@ -883,7 +883,7 @@ exports[`Table snapshot tests without actions 1`] = `
     >
       <span>
         <span
-          class="Input"
+          class="Text"
         >
           2021-03-31T17:29:28.162758Z
         </span>

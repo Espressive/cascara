@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataText display snapshot 1`] = `
+<div>
+  <div
+    class="Text"
+  >
+    <span>
+      <span
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        class="Text"
+      >
+        my text value example
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`DataText editing snapshot 1`] = `
+<div>
+  <div
+    class="Text"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Input"
+        id="Editing"
+        name="Editing"
+        type="text"
+        value="my text value example"
+      />
+    </label>
+  </div>
+</div>
+`;
