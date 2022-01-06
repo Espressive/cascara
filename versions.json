@@ -1,0 +1,134 @@
+{
+  "changesets": [
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-255):[ActionButton]: Unit test for ActionButton",
+      "id": "empty-parrots-arrive"
+    },
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-33):[ActionEdit]: Create unit test for ActionEdit buttons",
+      "id": "empty-squids-clean"
+    },
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-38):[DataText]: Improve unit tests",
+      "id": "gentle-actors-deliver"
+    },
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-427): [peerDependencies] - add @espressive/prop-types as peerDependencies",
+      "id": "great-chefs-judge"
+    },
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-161): [useMemo] - Optimize portions of Cascara that can/should benefit from memoization",
+      "id": "late-apples-stare"
+    },
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-37):[DataTextArea]: Improve unit test for textarea",
+      "id": "popular-jeans-doubt"
+    },
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-329): [DataCheckbox]: Improve unit test for DataCheckbox",
+      "id": "shy-poets-flow"
+    },
+    {
+      "releases": [
+        {
+          "name": "docs",
+          "type": "patch"
+        },
+        {
+          "name": "@espressive/eslint-config",
+          "type": "patch"
+        }
+      ],
+      "summary": "chore(FDS-399):[Node Update]: Update node engine version to 14.18.2",
+      "id": "tame-lobsters-obey"
+    },
+    {
+      "releases": [
+        {
+          "name": "@espressive/cascara",
+          "type": "patch"
+        }
+      ],
+      "summary": "feat(FDS-396): [Removed Lodash] - use ramda instead of lodash",
+      "id": "witty-numbers-hammer"
+    }
+  ],
+  "releases": [
+    {
+      "name": "@espressive/cascara",
+      "type": "patch",
+      "oldVersion": "1.0.0",
+      "changesets": [
+        "empty-parrots-arrive",
+        "empty-squids-clean",
+        "gentle-actors-deliver",
+        "great-chefs-judge",
+        "late-apples-stare",
+        "popular-jeans-doubt",
+        "shy-poets-flow",
+        "witty-numbers-hammer"
+      ],
+      "newVersion": "1.0.1"
+    },
+    {
+      "name": "docs",
+      "type": "patch",
+      "oldVersion": "1.0.0",
+      "changesets": [
+        "tame-lobsters-obey"
+      ],
+      "newVersion": "1.0.1"
+    },
+    {
+      "name": "@espressive/eslint-config",
+      "type": "patch",
+      "oldVersion": "2.0.0",
+      "changesets": [
+        "tame-lobsters-obey"
+      ],
+      "newVersion": "2.0.1"
+    }
+  ]
+}
