@@ -56,10 +56,10 @@
   "prettier": "@bjeco/prettier-config",
   "resolutions": {
     "ast-types": "^0.14.0",
-    "react-spring": "npm:@react-spring/web@^9.1.2"
+    "react-spring": "npm:@react-spring/web@9.4.1"
   },
   "dependencies": {
-    "react-spring": "npm:@react-spring/web@^9.1.2"
+    "react-spring": "npm:@react-spring/web@9.4.1"
   },
   "devDependencies": {
     "@babel/core": "7.14.3",
