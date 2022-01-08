@@ -24,6 +24,8 @@ const propTypes = {
   ...TitlePT,
 };
 
+const componentName = 'Section';
+
 const Section = ({
   as = DEFAULT_AS_TAG,
   isBasic,
@@ -42,6 +44,7 @@ const Section = ({
       className={cx('Section', rest.className, {
         isBasic,
       })}
+      data-component={componentName}
     >
       {title && (
         <Title

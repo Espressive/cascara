@@ -9,10 +9,17 @@ const propTypes = {
   data: pt.arrayOf(pt.shape(listItemPropTypes)),
 };
 
+const componentName = 'List';
 const List = ({ data, ...rest }) => {
   const compositeState = useCompositeState();
   return (
-    <Composite {...rest} className={styles._} {...compositeState} as='ul'>
+    <Composite
+      {...rest}
+      className={styles._}
+      {...compositeState}
+      as='ul'
+      data-component={componentName}
+    >
       {!data ? (
         <div className='ui basic segment' style={{ minHeight: '4rem' }}>
           <div className='ui active inverted dimmer'>

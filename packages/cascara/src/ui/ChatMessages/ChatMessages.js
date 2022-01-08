@@ -37,6 +37,8 @@ const propTypes = {
   }),
 };
 
+const componentName = 'ChatMessages';
+
 // TODO: Set a loading state if no messages are passed yet
 const ChatMessages = ({ sessionUserID, messages, users }) => {
   // The latestMessageRef is always assigned to the
@@ -114,7 +116,7 @@ const ChatMessages = ({ sessionUserID, messages, users }) => {
       <Provider
         theme={messages ? { animations } : { animations, ...loadingTheme }}
       >
-        <FUIChat items={items} />
+        <FUIChat data-component={componentName} items={items} />
       </Provider>
     </Boundaries>
   );
