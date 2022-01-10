@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- 2692652: chore(FDS-399):[Node Update]: Update node engine version to 14.18.2
+
 ## 2.0.0
 
 ### Major Changes
