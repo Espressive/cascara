@@ -135,5 +135,6 @@
   "engines": {
     "node": "14.x",
     "yarn": "3.x"
-  }
+  },
+  "packageManager": "yarn@3.1.1"
 }
