@@ -1,2 +1,27 @@
-/.gitignore
-*.flock
+.DS_Store
+.env
+app-tests/**/yarn.lock
+build
+cjs
+coverage
+dist
+es
+lerna-debug.log
+node_modules
+undefined
+yarn-error.log
+versions.json
+.vercel
+.npmrc
+
+# Zero install ignore config: https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Ignore all JS files in the root of icons
+packages/icons/*.js
