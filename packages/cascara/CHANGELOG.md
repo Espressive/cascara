@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- 2692652: chore(FDS-255):[ActionButton]: Unit test for ActionButton
+- 2692652: chore(FDS-33):[ActionEdit]: Create unit test for ActionEdit buttons
+- 2692652: chore(FDS-38):[DataText]: Improve unit tests
+- 2692652: chore(FDS-427): [peerDependencies] - add @espressive/prop-types as peerDependencies
+- 2692652: chore(FDS-161): [useMemo] - Optimize portions of Cascara that can/should benefit from memoization
+- 2692652: chore(FDS-37):[DataTextArea]: Improve unit test for textarea
+- 2692652: chore(FDS-329): [DataCheckbox]: Improve unit test for DataCheckbox
+- 2692652: feat(FDS-396): [Removed Lodash] - use ramda instead of lodash
+
 ## 1.0.0
 
 ### Major Changes
