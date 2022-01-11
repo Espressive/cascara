@@ -18,11 +18,7 @@ const ModuleError = ({ moduleName, moduleOptions, ...rest }) => {
   // eslint-disable-next-line no-console -- we need to display this error to develop
   console.error(message);
 
-  return (
-    <div className={cx('Error', rest.className)} data-testid={'module-error'}>
-      {message}
-    </div>
-  );
+  return <div className={cx('Error', rest.className)}>{message}</div>;
 };
 
 ModuleError.propTypes = propTypes;
