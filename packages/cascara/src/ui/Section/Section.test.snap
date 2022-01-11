@@ -4,6 +4,7 @@ exports[`section snapshot tests 1`] = `
 <div>
   <section
     class="Section isBasic"
+    data-component="Section"
   >
     <div
       class="_ _ fluid space-start vAlign-start"
@@ -45,6 +46,7 @@ exports[`section snapshot tests 2`] = `
 <div>
   <section
     class="Section"
+    data-component="Section"
   >
     <div
       class="_ _ fluid space-start vAlign-start"
@@ -86,6 +88,7 @@ exports[`section snapshot tests 3`] = `
 <div>
   <section
     class="Section"
+    data-component="Section"
   />
 </div>
 `;
@@ -94,6 +97,7 @@ exports[`section snapshot tests 4`] = `
 <div>
   <section
     class="Section"
+    data-component="Section"
   >
     <h3
       class="Title"
@@ -112,6 +116,7 @@ exports[`section snapshot tests 5`] = `
 <div>
   <section
     class="Section"
+    data-component="Section"
   >
     <div
       class="_ _ fluid space-start vAlign-start"
@@ -139,6 +144,7 @@ exports[`section snapshot tests 6`] = `
 <div>
   <section
     class="Section"
+    data-component="Section"
   >
     <div
       class="_ _ fluid space-start vAlign-start"
@@ -170,6 +176,7 @@ exports[`section snapshot tests 7`] = `
 <div>
   <section
     class="Section"
+    data-component="Section"
   >
     <div
       class="_ _ fluid space-start vAlign-start"
@@ -206,6 +213,7 @@ exports[`section snapshot tests 8`] = `
 <div>
   <section
     class="Section"
+    data-component="Section"
   >
     <h3
       class="Title"

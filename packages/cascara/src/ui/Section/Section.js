@@ -42,6 +42,7 @@ const Section = ({
       className={cx('Section', rest.className, {
         isBasic,
       })}
+      data-component='Section'
     >
       {title && (
         <Title

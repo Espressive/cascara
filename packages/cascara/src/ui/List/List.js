@@ -12,7 +12,13 @@ const propTypes = {
 const List = ({ data, ...rest }) => {
   const compositeState = useCompositeState();
   return (
-    <Composite {...rest} className={styles._} {...compositeState} as='ul'>
+    <Composite
+      {...rest}
+      {...compositeState}
+      as='ul'
+      className={styles._}
+      data-component='List'
+    >
       {!data ? (
         <div className='ui basic segment' style={{ minHeight: '4rem' }}>
           <div className='ui active inverted dimmer'>
