@@ -5,16 +5,15 @@ import { createMemoryHistory } from 'history';
 
 import Button from '..';
 
+const buttonContent = 'Default Content';
 describe('Button', () => {
   describe('default', () => {
-    const testId = 'default';
-
     // We need a place to store the view for snapshot testing. This is not required when we are using `screen` directly from RTL.
     let view;
 
     beforeEach(() => {
       // Set the render container to our `view` so it is in scope for the snapshot test
-      view = render(<Button data-testid={testId} />).container;
+      view = render(<Button />).container;
     });
 
     test('renders without any props', () => {
@@ -22,7 +21,7 @@ describe('Button', () => {
     });
 
     test('renders a <button> by default', () => {
-      const button = screen.getByTestId(testId);
+      const button = screen.getByText(buttonContent);
       // Make sure the actual DOM element type is BUTTON
       expect(button.tagName).toMatch('BUTTON');
       // Check that we also use the correct type for accessibility
@@ -37,11 +36,10 @@ describe('Button', () => {
       test('has correct a11y attributes', () => {
         const props = {
           as: 'div',
-          'data-testid': 'as-div',
         };
         render(<Button {...props} />);
 
-        const button = screen.getByTestId(props['data-testid']);
+        const button = screen.getByText(buttonContent);
 
         // Should not have a type anymore, but SHOULD have a role
         expect(button).not.toHaveAttribute('type');
@@ -53,13 +51,12 @@ describe('Button', () => {
       test('has correct a11y attributes', () => {
         const props = {
           as: 'a',
-          'data-testid': 'as-anchor',
           href: 'https://google.com',
         };
 
         render(<Button {...props} />);
 
-        const button = screen.getByTestId(props['data-testid']);
+        const button = screen.getByText(buttonContent);
 
         // Should not have either role or type if we render an anchor
         expect(button).not.toHaveAttribute('type');
@@ -71,14 +68,13 @@ describe('Button', () => {
       test('has secure rel attribute for external links', () => {
         const props = {
           as: 'a',
-          'data-testid': 'as-anchor-target',
           href: 'https://google.com',
           target: '_blank',
         };
 
         render(<Button {...props} />);
 
-        const button = screen.getByTestId(props['data-testid']);
+        const button = screen.getByText(buttonContent);
 
         // Make sure we render the target
         expect(button).toHaveAttribute('target', props.target);
@@ -91,7 +87,6 @@ describe('Button', () => {
       test('renders a React component', () => {
         const props = {
           as: Link,
-          'data-testid': 'as-component',
           to: '/users',
         };
 
@@ -103,7 +98,7 @@ describe('Button', () => {
           </Router>
         );
 
-        const button = screen.getByTestId(props['data-testid']);
+        const button = screen.getByText(buttonContent);
 
         // Make sure this renders a link (from the Link component)
         expect(button.tagName).toMatch('A');

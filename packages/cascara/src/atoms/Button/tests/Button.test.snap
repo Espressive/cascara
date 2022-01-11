@@ -4,7 +4,6 @@ exports[`Button default renders without any props 1`] = `
 <div>
   <button
     class="basic ui button"
-    data-testid="default"
     type="button"
   >
     Default Content

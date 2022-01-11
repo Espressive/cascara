@@ -5,6 +5,7 @@ import { ModuleContext } from '../context';
 import styles from '../DataModule.module.scss';
 
 import ModuleErrorBoundary from '../ModuleErrorBoundary';
+import getAccessibleLabelSetters from '../helpers';
 
 const propTypes = {
   /** A module can have an Attribute, which will be used as form field name */
@@ -28,13 +29,17 @@ const DataDate = ({
   ...rest
 }) => {
   const { isEditing, formMethods } = useContext(ModuleContext);
+  const { setAriaLabel, setHtmlFor } = getAccessibleLabelSetters(
+    isLabeled,
+    label
+  );
 
   const renderEditing = (
-    <label htmlFor={label}>
+    <label htmlFor={setHtmlFor}>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
       <Input
         {...rest}
-        aria-label={label}
+        aria-label={setAriaLabel}
         className={styles.Input}
         defaultValue={value}
         id={label}
@@ -48,7 +53,7 @@ const DataDate = ({
   const renderDisplay = (
     <span>
       {label && isLabeled && <span className={styles.LabelText}>{label}</span>}
-      <span className={styles.Input} {...rest}>
+      <span aria-label={label} className={styles.Date} {...rest}>
         {value}
       </span>
     </span>
@@ -57,7 +62,7 @@ const DataDate = ({
   // Do not render an editable input if the module is not editable
   return (
     <ModuleErrorBoundary>
-      <div className={styles.Text}>
+      <div className={styles.Date}>
         {isEditing && isEditable ? renderEditing : renderDisplay}
       </div>
     </ModuleErrorBoundary>
