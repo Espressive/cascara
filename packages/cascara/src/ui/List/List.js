@@ -15,8 +15,8 @@ const List = ({ data, ...rest }) => {
   return (
     <Composite
       {...rest}
-      className={styles._}
       {...compositeState}
+      className={styles._}
       as='ul'
       data-component={componentName}
     >
