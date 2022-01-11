@@ -21,8 +21,6 @@ const propTypes = {
   style: pt.shape(pt.object),
 };
 
-const componentName = 'Columns';
-
 const Columns = ({
   as = 'div',
   count = 'auto',
@@ -46,7 +44,7 @@ const Columns = ({
     <Boundaries>
       <Role
         className={cx('Columns', className)}
-        data-component={componentName}
+        data-component='Columns'
         style={mergedStyle}
         {...rest}
       >

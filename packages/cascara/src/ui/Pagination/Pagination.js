@@ -22,7 +22,6 @@ const propTypes = {
 };
 
 const cx = classnames.bind(styles);
-const componentName = 'Pagination';
 
 const Pagination = ({ as = 'div', totalRecordCount, state, ...rest }) => {
   // Destructure our state hook values
@@ -85,7 +84,7 @@ const Pagination = ({ as = 'div', totalRecordCount, state, ...rest }) => {
         {...rest}
         as={as}
         className={cx('_', rest.className)}
-        data-component={componentName}
+        data-component='Pagination'
       >
         <div className='ui form'>
           <div className='inline fields'>

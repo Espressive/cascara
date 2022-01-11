@@ -13,13 +13,12 @@ const propTypes = {
   dropdownIndex: pt.number,
 };
 
-const componentName = 'ActionStack';
 const ActionStack = ({ as = 'div', actions, dropdownIndex = 1, ...rest }) => {
   const buttonActions = actions?.slice(0, dropdownIndex);
   const dropdownActions = actions?.slice(dropdownIndex);
 
   return (
-    <Role {...rest} as={as} data-component={componentName}>
+    <Role {...rest} as={as} data-component='ActionStack'>
       {buttonActions && <ButtonStack actions={buttonActions} />}
       {dropdownActions && <DropdownStack actions={dropdownActions} />}
     </Role>

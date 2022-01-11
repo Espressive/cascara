@@ -13,8 +13,6 @@ import TableBodyOld from './TableBody';
 // NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
 const UUID_PRIORITY_KEYS = ['eid', 'uuid', 'id', 'sys_date_created', 'number'];
 
-const componentName = 'Table';
-
 const inferUniqueID = (objectKeys) => {
   for (const key of UUID_PRIORITY_KEYS) {
     if (objectKeys.includes(key)) {
@@ -194,7 +192,7 @@ const TableBaseOld = ({
     >
       <table
         className={styles.TableOld}
-        data-component={componentName}
+        data-component='Table'
         style={{
           gridTemplateColumns: `repeat(${columnCount}, auto)`,
         }}

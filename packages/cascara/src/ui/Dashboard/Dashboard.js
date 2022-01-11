@@ -45,8 +45,6 @@ const propTypes = {
 
 const cx = classnames.bind(styles);
 
-const componentName = 'Dashboard';
-
 const Dashboard = ({ as = 'div', config, ...rest }) => {
   const renderWidget = ({ widget, ...rest }, index) => {
     const key = rest?.title + widget || index;
@@ -86,7 +84,7 @@ const Dashboard = ({ as = 'div', config, ...rest }) => {
         {...rest}
         as={as}
         className={cx('Dashboard', rest.className)}
-        data-component={componentName}
+        data-component='Dashboard'
       >
         {config ? (
           config.map((widget) => renderWidget(widget))

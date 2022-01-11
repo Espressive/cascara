@@ -24,8 +24,6 @@ const propTypes = {
 
 const cx = classNames.bind(styles);
 
-const componentName = 'Stat';
-
 const Stat = ({ as, className, fluid, onClick, label, value, sub }) => {
   const StatComponent = onClick ? Clickable : Role;
 
@@ -47,7 +45,7 @@ const Stat = ({ as, className, fluid, onClick, label, value, sub }) => {
         Clickable: Boolean(onClick),
         Fluid: fluid,
       })}
-      data-component={componentName}
+      data-component='Stat'
       disabled={!onClick}
       focusable={Boolean(onClick)}
       key={label}
