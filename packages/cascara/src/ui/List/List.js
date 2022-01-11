@@ -14,9 +14,9 @@ const List = ({ data, ...rest }) => {
   return (
     <Composite
       {...rest}
-      className={styles._}
       {...compositeState}
       as='ul'
+      className={styles._}
       data-component='List'
     >
       {!data ? (
