@@ -45,6 +45,7 @@ const Stat = ({ as, className, fluid, onClick, label, value, sub }) => {
         Clickable: Boolean(onClick),
         Fluid: fluid,
       })}
+      data-component='Stat'
       disabled={!onClick}
       focusable={Boolean(onClick)}
       key={label}

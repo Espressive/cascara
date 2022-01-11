@@ -114,7 +114,7 @@ const ChatMessages = ({ sessionUserID, messages, users }) => {
       <Provider
         theme={messages ? { animations } : { animations, ...loadingTheme }}
       >
-        <FUIChat items={items} />
+        <FUIChat data-component='ChatMessages' items={items} />
       </Provider>
     </Boundaries>
   );
