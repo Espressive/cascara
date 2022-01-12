@@ -66,7 +66,7 @@ const external = (id) =>
   !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
-const getRollupConfig = ({ pwd, babelConfigFile }) => {
+const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
   const SOURCE_DIR = path.resolve(pwd);
 
   const HAS_CSS_ASSETS =
@@ -168,10 +168,10 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   };
 
   if (process.env.WATCH_MODE) {
-    return [cjsConfig, esConfig];
+    return isModule ? [cjsConfig] : [cjsConfig, esConfig];
   }
 
-  return [cjsConfig, esConfig];
+  return isModule ? [cjsConfig] : [cjsConfig, esConfig];
 };
 
 export default getRollupConfig;
