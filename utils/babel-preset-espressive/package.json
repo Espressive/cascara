@@ -13,7 +13,7 @@
     "src"
   ],
   "scripts": {
-    "prepare": "echo 'No prepare scripts for this package'"
+    "prepare": "echo 'No prepare scripts for babel-preset-espressive'"
   },
   "dependencies": {
     "@babel/cli": "7.12.1",
