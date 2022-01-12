@@ -9,13 +9,18 @@
   },
   "license": "MIT",
   "author": "Rocio Baena <rocio.baena@espressive.com>",
+  "main": "dist/index.js",
   "module": "src/index.js",
   "files": [
     "index.js",
     "src"
   ],
   "scripts": {
-    "prepare": "echo 'No prepare scripts for this package'"
+    "build": "yarn clean && yarn roll",
+    "clean": "rm -rf dist && rm -rf undefined",
+    "prepare": "NODE_ENV=production yarn build",
+    "roll": "rollup -c --failAfterWarnings",
+    "watch": "yarn roll -w"
   },
   "devDependencies": {
     "prop-types": "15.7.2"

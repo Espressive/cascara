@@ -5,6 +5,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import stringHash from 'string-hash';
 import cssUrl from 'postcss-url';
+import walkSync from 'walk-sync';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -67,13 +68,38 @@ const external = (id) =>
 // Pragmatically create a Rollup config for each package
 const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const SOURCE_DIR = path.resolve(pwd);
+
+  const HAS_CSS_ASSETS =
+    walkSync(SOURCE_DIR, {
+      globs: ['**/*.scss', '**/*.css'],
+    }).length > 0;
+
+  const HAS_PRIVATE_EXPORTS =
+    walkSync(SOURCE_DIR, {
+      globs: ['private.js'],
+    }).length > 0;
+
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
-  // Relative input location for Rollup to bundle from
-  const input = [`${SOURCE_DIR}/src/index.js`, `${SOURCE_DIR}/src/private.js`];
 
-  // Shared Rollup plugins
-  const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
+  // Relative input location for Rollup to bundle from
+  const input = [`${SOURCE_DIR}/src/index.js`];
+
+  if (HAS_PRIVATE_EXPORTS) {
+    input.push(`${SOURCE_DIR}/src/private.js`);
+  }
+
+  // Shared Rollup plugins for packages that contain assets like scss files
+  const withAssetPlugins = [
+    nodeResolve(),
+    postcss(getPostCSSOptions()),
+    json(),
+  ];
+
+  // Shared Rollup plugins for code-only packages
+  const codeOnlyPlugins = [nodeResolve(), json()];
+
+  const rollupPlugins = HAS_CSS_ASSETS ? withAssetPlugins : codeOnlyPlugins;
 
   // separate out our bundle into chunks based on section for now
   // const manualChunks = (id) => {
@@ -101,6 +127,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
+      exports: 'auto',
       format: 'cjs',
       // manualChunks,
       sourcemap: true,
@@ -124,6 +151,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     input,
     output: {
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
+      exports: 'auto',
       format: 'es',
       // manualChunks,
       sourcemap: true,
