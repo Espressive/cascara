@@ -3,7 +3,6 @@ import pt from 'prop-types';
 
 import { ModuleContext } from '../../../../modules/context';
 import { Button } from 'reakit';
-import { Icon } from 'semantic-ui-react';
 
 const propTypes = {
   cancelLabel: pt.string,
@@ -95,7 +94,7 @@ const ActionEdit = ({
         onClick={handleCancel}
         type='button'
       >
-        <Icon name='delete' />
+        <i className='delete icon' />
       </Button>
       <Button
         aria-label={saveLabel}
@@ -104,7 +103,7 @@ const ActionEdit = ({
         onClick={handleSubmit(onSubmit)}
         type='button'
       >
-        <Icon name='check' />
+        <i className='check icon' />
       </Button>
     </>
   ) : (

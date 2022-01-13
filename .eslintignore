@@ -1,5 +1,6 @@
 *.disabled.js
 *.framerfx
+app-tests
 build
 cjs
 coverage
