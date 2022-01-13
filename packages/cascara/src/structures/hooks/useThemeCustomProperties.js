@@ -67,10 +67,13 @@ const addCustomProperties = (color) => {
 const removeCustomProperties = () =>
   document.getElementById(STYLE_IDENTIFIER).remove();
 
-const useThemeCustomProperties = ({ color }) => {
+const useThemeCustomProperties = ({ color } = {}) => {
   useEffect(() => {
-    // Set our custom properties on mount or change of dependencies
-    addCustomProperties(color);
+    // It could be the theme color is not defined, in this case, there should not be any property expecting this value
+    if (color) {
+      // Set our custom properties on mount or change of dependencies
+      addCustomProperties(color);
+    }
 
     // Remove our custom properties on unmount
     return () => {
