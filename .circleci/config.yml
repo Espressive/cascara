@@ -47,8 +47,7 @@ jobs:
           name: Check Yarn version
           command: yarn -v
       - node/install-packages: # https://circleci.com/developer/orbs/orb/circleci/node#commands-install-packages
-          # cache-only-lockfile: true
-          # check-cache: always # enable for yarn berry zero installs
+          check-cache: detect
           cache-version: v10
           pkg-manager: yarn-berry
           # with-cache: true # enable for yarn berry zero installs
