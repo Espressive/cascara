@@ -68,6 +68,7 @@ const external = (id) =>
 // Pragmatically create a Rollup config for each package
 const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
   const SOURCE_DIR = path.resolve(pwd);
+  const PRIVATE_PATH = `${SOURCE_DIR}/src/private.js`;
 
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
@@ -76,9 +77,8 @@ const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
   const input = [`${SOURCE_DIR}/src/index.js`];
 
   // Not all packages have private exports
-  const HAS_PRIVATE_EXPORTS = fs.existsSync(path);
-  if (HAS_PRIVATE_EXPORTS) {
-    input.push(`${SOURCE_DIR}/src/private.js`);
+  if (fs.existsSync(PRIVATE_PATH)) {
+    input.push(PRIVATE_PATH);
   }
 
   // Shared Rollup plugins for code-only packages
