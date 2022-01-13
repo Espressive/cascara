@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import { babel } from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
@@ -5,7 +6,6 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 import stringHash from 'string-hash';
 import cssUrl from 'postcss-url';
-import walkSync from 'walk-sync';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -69,37 +69,28 @@ const external = (id) =>
 const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
   const SOURCE_DIR = path.resolve(pwd);
 
-  const HAS_CSS_ASSETS =
-    walkSync(SOURCE_DIR, {
-      globs: ['**/*.scss', '**/*.css'],
-    }).length > 0;
-
-  const HAS_PRIVATE_EXPORTS =
-    walkSync(SOURCE_DIR, {
-      globs: ['private.js'],
-    }).length > 0;
-
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
 
   // Relative input location for Rollup to bundle from
   const input = [`${SOURCE_DIR}/src/index.js`];
 
+  // Not all packages have private exports
+  const HAS_PRIVATE_EXPORTS = fs.existsSync(path);
   if (HAS_PRIVATE_EXPORTS) {
     input.push(`${SOURCE_DIR}/src/private.js`);
   }
 
-  // Shared Rollup plugins for packages that contain assets like scss files
-  const withAssetPlugins = [
-    nodeResolve(),
-    postcss(getPostCSSOptions()),
-    json(),
-  ];
-
   // Shared Rollup plugins for code-only packages
-  const codeOnlyPlugins = [nodeResolve(), json()];
+  const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
-  const rollupPlugins = HAS_CSS_ASSETS ? withAssetPlugins : codeOnlyPlugins;
+  // Gather info about the package
+  const IS_CJS = Boolean(pkgConfig?.main);
+  const IS_ESM = Boolean(pkgConfig?.module);
+  const TYPE = pkgConfig?.type;
+
+  // check if only ESM is part of the output
+  const ESM_ONLY = IS_CJS && !IS_ESM && TYPE === 'module';
 
   // separate out our bundle into chunks based on section for now
   // const manualChunks = (id) => {
@@ -126,7 +117,7 @@ const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
     external,
     input,
     output: {
-      dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
+      dir: `${SOURCE_DIR}/dist/cjs`,
       exports: 'auto',
       format: 'cjs',
       // manualChunks,
@@ -143,14 +134,12 @@ const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
     ],
   };
 
-  const pkgConfigModule = pkgConfig ? pkgConfig.module || '' : '';
-
   // Modules configuration
   const esConfig = {
     external,
     input,
     output: {
-      dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
+      dir: `${SOURCE_DIR}/dist/es`,
       exports: 'auto',
       format: 'es',
       // manualChunks,
@@ -168,10 +157,10 @@ const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
   };
 
   if (process.env.WATCH_MODE) {
-    return isModule ? [cjsConfig] : [cjsConfig, esConfig];
+    return ESM_ONLY ? [esConfig] : [cjsConfig, esConfig];
   }
 
-  return isModule ? [cjsConfig] : [cjsConfig, esConfig];
+  return ESM_ONLY ? [esConfig] : [cjsConfig, esConfig];
 };
 
 export default getRollupConfig;
