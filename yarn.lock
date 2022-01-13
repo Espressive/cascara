@@ -9537,6 +9537,7 @@ __metadata:
     "@espressive/cascara": "workspace:1.0.1"
     "@espressive/design-tokens": "workspace:0.1.5"
     "@espressive/legacy-css": "workspace:2.0.5"
+    "@espressive/prop-types": "workspace:1.0.0"
     "@fluentui/react-northstar": 0.57.0
     current-git-branch: 1.1.0
     directory-tree: 2.2.4
