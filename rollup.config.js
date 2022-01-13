@@ -86,7 +86,7 @@ const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
 
   // Gather info about the package
   const IS_CJS = Boolean(pkgConfig?.main);
-  const IS_ESM = Boolean(pkgConfig?.module);
+  const IS_ESM = pkgConfig?.type === 'module' || Boolean(pkgConfig?.module);
   const TYPE = pkgConfig?.type;
 
   // check if only ESM is part of the output
