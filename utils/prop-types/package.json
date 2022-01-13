@@ -13,8 +13,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "build": "yarn clean && yarn roll",
