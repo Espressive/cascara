@@ -49,6 +49,7 @@ jobs:
       - node/install-packages: # https://circleci.com/developer/orbs/orb/circleci/node#commands-install-packages
           check-cache: detect
           cache-version: v10
+          override-ci-command: yarn install --frozen-lockfile
           pkg-manager: yarn-berry
           # with-cache: true # enable for yarn berry zero installs
       - run:
