@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+- Updated dependencies [e3b7463c5]
+  - @espressive/cascara@2.0.0
+
 ## 1.0.1
 
 ### Patch Changes
