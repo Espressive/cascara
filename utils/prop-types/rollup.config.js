@@ -1,3 +1,3 @@
 import getRollupConfig from '../../rollup.config';
 
-export default getRollupConfig({ isModule: true, pwd: __dirname });
+export default getRollupConfig({ pwd: __dirname });
