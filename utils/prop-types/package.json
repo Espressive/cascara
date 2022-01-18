@@ -9,7 +9,6 @@
   },
   "license": "MIT",
   "author": "Rocio Baena <rocio.baena@espressive.com>",
-  "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
   "files": [
