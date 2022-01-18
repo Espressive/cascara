@@ -81,7 +81,7 @@ const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
     input.push(PRIVATE_PATH);
   }
 
-  // Shared Rollup plugins for code-only packages
+  // Shared Rollup plugins
   const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
   // Gather info about the package
