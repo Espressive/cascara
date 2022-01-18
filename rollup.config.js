@@ -66,7 +66,7 @@ const external = (id) =>
   !id.startsWith('\0') && !id.startsWith('.') && !id.startsWith('/');
 
 // Pragmatically create a Rollup config for each package
-const getRollupConfig = ({ pwd, babelConfigFile, isModule }) => {
+const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const SOURCE_DIR = path.resolve(pwd);
   const PRIVATE_PATH = `${SOURCE_DIR}/src/private.js`;
 
