@@ -1,6 +1,6 @@
 {
   "name": "@espressive/eslint-config",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Eslint config used by Espressive",
   "repository": {
     "type": "git",
