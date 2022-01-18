@@ -1,0 +1,45 @@
+---
+title: Button
+propTable: Button.js
+type: 'atoms'
+public: false
+---
+
+Accessible Button component that enables users to trigger an action or event. It follows the WAI-ARIA Button Pattern.
+
+## Usage
+
+### Default
+
+```jsx
+<Button content='Hello World' />
+```
+
+### Fluid
+
+```jsx
+<div>
+  <Button content='Fluid' fluid />
+  <button className='ui primary fluid button' type='button'>
+    Hello
+  </button>
+</div>
+```
+
+### Link
+
+```jsx
+<Button as='a' content='Link' href='https://google.com' target='_blank' />
+```
+
+### Negative
+
+```jsx
+<Button content='Negative' outcome='negative' />
+```
+
+### Positive
+
+```jsx
+<Button content='Positive' outcome='positive' />
+```
