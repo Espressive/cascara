@@ -67,7 +67,7 @@ const addCustomProperties = (color) => {
 const removeCustomProperties = () =>
   document.getElementById(STYLE_IDENTIFIER).remove();
 
-const useThemeCustomProperties = ({ color } = {}) => {
+const useThemeCustomProperties = ({ color }) => {
   useEffect(() => {
     // It could be the theme color is not defined, in this case, there should not be any property expecting this value
     if (color) {
