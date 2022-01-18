@@ -84,14 +84,6 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // Shared Rollup plugins
   const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
-  // Gather info about the package
-  const IS_CJS = Boolean(pkgConfig?.main);
-  const IS_ESM = pkgConfig?.type === 'module' || Boolean(pkgConfig?.module);
-  const TYPE = pkgConfig?.type;
-
-  // check if only ESM is part of the output
-  const ESM_ONLY = IS_CJS && !IS_ESM && TYPE === 'module';
-
   // separate out our bundle into chunks based on section for now
   // const manualChunks = (id) => {
   //   const CHUNK_SECTIONS = [
@@ -117,7 +109,11 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     external,
     input,
     output: {
-      dir: `${SOURCE_DIR}/dist/cjs`,
+      // We use the directory defined in the package.json to determine the output location
+      // instead of hard coding a path to output our files.
+      dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
+      // Even though the default for `export` here is 'auto' we for some reason need to explicitly define it for cjs with a default vs named export
+      exports: 'auto',
       format: 'cjs',
       // manualChunks,
       sourcemap: true,
@@ -133,12 +129,16 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     ],
   };
 
+  const pkgConfigModule = pkgConfig ? pkgConfig.module || '' : '';
+
   // Modules configuration
   const esConfig = {
     external,
     input,
     output: {
-      dir: `${SOURCE_DIR}/dist/es`,
+      // We use the directory defined in the package.json to determine the output location
+      // instead of hard coding a path to output our files.
+      dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
       // manualChunks,
       sourcemap: true,
@@ -155,10 +155,10 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   };
 
   if (process.env.WATCH_MODE) {
-    return ESM_ONLY ? [esConfig] : [cjsConfig, esConfig];
+    return [cjsConfig, esConfig];
   }
 
-  return ESM_ONLY ? [esConfig] : [cjsConfig, esConfig];
+  return [cjsConfig, esConfig];
 };
 
 export default getRollupConfig;
