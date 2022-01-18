@@ -106,7 +106,6 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
     </button>
     <div
       class="Error"
-      data-testid="module-error"
     >
       tequila is not a valid value for module. Try using one of [button, edit]
     </div>
@@ -342,7 +341,6 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
   >
     <div
       class="Error"
-      data-testid="module-error"
     >
       unknownModule is not a valid value for module. Try using one of [checkbox, color, date, datetime, email, file, image, json, month, number, password, radio, range, select, tel, text, textarea, time, url, week]
     </div>

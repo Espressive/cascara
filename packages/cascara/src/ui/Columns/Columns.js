@@ -42,7 +42,12 @@ const Columns = ({
 
   return (
     <Boundaries>
-      <Role className={cx('Columns', className)} style={mergedStyle} {...rest}>
+      <Role
+        className={cx('Columns', className)}
+        data-component='Columns'
+        style={mergedStyle}
+        {...rest}
+      >
         {children}
       </Role>
     </Boundaries>

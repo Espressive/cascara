@@ -80,7 +80,12 @@ const Pagination = ({ as = 'div', totalRecordCount, state, ...rest }) => {
 
   return (
     <Boundaries>
-      <Role {...rest} as={as} className={cx('_', rest.className)}>
+      <Role
+        {...rest}
+        as={as}
+        className={cx('_', rest.className)}
+        data-component='Pagination'
+      >
         <div className='ui form'>
           <div className='inline fields'>
             {!isLoading && (

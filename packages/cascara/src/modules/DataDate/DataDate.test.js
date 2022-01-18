@@ -1,59 +1,105 @@
-import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
-import DateDate from './DataDate';
-import { DisplayDataDate } from './DataDate.fixture';
+import cosmosFixtures, { displayProps, editingProps } from './DataDate.fixture';
 import testFixtures from '../helpers/ModuleTestHelper.fixture';
 
+// We cannot destructure during import because the default export in Cosmos
+// multi-fixture files is an object so we need to import the fixtures first,
+// then destructure them separately.
+const { display, editing, displayNoLabel, editingNoLabel } = cosmosFixtures;
 const { dateTest } = testFixtures;
 
 const VALUE = '2021-07-24';
 
-describe('Input Date', () => {
+describe('DataDate', () => {
   // without ModuleSandbox will render the property information into a span
-  describe('default', () => {
-    const testId = 'default';
-
+  describe('display', () => {
     // We need a place to store the view for snapshot testing. This is not required when we are using `screen` directly from RTL.
     let view;
 
     beforeEach(() => {
       // Set the render container to our `view` so it is in scope for the snapshot test
-      view = render(<DateDate data-testid={testId} />).container;
+      view = render(display).container;
     });
 
-    test('renders without any props', () => {
+    test('snapshot', () => {
       expect(view).toMatchSnapshot();
     });
 
     test('renders a <span> by default', () => {
-      const input = screen.getByTestId(testId);
+      const input = screen.getByLabelText(displayProps.label);
       // Make sure the actual DOM element is not render an input
       expect(input.tagName).toMatch('SPAN');
+      // Make sure the dom element that has our aria-label is the input
+      expect(input.classList.contains('Date')).toBe(true);
     });
   });
 
   describe('editing', () => {
-    // specifying ModuleSandbox will have the flag to render our input date field
-    const testId = 'default';
-    beforeEach(() =>
-      render(
-        <DisplayDataDate data-testid={testId} isEditing value={'2021-07-24'} />
-      )
-    );
+    // We need a place to store the view for snapshot testing. This is not required when we are using `screen` directly from RTL.
+    let view;
+
+    beforeEach(() => {
+      // Set the render container to our `view` so it is in scope for the snapshot test
+      view = render(editing).container;
+    });
+
+    test('snapshot', () => {
+      expect(view).toMatchSnapshot();
+    });
+
     test('renders a <input date> by default', () => {
-      const input = screen.getByTestId(testId);
-      // Check that we also use the correct type for accessibility
+      const input = screen.getByLabelText(editingProps.label);
+      // Check that we also use the correct type
       expect(input).toHaveAttribute('type', 'date');
       expect(input).toHaveValue(VALUE);
     });
 
     test('change value', () => {
-      const newDate = '2021-07-23';
-      const input = screen.getByTestId(testId);
-      userEvent.type(input, newDate);
+      const newDate = '2022-01-24';
+      const input = screen.getByLabelText(editingProps.label);
+      fireEvent.change(input, { target: { value: newDate } });
       expect(input).toHaveValue(newDate);
+    });
+  });
+
+  describe('accessibility', () => {
+    test('editing', () => {
+      render(editing);
+
+      const input = screen.getByLabelText(editingProps.label);
+      // The label tag is the parent wrapper
+      const label = input.closest('label');
+
+      // Test is written this way to make sure we know that both values need to be the same.
+      const linkedLabelValue = editingProps.label;
+
+      // Verify label for attribute has linked value
+      expect(label).toHaveAttribute(
+        'for',
+        expect.stringContaining(linkedLabelValue)
+      );
+      // Verify input id attribute has linked value
+      expect(input).toHaveAttribute(
+        'id',
+        expect.stringContaining(linkedLabelValue)
+      );
+      // Check that the input does NOT have an aria-label defined because there is a label tag
+      expect(input).not.toHaveAttribute('aria-label');
+    });
+
+    test('display no label', () => {
+      // Make sure that the input is still accessible with label text even when we are not showing a label tag in tables
+      render(displayNoLabel);
+      const input = screen.getByLabelText(displayProps.label);
+      expect(input).toBeDefined();
+    });
+
+    test('editing no label', () => {
+      // Make sure that the input is still accessible with label text even when we are not showing a label tag in tables
+      render(editingNoLabel);
+      const input = screen.getByLabelText(editingProps.label);
+      expect(input).toBeDefined();
     });
   });
 

@@ -18,7 +18,7 @@ const ActionStack = ({ as = 'div', actions, dropdownIndex = 1, ...rest }) => {
   const dropdownActions = actions?.slice(dropdownIndex);
 
   return (
-    <Role {...rest} as={as}>
+    <Role {...rest} as={as} data-component='ActionStack'>
       {buttonActions && <ButtonStack actions={buttonActions} />}
       {dropdownActions && <DropdownStack actions={dropdownActions} />}
     </Role>

@@ -17,10 +17,10 @@
     "react": "16.13.1",
     "react-docgen": "6.0.0-alpha.0",
     "react-dom": "16.13.1",
-    "react-live": "2.2.2",
-    "semantic-ui-react": "1.2.1"
+    "react-live": "2.2.2"
   },
   "devDependencies": {
+    "@espressive/prop-types": "workspace:1.0.0",
     "current-git-branch": "1.1.0",
     "directory-tree": "2.2.4",
     "gray-matter": "4.0.2",

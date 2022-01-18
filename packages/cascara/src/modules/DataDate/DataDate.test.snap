@@ -1,16 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input Date default renders without any props 1`] = `
+exports[`DataDate display snapshot 1`] = `
 <div>
   <div
-    class="Text"
+    class="Date"
   >
     <span>
       <span
-        class="Input"
-        data-testid="default"
-      />
+        class="LabelText"
+      >
+        Display
+      </span>
+      <span
+        aria-label="Display"
+        class="Date"
+      >
+        2021-07-24
+      </span>
     </span>
+  </div>
+</div>
+`;
+
+exports[`DataDate editing snapshot 1`] = `
+<div>
+  <div
+    class="Date"
+  >
+    <label
+      for="Editing"
+    >
+      <span
+        class="LabelText"
+      >
+        Editing
+      </span>
+      <input
+        class="Input"
+        id="Editing"
+        name="Editing"
+        type="date"
+        value="2021-07-24"
+      />
+    </label>
   </div>
 </div>
 `;

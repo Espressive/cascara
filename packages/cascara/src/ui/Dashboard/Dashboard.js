@@ -80,7 +80,12 @@ const Dashboard = ({ as = 'div', config, ...rest }) => {
 
   return (
     <Boundaries>
-      <Role {...rest} as={as} className={cx('Dashboard', rest.className)}>
+      <Role
+        {...rest}
+        as={as}
+        className={cx('Dashboard', rest.className)}
+        data-component='Dashboard'
+      >
         {config ? (
           config.map((widget) => renderWidget(widget))
         ) : (

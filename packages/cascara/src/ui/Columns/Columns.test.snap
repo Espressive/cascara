@@ -7,6 +7,7 @@ exports[`<Columns /> snapshot tests 1`] = `
   </p>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: auto;"
   >
     <div>
@@ -37,6 +38,7 @@ exports[`<Columns /> snapshot tests 2`] = `
   </p>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 3;"
   >
     <div>
@@ -56,6 +58,7 @@ exports[`<Columns /> snapshot tests n 1`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 3;"
   >
     <div>
@@ -75,6 +78,7 @@ exports[`<Columns /> snapshot tests n 2`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 4;"
   >
     <div>
@@ -97,6 +101,7 @@ exports[`<Columns /> snapshot tests n 3`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 5;"
   >
     <div>
@@ -122,6 +127,7 @@ exports[`<Columns /> snapshot tests n 4`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 6;"
   >
     <div>
@@ -150,6 +156,7 @@ exports[`<Columns /> snapshot tests n 5`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 7;"
   >
     <div>
@@ -181,6 +188,7 @@ exports[`<Columns /> snapshot tests n 6`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 8;"
   >
     <div>
@@ -215,6 +223,7 @@ exports[`<Columns /> snapshot tests n 7`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 9;"
   >
     <div>
@@ -252,6 +261,7 @@ exports[`<Columns /> snapshot tests n 8`] = `
 <div>
   <div
     class="Columns"
+    data-component="Columns"
     style="column-count: 10;"
   >
     <div>

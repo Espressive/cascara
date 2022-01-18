@@ -192,6 +192,7 @@ const TableBaseOld = ({
     >
       <table
         className={styles.TableOld}
+        data-component='TableOld'
         style={{
           gridTemplateColumns: `repeat(${columnCount}, auto)`,
         }}
