@@ -27,7 +27,7 @@ const propTypes = {
 
 const AdminStructure = ({ children, header, nav, theme = THEME_DEFAULTS }) => {
   useStructureName('Admin');
-  useThemeCustomProperties('');
+  useThemeCustomProperties(theme);
 
   return (
     <AdminProvider>
