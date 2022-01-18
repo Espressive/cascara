@@ -13,7 +13,7 @@
     "src"
   ],
   "scripts": {
-    "prepare": "echo 'No prepare scripts for this package'"
+    "prepare": "echo 'No prepare scripts for legacy-css'"
   },
   "publishConfig": {
     "access": "public",
