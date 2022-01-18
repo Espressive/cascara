@@ -76,7 +76,7 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   // Relative input location for Rollup to bundle from
   const input = [`${SOURCE_DIR}/src/index.js`];
 
-  // Not all packages have private exports
+  // If we have a private export, add it to our list of inputs
   if (fs.existsSync(PRIVATE_PATH)) {
     input.push(PRIVATE_PATH);
   }
@@ -118,7 +118,6 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     input,
     output: {
       dir: `${SOURCE_DIR}/dist/cjs`,
-      exports: 'auto',
       format: 'cjs',
       // manualChunks,
       sourcemap: true,
@@ -140,7 +139,6 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     input,
     output: {
       dir: `${SOURCE_DIR}/dist/es`,
-      exports: 'auto',
       format: 'es',
       // manualChunks,
       sourcemap: true,
