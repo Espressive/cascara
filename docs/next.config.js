@@ -1,6 +1,5 @@
 const withTM = require('next-transpile-modules')([
   '@espressive/cascara',
-  '@espressive/prop-types',
   '@espressive/icons',
 ]);
 const currentGitBranch = require('current-git-branch');
