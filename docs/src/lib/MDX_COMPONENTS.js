@@ -50,12 +50,13 @@ import {
   ModuleSandbox,
 } from '@espressive/cascara/private';
 
-import { Asciagram, Code, Placeholder } from '../components';
+import { Asciagram, Code, Placeholder, Rule } from '../components';
 
 const docsComponents = {
   Asciagram: (props) => <Asciagram {...props} />,
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
   Props: (props) => <Placeholder {...props} componentName='Props' />,
+  Rule: (props) => <Rule {...props} />,
   code: (props) => <Code {...props} />,
 };
 
