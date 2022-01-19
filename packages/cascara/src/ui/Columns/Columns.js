@@ -23,7 +23,7 @@ const propTypes = {
 
 const Columns = ({
   as = 'div',
-  count = 'auto',
+  count,
   children,
   className,
   style,
@@ -43,7 +43,7 @@ const Columns = ({
   return (
     <Boundaries>
       <Role
-        className={cx('Columns', className)}
+        className={cx('Columns', className, { fixed: Boolean(count) })}
         data-component='Columns'
         style={mergedStyle}
         {...rest}
