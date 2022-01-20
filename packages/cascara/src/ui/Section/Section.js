@@ -39,7 +39,7 @@ const Section = ({
     <Role
       {...rest}
       as={as}
-      className={cx('Section', rest.className, {
+      className={cx('_', rest.className, {
         isBasic,
       })}
       data-component='Section'

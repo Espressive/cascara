@@ -43,7 +43,7 @@ const Columns = ({
   return (
     <Boundaries>
       <Role
-        className={cx('Columns', className, { fixed: Boolean(count) })}
+        className={cx('_', className, { fixed: Boolean(count) })}
         data-component='Columns'
         style={mergedStyle}
         {...rest}

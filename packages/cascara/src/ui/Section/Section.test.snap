@@ -3,7 +3,7 @@
 exports[`section snapshot tests 1`] = `
 <div>
   <section
-    class="Section isBasic"
+    class="_ isBasic"
     data-component="Section"
   >
     <div
@@ -45,7 +45,7 @@ exports[`section snapshot tests 1`] = `
 exports[`section snapshot tests 2`] = `
 <div>
   <section
-    class="Section"
+    class="_"
     data-component="Section"
   >
     <div
@@ -87,7 +87,7 @@ exports[`section snapshot tests 2`] = `
 exports[`section snapshot tests 3`] = `
 <div>
   <section
-    class="Section"
+    class="_"
     data-component="Section"
   />
 </div>
@@ -96,7 +96,7 @@ exports[`section snapshot tests 3`] = `
 exports[`section snapshot tests 4`] = `
 <div>
   <section
-    class="Section"
+    class="_"
     data-component="Section"
   >
     <h3
@@ -115,7 +115,7 @@ exports[`section snapshot tests 4`] = `
 exports[`section snapshot tests 5`] = `
 <div>
   <section
-    class="Section"
+    class="_"
     data-component="Section"
   >
     <div
@@ -143,7 +143,7 @@ exports[`section snapshot tests 5`] = `
 exports[`section snapshot tests 6`] = `
 <div>
   <section
-    class="Section"
+    class="_"
     data-component="Section"
   >
     <div
@@ -175,7 +175,7 @@ exports[`section snapshot tests 6`] = `
 exports[`section snapshot tests 7`] = `
 <div>
   <section
-    class="Section"
+    class="_"
     data-component="Section"
   >
     <div
@@ -212,7 +212,7 @@ exports[`section snapshot tests 7`] = `
 exports[`section snapshot tests 8`] = `
 <div>
   <section
-    class="Section"
+    class="_"
     data-component="Section"
   >
     <h3
