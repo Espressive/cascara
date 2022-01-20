@@ -18,13 +18,16 @@ const Rule = ({ title, body, doImg, dontImg }) => {
         {dontImg && (
           <div className={styles.Dont}>
             <h6>Don&apos;t Do This</h6>
-            <Image alt='' src={dontImg} />
+            <Image
+              alt={`Incorrect usage example for: ${title}`}
+              src={dontImg}
+            />
           </div>
         )}
         {doImg && (
           <div className={styles.Do}>
             <h6>Do This</h6>
-            <Image alt='' src={doImg} />
+            <Image alt={`Correct usage example for: ${title}`} src={doImg} />
           </div>
         )}
       </Columns>
