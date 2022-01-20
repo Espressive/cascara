@@ -2,7 +2,7 @@
 // https://jestjs.io/docs/en/configuration.html
 
 // These packages are specifically esModules and we need to ignore them below in transformIgnorePatterns
-const esModules = ['@espressive/icons', '@espressive/prop-types'];
+const esModules = ['@espressive/icons'];
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
@@ -116,7 +116,7 @@ module.exports = {
   rootDir: '../',
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: ['<rootDir>/packages', '<rootDir>/utils'],
+  roots: ['<rootDir>/docs', '<rootDir>/packages', '<rootDir>/utils'],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",

@@ -6,9 +6,8 @@ exports[`<Columns /> snapshot tests 1`] = `
     This example shows the columns component without a \`count\` prop. That is, with default props.
   </p>
   <div
-    class="Columns"
+    class="_"
     data-component="Columns"
-    style="column-count: auto;"
   >
     <div>
       Column 1
@@ -37,7 +36,7 @@ exports[`<Columns /> snapshot tests 2`] = `
      prop, otherwise it will break the layout.
   </p>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 3;"
   >
@@ -57,7 +56,7 @@ exports[`<Columns /> snapshot tests 2`] = `
 exports[`<Columns /> snapshot tests n 1`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 3;"
   >
@@ -77,7 +76,7 @@ exports[`<Columns /> snapshot tests n 1`] = `
 exports[`<Columns /> snapshot tests n 2`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 4;"
   >
@@ -100,7 +99,7 @@ exports[`<Columns /> snapshot tests n 2`] = `
 exports[`<Columns /> snapshot tests n 3`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 5;"
   >
@@ -126,7 +125,7 @@ exports[`<Columns /> snapshot tests n 3`] = `
 exports[`<Columns /> snapshot tests n 4`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 6;"
   >
@@ -155,7 +154,7 @@ exports[`<Columns /> snapshot tests n 4`] = `
 exports[`<Columns /> snapshot tests n 5`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 7;"
   >
@@ -187,7 +186,7 @@ exports[`<Columns /> snapshot tests n 5`] = `
 exports[`<Columns /> snapshot tests n 6`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 8;"
   >
@@ -222,7 +221,7 @@ exports[`<Columns /> snapshot tests n 6`] = `
 exports[`<Columns /> snapshot tests n 7`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 9;"
   >
@@ -260,7 +259,7 @@ exports[`<Columns /> snapshot tests n 7`] = `
 exports[`<Columns /> snapshot tests n 8`] = `
 <div>
   <div
-    class="Columns"
+    class="_ fixed"
     data-component="Columns"
     style="column-count: 10;"
   >
