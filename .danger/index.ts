@@ -36,7 +36,7 @@ const isTargetBranchDevelopOrMain = ['main', 'develop'].includes(targetBranch);
 
 // validate if the current and target branch are specifically main or develop
 const isTargetBranchMain = targetBranch === 'main';
-const isCurrentDevelop = targetBranch === 'develop';
+const isCurrentDevelop = currentBranch === 'develop';
 
 const shouldDangerCheckPR =
   isCurrentDevelopOrMain !== isTargetBranchDevelopOrMain;

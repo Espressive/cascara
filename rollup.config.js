@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import { babel } from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
@@ -67,10 +68,18 @@ const external = (id) =>
 // Pragmatically create a Rollup config for each package
 const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const SOURCE_DIR = path.resolve(pwd);
+  const PRIVATE_PATH = `${SOURCE_DIR}/src/private.js`;
+
   // Get the package.json file
   const pkgConfig = require(`${SOURCE_DIR}/package.json`);
+
   // Relative input location for Rollup to bundle from
-  const input = [`${SOURCE_DIR}/src/index.js`, `${SOURCE_DIR}/src/private.js`];
+  const input = [`${SOURCE_DIR}/src/index.js`];
+
+  // If we have a private export, add it to our list of inputs
+  if (fs.existsSync(PRIVATE_PATH)) {
+    input.push(PRIVATE_PATH);
+  }
 
   // Shared Rollup plugins
   const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
@@ -100,7 +109,11 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     external,
     input,
     output: {
+      // We use the directory defined in the package.json to determine the output location
+      // instead of hard coding a path to output our files.
       dir: `${SOURCE_DIR}/${pkgConfig.main.replace('/index.js', '')}`,
+      // Even though the default for `export` here is 'auto' we for some reason need to explicitly define it for cjs with a default vs named export
+      exports: 'auto',
       format: 'cjs',
       // manualChunks,
       sourcemap: true,
@@ -123,6 +136,8 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
     external,
     input,
     output: {
+      // We use the directory defined in the package.json to determine the output location
+      // instead of hard coding a path to output our files.
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
       // manualChunks,
