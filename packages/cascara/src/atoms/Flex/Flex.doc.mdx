@@ -1,0 +1,57 @@
+---
+title: Flex
+propTable: Flex.js
+type: 'Atoms'
+public: false
+---
+
+The Flex component will create a container with the css flex properties.
+
+## Usage
+
+### Default
+
+```jsx
+<Flex>
+  <Button content='Flex' />
+</Flex>
+```
+
+### Space Start
+
+```jsx
+<Flex space='start'>
+  <Button content='Button' />
+  <Button content='Inside' />
+  <Button content='Flex' />
+  <Button content='Component' />
+</Flex>
+```
+
+### Space Start Push
+
+It creates a menu button with the content specified inside the Flex.Item component
+
+```javascript
+<Flex space='start'>
+  <Button content='Button' />
+  <Button content='Inside' />
+  <Button content='Flex' />
+  <Button content='Component' />
+  <Flex.Item push>
+    <ActionStack actions={[{ label: 'Stuff' }, { label: 'More Stuff' }]} />
+  </Flex.Item>
+  <Button content='Button' />
+</Flex>
+```
+
+### Space End
+
+```jsx
+<Flex space='end'>
+  <Button content='Button' />
+  <Button content='Inside' />
+  <Button content='Flex' />
+  <Button content='Component' />
+</Flex>
+```
