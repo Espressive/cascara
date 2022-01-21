@@ -17,3 +17,6 @@ export { default as ActionEditTable } from './ui/TableOld/modules/ActionEdit/Act
 
 // Boundaries's fallback components
 export { ErrorFallback, SuspenseFallback } from './atoms/Boundaries';
+
+// Stat component
+export { Stat } from './atoms';
