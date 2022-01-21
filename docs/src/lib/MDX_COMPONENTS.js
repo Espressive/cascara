@@ -7,6 +7,7 @@
 import {
   ActionStack,
   AdminStructure,
+  Boundaries,
   Button,
   ChatMessages,
   Columns,
@@ -47,8 +48,11 @@ import {
   DataTime,
   DataUrl,
   DataWeek,
+  ErrorFallback,
+  Flex,
   ModuleProvider,
   ModuleSandbox,
+  SuspenseFallback,
 } from '@espressive/cascara/private';
 
 import { Asciagram, Code, Placeholder, Rule } from '../components';
@@ -64,6 +68,7 @@ const docsComponents = {
 const cascaraComponents = {
   ActionStack: (props) => <ActionStack {...props} />,
   AdminStructure: (props) => <AdminStructure {...props} />,
+  Boundaries: (props) => <Boundaries {...props} />,
   Button: (props) => <Button {...props} />,
   ChatMessages: (props) => (
     <ChatProvider>
@@ -106,8 +111,12 @@ const privateComponents = {
   DataTime: (props) => <DataTime {...props} />,
   DataUrl: (props) => <DataUrl {...props} />,
   DataWeek: (props) => <DataWeek {...props} />,
+  ErrorFallback: (props) => <ErrorFallback {...props} />,
+  Flex: (props) => <Flex {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
   ModuleSandbox: (props) => <ModuleSandbox {...props} />,
+  SuspenseFallback: (props) => <SuspenseFallback {...props} />,
+  TestFallbackComponent: (props) => <div>Test Fallback</div>,
 };
 
 const MDX_COMPONENTS = {

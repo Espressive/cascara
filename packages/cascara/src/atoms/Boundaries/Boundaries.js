@@ -18,8 +18,11 @@ const isReactComponent = (props, propName, componentName) => {
 };
 
 const propTypes = {
+  /** A Boundary can have an error component */
   ErrorComponent: isReactComponent,
+  /** A Boundary can have an suspense component */
   SuspenseComponent: isReactComponent,
+  /** The content to diplay inside the Boundary */
   children: pt.oneOfType([pt.arrayOf(pt.node), pt.node]),
 };
 

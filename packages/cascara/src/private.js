@@ -14,3 +14,6 @@ export { default as ChatProvider } from './ui/ChatMessages/ChatProvider';
 
 // We may need to figure out a better way of defining these
 export { default as ActionEditTable } from './ui/TableOld/modules/ActionEdit/ActionEdit';
+
+// Boundaries's fallback components
+export { ErrorFallback, SuspenseFallback } from './atoms/Boundaries';
