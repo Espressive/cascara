@@ -8,7 +8,7 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { FilesEmptyIcon } from '@fluentui/react-icons-northstar';
-import { Boundaries } from '../../system-components';
+import { Boundaries } from '../../atoms';
 
 import { bytesToSize, getSharedMessageKeys, validateMessageObj } from './utils';
 

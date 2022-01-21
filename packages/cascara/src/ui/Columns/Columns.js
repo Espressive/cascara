@@ -3,7 +3,7 @@ import pt from 'prop-types';
 import { Role } from 'reakit';
 import classNames from 'classnames/bind';
 
-import Boundaries from '../../system-components/Boundaries';
+import Boundaries from '../../atoms/Boundaries';
 import styles from './Columns.module.scss';
 
 const cx = classNames.bind(styles);

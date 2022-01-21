@@ -6,7 +6,7 @@ import {
   getTranslatedDetails,
   validateMessageObj,
 } from './utils';
-import { Boundaries } from '../../system-components';
+import { Boundaries } from '../../atoms';
 
 const propTypes = {
   authorName: pt.string,

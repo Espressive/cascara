@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import pt from 'prop-types';
 import { Dropdown, Flex, Provider } from '@fluentui/react-northstar';
 import teamsOverrides from './themes/teamsOverrides';
-import { Boundaries } from '../../system-components';
+import { Boundaries } from '../../atoms';
 
 import { barista, slack } from './themes';
 

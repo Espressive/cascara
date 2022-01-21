@@ -6,7 +6,7 @@ import { propTypes as actionButtonPT } from '../../../../modules/ActionButton';
 import { propTypes as actionEditPT } from '../../modules/ActionEdit';
 
 import styles from '../../FormOld.module.scss';
-import { Boundaries } from '../../../../system-components';
+import { Boundaries } from '../../../../atoms';
 
 const propTypes = {
   actions: pt.arrayOf(

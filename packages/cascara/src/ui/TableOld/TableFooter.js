@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import styles from './TableOld.module.scss';
-import { Boundaries } from '../../system-components';
+import { Boundaries } from '../../atoms';
 import { ModuleContext } from '../../modules/context';
 
 const TableFooter = () => {

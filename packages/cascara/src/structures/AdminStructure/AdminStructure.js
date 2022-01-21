@@ -4,7 +4,7 @@ import pt from 'prop-types';
 import { useStructureName, useThemeCustomProperties } from '../hooks';
 import styles from './AdminStructure.module.scss';
 import AdminStructureChildren from './AdminStructureChildren';
-import Boundaries from '../../system-components/Boundaries';
+import Boundaries from '../../atoms/Boundaries';
 
 const THEME_DEFAULTS = {
   color: {
