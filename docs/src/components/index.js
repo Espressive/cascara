@@ -1,23 +1,11 @@
-import Asciagram from './Asciagram';
-import Code from './Code';
-import Header from './Header';
-import Nav from './Nav';
-import Placeholder from './Placeholder';
-import Playground from './Playground';
-import Props from './Props';
-import PropTable from './PropTable';
-import Tabs from './Tabs';
-import Tag from './Tag';
-
-export {
-  Asciagram,
-  Code,
-  Header,
-  Nav,
-  Placeholder,
-  Playground,
-  Props,
-  PropTable,
-  Tabs,
-  Tag,
-};
+export { default as Asciagram } from './Asciagram';
+export { default as Code } from './Code';
+export { default as Header } from './Header';
+export { default as Nav } from './Nav';
+export { default as Placeholder } from './Placeholder';
+export { default as Playground } from './Playground';
+export { default as Props } from './Props';
+export { default as PropTable } from './PropTable';
+export { default as Rule } from './Rule';
+export { default as Tabs } from './Tabs';
+export { default as Tag } from './Tag';
