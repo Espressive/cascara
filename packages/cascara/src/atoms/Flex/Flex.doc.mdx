@@ -32,15 +32,15 @@ The Flex component will create a container with the css flex properties.
 
 It creates a menu button with the content specified inside the Flex.Item component
 
-```jsx
+```javascript
 <Flex space='start'>
   <Button content='Button' />
   <Button content='Inside' />
   <Button content='Flex' />
   <Button content='Component' />
-  <FlexItem push>
+  <Flex.Item push>
     <ActionStack actions={[{ label: 'Stuff' }, { label: 'More Stuff' }]} />
-  </FlexItem>
+  </Flex.Item>
   <Button content='Button' />
 </Flex>
 ```
