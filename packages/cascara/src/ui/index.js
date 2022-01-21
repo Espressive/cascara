@@ -15,4 +15,3 @@ export {
 export { default as Section } from './Section';
 export { default as TableOld, tableOldPropTypes } from './TableOld';
 export { default as Tabs } from './Tabs';
-export { default as Title } from './Title';

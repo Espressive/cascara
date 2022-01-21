@@ -1,7 +1,8 @@
 import React from 'react';
 import { Role } from 'reakit';
 
-import { Boundaries, Flex } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
+import Flex from '../../atoms/Flex';
 
 import { DEFAULT_AS_TAG, PROP_TYPES } from './__globals';
 import styles from './Title.module.scss';

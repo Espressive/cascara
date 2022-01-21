@@ -4,8 +4,8 @@ import { Role } from 'reakit';
 import classNames from 'classnames/bind';
 
 import Boundaries from '../../atoms/Boundaries';
-import Title from '../Title';
-import { PROP_TYPES as TitlePT } from '../Title/__globals';
+import Title from '../../atoms/Title';
+import { PROP_TYPES as TitlePT } from '../../atoms/Title/__globals';
 
 import { DEFAULT_AS_TAG } from './__globals';
 import styles from './Section.module.scss';
