@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import pt from 'prop-types';
 import { TabList, useTabState } from 'reakit/Tab';
-import Boundaries from '../../system-components/Boundaries';
+import Boundaries from '../../atoms/Boundaries';
 
 import Tab from './Tab';
 import TabPanel from './TabPanel';

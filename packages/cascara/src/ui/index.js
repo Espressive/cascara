@@ -4,7 +4,6 @@
 
 export { default as ActionStack } from './ActionStack';
 export { default as ChatMessages } from './ChatMessages';
-export { default as Columns } from './Columns';
 export { default as Dashboard } from './Dashboard';
 export { default as FormOld, formOldPropTypes } from './FormOld';
 export { default as List } from './List';
@@ -16,4 +15,3 @@ export {
 export { default as Section } from './Section';
 export { default as TableOld, tableOldPropTypes } from './TableOld';
 export { default as Tabs } from './Tabs';
-export { default as Title } from './Title';

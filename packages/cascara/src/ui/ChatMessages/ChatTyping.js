@@ -7,7 +7,7 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { MoreIcon } from '@fluentui/react-icons-northstar';
-import { Boundaries } from '../../system-components';
+import { Boundaries } from '../../atoms';
 
 import { getSharedMessageKeys, validateMessageObj } from './utils';
 import { wiggle } from '../../animations';

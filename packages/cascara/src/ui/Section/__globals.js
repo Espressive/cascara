@@ -1,5 +1,5 @@
 import pt from 'prop-types';
-import { PROP_TYPES as TitlePT } from '../Title/__globals';
+import { PROP_TYPES as TitlePT } from '../../atoms/Title/__globals';
 
 export const PROP_TYPES = {
   /** HTML tag to allow polymorphism */

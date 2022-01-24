@@ -3,7 +3,7 @@ import pt from 'prop-types';
 import { LABELS, PAGINATION_OPTIONS, WARNING_STRINGS } from './__globals';
 import useDeveloperMessage from '../../hooks/useDeveloperMessage';
 import styles from './Pagination.module.scss';
-import Boundaries from '../../system-components/Boundaries';
+import Boundaries from '../../atoms/Boundaries';
 import { Role } from 'reakit/Role';
 import classnames from 'classnames/bind';
 import getStatusFromDataLength from '../../lib/getStatusFromDataLength';

@@ -8,7 +8,7 @@ import {
 import ChatProvider from './ChatProvider';
 import { getMessageAuthorDetails, getMessageGroup } from './utils';
 import messageTypes from './messageTypes';
-import { Boundaries } from '../../system-components';
+import { Boundaries } from '../../atoms';
 import { loadingMessages, loadingTheme } from './loadingState';
 
 const propTypes = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import pt from 'prop-types';
-import Boundaries from '../../system-components/Boundaries';
+import Boundaries from '../../atoms/Boundaries';
 
 import styles from './Dashboard.module.scss';
 
