@@ -1,7 +1,3 @@
-html[data-layout='admin'] div#__next {
-  --brand-primary-color: #b4104b;
-}
-
 :not(pre) > code {
   padding: 0.125em 0.25em;
   border-radius: 0.25em;
@@ -45,9 +41,9 @@ dl {
 header,
 main {
   a {
-    color: var(--brand-primary-color);
+    color: var(--brand-color);
     &:hover {
-      color: var(--brand-primary-color);
+      color: var(--brand-color);
       text-decoration: underline;
     }
   }
@@ -89,7 +85,7 @@ main {
       transform: translateX(0);
 
       &:hover {
-        color: var(--document-text);
+        color: var(--brand-text-color);
         text-decoration: none;
       }
     }
@@ -109,9 +105,9 @@ main {
     margin-inline-start: 0;
     margin-inline-end: 0;
     padding: 0.5em 1em;
-    background-color: var(--color-transparent-grey, grey);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 0.25em;
-    border-inline-start: 0.25em solid var(--brand-primary-color);
+    border-inline-start: 0.25em solid var(--brand-color);
 
     footer {
       &:before {
