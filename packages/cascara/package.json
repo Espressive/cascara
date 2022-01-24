@@ -9,8 +9,8 @@
   },
   "license": "CC0-1.0",
   "sideEffects": false,
-  "main": "dist/cjs/index.js",
-  "module": "dist/es/index.js",
+  "type": "module",
+  "main": "dist/es/index.js",
   "files": [
     "styles",
     "dist",
