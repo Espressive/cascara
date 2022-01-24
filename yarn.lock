@@ -9240,7 +9240,6 @@ __metadata:
     gray-matter: 4.0.2
     next: 12.0.8
     next-mdx-remote: 1.0.0
-    next-transpile-modules: 8.0.0
     prop-types: 15.7.2
     react: 17.0.2
     react-docgen: 6.0.0-alpha.0
@@ -9664,16 +9663,6 @@ __metadata:
     memory-fs: ^0.5.0
     tapable: ^1.0.0
   checksum: 4d87488584c4d67d356ef4ba04978af4b2d4d18190cb859efac8e8475a34d5d6c069df33faa5a0a22920b0586dbf330f6a08d52bb15a8771a9ce4d70a2da74ba
-  languageName: node
-  linkType: hard
-
-"enhanced-resolve@npm:^5.7.0":
-  version: 5.8.3
-  resolution: "enhanced-resolve@npm:5.8.3"
-  dependencies:
-    graceful-fs: ^4.2.4
-    tapable: ^2.2.0
-  checksum: d79fbe531106448b768bb0673fb623ec0202d7ee70373ab7d4f4745d5dfe0806f38c9db7e7da8c941288fe475ab3d538db3791fce522056eeea40ca398c9e287
   languageName: node
   linkType: hard
 
@@ -15968,16 +15957,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-transpile-modules@npm:8.0.0":
-  version: 8.0.0
-  resolution: "next-transpile-modules@npm:8.0.0"
-  dependencies:
-    enhanced-resolve: ^5.7.0
-    escalade: ^3.1.1
-  checksum: 5535e385fd3a4efa25c46b472b2555436c9f3c0fa27f1a80f0c84f5d4c419981ded6896b03d0b418e7476d30bb41714ca0657204daa7c257a002b77a02b7783a
-  languageName: node
-  linkType: hard
-
 "next@npm:12.0.8":
   version: 12.0.8
   resolution: "next@npm:12.0.8"
@@ -21723,13 +21702,6 @@ __metadata:
   version: 1.1.3
   resolution: "tapable@npm:1.1.3"
   checksum: 53ff4e7c3900051c38cc4faab428ebfd7e6ad0841af5a7ac6d5f3045c5b50e88497bfa8295b4b3fbcadd94993c9e358868b78b9fb249a76cb8b018ac8dccafd7
-  languageName: node
-  linkType: hard
-
-"tapable@npm:^2.2.0":
-  version: 2.2.1
-  resolution: "tapable@npm:2.2.1"
-  checksum: 3b7a1b4d86fa940aad46d9e73d1e8739335efd4c48322cb37d073eb6f80f5281889bf0320c6d8ffcfa1a0dd5bfdbd0f9d037e252ef972aca595330538aac4d51
   languageName: node
   linkType: hard
 
