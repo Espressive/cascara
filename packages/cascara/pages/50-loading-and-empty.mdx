@@ -1,0 +1,18 @@
+---
+title: Loading & Empty States
+description: Loading and empty states in molecular components.
+---
+
+Cascara has many higher level components where we explicitly do not expose the API surface area of loading or empty states. This is another way our functional design system helps developers by asking them to make fewer decisions and to unify sources of truth. Loading and empty states should be derived by the absence of data or zero length data.
+
+### `data` Props
+
+If using a component that has a `data` prop, the empty or loading state for the component or internal elements is being derived by the `data` itself. If `data === undefined || null` we assume that the component is in a loading state and will present it this way. If `data` is an array, and `data.length === 0` then we will show an empty state instead of a loading state.
+
+This design decision is in alignment with how we expect these molecular components to be used with `data` props. If we are firing off an API call, we can pass the `undefined` response directly to the component and it will correctly show a loading state without any extra configuration. No work needs to be done to define boolean `isLoading` or `isEmpty` states and then pass those states to the component. We force ourselves to rely on the data itself to define that loading state.
+
+Using `data` as a source for loading states also simplifies the implementation details of our code.
+
+### Atomic Components
+
+Some of our atomic components may have `isLoading` or `isEmpty` states but the use of these props will not be exposed for setting manually on any molecular component that has a `data` prop. These props will be used internally and managed for us.
