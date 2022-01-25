@@ -1,6 +1,6 @@
 import React from 'react';
-import FormProvider from '../ui/FormOld/context/FormProvider';
-import tableStyles from '../ui/TableOld/TableOld.module.scss';
+import FormProvider from '../components/FormOld/context/FormProvider';
+import tableStyles from '../components/TableOld/TableOld.module.scss';
 import {
   ActionButton,
   DataCheckbox,
@@ -13,7 +13,7 @@ import {
   ModuleSandbox,
 } from './';
 
-import FormActionEdit from '../ui/FormOld/modules/ActionEdit';
+import FormActionEdit from '../components/FormOld/modules/ActionEdit';
 // import TableActionEdit from '../ui/Table/modules/ActionEdit';
 
 const lorem =
