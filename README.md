@@ -3,7 +3,6 @@
 Espressive's Functional Design System
 
 ![CircleCI](https://img.shields.io/circleci/build/gh/Espressive/cascara/main)
-![David](https://img.shields.io/david/dev/Espressive/cascara)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## Getting Started: End Users
@@ -94,7 +93,7 @@ curl -o- -L https://yarnpkg.com/install.sh | bash
 yarn -v
 ```
 
-3. If the output of the above command is `1.22.4` (or higher) you are done! 🎉
+3. If the output of the above command is `3.1.1` (or higher) you are done! 🎉
 4. If not... get some help from a teammate on how to update your version of `yarn`
 
 We need to update this soon...
