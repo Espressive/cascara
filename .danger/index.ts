@@ -38,6 +38,10 @@ const isTargetBranchDevelopOrMain = ['main', 'develop'].includes(targetBranch);
 const isTargetBranchMain = targetBranch === 'main';
 const isCurrentDevelop = currentBranch === 'develop';
 
+// [FDS-444]: identify release branches and PRs
+const isCurrentAReleaseBranch = currentBranch.search(/^release/) !== -1;
+const isReleasePR = isCurrentAReleaseBranch && isTargetBranchMain;
+
 const shouldDangerCheckPR =
   isCurrentDevelopOrMain !== isTargetBranchDevelopOrMain;
 
@@ -84,7 +88,8 @@ if (
   changed.packages &&
   !hasDescriptionSection('dependencies') &&
   !isSnyk &&
-  shouldDangerCheckPR
+  shouldDangerCheckPR &&
+  !isReleasePR
 ) {
   for (let file of changed.packages) {
     fail(
@@ -97,7 +102,8 @@ if (
 if (
   changed.snapshots &&
   !hasDescriptionSection('snapshots') &&
-  shouldDangerCheckPR
+  shouldDangerCheckPR &&
+  !isReleasePR
 ) {
   for (let file of changed.snapshots) {
     fail(
