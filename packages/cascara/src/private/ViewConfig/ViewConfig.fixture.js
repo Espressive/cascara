@@ -1,5 +1,5 @@
 import React from 'react';
-import JsonPlaceholder from '../../system-components/JsonPlaceholder';
+import JsonPlaceholder from '../../scaffolding/JsonPlaceholder';
 import ViewConfig, { useViewConfigState } from '.';
 
 const optionList = [
