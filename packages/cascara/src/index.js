@@ -3,6 +3,9 @@
 // we put a note at the top of the file to warn ourselves that everything
 // in that file is going to get exported.
 export * from './atoms';
-export * from './structures';
-export * from './scaffolding';
 export * from './components';
+export * from './scaffolding';
+
+// Structures
+export { default as AdminStructure } from './structures/AdminStructure';
+export { default as BaristaStructure } from './structures/BaristaStructure';
