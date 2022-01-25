@@ -4,5 +4,5 @@
 // in that file is going to get exported.
 export * from './atoms';
 export * from './structures';
-export * from './system-components';
+export * from './scaffolding';
 export * from './components';
