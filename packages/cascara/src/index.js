@@ -4,7 +4,10 @@
 // in that file is going to get exported.
 export * from './atoms';
 export * from './components';
-export * from './scaffolding';
+
+// Scaffolding
+export { default as AreaPlaceholder } from './scaffolding/AreaPlaceholder';
+export { default as JsonPlaceholder } from './scaffolding/JsonPlaceholder';
 
 // Structures
 export { default as AdminStructure } from './structures/AdminStructure';
