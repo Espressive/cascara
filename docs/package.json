@@ -11,7 +11,7 @@
     "@espressive/cascara": "workspace:2.0.0",
     "@espressive/design-tokens": "workspace:0.1.5",
     "@espressive/legacy-css": "workspace:2.0.5",
-    "@fluentui/react-northstar": "0.57.0",
+    "@fluentui/react-northstar": "0.60.1",
     "next": "10.0.5",
     "next-mdx-remote": "1.0.0",
     "react": "16.13.1",
@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "@espressive/prop-types": "workspace:1.1.0",
+    "@types/react": "16.8.0",
+    "@types/react-dom": "16.8.0",
     "current-git-branch": "1.1.0",
     "directory-tree": "2.2.4",
     "gray-matter": "4.0.2",
