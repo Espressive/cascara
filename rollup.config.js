@@ -85,24 +85,46 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
   const rollupPlugins = [nodeResolve(), postcss(getPostCSSOptions()), json()];
 
   // separate out our bundle into chunks based on section for now
-  // const manualChunks = (id) => {
-  //   const CHUNK_SECTIONS = [
-  //     'layouts',
-  //     'placeholders',
-  //     'private',
-  //     'structures',
-  //     'ui',
-  //   ];
-  //   for (const segment of CHUNK_SECTIONS) {
-  //     if (id.startsWith(`${SOURCE_DIR}/src/${segment}`)) {
-  //       return segment;
-  //     }
-  //   }
-  //   if (id.includes('node_modules')) {
-  //     return 'vendor';
-  //   }
-  //   return undefined;
-  // };
+  const manualChunks = (id) => {
+    const CHUNK_SECTIONS = fs
+      // Check our source directory
+      .readdirSync(`${SOURCE_DIR}/src`, {
+        withFileTypes: true,
+      })
+      // Remove anything except directories https://nodejs.org/api/fs.html#class-fsdirent
+      .filter((dirent) => dirent.isDirectory())
+      // Get anything in these directories and use a flat map to merge all returned
+      // arrays to a single array. This is not recursive, so depth from src is only 2.
+      .flatMap(({ name: subDir }) => {
+        const filePath = path.join(SOURCE_DIR, 'src', subDir);
+        return (
+          fs
+            // Get the file types again
+            .readdirSync(filePath, {
+              withFileTypes: true,
+            })
+            // Filter directories again
+            .filter(
+              (dirent) =>
+                dirent.isDirectory() &&
+                // Check to make sure the first character is uppercase
+                dirent.name.charAt(0) === dirent.name.charAt(0).toUpperCase()
+            )
+            // Return the subdir and name for the segment chunk
+            .map(({ name }) => `${subDir}/${name}`)
+        );
+      });
+
+    for (const segment of CHUNK_SECTIONS) {
+      if (id.startsWith(`${SOURCE_DIR}/src/${segment}`)) {
+        return segment;
+      }
+    }
+    if (id.includes('node_modules')) {
+      return 'vendor';
+    }
+    return undefined;
+  };
 
   // Common JS configuration
   const cjsConfig = {
@@ -115,8 +137,10 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
       // Even though the default for `export` here is 'auto' we for some reason need to explicitly define it for cjs with a default vs named export
       exports: 'auto',
       format: 'cjs',
-      // manualChunks,
+      manualChunks,
       sourcemap: true,
+      sourcemapExcludeSources: true,
+      validate: true,
     },
     plugins: [
       babel(
@@ -140,8 +164,10 @@ const getRollupConfig = ({ pwd, babelConfigFile }) => {
       // instead of hard coding a path to output our files.
       dir: `${SOURCE_DIR}/${pkgConfigModule.replace('/index.js', '')}`,
       format: 'es',
-      // manualChunks,
+      manualChunks,
       sourcemap: true,
+      sourcemapExcludeSources: true,
+      validate: true,
     },
     plugins: [
       babel(
