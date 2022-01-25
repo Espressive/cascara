@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FormOld from '../../ui/FormOld/FormOld';
+import FormOld from '../../components/FormOld/FormOld';
 
 const ACTIONS = {
   modules: [
