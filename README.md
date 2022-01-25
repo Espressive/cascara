@@ -3,7 +3,6 @@
 Espressive's Functional Design System
 
 ![CircleCI](https://img.shields.io/circleci/build/gh/Espressive/cascara/main)
-![David](https://img.shields.io/david/dev/Espressive/cascara)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## Getting Started: End Users
