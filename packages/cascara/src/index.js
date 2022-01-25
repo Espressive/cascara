@@ -1,8 +1,16 @@
 // HEADS UP!
-// If we create any additional wildcard exports for a directory, make sure
-// we put a note at the top of the file to warn ourselves that everything
-// in that file is going to get exported.
-export * from './atoms';
+// Please make sure each section is sorted alphabetically,
+// and that exports within a section are also sorted alphabetically
+
+// Atoms
+export { default as Boundaries } from './atoms/Boundaries';
+export { default as Button } from './atoms/Button';
+export { default as Columns } from './atoms/Columns';
+export { default as Flex } from './atoms/Flex';
+export { default as Image } from './atoms/Image';
+export { default as Stat } from './atoms/Stat';
+export { default as Title } from './atoms/Title';
+
 export * from './components';
 
 // Scaffolding

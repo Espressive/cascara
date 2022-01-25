@@ -1,7 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 
-import { Boundaries } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
 import ModuleErrorFallback from './ModuleErrorFallback';
 
 const propTypes = {

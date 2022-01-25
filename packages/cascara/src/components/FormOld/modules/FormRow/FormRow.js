@@ -2,7 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 
 import styles from '../../FormOld.module.scss';
-import { Boundaries } from '../../../../atoms';
+import Boundaries from '../../../../atoms/Boundaries';
 
 const propTypes = {
   children: pt.oneOf([pt.node, pt.arrayOf(pt.node)]),
