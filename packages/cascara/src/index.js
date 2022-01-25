@@ -5,4 +5,4 @@
 export * from './atoms';
 export * from './structures';
 export * from './system-components';
-export * from './ui';
+export * from './components';

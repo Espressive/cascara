@@ -1,7 +1,7 @@
 import React from 'react';
 import Flex from './Flex';
 import Button from '../Button';
-import ActionStack from '../../ui/ActionStack';
+import ActionStack from '../../components/ActionStack';
 
 const Buttons = () =>
   ['A', 'B', 'C'].map((i) => <Button content={`Button ${i}`} key={i} />);
