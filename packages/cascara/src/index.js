@@ -1,6 +1,7 @@
 // HEADS UP!
-// Please make sure each section is sorted alphabetically,
+// 1. Please make sure each section is sorted alphabetically,
 // and that exports within a section are also sorted alphabetically
+// 2. Make sure that we are not still exporting items here from /private
 
 // Atoms
 export { default as Boundaries } from './atoms/Boundaries';

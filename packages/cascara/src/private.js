@@ -1,3 +1,4 @@
+// We may want to move away from these wildcards in the future to avoid possible circular dependencies
 export * from './hooks';
 export * from './lib';
 export * from './modules';
