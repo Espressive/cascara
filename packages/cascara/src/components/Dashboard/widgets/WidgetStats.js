@@ -1,7 +1,8 @@
 import React from 'react';
 import pt from 'prop-types';
 import Widget, { propTypes as widgetPT } from './Widget';
-import { Columns, Stat } from '../../../atoms';
+import Columns from '../../../atoms/Columns';
+import Stat from '../../../atoms/Stat';
 import { getDataState } from './dataState';
 
 const propTypes = {
