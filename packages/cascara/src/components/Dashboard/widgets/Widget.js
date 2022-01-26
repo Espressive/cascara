@@ -5,7 +5,7 @@ import Boundaries from '../../../atoms/Boundaries';
 import InfoPopover from '../components/InfoPopover';
 import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
-import Section from '../../../ui/Section';
+import Section from '../../../components/Section';
 
 const cx = classnames.bind(styles);
 
