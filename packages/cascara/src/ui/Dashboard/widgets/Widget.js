@@ -5,6 +5,7 @@ import Boundaries from '../../../atoms/Boundaries';
 import InfoPopover from '../components/InfoPopover';
 import { Button } from 'reakit';
 import styles from '../Dashboard.module.scss';
+import Section from '../../../ui/Section';
 
 const cx = classnames.bind(styles);
 
@@ -47,27 +48,26 @@ const Widget = ({
   title,
   ...rest
 }) => {
+  const titlePost = actions?.map((action, i) => (
+    <Button key={i} {...action} className='ui small basic right floated button'>
+      {action?.content}
+    </Button>
+  ));
+  const infoPopover = description && (
+    <InfoPopover message={description} style={{ float: 'right' }} />
+  );
+
   return (
-    <div
+    <Section
       className={cx(className, {
         Widget: true,
         scrolling: isScrolling,
       })}
+      header={title}
+      isBasic={false}
+      title={title}
+      titlePost={titlePost || infoPopover}
     >
-      {actions?.map((action, i) => (
-        <Button
-          key={i}
-          {...action}
-          className='ui small basic right floated button'
-        >
-          {action?.content}
-        </Button>
-      ))}
-      {description && (
-        <InfoPopover message={description} style={{ float: 'right' }} />
-      )}
-      <h3 className={styles.Title}>{title}</h3>
-
       {/* Place our error boundary here so that we can at least show the 
       title of the widget above the error itself. */}
       <Boundaries>
@@ -87,7 +87,7 @@ const Widget = ({
           )}
         </div>
       </Boundaries>
-    </div>
+    </Section>
   );
 };
 

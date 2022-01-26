@@ -1,8 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 import Widget, { propTypes as widgetPT } from './Widget';
-import Stat from './WidgetStatsStat';
-import styles from '../Dashboard.module.scss';
+import { Columns, Stat } from '../../../atoms';
 import { getDataState } from './dataState';
 
 const propTypes = {
@@ -18,10 +17,12 @@ const WidgetStats = ({ data, ...rest }) => {
   const dataState = getDataState(data);
 
   return (
-    <Widget {...rest} {...dataState} className={styles.Stats} height='auto'>
-      {data?.map((stat) => (
-        <Stat {...stat} key={stat.label} />
-      ))}
+    <Widget {...rest} {...dataState} height='auto'>
+      <Columns count={2}>
+        {data?.map((stat) => (
+          <Stat {...stat} key={stat.label} />
+        ))}
+      </Columns>
     </Widget>
   );
 };

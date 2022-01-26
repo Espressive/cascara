@@ -48,10 +48,10 @@ const cx = classnames.bind(styles);
 const Dashboard = ({ as = 'div', config, ...rest }) => {
   const renderWidget = ({ widget, ...rest }, index) => {
     const key = rest?.title + widget || index;
-    const Component = WIDGETS[widget];
+    const WidgetComponent = WIDGETS[widget];
 
-    return Component ? (
-      <Component {...rest} key={key} />
+    return WidgetComponent ? (
+      <WidgetComponent {...rest} key={key} />
     ) : (
       // TODO: This should eventually become a message component for displaying helpful developer messages
       <WidgetError
