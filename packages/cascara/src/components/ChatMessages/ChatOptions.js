@@ -9,7 +9,7 @@ import {
   Ref,
 } from '@fluentui/react-northstar';
 import { getChatMessageObj } from './ChatMessage';
-import { Boundaries } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
 import { getSharedMessageKeys, validateMessageObj } from './utils';
 
 const propTypes = {

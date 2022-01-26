@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import pt from 'prop-types';
 import styles from './TableOld.module.scss';
 
-import { Boundaries } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
 import RowProvider from './context/RowProvider';
 import { ModuleContext } from '../../modules/context';
 

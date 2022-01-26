@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import styles from './TableOld.module.scss';
 
-import { Boundaries } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
 import { ModuleContext } from '../../modules/context';
 
 const TableHeader = () => {
