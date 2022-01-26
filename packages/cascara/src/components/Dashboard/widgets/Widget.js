@@ -59,23 +59,36 @@ const Widget = ({
 
   return (
     <Section
-      className={cx(className, {
-        Widget: true,
-        scrolling: isScrolling,
-      })}
-      header={title}
-      isBasic={false}
+      className={cx(
+        'Widget',
+        {
+          scrolling: isScrolling,
+        },
+        className
+      )}
+      isBasic
       title={title}
-      titlePost={titlePost || infoPopover}
+      titlePost={
+        titlePost ||
+        (infoPopover && (
+          <>
+            {titlePost}
+            {infoPopover}
+          </>
+        ))
+      }
     >
       {/* Place our error boundary here so that we can at least show the 
       title of the widget above the error itself. */}
       <Boundaries>
         <div
-          className={cx(className, {
-            Data: true,
-            'no-data': isEmpty || isLoading,
-          })}
+          className={cx(
+            'Data',
+            {
+              'no-data': isEmpty || isLoading,
+            },
+            className
+          )}
           style={{ height: height }}
         >
           {isLoading ? (

@@ -1,6 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 import Boundaries from '../../atoms/Boundaries';
+import Columns from '../../atoms/Columns';
 
 import styles from './Dashboard.module.scss';
 
@@ -45,7 +46,7 @@ const propTypes = {
 
 const cx = classnames.bind(styles);
 
-const Dashboard = ({ as = 'div', config, ...rest }) => {
+const Dashboard = ({ as = Columns, config, ...rest }) => {
   const renderWidget = ({ widget, ...rest }, index) => {
     const key = rest?.title + widget || index;
     const WidgetComponent = WIDGETS[widget];
@@ -83,7 +84,7 @@ const Dashboard = ({ as = 'div', config, ...rest }) => {
       <Role
         {...rest}
         as={as}
-        className={cx('Dashboard', rest.className)}
+        className={cx('_', rest.className)}
         data-component='Dashboard'
       >
         {config ? (

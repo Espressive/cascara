@@ -4,6 +4,7 @@ import Widget, { propTypes as widgetPT } from './Widget';
 import Columns from '../../../atoms/Columns';
 import Stat from '../../../atoms/Stat';
 import { getDataState } from './dataState';
+import styles from '../Dashboard.module.scss';
 
 const propTypes = {
   ...widgetPT,
@@ -18,10 +19,10 @@ const WidgetStats = ({ data, ...rest }) => {
   const dataState = getDataState(data);
 
   return (
-    <Widget {...rest} {...dataState} height='auto'>
+    <Widget {...rest} {...dataState} className={styles.Stats} height='auto'>
       <Columns count={2}>
         {data?.map((stat) => (
-          <Stat {...stat} key={stat.label} />
+          <Stat fluid key={stat.label} {...stat} />
         ))}
       </Columns>
     </Widget>
