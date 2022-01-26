@@ -1,5 +1,5 @@
 import React from 'react';
-import Boundaries from '../../system-components/Boundaries';
+import Boundaries from '../../atoms/Boundaries';
 import ViewConfigBase from './ViewConfigBase';
 import { LOADING_TRIGGER, VIEW_CONFIG_PROP_TYPES } from './__globals';
 

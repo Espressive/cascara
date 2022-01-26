@@ -4,7 +4,7 @@ import styles from './Drawer.module.scss';
 import classNames from 'classnames/bind';
 import { useDrawer } from '../../hooks';
 import Loader from '../../../../private/Loader';
-import Boundaries from '../../../../system-components/Boundaries';
+import Boundaries from '../../../../atoms/Boundaries';
 const cx = classNames.bind(styles);
 
 const propTypes = {

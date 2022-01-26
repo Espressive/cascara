@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { Button } from '../../../src';
+import Button from '../Button';
 
 const handleAlert = () => alert('Alerted!');
 

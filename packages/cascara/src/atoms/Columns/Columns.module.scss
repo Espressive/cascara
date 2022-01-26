@@ -1,0 +1,16 @@
+$masonry-gutter: 2rem;
+
+._ {
+  column-width: 28rem;
+  column-gap: $masonry-gutter;
+
+  & > * {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  &.fixed {
+    column-width: auto;
+  }
+}

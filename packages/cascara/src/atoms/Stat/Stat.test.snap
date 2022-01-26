@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stat snapshot tests 1`] = `
+<div>
+  <div
+    class="_"
+    data-component="Stat"
+    disabled=""
+    focusable="false"
+  >
+    <span
+      class="Value"
+    >
+      50
+    </span>
+    <h4
+      class="Label"
+    >
+      Stat
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`stat snapshot tests 2`] = `
+<div>
+  <button
+    class="_ clickable"
+    data-component="Stat"
+  >
+    <span
+      class="Value"
+    >
+      50
+    </span>
+    <h4
+      class="Label"
+    >
+      Stat
+    </h4>
+  </button>
+</div>
+`;
+
+exports[`stat snapshot tests 3`] = `
+<div>
+  <div
+    class="_ fluid"
+    data-component="Stat"
+    disabled=""
+    focusable="false"
+  >
+    <span
+      class="Value"
+    >
+      50
+    </span>
+    <h4
+      class="Label"
+    >
+      Stat
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`stat snapshot tests 4`] = `
+<div>
+  <div
+    class="_"
+    data-component="Stat"
+    disabled=""
+    focusable="false"
+  >
+    <span
+      class="Value"
+    >
+      50
+    </span>
+    <h4
+      class="Label"
+    >
+      Stat
+    </h4>
+    <span
+      class="Sub"
+    >
+      Component
+    </span>
+  </div>
+</div>
+`;

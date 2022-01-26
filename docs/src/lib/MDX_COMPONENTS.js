@@ -7,15 +7,18 @@
 import {
   ActionStack,
   AdminStructure,
+  Boundaries,
   Button,
   ChatMessages,
   Columns,
   Dashboard,
+  Flex,
   FormOld,
   JsonPlaceholder,
   List,
   Pagination,
   Section,
+  Stat,
   TableOld,
   Tabs,
   Title,
@@ -46,22 +49,26 @@ import {
   DataTime,
   DataUrl,
   DataWeek,
+  ErrorFallback,
   ModuleProvider,
   ModuleSandbox,
+  SuspenseFallback,
 } from '@espressive/cascara/private';
 
-import { Asciagram, Code, Placeholder } from '../components';
+import { Asciagram, Code, Placeholder, Rule } from '../components';
 
 const docsComponents = {
   Asciagram: (props) => <Asciagram {...props} />,
   Playground: (props) => <Placeholder {...props} componentName='Playground' />,
   Props: (props) => <Placeholder {...props} componentName='Props' />,
+  Rule: (props) => <Rule {...props} />,
   code: (props) => <Code {...props} />,
 };
 
 const cascaraComponents = {
   ActionStack: (props) => <ActionStack {...props} />,
   AdminStructure: (props) => <AdminStructure {...props} />,
+  Boundaries: (props) => <Boundaries {...props} />,
   Button: (props) => <Button {...props} />,
   ChatMessages: (props) => (
     <ChatProvider>
@@ -70,11 +77,13 @@ const cascaraComponents = {
   ),
   Columns: (props) => <Columns {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,
+  Flex: (props) => <Flex {...props} />,
   FormOld: (props) => <FormOld {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   List: (props) => <List {...props} />,
   Pagination: (props) => <Pagination {...props} />,
   Section: (props) => <Section {...props} />,
+  Stat: (props) => <Stat {...props} />,
   TableOld: (props) => <TableOld {...props} />,
   Tabs: (props) => <Tabs {...props} />,
   Title: (props) => <Title {...props} />,
@@ -103,8 +112,12 @@ const privateComponents = {
   DataTime: (props) => <DataTime {...props} />,
   DataUrl: (props) => <DataUrl {...props} />,
   DataWeek: (props) => <DataWeek {...props} />,
+  ErrorFallback: (props) => <ErrorFallback {...props} />,
+  Flex: (props) => <Flex {...props} />,
   ModuleProvider: (props) => <ModuleProvider {...props} />,
   ModuleSandbox: (props) => <ModuleSandbox {...props} />,
+  SuspenseFallback: (props) => <SuspenseFallback {...props} />,
+  TestFallbackComponent: (props) => <div>Test Fallback</div>,
 };
 
 const MDX_COMPONENTS = {

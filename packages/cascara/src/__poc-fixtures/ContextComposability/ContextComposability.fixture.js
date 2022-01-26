@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { JsonPlaceholder } from '../../system-components';
+import JsonPlaceholder from '../../scaffolding/JsonPlaceholder';
 import ReusableModuleContext, { defaultValue } from './ReusableModuleContext';
 
 // Here is a custom provider that can exist alone, or it can also exist with a parent context.
