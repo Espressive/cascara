@@ -26,7 +26,7 @@
   "dependencies": {
     "@babel/runtime": "7.14.0",
     "@espressive/icons": "workspace:0.2.1",
-    "@iconify-icons/ic": "1.1.5",
+    "@iconify-icons/ic": "1.1.19",
     "@iconify/react": "1.1.4",
     "@nivo/bar": "0.67.0",
     "@nivo/bump": "0.67.0",
@@ -43,8 +43,8 @@
     "color-string": "1.5.5",
     "memoize-one": "5.2.1",
     "popper-max-size-modifier": "0.2.0",
-    "ramda": "0.27.1",
-    "react-error-boundary": "3.1.3",
+    "ramda": "0.28.0",
+    "react-error-boundary": "3.1.4",
     "react-fast-compare": "3.2.0",
     "react-hook-form": "6.8.4",
     "react-is": "17.0.2",
@@ -53,24 +53,31 @@
     "reakit-utils": "next"
   },
   "devDependencies": {
+    "@babel/core": "7.14.3",
     "@espressive/legacy-css": "workspace:2.0.5",
     "@espressive/prop-types": "workspace:1.1.0",
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "11.2.1",
     "mutationobserver-shim": "0.3.7",
+    "postcss": "8.3.0",
     "prop-types": "15.7.2",
     "rollup": "2.50.6",
-    "rollup-plugin-postcss": "4.0.0"
+    "rollup-plugin-postcss": "4.0.2"
   },
   "peerDependencies": {
     "@espressive/design-tokens": "*",
     "@espressive/prop-types": "*",
-    "@fluentui/react-northstar": ">=0.57.0",
+    "@fluentui/react-northstar": ">=0.60.1",
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "@popperjs/core": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "access": "public"
