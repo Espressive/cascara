@@ -1,5 +1,11 @@
 # @espressive/prop-types
 
+## 2.0.0
+
+### Major Changes
+
+- fd5ead388: fix(FDS-426): [MAJOR: Install Warnings] Fixed peerDependency warnings internally and by updates to package dependencies. There are major version changes on dependencies which is causing us to do a major version bump. No updates should be needed.
+
 ## 1.1.0
 
 ### Minor Changes

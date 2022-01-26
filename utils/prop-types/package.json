@@ -1,6 +1,6 @@
 {
   "name": "@espressive/prop-types",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Espressive custom prop-types",
   "repository": {
     "type": "git",

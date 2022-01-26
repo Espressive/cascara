@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -8,7 +8,7 @@
     "start": "next-remote-watch ../packages/cascara"
   },
   "dependencies": {
-    "@espressive/cascara": "workspace:2.0.0",
+    "@espressive/cascara": "workspace:3.0.0",
     "@espressive/design-tokens": "workspace:0.1.5",
     "@espressive/legacy-css": "workspace:2.0.5",
     "@fluentui/react-northstar": "0.60.1",
@@ -20,7 +20,7 @@
     "react-live": "2.2.2"
   },
   "devDependencies": {
-    "@espressive/prop-types": "workspace:1.1.0",
+    "@espressive/prop-types": "workspace:2.0.0",
     "@types/react": "16.8.0",
     "@types/react-dom": "16.8.0",
     "current-git-branch": "1.1.0",
