@@ -11,7 +11,20 @@ export { default as Image } from './atoms/Image';
 export { default as Stat } from './atoms/Stat';
 export { default as Title } from './atoms/Title';
 
-export * from './components';
+// Components
+export { default as ActionStack } from './components/ActionStack';
+export { default as ChatMessages } from './components/ChatMessages';
+export { default as Dashboard } from './components/Dashboard';
+export { default as FormOld, formOldPropTypes } from './components/FormOld';
+export { default as List } from './components/List';
+export {
+  default as Pagination,
+  paginationPropTypes,
+  usePaginationState,
+} from './components/Pagination';
+export { default as Section } from './components/Section';
+export { default as TableOld, tableOldPropTypes } from './components/TableOld';
+export { default as Tabs } from './components/Tabs';
 
 // Scaffolding
 export { default as AreaPlaceholder } from './scaffolding/AreaPlaceholder';
