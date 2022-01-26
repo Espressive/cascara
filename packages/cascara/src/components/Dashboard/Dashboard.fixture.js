@@ -141,7 +141,7 @@ const dashboardConfig = [
 
 const DashboardPAC = () => {
   return (
-    <main className='ui container' style={{ padding: '2em 0' }}>
+    <main style={{ padding: '2em' }}>
       <Dashboard config={dashboardConfig} />
     </main>
   );

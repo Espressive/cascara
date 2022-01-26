@@ -41,10 +41,14 @@ const Stat = ({ as, className, fluid, onClick, label, value, sub }) => {
   return (
     <StatComponent
       as={as}
-      className={cx('Stat', className, {
-        Clickable: Boolean(onClick),
-        Fluid: fluid,
-      })}
+      className={cx(
+        '_',
+        {
+          clickable: Boolean(onClick),
+          fluid: fluid,
+        },
+        className
+      )}
       data-component='Stat'
       disabled={!onClick}
       focusable={Boolean(onClick)}

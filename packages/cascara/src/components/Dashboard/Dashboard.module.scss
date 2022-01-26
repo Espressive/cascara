@@ -1,138 +1,81 @@
-$masonry-gutter: 2em;
 $widget-border-radius: 0.5em;
 $widget-background: #f0f0f0;
 
-.Dashboard {
+._ {
   display: block;
-  columns: 30rem;
-  gap: $masonry-gutter;
-}
 
-.Widget {
-  margin-bottom: $masonry-gutter;
-  break-inside: avoid;
-
-  &.scrolling .Data {
-    overflow: auto;
+  & > *,
+  & > section {
+    margin-top: 0;
+    margin-bottom: 2rem;
   }
 
-  .Title {
-    display: block;
-    padding: 0.5em 0 0.25em;
-    margin: 0;
-  }
-
-  .Data {
-    background-color: $widget-background;
-    border-radius: $widget-border-radius;
-
-    &.no-data {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
+  .Widget {
+    &.scrolling .Data {
+      overflow: auto;
     }
 
-    table {
-      font-size: 0.875em;
-      border-collapse: collapse;
-      min-width: 100%;
-
-      th {
-        text-align: left;
-        text-transform: capitalize;
-        font-size: 0.875em;
-      }
-
-      th,
-      td {
-        padding: 0.5rem 0.75rem;
-      }
-
-      // tr td {
-      //   border-top: 1px solid rgba(0, 0, 0, 0.03);
-      // }
-
-      tr:nth-child(odd) td {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-    }
-
-    canvas,
-    svg {
+    .Data {
+      // we need this for Widget List
+      background-color: $widget-background;
       border-radius: $widget-border-radius;
+
+      &.no-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      table {
+        font-size: 0.875em;
+        border-collapse: collapse;
+        min-width: 100%;
+
+        th {
+          text-align: left;
+          text-transform: capitalize;
+          font-size: 0.875em;
+        }
+
+        th,
+        td {
+          padding: 0.5rem 0.75rem;
+        }
+
+        tr:nth-child(odd) td {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      canvas,
+      svg {
+        border-radius: $widget-border-radius;
+      }
     }
   }
-}
 
-.Error {
-  padding: 1em;
-  border: 2px solid #900;
-  background-color: #fcc;
-  color: #900;
-  border-radius: $widget-border-radius;
-  margin-bottom: $masonry-gutter;
-
-  h4 {
-    margin-bottom: 0.5em;
-  }
-
-  code {
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 0.125em 0.375em;
-    border-radius: 0.25em;
-  }
-}
-
-.Stats {
-  @extend .Widget;
-
-  .Data {
-    background-color: transparent;
-    display: grid;
-    column-gap: $masonry-gutter;
-    row-gap: $masonry-gutter;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .Stat {
-    position: relative;
+  .Error {
     padding: 1em;
-    background-color: $widget-background;
+    border: 2px solid #900;
+    background-color: #fcc;
+    color: #900;
     border-radius: $widget-border-radius;
-    display: flex;
-    flex-direction: column;
 
-    .Label {
-      margin: 0.25em 0;
+    h4 {
+      margin-bottom: 0.5em;
     }
 
-    .Value {
-      line-height: 1em;
-      font-size: 2em;
-    }
-
-    .Sub {
-      font-style: italic;
-      font-size: 0.875em;
+    code {
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 0.125em 0.375em;
+      border-radius: 0.25em;
     }
   }
 
-  .ClickableStat {
-    @extend .Stat;
-
-    position: relative;
-
-    &:after {
-      content: '⬁';
-      font-size: 1.2em;
-      position: absolute;
-      right: 1em;
-      opacity: 0.25;
-    }
-
-    &:focus:after {
-      opacity: 0.5;
+  .Stats {
+    .Data {
+      background-color: transparent;
     }
   }
 }

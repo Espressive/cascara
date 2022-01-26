@@ -3,7 +3,7 @@
 exports[`stat snapshot tests 1`] = `
 <div>
   <div
-    class="Stat"
+    class="_"
     data-component="Stat"
     disabled=""
     focusable="false"
@@ -25,7 +25,7 @@ exports[`stat snapshot tests 1`] = `
 exports[`stat snapshot tests 2`] = `
 <div>
   <button
-    class="Stat Clickable"
+    class="_ clickable"
     data-component="Stat"
   >
     <span
@@ -45,7 +45,7 @@ exports[`stat snapshot tests 2`] = `
 exports[`stat snapshot tests 3`] = `
 <div>
   <div
-    class="Stat Fluid"
+    class="_ fluid"
     data-component="Stat"
     disabled=""
     focusable="false"
@@ -67,7 +67,7 @@ exports[`stat snapshot tests 3`] = `
 exports[`stat snapshot tests 4`] = `
 <div>
   <div
-    class="Stat"
+    class="_"
     data-component="Stat"
     disabled=""
     focusable="false"
