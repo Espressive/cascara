@@ -2,7 +2,7 @@ import React from 'react';
 import pt from 'prop-types';
 import { Animation, Divider, Ref } from '@fluentui/react-northstar';
 import { validateMessageObj } from './utils';
-import { Boundaries } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
 
 const propTypes = {
   text: pt.oneOfType([pt.string, pt.node, pt.arrayOf(pt.node)]),

@@ -1,7 +1,7 @@
 import React from 'react';
 import pt from 'prop-types';
 import { Animation, Avatar as FUIAvatar } from '@fluentui/react-northstar';
-import { Boundaries } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
 
 const propTypes = {
   fullName: pt.string,

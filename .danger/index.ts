@@ -5,6 +5,8 @@ const modifiedFiles = danger.git.modified_files;
 const newFiles = danger.git.created_files;
 const changedFiles = [...modifiedFiles, ...newFiles];
 
+console.log(danger.github);
+
 // Github specific values
 const github = {
   assignee: danger.github.pr.assignee,
@@ -60,6 +62,7 @@ if (isDevelopComparedToMain) {
     'Do not target main directly from develop. A separate release branch is needed'
   );
 }
+
 // Evaluates the description to see if it contains a particular section
 const hasDescriptionSection = (section: keyof typeof descSection) =>
   github.description.includes(descSection[section]);

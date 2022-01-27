@@ -2,7 +2,7 @@ $masonry-gutter: 2em;
 $widget-border-radius: 0.5em;
 $widget-background: #f0f0f0;
 
-.Stat {
+._ {
   margin-bottom: $masonry-gutter;
   break-inside: avoid;
   display: inline-block;
@@ -27,7 +27,7 @@ $widget-background: #f0f0f0;
     font-size: 0.875em;
   }
 
-  .Clickable {
+  &.clickable {
     position: relative;
 
     &:after {
@@ -43,7 +43,7 @@ $widget-background: #f0f0f0;
     }
   }
 
-  .Fluid {
-    display: block;
+  &.fluid {
+    width: 100%;
   }
 }

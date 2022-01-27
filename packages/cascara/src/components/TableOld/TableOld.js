@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Boundaries } from '../../atoms';
+import Boundaries from '../../atoms/Boundaries';
 
 import TableBase from './TableBase';
 import TableLoading from '../../private/TemporaryLoading';
