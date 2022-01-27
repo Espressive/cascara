@@ -4589,6 +4589,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/marked@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@types/marked@npm:4.0.1"
+  checksum: c2dabaae5ed5e2806ee3ef7f717ef7fe91ac5ee2718162219dd34de9d684d36efd561987fb3316b659d1add6d432696ca507da04b94380a77aac30870cb276d7
+  languageName: node
+  linkType: hard
+
 "@types/mdast@npm:^3.0.0":
   version: 3.0.7
   resolution: "@types/mdast@npm:3.0.7"
@@ -7236,6 +7243,7 @@ __metadata:
     "@testing-library/jest-dom": 5.13.0
     "@testing-library/react": 11.2.7
     "@testing-library/user-event": 13.1.9
+    "@types/marked": 4.0.1
     "@types/react": 16.8.0
     "@types/react-dom": 16.8.0
     "@typescript-eslint/eslint-plugin": 4.26.0
@@ -7265,6 +7273,7 @@ __metadata:
     jest-environment-jsdom-sixteen: 2.0.0
     jest-junit: 12.1.0
     lint-staged: 10.5.4
+    marked: 4.0.12
     normalize.css: 8.0.1
     postcss: 8.3.0
     postcss-url: 10.1.3
@@ -15861,6 +15870,15 @@ fsevents@~2.1.2:
   version: 1.0.4
   resolution: "markdown-escapes@npm:1.0.4"
   checksum: 6833a93d72d3f70a500658872312c6fa8015c20cc835a85ae6901fa232683fbc6ed7118ebe920fea7c80039a560f339c026597d96eee0e9de602a36921804997
+  languageName: node
+  linkType: hard
+
+"marked@npm:4.0.12":
+  version: 4.0.12
+  resolution: "marked@npm:4.0.12"
+  bin:
+    marked: bin/marked.js
+  checksum: 7575117f85a8986652f3ac8b8a7b95056c4c5fce01a1fc76dc4c7960412cb4c9bd9da8133487159b6b3ff84f52b543dfe9a36f826a5f358892b5ec4b6824f192
   languageName: node
   linkType: hard
 

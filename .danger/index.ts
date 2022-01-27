@@ -1,11 +1,13 @@
 import { danger, warn, fail, message } from 'danger';
+import { marked } from 'marked';
 
 // Git specific values
 const modifiedFiles = danger.git.modified_files;
 const newFiles = danger.git.created_files;
 const changedFiles = [...modifiedFiles, ...newFiles];
 
-console.log(danger.github);
+const tokens = marked.lexer(danger.github.pr.body);
+console.log(tokens);
 
 // Github specific values
 const github = {
