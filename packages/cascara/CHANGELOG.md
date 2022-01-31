@@ -1,5 +1,26 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+- fd5ead388: fix(FDS-426): [MAJOR: Install Warnings] Fixed peerDependency warnings internally and by updates to package dependencies. There are major version changes on dependencies which is causing us to do a major version bump. No updates should be needed.
+
+### Minor Changes
+
+- fd5ead388: chore(FDS-451): [Performance] Build output now exports to separate component files
+- fd5ead388: feat(FDS-436) [Image] Adds a responsive Image component MVP
+  fix(FDS-436) [Columns] Resolves an issue where column count was not working due to CSS shorthand specificity
+  fix(FDS-436) [Columns,Section] Creates more consistent classname generation from components that have a class name matching the file name in CSS Modules
+
+### Patch Changes
+
+- fd5ead388: chore(FDS-438): Move Boundaries Colums Stat Title into atoms folder
+- fd5ead388: chore(FDS-244):[Theme]: Color processing is defensive
+- fd5ead388: chore(FDS-440) [scaffolding] Rename /system-components to /scaffolding for better semantics in organizing future components
+- Updated dependencies [fd5ead388]
+  - @espressive/prop-types@2.0.0
+
 ## 2.0.0
 
 ### Patch Changes
