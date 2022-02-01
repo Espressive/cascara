@@ -7,6 +7,15 @@
   border: 1px solid #22242626;
   box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
 
+  // These first/last margin settings should be a mixin in the Cascara SASS
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   &.isBasic {
     padding: 0;
     border: none;
