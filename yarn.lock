@@ -2639,7 +2639,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/cascara@workspace:2.0.0, @espressive/cascara@workspace:packages/cascara":
+"@espressive/cascara@workspace:3.0.0, @espressive/cascara@workspace:packages/cascara":
   version: 0.0.0-use.local
   resolution: "@espressive/cascara@workspace:packages/cascara"
   dependencies:
@@ -2647,7 +2647,7 @@ __metadata:
     "@babel/runtime": 7.14.0
     "@espressive/icons": "workspace:0.2.1"
     "@espressive/legacy-css": "workspace:2.0.5"
-    "@espressive/prop-types": "workspace:1.1.0"
+    "@espressive/prop-types": "workspace:2.0.0"
     "@iconify-icons/ic": 1.1.19
     "@iconify/react": 1.1.4
     "@nivo/bar": 0.67.0
@@ -2743,7 +2743,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/prop-types@workspace:1.1.0, @espressive/prop-types@workspace:utils/prop-types":
+"@espressive/prop-types@workspace:2.0.0, @espressive/prop-types@workspace:utils/prop-types":
   version: 0.0.0-use.local
   resolution: "@espressive/prop-types@workspace:utils/prop-types"
   dependencies:
@@ -7186,9 +7186,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001093, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001113, caniuse-lite@npm:^1.0.30001125, caniuse-lite@npm:^1.0.30001154, caniuse-lite@npm:^1.0.30001248":
-  version: 1.0.30001301
-  resolution: "caniuse-lite@npm:1.0.30001301"
-  checksum: 0e359f2c682bed35521902ce7fc91136c485de4c1e1e33272d6fbb7cdf77178df7649960a9b69ce9da12022aadd7a0037b3c9b3594c41146d58216654dc9a236
+  version: 1.0.30001304
+  resolution: "caniuse-lite@npm:1.0.30001304"
+  checksum: 63092ec6c65346f57026d9c7bee0548b77fd606819ca205ee3d99c948e4701b8820c365c00b79d4a4b96f3f0045bc0be767149b8edb74f7223d16cb30630f81e
   languageName: node
   linkType: hard
 
@@ -9654,10 +9654,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:docs"
   dependencies:
-    "@espressive/cascara": "workspace:2.0.0"
+    "@espressive/cascara": "workspace:3.0.0"
     "@espressive/design-tokens": "workspace:0.1.5"
     "@espressive/legacy-css": "workspace:2.0.5"
-    "@espressive/prop-types": "workspace:1.1.0"
+    "@espressive/prop-types": "workspace:2.0.0"
     "@fluentui/react-northstar": 0.60.1
     "@types/react": 16.8.0
     "@types/react-dom": 16.8.0

@@ -3,7 +3,7 @@
 exports[`<Rule /> empty snapshot 1`] = `
 <div>
   <section
-    class="☕️_Section____qiuc5 ☕️_Section____qiuc5"
+    class="☕️_Section____1jbd5 ☕️_Section____1jbd5"
     data-component="Section"
   >
     <h3
@@ -30,7 +30,7 @@ Object {
   "baseElement": <body>
     <div>
       <section
-        class="☕️_Section____qiuc5 ☕️_Section____qiuc5"
+        class="☕️_Section____1jbd5 ☕️_Section____1jbd5"
         data-component="Section"
       >
         <h3
@@ -77,7 +77,7 @@ Object {
   </body>,
   "container": <div>
     <section
-      class="☕️_Section____qiuc5 ☕️_Section____qiuc5"
+      class="☕️_Section____1jbd5 ☕️_Section____1jbd5"
       data-component="Section"
     >
       <h3
