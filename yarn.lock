@@ -2639,7 +2639,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/cascara@workspace:3.0.0, @espressive/cascara@workspace:packages/cascara":
+"@espressive/cascara@workspace:3.0.1, @espressive/cascara@workspace:packages/cascara":
   version: 0.0.0-use.local
   resolution: "@espressive/cascara@workspace:packages/cascara"
   dependencies:
@@ -9654,7 +9654,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:docs"
   dependencies:
-    "@espressive/cascara": "workspace:3.0.0"
+    "@espressive/cascara": "workspace:3.0.1"
     "@espressive/design-tokens": "workspace:0.1.5"
     "@espressive/legacy-css": "workspace:2.0.5"
     "@espressive/prop-types": "workspace:2.0.0"

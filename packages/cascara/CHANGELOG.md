@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+- aae2861a7: fix(FDS-447) [Section] Fix first/last child margins for consitency in layout
+- 273e3b39a: fix(FDS-515): [Dashboard] widget line does not implement stacked prop
+
 ## 3.0.0
 
 ### Major Changes
