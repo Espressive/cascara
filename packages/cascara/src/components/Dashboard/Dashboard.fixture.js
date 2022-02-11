@@ -113,11 +113,39 @@ const dashboardConfig = [
   {
     axisBottomLabel: 'Month',
     axisLeftLabel: 'Count',
-    data: barData2,
+    data: [
+      {
+        data: [
+          {
+            x: '12/14',
+            y: 43,
+          },
+        ],
+        id: 'Deflected',
+      },
+      {
+        data: [
+          {
+            x: '12/14',
+            y: 19,
+          },
+        ],
+        id: 'Not Deflected',
+      },
+      {
+        data: [
+          {
+            x: '12/14',
+            y: 3,
+          },
+        ],
+        id: 'Empty',
+      },
+    ],
     indexBy: 'month',
     keys: ['Deflected', 'Not Deflected'],
     title: 'Deflected VS Not Deflected',
-    widget: 'bar',
+    widget: 'line',
   },
   {
     data: pieDataChannel,

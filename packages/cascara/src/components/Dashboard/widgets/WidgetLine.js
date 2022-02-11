@@ -18,7 +18,13 @@ const propTypes = {
 /**
  * Widget for @nivo/line.
  */
-const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
+const WidgetLine = ({
+  axisBottomLabel,
+  axisLeftLabel,
+  data,
+  stacked,
+  ...rest
+}) => {
   const CHART_CONFIG = {
     axisBottom: {
       ...AXIS_CONFIG,
@@ -42,7 +48,7 @@ const WidgetLine = ({ axisBottomLabel, axisLeftLabel, data, ...rest }) => {
     useMesh: true,
     xScale: { type: 'point' },
     yScale: {
-      stacked: true,
+      stacked,
       type: 'linear',
     },
   };
