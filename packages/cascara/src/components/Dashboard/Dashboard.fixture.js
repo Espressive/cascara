@@ -5,7 +5,6 @@ import pieData2 from './tests/data/Pie2';
 import pieDataChannel from './tests/data/PieChannel';
 import geoMapData from './tests/data/GeoMap';
 import barData from './tests/data/Bar';
-import barData2 from './tests/data/Bar2';
 import barDataDevice from './tests/data/BarDevice';
 import heatMapData from './tests/data/HeatMap';
 
