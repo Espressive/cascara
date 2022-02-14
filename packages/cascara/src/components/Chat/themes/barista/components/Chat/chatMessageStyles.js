@@ -1,5 +1,5 @@
 import { isNil } from 'ramda';
-import { ChatlotClassNames } from '@fluentui/react-northstar';
+import { chatMessageSlotClassNames } from '@fluentui/react-northstar';
 import {
   getBorderFocusStyles,
   pxToRem,
@@ -68,7 +68,7 @@ export const Chattyles = {
     // Otherwise, if the variable is not provided, the default appearance logic will be used for actions menu.
     ...(isNil(v.showActionMenu) && {
       ':hover': {
-        [`> .${ChatlotClassNames.actionMenu}`]: {
+        [`> .${chatMessageSlotClassNames.actionMenu}`]: {
           opacity: 1,
           zIndex: v.overlayZIndex,
           '[data-popper-escaped]': {
