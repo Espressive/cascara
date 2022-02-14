@@ -26,7 +26,7 @@ module.exports = {
     },
     {
       // Namespace imports are an important part for theme building
-      files: ['packages/cascara/src/components/ChatMessages/themes/**/*.js'],
+      files: ['packages/cascara/src/components/Chat/themes/**/*.js'],
       rules: {
         'import/no-namespace': 0,
         'sort-keys': 0,
