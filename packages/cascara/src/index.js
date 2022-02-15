@@ -14,9 +14,9 @@ export { default as Title } from './atoms/Title';
 
 // Components
 export { default as ActionStack } from './components/ActionStack';
-export { default as ChatMessages } from './components/ChatMessages';
+export { default as Chat } from './components/Chat';
 export { default as Dashboard } from './components/Dashboard';
-export { default as FormOld, formOldPropTypes } from './components/FormOld';
+export { default as Form, FormPropTypes } from './components/Form';
 export { default as List } from './components/List';
 export {
   default as Pagination,
@@ -24,7 +24,7 @@ export {
   usePaginationState,
 } from './components/Pagination';
 export { default as Section } from './components/Section';
-export { default as TableOld, tableOldPropTypes } from './components/TableOld';
+export { default as Table, TablePropTypes } from './components/Table';
 export { default as Tabs } from './components/Tabs';
 
 // Scaffolding

@@ -40,7 +40,7 @@
 - e3b7463c5: chore(FDS-161): [useMemo] - Optimize portions of Cascara that can/should benefit from memoization
 - e3b7463c5: chore(FDS-37):[DataTextArea]: Improve unit test for textarea
 - e3b7463c5: chore(FDS-329): [DataCheckbox]: Improve unit test for checkbox
-- e3b7463c5: feat(FDS-396): [ChatMessages] - use ramda instead of lodash
+- e3b7463c5: feat(FDS-396): [Chat] - use ramda instead of lodash
 - Updated dependencies [e3b7463c5]
   - @espressive/prop-types@1.1.0
 
@@ -61,7 +61,7 @@
 
 ### Major Changes
 
-- 74dc6dc: feat(FDS-331): [Table, Form, Message] - add 'Old' suffix to Table & Form to prepare for a hook-based API, and rename Chat to ChatMessages
+- 74dc6dc: feat(FDS-331): [Table, Form, Message] - add 'Old' suffix to Table & Form to prepare for a hook-based API, and rename Chat to Chat
 
 ### Minor Changes
 

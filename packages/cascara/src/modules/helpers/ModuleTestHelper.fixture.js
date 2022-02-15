@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FormOld from '../../components/FormOld/FormOld';
+import Form from '../../components/Form/Form';
 
 const ACTIONS = {
   modules: [
@@ -150,7 +150,7 @@ const ModuleTestWrapper = ({
   data = DATA,
   onAction = console.log,
 }) => (
-  <FormOld
+  <Form
     actions={actions}
     data={data}
     dataDisplay={dataDisplay}
