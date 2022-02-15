@@ -10,17 +10,17 @@ import {
   AreaPlaceholder,
   Boundaries,
   Button,
-  ChatMessages,
+  Chat,
   Columns,
   Dashboard,
   Flex,
-  FormOld,
+  Form,
   JsonPlaceholder,
   List,
   Pagination,
   Section,
   Stat,
-  TableOld,
+  Table,
   Tabs,
   Title,
   usePaginationState,
@@ -72,21 +72,21 @@ const cascaraComponents = {
   AreaPlaceholder: (props) => <AreaPlaceholder {...props} />,
   Boundaries: (props) => <Boundaries {...props} />,
   Button: (props) => <Button {...props} />,
-  ChatMessages: (props) => (
+  Chat: (props) => (
     <ChatProvider>
-      <ChatMessages {...props} />
+      <Chat {...props} />
     </ChatProvider>
   ),
   Columns: (props) => <Columns {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,
   Flex: (props) => <Flex {...props} />,
-  FormOld: (props) => <FormOld {...props} />,
+  Form: (props) => <Form {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
   List: (props) => <List {...props} />,
   Pagination: (props) => <Pagination {...props} />,
   Section: (props) => <Section {...props} />,
   Stat: (props) => <Stat {...props} />,
-  TableOld: (props) => <TableOld {...props} />,
+  Table: (props) => <Table {...props} />,
   Tabs: (props) => <Tabs {...props} />,
   Title: (props) => <Title {...props} />,
 };
