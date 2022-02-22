@@ -43,7 +43,7 @@ const isCurrentAReleaseBranch = currentBranch.search(/^release/) !== -1;
 const isReleasePR = isCurrentAReleaseBranch && isTargetBranchMain;
 
 const shouldDangerCheckPR =
-  isCurrentDevelopOrMain && isTargetBranchDevelopOrMain;
+  !isCurrentDevelopOrMain && !isTargetBranchDevelopOrMain;
 
 const isDevelopComparedToMain = isCurrentDevelop && isTargetBranchMain;
 
