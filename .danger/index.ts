@@ -48,7 +48,7 @@ const shouldDangerCheckPR =
 const isDevelopComparedToMain = isCurrentDevelop && isTargetBranchMain;
 
 // skip danger if current and target branch is main or develop
-if (!shouldDangerCheckPR) {
+if (!isCurrentDevelop && !isTargetBranchMain) {
   message(
     `Dangerfile.js does not run when the current branch is ${currentBranch}`
   );
