@@ -31,26 +31,27 @@ const isSnyk =
 const currentBranch = danger.github.pr.head.ref;
 const targetBranch = danger.github.pr.base.ref;
 
-const isCurrentDevelopOrMain = ['main', 'develop'].includes(currentBranch);
-const isTargetBranchDevelopOrMain = ['main', 'develop'].includes(targetBranch);
-
 // validate if the current and target branch are specifically main or develop
 const isCurrentDevelop = currentBranch === 'develop';
+const isTargetBranchDevelop = targetBranch === 'develop';
+const isCurrentMain = currentBranch === 'main';
 const isTargetBranchMain = targetBranch === 'main';
 
 // [FDS-444]: identify release branches and PRs
 const isCurrentAReleaseBranch = currentBranch.search(/^release/) !== -1;
 const isReleasePR = isCurrentAReleaseBranch && isTargetBranchMain;
 
-const shouldDangerCheckPR =
-  !isCurrentDevelopOrMain && !isTargetBranchDevelopOrMain;
+// Do not run Danger checks in develop -> main and main -> develop PRs
+const shouldDangerSkipPR =
+  (isCurrentDevelop && isTargetBranchMain) ||
+  (isCurrentMain && isTargetBranchDevelop);
 
 const isDevelopComparedToMain = isCurrentDevelop && isTargetBranchMain;
 
-// skip danger if current and target branch is main or develop
-if (!shouldDangerCheckPR) {
+// skip danger if current and target branches are main/develop or develop/main
+if (shouldDangerSkipPR) {
   message(
-    `Skipping Danger.js checks for this PR, as it matches '${currentBranch} -> ${targetBranch}' pattern`
+    `Skipping Danger.js checks for this PR, no checks needed for PRs between ${currentBranch} and ${targetBranch} or visceversa.`
   );
 }
 
@@ -70,14 +71,14 @@ if (github.description.length < 10) {
 }
 
 // Check that someone has been assigned to this PR
-if (github.assignee === null && !isSnyk && shouldDangerCheckPR) {
+if (github.assignee === null && !isSnyk && !shouldDangerSkipPR) {
   warn(
     'Please assign someone to merge this PR, and optionally include people who should review.'
   );
 }
 
 // Check if we are modifying any Cosmos fixtures
-if (changed.fixtures && shouldDangerCheckPR) {
+if (changed.fixtures && !shouldDangerSkipPR) {
   for (let file of changed.fixtures) {
     message(`**${file}**: This fixture has been changed.`, file);
   }
@@ -88,7 +89,7 @@ if (
   changed.packages &&
   !hasDescriptionSection('dependencies') &&
   !isSnyk &&
-  shouldDangerCheckPR &&
+  !shouldDangerSkipPR &&
   !isReleasePR
 ) {
   for (let file of changed.packages) {
@@ -102,7 +103,7 @@ if (
 if (
   changed.snapshots &&
   !hasDescriptionSection('snapshots') &&
-  shouldDangerCheckPR &&
+  shouldDangerSkipPR &&
   !isReleasePR
 ) {
   for (let file of changed.snapshots) {
