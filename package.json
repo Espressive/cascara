@@ -125,7 +125,7 @@
     "resolve-path": "1.4.0",
     "rollup": "2.67.3",
     "rollup-plugin-postcss": "4.0.2",
-    "sass": "1.34.1",
+    "sass": "1.49.9",
     "typescript": "4.6.2",
     "vercel": "22.0.1",
     "webpack": "4.44.1"
