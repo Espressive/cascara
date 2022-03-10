@@ -27,7 +27,7 @@
     "watch": "yarn build && yarn chokidar \"src/**/*.json\" \"config/*.js\" -c \"yarn build\""
   },
   "dependencies": {
-    "style-dictionary": "3.0.0-rc.9"
+    "style-dictionary": "3.7.0"
   },
   "devDependencies": {
     "chokidar-cli": "3.0.0"
