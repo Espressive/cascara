@@ -2674,7 +2674,7 @@ __metadata:
     ramda: 0.28.0
     react-error-boundary: 3.1.4
     react-fast-compare: 3.2.0
-    react-hook-form: 6.8.4
+    react-hook-form: 6.15.8
     react-is: 17.0.2
     react-textarea-autosize: 8.3.3
     reakit: next
@@ -20158,12 +20158,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:6.8.4":
-  version: 6.8.4
-  resolution: "react-hook-form@npm:6.8.4"
+"react-hook-form@npm:6.15.8":
+  version: 6.15.8
+  resolution: "react-hook-form@npm:6.15.8"
   peerDependencies:
-    react: ^16.8.0
-  checksum: de109e3bd379a2d6eb635aa34300c235f02bf737e93f77269f3784071fe2e635149490df27d66d0176fe26e40099c83a8d85f34bf9d48ae7b47c1db37769a4fc
+    react: ^16.8.0 || ^17
+  checksum: 867d0f8ab1c1a449ebe7027ce56c8b382e7ea516b60c9dcb1484cea1f7e6968b2ad5746e2113fdf5a8454d3759abf34fe65fbbea03babe2baa9eae4a96662b06
   languageName: node
   linkType: hard
 
