@@ -39,8 +39,8 @@ describe('dataRadio', () => {
     expect(onAction).toBeCalledWith(
       { name: 'edit.save' },
       {
-        One: '',
-        Two: '',
+        One: null,
+        Two: null,
         checkbox: true,
         radio: true,
       }
@@ -92,7 +92,7 @@ describe('dataRadio', () => {
       { name: 'edit.save' },
       {
         One: 'One',
-        Two: '',
+        Two: null,
         checkbox: false,
         radio: true,
       }

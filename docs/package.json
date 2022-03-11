@@ -28,7 +28,7 @@
     "gray-matter": "4.0.2",
     "next-remote-watch": "0.2.0",
     "next-transpile-modules": "7.3.0",
-    "prop-types": "15.7.2",
+    "prop-types": "15.8.1",
     "remark-autolink-headings": "6.0.1",
     "remark-code-frontmatter": "1.0.0",
     "remark-emoji": "2.1.0",
