@@ -1,0 +1,32 @@
+---
+title: Action Edit
+propTable: ActionEdit.js
+type: 'module'
+public: false
+---
+
+A special action module, fully controled by **Cascara**. Use it when you want the **From** to be editable.
+In contrast with the **button** module, this module renders up to 2 buttons at the same time, depending on the **edit** state of the parent context:
+
+1. In **display** mode, it will render a single button with the text you pass as `editLabel` prop, clicking that button will make the **edit** mode kick-in
+2. In **edit** mode, it will render a button for exiting **edit** mode (AKA cancel) and one for accepting the changes made during **edit** mode (AKA submit).
+
+All these three buttons will cause your Table or Form to emit the following `onAction` events:
+
+1. **edit.start** when entering in **edit** mode
+2. **edit.cancel** when exiting the **edit** mode via the **cancel** button
+3. **edit.save** when exiting the **edit** mode via the **save** button
+
+## Using the module
+
+Additional to the props specified in the aside table, you need to pass the **module** prop, with its value set to **edit**.
+
+### Sandbox
+
+Feel free to play around with the following code:
+
+```jsx
+<ModuleSandbox>
+  <ActionEdit cancelLabel='Cancelar' editLabel='Editar' saveLabel='Guardar' />
+</ModuleSandbox>
+```

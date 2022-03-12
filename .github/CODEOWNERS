@@ -1,15 +1,15 @@
 # Each line is a file pattern followed by one or more owners.
 
-package.json                    @brianespinosa
+package.json                    @odiseo42
 
 # Documentation
 docs/                           @lordpixel
 
 # Private
-packages/cascara/src/private/   @brianespinosa
+packages/cascara/src/private/   @odiseo42
 
 # Modules
 packages/cascara/src/modules/   @lordpixel
 
 # UI
-packages/cascara/src/ui/        @brianespinosa
+packages/cascara/src/ui/        @odiseo42
