@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- 004622250: feat/FDS(516): [Cascara] - revert table form and chat names to their originals
+- Updated dependencies [08a1fd661]
+- Updated dependencies [be9fb6ac2]
+- Updated dependencies [004622250]
+- Updated dependencies [6f5528e4f]
+  - @espressive/cascara@3.0.2
+
 ## 3.0.1
 
 ### Patch Changes
