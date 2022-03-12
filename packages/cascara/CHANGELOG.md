@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- 08a1fd661: chore(FDS-389):[Docs]: Fix propTypes for Table
+- be9fb6ac2: fix(FDS-517): [Stat] - unwanted icon is rendered in Stat component
+- 004622250: feat/FDS(516): [Cascara] - revert table form and chat names to their originals
+- 6f5528e4f: chore(FDS-508): [Rollup] - bump rollup to v2.67.3 and update ecosystem
+
 ## 3.0.1
 
 ### Patch Changes
