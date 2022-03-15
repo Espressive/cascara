@@ -70,6 +70,9 @@ export const TABLE_SHAPE = {
     }),
   ]),
 
+  // Sorting
+  sortable: pt.oneOfType([pt.boolean, pt.string, pt.arrayOf(pt.string)]),
+
   // Unique ID Attribute.
   //
   // specifies the attribute that uniquely identifies every object in the 'data' array.

@@ -1,13 +1,18 @@
-import React, { useCallback, useMemo, useReducer } from 'react';
+import React, { useCallback, useMemo, useReducer, useState } from 'react';
 // import pt from 'prop-types';
 import styles from './Table.module.scss';
 import { TABLE_SHAPE } from './__propTypes';
 import TableProviderOld from './context/TableProvider';
 
 import selectionReducer, { SELECT, UNSELECT } from './state/selectionReducer';
+import sortingReducer, {
+  RESET as RESET_SORT,
+  SORT,
+} from './state/sortingReducer';
 
 import TableHeaderOld from './TableHeader';
 import TableBodyOld from './TableBody';
+import { ascend, descend, prop, sortWith } from 'ramda';
 
 // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
 // NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
@@ -58,9 +63,56 @@ const TableBase = ({
   dataDisplay,
   onAction,
   selections,
+  sortable,
   uniqueIdAttribute,
   ...rest
 }) => {
+  const [sortableColumns, setSortableColumns] = useState(() => {
+    let sortableColumns = [];
+
+    /** multiple column sort */
+    if (Array.isArray(sortable) && sortable.length) {
+      sortableColumns = [...sortable];
+    }
+
+    /** single column sort */
+    if (typeof sortable === 'string') {
+      sortableColumns.push(sortable);
+    }
+
+    /** all columns flag */
+    if (typeof sortable === 'boolean' && sortable) {
+      sortableColumns = dataDisplay.map((header) => header.attribute);
+    }
+
+    return sortableColumns;
+  });
+
+  const [sortState, dispatchSortAction] = useReducer(sortingReducer);
+
+  const sortRecordsBy = useCallback(
+    (attribute) => {
+      const newSortState = {
+        ...sortState,
+        attribute,
+        // if same attribute, circle between -1 (descend), 0 (unsort) and 1 (ascend)
+        order:
+          sortState.attribute === attribute
+            ? sortState.order === 1
+              ? -1
+              : sortState.order + 1
+            : 1,
+      };
+
+      dispatchSortAction({ payload: newSortState, type: SORT });
+    },
+    [sortState]
+  );
+
+  const unsortRecords = useCallback(() => {
+    dispatchSortAction({ type: RESET_SORT });
+  }, []);
+
   // Row selection
   const isRowSelectable = Boolean(selections);
   const maxSelection = isRowSelectable ? selections?.max || 0 : 0;
@@ -129,7 +181,24 @@ const TableBase = ({
     ? inferUniqueID(Object.keys(data[0]))
     : undefined;
 
-  // // FDS-142: new action props
+  // FDS-518: sort table records
+  const sortedData = useMemo(() => {
+    if (!sortState.attribute || sortState.order === 0) {
+      return data;
+    }
+
+    const sortData = sortWith([
+      sortState.order === -1
+        ? descend(prop(sortState.attribute))
+        : ascend(prop(sortState.attribute)),
+    ]);
+
+    const sortedData = sortData(data);
+
+    return sortedData;
+  }, [data, sortState]);
+
+  // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
   let modules = actions?.modules;
   const resolveRecordActions = actions?.resolveRecordActions;
@@ -175,7 +244,7 @@ const TableBase = ({
     <TableProviderOld
       value={{
         actionButtonMenuIndex,
-        data,
+        data: sortedData,
         dataDisplay: display,
         isRowSelectable,
         maxSelection,
@@ -186,7 +255,10 @@ const TableBase = ({
         rowSelect,
         rowUnselect,
         selection,
+        sortRecordsBy,
+        sortableColumns,
         uniqueIdAttribute: uniqueID,
+        unsortRecords,
       }}
       {...rest}
     >
