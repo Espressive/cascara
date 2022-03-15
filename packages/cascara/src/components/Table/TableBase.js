@@ -67,7 +67,7 @@ const TableBase = ({
   uniqueIdAttribute,
   ...rest
 }) => {
-  const [sortableColumns, setSortableColumns] = useState(() => {
+  const [sortableColumns] = useState(() => {
     let sortableColumns = [];
 
     /** multiple column sort */
