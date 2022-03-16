@@ -35,6 +35,36 @@ $header-background: #eee;
     background-color: $header-background;
   }
 
+  .SortArrow {
+    float: right;
+    border-style: solid;
+    content: ' ';
+    margin: -1em 0.15em;
+    border-width: 0.15em 0.15em 0 0;
+    height: 0.45em;
+    width: 0.45em;
+  }
+
+  .SortArrowUp::before {
+    @extend .SortArrow;
+    transform: rotate(-45deg);
+  }
+
+  .SortArrowDown::before {
+    @extend .SortArrow;
+    transform: rotate(135deg);
+  }
+
+  .SortInactive {
+    color: #b3b3b3;
+  }
+
+  .SortInactive::before {
+    @extend .SortArrow;
+    color: #b3b3b3;
+    transform: rotate(-45deg);
+  }
+
   .Cell {
     padding-top: 0;
     padding-bottom: 0;

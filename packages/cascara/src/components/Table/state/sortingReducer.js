@@ -1,22 +1,38 @@
-const INITIAL_STATE = {
-  attribute: null,
-  order: 0,
+const SORT = 'SORT';
+const SORT_ORDER = {
+  UNSORTED: 'UNSORTED',
+  ASCENDING: 'ASCENDING',
+  DESCENDING: 'DESCENDING',
 };
 
-const SORT = 'SORT';
-const RESET = 'RESET';
+const INITIAL_STATE = {
+  attribute: null,
+  order: SORT_ORDER.ASCENDING,
+};
 
-const sortingReducer = (state = INITIAL_STATE, action = {}) => {
-  const { payload = {}, type } = action;
+const sortingReducer = (state, action = {}) => {
+  const { payload: attribute, type } = action;
+  let newOrder = state.order;
+
+  if (attribute === state.attribute) {
+    if (state.order === SORT_ORDER.UNSORTED) {
+      newOrder = SORT_ORDER.ASCENDING;
+    }
+
+    if (state.order === SORT_ORDER.ASCENDING) {
+      newOrder = SORT_ORDER.DESCENDING;
+    }
+
+    if (state.order === SORT_ORDER.DESCENDING) {
+      newOrder = SORT_ORDER.UNSORTED;
+    }
+  }
 
   switch (type) {
-    case RESET:
-      return INITIAL_STATE;
-
     case SORT:
       return {
-        ...INITIAL_STATE,
-        ...payload,
+        attribute,
+        order: newOrder,
       };
 
     default:
@@ -24,5 +40,5 @@ const sortingReducer = (state = INITIAL_STATE, action = {}) => {
   }
 };
 
-export { RESET, SORT };
+export { INITIAL_STATE, SORT, SORT_ORDER };
 export default sortingReducer;

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useReducer, useState } from 'react';
+import React, { useCallback, useMemo, useReducer } from 'react';
 // import pt from 'prop-types';
 import styles from './Table.module.scss';
 import { TABLE_SHAPE } from './__propTypes';
@@ -6,8 +6,9 @@ import TableProviderOld from './context/TableProvider';
 
 import selectionReducer, { SELECT, UNSELECT } from './state/selectionReducer';
 import sortingReducer, {
-  RESET as RESET_SORT,
+  INITIAL_STATE,
   SORT,
+  SORT_ORDER,
 } from './state/sortingReducer';
 
 import TableHeaderOld from './TableHeader';
@@ -67,7 +68,7 @@ const TableBase = ({
   uniqueIdAttribute,
   ...rest
 }) => {
-  const [sortableColumns] = useState(() => {
+  const sortableColumns = useMemo(() => {
     let sortableColumns = [];
 
     /** multiple column sort */
@@ -86,31 +87,13 @@ const TableBase = ({
     }
 
     return sortableColumns;
-  });
-
-  const [sortState, dispatchSortAction] = useReducer(sortingReducer);
-
-  const sortRecordsBy = useCallback(
-    (attribute) => {
-      const newSortState = {
-        ...sortState,
-        attribute,
-        // if same attribute, circle between -1 (descend), 0 (unsort) and 1 (ascend)
-        order:
-          sortState.attribute === attribute
-            ? sortState.order === 1
-              ? -1
-              : sortState.order + 1
-            : 1,
-      };
-
-      dispatchSortAction({ payload: newSortState, type: SORT });
-    },
-    [sortState]
+  }, [dataDisplay, sortable]);
+  const [sortState, dispatchSortAction] = useReducer(
+    sortingReducer,
+    INITIAL_STATE
   );
-
-  const unsortRecords = useCallback(() => {
-    dispatchSortAction({ type: RESET_SORT });
+  const sortRecordsBy = useCallback((attribute) => {
+    dispatchSortAction({ payload: attribute, type: SORT });
   }, []);
 
   // Row selection
@@ -183,14 +166,14 @@ const TableBase = ({
 
   // FDS-518: sort table records
   const sortedData = useMemo(() => {
-    if (!sortState.attribute || sortState.order === 0) {
+    if (!sortState?.attribute || sortState?.order === SORT_ORDER.UNSORTED) {
       return data;
     }
 
     const sortData = sortWith([
-      sortState.order === -1
-        ? descend(prop(sortState.attribute))
-        : ascend(prop(sortState.attribute)),
+      sortState.order === SORT_ORDER.ASCENDING
+        ? ascend(prop(sortState?.attribute))
+        : descend(prop(sortState?.attribute)),
     ]);
 
     const sortedData = sortData(data);
@@ -256,9 +239,9 @@ const TableBase = ({
         rowUnselect,
         selection,
         sortRecordsBy,
+        sortState,
         sortableColumns,
         uniqueIdAttribute: uniqueID,
-        unsortRecords,
       }}
       {...rest}
     >
