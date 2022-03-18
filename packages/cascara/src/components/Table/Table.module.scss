@@ -33,13 +33,15 @@ $header-background: #eee;
   .HeadCell {
     font-size: 0.9em;
     background-color: $header-background;
+    display: flex;
+    justify-content: space-between;
   }
 
   .SortArrow {
     float: right;
     border-style: solid;
     content: ' ';
-    margin: -1em 0.15em;
+    margin: 0.5em 0.5em;
     border-width: 0.15em 0.15em 0 0;
     height: 0.45em;
     width: 0.45em;
