@@ -36,14 +36,14 @@ const SortableHeader = ({
   });
 
   /** Handle SVG element click */
-  const handleSVGClick = useCallback(() => {
+  const handleHeaderClick = useCallback(() => {
     if (isSortable) {
       onSort(attribute);
     }
   }, [attribute, isSortable, onSort]);
 
   return (
-    <th className={styles.HeadCell} key={attribute} onClick={handleSVGClick}>
+    <th className={styles.HeadCell} key={attribute} onClick={handleHeaderClick}>
       {label} {isSortable && <Role className={className} />}
     </th>
   );

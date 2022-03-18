@@ -157,29 +157,29 @@ const TableBase = ({
     // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
     inferDataDisplay(data);
 
-  // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
-  const uniqueID = uniqueIdAttribute
-    ? uniqueIdAttribute
-    : data
-    ? inferUniqueID(Object.keys(data[0]))
-    : undefined;
-
   // FDS-518: sort table records
   const sortedData = useMemo(() => {
-    if (!sortState?.attribute || sortState?.order === SORT_ORDER.UNSORTED) {
+    if (!sortState.attribute || sortState.order === SORT_ORDER.UNSORTED) {
       return data;
     }
 
     const sortData = sortWith([
       sortState.order === SORT_ORDER.ASCENDING
-        ? ascend(prop(sortState?.attribute))
-        : descend(prop(sortState?.attribute)),
+        ? ascend(prop(sortState.attribute))
+        : descend(prop(sortState.attribute)),
     ]);
 
     const sortedData = sortData(data);
 
     return sortedData;
   }, [data, sortState]);
+
+  // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
+  const uniqueID = uniqueIdAttribute
+    ? uniqueIdAttribute
+    : data
+    ? inferUniqueID(Object.keys(sortedData[0]))
+    : undefined;
 
   // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
