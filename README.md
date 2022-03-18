@@ -1,6 +1,6 @@
 <img src='cascara_meta.svg' alt='Cascara' width='1000' />
 
-Espressive's Functional Design System
+Espressive's Functional Design System (FDS)
 
 ![CircleCI](https://img.shields.io/circleci/build/gh/Espressive/cascara/main)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
