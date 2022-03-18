@@ -33,6 +33,38 @@ $header-background: #eee;
   .HeadCell {
     font-size: 0.9em;
     background-color: $header-background;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .SortArrow {
+    float: right;
+    border-style: solid;
+    content: ' ';
+    margin: 0.5em 0.5em;
+    border-width: 0.15em 0.15em 0 0;
+    height: 0.45em;
+    width: 0.45em;
+  }
+
+  .SortArrowUp::before {
+    @extend .SortArrow;
+    transform: rotate(-45deg);
+  }
+
+  .SortArrowDown::before {
+    @extend .SortArrow;
+    transform: rotate(135deg);
+  }
+
+  .SortInactive {
+    color: #b3b3b3;
+  }
+
+  .SortInactive::before {
+    @extend .SortArrow;
+    color: #b3b3b3;
+    transform: rotate(-45deg);
   }
 
   .Cell {

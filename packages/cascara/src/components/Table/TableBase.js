@@ -5,9 +5,15 @@ import { TABLE_SHAPE } from './__propTypes';
 import TableProviderOld from './context/TableProvider';
 
 import selectionReducer, { SELECT, UNSELECT } from './state/selectionReducer';
+import sortingReducer, {
+  INITIAL_STATE,
+  SORT,
+  SORT_ORDER,
+} from './state/sortingReducer';
 
 import TableHeaderOld from './TableHeader';
 import TableBodyOld from './TableBody';
+import { ascend, descend, prop, sortWith } from 'ramda';
 
 // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
 // NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
@@ -58,9 +64,38 @@ const TableBase = ({
   dataDisplay,
   onAction,
   selections,
+  sortable,
   uniqueIdAttribute,
   ...rest
 }) => {
+  const sortableColumns = useMemo(() => {
+    let sortableColumns = [];
+
+    /** multiple column sort */
+    if (Array.isArray(sortable) && sortable.length) {
+      sortableColumns = [...sortable];
+    }
+
+    /** single column sort */
+    if (typeof sortable === 'string') {
+      sortableColumns.push(sortable);
+    }
+
+    /** all columns flag */
+    if (typeof sortable === 'boolean' && sortable) {
+      sortableColumns = dataDisplay.map((header) => header.attribute);
+    }
+
+    return sortableColumns;
+  }, [dataDisplay, sortable]);
+  const [sortState, dispatchSortAction] = useReducer(
+    sortingReducer,
+    INITIAL_STATE
+  );
+  const sortRecordsBy = useCallback((attribute) => {
+    dispatchSortAction({ payload: attribute, type: SORT });
+  }, []);
+
   // Row selection
   const isRowSelectable = Boolean(selections);
   const maxSelection = isRowSelectable ? selections?.max || 0 : 0;
@@ -122,14 +157,31 @@ const TableBase = ({
     // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
     inferDataDisplay(data);
 
+  // FDS-518: sort table records
+  const sortedData = useMemo(() => {
+    if (!sortState.attribute || sortState.order === SORT_ORDER.UNSORTED) {
+      return data;
+    }
+
+    const sortData = sortWith([
+      sortState.order === SORT_ORDER.ASCENDING
+        ? ascend(prop(sortState.attribute))
+        : descend(prop(sortState.attribute)),
+    ]);
+
+    const sortedData = sortData(data);
+
+    return sortedData;
+  }, [data, sortState]);
+
   // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
   const uniqueID = uniqueIdAttribute
     ? uniqueIdAttribute
     : data
-    ? inferUniqueID(Object.keys(data[0]))
+    ? inferUniqueID(Object.keys(sortedData[0]))
     : undefined;
 
-  // // FDS-142: new action props
+  // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
   let modules = actions?.modules;
   const resolveRecordActions = actions?.resolveRecordActions;
@@ -175,7 +227,7 @@ const TableBase = ({
     <TableProviderOld
       value={{
         actionButtonMenuIndex,
-        data,
+        data: sortedData,
         dataDisplay: display,
         isRowSelectable,
         maxSelection,
@@ -186,6 +238,9 @@ const TableBase = ({
         rowSelect,
         rowUnselect,
         selection,
+        sortRecordsBy,
+        sortState,
+        sortableColumns,
         uniqueIdAttribute: uniqueID,
       }}
       {...rest}
