@@ -62,12 +62,28 @@ const TableBase = ({
   data,
   dataConfig,
   dataDisplay,
+  initialSort,
   onAction,
   selections,
   sortable,
   uniqueIdAttribute,
   ...rest
 }) => {
+  const visibleColumns = useMemo(
+    () =>
+      Array.isArray(dataDisplay)
+        ? dataDisplay.map((column) => column.attribute)
+        : inferDataDisplay(data),
+    [data, dataDisplay]
+  );
+
+  /**
+   * Sortable prop can have 3 different values:
+   *
+   * - Boolean, to make all columns sortable
+   * - String, to make a single column sortable
+   * - Array[String], to make multiple columns sortable
+   */
   const sortableColumns = useMemo(() => {
     let sortableColumns = [];
 
@@ -88,10 +104,14 @@ const TableBase = ({
 
     return sortableColumns;
   }, [dataDisplay, sortable]);
+
+  // Create sort state
   const [sortState, dispatchSortAction] = useReducer(
     sortingReducer,
-    INITIAL_STATE
+    initialSort || INITIAL_STATE
   );
+
+  // Sort records
   const sortRecordsBy = useCallback((attribute) => {
     dispatchSortAction({ payload: attribute, type: SORT });
   }, []);
@@ -159,6 +179,12 @@ const TableBase = ({
 
   // FDS-518: sort table records
   const sortedData = useMemo(() => {
+    // Do not sort if sorting column is hidden
+    if (!visibleColumns.includes(sortState.attribute)) {
+      return data;
+    }
+
+    // do not sort if not initial state
     if (!sortState.attribute || sortState.order === SORT_ORDER.UNSORTED) {
       return data;
     }
@@ -172,7 +198,7 @@ const TableBase = ({
     const sortedData = sortData(data);
 
     return sortedData;
-  }, [data, sortState]);
+  }, [data, sortState.attribute, sortState.order, visibleColumns]);
 
   // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
   const uniqueID = uniqueIdAttribute

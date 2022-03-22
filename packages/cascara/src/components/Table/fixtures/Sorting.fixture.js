@@ -2,8 +2,9 @@ import React from 'react';
 import { Provider } from 'reakit';
 
 import Table from '../Table';
-import { results } from '../data/entities';
+import { SORT_ORDER } from '../state/sortingReducer';
 
+import { results } from '../data/entities';
 import { ACTIONS, COLUMNS } from './constants';
 
 const resultsWithAlphabeticalOrder = results.map((result, idx) => {
@@ -11,6 +12,7 @@ const resultsWithAlphabeticalOrder = results.map((result, idx) => {
 
   return result;
 });
+
 const DataWithSorting = ({ title, description, ...fixtureProps }) => (
   <>
     <h3>{title}</h3>
@@ -24,6 +26,7 @@ const DataWithSorting = ({ title, description, ...fixtureProps }) => (
   </>
 );
 
+export { resultsWithAlphabeticalOrder };
 export default {
   allAttributesSort: (
     <DataWithSorting
@@ -31,6 +34,7 @@ export default {
       data={resultsWithAlphabeticalOrder}
       dataDisplay={COLUMNS}
       description='The table is sortable by ALL columns, ascending'
+      initialSort={{ attribute: 'eid', order: SORT_ORDER.ASCENDING }}
       onAction={console.log}
       selections
       sortable
@@ -44,6 +48,7 @@ export default {
       data={resultsWithAlphabeticalOrder}
       dataDisplay={COLUMNS}
       description='The table is sortable by eID and name, ascending'
+      initialSort={{ attribute: 'eid', order: SORT_ORDER.DESCENDING }}
       onAction={console.log}
       selections
       sortable={['eid', 'name']}
@@ -57,10 +62,25 @@ export default {
       data={resultsWithAlphabeticalOrder}
       dataDisplay={COLUMNS}
       description='The table is sortable by eID, ascending'
+      initialSort={{ attribute: 'eid', order: SORT_ORDER.ASCENDING }}
       onAction={console.log}
       selections
       sortable='eid'
       title='Single attribute sort'
+      uniqueIdAttribute='eid'
+    />
+  ),
+  withInitialSortConfig: (
+    <DataWithSorting
+      actions={ACTIONS}
+      data={resultsWithAlphabeticalOrder}
+      dataDisplay={COLUMNS}
+      description='The table is sortable by ALL columns, ascending'
+      initialSort={{ attribute: 'eid', order: SORT_ORDER.DESCENDING }}
+      onAction={console.log}
+      selections
+      sortable
+      title='All atributes sort'
       uniqueIdAttribute='eid'
     />
   ),

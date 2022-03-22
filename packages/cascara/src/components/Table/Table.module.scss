@@ -37,6 +37,10 @@ $header-background: #eee;
     justify-content: space-between;
   }
 
+  .SortedColumn {
+    background-color: darken($header-background, 15%);
+  }
+
   .SortArrow {
     float: right;
     border-style: solid;

@@ -1,13 +1,13 @@
 import React from 'react';
+import pt from 'prop-types';
 
 import Boundaries from '../../atoms/Boundaries';
-
 import TableBase from './TableBase';
 import TableLoading from '../../private/TemporaryLoading';
 import TableEmpty from '../../private/TemporaryEmpty';
 
-import pt from 'prop-types';
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
+import { SORT_ORDER } from './state/sortingReducer';
 
 const actionModuleOptions = Object.keys(actionModules);
 const dataModuleOptions = Object.keys(dataModules);
@@ -90,6 +90,12 @@ Table.propTypes = {
     })
   ),
 
+  /** Initial sort configuration */
+  initialSort: pt.shape({
+    attribute: pt.string,
+    order: pt.oneOf(Object.keys(SORT_ORDER)),
+  }),
+
   // Event handler.
   //
   // An event handler you can pass to handle every event your table emits.
@@ -106,6 +112,9 @@ Table.propTypes = {
       max: pt.number,
     }),
   ]),
+
+  // Sorting
+  sortable: pt.oneOf([pt.boolean, pt.string, pt.arrayOf(pt.string)]),
 
   // Unique ID Attribute.
   //
