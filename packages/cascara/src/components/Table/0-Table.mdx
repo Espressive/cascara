@@ -190,7 +190,7 @@ An initial sorting configuration can be passed. The shape is as follows:
 import { TableSortOrder } from '@espressive/cascara';
 
 const initialSort = {
-  attribute: 'eID',
+  attribute: 'eid',
   order: TableSortOrder.ASCENDING,
 };
 ```
@@ -260,8 +260,8 @@ Specifies which sorting strategy to follow:
 | type          | example         | description                                           |
 | ------------- | --------------- | ----------------------------------------------------- |
 | Boolean       | true            | Specifies that all attributes are sortable            |
-| String        | 'eID'           | Attribute, the attribute (column) to sort by          |
-| Array[String] | ['eId', 'name'] | Sortable, an array of attributes (columns) to sort by |
+| String        | 'eid'           | Attribute, the attribute (column) to sort by          |
+| Array[String] | ['eid', 'name'] | Sortable, an array of attributes (columns) to sort by |
 
 # Mixing everyting together
 

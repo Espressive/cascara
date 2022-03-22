@@ -47,7 +47,7 @@ export default {
       actions={ACTIONS}
       data={resultsWithAlphabeticalOrder}
       dataDisplay={COLUMNS}
-      description='The table is sortable by eID and name, ascending'
+      description='The table is sortable by eid and name, ascending'
       initialSort={{ attribute: 'eid', order: SORT_ORDER.DESCENDING }}
       onAction={console.log}
       selections
@@ -61,7 +61,7 @@ export default {
       actions={ACTIONS}
       data={resultsWithAlphabeticalOrder}
       dataDisplay={COLUMNS}
-      description='The table is sortable by eID, ascending'
+      description='The table is sortable by eid, ascending'
       initialSort={{ attribute: 'eid', order: SORT_ORDER.ASCENDING }}
       onAction={console.log}
       selections

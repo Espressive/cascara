@@ -19,7 +19,7 @@ import { ascend, descend, prop, sortWith } from 'ramda';
 // NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
 const UUID_PRIORITY_KEYS = ['eid', 'uuid', 'id', 'sys_date_created', 'number'];
 
-const inferUniqueID = (objectKeys) => {
+const inferUniqueid = (objectKeys) => {
   for (const key of UUID_PRIORITY_KEYS) {
     if (objectKeys.includes(key)) {
       return key;
@@ -201,10 +201,10 @@ const TableBase = ({
   }, [data, sortState.attribute, sortState.order, visibleColumns]);
 
   // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
-  const uniqueID = uniqueIdAttribute
+  const uniqueid = uniqueIdAttribute
     ? uniqueIdAttribute
     : data
-    ? inferUniqueID(Object.keys(sortedData[0]))
+    ? inferUniqueid(Object.keys(sortedData[0]))
     : undefined;
 
   // FDS-142: new action props
@@ -267,7 +267,7 @@ const TableBase = ({
         sortRecordsBy,
         sortState,
         sortableColumns,
-        uniqueIdAttribute: uniqueID,
+        uniqueIdAttribute: uniqueid,
       }}
       {...rest}
     >

@@ -2,7 +2,7 @@ export const COLUMNS = [
   {
     attribute: 'eid',
     isEditable: false,
-    label: 'eID',
+    label: 'eid',
     module: 'text',
   },
   {
