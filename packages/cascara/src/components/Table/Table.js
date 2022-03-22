@@ -57,13 +57,16 @@ Table.propTypes = {
     resolveRecordActions: pt.func,
   }),
 
-  // An array of objects.
-  //
-  // Every object in this array will potencially be rendered as a table row.
+  /**
+   * An array of objects.
+   * Every object in this array will potencially be rendered as a table row.
+   */
   data: pt.arrayOf(pt.shape({})),
 
-  // DEPRECATED: The main configuration for your table. Here you can specify the columns to display
-  // as well as the available actions (if any) for each row.
+  /**
+   * DEPRECATED: The main configuration for your table. Here you can specify the columns to display
+   * as well as the available actions (if any) for each row.
+   */
   dataConfig: pt.shape({
     /** DEPRECATED - use actions instead */
     actionButtonMenuIndex: pt.number,
@@ -96,16 +99,22 @@ Table.propTypes = {
     order: pt.oneOf(Object.keys(SORT_ORDER)),
   }),
 
-  // Event handler.
-  //
-  // An event handler you can pass to handle every event your table emits.
+  /**
+   * Event handler.
+   *
+   * An event handler you can pass to handle every event your table emits.
+   */
   onAction: pt.func,
 
-  // Resolve record actions.
-  // A function that returns the actions available to the current row
+  /**
+   * Resolve record actions.
+   * A function that returns the actions available to the current row
+   */
   resolveRecordActions: pt.func,
 
-  // Selection
+  /**
+   * Selection
+   */
   selections: pt.oneOfType([
     pt.bool,
     pt.exact({
@@ -113,12 +122,21 @@ Table.propTypes = {
     }),
   ]),
 
-  // Sorting
+  /**
+   * Specifies which sorting strategy to follow:
+   *
+   *
+   * {Boolean} Specifies that all attributes are sortable
+   * {String} Attribute, the attribute (column) to sort by
+   * {Array[String]} Sortable, an array of attributes (columns) to sort by
+   */
   sortable: pt.oneOf([pt.boolean, pt.string, pt.arrayOf(pt.string)]),
 
-  // Unique ID Attribute.
-  //
-  // specifies the attribute that uniquely identifies every object in the 'data' array.
+  /**
+   * Unique ID Attribute.
+   *
+   * specifies the attribute that uniquely identifies every object in the 'data' array.
+   */
   uniqueIdAttribute: pt.string,
 };
 
