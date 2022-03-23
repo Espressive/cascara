@@ -130,7 +130,7 @@ Table.propTypes = {
    * {String} Attribute, the attribute (column) to sort by
    * {Array[String]} Sortable, an array of attributes (columns) to sort by
    */
-  sortable: pt.oneOf([pt.boolean, pt.string, pt.arrayOf(pt.string)]),
+  sortable: pt.oneOfType([pt.bool, pt.string, pt.arrayOf(pt.string)]),
 
   /**
    * Unique ID Attribute.
