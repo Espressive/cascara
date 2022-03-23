@@ -24,7 +24,11 @@ export {
   usePaginationState,
 } from './components/Pagination';
 export { default as Section } from './components/Section';
-export { default as Table, TablePropTypes } from './components/Table';
+export {
+  default as Table,
+  TableSortOrder,
+  TablePropTypes,
+} from './components/Table';
 export { default as Tabs } from './components/Tabs';
 
 // Scaffolding

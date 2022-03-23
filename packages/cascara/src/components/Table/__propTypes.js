@@ -1,5 +1,6 @@
 import pt from 'prop-types';
 import { actionModules, dataModules } from '../../modules/ModuleKeys';
+import { SORT_ORDER } from './state/sortingReducer';
 
 const actionModuleOptions = Object.keys(actionModules);
 const dataModuleOptions = Object.keys(dataModules);
@@ -20,13 +21,16 @@ export const TABLE_SHAPE = {
     resolveRecordActions: pt.func,
   }),
 
-  // An array of objects.
-  //
-  // Every object in this array will potencially be rendered as a table row.
+  /**
+   * An array of objects.
+   * Every object in this array will potencially be rendered as a table row.
+   */
   data: pt.arrayOf(pt.shape({})),
 
-  // DEPRECATED: The main configuration for your table. Here you can specify the columns to display
-  // as well as the available actions (if any) for each row.
+  /**
+   * DEPRECATED: The main configuration for your table. Here you can specify the columns to display
+   * as well as the available actions (if any) for each row.
+   */
   dataConfig: pt.shape({
     /** DEPRECATED - use actions instead */
     actionButtonMenuIndex: pt.number,
@@ -53,16 +57,28 @@ export const TABLE_SHAPE = {
     })
   ),
 
-  // Event handler.
-  //
-  // An event handler you can pass to handle every event your table emits.
+  /** Initial sort configuration */
+  initialSort: pt.shape({
+    attribute: pt.string,
+    order: pt.oneOf(Object.keys(SORT_ORDER)),
+  }),
+
+  /**
+   * Event handler.
+   *
+   * An event handler you can pass to handle every event your table emits.
+   */
   onAction: pt.func,
 
-  // Resolve record actions.
-  // A function that returns the actions available to the current row
+  /**
+   * Resolve record actions.
+   * A function that returns the actions available to the current row
+   */
   resolveRecordActions: pt.func,
 
-  // Selection
+  /**
+   * Selection
+   */
   selections: pt.oneOfType([
     pt.bool,
     pt.exact({
@@ -70,8 +86,20 @@ export const TABLE_SHAPE = {
     }),
   ]),
 
-  // Unique ID Attribute.
-  //
-  // specifies the attribute that uniquely identifies every object in the 'data' array.
+  /**
+   * Specifies which sorting strategy to follow:
+   *
+   *
+   * {Boolean} Specifies that all attributes are sortable
+   * {String} Attribute, the attribute (column) to sort by
+   * {Array[String]} Sortable, an array of attributes (columns) to sort by
+   */
+  sortable: pt.oneOfType([pt.bool, pt.string, pt.arrayOf(pt.string)]),
+
+  /**
+   * Unique ID Attribute.
+   *
+   * specifies the attribute that uniquely identifies every object in the 'data' array.
+   */
   uniqueIdAttribute: pt.string,
 };

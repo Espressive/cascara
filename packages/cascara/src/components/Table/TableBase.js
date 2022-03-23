@@ -5,15 +5,21 @@ import { TABLE_SHAPE } from './__propTypes';
 import TableProviderOld from './context/TableProvider';
 
 import selectionReducer, { SELECT, UNSELECT } from './state/selectionReducer';
+import sortingReducer, {
+  INITIAL_STATE,
+  SORT,
+  SORT_ORDER,
+} from './state/sortingReducer';
 
 import TableHeaderOld from './TableHeader';
 import TableBodyOld from './TableBody';
+import { ascend, descend, prop, sortWith } from 'ramda';
 
 // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
 // NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
 const UUID_PRIORITY_KEYS = ['eid', 'uuid', 'id', 'sys_date_created', 'number'];
 
-const inferUniqueID = (objectKeys) => {
+const inferUniqueid = (objectKeys) => {
   for (const key of UUID_PRIORITY_KEYS) {
     if (objectKeys.includes(key)) {
       return key;
@@ -56,11 +62,60 @@ const TableBase = ({
   data,
   dataConfig,
   dataDisplay,
+  initialSort,
   onAction,
   selections,
+  sortable,
   uniqueIdAttribute,
   ...rest
 }) => {
+  const visibleColumns = useMemo(
+    () =>
+      Array.isArray(dataDisplay)
+        ? dataDisplay.map((column) => column.attribute)
+        : inferDataDisplay(data),
+    [data, dataDisplay]
+  );
+
+  /**
+   * Sortable prop can have 3 different values:
+   *
+   * - Boolean, to make all columns sortable
+   * - String, to make a single column sortable
+   * - Array[String], to make multiple columns sortable
+   */
+  const sortableColumns = useMemo(() => {
+    let sortableColumns = [];
+
+    /** multiple column sort */
+    if (Array.isArray(sortable) && sortable.length) {
+      sortableColumns = [...sortable];
+    }
+
+    /** single column sort */
+    if (typeof sortable === 'string') {
+      sortableColumns.push(sortable);
+    }
+
+    /** all columns flag */
+    if (typeof sortable === 'boolean' && sortable) {
+      sortableColumns = dataDisplay.map((header) => header.attribute);
+    }
+
+    return sortableColumns;
+  }, [dataDisplay, sortable]);
+
+  // Create sort state
+  const [sortState, dispatchSortAction] = useReducer(
+    sortingReducer,
+    initialSort || INITIAL_STATE
+  );
+
+  // Sort records
+  const sortRecordsBy = useCallback((attribute) => {
+    dispatchSortAction({ payload: attribute, type: SORT });
+  }, []);
+
   // Row selection
   const isRowSelectable = Boolean(selections);
   const maxSelection = isRowSelectable ? selections?.max || 0 : 0;
@@ -122,14 +177,37 @@ const TableBase = ({
     // If no dataDisplay is being set, we should try to infer the type from values on the first object in `data` and then create a dataDisplay config with module types
     inferDataDisplay(data);
 
+  // FDS-518: sort table records
+  const sortedData = useMemo(() => {
+    // Do not sort if sorting column is hidden
+    if (!visibleColumns.includes(sortState.attribute)) {
+      return data;
+    }
+
+    // do not sort if not initial state
+    if (!sortState.attribute || sortState.order === SORT_ORDER.UNSORTED) {
+      return data;
+    }
+
+    const sortData = sortWith([
+      sortState.order === SORT_ORDER.ASCENDING
+        ? ascend(prop(sortState.attribute))
+        : descend(prop(sortState.attribute)),
+    ]);
+
+    const sortedData = sortData(data);
+
+    return sortedData;
+  }, [data, sortState.attribute, sortState.order, visibleColumns]);
+
   // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
-  const uniqueID = uniqueIdAttribute
+  const uniqueid = uniqueIdAttribute
     ? uniqueIdAttribute
     : data
-    ? inferUniqueID(Object.keys(data[0]))
+    ? inferUniqueid(Object.keys(sortedData[0]))
     : undefined;
 
-  // // FDS-142: new action props
+  // FDS-142: new action props
   let actionButtonMenuIndex = actions?.actionButtonMenuIndex;
   let modules = actions?.modules;
   const resolveRecordActions = actions?.resolveRecordActions;
@@ -175,7 +253,7 @@ const TableBase = ({
     <TableProviderOld
       value={{
         actionButtonMenuIndex,
-        data,
+        data: sortedData,
         dataDisplay: display,
         isRowSelectable,
         maxSelection,
@@ -186,7 +264,10 @@ const TableBase = ({
         rowSelect,
         rowUnselect,
         selection,
-        uniqueIdAttribute: uniqueID,
+        sortRecordsBy,
+        sortState,
+        sortableColumns,
+        uniqueIdAttribute: uniqueid,
       }}
       {...rest}
     >
