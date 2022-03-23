@@ -14,7 +14,7 @@ const propTypes = {
   onSort: pt.func,
   sortState: pt.shape({
     attribute: pt.string,
-    order: pt.number,
+    order: pt.string,
   }),
 };
 
@@ -26,6 +26,10 @@ const SortableHeader = ({
   sortState,
   onSort,
 }) => {
+  const isColumnSorted = sortState.attribute === attribute;
+  const headerClass = cx(styles.HeadCell, {
+    [styles.SortedColumn]: isColumnSorted,
+  });
   const className = cx('SortArrow', {
     [styles.SortArrowDown]:
       isSortAttribute && sortState?.order === SORT_ORDER.DESCENDING,
@@ -43,7 +47,7 @@ const SortableHeader = ({
   }, [attribute, isSortable, onSort]);
 
   return (
-    <th className={styles.HeadCell} key={attribute} onClick={handleHeaderClick}>
+    <th className={headerClass} key={attribute} onClick={handleHeaderClick}>
       {label} {isSortable && <Role className={className} />}
     </th>
   );

@@ -182,6 +182,19 @@ const dataDisplay = [
 ];
 ```
 
+## initialSort
+
+An initial sorting configuration can be passed. The shape is as follows:
+
+```javascript
+import { TableSortOrder } from '@espressive/cascara';
+
+const initialSort = {
+  attribute: 'eid',
+  order: TableSortOrder.ASCENDING,
+};
+```
+
 ## onAction (event handler)
 
 A function you can pass to handle every event your table emits. Every event carries two pieces of information:
@@ -239,6 +252,16 @@ Specifies the attribute that uniquely identifies every object in the **data** ar
 > - number
 >
 > If you see a warning like 'Each child in a list should have a unique "key" prop' from Table, please make sure you pass this prop to prevent Table's **auto-id-inference** from kicking-in and **possibly** infering **undefined** if the data you pass does not have any of the possible values.
+
+## sortable
+
+Specifies which sorting strategy to follow:
+
+| type          | example         | description                                           |
+| ------------- | --------------- | ----------------------------------------------------- |
+| Boolean       | true            | Specifies that all attributes are sortable            |
+| String        | 'eid'           | Attribute, the attribute (column) to sort by          |
+| Array[String] | ['eid', 'name'] | Sortable, an array of attributes (columns) to sort by |
 
 # Mixing everyting together
 
@@ -344,6 +367,7 @@ With the four props described earlier, we can easily create a table: (open your 
         break;
     }
   }}
+  sortable
   uniqueIdAttribute={'id'}
 />
 ```
