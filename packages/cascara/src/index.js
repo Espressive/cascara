@@ -11,6 +11,7 @@ export { default as Flex } from './atoms/Flex';
 export { default as Image } from './atoms/Image';
 export { default as Stat } from './atoms/Stat';
 export { default as Title } from './atoms/Title';
+export { default as DatePicker } from './atoms/DatePicker';
 
 // Components
 export { default as ActionStack } from './components/ActionStack';

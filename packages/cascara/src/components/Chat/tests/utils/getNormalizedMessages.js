@@ -22,6 +22,10 @@ const getNormalizedMessages = (messages) => {
             handleDownloadAttachment,
           },
         },
+        date: {
+          eval: (msg) =>
+            Boolean(msg?.metadata?.bot_metadata?.input_type === 'date'),
+        },
         options: {
           eval: (msg) =>
             Boolean(

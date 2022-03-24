@@ -99,6 +99,8 @@ const Chat = ({ sessionUserID, messages, users }) => {
       : null;
   });
 
+  // eslint-disable-next-line no-console -- d
+  console.log(messages);
   const animations = {
     chatMessage: messages
       ? { ...teamsTheme.animations.scaleEnterNormal }

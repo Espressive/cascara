@@ -863,6 +863,20 @@
       "text": "Hi Brian, I’m really excited to help a fellow Espressionist! Go ahead and ask me anything and I will do my best to help you – but you knew that already, didn’t you? 😊 Here are some shortcuts that might save you some time:",
       "type": "message",
       "channel": "e7d2a607-6c44-405d-9612-2fe56f75ced5"
+    },
+    {
+      "id": "8b331636-ade3-4c8f-8669-dcad5adfd1c1",
+      "metadata": {
+        "bot_metadata": {
+          "entity": "Sys.Date",
+          "input_type": "date"
+        }
+      },
+      "sys_date_created": "2021-01-05T21:07:50.808461Z",
+      "user_id": 0,
+      "text": "Hi Brian, I’m really excited to help a fellow Espressionist! Go ahead and ask me anything and I will do my best to help you – but you knew that already, didn’t you? 😊 Here are some shortcuts that might save you some time:",
+      "type": "message",
+      "channel": "e7d2a607-6c44-405d-9612-2fe56f75ced5"
     }
   ]
 }
