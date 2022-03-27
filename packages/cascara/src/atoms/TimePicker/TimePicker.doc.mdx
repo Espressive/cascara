@@ -1,0 +1,54 @@
+---
+title: TimePicker
+propTable: TimePicker.js
+type: 'atoms'
+public: true
+---
+
+To select or input a time. By clicking the input box, you can select a time from a popup panel.
+It expect a function to handle the change of the time.
+
+## Usage
+
+### Default - Format hh:mm:ss
+
+```jsx
+<TimePicker
+  onChange={function (ime, timeString) {
+    alert(timeString);
+  }}
+/>
+```
+
+### Format hh:mm
+
+```jsx
+<TimePicker
+  onChange={function (ime, timeString) {
+    alert(timeString);
+  }}
+  format={'HH:mm'}
+/>
+```
+
+### Time Error
+
+```jsx
+<TimePicker
+  onChange={function (ime, timeString) {
+    alert(timeString);
+  }}
+  status='error'
+/>
+```
+
+### Time warning
+
+```jsx
+<TimePicker
+  onChange={function (ime, timeString) {
+    alert(timeString);
+  }}
+  status='warning'
+/>
+```
