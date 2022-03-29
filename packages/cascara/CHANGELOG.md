@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- a6f9da149: feat(FDS-518): [Table] - Add Record Sort feature
+
 ## 3.0.2
 
 ### Patch Changes

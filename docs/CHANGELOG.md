@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.1.0
+
+### Patch Changes
+
+- Updated dependencies [a6f9da149]
+  - @espressive/cascara@3.1.0
+
 ## 3.0.2
 
 ### Patch Changes
