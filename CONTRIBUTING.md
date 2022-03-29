@@ -32,4 +32,4 @@ Here are some of our scopes:
 
 ![Commitizen menu](./.assets/commitizen-interactive-menu-03.png 'Interactive commit menu')
 
-That's it, happy coding!
+That is it, happy coding!
