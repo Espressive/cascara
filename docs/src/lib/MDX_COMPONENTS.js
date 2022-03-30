@@ -23,6 +23,7 @@ import {
   Stat,
   Table,
   Tabs,
+  TimePicker,
   Title,
   usePaginationState,
 } from '@espressive/cascara';
@@ -90,6 +91,7 @@ const cascaraComponents = {
   Stat: (props) => <Stat {...props} />,
   Table: (props) => <Table {...props} />,
   Tabs: (props) => <Tabs {...props} />,
+  TimePicker: (props) => <TimePicker {...props} />,
   Title: (props) => <Title {...props} />,
 };
 
