@@ -1,0 +1,65 @@
+---
+title: DatePicker
+propTable: DatePicker.js
+type: 'atoms'
+public: true
+---
+
+To select or input a date. By clicking the input box, you can select a date from a popup calendar.
+It expect a function to handle the change of the date.
+
+## Usage
+
+### Default - Select a date from calendar
+
+```jsx
+<DatePicker
+  onChange={function (value1, value2) {
+    alert(value2);
+  }}
+/>
+```
+
+### Week - Select a week from calendar
+
+```jsx
+<DatePicker
+  onChange={function (value1, value2) {
+    alert(value2);
+  }}
+  picker='week'
+/>
+```
+
+### Month - Select a month from calendar
+
+```jsx
+<DatePicker
+  onChange={function (value1, value2) {
+    alert(value2);
+  }}
+  picker='month'
+/>
+```
+
+### Quarter - Select a quarter from calendar
+
+```jsx
+<DatePicker
+  onChange={function (value1, value2) {
+    alert(value2);
+  }}
+  picker='quarter'
+/>
+```
+
+### Year - Select a year from calendar
+
+```jsx
+<DatePicker
+  onChange={function (value1, value2) {
+    alert(value2);
+  }}
+  picker='year'
+/>
+```
