@@ -7,7 +7,7 @@ const propTypes = {
   /**  format time 'HH:mm or HH:mm:ss'*/
   format: pt.string,
   /** Function that will hold the result-time selected */
-  onChange: pt.function,
+  onChange: pt.func,
   /** optional: error|status */
   status: pt.string,
 };
