@@ -11,6 +11,7 @@ const propTypes = {
   /** optional: error|status */
   status: pt.string,
 };
+
 const TimePicker = ({ format, onChange, ...rest }) => {
   const handleOnChange = useCallback(
     (time, timeString) => {
