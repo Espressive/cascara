@@ -13,6 +13,7 @@ import {
   Chat,
   Columns,
   Dashboard,
+  DatePicker,
   Flex,
   Form,
   JsonPlaceholder,
@@ -22,6 +23,7 @@ import {
   Stat,
   Table,
   Tabs,
+  TimePicker,
   Title,
   usePaginationState,
 } from '@espressive/cascara';
@@ -79,6 +81,7 @@ const cascaraComponents = {
   ),
   Columns: (props) => <Columns {...props} />,
   Dashboard: (props) => <Dashboard {...props} />,
+  DatePicker: (props) => <DatePicker {...props} />,
   Flex: (props) => <Flex {...props} />,
   Form: (props) => <Form {...props} />,
   JsonPlaceholder: (props) => <JsonPlaceholder {...props} />,
@@ -88,6 +91,7 @@ const cascaraComponents = {
   Stat: (props) => <Stat {...props} />,
   Table: (props) => <Table {...props} />,
   Tabs: (props) => <Tabs {...props} />,
+  TimePicker: (props) => <TimePicker {...props} />,
   Title: (props) => <Title {...props} />,
 };
 
