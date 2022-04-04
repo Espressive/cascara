@@ -13,7 +13,7 @@ import sortingReducer, {
 
 import TableHeaderOld from './TableHeader';
 import TableBodyOld from './TableBody';
-import { ascend, descend, prop, sortWith } from 'ramda';
+import { ascend, compose, descend, prop, sortWith, toLower } from 'ramda';
 
 // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
 // NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
@@ -190,9 +190,10 @@ const TableBase = ({
     }
 
     const sortData = sortWith([
-      sortState.order === SORT_ORDER.ASCENDING
-        ? ascend(prop(sortState.attribute))
-        : descend(prop(sortState.attribute)),
+      (sortState.order === SORT_ORDER.ASCENDING ? ascend : descend)(
+        // DEV-18614-15: make sorting case insensitive
+        compose(toLower, prop(sortState.attribute))
+      ),
     ]);
 
     const sortedData = sortData(data);

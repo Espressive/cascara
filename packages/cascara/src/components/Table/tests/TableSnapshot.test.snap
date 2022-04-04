@@ -29,7 +29,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
         <span
           class="Text"
         >
-          001Ruben01_Sync
+          Check the New Version - Feb 1 st cycle
         </span>
       </span>
     </div>
@@ -164,7 +164,7 @@ exports[`Table snapshot tests conditional actions 1`] = `
         <span
           class="Text"
         >
-          001Ruben01_Sync
+          Check the New Version - Feb 1 st cycle
         </span>
       </span>
     </div>
@@ -272,7 +272,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
         <span
           class="Text"
         >
-          001Ruben01_Sync
+          Check the New Version - Feb 1 st cycle
         </span>
       </span>
     </div>
@@ -449,7 +449,7 @@ exports[`Table snapshot tests with actions 1`] = `
         <span
           class="Text"
         >
-          001Ruben01_Sync
+          Check the New Version - Feb 1 st cycle
         </span>
       </span>
     </div>
@@ -579,7 +579,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
         <span
           class="Text"
         >
-          001Ruben01_Sync
+          Check the New Version - Feb 1 st cycle
         </span>
       </span>
     </div>
@@ -709,7 +709,7 @@ exports[`Table snapshot tests without <ActionBar /> 1`] = `
         <span
           class="Text"
         >
-          001Ruben01_Sync
+          Check the New Version - Feb 1 st cycle
         </span>
       </span>
     </div>
@@ -824,7 +824,7 @@ exports[`Table snapshot tests without actions 1`] = `
         <span
           class="Text"
         >
-          001Ruben01_Sync
+          Check the New Version - Feb 1 st cycle
         </span>
       </span>
     </div>
