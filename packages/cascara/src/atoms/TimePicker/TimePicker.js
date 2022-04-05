@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
-import 'antd/dist/antd.css';
+import '../../shared/AntDPicker.css';
 import { TimePicker as AntdTimePicker } from 'antd';
 import pt from '@espressive/prop-types';
+import locales from '../../shared/locales';
 
 const propTypes = {
   /**  format time 'HH:mm or HH:mm:ss'*/
@@ -19,7 +20,14 @@ const TimePicker = ({ format, onChange, ...rest }) => {
     },
     [onChange]
   );
-  return <AntdTimePicker {...rest} format={format} onChange={handleOnChange} />;
+  return (
+    <AntdTimePicker
+      {...rest}
+      format={format}
+      locale={locales.es}
+      onChange={handleOnChange}
+    />
+  );
 };
 
 TimePicker.propTypes = propTypes;
