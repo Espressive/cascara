@@ -14,6 +14,8 @@ import {
   compose,
   descend,
   identity,
+  ifElse,
+  is,
   prop,
   sortWith,
   toLower,
@@ -191,28 +193,11 @@ const TableBase = ({
       return data;
     }
 
-    const sortColumnConfig = display.find(
-      (column) => column.attribute === sortState?.sortAttribute
-    );
-
-    // add any modules whose value is a String
-    const isSortValueString = [
-      'color',
-      'date',
-      'datetime',
-      'email',
-      'password',
-      'select',
-      'tel',
-      'text',
-      'textarea',
-      'url',
-    ].includes(sortColumnConfig?.module);
     const sortData = sortWith([
       (sortState?.sortOrder === SORT_ORDER.ASCENDING ? ascend : descend)(
         // DEV-18614-15: make sorting case insensitive
         compose(
-          isSortValueString ? toLower : identity,
+          ifElse(is(String), toLower, identity),
           prop(sortState?.sortAttribute)
         )
       ),
@@ -223,7 +208,6 @@ const TableBase = ({
     return sortedData;
   }, [
     data,
-    display,
     isSortable,
     sortState?.sortAttribute,
     sortState?.sortOrder,
