@@ -27,7 +27,7 @@ const TimePicker = ({ format, lang, onChange, ...rest }) => {
     <AntdTimePicker
       {...rest}
       format={format}
-      locale={locales[lang]}
+      locale={lang ? locales[lang] : ''}
       onChange={handleOnChange}
     />
   );
