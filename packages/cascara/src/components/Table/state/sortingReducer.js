@@ -6,24 +6,24 @@ const SORT_ORDER = {
 };
 
 const INITIAL_STATE = {
-  attribute: null,
-  order: SORT_ORDER.ASCENDING,
+  sortAttribute: null,
+  sortOrder: SORT_ORDER.ASCENDING,
 };
 
 const sortingReducer = (state, action = {}) => {
   const { payload: attribute, type } = action;
-  let newOrder = state.order;
+  let newOrder = state.sortOrder;
 
-  if (attribute === state.attribute) {
-    if (state.order === SORT_ORDER.UNSORTED) {
+  if (attribute === state.sortAttribute) {
+    if (state.sortOrder === SORT_ORDER.UNSORTED) {
       newOrder = SORT_ORDER.ASCENDING;
     }
 
-    if (state.order === SORT_ORDER.ASCENDING) {
+    if (state.sortOrder === SORT_ORDER.ASCENDING) {
       newOrder = SORT_ORDER.DESCENDING;
     }
 
-    if (state.order === SORT_ORDER.DESCENDING) {
+    if (state.sortOrder === SORT_ORDER.DESCENDING) {
       newOrder = SORT_ORDER.UNSORTED;
     }
   }
@@ -31,8 +31,8 @@ const sortingReducer = (state, action = {}) => {
   switch (type) {
     case SORT:
       return {
-        attribute,
-        order: newOrder,
+        sortAttribute: attribute,
+        sortOrder: newOrder,
       };
 
     default:

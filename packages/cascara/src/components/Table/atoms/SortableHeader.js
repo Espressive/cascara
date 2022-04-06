@@ -11,10 +11,10 @@ const propTypes = {
   isSortAttribute: pt.bool,
   isSortable: pt.bool,
   label: pt.string,
-  onSort: pt.func,
   sortState: pt.shape({
-    attribute: pt.string,
-    order: pt.string,
+    sortAttribute: pt.string,
+    sortOrder: pt.string,
+    sortRecordsBy: pt.func,
   }),
 };
 
@@ -24,27 +24,26 @@ const SortableHeader = ({
   isSortAttribute,
   label,
   sortState,
-  onSort,
 }) => {
-  const isColumnSorted = sortState.attribute === attribute;
+  const isColumnSorted = sortState?.sortAttribute === attribute;
   const headerClass = cx(styles.HeadCell, {
     [styles.SortedColumn]: isColumnSorted,
   });
   const className = cx('SortArrow', {
     [styles.SortArrowDown]:
-      isSortAttribute && sortState?.order === SORT_ORDER.DESCENDING,
+      isSortAttribute && sortState?.sortOrder === SORT_ORDER.DESCENDING,
     [styles.SortArrowUp]:
-      isSortAttribute && sortState?.order === SORT_ORDER.ASCENDING,
+      isSortAttribute && sortState?.sortOrder === SORT_ORDER.ASCENDING,
     [styles.SortInactive]:
-      !isSortAttribute || sortState?.order === SORT_ORDER.UNSORTED,
+      !isSortAttribute || sortState?.sortOrder === SORT_ORDER.UNSORTED,
   });
 
-  /** Handle SVG element click */
+  /** Handle DOM element click */
   const handleHeaderClick = useCallback(() => {
     if (isSortable) {
-      onSort(attribute);
+      sortState.sortRecordsBy(attribute);
     }
-  }, [attribute, isSortable, onSort]);
+  }, [attribute, isSortable, sortState]);
 
   return (
     <th className={headerClass} key={attribute} onClick={handleHeaderClick}>

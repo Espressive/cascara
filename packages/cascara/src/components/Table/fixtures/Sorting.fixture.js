@@ -2,23 +2,33 @@ import React from 'react';
 import { Provider } from 'reakit';
 
 import Table from '../Table';
+import useTableSortState from '../state/useTableSortState';
 import { SORT_ORDER } from '../state/sortingReducer';
 
 import { results } from '../data/entities';
 import { ACTIONS, COLUMNS } from './constants';
 
-const DataWithSorting = ({ title, description, ...fixtureProps }) => (
-  <>
-    <h3>{title}</h3>
-    <div>
-      <p>{description}</p>
-    </div>
+const DataWithSorting = ({
+  title,
+  description,
+  initialSort,
+  ...fixtureProps
+}) => {
+  const sortState = useTableSortState(initialSort);
 
-    <Provider>
-      <Table {...fixtureProps} />
-    </Provider>
-  </>
-);
+  return (
+    <>
+      <h3>{title}</h3>
+      <div>
+        <p>{description}</p>
+      </div>
+
+      <Provider>
+        <Table {...fixtureProps} sortState={sortState} />
+      </Provider>
+    </>
+  );
+};
 
 export default {
   allAttributesSort: (
