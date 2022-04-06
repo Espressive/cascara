@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import '../../shared/AntDPicker.css';
+import '../../shared/AntDPicker.scss';
 import { DatePicker as AntDatePicker } from 'antd';
 import pt from '@espressive/prop-types';
 import PICKER_TYPE from './_globals';
@@ -7,14 +7,14 @@ import locales from '../../shared/locales';
 
 const propTypes = {
   /** localize picker */
-  language: pt.string,
+  lang: pt.string,
   /** Function that will hold the result-date selected */
   onChange: pt.func,
   /** String that will define the type of calendar to present date|week|month|quarter|year */
   picker: pt.oneOf([...Object.keys(PICKER_TYPE), null]),
 };
 
-const DatePicker = ({ onChange, language, ...rest }) => {
+const DatePicker = ({ onChange, lang, ...rest }) => {
   const handleOnChange = useCallback(
     (date, dateString) => {
       onChange(date, dateString);
@@ -23,11 +23,7 @@ const DatePicker = ({ onChange, language, ...rest }) => {
   );
 
   return (
-    <AntDatePicker
-      {...rest}
-      locale={locales[language]}
-      onChange={handleOnChange}
-    />
+    <AntDatePicker {...rest} locale={locales[lang]} onChange={handleOnChange} />
   );
 };
 

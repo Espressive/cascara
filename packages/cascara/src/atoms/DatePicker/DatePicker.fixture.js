@@ -9,4 +9,7 @@ export default {
   selectMonth: <DatePicker onChange={handleChange} picker='month' />,
   selectQuarter: <DatePicker onChange={handleChange} picker='quarter' />,
   selectYear: <DatePicker onChange={handleChange} picker='year' />,
+  selectDateLang: (
+    <DatePicker lang={navigator.language} onChange={handleChange} />
+  ),
 };
