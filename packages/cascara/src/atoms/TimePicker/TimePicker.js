@@ -3,7 +3,7 @@ import '../../shared/AntDPicker.scss';
 import { TimePicker as AntdTimePicker } from 'antd';
 import pt from '@espressive/prop-types';
 import locales from '../../shared/locales';
-// import moment from 'moment';
+
 const propTypes = {
   /**  format time 'HH:mm or HH:mm:ss'*/
   format: pt.string,
