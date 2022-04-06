@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import '../../shared/AntDPicker.scss';
 import { TimePicker as AntdTimePicker } from 'antd';
 import pt from '@espressive/prop-types';
 import locales from '../../shared/locales';
