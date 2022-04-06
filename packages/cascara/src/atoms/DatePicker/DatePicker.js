@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import '../../shared/AntDPicker.scss';
 import { DatePicker as AntDatePicker } from 'antd';
 import pt from '@espressive/prop-types';
 import PICKER_TYPE from './_globals';
@@ -23,7 +22,12 @@ const DatePicker = ({ onChange, lang, ...rest }) => {
   );
 
   return (
-    <AntDatePicker {...rest} locale={locales[lang]} onChange={handleOnChange} />
+    <AntDatePicker
+      {...rest}
+      format={lang ? locales[lang]?.lang?.dateFormat : ''}
+      locale={lang ? locales[lang] : ''}
+      onChange={handleOnChange}
+    />
   );
 };
 
