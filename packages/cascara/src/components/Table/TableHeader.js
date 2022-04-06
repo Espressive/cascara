@@ -8,21 +8,15 @@ import { ModuleContext } from '../../modules/context';
 const TableHeader = () => {
   // FDS-164: table header not adding an extra column for actions
   // when new prop actions is passed.
-  const {
-    dataDisplay,
-    isRowSelectable,
-    modules,
-    sortRecordsBy,
-    sortState,
-    sortableColumns,
-  } = useContext(ModuleContext);
+  const { dataDisplay, isRowSelectable, modules, sortState, sortableColumns } =
+    useContext(ModuleContext);
   const headerCells = useMemo(
     () =>
       dataDisplay?.map((column) => {
         const isSortingEnabledForThisColumn = sortableColumns.includes(
           column.attribute
         );
-        const isSortAttribute = sortState.attribute === column.attribute;
+        const isSortAttribute = sortState?.sortAttribute === column.attribute;
 
         return (
           <SortableHeader
@@ -31,12 +25,11 @@ const TableHeader = () => {
             isSortable={isSortingEnabledForThisColumn}
             key={column.attribute}
             label={column.label}
-            onSort={sortRecordsBy}
             sortState={sortState}
           />
         );
       }) || [],
-    [dataDisplay, sortRecordsBy, sortState, sortableColumns]
+    [dataDisplay, sortState, sortableColumns]
   );
 
   const actionBarSpacer = modules
