@@ -123,6 +123,17 @@ Table.propTypes = {
   ]),
 
   /**
+   * The Sort state and the means to mutate it.
+   *
+   * sortAttribute: the Attribute name to sort by, sortOrder: either ASCENDING or DESCENDING, sortRecordsBy a function to mutate the state
+   */
+  sortState: pt.shape({
+    sortAttribute: pt.string,
+    sortOrder: pt.oneOf(Object.keys(SORT_ORDER)),
+    sortRecordsBy: pt.func,
+  }),
+
+  /**
    * Specifies which sorting strategy to follow:
    *
    *
