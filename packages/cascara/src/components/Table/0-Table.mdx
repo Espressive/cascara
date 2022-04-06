@@ -263,6 +263,30 @@ Specifies which sorting strategy to follow:
 | String        | 'eid'           | Attribute, the attribute (column) to sort by          |
 | Array[String] | ['eid', 'name'] | Sortable, an array of attributes (columns) to sort by |
 
+## useTableSortState (hook)
+
+The sort state needs to be injected to Table as a prop.
+
+### Sort state shape
+
+| property      | type     | example     | description                                                      |
+| ------------- | -------- | ----------- | ---------------------------------------------------------------- |
+| sortAttribute | String   | 'eid'       | Specifies the attribute to sort by                               |
+| sortOrder     | String   | 'ASCENDING' | The direction of the sort ['ASCENDING', 'DESCENDING']            |
+| sortRecordsBy | Function |             | A function that receives an attribute and stores it in the state |
+
+### Example
+
+```jsx
+import { Table, useTableSortState } from '@espressive/cascara';
+
+const exampleComponent = ({ initialSort, ...props }) => {
+  const sortState = useTableSortState(initialSort);
+
+  return <Table sortState={sortState} {...props} />;
+};
+```
+
 # Mixing everyting together
 
 With the four props described earlier, we can easily create a table: (open your dev tools!)
