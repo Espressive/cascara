@@ -13,7 +13,6 @@
     "src"
   ],
   "scripts": {
-    "build": "cat ./src/css/antdesignpickers.css >> ./src/css/semantic.min.css",
     "prepare": "echo 'No prepare scripts for legacy-css'"
   },
   "publishConfig": {
