@@ -5,6 +5,8 @@ import PICKER_TYPE from './_globals';
 import locales from '../../shared/locales';
 
 const propTypes = {
+  /** date format */
+  format: pt.string,
   /** localize picker */
   lang: pt.string,
   /** Function that will hold the result-date selected */
@@ -13,7 +15,7 @@ const propTypes = {
   picker: pt.oneOf([...Object.keys(PICKER_TYPE), null]),
 };
 
-const DatePicker = ({ onChange, lang, ...rest }) => {
+const DatePicker = ({ format, onChange, lang, ...rest }) => {
   const handleOnChange = useCallback(
     (date, dateString) => {
       onChange(date, dateString);
@@ -24,7 +26,7 @@ const DatePicker = ({ onChange, lang, ...rest }) => {
   return (
     <AntDatePicker
       {...rest}
-      format={lang ? locales[lang]?.lang?.dateFormat : ''}
+      format={format || lang ? locales[lang]?.lang?.dateFormat : ''}
       locale={lang ? locales[lang] : ''}
       onChange={handleOnChange}
     />
