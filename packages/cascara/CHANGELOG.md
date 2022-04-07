@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.1.1
+
+### Patch Changes
+
+- 705882a19: bugfix(FDS-519): [Atoms] Fix typo in prop-types
+- d3fe1767b: feat(FDS-519): [Changeset] Update version for Date and Time pickers
+
 ## 3.1.0
 
 ### Minor Changes
