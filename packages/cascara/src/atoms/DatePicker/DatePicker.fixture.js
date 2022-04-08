@@ -10,10 +10,6 @@ export default {
   selectQuarter: <DatePicker onChange={handleChange} picker='quarter' />,
   selectYear: <DatePicker onChange={handleChange} picker='year' />,
   selectDateLang: (
-    <DatePicker
-      format='YYYY-MM-DD'
-      lang={navigator.language}
-      onChange={handleChange}
-    />
+    <DatePicker lang={navigator.language} onChange={handleChange} />
   ),
 };
