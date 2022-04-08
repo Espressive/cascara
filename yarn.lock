@@ -2702,14 +2702,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/cascara@workspace:3.1.1, @espressive/cascara@workspace:packages/cascara":
+"@espressive/cascara@workspace:3.1.2, @espressive/cascara@workspace:packages/cascara":
   version: 0.0.0-use.local
   resolution: "@espressive/cascara@workspace:packages/cascara"
   dependencies:
     "@babel/core": 7.14.3
     "@babel/runtime": 7.14.0
     "@espressive/icons": "workspace:0.2.1"
-    "@espressive/legacy-css": "workspace:2.0.5"
+    "@espressive/legacy-css": "workspace:2.0.6"
     "@espressive/prop-types": "workspace:2.0.0"
     "@iconify-icons/ic": 1.1.19
     "@iconify/react": 1.1.4
@@ -2801,7 +2801,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/legacy-css@workspace:2.0.5, @espressive/legacy-css@workspace:utils/legacy-css":
+"@espressive/legacy-css@workspace:2.0.6, @espressive/legacy-css@workspace:utils/legacy-css":
   version: 0.0.0-use.local
   resolution: "@espressive/legacy-css@workspace:utils/legacy-css"
   languageName: unknown
@@ -9881,9 +9881,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:docs"
   dependencies:
-    "@espressive/cascara": "workspace:3.1.1"
+    "@espressive/cascara": "workspace:3.1.2"
     "@espressive/design-tokens": "workspace:0.1.5"
-    "@espressive/legacy-css": "workspace:2.0.5"
+    "@espressive/legacy-css": "workspace:2.0.6"
     "@espressive/prop-types": "workspace:2.0.0"
     "@fluentui/react-northstar": 0.60.1
     "@types/react": 16.8.0

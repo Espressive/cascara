@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "private": true,
   "scripts": {
     "build": "next build",
@@ -8,9 +8,9 @@
     "start": "next-remote-watch ../packages/cascara"
   },
   "dependencies": {
-    "@espressive/cascara": "workspace:3.1.1",
+    "@espressive/cascara": "workspace:3.1.2",
     "@espressive/design-tokens": "workspace:0.1.5",
-    "@espressive/legacy-css": "workspace:2.0.5",
+    "@espressive/legacy-css": "workspace:2.0.6",
     "@fluentui/react-northstar": "0.60.1",
     "next": "10.0.5",
     "next-mdx-remote": "1.0.0",
