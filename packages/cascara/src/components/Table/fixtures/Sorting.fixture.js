@@ -2,50 +2,53 @@ import React from 'react';
 import { Provider } from 'reakit';
 
 import Table from '../Table';
+import useTableSortState from '../state/useTableSortState';
 import { SORT_ORDER } from '../state/sortingReducer';
 
 import { results } from '../data/entities';
 import { ACTIONS, COLUMNS } from './constants';
 
-const resultsWithAlphabeticalOrder = results.map((result, idx) => {
-  result.eid = String.fromCharCode(idx + 97).repeat(10);
+const DataWithSorting = ({
+  title,
+  description,
+  initialSort,
+  ...fixtureProps
+}) => {
+  const sortState = useTableSortState(initialSort);
 
-  return result;
-});
+  return (
+    <>
+      <h3>{title}</h3>
+      <div>
+        <p>{description}</p>
+      </div>
 
-const DataWithSorting = ({ title, description, ...fixtureProps }) => (
-  <>
-    <h3>{title}</h3>
-    <div>
-      <p>{description}</p>
-    </div>
+      <Provider>
+        <Table {...fixtureProps} sortState={sortState} />
+      </Provider>
+    </>
+  );
+};
 
-    <Provider>
-      <Table {...fixtureProps} />
-    </Provider>
-  </>
-);
-
-export { resultsWithAlphabeticalOrder };
 export default {
   allAttributesSort: (
     <DataWithSorting
       actions={ACTIONS}
-      data={resultsWithAlphabeticalOrder}
+      data={results}
       dataDisplay={COLUMNS}
       description='The table is sortable by ALL columns, ascending'
-      initialSort={{ attribute: 'eid', order: SORT_ORDER.ASCENDING }}
+      initialSort={{ attribute: 'name', order: SORT_ORDER.ASCENDING }}
       onAction={console.log}
       selections
       sortable
       title='All atributes sort'
-      uniqueIdAttribute='eid'
+      uniqueIdAttribute='name'
     />
   ),
   arbitraryAttributesSort: (
     <DataWithSorting
       actions={ACTIONS}
-      data={resultsWithAlphabeticalOrder}
+      data={results}
       dataDisplay={COLUMNS}
       description='The table is sortable by eid and name, ascending'
       initialSort={{ attribute: 'eid', order: SORT_ORDER.DESCENDING }}
@@ -59,7 +62,7 @@ export default {
   singleAttributesSort: (
     <DataWithSorting
       actions={ACTIONS}
-      data={resultsWithAlphabeticalOrder}
+      data={results}
       dataDisplay={COLUMNS}
       description='The table is sortable by eid, ascending'
       initialSort={{ attribute: 'eid', order: SORT_ORDER.ASCENDING }}
@@ -73,7 +76,7 @@ export default {
   withInitialSortConfig: (
     <DataWithSorting
       actions={ACTIONS}
-      data={resultsWithAlphabeticalOrder}
+      data={results}
       dataDisplay={COLUMNS}
       description='The table is sortable by ALL columns, ascending'
       initialSort={{ attribute: 'eid', order: SORT_ORDER.DESCENDING }}

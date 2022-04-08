@@ -3,11 +3,11 @@ import TimePicker from '.';
 import moment from 'moment';
 
 const handleChange = (param, param2) => console.log(param, param2);
-const format = 'HH:mm:ss';
+const format = 'HH:mm';
 export default {
   defaultTimeSec: (
     <TimePicker
-      defaultValue={moment('12:08', format)}
+      defaultValue={moment('15:08', format)}
       onChange={handleChange}
       picker='quarter'
     />
@@ -15,4 +15,6 @@ export default {
   time: <TimePicker format={format} onChange={handleChange} />,
   timeError: <TimePicker onChange={handleChange} status='error' />,
   timeWarning: <TimePicker onChange={handleChange} status='warning' />,
+  hmma: <TimePicker format='h:mm a' onChange={handleChange} />,
+  hmm: <TimePicker format={format} onChange={handleChange} />,
 };

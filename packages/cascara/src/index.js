@@ -30,6 +30,7 @@ export {
   default as Table,
   TableSortOrder,
   TablePropTypes,
+  useTableSortState,
 } from './components/Table';
 export { default as Tabs } from './components/Tabs';
 

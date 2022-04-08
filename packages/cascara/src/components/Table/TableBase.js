@@ -2,18 +2,24 @@ import React, { useCallback, useMemo, useReducer } from 'react';
 // import pt from 'prop-types';
 import styles from './Table.module.scss';
 import { TABLE_SHAPE } from './__propTypes';
-import TableProviderOld from './context/TableProvider';
+import TableProvider from './context/TableProvider';
 
 import selectionReducer, { SELECT, UNSELECT } from './state/selectionReducer';
-import sortingReducer, {
-  INITIAL_STATE,
-  SORT,
-  SORT_ORDER,
-} from './state/sortingReducer';
+import { SORT_ORDER } from './state/sortingReducer';
 
-import TableHeaderOld from './TableHeader';
-import TableBodyOld from './TableBody';
-import { ascend, descend, prop, sortWith } from 'ramda';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
+import {
+  ascend,
+  compose,
+  descend,
+  identity,
+  ifElse,
+  is,
+  prop,
+  sortWith,
+  toLower,
+} from 'ramda';
 
 // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
 // NOTE: we could have an workaround by adding `number` to this list, but that would have not resolved the real bug.
@@ -66,6 +72,7 @@ const TableBase = ({
   onAction,
   selections,
   sortable,
+  sortState,
   uniqueIdAttribute,
   ...rest
 }) => {
@@ -104,17 +111,7 @@ const TableBase = ({
 
     return sortableColumns;
   }, [dataDisplay, sortable]);
-
-  // Create sort state
-  const [sortState, dispatchSortAction] = useReducer(
-    sortingReducer,
-    initialSort || INITIAL_STATE
-  );
-
-  // Sort records
-  const sortRecordsBy = useCallback((attribute) => {
-    dispatchSortAction({ payload: attribute, type: SORT });
-  }, []);
+  const isSortable = Boolean(sortableColumns.length); // depends if sortable prop is truthy
 
   // Row selection
   const isRowSelectable = Boolean(selections);
@@ -179,26 +176,43 @@ const TableBase = ({
 
   // FDS-518: sort table records
   const sortedData = useMemo(() => {
-    // Do not sort if sorting column is hidden
-    if (!visibleColumns.includes(sortState.attribute)) {
+    if (!isSortable) {
+      return data;
+    }
+
+    if (!visibleColumns.includes(sortState?.sortAttribute)) {
+      // Do not sort if sorting column is hidden
       return data;
     }
 
     // do not sort if not initial state
-    if (!sortState.attribute || sortState.order === SORT_ORDER.UNSORTED) {
+    if (
+      !sortState?.sortAttribute ||
+      sortState?.sortOrder === SORT_ORDER.UNSORTED
+    ) {
       return data;
     }
 
     const sortData = sortWith([
-      sortState.order === SORT_ORDER.ASCENDING
-        ? ascend(prop(sortState.attribute))
-        : descend(prop(sortState.attribute)),
+      (sortState?.sortOrder === SORT_ORDER.ASCENDING ? ascend : descend)(
+        // DEV-18614-15: make sorting case insensitive
+        compose(
+          ifElse(is(String), toLower, identity),
+          prop(sortState?.sortAttribute)
+        )
+      ),
     ]);
 
     const sortedData = sortData(data);
 
     return sortedData;
-  }, [data, sortState.attribute, sortState.order, visibleColumns]);
+  }, [
+    data,
+    isSortable,
+    sortState?.sortAttribute,
+    sortState?.sortOrder,
+    visibleColumns,
+  ]);
 
   // [fix] FDS-284: uniqueIdAttribute is always derived as undefined even though is correctly passed
   const uniqueid = uniqueIdAttribute
@@ -212,7 +226,7 @@ const TableBase = ({
   let modules = actions?.modules;
   const resolveRecordActions = actions?.resolveRecordActions;
 
-  // old action props
+  //  action props
   const unwantedActions = dataConfig?.actions;
   if (unwantedActions) {
     modules = unwantedActions;
@@ -250,12 +264,13 @@ const TableBase = ({
   }
 
   return (
-    <TableProviderOld
+    <TableProvider
       value={{
         actionButtonMenuIndex,
         data: sortedData,
         dataDisplay: display,
         isRowSelectable,
+        isSortable,
         maxSelection,
         modules,
         onAction,
@@ -264,7 +279,6 @@ const TableBase = ({
         rowSelect,
         rowUnselect,
         selection,
-        sortRecordsBy,
         sortState,
         sortableColumns,
         uniqueIdAttribute: uniqueid,
@@ -278,10 +292,10 @@ const TableBase = ({
           gridTemplateColumns: `repeat(${columnCount}, auto)`,
         }}
       >
-        <TableHeaderOld />
-        <TableBodyOld />
+        <TableHeader />
+        <TableBody />
       </table>
-    </TableProviderOld>
+    </TableProvider>
   );
 };
 
