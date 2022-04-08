@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.1.2
+
+### Patch Changes
+
+- 218747df6: Release - April
+- 71e3b2fdd: feat(FDS-521): [Table] expose sort state
+- 8a80db71c: bugfix(FDS-522): [Pickers] import antd.css in semantic.css file
+- 23095f715: fix(FDS-520): [Table] - Sorting is case sensitive
+- cae42a486: bugfix(FDS-522): [Pickers] Add locales files for date and time pickers
+- 057170406: bugfix(FDS-522): [Pickers] Convert css file for pickers to scss
+- a2661b14d: bugfix(FDS-519): [Pickers] Add format based on language
+
 ## 3.1.1
 
 ### Patch Changes
