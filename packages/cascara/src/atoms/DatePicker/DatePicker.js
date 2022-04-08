@@ -23,10 +23,11 @@ const DatePicker = ({ format, onChange, lang, ...rest }) => {
     [onChange]
   );
 
+  const formatForLocales = locales[lang]?.lang?.dateFormat;
   return (
     <AntDatePicker
       {...rest}
-      format={format || lang ? locales[lang]?.lang?.dateFormat : ''}
+      format={format || formatForLocales}
       locale={lang ? locales[lang] : ''}
       onChange={handleOnChange}
     />
