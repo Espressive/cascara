@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.3
+
+### Patch Changes
+
+- d577a433c: bugfix(FDS-522): [DatePicker] Fallback if format is not defined
+
 ## 3.1.2
 
 ### Patch Changes
