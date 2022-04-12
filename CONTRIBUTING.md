@@ -22,7 +22,7 @@ Here are some of our scopes:
 
 - `/packages/cascara`
   - for fixtures -> Cosmos
-  - for code -> Cascara
+  - for code - > Cascara
 - `/packages/design-tokens` -> Design
 - `/packages/framer` -> Prototypes
 - `/packages/icons` -> Icons
