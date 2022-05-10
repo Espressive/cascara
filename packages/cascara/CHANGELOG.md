@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.1.4
+
+### Patch Changes
+
+- bf9f38a73: update readme
+- 3ddf25312: chore(DEV-18293): [Stats] Fix hover issue
+
 ## 3.1.3
 
 ### Patch Changes
