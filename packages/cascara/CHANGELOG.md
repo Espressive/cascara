@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- d577a433c: bugfix(FDS-522): [DatePicker] Fallback if format is not defined
+- d577a433c: bugfix(FDS-522): [Stats] Fix hover issue
 
 ## 3.1.2
 
