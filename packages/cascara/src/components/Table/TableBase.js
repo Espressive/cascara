@@ -185,7 +185,7 @@ const TableBase = ({
 
     // find module type
     const moduleType = display.find(
-      (item) => item.label === sortState?.sortAttribute
+      (item) => item.attribute === sortState?.sortAttribute
     );
 
     const sortedData = sortDataType(
