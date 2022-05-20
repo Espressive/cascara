@@ -67,8 +67,10 @@ $header-background: #eee;
 
   .SortInactive::before {
     @extend .SortArrow;
+    border-style: none;
+    margin: 0 0.5em;
     color: #b3b3b3;
-    transform: rotate(-45deg);
+    content: '-';
   }
 
   .Cell {
