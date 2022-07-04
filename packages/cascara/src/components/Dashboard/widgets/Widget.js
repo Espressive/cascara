@@ -49,12 +49,20 @@ const Widget = ({
   ...rest
 }) => {
   const titlePost = actions?.map((action, i) => (
-    <Button key={i} {...action} className='ui small basic right floated button'>
+    <Button
+      key={i}
+      {...action}
+      className='ui small basic right floated button'
+      style={{ position: 'absolute', right: 0, top: 0 }}
+    >
       {action?.content}
     </Button>
   ));
   const infoPopover = description && (
-    <InfoPopover message={description} style={{ float: 'right' }} />
+    <InfoPopover
+      message={description}
+      style={{ position: 'absolute', right: 0, top: 0 }}
+    />
   );
 
   return (

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import house from '@iconify-icons/ic/twotone-house';
 import clock from '@iconify-icons/ic/twotone-lock-clock';
 import settings from '@iconify-icons/ic/twotone-settings';
+import list from '@iconify-icons/ic/list';
 
 const longContent = (
   <ul>
@@ -128,6 +129,13 @@ const links = [
   {
     icon: settings,
     label: 'Settings',
+    linkComponentProps: {
+      href: '#',
+    },
+  },
+  {
+    icon: list,
+    label: 'Activities',
     linkComponentProps: {
       href: '#',
     },

@@ -4,6 +4,7 @@ import house from '@iconify-icons/ic/twotone-house';
 import clock from '@iconify-icons/ic/twotone-lock-clock';
 import settings from '@iconify-icons/ic/twotone-settings';
 import dashboard from '@iconify-icons/ic/twotone-dashboard';
+import list from '@iconify-icons/ic/list';
 
 const sectionLinks = [
   {
@@ -49,6 +50,11 @@ const links = [
   ...sectionLinks,
   {
     label: 'Section C',
+    links: sectionLinks,
+  },
+  {
+    icon: list,
+    label: 'Activites',
     links: sectionLinks,
   },
 ];
