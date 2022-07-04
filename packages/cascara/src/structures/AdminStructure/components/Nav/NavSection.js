@@ -6,16 +6,17 @@ import NavMenu from './NavMenu';
 import NavMenuButton from './NavMenuButton';
 
 const propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types -- SVG shows up as an object
+  icon: pt.object,
   label: pt.string,
   links: pt.arrayOf(pt.shape(LINK_SHAPE)),
 };
 
-const NavSection = ({ label, links }) => {
+const NavSection = ({ label, links, icon }) => {
   const disclosure = useDisclosureState();
-
   return (
     <>
-      <NavMenuButton {...disclosure} label={label} />
+      <NavMenuButton {...disclosure} icon={icon} label={label} />
       <NavMenu {...disclosure} label={label} links={links} />
     </>
   );
