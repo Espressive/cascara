@@ -80,7 +80,7 @@ const WIDGETS = [
   },
 ];
 
-// Adds an empty array to data for all widgets
+// Adds an empty array to data for all widgets in dashboard
 const EMPTY_WIDGETS = WIDGETS.map((obj) => ({ ...obj, data: [] }));
 
 // Adds data to the widgets to render
