@@ -13,7 +13,7 @@ Please use [the documentation site](https://cascara.design) for all information 
 
 ---
 
-## Get Started: Docs
+## Get Started: Docs 📚📖
 
 1. Clone the repository to your local machine (UX Team will use [Tower](https://www.git-tower.com/mac) to do this)
 2. Open the repository in [VSCode](https://code.visualstudio.com/)
