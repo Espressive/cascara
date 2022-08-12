@@ -30,6 +30,7 @@ const DatePicker = ({ format, onChange, lang, ...rest }) => {
   return (
     <AntDatePicker
       {...rest}
+      aria-label='Date'
       format={format || validatedFormats}
       locale={lang ? locales[lang] : ''}
       onChange={handleOnChange}
