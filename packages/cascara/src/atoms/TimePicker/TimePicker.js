@@ -18,7 +18,6 @@ const TimePicker = ({ format, lang, onChange, ...rest }) => {
   const [isOpen, setOpen] = useState(false);
   const handleOnChange = useCallback(
     (time, timeString) => {
-      setOpen(false);
       onChange(time, timeString);
     },
     [onChange]
