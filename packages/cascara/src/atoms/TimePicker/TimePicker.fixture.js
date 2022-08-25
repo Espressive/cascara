@@ -8,8 +8,10 @@ export default {
   defaultTimeSec: (
     <TimePicker
       defaultValue={moment('15:08', format)}
+      format='h:mm a'
       onChange={handleChange}
       picker='quarter'
+      useNativeInput
     />
   ),
   time: <TimePicker format={format} onChange={handleChange} />,

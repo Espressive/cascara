@@ -1,7 +1,10 @@
 import React, { useCallback, useState } from 'react';
+import moment from 'moment';
 import { TimePicker as AntdTimePicker } from 'antd';
 import pt from '@espressive/prop-types';
 import locales from '../../shared/locales';
+import { Button, Input } from 'reakit';
+import styles from '../../modules/DataModule.module.scss';
 
 const propTypes = {
   /**  format time 'HH:mm or HH:mm:ss'*/
@@ -12,10 +15,26 @@ const propTypes = {
   onChange: pt.func,
   /** optional: error|status */
   status: pt.string,
+
+  useNativeInput: pt.bool,
 };
 
-const TimePicker = ({ format, lang, onChange, ...rest }) => {
-  const [isOpen, setOpen] = useState(false);
+const TimePicker = ({ format, lang, onChange, useNativeInput, ...rest }) => {
+  const [inputValue, setValue] = useState('');
+
+  const handleNativeChange = useCallback(
+    ({ target }) => {
+      const { value } = target;
+      setValue(value);
+    },
+    [setValue]
+  );
+
+  const handleOkButton = useCallback(() => {
+    const time = moment(inputValue, format);
+    onChange(time, inputValue);
+  }, [inputValue, format, onChange]);
+
   const handleOnChange = useCallback(
     (time, timeString) => {
       onChange(time, timeString);
@@ -23,18 +42,30 @@ const TimePicker = ({ format, lang, onChange, ...rest }) => {
     [onChange]
   );
 
-  const handleOnClick = useCallback((val) => {
-    setOpen(val);
-  }, []);
-
-  return (
+  return useNativeInput ? (
+    <>
+      <Input
+        {...rest}
+        className={styles.Input}
+        onChange={handleNativeChange}
+        type='time'
+        value={inputValue}
+      />
+      <Button
+        className={`ui basic icon button`}
+        disabled={!inputValue}
+        onClick={handleOkButton}
+        style={{ padding: '0.4em' }}
+      >
+        Ok
+      </Button>
+    </>
+  ) : (
     <AntdTimePicker
       {...rest}
       format={format}
       locale={lang ? locales[lang] : ''}
       onChange={handleOnChange}
-      onOpenChange={handleOnClick}
-      open={isOpen}
     />
   );
 };
