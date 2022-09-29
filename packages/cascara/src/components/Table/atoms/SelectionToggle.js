@@ -10,7 +10,7 @@ const propTypes = {
 
 const SelectionToggle = ({ id }) => {
   const { rowSelect, selection, rowUnselect } = useContext(ModuleContext);
-  const checked = selection.includes(id);
+  const checked = selection?.includes(id);
 
   const handleSelectionToggle = useCallback(
     ({ name }) => {
