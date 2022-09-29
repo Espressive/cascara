@@ -44,4 +44,22 @@ export default {
       uniqueIdAttribute='eid'
     />
   ),
+  withSelectedRows: (
+    <DataWithDisplay
+      actions={ACTIONS}
+      data={results}
+      dataDisplay={COLUMNS}
+      description='Selection can be limited to a given number of records'
+      onAction={console.log}
+      selections={{
+        selectedRows: [
+          '1a180380-fc30-4117-ae79-dac13fc0ef38',
+          '0ac3bc2d-a19b-4ec2-a4de-74abbfe24d4a',
+          '9e3c8e81-ab24-49fc-8204-5c1f9467802c',
+        ],
+      }}
+      title='Limited Selection'
+      uniqueIdAttribute='eid'
+    />
+  ),
 };
