@@ -116,7 +116,11 @@ const TableBase = ({
   // Row selection
   const isRowSelectable = Boolean(selections);
   const maxSelection = isRowSelectable ? selections?.max || 0 : 0;
-  const [selection, updateSelection] = useReducer(selectionReducer, []);
+  const selectedRows = isRowSelectable ? selections?.selectedRows : [];
+  const [selection, updateSelection] = useReducer(
+    selectionReducer,
+    selectedRows
+  );
 
   // get a list of record IDs
   const recordIDs = useMemo(
