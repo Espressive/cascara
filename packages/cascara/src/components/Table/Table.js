@@ -120,6 +120,9 @@ Table.propTypes = {
     pt.exact({
       max: pt.number,
     }),
+    pt.exact({
+      selectedRows: pt.arrayOf(pt.string),
+    }),
   ]),
 
   /**
