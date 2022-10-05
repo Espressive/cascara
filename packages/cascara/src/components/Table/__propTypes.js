@@ -84,6 +84,9 @@ export const TABLE_SHAPE = {
     pt.exact({
       max: pt.number,
     }),
+    pt.exact({
+      selectedRows: pt.arrayOf(pt.string),
+    }),
   ]),
 
   /**
