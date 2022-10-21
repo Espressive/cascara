@@ -1,4 +1,5 @@
 import React from 'react';
+import widgetListFixtures from './Dashboard_ListWidget.fixture';
 import Dashboard from './Dashboard';
 import pieData from './tests/data/Pie';
 import geoMapData from './tests/data/GeoMap';
@@ -142,4 +143,5 @@ export default {
   loading: <Loading config={WIDGETS} />,
   empty: <Empty config={EMPTY_WIDGETS} />,
   withData: <WithData config={DATA_WIDGETS} />,
+  widgetListFixtures,
 };
