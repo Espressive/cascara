@@ -29,6 +29,7 @@ const propTypes = {
   isLoading: pt.bool,
   /** A widget can contain scrolling content */
   isScrolling: pt.bool,
+  onScroll: pt.func,
   /** A widget can display with a title */
   title: pt.string,
 };
@@ -46,6 +47,7 @@ const Widget = ({
   isLoading = false,
   isScrolling = false,
   title,
+  onScroll,
   ...rest
 }) => {
   const titlePost = actions?.map((action, i) => (
@@ -97,6 +99,7 @@ const Widget = ({
             },
             className
           )}
+          onScroll={isScrolling && onScroll ? onScroll : void 0}
           style={{ height: height }}
         >
           {isLoading ? (

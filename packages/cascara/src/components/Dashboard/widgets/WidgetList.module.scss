@@ -4,6 +4,10 @@
   background-color: #e6e6e6;
   border-top: 2px solid #ccc;
   height: 3em;
+  opacity: 0.85;
+  border-radius: 0 0 8px 8px;
+  color: #4a4a4a;
+  transition: opacity 0.2s ease-in, background-color 0.5s ease-in;
 }
 .tableHeaderSticky {
   background-color: #e6e6e6;
@@ -12,4 +16,11 @@
 }
 .footerHidden {
   display: none;
+}
+
+.tableFooterSticky-solid {
+  opacity: 1;
+  background-color: #4a4a4a;
+  color: #fff;
+  transition: opacity 0.2s ease-in, background-color 0.5s ease-in;
 }

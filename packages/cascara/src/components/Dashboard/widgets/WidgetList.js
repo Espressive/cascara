@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import pt from 'prop-types';
 import Widget, { propTypes as widgetPT } from './Widget';
 import WidgetListAction from './WidgetListAction';
@@ -54,8 +54,9 @@ const buildFooter = ({ keys, footerData }) => {
 const renderFooter = ({ footer, keys }) => {
   const { data, settings } = footer;
   const { footerHidden, tableFooterSticky } = styles;
+  const classNames = settings?.hidden ? footerHidden : tableFooterSticky;
   return footer && data ? (
-    <tfoot className={settings?.hidden ? footerHidden : tableFooterSticky}>
+    <tfoot className={`${classNames} animated-sticky-footer`}>
       {buildFooter({ footerData: data, keys })}
     </tfoot>
   ) : null;
@@ -70,8 +71,27 @@ const WidgetList = ({ data, footer, header, keys, rowAction, ...rest }) => {
   const { tableHeaderSticky } = styles;
 
   const preparedData = getPreparedData(keys, data);
+
+  const handleScroll = useCallback(({ target }) => {
+    const { scrollHeight, offsetHeight, scrollTop } = target;
+    const widgetFooter = target.getElementsByClassName(
+      'animated-sticky-footer'
+    );
+    if (scrollHeight - offsetHeight - scrollTop < 10) {
+      widgetFooter[0].classList.add(styles['tableFooterSticky-solid']);
+    } else {
+      widgetFooter[0].classList.remove(styles['tableFooterSticky-solid']);
+    }
+  }, []);
+
   return (
-    <Widget {...rest} {...dataState} isScrolling>
+    <Widget
+      className={'animatedListFooterAtScrollDown'}
+      {...rest}
+      {...dataState}
+      isScrolling
+      onScroll={handleScroll}
+    >
       {!isLoading && !isEmpty && (
         <table>
           <thead className={header?.settings?.sticky ? tableHeaderSticky : ''}>
