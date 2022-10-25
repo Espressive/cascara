@@ -77,7 +77,9 @@ const WidgetList = ({ data, footer, header, keys, rowAction, ...rest }) => {
     const widgetFooter = target.getElementsByClassName(
       'animated-sticky-footer'
     );
-    if (scrollHeight - offsetHeight - scrollTop < 10) {
+    const isScrollHittingTheBottom =
+      scrollHeight - offsetHeight - scrollTop < 10;
+    if (isScrollHittingTheBottom) {
       widgetFooter[0].classList.add(styles['tableFooterSticky-solid']);
     } else {
       widgetFooter[0].classList.remove(styles['tableFooterSticky-solid']);
