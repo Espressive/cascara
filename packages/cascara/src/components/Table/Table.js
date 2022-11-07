@@ -124,7 +124,11 @@ Table.propTypes = {
       selectedRows: pt.arrayOf(pt.string),
     }),
   ]),
-
+  /**
+   * singleLined.
+   * {Boolean} which decides if we present the rows of the table as a single line and without the striped default styles. (FDS-528)
+   */
+  singleLined: pt.bool,
   /**
    * The Sort state and the means to mutate it.
    *

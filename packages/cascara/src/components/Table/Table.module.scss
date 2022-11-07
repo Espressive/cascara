@@ -37,6 +37,13 @@ $header-background: #eee;
     justify-content: space-between;
   }
 
+  .HeadCell.Selections,
+  .HeadCell {
+    &.SingleLined {
+      background-color: transparent !important;
+      border-bottom: solid 1px #dddcde;
+    }
+  }
   .SortedColumn {
     background-color: darken($header-background, 15%);
   }
@@ -125,6 +132,13 @@ $header-background: #eee;
           background-image: linear-gradient(to right, #f2f2f200, #f2f2f2);
         }
       }
+    }
+  }
+  .Row.SingleLined {
+    .Cell,
+    .CellActions {
+      background-color: transparent;
+      border-bottom: solid 1px #dddcde;
     }
   }
 }
