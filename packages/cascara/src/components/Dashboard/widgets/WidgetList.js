@@ -3,6 +3,7 @@ import pt from 'prop-types';
 import Widget, { propTypes as widgetPT } from './Widget';
 import WidgetListAction from './WidgetListAction';
 import { getDataState } from './dataState';
+import { isEmpty, isUndefined } from 'lodash';
 import styles from './WidgetList.module.scss';
 
 const propTypes = {
@@ -39,25 +40,33 @@ const getPreparedData = (keys, data) =>
       )
     : data;
 
-const buildFooter = ({ keys, footerData }) => {
-  if (footerData !== undefined) {
-    return keys.map((key, i) => {
-      if (footerData[key]?.value) {
-        return <th key={i}>{footerData[key].value}</th>;
+const buildFooter = ({ action, keys, footerData }) => {
+  if (!isUndefined(footerData) && !isEmpty(footerData)) {
+    const columns = keys.map((key, i) => {
+      if (
+        Object.keys(footerData).includes(key) &&
+        !isUndefined(footerData[key]?.value)
+      ) {
+        return <th key={i}>{footerData[key]?.value}</th>;
+      } else {
+        return <th key={i} />;
       }
-      return <th key={i} />;
     });
+    if (!isUndefined(action)) {
+      columns.push(<th />);
+    }
+    return columns;
   } else {
     return null;
   }
 };
-const renderFooter = ({ footer, keys }) => {
+const renderFooter = ({ action, footer, keys }) => {
   const { data, settings } = footer;
   const { footerHidden, tableFooterSticky } = styles;
   const classNames = settings?.hidden ? footerHidden : tableFooterSticky;
-  return footer && data ? (
+  return footer && !isEmpty(data) ? (
     <tfoot className={`${classNames} animated-sticky-footer`}>
-      {buildFooter({ footerData: data, keys })}
+      {buildFooter({ action, footerData: data, keys })}
     </tfoot>
   ) : null;
 };
@@ -119,7 +128,12 @@ const WidgetList = ({ data, footer, header, keys, rowAction, ...rest }) => {
               </tr>
             ))}
           </tbody>
-          {footer && renderFooter({ footer, keys })}
+          {footer &&
+            renderFooter({
+              action: rowAction,
+              footer,
+              keys: Object.keys(preparedData[0]),
+            })}
         </table>
       )}
     </Widget>
