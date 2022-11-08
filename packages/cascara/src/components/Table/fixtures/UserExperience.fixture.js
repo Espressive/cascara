@@ -251,6 +251,26 @@ export default {
       />
     </Provider>
   ),
+  withActionsSingleLined: (
+    <Provider>
+      <WithActions
+        actions={{
+          actionButtonMenuIndex: 0,
+          modules: [
+            {
+              content: 'View',
+              module: 'button',
+              name: 'viewInFAQ',
+            },
+          ],
+        }}
+        data={results}
+        dataDisplay={COLUMNS}
+        singleLined
+        uniqueIdAttribute='eid'
+      />
+    </Provider>
+  ),
   withoutActionBar: (props) => (
     <Provider>
       <WithoutActionBar
@@ -282,6 +302,16 @@ export default {
       <WithoutActions
         data={results}
         dataDisplay={COLUMNS}
+        uniqueIdAttribute='eid'
+      />
+    </Provider>
+  ),
+  withoutActionsSingleLined: (
+    <Provider>
+      <WithoutActions
+        data={results}
+        dataDisplay={COLUMNS}
+        singleLined
         uniqueIdAttribute='eid'
       />
     </Provider>
