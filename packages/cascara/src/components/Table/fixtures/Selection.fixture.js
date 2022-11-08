@@ -62,4 +62,18 @@ export default {
       uniqueIdAttribute='eid'
     />
   ),
+  singleLined: (
+    <DataWithDisplay
+      actions={ACTIONS}
+      data={results}
+      dataDisplay={COLUMNS}
+      description={`Regular selection, with no ALL nor LIMITED
+      Also with a NO-Stripped style, to use this set the prop singleLined along with the actions, data, dataDisplay props`}
+      onAction={console.log}
+      selections
+      singleLined
+      title='Regular selection'
+      uniqueIdAttribute='eid'
+    />
+  ),
 };

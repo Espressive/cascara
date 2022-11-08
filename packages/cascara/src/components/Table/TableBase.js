@@ -61,6 +61,7 @@ const TableBase = ({
   initialSort,
   onAction,
   selections,
+  singleLined,
   sortable,
   sortState,
   uniqueIdAttribute,
@@ -73,7 +74,6 @@ const TableBase = ({
         : inferDataDisplay(data),
     [data, dataDisplay]
   );
-
   /**
    * Sortable prop can have 3 different values:
    *
@@ -257,6 +257,9 @@ const TableBase = ({
   if (isRowSelectable) {
     columnCount++;
   }
+  const gridTemplateColumns = isRowSelectable
+    ? `2em repeat(${(columnCount -= 1)}, auto)`
+    : `repeat(${columnCount}, auto)`;
 
   return (
     <TableProvider
@@ -265,6 +268,7 @@ const TableBase = ({
         data: sortedData,
         dataDisplay: display,
         isRowSelectable,
+        isSingleLined: Boolean(singleLined),
         isSortable,
         maxSelection,
         modules,
@@ -284,7 +288,7 @@ const TableBase = ({
         className={styles.Table}
         data-component='Table'
         style={{
-          gridTemplateColumns: `repeat(${columnCount}, auto)`,
+          gridTemplateColumns: gridTemplateColumns,
         }}
       >
         <TableHeader />

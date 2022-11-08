@@ -39,6 +39,7 @@ const TableRow = ({ config = {}, record = {} }) => {
     resolveRecordActions,
     actionButtonMenuIndex = 0,
     isRowSelectable,
+    isSingleLined,
     modules: userDefinedModules = [],
   } = useContext(ModuleContext);
 
@@ -46,6 +47,7 @@ const TableRow = ({ config = {}, record = {} }) => {
   const actions = resolveRecordActions
     ? resolveRecordActions(record, userDefinedModules)
     : userDefinedModules; // otherwise continue as normal
+  const singleLinedStyles = isSingleLined ? ` ${styles.SingleLined}` : '';
 
   const outsideButtonActions = [];
   const insideButtonActions = [];
@@ -106,16 +108,18 @@ const TableRow = ({ config = {}, record = {} }) => {
 
   if (isRowSelectable) {
     rowCells.unshift(
-      <td className={styles.HeadCell} key={`selection-toggle-${id}`}>
+      <td
+        className={`${styles.HeadCell} ${styles.Selections} ${singleLinedStyles}`}
+        key={`selection-toggle-${id}`}
+      >
         <SelectionToggle id={id} />
       </td>
     );
   }
-
   return (
     <Boundaries>
       <RowProvider value={{ record }}>
-        <tr className={styles.Row} key={id}>
+        <tr className={`${styles.Row}${singleLinedStyles}`} key={id}>
           {rowCells}
         </tr>
       </RowProvider>
