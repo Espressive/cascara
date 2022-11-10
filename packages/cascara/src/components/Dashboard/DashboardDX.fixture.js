@@ -66,7 +66,27 @@ const WIDGETS = [
     data: undefined,
     // keys: ['country', 'fries', 'curry'],
     // rowAction: (obj) => console.log(obj), // Without a rowAction defined, no row action will show. Note that the function gets the original object passed to it.
-    title: 'List',
+    title: 'List (simple)',
+    widget: 'list',
+  },
+  {
+    data: undefined,
+    keys: ['not helpful', 'no data', 'helpful', 'month'],
+    rowAction: (obj) => console.log(obj), // Without a rowAction defined, no row action will show. Note that the function gets the original object passed to it.
+    footer: {
+      data: {
+        'not helpful': {
+          value: 1,
+        },
+        'no data': {
+          value: 1,
+        },
+        helpful: {
+          value: 1,
+        },
+      },
+    },
+    title: 'List with Actions and footer',
     widget: 'list',
   },
   {
