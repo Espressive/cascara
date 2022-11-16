@@ -114,6 +114,7 @@ exports[`Table snapshot tests actions with non-existent module 1`] = `
       aria-expanded="false"
       aria-haspopup="menu"
       class="ui basic icon button"
+      style="border: 1px solid #dddcde; box-shadow: none; height: 35px; margin: 5px; padding: 0px; width: 34px;"
       type="button"
     >
       <svg
@@ -361,6 +362,7 @@ exports[`Table snapshot tests dataDisplay with non-existent module 1`] = `
       aria-expanded="false"
       aria-haspopup="menu"
       class="ui basic icon button"
+      style="border: 1px solid #dddcde; box-shadow: none; height: 35px; margin: 5px; padding: 0px; width: 34px;"
       type="button"
     >
       <svg
@@ -529,6 +531,7 @@ exports[`Table snapshot tests with actions 1`] = `
       aria-expanded="false"
       aria-haspopup="menu"
       class="ui basic icon button"
+      style="border: 1px solid #dddcde; box-shadow: none; height: 35px; margin: 5px; padding: 0px; width: 34px;"
       type="button"
     >
       <svg
@@ -659,6 +662,7 @@ exports[`Table snapshot tests with deprecated props 1`] = `
       aria-expanded="false"
       aria-haspopup="menu"
       class="ui basic icon button"
+      style="border: 1px solid #dddcde; box-shadow: none; height: 35px; margin: 5px; padding: 0px; width: 34px;"
       type="button"
     >
       <svg

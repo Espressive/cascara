@@ -11,7 +11,17 @@ import { popperOverTrigger } from '../../lib/popperModifiers';
 
 const MemoActionsMenuItem = React.memo(ActionsMenuItem);
 const DEFAULT_TRIGGER = (
-  <Button className='ui basic icon button'>
+  <Button
+    className={`ui basic icon button`}
+    style={{
+      border: 'solid 1px #dddcde',
+      boxShadow: ' none',
+      height: '35px',
+      margin: '5px',
+      padding: '0',
+      width: '34px',
+    }}
+  >
     <InlineIcon icon={verticalmenuIcon} />
   </Button>
 );
