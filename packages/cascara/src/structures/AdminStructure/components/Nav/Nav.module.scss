@@ -15,6 +15,7 @@ $active-background-color: var(--brand-color, #ddd);
   z-index: 100;
   width: 100%;
   transition: width 200ms ease-in-out;
+  margin: 16px;
 
   // :global .icon {
   //   margin-right: 0.5em;
@@ -60,15 +61,15 @@ $active-background-color: var(--brand-color, #ddd);
     display: block;
     font-weight: normal;
     font-size: 1em;
-    padding: $vertical-spacing ($horizontal-spacing + $vertical-spacing);
+    // padding: $vertical-spacing ($horizontal-spacing + $vertical-spacing);
     text-align: left;
     width: 100%;
-    margin-top: $vertical-spacing;
+    // margin-top: $vertical-spacing;
     background-color: transparent;
     color: rgb(102, 102, 102);
 
     &:last-child {
-      margin-bottom: $vertical-spacing;
+      // margin-bottom: $vertical-spacing;
     }
 
     &:focus {
@@ -110,7 +111,7 @@ $active-background-color: var(--brand-color, #ddd);
       rgba(0, 0, 0, 0.05),
       rgba(0, 0, 0, 0)
     );
-    margin-bottom: $vertical-spacing;
+    // margin-bottom: $vertical-spacing;
     border-width: 0 0 1px 0;
     border-style: solid;
     border-image: linear-gradient(
@@ -121,21 +122,21 @@ $active-background-color: var(--brand-color, #ddd);
       100% 1;
 
     & + .NavLink {
-      margin-top: $vertical-spacing;
+      // margin-top: $vertical-spacing;
     }
   }
 
   & > .NavLink {
-    margin: 0 0 0 $vertical-spacing;
+    // margin: 0 0 0 $vertical-spacing;
 
     &:first-child {
-      margin-top: $vertical-spacing;
+      // margin-top: $vertical-spacing;
     }
   }
 
   .NavLink {
     display: block;
-    padding: 0.75rem 1rem;
+    // padding: 0.75rem 1rem;
     color: #666;
     line-height: 1.25;
     border-radius: 0.5em;
