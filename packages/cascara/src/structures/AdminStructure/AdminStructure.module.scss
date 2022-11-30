@@ -73,7 +73,7 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   grid-row: main;
   grid-column-start: main;
   grid-column-end: drawer;
-  margin: 0em 2em;
+  margin: 0em 3em;
 
   &.with_drawer {
     grid-column-end: main;
@@ -83,6 +83,7 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
 ._nav {
   @include scroll-vertical;
   min-width: 300px;
+  margin: 16px;
   // background-color: purple;
   grid-area: nav;
   grid-row: nav;
@@ -90,5 +91,4 @@ $border: 1px solid rgba(0, 0, 0, 0.15);
   grid-column-start: nav;
 
   grid-column-end: nav;
-  margin-right: 1em;
 }

@@ -9,17 +9,12 @@ $active-background-color: var(--brand-color, #ddd);
 
 .Nav {
   height: 100%;
-  overflow: auto;
   background-color: #f6f6f6;
   position: relative;
   z-index: 100;
   width: 100%;
   transition: width 200ms ease-in-out;
-  margin: 16px;
-
-  // :global .icon {
-  //   margin-right: 0.5em;
-  // }
+  min-width: 300px;
 
   :global .label {
     overflow: hidden;
@@ -105,23 +100,7 @@ $active-background-color: var(--brand-color, #ddd);
   }
 
   .NavMenu {
-    // padding: $vertical-spacing 0
-    // $vertical-spacing $vertical-spacing;
-    // background-image: linear-gradient(
-    //   to right,
-    //   rgba(0, 0, 0, 0.05),
-    //   rgba(0, 0, 0, 0)
-    // );
     padding: 8px 16px 16px 47px;
-    // margin-bottom: $vertical-spacing;
-    // border-width: 0 0 1px 0;
-    // border-style: solid;
-    // border-image: linear-gradient(
-    //     to right,
-    //     rgba(0, 0, 0, 0.05),
-    //     rgba(0, 0, 0, 0)
-    //   )
-    //   100% 1;
 
     & + .NavLink {
       margin-top: $vertical-spacing;
@@ -133,38 +112,51 @@ $active-background-color: var(--brand-color, #ddd);
   }
 
   .NavLink {
-    display: block;
-    padding: 0.75rem 1rem;
-    color: #666;
-    line-height: 1.25;
+    min-width: 300px;
+    min-height: 44px;
+    padding: 12px;
     border-radius: 0.5em;
     transition: background-color 200ms ease-in-out, color 200ms ease-in-out,
       box-shadow 200ms ease-in-out;
+
     white-space: nowrap;
     text-overflow: ellipsis;
     -webkit-appearance: none; // Safari if type=button
-    // border: solid;
+
+    display: flex;
+    align-items: center;
 
     margin: 8px 0px;
 
-    // @include media-gt-sm {
-    //   text-overflow: ellipsis;
-    // }
+    background-color: #fff;
+    color: #4f4f4f;
+    font-weight: 400;
+
+    & span {
+      font-size: 18px;
+      font-weight: 400;
+      display: inline-block;
+      color: #4f4f4f;
+    }
+
+    &:hover {
+      border: 2px solid #efefef;
+      border-radius: 8px;
+      margin: 6px 0px;
+    }
 
     &:focus {
-      color: $focus-color;
       background-color: $focus-background-color;
-      outline: none;
-      box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      font-weight: 700;
+      color: #4f4f4f;
     }
 
     &:global.active {
-      color: $active-color;
-      background-color: $active-background-color;
-
-      &:focus {
-        box-shadow: 0 0 0 0.1rem var(--brand-color);
-      }
+      color: #4f4f4f;
+      background-color: $focus-background-color;
+      font-weight: 700;
+      border-radius: 8px;
     }
   }
 }
