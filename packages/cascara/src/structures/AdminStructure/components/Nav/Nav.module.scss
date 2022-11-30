@@ -56,26 +56,28 @@ $active-background-color: var(--brand-color, #ddd);
 
   .NavMenuButton {
     cursor: pointer;
-    border: none;
-    border-radius: 0 0.25rem 0.25rem 0;
     display: block;
     font-weight: normal;
     font-size: 1em;
-    // padding: $vertical-spacing ($horizontal-spacing + $vertical-spacing);
     text-align: left;
     width: 100%;
-    // margin-top: $vertical-spacing;
+    margin-top: $vertical-spacing;
     background-color: transparent;
     color: rgb(102, 102, 102);
 
+    border: none;
+    margin: 8px 0px;
+    border-radius: 0.5em;
+    padding: 0.75rem 1rem;
+
     &:last-child {
-      // margin-bottom: $vertical-spacing;
+      margin-bottom: $vertical-spacing;
     }
 
     &:focus {
+      margin-bottom: 0px;
       outline: none;
       color: $focus-color;
-      background-color: $focus-background-color;
     }
 
     &[aria-expanded] {
@@ -85,19 +87,17 @@ $active-background-color: var(--brand-color, #ddd);
     }
 
     &[aria-expanded='true'] {
-      color: $active-color;
-      background-color: $active-background-color;
-
+      // color: $active-color;
+      // border-bottom: 0px;
+      // border-bottom-left-radius: 0%;
+      // border-bottom-right-radius: 0%;
+      margin-bottom: 0px;
       &:after {
         content: '−';
       }
     }
 
     &[aria-expanded='false'] {
-      // background-color: InactiveCaption;
-      // color: InactiveCaptionText;
-      // border-color: InactiveBorder;
-
       &:after {
         content: '+';
       }
@@ -105,38 +105,36 @@ $active-background-color: var(--brand-color, #ddd);
   }
 
   .NavMenu {
-    padding: $vertical-spacing 0 $vertical-spacing $vertical-spacing;
-    background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.05),
-      rgba(0, 0, 0, 0)
-    );
+    // padding: $vertical-spacing 0
+    // $vertical-spacing $vertical-spacing;
+    // background-image: linear-gradient(
+    //   to right,
+    //   rgba(0, 0, 0, 0.05),
+    //   rgba(0, 0, 0, 0)
+    // );
+    padding: 8px 16px 16px 47px;
     // margin-bottom: $vertical-spacing;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.05),
-        rgba(0, 0, 0, 0)
-      )
-      100% 1;
+    // border-width: 0 0 1px 0;
+    // border-style: solid;
+    // border-image: linear-gradient(
+    //     to right,
+    //     rgba(0, 0, 0, 0.05),
+    //     rgba(0, 0, 0, 0)
+    //   )
+    //   100% 1;
 
     & + .NavLink {
-      // margin-top: $vertical-spacing;
+      margin-top: $vertical-spacing;
     }
   }
 
   & > .NavLink {
-    // margin: 0 0 0 $vertical-spacing;
-
-    &:first-child {
-      // margin-top: $vertical-spacing;
-    }
+    margin: 0 0 0 $vertical-spacing;
   }
 
   .NavLink {
     display: block;
-    // padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem;
     color: #666;
     line-height: 1.25;
     border-radius: 0.5em;
@@ -145,6 +143,9 @@ $active-background-color: var(--brand-color, #ddd);
     white-space: nowrap;
     text-overflow: ellipsis;
     -webkit-appearance: none; // Safari if type=button
+    // border: solid;
+
+    margin: 8px 0px;
 
     // @include media-gt-sm {
     //   text-overflow: ellipsis;

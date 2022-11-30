@@ -27,7 +27,7 @@ const sectionLinks = [
     linkComponentProps: {
       href: '#',
     },
-    post: 'post',
+    // post: 'post',
   },
 ];
 
@@ -42,15 +42,18 @@ const links = [
   {
     label: 'Section A',
     links: sectionLinks,
+    icon: dashboard,
   },
   {
     label: 'Section B',
     links: sectionLinks,
+    icon: dashboard,
   },
   ...sectionLinks,
   {
     label: 'Section C',
     links: sectionLinks,
+    icon: dashboard,
   },
   {
     icon: list,
