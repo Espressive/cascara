@@ -51,42 +51,62 @@ $active-background-color: var(--brand-color, #ddd);
 
   .NavMenuButton {
     cursor: pointer;
-    display: block;
-    font-weight: normal;
-    font-size: 1em;
+    background-color: #fff;
+    color: #4f4f4f;
+    font-weight: 400;
+
+    font-size: 16px;
     text-align: left;
     width: 100%;
-    margin-top: $vertical-spacing;
-    background-color: transparent;
-    color: rgb(102, 102, 102);
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-appearance: none; // Safari if type=button
 
     border: none;
+    border-radius: 8px;
     margin: 8px 0px;
-    border-radius: 0.5em;
-    padding: 0.75rem 1rem;
+
+    min-width: 300px;
+    min-height: 44px;
+    padding: 12px;
+
+    & span {
+      font-size: 18px;
+      font-weight: 400;
+      color: #4f4f4f;
+    }
 
     &:last-child {
       margin-bottom: $vertical-spacing;
+    }
+    &:hover {
+      border: 2px solid #efefef;
+      border-radius: 8px;
+      padding: 10px;
     }
 
     &:focus {
       margin-bottom: 0px;
       outline: none;
-      color: $focus-color;
     }
 
     &[aria-expanded] {
       &:after {
         float: right;
+        font-size: 18px;
+        font-weight: 400;
+        color: #4f4f4f;
       }
     }
 
     &[aria-expanded='true'] {
-      // color: $active-color;
-      // border-bottom: 0px;
-      // border-bottom-left-radius: 0%;
-      // border-bottom-right-radius: 0%;
+      background-color: #f8f8f8;
+      border: none;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
       margin-bottom: 0px;
+      padding: 12px;
       &:after {
         content: '−';
       }
@@ -100,10 +120,36 @@ $active-background-color: var(--brand-color, #ddd);
   }
 
   .NavMenu {
-    padding: 8px 16px 16px 47px;
+    background-color: #f8f8f8;
+    min-width: 300px;
+    margin-top: 0px;
+    border-radius: 0px 0px 8px 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 
-    & + .NavLink {
-      margin-top: $vertical-spacing;
+    & > .NavLink:first-of-type {
+      margin-top: 0;
+    }
+    & > .NavLink {
+      margin-top: 0;
+    }
+    & .NavLink {
+      padding-left: 40px !important;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      background-color: #f8f8f8;
+      & span {
+        font-size: 16px;
+        display: inline-block;
+        width: 100%;
+        &:hover {
+          font-weight: 700;
+        }
+      }
+      &:hover {
+        border: none;
+        font-weight: 700;
+      }
     }
   }
 
@@ -135,7 +181,6 @@ $active-background-color: var(--brand-color, #ddd);
     & span {
       font-size: 18px;
       font-weight: 400;
-      display: inline-block;
       color: #4f4f4f;
     }
 
