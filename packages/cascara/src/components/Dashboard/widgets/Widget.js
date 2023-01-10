@@ -29,6 +29,8 @@ const propTypes = {
   isLoading: pt.bool,
   /** A widget can contain scrolling content */
   isScrolling: pt.bool,
+  /** The width of a widget */
+  minWidth: pt.oneOfType([pt.number, pt.oneOf(['auto'])]),
   onScroll: pt.func,
   /** A widget can display with a title */
   title: pt.string,
@@ -46,6 +48,7 @@ const Widget = ({
   isEmpty = false,
   isLoading = false,
   isScrolling = false,
+  minWidth = '100%',
   title,
   onScroll,
   ...rest
@@ -100,7 +103,7 @@ const Widget = ({
             className
           )}
           onScroll={isScrolling && onScroll ? onScroll : void 0}
-          style={{ height: height }}
+          style={{ height: height, minWidth: minWidth }}
         >
           {isLoading ? (
             <div className='ui active centered inline loader' />
