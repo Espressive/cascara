@@ -2702,7 +2702,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@espressive/cascara@workspace:3.1.3, @espressive/cascara@workspace:packages/cascara":
+"@espressive/cascara@workspace:3.1.4, @espressive/cascara@workspace:packages/cascara":
   version: 0.0.0-use.local
   resolution: "@espressive/cascara@workspace:packages/cascara"
   dependencies:
@@ -9881,7 +9881,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "docs@workspace:docs"
   dependencies:
-    "@espressive/cascara": "workspace:3.1.3"
+    "@espressive/cascara": "workspace:3.1.4"
     "@espressive/design-tokens": "workspace:0.1.5"
     "@espressive/legacy-css": "workspace:2.0.6"
     "@espressive/prop-types": "workspace:2.0.0"
@@ -24537,17 +24537,10 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ua-parser-js@npm:^0.7.18":
-  version: 0.7.28
-  resolution: "ua-parser-js@npm:0.7.28"
-  checksum: a7da4ad54527211e878ee016c2ef64efad5c2f5a31277d36c9da93b4c89ecaa64f391ad4cf158ada76a9ad8e53004a950705ff1c2f27a52ca8bfb3f1381c39ff
-  languageName: node
-  linkType: hard
-
-"ua-parser-js@npm:^0.7.30":
-  version: 0.7.31
-  resolution: "ua-parser-js@npm:0.7.31"
-  checksum: e2f8324a83d1715601576af85b2b6c03890699aaa7272950fc77ea925c70c5e4f75060ae147dc92124e49f7f0e3d6dd2b0a91e7f40d267e92df8894be967ba8b
+"ua-parser-js@npm:^0.7.18, ua-parser-js@npm:^0.7.30":
+  version: 0.7.33
+  resolution: "ua-parser-js@npm:0.7.33"
+  checksum: 1510e9ec26fcaf0d8c6ae8f1078a8230e8816f083e1b5f453ea19d06b8ef2b8a596601c92148fd41899e8b3e5f83fa69c42332bd5729b931a721040339831696
   languageName: node
   linkType: hard
 
