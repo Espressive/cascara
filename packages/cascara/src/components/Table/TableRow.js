@@ -31,9 +31,10 @@ const propTypes = {
     id: pt.oneOfType([pt.string, pt.number]),
   }),
   record: pt.shape({}),
+  truncateColumns: pt.number,
 };
 
-const TableRow = ({ config = {}, record = {} }) => {
+const TableRow = ({ config = {}, record = {}, truncateColumns }) => {
   const { id, columns } = config;
   const {
     resolveRecordActions,
@@ -89,7 +90,14 @@ const TableRow = ({ config = {}, record = {} }) => {
   const rowCells = columns.map((column) => {
     const { module, isLabeled, ...rest } = column;
     const Module = dataModules[module];
-    const moduleValue = record[column.attribute];
+    let moduleValue = record[column.attribute];
+
+    if (truncateColumns > 0 && typeof moduleValue === 'string') {
+      moduleValue =
+        moduleValue.length > truncateColumns
+          ? `${moduleValue.slice(0, truncateColumns - 1)}...`
+          : moduleValue;
+    }
 
     return (
       <td className={styles.Cell} key={column.attribute}>
