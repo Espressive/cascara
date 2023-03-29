@@ -119,6 +119,7 @@ export default {
     <DataWithDisplay
       data={results}
       dataDisplay={COLUMNS}
+      truncateColumns={30}
       uniqueIdAttribute='eid'
     />
   ),
