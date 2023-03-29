@@ -64,6 +64,7 @@ const TableBase = ({
   singleLined,
   sortable,
   sortState,
+  truncateColumns,
   uniqueIdAttribute,
   ...rest
 }) => {
@@ -280,6 +281,7 @@ const TableBase = ({
         selection,
         sortState,
         sortableColumns,
+        truncateColumns,
         uniqueIdAttribute: uniqueid,
       }}
       {...rest}
