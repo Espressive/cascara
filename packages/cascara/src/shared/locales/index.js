@@ -14,6 +14,7 @@ const locales = {
   de: de,
   'en-US': en_us,
   es: es,
+  'es-MX': es,
   fr: fr,
   it: it,
   ja: ja,

@@ -1,7 +1,8 @@
 import React from 'react';
 import DatePicker from '.';
 
-const handleChange = (param, param2) => console.log(param, param2);
+const handleChange = (param, param2, param3) =>
+  console.log(param, param2, param3);
 
 export default {
   selectDate: <DatePicker onChange={handleChange} />,
