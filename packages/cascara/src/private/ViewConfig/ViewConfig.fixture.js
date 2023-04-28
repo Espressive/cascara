@@ -58,7 +58,7 @@ const All = (fixtureProps) => {
 
   return (
     <main className='ui container'>
-      <h2>All</h2>
+      <h2>Hello: ViewConfig</h2>
       <p>
         A ViewConfig component accepts an array of objects as options. It
         manages a selection of those objects as state and exposes those selected
@@ -67,11 +67,20 @@ const All = (fixtureProps) => {
         original object in the selection. Only <code>label</code> is used in the
         menu display of the component.
       </p>
+      <h3>
+        Here we are wrapping the ViewConfig component between 2 elements to
+        check the behaviour of the component in a real environment
+      </h3>
+      <JsonPlaceholder
+        data={viewConfigState?.currentSelection || {}}
+        isInitialOpen
+        // style={{ float: 'right' }}
+        title='currentSelection'
+      />
       <ViewConfig state={viewConfigState} {...fixtureProps} />
       <JsonPlaceholder
         data={viewConfigState?.currentSelection || {}}
         isInitialOpen
-        style={{ float: 'right' }}
         title='currentSelection'
       />
     </main>
