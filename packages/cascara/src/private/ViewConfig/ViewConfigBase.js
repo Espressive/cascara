@@ -1,15 +1,94 @@
-import React, { memo, useCallback, useRef, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { compose, filter, without } from 'ramda';
-import { Menu, MenuButton, useMenuState } from 'reakit/Menu';
+import { useMenuState } from 'reakit/Menu';
+import { Popover, PopoverDisclosure, usePopoverState } from 'reakit/Popover';
 import { DEFAULT_TRIGGER, VIEW_CONFIG_PROP_TYPES } from './__globals';
 import ViewConfigItem from './ViewConfigItem';
 import styles from './ViewConfig.module.scss';
 import { DEFAULT_CASCARA_MODIFIERS } from '../../lib/popperModifiers';
 import { Clickable } from 'reakit/Clickable';
+import pt from 'prop-types';
+import { InlineIcon } from '@iconify/react';
+import { eyeIcon } from '@espressive/icons';
 
 const MemoViewConfigItem = memo(ViewConfigItem);
 
 const propTypes = VIEW_CONFIG_PROP_TYPES;
+
+const popoverProptypes = {
+  activeOptions: pt.arrayOf([pt.shape({})]),
+  filteredInactiveOptions: pt.arrayOf([pt.shape({})]),
+  handleClearSearch: pt.func,
+  handleSearchValue: pt.func,
+  renderOptions: pt.func,
+  searchValue: pt.string,
+  title: pt.string,
+};
+const PopOverConfig = ({
+  activeOptions,
+  filteredInactiveOptions,
+  handleClearSearch,
+  handleSearchValue,
+  renderOptions,
+  searchValue,
+  title,
+}) => {
+  const popover = usePopoverState({
+    animated: 250,
+    gutter: 0,
+    placement: 'bottom-start',
+  });
+  return (
+    <>
+      <PopoverDisclosure {...popover} className='ui basic icon button'>
+        <InlineIcon icon={eyeIcon} />
+      </PopoverDisclosure>
+      <Popover {...popover} aria-label='Welcome' className={` ${styles._}`}>
+        {title && <h4 className={styles.Title}>{title}</h4>}
+        {activeOptions.length > 0 && (
+          <div className={styles.ActiveItems}>
+            {renderOptions(activeOptions, true)}
+          </div>
+        )}
+        <div className={`${styles.SearchInput}`}>
+          <div className='ui icon input' style={{ width: '100%' }}>
+            {searchValue && (
+              <Clickable
+                as='i'
+                className='close icon'
+                onClick={handleClearSearch}
+                onKeyDown={handleClearSearch}
+                role='button'
+                style={{
+                  cursor: 'pointer',
+                  opacity: 1,
+                  pointerEvents: 'all',
+                }}
+                tabIndex={0}
+              />
+            )}
+            <input
+              className={`${styles.SearchInputInput}`}
+              onChange={handleSearchValue}
+              placeholder='Search...'
+              style={{ borderRadius: '100px' }}
+              type='search'
+              value={searchValue}
+            />
+          </div>
+        </div>
+        {filteredInactiveOptions.length > 0 ? (
+          renderOptions(filteredInactiveOptions)
+        ) : (
+          <div className={styles.Info}>
+            {searchValue ? <em>No results</em> : <em>All selected</em>}
+          </div>
+        )}
+      </Popover>
+    </>
+  );
+};
+PopOverConfig.propTypes = popoverProptypes;
 
 const ViewConfig = ({
   isInitialOpen = false,
@@ -24,9 +103,6 @@ const ViewConfig = ({
   if (!state) {
     throw new Error('ViewConfig requires a useViewConfigState hook.');
   }
-
-  // Set a ref on our trigger to pass into the disclosure and also measure clientHeight
-  const triggerRef = useRef();
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -79,56 +155,15 @@ const ViewConfig = ({
   // Do not render anything if we have not passed any options
   return options ? (
     <>
-      <MenuButton {...menuState} {...trigger.props} ref={triggerRef}>
-        {(disclosureProps) => React.cloneElement(trigger, disclosureProps)}
-      </MenuButton>
-      <Menu
-        {...menuState}
-        aria-label='options menu'
-        className={`ui dropdown active visible ${styles._}`}
-        tabIndex={0}
-      >
-        <div
-          className={'menu transition visible'}
-          style={{ position: 'initial' }}
-        >
-          {title && <h4 className={styles.Title}>{title}</h4>}
-
-          {activeOptions.length > 0 && (
-            <div className={styles.ActiveItems}>
-              {renderOptions(activeOptions, true)}
-            </div>
-          )}
-
-          <div className='ui icon input'>
-            {searchValue && (
-              <Clickable
-                as='i'
-                className='close icon'
-                onClick={handleClearSearch}
-                onKeyDown={handleClearSearch}
-                role='button'
-                style={{ cursor: 'pointer', opacity: 1, pointerEvents: 'all' }}
-                tabIndex={0}
-              />
-            )}
-            <input
-              onChange={handleSearchValue}
-              placeholder='Search...'
-              type='search'
-              value={searchValue}
-            />
-          </div>
-
-          {filteredInactiveOptions.length > 0 ? (
-            renderOptions(filteredInactiveOptions)
-          ) : (
-            <div className={styles.Info}>
-              {searchValue ? <em>No results</em> : <em>All selected</em>}
-            </div>
-          )}
-        </div>
-      </Menu>
+      {PopOverConfig({
+        activeOptions,
+        filteredInactiveOptions,
+        handleClearSearch,
+        handleSearchValue,
+        renderOptions,
+        searchValue,
+        title,
+      })}
     </>
   ) : null;
 };
