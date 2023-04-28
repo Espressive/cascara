@@ -37,13 +37,20 @@ const PopOverConfig = ({
     animated: 250,
     gutter: 0,
     placement: 'bottom-start',
+    unstable_flip: false,
   });
   return (
     <>
       <PopoverDisclosure {...popover} className='ui basic icon button'>
         <InlineIcon icon={eyeIcon} />
       </PopoverDisclosure>
-      <Popover {...popover} aria-label='Welcome' className={` ${styles._}`}>
+      <Popover
+        {...popover}
+        aria-label='Welcome'
+        className={` ${styles._}`}
+        hideOnClickOutside
+        hideOnEsc
+      >
         {title && <h4 className={styles.Title}>{title}</h4>}
         {activeOptions.length > 0 && (
           <div className={styles.ActiveItems}>
